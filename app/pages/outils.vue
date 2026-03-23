@@ -27,8 +27,8 @@ const { data: tools } = await useFetch<Tool[]>('/api/tools')
           <span class="text-gray-300">Outils</span>
         </nav>
 
-        <h1 class="text-4xl font-bold md:text-6xl">Outils</h1>
-        <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+        <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Outils</h1>
+        <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <p class="mt-8 max-w-3xl text-base leading-relaxed text-gray-400">
           Des outils développés par la communauté pour faciliter vos parties d'Epic Armageddon.

@@ -65,14 +65,14 @@ const startSteps = [
       <!-- Content panel - left side -->
       <div class="relative z-10 flex h-[75vh] items-center px-6 md:px-16 lg:px-24">
         <div class="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-          <h1 class="hero-title text-5xl font-bold md:text-7xl lg:text-8xl">
+          <h1 class="hero-title text-4xl font-bold sm:text-5xl md:text-7xl lg:text-8xl">
             Epic<br>Armageddon
           </h1>
 
-          <div class="my-8 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+          <div class="my-6 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:my-8 md:w-96" />
 
           <!-- Text panel -->
-          <div class="relative -ml-6 border border-l-0 border-gold/20 bg-surface/15 p-6 pl-12 backdrop-blur-xl md:-ml-16 md:p-8 md:pl-20 lg:-ml-24 lg:pl-28">
+          <div class="relative -ml-4 border border-l-0 border-gold/20 bg-surface/15 p-4 pl-8 backdrop-blur-xl sm:-ml-6 sm:p-6 sm:pl-12 md:-ml-16 md:p-8 md:pl-20 lg:-ml-24 lg:pl-28">
             <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-gold/80">
               Bienvenue sur le site officiel d'EA-FR
             </p>
@@ -102,9 +102,9 @@ const startSteps = [
     <section v-if="recentVersions?.length" class="mx-auto max-w-6xl px-4 py-10">
       <h2 class="text-3xl font-bold md:text-4xl">Nouveautés</h2>
       <p class="mt-2 text-gray-400">Les dernières mises à jour de codex</p>
-      <div class="mt-3 h-1 w-64 rounded-full bg-gradient-to-r from-gold to-transparent" />
+      <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent md:w-64" />
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="mt-8 grid gap-4 sm:gap-6 md:mt-10 md:grid-cols-3">
         <NuxtLink
           v-for="rv in recentVersions"
           :key="rv.id"
@@ -156,9 +156,9 @@ const startSteps = [
     <section v-if="nextEvents.length" class="mx-auto max-w-6xl px-4 py-10">
       <h2 class="text-3xl font-bold md:text-4xl">Événements à venir</h2>
       <p class="mt-2 text-gray-400">Les prochaines rencontres de la communauté</p>
-      <div class="mt-3 h-1 w-64 rounded-full bg-gradient-to-r from-gold to-transparent" />
+      <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent md:w-64" />
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="mt-8 grid gap-4 sm:gap-6 md:mt-10 md:grid-cols-3">
         <NuxtLink
           v-for="event in nextEvents"
           :key="event.id"
@@ -195,9 +195,9 @@ const startSteps = [
     <!-- Commencer à jouer -->
     <section class="mx-auto max-w-6xl px-4 py-10">
       <h2 class="text-3xl font-bold md:text-4xl">Commencer à jouer !</h2>
-      <div class="mt-3 h-1 w-64 rounded-full bg-gradient-to-r from-gold to-transparent" />
+      <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent md:w-64" />
 
-      <div class="mt-10 grid gap-8 md:grid-cols-3">
+      <div class="mt-8 grid gap-6 md:mt-10 md:grid-cols-3">
         <NuxtLink
           v-for="step in startSteps"
           :key="step.title"
@@ -232,7 +232,7 @@ const startSteps = [
     </section>
 
     <!-- Battle banner -->
-    <section class="relative h-[40vh] overflow-hidden">
+    <section class="relative h-[30vh] overflow-hidden sm:h-[40vh]">
       <div class="absolute inset-0">
         <img
           src="/images/banner-battle.png"

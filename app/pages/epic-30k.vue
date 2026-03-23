@@ -23,9 +23,9 @@ const { data: armies30k } = await useFetch<ArmyWithVersion[]>('/api/armies', {
           <span class="text-gray-300">Epic 30k — Horus Hérésie</span>
         </nav>
 
-        <h1 class="text-4xl font-bold md:text-6xl">Epic 30k</h1>
-        <p class="mt-1 text-xl text-gray-500">Horus Hérésie</p>
-        <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+        <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Epic 30k</h1>
+        <p class="mt-1 text-lg text-gray-500 sm:text-xl">Horus Hérésie</p>
+        <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <div class="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-gray-400">
           <p>

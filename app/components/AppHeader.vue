@@ -46,7 +46,7 @@ function toggleDropdown(label: string) {
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-3">
-        <span class="font-heading text-2xl font-bold text-gold">Epic Armageddon</span>
+        <span class="font-heading text-xl font-bold text-gold sm:text-2xl">Epic Armageddon</span>
       </NuxtLink>
 
       <!-- Desktop nav -->
@@ -102,7 +102,7 @@ function toggleDropdown(label: string) {
 
       <!-- Mobile menu button -->
       <button
-        class="rounded-md p-2 text-gray-300 hover:text-gold lg:hidden"
+        class="rounded-md p-2.5 text-gray-300 hover:text-gold lg:hidden"
         @click="mobileMenuOpen = !mobileMenuOpen"
       >
         <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

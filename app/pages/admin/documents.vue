@@ -136,8 +136,8 @@ onMounted(fetchDocuments)
     </div>
 
     <!-- Table -->
-    <div class="mt-8 overflow-hidden rounded-xl border border-gold/10 bg-surface-light/30">
-      <table class="w-full">
+    <div class="mt-8 overflow-x-auto rounded-xl border border-gold/10 bg-surface-light/30">
+      <table class="w-full min-w-[640px]">
         <thead class="border-b border-gold/10 bg-surface-light text-left text-sm text-gray-400">
           <tr>
             <th class="px-6 py-4 font-medium">Ordre</th>
@@ -188,7 +188,7 @@ onMounted(fetchDocuments)
     <!-- Modal -->
     <Teleport to="body">
       <div v-if="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-        <div class="w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-8">
+        <div class="mx-4 w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-4 sm:mx-0 sm:p-8">
           <h2 class="font-heading text-2xl font-bold text-gold">
             {{ editingDoc ? 'Modifier le document' : 'Nouveau document' }}
           </h2>
@@ -198,7 +198,7 @@ onMounted(fetchDocuments)
               {{ formError }}
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label class="block text-sm font-medium text-gray-300">Titre</label>
                 <input

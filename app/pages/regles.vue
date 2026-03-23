@@ -28,8 +28,8 @@ const { data: documents } = await useFetch<Document[]>('/api/documents')
           <span class="text-gray-300">Règles & FAQ</span>
         </nav>
 
-        <h1 class="text-4xl font-bold md:text-6xl">Règles & FAQ</h1>
-        <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+        <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Règles & FAQ</h1>
+        <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <div class="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-gray-400">
           <p>

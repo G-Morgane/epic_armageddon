@@ -47,8 +47,8 @@ const communities = [
           <span class="text-gray-300">Communauté</span>
         </nav>
 
-        <h1 class="text-4xl font-bold md:text-6xl">Communauté</h1>
-        <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+        <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Communauté</h1>
+        <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <div class="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-gray-400">
           <p>
@@ -123,7 +123,7 @@ const communities = [
           <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
             <iframe
               src="https://umap.openstreetmap.fr/fr/map/zygo67_563297?scaleControl=false&miniMap=false&scrollWheelZoom=true&zoomControl=true&editMode=disabled&moreControl=false&searchControl=false&tilelayersControl=false&embedControl=false&datalayersControl=false&onLoadPanel=none&captionBar=false#6/46.973/3.186"
-              class="h-[500px] w-full"
+              class="h-[300px] w-full sm:h-[400px] md:h-[500px]"
               frameborder="0"
               allowfullscreen
             />

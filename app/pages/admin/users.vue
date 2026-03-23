@@ -126,8 +126,8 @@ onMounted(fetchProfiles)
     </div>
 
     <!-- Users table -->
-    <div class="mt-6 overflow-hidden rounded-lg border border-gold/10">
-      <table class="w-full">
+    <div class="mt-6 overflow-x-auto rounded-lg border border-gold/10">
+      <table class="w-full min-w-[640px]">
         <thead class="bg-surface-light text-left text-sm text-gray-400">
           <tr>
             <th class="px-4 py-3 font-medium">Utilisateur</th>

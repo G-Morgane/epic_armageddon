@@ -28,8 +28,8 @@ const socialLinks = [
 
 <template>
   <footer class="border-t border-gold/10 bg-surface-light">
-    <div class="mx-auto max-w-7xl px-4 py-12">
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mx-auto max-w-7xl px-4 py-8 sm:py-12">
+      <div class="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
         <!-- Brand -->
         <div class="lg:col-span-2">
           <span class="font-heading text-xl font-bold text-gold">Epic Armageddon</span>

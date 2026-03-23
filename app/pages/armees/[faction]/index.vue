@@ -85,9 +85,9 @@ const filteredArmies = computed(() => {
           <span class="text-gray-300">{{ config.label }}</span>
         </nav>
 
-        <h1 class="text-4xl font-bold md:text-6xl">{{ config.label }}</h1>
-        <p class="mt-3 text-lg text-gray-400">{{ config.subtitle }}</p>
-        <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+        <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">{{ config.label }}</h1>
+        <p class="mt-2 text-base text-gray-400 sm:mt-3 sm:text-lg">{{ config.subtitle }}</p>
+        <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
       </div>
 
@@ -103,12 +103,12 @@ const filteredArmies = computed(() => {
         {{ search ? 'Aucune armée trouvée.' : 'Aucune armée disponible pour le moment.' }}
       </div>
 
-      <div v-else class="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div v-else class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
         <NuxtLink
           v-for="army in filteredArmies"
           :key="army.id"
           :to="`/armees/${faction}/${army.id}`"
-          class="group relative flex flex-col items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.06] p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-gold/20 hover:bg-white/[0.1] hover:shadow-[0_8px_32px_rgba(200,160,82,0.08)]"
+          class="group relative flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.06] p-3 text-center backdrop-blur-md transition-all duration-300 hover:border-gold/20 hover:bg-white/[0.1] hover:shadow-[0_8px_32px_rgba(200,160,82,0.08)] sm:gap-4 sm:p-5"
         >
           <!-- New badge -->
           <span
@@ -119,10 +119,10 @@ const filteredArmies = computed(() => {
           </span>
 
           <!-- Icon container -->
-          <div class="relative flex h-24 w-24 items-center justify-center">
+          <div class="relative flex h-16 w-16 items-center justify-center sm:h-24 sm:w-24">
             <div
               v-if="army.cover_image"
-              class="army-icon h-28 w-28 transition-all duration-300"
+              class="army-icon h-20 w-20 transition-all duration-300 sm:h-28 sm:w-28"
               :style="{ '--icon-url': `url(${army.cover_image})` }"
             />
             <span
@@ -135,7 +135,7 @@ const filteredArmies = computed(() => {
 
           <!-- Name & version -->
           <div>
-            <p class="text-base font-semibold text-gray-200 transition-colors group-hover:text-gold">
+            <p class="text-sm font-semibold text-gray-200 transition-colors group-hover:text-gold sm:text-base">
               {{ army.name }}
             </p>
             <p v-if="army.army_versions?.length" class="mt-1 text-xs text-gray-500">

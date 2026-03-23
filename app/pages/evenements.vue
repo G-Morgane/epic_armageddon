@@ -67,8 +67,8 @@ function formatShortDate(date: string) {
           <span class="text-gray-300">Événements</span>
         </nav>
 
-        <h1 class="text-4xl font-bold md:text-6xl">Événements</h1>
-        <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
+        <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Événements</h1>
+        <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <p class="mt-6 max-w-3xl text-base leading-relaxed text-gray-400">
           La communauté EA-FR est particulièrement active en France et à l'international avec l'organisation de nombreux tournois et événements. Vous trouverez ici toutes les rencontres Epic Armageddon. Pour plus de détails, rendez-vous sur notre <a href="https://discord.com/invite/3ukn8Cumc5" target="_blank" rel="noopener" class="text-gold underline underline-offset-2 hover:text-gold-light">Discord</a>.
@@ -157,19 +157,19 @@ function formatShortDate(date: string) {
 
                 <!-- Timeline zigzag -->
                 <div class="relative">
-                  <!-- Center line -->
-                  <div class="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gold/15" />
+                  <!-- Center line (hidden on mobile) -->
+                  <div class="absolute left-4 top-0 bottom-0 w-px bg-gold/15 md:left-1/2 md:-translate-x-1/2" />
 
                   <div
                     v-for="(event, idx) in yearEvents"
                     :key="event.id"
                     class="relative mb-8 flex last:mb-0"
-                    :class="idx % 2 === 0 ? 'justify-start' : 'justify-end'"
+                    :class="idx % 2 === 0 ? 'justify-start md:justify-start' : 'justify-start md:justify-end'"
                   >
                     <!-- Dot on center line -->
                     <div
                       :class="[
-                        'absolute left-1/2 top-6 h-3 w-3 -translate-x-1/2 rounded-full border-2',
+                        'absolute left-4 top-6 h-3 w-3 -translate-x-1/2 rounded-full border-2 md:left-1/2',
                         isPast(event.event_date)
                           ? 'border-gray-600 bg-gray-700'
                           : 'border-gold bg-gold/30',
@@ -179,7 +179,7 @@ function formatShortDate(date: string) {
                     <!-- Card -->
                     <div
                       :class="[
-                        'w-[calc(50%-2rem)] rounded-xl border p-5 transition-all',
+                        'ml-8 w-full rounded-xl border p-4 transition-all md:ml-0 md:w-[calc(50%-2rem)] md:p-5',
                         isPast(event.event_date)
                           ? 'border-white/5 bg-white/[0.02]'
                           : 'border-gold/10 bg-white/[0.04]',

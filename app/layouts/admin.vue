@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const { profile, logout, isSuperAdmin } = useAuth()
+const sidebarOpen = ref(false)
 
 const navItems = computed(() => {
   const items = [
@@ -23,8 +24,47 @@ function isActive(to: string) {
 
 <template>
   <div class="flex min-h-screen bg-surface">
+    <!-- Mobile admin header -->
+    <div class="fixed left-0 right-0 top-0 z-40 flex items-center justify-between border-b border-gold/10 bg-surface-light px-4 py-3 md:hidden">
+      <div class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/10">
+          <span class="font-heading text-sm font-bold text-gold">EA</span>
+        </div>
+        <p class="text-sm font-bold text-gold">Administration</p>
+      </div>
+      <button
+        class="rounded-md p-2.5 text-gray-300 hover:text-gold"
+        @click="sidebarOpen = !sidebarOpen"
+      >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Sidebar overlay (mobile) -->
+    <Transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="opacity-0"
+      enter-to-class="opacity-100"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+    >
+      <div
+        v-if="sidebarOpen"
+        class="fixed inset-0 z-40 bg-black/50 md:hidden"
+        @click="sidebarOpen = false"
+      />
+    </Transition>
+
     <!-- Sidebar -->
-    <aside class="fixed left-0 top-0 flex h-screen w-64 flex-col border-r border-gold/10 bg-surface-light">
+    <aside
+      :class="[
+        'fixed left-0 top-0 z-50 flex h-screen w-64 flex-col border-r border-gold/10 bg-surface-light transition-transform duration-200 md:translate-x-0',
+        sidebarOpen ? 'translate-x-0' : '-translate-x-full',
+      ]"
+    >
       <!-- Logo -->
       <div class="flex items-center gap-3 border-b border-gold/10 px-6 py-5">
         <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-gold/10">
@@ -48,6 +88,7 @@ function isActive(to: string) {
               ? 'bg-gold/10 text-gold'
               : 'text-gray-400 hover:bg-surface-lighter hover:text-gray-200',
           ]"
+          @click="sidebarOpen = false"
         >
           <!-- Icons -->
           <svg v-if="item.icon === 'shield'" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
@@ -88,7 +129,7 @@ function isActive(to: string) {
     </aside>
 
     <!-- Main content -->
-    <main class="ml-64 flex-1 px-8 py-8">
+    <main class="w-full px-4 pt-16 pb-8 md:ml-64 md:px-8 md:pt-8">
       <slot />
     </main>
   </div>

@@ -57,14 +57,14 @@ const factionBadgeColors: Record<string, string> = {
       <!-- Header -->
       <div class="flex flex-col gap-6 md:flex-row md:items-start">
         <!-- Icon -->
-        <div class="flex h-32 w-32 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-surface-light/50">
+        <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-surface-light/50 sm:h-32 sm:w-32">
           <img
             v-if="army.cover_image"
             :src="army.cover_image"
             :alt="army.name"
-            class="h-20 w-20 object-contain brightness-0 invert"
+            class="h-12 w-12 object-contain brightness-0 invert sm:h-20 sm:w-20"
           >
-          <span v-else class="font-heading text-5xl text-gold/30">{{ army.name[0] }}</span>
+          <span v-else class="font-heading text-3xl text-gold/30 sm:text-5xl">{{ army.name[0] }}</span>
         </div>
 
         <div class="flex-1">
@@ -74,8 +74,8 @@ const factionBadgeColors: Record<string, string> = {
           >
             {{ army.faction }}
           </span>
-          <h1 class="mt-2 text-4xl font-bold md:text-5xl">{{ army.name }}</h1>
-          <div class="mt-3 h-1 w-64 rounded-full bg-gradient-to-r from-gold to-transparent" />
+          <h1 class="mt-2 text-3xl font-bold sm:text-4xl md:text-5xl">{{ army.name }}</h1>
+          <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent sm:w-64" />
           <blockquote v-if="army.quote" class="mt-6 border-l-2 border-gold/40 pl-5">
             <p class="text-lg italic leading-relaxed text-gray-300">
               « {{ army.quote }} »
