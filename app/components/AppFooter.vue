@@ -32,7 +32,7 @@ const socialLinks = [
       <div class="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
         <!-- Brand -->
         <div class="lg:col-span-2">
-          <span class="font-heading text-xl font-bold text-gold">Epic Armageddon</span>
+          <span class="font-logo text-xl tracking-wider text-gold">EPIC ARMAGEDDON</span>
           <p class="mt-3 max-w-sm text-sm text-gray-400">
             La communauté francophone dédiée à Epic Armageddon. Règles, listes d'armées, événements et plus encore.
           </p>

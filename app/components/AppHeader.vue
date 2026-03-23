@@ -46,7 +46,7 @@ function toggleDropdown(label: string) {
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center gap-3">
-        <span class="font-heading text-xl font-bold text-gold sm:text-2xl">Epic Armageddon</span>
+        <span class="font-logo text-xl tracking-wider text-gold sm:text-2xl">EPIC ARMAGEDDON</span>
       </NuxtLink>
 
       <!-- Desktop nav -->

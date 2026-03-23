@@ -20,6 +20,7 @@ export default {
       },
       fontFamily: {
         heading: ['Oswald', 'sans-serif'],
+        logo: ['Asimovian', 'sans-serif'],
         body: ['Crimson Text', 'serif'],
       },
     },
