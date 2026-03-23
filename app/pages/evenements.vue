@@ -70,7 +70,7 @@ function formatShortDate(date: string) {
         <h1 class="text-4xl font-bold md:text-6xl">Événements</h1>
         <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
 
-        <p class="mt-6 max-w-3xl text-sm leading-relaxed text-gray-400">
+        <p class="mt-6 max-w-3xl text-base leading-relaxed text-gray-400">
           La communauté EA-FR est particulièrement active en France et à l'international avec l'organisation de nombreux tournois et événements. Vous trouverez ici toutes les rencontres Epic Armageddon. Pour plus de détails, rendez-vous sur notre <a href="https://discord.com/invite/3ukn8Cumc5" target="_blank" rel="noopener" class="text-gold underline underline-offset-2 hover:text-gold-light">Discord</a>.
         </p>
       </div>

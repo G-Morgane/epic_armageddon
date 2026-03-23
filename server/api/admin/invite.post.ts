@@ -2,10 +2,38 @@ export default defineEventHandler(async (event) => {
   const supabase = useSupabaseServer()
   const body = await readBody(event)
 
+  // Verify the request comes from an authenticated super_admin
+  const authHeader = getHeader(event, 'authorization')
+  if (!authHeader) {
+    throw createError({ statusCode: 401, message: 'Non authentifié' })
+  }
+
+  const token = authHeader.replace('Bearer ', '')
+  const { data: { user }, error: authError } = await supabase.auth.getUser(token)
+
+  if (authError || !user) {
+    throw createError({ statusCode: 401, message: 'Non authentifié' })
+  }
+
+  // Check role
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single()
+
+  if (profile?.role !== 'super_admin') {
+    throw createError({ statusCode: 403, message: 'Accès refusé' })
+  }
+
   const { email, role } = body
 
   if (!email || !role) {
     throw createError({ statusCode: 400, message: 'Email et rôle requis' })
+  }
+
+  if (!['admin', 'super_admin'].includes(role)) {
+    throw createError({ statusCode: 400, message: 'Rôle invalide' })
   }
 
   // Create user with default password "0000"

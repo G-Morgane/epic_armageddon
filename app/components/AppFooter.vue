@@ -21,8 +21,8 @@ const footerLinks = [
 ]
 
 const socialLinks = [
-  { label: 'Discord', href: '#', icon: 'discord' },
-  { label: 'Facebook', href: '#', icon: 'facebook' },
+  { label: 'Discord', href: 'https://discord.com/invite/3ukn8Cumc5', icon: 'discord' },
+  { label: 'Facebook', href: 'https://www.facebook.com/groups/1448912561955629', icon: 'facebook' },
 ]
 </script>
 

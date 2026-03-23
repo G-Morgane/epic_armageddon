@@ -27,7 +27,7 @@ const { data: armies30k } = await useFetch<ArmyWithVersion[]>('/api/armies', {
         <p class="mt-1 text-xl text-gray-500">Horus Hérésie</p>
         <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
 
-        <div class="mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-gray-400">
+        <div class="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-gray-400">
           <p>
             L'équipe d'EA-FR a développé un ensemble de listes d'armées vous permettant de jouer au temps de l'Hérésie d'Horus.
           </p>

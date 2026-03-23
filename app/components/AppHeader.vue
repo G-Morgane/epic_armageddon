@@ -15,6 +15,7 @@ const navLinks = [
   },
   { label: 'Règles & FAQ', to: '/regles' },
   { label: 'Événements', to: '/evenements' },
+  { label: 'Outils', to: '/outils' },
   { label: 'Communauté', to: '/communaute' },
 ]
 

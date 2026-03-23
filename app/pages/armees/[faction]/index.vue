@@ -41,6 +41,15 @@ const { data: armies, status } = await useFetch<ArmyWithVersion[]>('/api/armies'
 
 const search = ref('')
 
+const threeMonthsAgo = new Date()
+threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
+
+function isNew(army: ArmyWithVersion) {
+  const version = army.army_versions?.[0]
+  if (!version) return false
+  return new Date(version.published_at) > threeMonthsAgo
+}
+
 const filteredArmies = computed(() => {
   if (!armies.value) return []
   if (!search.value) return armies.value
@@ -99,8 +108,16 @@ const filteredArmies = computed(() => {
           v-for="army in filteredArmies"
           :key="army.id"
           :to="`/armees/${faction}/${army.id}`"
-          class="group flex flex-col items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.06] p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-gold/20 hover:bg-white/[0.1] hover:shadow-[0_8px_32px_rgba(200,160,82,0.08)]"
+          class="group relative flex flex-col items-center gap-4 rounded-2xl border border-white/5 bg-white/[0.06] p-5 text-center backdrop-blur-md transition-all duration-300 hover:border-gold/20 hover:bg-white/[0.1] hover:shadow-[0_8px_32px_rgba(200,160,82,0.08)]"
         >
+          <!-- New badge -->
+          <span
+            v-if="isNew(army)"
+            class="absolute -right-1 -top-1 z-10 rounded-full bg-gold px-2 py-0.5 text-[10px] font-bold uppercase text-surface"
+          >
+            New
+          </span>
+
           <!-- Icon container -->
           <div class="relative flex h-24 w-24 items-center justify-center">
             <div

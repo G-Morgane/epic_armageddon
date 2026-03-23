@@ -31,7 +31,7 @@ const { data: documents } = await useFetch<Document[]>('/api/documents')
         <h1 class="text-4xl font-bold md:text-6xl">Règles & FAQ</h1>
         <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
 
-        <div class="mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-gray-400">
+        <div class="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-gray-400">
           <p>
             Les règles officielles amendées par EA-FR.
           </p>

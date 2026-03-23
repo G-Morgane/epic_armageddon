@@ -62,7 +62,7 @@ const tabColor = computed(() =>
         <h1 class="text-4xl font-bold md:text-6xl">Codex Bêta & Expérimentaux</h1>
         <div class="mt-4 h-1 w-96 rounded-full bg-gradient-to-r from-gold to-transparent" />
 
-        <div class="mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-gray-400">
+        <div class="mt-8 max-w-3xl space-y-4 text-base leading-relaxed text-gray-400">
           <p>
             Vous retrouverez ici l'ensemble des livres d'armées en cours de test et ceux proposés par la communauté EA-FR.
           </p>

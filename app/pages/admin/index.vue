@@ -33,6 +33,7 @@ const factionLabels: Record<string, string> = {
 
 const factionFilter = ref<string>('')
 const statusFilter = ref<string>('')
+const search = ref('')
 
 const statusLabels: Record<string, string> = {
   official: 'Officiel',
@@ -60,6 +61,7 @@ const filteredArmies = computed(() => {
   return armies.value.filter(a => {
     if (factionFilter.value && a.faction !== factionFilter.value) return false
     if (statusFilter.value && a.status !== statusFilter.value) return false
+    if (search.value && !a.name.toLowerCase().includes(search.value.toLowerCase())) return false
     return true
   })
 })
@@ -317,68 +319,79 @@ async function rollbackTo(version: ArmyVersion) {
 <template>
   <div>
     <div class="flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <h1 class="font-heading text-2xl font-bold text-gold">Gestion des armées</h1>
-        <button
-          class="inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface transition-colors hover:bg-gold-light"
-          @click="showCreateModal = true; resetCreateModal()"
+      <h1 class="font-heading text-2xl font-bold text-gold">Gestion des armées</h1>
+      <button
+        class="inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface transition-colors hover:bg-gold-light"
+        @click="showCreateModal = true; resetCreateModal()"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+        Nouvelle armée
+      </button>
+    </div>
+
+    <!-- Search + Filters -->
+    <div class="mt-4 flex flex-wrap items-center gap-6">
+      <div class="relative">
+        <svg class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          v-model="search"
+          type="text"
+          placeholder="Rechercher..."
+          class="w-52 rounded-lg border border-white/10 bg-surface py-1.5 pl-9 pr-3 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none"
         >
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
-          Nouvelle armée
+      </div>
+
+      <div class="h-5 w-px bg-gold/10" />
+      <!-- Status filter -->
+      <div class="flex gap-1">
+        <button
+          :class="[
+            'rounded-md px-3 py-1.5 text-sm transition-all',
+            !statusFilter ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
+          ]"
+          @click="statusFilter = ''"
+        >
+          Tous
+        </button>
+        <button
+          v-for="(label, key) in statusLabels"
+          :key="key"
+          :class="[
+            'rounded-md px-3 py-1.5 text-sm transition-all',
+            statusFilter === key ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
+          ]"
+          @click="statusFilter = key"
+        >
+          {{ label }}
         </button>
       </div>
 
-      <!-- Filters -->
-      <div class="flex items-center gap-6">
-        <!-- Status filter -->
-        <div class="flex gap-2">
-          <button
-            :class="[
-              'rounded-md px-3 py-1.5 text-sm transition-all',
-              !statusFilter ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
-            ]"
-            @click="statusFilter = ''"
-          >
-            Tous
-          </button>
-          <button
-            v-for="(label, key) in statusLabels"
-            :key="key"
-            :class="[
-              'rounded-md px-3 py-1.5 text-sm transition-all',
-              statusFilter === key ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
-            ]"
-            @click="statusFilter = key"
-          >
-            {{ label }}
-          </button>
-        </div>
+      <div class="h-5 w-px bg-gold/10" />
 
-        <div class="h-5 w-px bg-gold/10" />
-
-        <!-- Faction filter -->
-        <div class="flex gap-2">
-          <button
-            :class="[
-              'rounded-md px-3 py-1.5 text-sm transition-all',
-              !factionFilter ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
-            ]"
-            @click="factionFilter = ''"
-          >
-            Toutes
-          </button>
-          <button
-            v-for="(label, key) in factionLabels"
-            :key="key"
-            :class="[
-              'rounded-md px-3 py-1.5 text-sm transition-all',
-              factionFilter === key ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
-            ]"
+      <!-- Faction filter -->
+      <div class="flex gap-1">
+        <button
+          :class="[
+            'rounded-md px-3 py-1.5 text-sm transition-all',
+            !factionFilter ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
+          ]"
+          @click="factionFilter = ''"
+        >
+          Toutes
+        </button>
+        <button
+          v-for="(label, key) in factionLabels"
+          :key="key"
+          :class="[
+            'rounded-md px-3 py-1.5 text-sm transition-all',
+            factionFilter === key ? 'bg-gold/10 text-gold' : 'text-gray-400 hover:text-gold',
+          ]"
           @click="factionFilter = key"
         >
           {{ label }}
         </button>
-        </div>
       </div>
     </div>
 
@@ -389,6 +402,7 @@ async function rollbackTo(version: ArmyVersion) {
           <tr>
             <th class="px-6 py-4 font-medium">Armée</th>
             <th class="px-6 py-4 font-medium">Faction</th>
+            <th class="px-6 py-4 font-medium">Statut</th>
             <th class="px-6 py-4 font-medium">Version</th>
             <th class="px-6 py-4 font-medium text-right">Actions</th>
           </tr>
@@ -403,6 +417,19 @@ async function rollbackTo(version: ArmyVersion) {
             <td class="px-6 py-4">
               <span class="rounded-full border border-white/10 bg-surface-lighter px-3 py-1 text-xs capitalize text-gray-400">
                 {{ army.faction }}
+              </span>
+            </td>
+            <td class="px-6 py-4">
+              <span
+                :class="[
+                  'rounded-full px-3 py-1 text-xs font-semibold',
+                  army.status === 'official' && 'bg-emerald-500/10 text-emerald-400',
+                  army.status === 'beta' && 'bg-amber-500/10 text-amber-400',
+                  army.status === 'experimental' && 'bg-purple-500/10 text-purple-400',
+                  army.status === '30k' && 'bg-red-500/10 text-red-400',
+                ]"
+              >
+                {{ statusLabels[army.status] ?? army.status }}
               </span>
             </td>
             <td class="px-6 py-4">

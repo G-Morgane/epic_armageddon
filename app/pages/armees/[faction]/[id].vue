@@ -36,7 +36,7 @@ const factionBadgeColors: Record<string, string> = {
 </script>
 
 <template>
-  <div class="mx-auto max-w-4xl px-4 py-12">
+  <div class="mx-auto max-w-6xl px-4 pb-16 pt-20">
     <!-- Loading -->
     <div v-if="status === 'pending'" class="text-center text-gray-400">
       Chargement...
