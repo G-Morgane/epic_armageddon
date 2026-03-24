@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
 
+useSeoMeta({
+  title: 'Epic 30k — Horus Hérésie',
+  description: 'Listes d\'armées Epic 30k Horus Hérésie — Codex pour jouer à l\'époque de la Grande Croisade et de l\'Hérésie d\'Horus.',
+  ogTitle: 'Epic 30k — Horus Hérésie — Epic Armageddon FR',
+  ogDescription: 'Codex pour jouer à l\'époque de l\'Hérésie d\'Horus.',
+  ogUrl: 'https://www.epicarmageddon.fr/epic-30k',
+})
+
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
 
 const { data: armies30k } = await useFetch<ArmyWithVersion[]>('/api/armies', {

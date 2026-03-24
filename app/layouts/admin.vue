@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useHead({ meta: [{ name: 'robots', content: 'noindex, nofollow' }] })
+
 const route = useRoute()
 const { profile, logout, isSuperAdmin } = useAuth()
 const sidebarOpen = ref(false)

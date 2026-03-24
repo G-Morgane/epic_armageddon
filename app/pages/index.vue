@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, GameEvent } from '~/types/database'
 
+useSeoMeta({
+  title: 'Accueil',
+  description: 'Communauté française Epic Armageddon — Retrouvez tous les codex d\'armées, règles, FAQ, événements et outils pour le jeu de figurines Epic à l\'échelle 6mm.',
+  ogTitle: 'Epic Armageddon FR — Communauté française',
+  ogDescription: 'Codex d\'armées, règles, FAQ, événements et outils pour Epic Armageddon.',
+  ogUrl: 'https://www.epicarmageddon.fr',
+})
+
 type RecentVersion = ArmyVersion & { armies: Army }
 
 const { data: recentVersions } = await useFetch<RecentVersion[]>('/api/armies/recent')

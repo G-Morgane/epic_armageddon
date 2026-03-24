@@ -1,4 +1,12 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Règles & FAQ',
+  description: 'Règles officielles Epic Armageddon FR — Téléchargez le livre de règles complet, la version abrégée et la FAQ en PDF.',
+  ogTitle: 'Règles & FAQ — Epic Armageddon FR',
+  ogDescription: 'Livre de règles complet, version abrégée et FAQ en PDF.',
+  ogUrl: 'https://www.epicarmageddon.fr/regles',
+})
+
 interface Document {
   id: string
   title: string

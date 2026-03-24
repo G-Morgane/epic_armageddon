@@ -16,6 +16,14 @@ const olderVersions = computed(() =>
   army.value?.army_versions?.filter(v => !v.is_current) ?? [],
 )
 
+useSeoMeta({
+  title: () => army.value?.name ?? 'Armée',
+  description: () => army.value ? `Codex ${army.value.name} — Téléchargez le PDF (REV ${currentVersion.value?.version ?? '?'}). Liste d'armée Epic Armageddon.` : '',
+  ogTitle: () => army.value ? `${army.value.name} — Epic Armageddon FR` : 'Armée',
+  ogDescription: () => army.value?.quote ?? `Codex ${army.value?.name} pour Epic Armageddon.`,
+  ogUrl: () => `https://www.epicarmageddon.fr/armees/${army.value?.faction}/${army.value?.id}`,
+})
+
 const factionLabels: Record<string, string> = {
   imperium: 'Armées de l\'Imperium',
   chaos: 'Armées du Chaos',

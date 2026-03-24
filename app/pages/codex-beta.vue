@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
 
+useSeoMeta({
+  title: 'Codex Bêta & Expérimentaux',
+  description: 'Listes d\'armées en cours de test pour Epic Armageddon — Codex bêta et expérimentaux disponibles en PDF.',
+  ogTitle: 'Codex Bêta & Expérimentaux — Epic Armageddon FR',
+  ogDescription: 'Listes d\'armées en cours de test — bêta et expérimentaux.',
+  ogUrl: 'https://www.epicarmageddon.fr/codex-beta',
+})
+
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
 
 const activeTab = ref<'all' | 'beta' | 'experimental'>('all')

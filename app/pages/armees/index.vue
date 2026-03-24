@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
 
+useSeoMeta({
+  title: 'Livres d\'Armées',
+  description: 'Tous les codex officiels Epic Armageddon FR — Imperium, Chaos et Xenos. Téléchargez les listes d\'armées en PDF.',
+  ogTitle: 'Livres d\'Armées — Epic Armageddon FR',
+  ogDescription: 'Tous les codex officiels — Imperium, Chaos et Xenos.',
+  ogUrl: 'https://www.epicarmageddon.fr/armees',
+})
+
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
 
 const [{ data: imperiumArmies }, { data: chaosArmies }, { data: xenosArmies }] = await Promise.all([

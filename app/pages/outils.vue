@@ -1,4 +1,12 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Outils',
+  description: 'Outils communautaires pour Epic Armageddon — Builders de listes, calculateurs et ressources créés par la communauté.',
+  ogTitle: 'Outils — Epic Armageddon FR',
+  ogDescription: 'Builders de listes, calculateurs et ressources communautaires.',
+  ogUrl: 'https://www.epicarmageddon.fr/outils',
+})
+
 interface Tool {
   id: string
   name: string

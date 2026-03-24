@@ -1,4 +1,12 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: 'Communauté',
+  description: 'Rejoignez la communauté Epic Armageddon FR — Discord, Facebook et ressources pour les joueurs francophones.',
+  ogTitle: 'Communauté — Epic Armageddon FR',
+  ogDescription: 'Discord, Facebook et ressources pour les joueurs Epic Armageddon.',
+  ogUrl: 'https://www.epicarmageddon.fr/communaute',
+})
+
 const communities = [
   {
     name: 'Discord',

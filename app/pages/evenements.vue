@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import type { GameEvent } from '~/types/database'
 
+useSeoMeta({
+  title: 'Événements',
+  description: 'Tournois et événements Epic Armageddon en France — Calendrier des rencontres à venir et historique des tournois passés.',
+  ogTitle: 'Événements — Epic Armageddon FR',
+  ogDescription: 'Tournois et rencontres Epic Armageddon en France.',
+  ogUrl: 'https://www.epicarmageddon.fr/evenements',
+})
+
 const { data: events, status } = await useFetch<GameEvent[]>('/api/events')
 const { data: allEvents } = await useFetch<GameEvent[]>('/api/events/all')
 
