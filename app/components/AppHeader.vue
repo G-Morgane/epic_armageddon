@@ -5,7 +5,9 @@ const navLinks = [
   { label: 'Accueil', to: '/' },
   {
     label: "Livres d'Armées",
+    to: '/armees',
     children: [
+      { label: 'Toutes les armées', to: '/armees' },
       { label: 'Armées de l\'Imperium', to: '/armees/imperium' },
       { label: 'Armées du Chaos', to: '/armees/chaos' },
       { label: 'Armées Xenos', to: '/armees/xenos' },
@@ -64,14 +66,16 @@ function toggleDropdown(label: string) {
 
           <!-- Dropdown -->
           <div v-else class="relative" @mouseenter="openMenu(link.label)" @mouseleave="closeMenu()">
-            <button
+            <NuxtLink
+              :to="link.to"
               class="flex items-center gap-1 rounded-md px-4 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-surface-lighter hover:text-gold"
+              active-class="!text-gold"
             >
               {{ link.label }}
               <svg class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openDropdown === link.label }" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
               </svg>
-            </button>
+            </NuxtLink>
             <!-- Invisible bridge to prevent gap between button and dropdown -->
             <div class="absolute left-0 top-full h-2 w-full" />
             <Transition
@@ -135,15 +139,23 @@ function toggleDropdown(label: string) {
           </NuxtLink>
 
           <div v-else>
-            <button
-              class="flex w-full items-center justify-between rounded-md px-3 py-3 text-sm font-medium text-gray-300 hover:text-gold"
-              @click="toggleDropdown(link.label)"
-            >
-              {{ link.label }}
-              <svg class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openDropdown === link.label }" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-              </svg>
-            </button>
+            <div class="flex items-center justify-between rounded-md px-3 py-3">
+              <NuxtLink
+                :to="link.to"
+                class="text-sm font-medium text-gray-300 hover:text-gold"
+                @click="mobileMenuOpen = false"
+              >
+                {{ link.label }}
+              </NuxtLink>
+              <button
+                class="p-1 text-gray-300 hover:text-gold"
+                @click="toggleDropdown(link.label)"
+              >
+                <svg class="h-4 w-4 transition-transform" :class="{ 'rotate-180': openDropdown === link.label }" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
             <div v-show="openDropdown === link.label" class="ml-4 space-y-1">
               <NuxtLink
                 v-for="child in link.children"

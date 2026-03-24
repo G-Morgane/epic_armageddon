@@ -53,8 +53,8 @@ const startSteps = [
           class="h-full w-full object-cover"
         >
         <!-- Dark overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/60 to-transparent" />
-        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/40" />
+        <div class="absolute inset-0 bg-gradient-to-r from-surface/90 via-surface/60 to-surface/20" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60" />
       </div>
 
       <!-- Particles -->
@@ -240,9 +240,11 @@ const startSteps = [
           class="h-full w-full object-cover object-bottom"
         >
         <!-- Heavy top fade -->
-        <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface/70 via-30% to-transparent" />
+        <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface/70 via-[35%] to-transparent sm:via-[30%]" />
         <!-- Heavy bottom fade into footer -->
-        <div class="absolute inset-0 bg-gradient-to-t from-surface-light via-surface-light/80 via-25% to-transparent" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-light via-surface-light/80 via-[30%] to-transparent sm:via-[25%]" />
+        <!-- Side fades -->
+        <div class="absolute inset-0 bg-gradient-to-r from-surface/50 via-transparent to-surface/50" />
         <!-- Overall darken -->
         <div class="absolute inset-0 bg-surface/40" />
       </div>

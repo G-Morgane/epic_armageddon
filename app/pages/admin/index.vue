@@ -7,6 +7,7 @@ type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
 
 const supabase = useSupabase()
 const { isAdmin, isSuperAdmin } = useAuth()
+const { uploadPdf } = useUploadPdf()
 
 // Fetch all armies for admin
 const { data: officialArmies, refresh: refreshOfficial } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'official' } })
@@ -49,10 +50,12 @@ const versionsArmy = ref<ArmyWithVersion | null>(null)
 const versionsLoading = ref(false)
 const armyVersions = ref<ArmyVersion[]>([])
 
-// Upload modal state
-const uploadArmy = ref<ArmyWithVersion | null>(null)
+// Upload state (inside versions modal)
+const showAddVersion = ref(false)
 const uploadVersion = ref('')
 const uploadChangelog = ref('')
+const uploadDate = ref('')
+const uploadIsCurrent = ref(true)
 const uploadFile = ref<File | null>(null)
 const uploadError = ref('')
 
@@ -71,6 +74,8 @@ const editFaction = ref<string>('')
 const editStatus = ref<string>('official')
 const editQuote = ref('')
 const editQuoteAuthor = ref('')
+const editIcon = ref<File | null>(null)
+const editIconUploading = ref(false)
 
 function startEdit(army: Army) {
   editingArmy.value = army
@@ -79,20 +84,50 @@ function startEdit(army: Army) {
   editStatus.value = army.status ?? 'official'
   editQuote.value = army.quote ?? ''
   editQuoteAuthor.value = army.quote_author ?? ''
+  editIcon.value = null
 }
 
 async function saveArmy() {
   if (!editingArmy.value) return
   saving.value = true
+
+  // Upload new icon if provided
+  let coverImage: string | null | undefined = undefined
+  if (editIcon.value) {
+    editIconUploading.value = true
+    const slug = editName.value.toLowerCase().replace(/[^a-z0-9]/g, '-')
+    const iconName = `${slug}-${Date.now()}.svg`
+    const { error: iconErr } = await supabase.storage
+      .from('army-pdfs')
+      .upload(`icons/${iconName}`, editIcon.value)
+
+    if (iconErr) {
+      editIconUploading.value = false
+      saving.value = false
+      return
+    }
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('army-pdfs')
+      .getPublicUrl(`icons/${iconName}`)
+    coverImage = publicUrl
+    editIconUploading.value = false
+  }
+
+  const updateData: Record<string, unknown> = {
+    name: editName.value,
+    faction: editFaction.value,
+    status: editStatus.value,
+    quote: editQuote.value || null,
+    quote_author: editQuoteAuthor.value || null,
+  }
+  if (coverImage !== undefined) {
+    updateData.cover_image = coverImage
+  }
+
   const { error } = await supabase
     .from('armies')
-    .update({
-      name: editName.value,
-      faction: editFaction.value,
-      status: editStatus.value,
-      quote: editQuote.value || null,
-      quote_author: editQuoteAuthor.value || null,
-    })
+    .update(updateData)
     .eq('id', editingArmy.value.id)
   if (!error) {
     editingArmy.value = null
@@ -151,21 +186,16 @@ async function createArmy() {
     coverImage = publicUrl
   }
 
-  // Upload PDF
-  const pdfName = `${createFaction.value}/${slug}-v${createVersion.value}.pdf`
-  const { error: pdfErr } = await supabase.storage
-    .from('army-pdfs')
-    .upload(pdfName, createPdf.value, { contentType: 'application/pdf' })
-
-  if (pdfErr) {
-    createError.value = 'Erreur upload PDF : ' + pdfErr.message
+  // Upload PDF to R2
+  const pdfPath = `${createFaction.value}/${slug}-v${createVersion.value}.pdf`
+  let pdfUrl: string
+  try {
+    pdfUrl = await uploadPdf(createPdf.value, pdfPath)
+  } catch (e: any) {
+    createError.value = 'Erreur upload PDF : ' + (e.message || e)
     creating.value = false
     return
   }
-
-  const { data: { publicUrl: pdfUrl } } = supabase.storage
-    .from('army-pdfs')
-    .getPublicUrl(pdfName)
 
   // Insert army
   const { data: armyData, error: armyErr } = await supabase
@@ -200,16 +230,23 @@ async function createArmy() {
   await refresh()
 }
 
-function openUploadModal(army: ArmyWithVersion) {
-  uploadArmy.value = army
+function openAddVersion() {
+  showAddVersion.value = true
   uploadError.value = ''
   uploadFile.value = null
   uploadChangelog.value = ''
-  // Auto-increment version
-  const currentVersion = army.army_versions?.find(v => v.is_current)
+  uploadDate.value = new Date().toISOString().slice(0, 10)
+  uploadIsCurrent.value = true
+  // Auto-increment version from latest
+  const currentVersion = armyVersions.value.find(v => v.is_current) ?? armyVersions.value[0]
   const versionParts = (currentVersion?.version ?? '1.0').split('.')
   versionParts[versionParts.length - 1] = String(Number(versionParts[versionParts.length - 1]) + 1)
   uploadVersion.value = versionParts.join('.')
+}
+
+async function quickNewVersion(army: ArmyWithVersion) {
+  await openVersions(army)
+  openAddVersion()
 }
 
 function handleFileSelect(event: Event) {
@@ -217,57 +254,61 @@ function handleFileSelect(event: Event) {
 }
 
 async function submitUpload() {
-  if (!uploadArmy.value || !uploadFile.value || !uploadVersion.value) {
+  if (!versionsArmy.value || !uploadFile.value || !uploadVersion.value) {
     uploadError.value = 'Veuillez remplir tous les champs et sélectionner un PDF.'
     return
   }
 
-  uploadingPdf.value = uploadArmy.value.id
+  uploadingPdf.value = versionsArmy.value.id
   uploadError.value = ''
 
-  const army = uploadArmy.value
-  const fileName = `${army.faction}/${army.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-v${uploadVersion.value}.pdf`
+  const army = versionsArmy.value
+  const filePath = `${army.faction}/${army.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}-v${uploadVersion.value}.pdf`
 
-  const { error: storageErr } = await supabase.storage
-    .from('army-pdfs')
-    .upload(fileName, uploadFile.value, { contentType: 'application/pdf' })
-
-  if (storageErr) {
-    uploadError.value = 'Erreur upload : ' + storageErr.message
+  let publicUrl: string
+  try {
+    publicUrl = await uploadPdf(uploadFile.value, filePath)
+  } catch (e: any) {
+    uploadError.value = 'Erreur upload : ' + (e.message || e)
     uploadingPdf.value = null
     return
   }
 
-  const { data: { publicUrl } } = supabase.storage
-    .from('army-pdfs')
-    .getPublicUrl(fileName)
-
-  // Set old version as not current
-  await supabase
-    .from('army_versions')
-    .update({ is_current: false })
-    .eq('army_id', army.id)
-    .eq('is_current', true)
+  // If marking as current, unset previous current version
+  if (uploadIsCurrent.value) {
+    await supabase
+      .from('army_versions')
+      .update({ is_current: false })
+      .eq('army_id', army.id)
+      .eq('is_current', true)
+  }
 
   // Create new version
+  const publishedAt = uploadDate.value
+    ? new Date(uploadDate.value).toISOString()
+    : new Date().toISOString()
+
   await supabase.from('army_versions').insert({
     army_id: army.id,
     version: uploadVersion.value,
     pdf_url: publicUrl,
     changelog: uploadChangelog.value || null,
-    is_current: true,
-    published_at: new Date().toISOString(),
+    is_current: uploadIsCurrent.value,
+    published_at: publishedAt,
   })
 
   uploadingPdf.value = null
-  uploadArmy.value = null
+  showAddVersion.value = false
+  await openVersions(army)
   await refresh()
 }
 
-// Version management (super admin only)
+// Version management
 async function openVersions(army: ArmyWithVersion) {
   versionsArmy.value = army
   versionsLoading.value = true
+  showAddVersion.value = false
+  editingVersionId.value = null
   const { data } = await supabase
     .from('army_versions')
     .select('*')
@@ -313,6 +354,35 @@ async function rollbackTo(version: ArmyVersion) {
     await openVersions(versionsArmy.value)
   }
   await refresh()
+}
+
+// Inline version editing
+const editingVersionId = ref<string | null>(null)
+const editVersionChangelog = ref('')
+const savingVersion = ref(false)
+
+function startEditVersion(version: ArmyVersion) {
+  editingVersionId.value = version.id
+  editVersionChangelog.value = version.changelog ?? ''
+}
+
+function cancelEditVersion() {
+  editingVersionId.value = null
+  editVersionChangelog.value = ''
+}
+
+async function saveVersionChangelog(version: ArmyVersion) {
+  savingVersion.value = true
+  await supabase
+    .from('army_versions')
+    .update({ changelog: editVersionChangelog.value || null })
+    .eq('id', version.id)
+
+  editingVersionId.value = null
+  if (versionsArmy.value) {
+    await openVersions(versionsArmy.value)
+  }
+  savingVersion.value = false
 }
 </script>
 
@@ -448,13 +518,12 @@ async function rollbackTo(version: ArmyVersion) {
                 </button>
                 <button
                   class="inline-flex items-center gap-2 rounded-lg border border-emerald-500/20 px-4 py-2 text-sm text-emerald-400 transition-colors hover:bg-emerald-500/10"
-                  @click="openUploadModal(army)"
+                  @click="quickNewVersion(army)"
                 >
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
                   Nouveau PDF
                 </button>
                 <button
-                  v-if="isSuperAdmin"
                   class="inline-flex items-center gap-2 rounded-lg border border-white/10 px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-white/5"
                   @click="openVersions(army)"
                 >
@@ -528,6 +597,19 @@ async function rollbackTo(version: ArmyVersion) {
                 class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
               >
             </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-300">Icône (SVG)</label>
+              <div v-if="editingArmy?.cover_image" class="mt-1 mb-2 flex items-center gap-3">
+                <img :src="editingArmy.cover_image" alt="Icône actuelle" class="h-10 w-10 rounded object-contain">
+                <span class="text-xs text-gray-500">Icône actuelle</span>
+              </div>
+              <label class="mt-1 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-surface px-4 py-4 text-sm text-gray-400 transition-colors hover:border-gold/30 hover:text-gray-300">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+                {{ editIcon ? editIcon.name : 'Changer l\'icône (optionnel)' }}
+                <input type="file" accept=".svg" class="hidden" @change="editIcon = ($event.target as HTMLInputElement).files?.[0] ?? null">
+              </label>
+            </div>
           </div>
 
           <div class="mt-6 flex justify-end gap-3">
@@ -549,74 +631,10 @@ async function rollbackTo(version: ArmyVersion) {
       </div>
     </Teleport>
 
-    <!-- Upload PDF modal -->
-    <Teleport to="body">
-      <div v-if="uploadArmy" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-        <div class="w-full max-w-lg rounded-xl border border-gold/20 bg-surface-light p-6">
-          <h2 class="font-heading text-xl font-bold text-gold">Nouveau PDF — {{ uploadArmy.name }}</h2>
-
-          <form class="mt-6 space-y-4" @submit.prevent="submitUpload">
-            <div v-if="uploadError" class="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
-              {{ uploadError }}
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Numéro de version</label>
-              <input
-                v-model="uploadVersion"
-                type="text"
-                required
-                class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
-                placeholder="ex: 1.4"
-              >
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Explications de la mise à jour</label>
-              <textarea
-                v-model="uploadChangelog"
-                rows="3"
-                class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
-                placeholder="Corrections de points, ajout d'unités..."
-              />
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-300">Fichier PDF</label>
-              <label class="mt-1 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-surface px-4 py-6 text-sm text-gray-400 transition-colors hover:border-gold/30 hover:text-gray-300">
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                </svg>
-                {{ uploadFile ? uploadFile.name : 'Cliquez pour sélectionner un PDF' }}
-                <input type="file" accept=".pdf" class="hidden" @change="handleFileSelect">
-              </label>
-            </div>
-
-            <div class="flex justify-end gap-3 pt-2">
-              <button
-                type="button"
-                class="rounded-lg px-4 py-2 text-sm text-gray-400 hover:text-gray-200"
-                @click="uploadArmy = null"
-              >
-                Annuler
-              </button>
-              <button
-                type="submit"
-                :disabled="!!uploadingPdf"
-                class="rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50"
-              >
-                {{ uploadingPdf ? 'Upload en cours...' : 'Publier la version' }}
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </Teleport>
-
-    <!-- Versions modal (super admin) -->
+    <!-- Versions modal -->
     <Teleport to="body">
       <div v-if="versionsArmy" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-        <div class="w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-6">
+        <div class="mx-4 w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-6 sm:mx-0">
           <div class="flex items-center justify-between">
             <h2 class="font-heading text-xl font-bold text-gold">Versions — {{ versionsArmy.name }}</h2>
             <button class="text-gray-400 hover:text-gray-200" @click="versionsArmy = null">
@@ -626,52 +644,183 @@ async function rollbackTo(version: ArmyVersion) {
             </button>
           </div>
 
+          <!-- Add version button -->
+          <div v-if="!showAddVersion && !versionsLoading" class="mt-4">
+            <button
+              class="inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface transition-colors hover:bg-gold-light"
+              @click="openAddVersion"
+            >
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+              Ajouter une version
+            </button>
+          </div>
+
+          <!-- Add version form -->
+          <div v-if="showAddVersion" class="mt-4 rounded-lg border border-gold/20 bg-surface/50 p-4">
+            <h3 class="text-sm font-semibold text-gold">Nouvelle version</h3>
+            <form class="mt-3 space-y-3" @submit.prevent="submitUpload">
+              <div v-if="uploadError" class="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+                {{ uploadError }}
+              </div>
+
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div>
+                  <label class="block text-xs font-medium text-gray-400">Numéro de version</label>
+                  <input
+                    v-model="uploadVersion"
+                    type="text"
+                    required
+                    placeholder="ex: 1.4"
+                    class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                  >
+                </div>
+
+                <div>
+                  <label class="block text-xs font-medium text-gray-400">Date de publication</label>
+                  <input
+                    v-model="uploadDate"
+                    type="date"
+                    required
+                    class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                  >
+                </div>
+
+                <div>
+                  <label class="block text-xs font-medium text-gray-400">Fichier PDF</label>
+                  <label class="mt-1 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-surface px-3 py-2 text-sm text-gray-400 transition-colors hover:border-gold/30 hover:text-gray-300">
+                    <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    <span class="truncate">{{ uploadFile ? uploadFile.name : 'Sélectionner un PDF' }}</span>
+                    <input type="file" accept=".pdf" class="hidden" @change="handleFileSelect">
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-gray-400">Explications de la mise à jour</label>
+                <textarea
+                  v-model="uploadChangelog"
+                  rows="2"
+                  class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                  placeholder="Corrections de points, ajout d'unités..."
+                />
+              </div>
+
+              <label class="flex items-center gap-2">
+                <input
+                  v-model="uploadIsCurrent"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-white/10 bg-surface text-gold accent-gold focus:ring-gold/20"
+                >
+                <span class="text-xs text-gray-400">Définir comme version actuelle</span>
+              </label>
+
+              <div class="flex justify-end gap-2">
+                <button
+                  type="button"
+                  class="rounded-lg px-3 py-1.5 text-sm text-gray-400 hover:text-gray-200"
+                  @click="showAddVersion = false"
+                >
+                  Annuler
+                </button>
+                <button
+                  type="submit"
+                  :disabled="!!uploadingPdf"
+                  class="rounded-lg bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50"
+                >
+                  {{ uploadingPdf ? 'Upload en cours...' : 'Publier' }}
+                </button>
+              </div>
+            </form>
+          </div>
+
           <div v-if="versionsLoading" class="py-8 text-center text-gray-400">Chargement...</div>
 
-          <div v-else class="mt-4 max-h-96 divide-y divide-gold/5 overflow-y-auto">
+          <!-- Versions list -->
+          <div v-else class="mt-4 max-h-80 divide-y divide-gold/5 overflow-y-auto">
             <div
               v-for="v in armyVersions"
               :key="v.id"
-              class="flex items-center justify-between py-3"
+              class="py-3"
             >
-              <div class="flex items-center gap-3">
-                <span
-                  :class="[
-                    'rounded px-2 py-0.5 text-xs font-semibold',
-                    v.is_current ? 'bg-gold/10 text-gold' : 'bg-surface-lighter text-gray-400',
-                  ]"
-                >
-                  REV {{ v.version }}
-                </span>
-                <span v-if="v.is_current" class="text-xs text-emerald-400">actuelle</span>
-                <span class="text-xs text-gray-500">
-                  {{ new Date(v.published_at).toLocaleDateString('fr-FR') }}
-                </span>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span
+                    :class="[
+                      'rounded px-2 py-0.5 text-xs font-semibold',
+                      v.is_current ? 'bg-gold/10 text-gold' : 'bg-surface-lighter text-gray-400',
+                    ]"
+                  >
+                    REV {{ v.version }}
+                  </span>
+                  <span v-if="v.is_current" class="text-xs text-emerald-400">actuelle</span>
+                  <span class="text-xs text-gray-500">
+                    {{ new Date(v.published_at).toLocaleDateString('fr-FR') }}
+                  </span>
+                </div>
+
+                <div class="flex gap-2">
+                  <a
+                    :href="v.pdf_url"
+                    target="_blank"
+                    rel="noopener"
+                    class="rounded-md px-2 py-1 text-xs text-gray-400 hover:bg-white/5 hover:text-gray-200"
+                  >
+                    PDF
+                  </a>
+                  <button
+                    v-if="editingVersionId !== v.id"
+                    class="rounded-md px-2 py-1 text-xs text-blue-400 hover:bg-blue-400/10"
+                    @click="startEditVersion(v)"
+                  >
+                    Modifier
+                  </button>
+                  <button
+                    v-if="!v.is_current"
+                    class="rounded-md px-2 py-1 text-xs text-gold hover:bg-gold/10"
+                    @click="rollbackTo(v)"
+                  >
+                    Restaurer
+                  </button>
+                  <button
+                    v-if="!v.is_current && isSuperAdmin"
+                    class="rounded-md px-2 py-1 text-xs text-red-400 hover:bg-red-400/10"
+                    @click="deleteVersion(v)"
+                  >
+                    Supprimer
+                  </button>
+                </div>
               </div>
 
-              <div class="flex gap-2">
-                <a
-                  :href="v.pdf_url"
-                  target="_blank"
-                  rel="noopener"
-                  class="rounded-md px-2 py-1 text-xs text-gray-400 hover:bg-white/5 hover:text-gray-200"
-                >
-                  PDF
-                </a>
-                <button
-                  v-if="!v.is_current"
-                  class="rounded-md px-2 py-1 text-xs text-gold hover:bg-gold/10"
-                  @click="rollbackTo(v)"
-                >
-                  Restaurer
-                </button>
-                <button
-                  v-if="!v.is_current"
-                  class="rounded-md px-2 py-1 text-xs text-red-400 hover:bg-red-400/10"
-                  @click="deleteVersion(v)"
-                >
-                  Supprimer
-                </button>
+              <!-- Changelog display -->
+              <div v-if="editingVersionId !== v.id && v.changelog" class="mt-1 pl-2 text-xs text-gray-500 italic">
+                {{ v.changelog }}
+              </div>
+
+              <!-- Changelog inline edit -->
+              <div v-if="editingVersionId === v.id" class="mt-2">
+                <textarea
+                  v-model="editVersionChangelog"
+                  rows="2"
+                  placeholder="Description de la version..."
+                  class="w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                />
+                <div class="mt-1 flex justify-end gap-2">
+                  <button
+                    class="rounded-md px-2 py-1 text-xs text-gray-400 hover:text-gray-200"
+                    @click="cancelEditVersion"
+                  >
+                    Annuler
+                  </button>
+                  <button
+                    :disabled="savingVersion"
+                    class="rounded-md bg-gold/10 px-3 py-1 text-xs font-semibold text-gold hover:bg-gold/20 disabled:opacity-50"
+                    @click="saveVersionChangelog(v)"
+                  >
+                    {{ savingVersion ? 'Sauvegarde...' : 'Enregistrer' }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

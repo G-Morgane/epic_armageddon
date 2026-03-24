@@ -2,6 +2,7 @@
 definePageMeta({ layout: 'admin', middleware: 'admin' })
 
 const supabase = useSupabase()
+const { uploadPdf } = useUploadPdf()
 
 interface Document {
   id: string
@@ -74,20 +75,15 @@ async function saveDocument() {
   // Upload new PDF if provided
   if (uploadFile.value) {
     const slug = form.value.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-    const fileName = `regles/${slug}-${Date.now()}.pdf`
+    const filePath = `regles/${slug}-${Date.now()}.pdf`
 
-    const { error: upErr } = await supabase.storage
-      .from('army-pdfs')
-      .upload(fileName, uploadFile.value, { contentType: 'application/pdf' })
-
-    if (upErr) {
-      formError.value = 'Erreur upload : ' + upErr.message
+    try {
+      pdfUrl = await uploadPdf(uploadFile.value, filePath)
+    } catch (e: any) {
+      formError.value = 'Erreur upload : ' + (e.message || e)
       saving.value = false
       return
     }
-
-    const { data: { publicUrl } } = supabase.storage.from('army-pdfs').getPublicUrl(fileName)
-    pdfUrl = publicUrl
   }
 
   const payload = {

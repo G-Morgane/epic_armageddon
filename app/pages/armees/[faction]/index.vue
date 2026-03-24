@@ -67,6 +67,8 @@ const filteredArmies = computed(() => {
         'absolute inset-0 bg-gradient-to-b',
         faction === 'imperium' ? 'from-surface/40 via-transparent to-transparent' : 'from-surface via-surface/70 to-transparent'
       ]" />
+      <!-- Side fades to hide image edges -->
+      <div class="absolute inset-0 bg-gradient-to-r from-surface/60 via-transparent to-surface/60" />
     </div>
 
     <!-- Background gradient + particles (full page) -->
