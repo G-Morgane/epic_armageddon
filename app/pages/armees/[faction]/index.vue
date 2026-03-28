@@ -112,37 +112,39 @@ const filteredArmies = computed(() => {
         <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <!-- Tag filters -->
-        <div v-if="availableTags?.length" class="mt-8 inline-flex flex-wrap rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
-          <button
-            :class="[
-              'rounded-lg px-5 py-2 text-sm font-semibold transition-all',
-              !activeTag
-                ? 'bg-gold/15 text-gold shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTag = null"
-          >
-            Tous
-            <span class="ml-1.5 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
-              {{ armies?.length ?? 0 }}
-            </span>
-          </button>
-          <button
-            v-for="tag in availableTags"
-            :key="tag.id"
-            :class="[
-              'rounded-lg px-5 py-2 text-sm font-semibold transition-all',
-              activeTag === tag.id
-                ? 'bg-gold/15 text-gold shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTag = tag.id"
-          >
-            {{ tag.name }}
-            <span class="ml-1.5 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
-              {{ armies?.filter(a => a.tags?.some(t => t.id === tag.id)).length ?? 0 }}
-            </span>
-          </button>
+        <div v-if="availableTags?.length" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <div class="inline-flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-4 py-2 text-xs font-semibold transition-all sm:px-5 sm:text-sm',
+                !activeTag
+                  ? 'bg-gold/15 text-gold shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTag = null"
+            >
+              Tous
+              <span class="ml-1 rounded-full bg-gold/10 px-1.5 py-0.5 text-[10px] sm:ml-1.5 sm:px-2 sm:text-xs">
+                {{ armies?.length ?? 0 }}
+              </span>
+            </button>
+            <button
+              v-for="tag in availableTags"
+              :key="tag.id"
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-4 py-2 text-xs font-semibold transition-all sm:px-5 sm:text-sm',
+                activeTag === tag.id
+                  ? 'bg-gold/15 text-gold shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTag = tag.id"
+            >
+              {{ tag.name }}
+              <span class="ml-1 rounded-full bg-gold/10 px-1.5 py-0.5 text-[10px] sm:ml-1.5 sm:px-2 sm:text-xs">
+                {{ armies?.filter(a => a.tags?.some(t => t.id === tag.id)).length ?? 0 }}
+              </span>
+            </button>
+          </div>
         </div>
 
       </div>
