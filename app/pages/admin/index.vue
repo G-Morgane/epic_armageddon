@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Army, ArmyVersion } from '~/types/database'
+import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
 
 definePageMeta({ layout: 'admin', middleware: 'admin' })
 
@@ -77,7 +77,7 @@ const editQuoteAuthor = ref('')
 const editIcon = ref<File | null>(null)
 const editIconUploading = ref(false)
 
-function startEdit(army: Army) {
+async function startEdit(army: Army) {
   editingArmy.value = army
   editName.value = army.name
   editFaction.value = army.faction
@@ -85,6 +85,8 @@ function startEdit(army: Army) {
   editQuote.value = army.quote ?? ''
   editQuoteAuthor.value = army.quote_author ?? ''
   editIcon.value = null
+  await loadTags()
+  await loadArmyTags(army.id)
 }
 
 async function saveArmy() {
@@ -130,6 +132,11 @@ async function saveArmy() {
     .update(updateData)
     .eq('id', editingArmy.value.id)
   if (!error) {
+    // Save tag assignments
+    await $fetch(`/api/armies/${editingArmy.value.id}/tags`, {
+      method: 'PUT',
+      body: { tagIds: editArmyTags.value },
+    })
     editingArmy.value = null
     await refresh()
   }
@@ -384,19 +391,103 @@ async function saveVersionChangelog(version: ArmyVersion) {
   }
   savingVersion.value = false
 }
+
+// ── Tag management ──
+const showTagsModal = ref(false)
+const tagsLoading = ref(false)
+const allTags = ref<ArmyTag[]>([])
+const newTagName = ref('')
+const newTagFaction = ref<string>('imperium')
+const tagSaving = ref(false)
+const tagError = ref('')
+
+async function loadTags() {
+  tagsLoading.value = true
+  try {
+    allTags.value = await $fetch<ArmyTag[]>('/api/army-tags')
+  } catch {
+    allTags.value = []
+  }
+  tagsLoading.value = false
+}
+
+function openTagsModal() {
+  showTagsModal.value = true
+  tagError.value = ''
+  newTagName.value = ''
+  loadTags()
+}
+
+async function createTag() {
+  if (!newTagName.value.trim()) return
+  tagSaving.value = true
+  tagError.value = ''
+
+  const { error } = await supabase
+    .from('army_tags')
+    .insert({ name: newTagName.value.trim(), faction: newTagFaction.value, position: 0 })
+
+  if (error) {
+    tagError.value = error.message
+  } else {
+    newTagName.value = ''
+    await loadTags()
+  }
+  tagSaving.value = false
+}
+
+async function deleteTag(tag: ArmyTag) {
+  if (!confirm(`Supprimer le tag "${tag.name}" ?`)) return
+  await supabase.from('army_tags').delete().eq('id', tag.id)
+  await loadTags()
+}
+
+// ── Tag assignment for army editing ──
+const editArmyTags = ref<string[]>([])
+
+async function loadArmyTags(armyId: string) {
+  const { data } = await supabase
+    .from('army_tag_assignments')
+    .select('tag_id')
+    .eq('army_id', armyId)
+  editArmyTags.value = data?.map(d => d.tag_id) ?? []
+}
+
+function toggleArmyTag(tagId: string) {
+  const idx = editArmyTags.value.indexOf(tagId)
+  if (idx >= 0) {
+    editArmyTags.value.splice(idx, 1)
+  } else {
+    editArmyTags.value.push(tagId)
+  }
+}
+
+// Tags available for the faction of the army being edited
+const editFactionTags = computed(() =>
+  allTags.value.filter(t => t.faction === editFaction.value),
+)
 </script>
 
 <template>
   <div>
     <div class="flex items-center justify-between">
       <h1 class="font-heading text-2xl font-bold text-gold">Gestion des armées</h1>
-      <button
-        class="inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface transition-colors hover:bg-gold-light"
-        @click="showCreateModal = true; resetCreateModal()"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
-        Nouvelle armée
-      </button>
+      <div class="flex gap-3">
+        <button
+          class="inline-flex items-center gap-2 rounded-lg border border-gold/20 px-4 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
+          @click="openTagsModal"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" /></svg>
+          Gérer les tags
+        </button>
+        <button
+          class="inline-flex items-center gap-2 rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface transition-colors hover:bg-gold-light"
+          @click="showCreateModal = true; resetCreateModal()"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+          Nouvelle armée
+        </button>
+      </div>
     </div>
 
     <!-- Search + Filters -->
@@ -539,11 +630,13 @@ async function saveVersionChangelog(version: ArmyVersion) {
 
     <!-- Edit army modal -->
     <Teleport to="body">
-      <div v-if="editingArmy" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-        <div class="mx-4 w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-4 sm:mx-0 sm:p-8">
-          <h2 class="font-heading text-2xl font-bold text-gold">Modifier l'armée</h2>
+      <div v-if="editingArmy" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="flex w-full max-w-2xl max-h-[90vh] flex-col rounded-xl border border-gold/20 bg-surface-light">
+          <div class="shrink-0 px-4 pt-4 sm:px-8 sm:pt-8">
+            <h2 class="font-heading text-2xl font-bold text-gold">Modifier l'armée</h2>
+          </div>
 
-          <div class="mt-6 space-y-4">
+          <div class="flex-1 overflow-y-auto px-4 py-4 sm:px-8 space-y-4">
             <div>
               <label class="block text-sm font-medium text-gray-300">Nom</label>
               <input
@@ -610,9 +703,29 @@ async function saveVersionChangelog(version: ArmyVersion) {
                 <input type="file" accept=".svg" class="hidden" @change="editIcon = ($event.target as HTMLInputElement).files?.[0] ?? null">
               </label>
             </div>
+
+            <div v-if="editFactionTags.length">
+              <label class="block text-sm font-medium text-gray-300">Tags</label>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <button
+                  v-for="tag in editFactionTags"
+                  :key="tag.id"
+                  type="button"
+                  :class="[
+                    'rounded-full border px-3 py-1 text-xs font-semibold transition-all',
+                    editArmyTags.includes(tag.id)
+                      ? 'border-gold/30 bg-gold/15 text-gold'
+                      : 'border-white/10 bg-surface text-gray-400 hover:border-gold/20 hover:text-gray-300',
+                  ]"
+                  @click="toggleArmyTag(tag.id)"
+                >
+                  {{ tag.name }}
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div class="mt-6 flex justify-end gap-3">
+          <div class="shrink-0 flex justify-end gap-3 border-t border-gold/10 px-4 py-4 sm:px-8">
             <button
               class="rounded-lg px-4 py-2 text-sm text-gray-400 hover:text-gray-200"
               @click="editingArmy = null"
@@ -910,6 +1023,96 @@ async function saveVersionChangelog(version: ArmyVersion) {
               </button>
             </div>
           </form>
+        </div>
+      </div>
+    </Teleport>
+
+    <!-- Tags management modal -->
+    <Teleport to="body">
+      <div v-if="showTagsModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div class="mx-4 w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-4 sm:mx-0 sm:p-8">
+          <div class="flex items-center justify-between">
+            <h2 class="font-heading text-2xl font-bold text-gold">Gestion des tags</h2>
+            <button class="text-gray-400 hover:text-gray-200" @click="showTagsModal = false">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <p class="mt-2 text-sm text-gray-400">
+            Les tags permettent de filtrer les armées sur les pages publiques (ex: Eldars, Orcs sur la page Xenos).
+          </p>
+
+          <!-- Add tag form -->
+          <form class="mt-6 flex items-end gap-3" @submit.prevent="createTag">
+            <div class="flex-1">
+              <label class="block text-xs font-medium text-gray-400">Nom du tag</label>
+              <input
+                v-model="newTagName"
+                type="text"
+                required
+                placeholder="ex: Eldars"
+                class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+              >
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-400">Faction</label>
+              <select
+                v-model="newTagFaction"
+                class="mt-1 rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+              >
+                <option value="imperium">Imperium</option>
+                <option value="chaos">Chaos</option>
+                <option value="xenos">Xenos</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              :disabled="tagSaving"
+              class="rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50"
+            >
+              Ajouter
+            </button>
+          </form>
+
+          <div v-if="tagError" class="mt-3 rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+            {{ tagError }}
+          </div>
+
+          <!-- Tags list grouped by faction -->
+          <div v-if="tagsLoading" class="mt-6 py-8 text-center text-gray-400">Chargement...</div>
+          <div v-else class="mt-6 space-y-6">
+            <div v-for="fac in ['imperium', 'chaos', 'xenos']" :key="fac">
+              <h3
+                v-if="allTags.filter(t => t.faction === fac).length"
+                class="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500"
+              >
+                {{ factionLabels[fac] }}
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                <div
+                  v-for="tag in allTags.filter(t => t.faction === fac)"
+                  :key="tag.id"
+                  class="group flex items-center gap-1.5 rounded-full border border-white/10 bg-surface px-3 py-1.5"
+                >
+                  <span class="text-sm text-gray-200">{{ tag.name }}</span>
+                  <button
+                    class="ml-1 text-gray-500 opacity-0 transition-opacity hover:text-red-400 group-hover:opacity-100"
+                    @click="deleteTag(tag)"
+                  >
+                    <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="!tagsLoading && !allTags.length" class="mt-6 py-8 text-center text-gray-500">
+            Aucun tag pour le moment.
+          </div>
         </div>
       </div>
     </Teleport>

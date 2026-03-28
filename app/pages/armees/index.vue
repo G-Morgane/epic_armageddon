@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Army, ArmyVersion } from '~/types/database'
+import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
 
 useSeoMeta({
   title: 'Livres d\'Armées',
@@ -9,12 +9,13 @@ useSeoMeta({
   ogUrl: 'https://www.epicarmageddon.fr/armees',
 })
 
-type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
+type ArmyWithVersion = Army & { army_versions: ArmyVersion[]; tags: ArmyTag[] }
 
-const [{ data: imperiumArmies }, { data: chaosArmies }, { data: xenosArmies }] = await Promise.all([
+const [{ data: imperiumArmies }, { data: chaosArmies }, { data: xenosArmies }, { data: allTags }] = await Promise.all([
   useFetch<ArmyWithVersion[]>('/api/armies', { query: { faction: 'imperium' } }),
   useFetch<ArmyWithVersion[]>('/api/armies', { query: { faction: 'chaos' } }),
   useFetch<ArmyWithVersion[]>('/api/armies', { query: { faction: 'xenos' } }),
+  useFetch<ArmyTag[]>('/api/army-tags'),
 ])
 
 const sections = computed(() => [
@@ -40,6 +41,22 @@ const sections = computed(() => [
     accent: 'emerald-400',
   },
 ])
+
+const activeTagByFaction = ref<Record<string, string | null>>({
+  imperium: null,
+  chaos: null,
+  xenos: null,
+})
+
+function tagsForFaction(faction: string) {
+  return (allTags.value ?? []).filter(t => t.faction === faction)
+}
+
+function filteredArmies(armies: ArmyWithVersion[], faction: string) {
+  const tag = activeTagByFaction.value[faction]
+  if (!tag) return armies
+  return armies.filter(a => a.tags?.some(t => t.id === tag))
+}
 
 const threeMonthsAgo = new Date()
 threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
@@ -82,10 +99,44 @@ function isNew(army: ArmyWithVersion) {
             <div class="mt-3 h-0.5 w-32 rounded-full bg-gradient-to-r from-gold to-transparent" />
           </div>
 
+          <!-- Tag filters -->
+          <div v-if="tagsForFaction(section.faction).length" class="mt-5 inline-flex flex-wrap rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <button
+              :class="[
+                'rounded-lg px-5 py-2 text-sm font-semibold transition-all',
+                !activeTagByFaction[section.faction]
+                  ? 'bg-gold/15 text-gold shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTagByFaction[section.faction] = null"
+            >
+              Tous
+              <span class="ml-1.5 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
+                {{ section.armies.length }}
+              </span>
+            </button>
+            <button
+              v-for="tag in tagsForFaction(section.faction)"
+              :key="tag.id"
+              :class="[
+                'rounded-lg px-5 py-2 text-sm font-semibold transition-all',
+                activeTagByFaction[section.faction] === tag.id
+                  ? 'bg-gold/15 text-gold shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTagByFaction[section.faction] = tag.id"
+            >
+              {{ tag.name }}
+              <span class="ml-1.5 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
+                {{ section.armies.filter(a => a.tags?.some(t => t.id === tag.id)).length }}
+              </span>
+            </button>
+          </div>
+
           <!-- Grid -->
           <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
             <NuxtLink
-              v-for="army in section.armies"
+              v-for="army in filteredArmies(section.armies, section.faction)"
               :key="army.id"
               :to="`/armees/${section.faction}/${army.id}`"
               class="group relative flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.06] p-3 text-center backdrop-blur-md transition-all duration-300 hover:border-gold/20 hover:bg-white/[0.1] hover:shadow-[0_8px_32px_rgba(200,160,82,0.08)] sm:gap-4 sm:p-5"

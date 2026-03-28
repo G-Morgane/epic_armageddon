@@ -52,7 +52,7 @@ const startSteps = [
 <template>
   <div>
     <!-- Hero -->
-    <section class="relative h-[75vh] overflow-hidden">
+    <section class="relative min-h-[75vh] overflow-hidden">
       <!-- Background image -->
       <div class="absolute inset-0">
         <img
@@ -71,7 +71,7 @@ const startSteps = [
       </div>
 
       <!-- Content panel - left side -->
-      <div class="relative z-10 flex h-[75vh] items-center px-6 md:px-16 lg:px-24">
+      <div class="relative z-10 flex min-h-[75vh] items-center px-6 py-10 md:px-16 lg:px-24">
         <div class="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
           <h1 class="hero-title text-4xl font-bold sm:text-5xl md:text-7xl lg:text-8xl">
             Epic<br>Armageddon

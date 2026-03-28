@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Army, ArmyVersion } from '~/types/database'
+import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
 
-type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
+type ArmyWithVersion = Army & { army_versions: ArmyVersion[]; tags: ArmyTag[] }
 
 const route = useRoute()
 const faction = computed(() => route.params.faction as string)
@@ -35,6 +35,7 @@ const factionConfig: Record<string, { label: string; subtitle: string; gradient:
 
 const config = computed(() => factionConfig[faction.value] ?? factionConfig.imperium)
 
+
 useSeoMeta({
   title: () => config.value.label,
   description: () => `${config.value.label} — ${config.value.subtitle}. Téléchargez les codex Epic Armageddon en PDF.`,
@@ -47,7 +48,12 @@ const { data: armies, status } = await useFetch<ArmyWithVersion[]>('/api/armies'
   query: { faction },
 })
 
+const { data: availableTags } = await useFetch<ArmyTag[]>('/api/army-tags', {
+  query: { faction },
+})
+
 const search = ref('')
+const activeTag = ref<string | null>(null)
 
 const threeMonthsAgo = new Date()
 threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
@@ -60,9 +66,15 @@ function isNew(army: ArmyWithVersion) {
 
 const filteredArmies = computed(() => {
   if (!armies.value) return []
-  if (!search.value) return armies.value
-  const q = search.value.toLowerCase()
-  return armies.value.filter(a => a.name.toLowerCase().includes(q))
+  let result = armies.value
+  if (search.value) {
+    const q = search.value.toLowerCase()
+    result = result.filter(a => a.name.toLowerCase().includes(q))
+  }
+  if (activeTag.value) {
+    result = result.filter(a => a.tags?.some(t => t.id === activeTag.value))
+  }
+  return result
 })
 </script>
 
@@ -98,6 +110,40 @@ const filteredArmies = computed(() => {
         <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">{{ config.label }}</h1>
         <p class="mt-2 text-base text-gray-400 sm:mt-3 sm:text-lg">{{ config.subtitle }}</p>
         <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
+
+        <!-- Tag filters -->
+        <div v-if="availableTags?.length" class="mt-8 inline-flex flex-wrap rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+          <button
+            :class="[
+              'rounded-lg px-5 py-2 text-sm font-semibold transition-all',
+              !activeTag
+                ? 'bg-gold/15 text-gold shadow-sm'
+                : 'text-gray-400 hover:text-gray-200',
+            ]"
+            @click="activeTag = null"
+          >
+            Tous
+            <span class="ml-1.5 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
+              {{ armies?.length ?? 0 }}
+            </span>
+          </button>
+          <button
+            v-for="tag in availableTags"
+            :key="tag.id"
+            :class="[
+              'rounded-lg px-5 py-2 text-sm font-semibold transition-all',
+              activeTag === tag.id
+                ? 'bg-gold/15 text-gold shadow-sm'
+                : 'text-gray-400 hover:text-gray-200',
+            ]"
+            @click="activeTag = tag.id"
+          >
+            {{ tag.name }}
+            <span class="ml-1.5 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
+              {{ armies?.filter(a => a.tags?.some(t => t.id === tag.id)).length ?? 0 }}
+            </span>
+          </button>
+        </div>
 
       </div>
 
