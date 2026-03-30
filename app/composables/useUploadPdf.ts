@@ -5,19 +5,29 @@ export function useUploadPdf() {
     const { data: { session } } = await supabase.auth.getSession()
     if (!session) throw new Error('Non connecté')
 
-    const formData = new FormData()
-    formData.append('file', file)
-    formData.append('path', path)
-
-    const response = await $fetch<{ url: string }>('/api/upload-pdf', {
+    // Get presigned URL from server
+    const { uploadUrl, publicUrl } = await $fetch<{ uploadUrl: string; publicUrl: string }>('/api/upload-pdf-url', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${session.access_token}`,
       },
-      body: formData,
+      body: { path, contentType: 'application/pdf' },
     })
 
-    return response.url
+    // Upload directly to R2
+    const response = await fetch(uploadUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/pdf',
+      },
+      body: file,
+    })
+
+    if (!response.ok) {
+      throw new Error(`Upload failed: ${response.status} ${response.statusText}`)
+    }
+
+    return publicUrl
   }
 
   return { uploadPdf }
