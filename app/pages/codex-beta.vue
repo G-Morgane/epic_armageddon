@@ -160,17 +160,19 @@ const tabColor = computed(() =>
         <div v-for="group in currentGroups" :key="group.faction" class="mb-10">
           <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">{{ group.label }}</h3>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <a
+            <component
+              :is="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? 'a' : 'div'"
               v-for="army in group.armies"
               :key="army.id"
-              :href="army.army_versions?.[0]?.pdf_url"
-              target="_blank"
-              rel="noopener"
+              :href="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? army.army_versions[0].pdf_url : undefined"
+              :target="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? '_blank' : undefined"
+              :rel="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? 'noopener' : undefined"
               :class="[
                 'group flex items-center gap-4 rounded-xl border p-4 backdrop-blur-sm transition-all',
                 army.status === 'beta'
                   ? 'border-amber-500/10 bg-white/[0.04] hover:border-amber-500/25 hover:bg-white/[0.07]'
                   : 'border-purple-500/10 bg-white/[0.03] hover:border-purple-500/25 hover:bg-white/[0.06]',
+                !(army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#') && 'opacity-50 cursor-not-allowed',
               ]"
             >
               <div
@@ -203,10 +205,11 @@ const tabColor = computed(() =>
                   REV {{ army.army_versions?.[0]?.version }}
                 </p>
               </div>
-              <svg class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg v-if="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#'" class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>
-            </a>
+              <span v-else class="ml-auto text-[10px] uppercase tracking-wider text-gray-600">Bientôt</span>
+            </component>
           </div>
         </div>
       </div>

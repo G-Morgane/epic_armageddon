@@ -72,19 +72,19 @@ const startSteps = [
 
       <!-- Content panel - left side -->
       <div class="relative z-10 flex min-h-[75vh] items-center px-6 py-10 md:px-16 lg:px-24">
-        <div class="max-w-2xl lg:max-w-3xl xl:max-w-4xl">
-          <h1 class="hero-title text-4xl font-bold sm:text-5xl md:text-7xl lg:text-8xl">
+        <div class="max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
+          <h1 class="hero-title text-4xl font-bold sm:text-5xl md:text-7xl lg:text-8xl 2xl:text-9xl">
             Epic<br>Armageddon
           </h1>
 
-          <div class="my-6 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:my-8 md:w-96" />
+          <div class="my-6 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:my-8 md:w-96 2xl:my-10" />
 
           <!-- Text panel -->
-          <div class="relative -ml-4 border border-l-0 border-gold/20 bg-surface/15 p-4 pl-8 backdrop-blur-xl sm:-ml-6 sm:p-6 sm:pl-12 md:-ml-16 md:p-8 md:pl-20 lg:-ml-24 lg:pl-28">
-            <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-gold/80">
+          <div class="relative -ml-4 border border-l-0 border-gold/20 bg-surface/15 p-4 pl-8 backdrop-blur-xl sm:-ml-6 sm:p-6 sm:pl-12 md:-ml-16 md:p-8 md:pl-20 lg:-ml-24 lg:pl-28 2xl:p-10 2xl:pl-32">
+            <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-gold/80 2xl:text-base 2xl:mb-6">
               Bienvenue sur le site officiel d'EA-FR
             </p>
-            <div class="space-y-4 text-sm leading-relaxed text-gray-300 md:text-base">
+            <div class="space-y-4 text-sm leading-relaxed text-gray-300 md:text-base 2xl:text-lg 2xl:space-y-6 2xl:leading-relaxed">
               <p>
                 En 2003, Games Workshop sortait Epic Armageddon, la 4ème version du système Epic en 6mm. Ce jeu de bataille à grande échelle permet aux joueurs d'aligner de formidables armées alliant infanterie, chars, aviation et même les terribles Titans.
               </p>
