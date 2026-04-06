@@ -14,16 +14,18 @@ const { data: officialArmies, refresh: refreshOfficial } = await useFetch<ArmyWi
 const { data: betaArmiesData, refresh: refreshBeta } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'beta' } })
 const { data: experimentalArmiesData, refresh: refreshExperimental } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'experimental' } })
 const { data: thirtyKArmiesData, refresh: refresh30k } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: '30k' } })
+const { data: archivedArmiesData, refresh: refreshArchived } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'archived' } })
 
 const armies = computed(() => [
   ...(officialArmies.value ?? []),
   ...(betaArmiesData.value ?? []),
   ...(experimentalArmiesData.value ?? []),
   ...(thirtyKArmiesData.value ?? []),
+  ...(archivedArmiesData.value ?? []),
 ])
 
 async function refresh() {
-  await Promise.all([refreshOfficial(), refreshBeta(), refreshExperimental(), refresh30k()])
+  await Promise.all([refreshOfficial(), refreshBeta(), refreshExperimental(), refresh30k(), refreshArchived()])
 }
 
 const factionLabels: Record<string, string> = {
@@ -41,6 +43,7 @@ const statusLabels: Record<string, string> = {
   beta: 'Bêta',
   experimental: 'Expérimental',
   '30k': '30k',
+  archived: 'Archivé',
 }
 const editingArmy = ref<Army | null>(null)
 const editDescription = ref('')
@@ -141,6 +144,18 @@ async function saveArmy() {
     await refresh()
   }
   saving.value = false
+}
+
+async function archiveArmy(army: Army) {
+  const action = army.status === 'archived' ? 'restaurer' : 'archiver'
+  if (!confirm(`Voulez-vous ${action} "${army.name}" ?`)) return
+
+  const newStatus = army.status === 'archived' ? 'official' : 'archived'
+  await supabase
+    .from('armies')
+    .update({ status: newStatus })
+    .eq('id', army.id)
+  await refresh()
 }
 
 // Create new army
@@ -588,6 +603,7 @@ const editFactionTags = computed(() =>
                   army.status === 'beta' && 'bg-amber-500/10 text-amber-400',
                   army.status === 'experimental' && 'bg-purple-500/10 text-purple-400',
                   army.status === '30k' && 'bg-red-500/10 text-red-400',
+                  army.status === 'archived' && 'bg-gray-500/10 text-gray-400',
                 ]"
               >
                 {{ statusLabels[army.status] ?? army.status }}
@@ -620,6 +636,19 @@ const editFactionTags = computed(() =>
                 >
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   Versions
+                </button>
+                <button
+                  :class="[
+                    'inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition-colors',
+                    army.status === 'archived'
+                      ? 'border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/10'
+                      : 'border-red-500/20 text-red-400 hover:bg-red-500/10',
+                  ]"
+                  @click="archiveArmy(army)"
+                >
+                  <svg v-if="army.status === 'archived'" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
+                  <svg v-else class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+                  {{ army.status === 'archived' ? 'Restaurer' : 'Archiver' }}
                 </button>
               </div>
             </td>
@@ -668,6 +697,7 @@ const editFactionTags = computed(() =>
                 <option value="beta">Bêta</option>
                 <option value="experimental">Expérimental</option>
                 <option value="30k">30k</option>
+                <option value="archived">Archivé</option>
               </select>
             </div>
 
