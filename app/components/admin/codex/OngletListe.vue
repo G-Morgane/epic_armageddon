@@ -179,37 +179,37 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
       <p v-if="!valide" class="rounded-md border border-amber-400/40 bg-amber-500/10 px-3 py-2 text-xs text-amber-200">
         Le brouillon contient des incohérences (voir « Problèmes » en haut) : les phrases générées peuvent être incomplètes tant qu'elles ne sont pas corrigées.
       </p>
-      <div v-for="s in codex.sections" :key="s.id" class="overflow-hidden rounded-lg border" :class="sectionSel?.id === s.id ? 'border-gold' : 'border-gold/10'">
-        <button type="button" class="block w-full px-3 py-2 text-left" :style="{ background: codex.codex.couleur ?? '#8a6d3b' }" @click="selection = { type: 'section', id: s.id }">
-          <span class="block text-center font-heading text-sm font-bold uppercase tracking-wide text-white">{{ s.titre }}</span>
-          <span v-if="sousTitre(s)" class="block text-center text-[11px] italic text-white/80">({{ sousTitre(s) }})</span>
+      <div v-for="s in codex.sections" :key="s.id" class="overflow-hidden rounded-lg border shadow-lg shadow-black/30" :class="sectionSel?.id === s.id ? 'border-gold' : 'border-[#3a2f24]'">
+        <button type="button" class="bandeau block w-full px-3 py-2 text-left" :style="{ '--accent': codex.codex.couleur ?? '#8a6d3b' }" @click="selection = { type: 'section', id: s.id }">
+          <span class="block text-center font-heading text-sm font-bold uppercase tracking-wide text-[#f3ecdc]">{{ s.titre }}</span>
+          <span v-if="sousTitre(s)" class="block text-center text-[11px] italic text-[#f3ecdc]/75">({{ sousTitre(s) }})</span>
         </button>
-        <table class="w-full bg-white text-[12px] text-gray-900">
-          <thead class="text-left text-[11px] text-gray-500">
-            <tr class="border-b border-gray-300"><th class="w-[32%] px-3 py-1">Formations</th><th class="py-1">Unités</th><th v-if="s.formations.some((fid) => sousForm(fid))" class="w-[22%] py-1">Puissance</th><th class="w-[16%] py-1 text-right pr-3">Coût</th><th class="w-8" /></tr>
+        <table class="papier w-full text-[12px]">
+          <thead class="text-left text-[11px] text-[#7a6d5c]">
+            <tr class="border-b border-[#cfc3ad]"><th class="w-[32%] px-3 py-1">Formations</th><th class="py-1">Unités</th><th v-if="s.formations.some((fid) => sousForm(fid))" class="w-[22%] py-1">Puissance</th><th class="w-[16%] py-1 text-right pr-3">Coût</th><th class="w-8" /></tr>
           </thead>
           <tbody>
-            <tr v-for="fid in s.formations" :key="fid" class="cursor-pointer border-b border-dotted border-gray-200 hover:bg-amber-50" :class="formationSel?.id === fid ? 'bg-amber-100 ring-1 ring-inset ring-amber-400' : ''" @click="selection = { type: 'formation', id: fid }">
+            <tr v-for="fid in s.formations" :key="fid" class="cursor-pointer border-b border-dotted border-[#d9cfbb] hover:bg-[#e9dfc9]" :class="formationSel?.id === fid ? 'bg-[#e4d6b8] ring-1 ring-inset ring-[#b8975a]' : ''" @click="selection = { type: 'formation', id: fid }">
               <td class="px-3 py-1.5 font-semibold">{{ prefixe(fid) }}{{ codex.formations.find((f) => f.id === fid)?.nom ?? fid }}</td>
               <td class="py-1.5">
-                <div v-for="(l, li) in lignes(fid)" :key="li"><span v-if="li" class="italic text-gray-500">ou </span>{{ l.composition }}</div>
-                <div v-for="oid in codex.formations.find((f) => f.id === fid)?.options_plus ?? []" :key="oid" class="italic text-gray-600">{{ phraseOpt(oid) }}</div>
+                <div v-for="(l, li) in lignes(fid)" :key="li"><span v-if="li" class="italic text-[#7a6d5c]">ou </span>{{ l.composition }}</div>
+                <div v-for="oid in codex.formations.find((f) => f.id === fid)?.options_plus ?? []" :key="oid" class="italic text-[#6b5f4f]">{{ phraseOpt(oid) }}</div>
               </td>
-              <td v-if="s.formations.some((x) => sousForm(x))" class="py-1.5 text-gray-700">{{ sousForm(fid) }}</td>
+              <td v-if="s.formations.some((x) => sousForm(x))" class="py-1.5 text-[#4d4336]">{{ sousForm(fid) }}</td>
               <td class="py-1.5 pr-3 text-right"><div v-for="(l, li) in lignes(fid)" :key="li">{{ l.cout }}</div></td>
-              <td class="py-1.5 text-center text-amber-700">✎</td>
+              <td class="py-1.5 text-center text-[#9a7b3c]">✎</td>
             </tr>
             <tr>
               <td colspan="5" class="px-3 py-1.5">
-                <button type="button" class="text-xs text-amber-700 hover:underline" @click.stop="ajouterFormation(s)">+ Ajouter une formation</button>
+                <button type="button" class="text-xs text-[#9a7b3c] hover:underline" @click.stop="ajouterFormation(s)">+ Ajouter une formation</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <div v-if="s.tableau_options && (s.options?.length)" class="bg-white text-[12px] text-gray-900">
-          <div class="px-3 py-1 text-center text-[11px] font-bold uppercase text-white" :style="{ background: (codex.codex.couleur ?? '#8a6d3b') + 'cc' }">{{ s.tableau_options.titre }}</div>
+        <div v-if="s.tableau_options && (s.options?.length)" class="papier text-[12px]">
+          <div class="bandeau-doux px-3 py-1 text-center text-[11px] font-bold uppercase text-[#f3ecdc]" :style="{ '--accent': codex.codex.couleur ?? '#8a6d3b' }">{{ s.tableau_options.titre }}</div>
           <table class="w-full"><tbody>
-            <tr v-for="oid in s.options" :key="oid" class="border-b border-dotted border-gray-200"><td class="w-[32%] px-3 py-1 font-semibold">{{ nomOption(oid) }}</td><td class="py-1 text-gray-700">{{ phraseOpt(oid) }}</td></tr>
+            <tr v-for="oid in s.options" :key="oid" class="border-b border-dotted border-[#d9cfbb]"><td class="w-[32%] px-3 py-1 font-semibold">{{ nomOption(oid) }}</td><td class="py-1 text-[#4d4336]">{{ phraseOpt(oid) }}</td></tr>
           </tbody></table>
         </div>
       </div>
@@ -306,6 +306,10 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
 </template>
 
 <style scoped>
+/* rendu « papier » adouci : parchemin au lieu de blanc, couleur du codex fondue dans le brun du site */
+.papier { background: #efe7d8; color: #2b241c; }
+.bandeau { background: color-mix(in srgb, var(--accent) 45%, #4a3a26); }
+.bandeau-doux { background: color-mix(in srgb, var(--accent) 35%, #6b5a3f); }
 .panneau { @apply rounded-lg border border-gold/30 bg-surface-light p-4; }
 .lbl { @apply flex flex-col gap-1 text-xs uppercase tracking-wider text-gray-500; }
 .champ { @apply rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm normal-case tracking-normal text-gray-100 focus:border-gold focus:outline-none; }
