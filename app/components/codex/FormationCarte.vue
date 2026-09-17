@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
-import { optionsDisponibles } from '~~/shared/codex/engine'
+import { optionsDisponibles, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { phraseOption, coutOption, pluriel } from '~~/shared/codex/phrases'
@@ -25,8 +25,14 @@ function changerVariante(id: string) {
   props.instance.choix = {}
 }
 function setChoix(ligne: number, unite: string, val: string) {
-  const n = Math.max(0, parseInt(val || '0', 10) || 0)
+  let n = Math.max(0, parseInt(val || '0', 10) || 0)
   if (!props.instance.choix[String(ligne)]) props.instance.choix[String(ligne)] = {}
+  const l = variante.value?.composition[ligne]
+  if (l && 'choix' in l) {
+    const max = typeof l.choix.total === 'number' ? l.choix.total : l.choix.total.max
+    const autres = Object.entries(props.instance.choix[String(ligne)]!).filter(([u]) => u !== unite).reduce((s, [, q]) => s + q, 0)
+    n = Math.min(n, Math.max(0, max - autres))
+  }
   props.instance.choix[String(ligne)]![unite] = n
 }
 function ajouterOption(id: string) {
@@ -52,7 +58,23 @@ function effetDe(oi: FormationInstance['options'][number]) {
 }
 function setRepartition(oi: FormationInstance['options'][number], unite: string, val: string) {
   if (!oi.repartition) oi.repartition = {}
-  oi.repartition[unite] = Math.max(0, parseInt(val || '0', 10) || 0)
+  let n = Math.max(0, parseInt(val || '0', 10) || 0)
+  const plafond = props.resolue ? plafondRepartition(props.idx, props.resolue, oi, unite) : null
+  if (plafond !== null) n = Math.min(n, plafond)
+  oi.repartition[unite] = n
+}
+function bornes(oi: FormationInstance['options'][number]) {
+  return props.resolue ? bornesOption(props.idx, props.resolue, oi) : { min: 1, max: null }
+}
+function setQuantite(oi: FormationInstance['options'][number], val: string) {
+  const b = bornes(oi)
+  let n = parseInt(val || '0', 10) || b.min
+  n = Math.max(b.min, n)
+  if (b.max !== null) n = Math.min(b.max, n)
+  oi.quantite = n
+}
+function plafond(oi: FormationInstance['options'][number], unite: string) {
+  return props.resolue ? plafondRepartition(props.idx, props.resolue, oi, unite) : null
 }
 function ajouterSous(fid: string) {
   if (!fid) return
@@ -121,11 +143,11 @@ const unitesVisibles = computed(() => props.resolue?.unites.filter((u) => !u.imp
             </select>
           </template>
           <template v-if="(effetDe(oi)?.type === 'ajouter' && (effetDe(oi) as any).cout_par_unite !== undefined) || (effetDe(oi)?.type === 'remplacer' && !(effetDe(oi) as any).tout && (effetDe(oi) as any).max !== 'tout')">
-            <label class="flex items-center gap-1 text-xs text-stone-400">×<input v-model.number="oi.quantite" type="number" min="1" class="champ w-16"></label>
+            <label class="flex items-center gap-1 text-xs text-stone-400">×<input type="number" class="champ w-16" :value="oi.quantite" :min="bornes(oi).min" :max="bornes(oi).max ?? undefined" @input="setQuantite(oi, ($event.target as HTMLInputElement).value)" @change="setQuantite(oi, ($event.target as HTMLInputElement).value)"><span v-if="bornes(oi).max !== null" class="text-stone-500">/ {{ bornes(oi).max }}</span></label>
           </template>
           <template v-if="effetDe(oi)?.type === 'choix_multiple'">
             <label v-for="p in (effetDe(oi) as any).parmi" :key="p.unite" class="flex items-center gap-1 text-xs text-stone-300">
-              <input type="number" min="0" class="champ w-14" :value="oi.repartition?.[p.unite] ?? 0" @input="setRepartition(oi, p.unite, ($event.target as HTMLInputElement).value)">
+              <input type="number" min="0" :max="plafond(oi, p.unite) ?? undefined" class="champ w-14" :value="oi.repartition?.[p.unite] ?? 0" @input="setRepartition(oi, p.unite, ($event.target as HTMLInputElement).value)">
               {{ nomU(p.unite) }}<span v-if="p.cout" class="text-stone-500"> {{ p.cout }}</span>
             </label>
           </template>

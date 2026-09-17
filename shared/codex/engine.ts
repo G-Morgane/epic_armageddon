@@ -436,6 +436,53 @@ export function resoudreFormation(idx: IndexCodex, fi: FormationInstance, profon
   }
 }
 
+/**
+ * Bornes de quantité d'une option dans une formation résolue (pour l'UI : min/max des champs).
+ * `max` vaut null quand il n'y a pas de limite.
+ */
+export function bornesOption(idx: IndexCodex, f: FormationResolue, oi: OptionInstance): { min: number; max: number | null } {
+  const def = idx.options.get(oi.option)
+  if (!def) return { min: 1, max: null }
+  const effet = def.effet.type === 'choix' ? (def.effet.parmi.find((p) => p.id === oi.choix) ?? def.effet.parmi[0])?.effet : def.effet
+  if (!effet) return { min: 1, max: null }
+  const mult = 'par_taille' in effet && effet.par_taille ? f.variante.taille : 1
+  if (effet.type === 'ajouter' && effet.cout_par_unite !== undefined) {
+    const min = effet.min ?? 1
+    if (effet.max === 'besoin_transport') {
+      const t = effet.unites[0]?.unite
+      if (!t) return { min, max: null }
+      const sans = f.unites.filter((u) => u.option !== oi.id)
+      const cap = idx.unites.get(t)?.transport?.capacite ?? 1
+      return { min, max: Math.max(min, Math.ceil(besoinTransport(idx, sans, t, effet.perimetre_transport) / cap)) }
+    }
+    return { min, max: typeof effet.max === 'number' ? effet.max * mult : null }
+  }
+  if (effet.type === 'remplacer' && !effet.tout && effet.max !== 'tout') {
+    const de = new Set(Array.isArray(effet.de) ? effet.de : [effet.de])
+    // unités remplaçables : celles présentes hors ce remplacement, plus celles qu'il a déjà remplacées
+    const encore = f.unites.filter((u) => de.has(u.unite) && !u.implicite).reduce((s, u) => s + u.nombre, 0)
+    const deja = f.unites.filter((u) => u.option === oi.id && u.origine === 'remplacement').reduce((s, u) => s + u.nombre, 0)
+    const lotsDispo = Math.floor((encore + deja) / effet.lot)
+    return { min: 1, max: Math.max(1, Math.min(effet.max * mult, lotsDispo)) }
+  }
+  return { min: 1, max: null }
+}
+
+/** Plafond par unité d'un `choix_multiple` (ou null). */
+export function plafondRepartition(idx: IndexCodex, f: FormationResolue, oi: OptionInstance, unite: string): number | null {
+  const def = idx.options.get(oi.option)
+  const effet = def?.effet.type === 'choix' ? (def.effet.parmi.find((p) => p.id === oi.choix) ?? def.effet.parmi[0])?.effet : def?.effet
+  if (!effet || effet.type !== 'choix_multiple') return null
+  const mult = effet.par_taille ? f.variante.taille : 1
+  const p = effet.parmi.find((x) => x.unite === unite)
+  const total = plage(effet.total)
+  const autres = Object.entries(oi.repartition ?? {}).filter(([u]) => u !== unite).reduce((s, [, q]) => s + q, 0)
+  const restant = typeof total.max === 'number' ? Math.max(0, total.max * mult - autres) : null
+  const propre = p?.max !== undefined ? p.max * mult : null
+  if (restant === null && propre === null) return null
+  return Math.min(restant ?? Infinity, propre ?? Infinity)
+}
+
 // ---------- Budgets ----------
 
 interface Consommateur { id: string; budgets: string[]; label: string }
