@@ -17,6 +17,29 @@ Branche `feat/codex-unifie`. Prouve qu'une seule fiche par armée produit le PDF
 
 Exemples de PDF générés : `docs/exemples/generes/`.
 
+## Écran admin (démo)
+
+`/admin/codex` : liste des armées (version publiée, brouillon en cours), bouton « Nouvelle armée ».
+`/admin/codex/{slug}` : cinq onglets.
+
+| Onglet | Ce qu'on y fait |
+|---|---|
+| Armée | nom, faction, statut, couleur, citation, introduction, règles spéciales (texte), budgets |
+| Unités | tableau façon tableur, une ligne par profil, armes et transport en dépliant la ligne |
+| Liste d'armée | les tableaux tels qu'ils seront imprimés ; clic sur une ligne = panneau latéral (nom, coût, composition en texte parsé, variantes « ou », améliorations cochées, règles en phrases à trous, sous-formations) ; clic sur un bandeau = réglages de la section |
+| Améliorations | définition des options (ajouter, remplacer, mot-clé, choix, répartition), règles, éditeur JSON en secours |
+| Aperçu | le PDF du brouillon dans un cadre, lien vers le builder sur le brouillon |
+
+Enregistrement automatique du brouillon 1,2 s après la dernière frappe. Le bouton « Publier » est grisé tant que le brouillon a des incohérences ; à la publication, les listes de test sont rejouées, puis la version devient publique (PDF et builder).
+
+Stockage de la démo : dossier `.data/` géré par Nitro (ignoré par git), un brouillon et des snapshots versionnés par armée. À remplacer par deux tables Supabase sans toucher à l'interface (`server/utils/codex.ts`).
+
+Pour la démo sans se connecter à l'admin, lancer le serveur avec `CODEX_DEMO_SANS_AUTH=1` (dev uniquement, sans effet en build de prod) :
+
+```bash
+CODEX_DEMO_SANS_AUTH=1 npx nuxi dev
+```
+
 ## Lancer
 
 ```bash
@@ -52,7 +75,7 @@ Les YAML suivent le PDF.
 
 ## Suite
 
-1. Admin : tableaux éditables « comme le PDF », composition en texte parsé, règles en phrases à trous.
-2. Publier : snapshot dans `army_versions` (colonne `data`), PDF poussé sur R2.
+1. Brancher l'admin sur Supabase (brouillons + versions) et pousser le PDF publié sur R2 dans `army_versions`.
+2. Éditeur des choix d'option (Commandant : Capitaine / Archiviste…) sans passer par le JSON.
 3. Convertir les 37 autres codex (importeur depuis `docs/reference/builder-json/`).
 4. Builder : comptes joueurs, partage, impression soignée.

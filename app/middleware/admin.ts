@@ -1,4 +1,6 @@
 export default defineNuxtRouteMiddleware(async () => {
+  if (import.meta.dev && useRuntimeConfig().public.codexDemoSansAuth) return
+
   const { isAuthenticated, isAdmin, loading, init, user } = useAuth()
 
   if (loading.value) {

@@ -7,7 +7,8 @@ definePageMeta({ layout: false })
 
 const route = useRoute()
 const slug = route.params.slug as string
-const { data: codex, error } = await useFetch<Codex>(`/api/codex/${slug}`)
+const brouillon = route.query.brouillon ? '?brouillon=1' : ''
+const { data: codex, error } = await useFetch<Codex>(`/api/codex/${slug}${brouillon}`)
 if (error.value || !codex.value) throw createError({ statusCode: 404, statusMessage: 'Codex introuvable' })
 
 const c = codex.value
