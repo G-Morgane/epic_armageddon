@@ -16,6 +16,8 @@ export default defineNuxtConfig({
   nitro: {
     // Codex YAML (source de vérité) embarqués dans le serveur
     serverAssets: [{ baseName: 'codex', dir: '../content/codex' }],
+    // Génération de PDF : Chromium met quelques secondes à démarrer sur Vercel
+    vercel: { functions: { maxDuration: 60 } },
   },
   app: {
     head: {

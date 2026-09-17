@@ -9,6 +9,7 @@ export async function exigerAdmin(event: H3Event) {
   const { data: { user }, error } = await supabase.auth.getUser(authHeader.replace('Bearer ', ''))
   if (error || !user) throw createError({ statusCode: 401, message: 'Non authentifié' })
   const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
-  if (!profile || !['admin', 'super_admin'].includes(profile.role)) throw createError({ statusCode: 403, message: 'Accès refusé' })
+  const role = (profile as { role?: string } | null)?.role
+  if (!role || !['admin', 'super_admin'].includes(role)) throw createError({ statusCode: 403, message: 'Accès refusé' })
   return user
 }

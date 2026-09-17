@@ -40,7 +40,7 @@ function sousTitre(s: SectionInput) {
   const sv = idx.value?.sections.get(s.id)
   return sv && idx.value ? sousTitreSection(idx.value, sv) : s.sous_titre
 }
-function nomOption(id: string) { return codex.value.options.find((o) => o.id === id)?.nom ?? id }
+function nomOption(id: string) { return (codex.value.options ?? []).find((o) => o.id === id)?.nom ?? id }
 function phraseOpt(id: string) { const o = idx.value?.options.get(id); return o && idx.value ? `${phraseOption(idx.value, o)} · ${coutOption(o)}` : '' }
 
 // ---- sections ----
@@ -246,11 +246,11 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
 
         <p class="lbl mt-4">Améliorations disponibles <span class="normal-case text-gray-600">· celles de la section sont cochées par défaut</span></p>
         <div class="mt-1 max-h-44 overflow-auto rounded border border-white/10 p-2">
-          <label v-for="o in codex.options" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300">
+          <label v-for="o in codex.options ?? []" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300">
             <input type="checkbox" :checked="optionActive(formationSel, o.id)" @change="toggleOptionFormation(formationSel, o.id, (sectionDe(formationSel.id)?.options ?? []).includes(o.id))">
             {{ o.nom }}<span v-if="(sectionDe(formationSel.id)?.options ?? []).includes(o.id)" class="text-gray-600">(section)</span>
           </label>
-          <p v-if="!codex.options.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
+          <p v-if="!codex.options?.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
         </div>
 
         <p class="lbl mt-4">Règles propres à cette formation</p>
@@ -286,8 +286,8 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
 
         <p class="lbl mt-4">Améliorations disponibles pour toutes les formations</p>
         <div class="mt-1 max-h-44 overflow-auto rounded border border-white/10 p-2">
-          <label v-for="o in codex.options" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300"><input type="checkbox" :checked="sectionSel.options?.includes(o.id)" @change="toggleOptionSection(sectionSel, o.id)">{{ o.nom }}</label>
-          <p v-if="!codex.options.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
+          <label v-for="o in codex.options ?? []" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300"><input type="checkbox" :checked="sectionSel.options?.includes(o.id)" @change="toggleOptionSection(sectionSel, o.id)">{{ o.nom }}</label>
+          <p v-if="!codex.options?.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
         </div>
         <label class="mt-3 flex items-center gap-2 text-xs text-gray-300"><input type="checkbox" :checked="!!sectionSel.tableau_options" @change="toggleTableauOptions(sectionSel, ($event.target as HTMLInputElement).checked)"> Tableau « Améliorations » séparé dans le PDF</label>
         <template v-if="sectionSel.tableau_options">

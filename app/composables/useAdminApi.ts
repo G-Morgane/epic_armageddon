@@ -7,8 +7,8 @@ export const useAdminApi = () => {
   }
   return {
     async get<T>(url: string) { return $fetch<T>(url, { headers: await entetes() }) },
-    async post<T>(url: string, body: unknown) { return $fetch<T>(url, { method: 'POST', body, headers: await entetes() }) },
-    async put<T>(url: string, body: unknown) { return $fetch<T>(url, { method: 'PUT', body, headers: await entetes() }) },
+    async post<T>(url: string, body: unknown) { return $fetch<T>(url, { method: 'POST', body: body as Record<string, unknown>, headers: await entetes() }) },
+    async put<T>(url: string, body: unknown) { return $fetch<T>(url, { method: 'PUT', body: body as Record<string, unknown>, headers: await entetes() }) },
     async del<T>(url: string) { return $fetch<T>(url, { method: 'DELETE', headers: await entetes() }) },
   }
 }

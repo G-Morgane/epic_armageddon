@@ -1,13 +1,120 @@
 import { parse } from 'yaml'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { CodexSchema, chargerCodex, type Codex, type CodexInput } from '~~/shared/codex/schema'
 
 /**
- * Sources d'un codex, par priorité : version publiée (stockage) > YAML embarqué.
+ * Sources d'un codex, par priorité : dernière version publiée > YAML embarqué.
  * Les brouillons vivent à côté, jamais servis au public sans `?brouillon=1`.
- * Le stockage `data` est un dossier en dev ; en prod il sera remplacé par Supabase (même interface).
+ *
+ * Dépôt des brouillons et versions :
+ *  - Supabase (tables `codex_drafts`, `codex_versions`, voir supabase/codex.sql) dès que la clé service est configurée ;
+ *  - sinon le stockage fichiers de Nitro (`.data/`), pour travailler hors ligne.
  */
+
+interface Brouillon { data: CodexInput; modifie: string }
+interface Version { data: CodexInput; version: string; changelog: string; publie: string }
+
+interface Depot {
+  nom: string
+  slugs(): Promise<string[]>
+  brouillon(slug: string): Promise<Brouillon | null>
+  ecrireBrouillon(slug: string, data: CodexInput): Promise<void>
+  supprimerBrouillon(slug: string): Promise<void>
+  publie(slug: string): Promise<Version | null>
+  versions(slug: string): Promise<Omit<Version, 'data'>[]>
+  publier(slug: string, v: Version): Promise<void>
+}
+
+// ---------- dépôt fichiers (Nitro) ----------
+
+const depotFichiers: Depot = {
+  nom: 'fichiers',
+  async slugs() {
+    const d = useStorage('data')
+    const cles = [...(await d.getKeys('codex:brouillon')), ...(await d.getKeys('codex:publie'))]
+    return cles.map((k) => k.split(':').pop()!)
+  },
+  brouillon: (slug) => useStorage('data').getItem<Brouillon>(`codex:brouillon:${slug}`),
+  ecrireBrouillon: (slug, data) => useStorage('data').setItem(`codex:brouillon:${slug}`, { data, modifie: new Date().toISOString() }),
+  supprimerBrouillon: (slug) => useStorage('data').removeItem(`codex:brouillon:${slug}`),
+  publie: (slug) => useStorage('data').getItem<Version>(`codex:publie:${slug}`),
+  async versions(slug) {
+    const d = useStorage('data')
+    const cles = (await d.getKeys(`codex:versions:${slug}`)).sort()
+    const out: Omit<Version, 'data'>[] = []
+    for (const k of cles) {
+      const v = await d.getItem<Version>(k)
+      if (v) out.push({ version: v.version, changelog: v.changelog, publie: v.publie })
+    }
+    return out
+  },
+  async publier(slug, v) {
+    const d = useStorage('data')
+    const n = (await d.getKeys(`codex:versions:${slug}`)).length + 1
+    await d.setItem(`codex:versions:${slug}:${String(n).padStart(3, '0')}`, v)
+    await d.setItem(`codex:publie:${slug}`, v)
+  },
+}
+
+// ---------- dépôt Supabase ----------
+
+function erreurSql(e: { message?: string; code?: string } | null, action: string): never {
+  const manque = e?.code === '42P01' || /does not exist|schema cache/i.test(e?.message ?? '')
+  throw new Error(manque ? `Tables des codex absentes : exécuter supabase/codex.sql dans le SQL editor Supabase (${action})` : `${action} : ${e?.message ?? 'erreur Supabase'}`)
+}
+
+/** Client non typé : les tables codex ne sont pas dans les types générés du projet. */
+const sbCodex = () => useSupabaseServer() as unknown as SupabaseClient
+
+const depotSupabase: Depot = {
+  nom: 'supabase',
+  async slugs() {
+    const sb = sbCodex()
+    const [b, v] = await Promise.all([sb.from('codex_drafts').select('slug'), sb.from('codex_versions').select('slug')])
+    if (b.error) erreurSql(b.error, 'lecture des brouillons')
+    if (v.error) erreurSql(v.error, 'lecture des versions')
+    return [...(b.data ?? []), ...(v.data ?? [])].map((r) => r.slug as string)
+  },
+  async brouillon(slug) {
+    const { data, error } = await sbCodex().from('codex_drafts').select('data, updated_at').eq('slug', slug).maybeSingle()
+    if (error) erreurSql(error, 'lecture du brouillon')
+    return data ? { data: data.data as CodexInput, modifie: data.updated_at as string } : null
+  },
+  async ecrireBrouillon(slug, data) {
+    const { error } = await sbCodex().from('codex_drafts').upsert({ slug, data, updated_at: new Date().toISOString() })
+    if (error) erreurSql(error, 'enregistrement du brouillon')
+  },
+  async supprimerBrouillon(slug) {
+    const { error } = await sbCodex().from('codex_drafts').delete().eq('slug', slug)
+    if (error) erreurSql(error, 'suppression du brouillon')
+  },
+  async publie(slug) {
+    const { data, error } = await sbCodex().from('codex_versions').select('data, version, changelog, published_at').eq('slug', slug).order('published_at', { ascending: false }).limit(1).maybeSingle()
+    if (error) erreurSql(error, 'lecture de la version publiée')
+    return data ? { data: data.data as CodexInput, version: data.version as string, changelog: (data.changelog as string) ?? '', publie: data.published_at as string } : null
+  },
+  async versions(slug) {
+    const { data, error } = await sbCodex().from('codex_versions').select('version, changelog, published_at').eq('slug', slug).order('published_at', { ascending: true })
+    if (error) erreurSql(error, 'lecture des versions')
+    return (data ?? []).map((r) => ({ version: r.version as string, changelog: (r.changelog as string) ?? '', publie: r.published_at as string }))
+  },
+  async publier(slug, v) {
+    const { error } = await sbCodex().from('codex_versions').insert({ slug, version: v.version, changelog: v.changelog, data: v.data, published_at: v.publie })
+    if (error) erreurSql(error, 'publication')
+  },
+}
+
+function depot(): Depot {
+  const config = useRuntimeConfig()
+  const force = process.env.CODEX_STOCKAGE
+  if (force === 'fichiers') return depotFichiers
+  if (force === 'supabase' || (config.supabaseUrl && config.supabaseServiceRoleKey)) return depotSupabase
+  return depotFichiers
+}
+
+// ---------- API commune ----------
+
 const assets = () => useStorage('assets:codex')
-const data = () => useStorage('data')
 
 export interface EtatCodex {
   slug: string
@@ -20,6 +127,7 @@ export interface EtatCodex {
   brouillon: boolean
   brouillon_modifie?: string
   versions: number
+  stockage: string
 }
 
 async function lireYaml(slug: string): Promise<unknown | null> {
@@ -27,18 +135,20 @@ async function lireYaml(slug: string): Promise<unknown | null> {
   return brut == null ? null : parse(typeof brut === 'string' ? brut : String(brut))
 }
 
-export async function listerSlugsCodex(): Promise<string[]> {
-  const yaml = (await assets().getKeys()).filter((k) => k.endsWith('.yaml')).map((k) => k.replace(/\.yaml$/, ''))
-  const publies = (await data().getKeys('codex:publie')).map((k) => k.split(':').pop()!)
-  const brouillons = (await data().getKeys('codex:brouillon')).map((k) => k.split(':').pop()!)
-  return [...new Set([...yaml, ...publies, ...brouillons])].sort()
+function verifierSlug(slug: string) {
+  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error(`slug invalide : ${slug}`)
 }
 
-/** Codex tel que le public le voit (publié, sinon YAML). */
+export async function listerSlugsCodex(): Promise<string[]> {
+  const yaml = (await assets().getKeys()).filter((k) => k.endsWith('.yaml')).map((k) => k.replace(/\.yaml$/, ''))
+  return [...new Set([...yaml, ...(await depot().slugs())])].sort()
+}
+
+/** Codex tel que le public le voit (dernière version publiée, sinon YAML). */
 export async function lireCodex(slug: string): Promise<Codex> {
-  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error(`slug invalide : ${slug}`)
-  const publie = await data().getItem<CodexInput>(`codex:publie:${slug}`)
-  if (publie) return chargerCodex(publie)
+  verifierSlug(slug)
+  const publie = await depot().publie(slug)
+  if (publie) return chargerCodex(publie.data)
   const yaml = await lireYaml(slug)
   if (yaml == null) throw new Error(`codex introuvable : ${slug}`)
   return chargerCodex(yaml)
@@ -46,20 +156,22 @@ export async function lireCodex(slug: string): Promise<Codex> {
 
 /** Brouillon brut (non validé) ; s'il n'existe pas, part du codex public. */
 export async function lireBrouillon(slug: string): Promise<{ data: CodexInput; modifie?: string; existe: boolean }> {
-  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error(`slug invalide : ${slug}`)
-  const b = await data().getItem<{ data: CodexInput; modifie: string }>(`codex:brouillon:${slug}`)
+  verifierSlug(slug)
+  const b = await depot().brouillon(slug)
   if (b) return { ...b, existe: true }
-  const base = (await data().getItem<CodexInput>(`codex:publie:${slug}`)) ?? (await lireYaml(slug))
+  const base = (await depot().publie(slug))?.data ?? (await lireYaml(slug))
   if (base == null) throw new Error(`codex introuvable : ${slug}`)
   return { data: base as CodexInput, existe: false }
 }
 
 export async function ecrireBrouillon(slug: string, brut: CodexInput): Promise<void> {
-  await data().setItem(`codex:brouillon:${slug}`, { data: brut, modifie: new Date().toISOString() })
+  verifierSlug(slug)
+  await depot().ecrireBrouillon(slug, brut)
 }
 
 export async function supprimerBrouillon(slug: string): Promise<void> {
-  await data().removeItem(`codex:brouillon:${slug}`)
+  verifierSlug(slug)
+  await depot().supprimerBrouillon(slug)
 }
 
 /** Publie le brouillon : validation stricte, snapshot versionné, devient la version publique. */
@@ -67,40 +179,36 @@ export async function publierBrouillon(slug: string, version: string, changelog:
   const b = await lireBrouillon(slug)
   const brut = { ...b.data, codex: { ...b.data.codex, version } }
   const codex = chargerCodex(brut)
-  const n = (await data().getKeys(`codex:versions:${slug}`)).length + 1
-  await data().setItem(`codex:versions:${slug}:${String(n).padStart(3, '0')}`, { data: brut, version, changelog, publie: new Date().toISOString() })
-  await data().setItem(`codex:publie:${slug}`, brut)
-  await supprimerBrouillon(slug)
+  await depot().publier(slug, { data: brut, version, changelog, publie: new Date().toISOString() })
+  await depot().supprimerBrouillon(slug)
   return codex
 }
 
 export async function listerVersions(slug: string) {
-  const cles = (await data().getKeys(`codex:versions:${slug}`)).sort()
-  return Promise.all(cles.map(async (k) => {
-    const v = await data().getItem<{ version: string; changelog: string; publie: string }>(k)
-    return { version: v?.version, changelog: v?.changelog, publie: v?.publie }
-  }))
+  verifierSlug(slug)
+  return depot().versions(slug)
 }
 
 export async function etatsCodex(): Promise<EtatCodex[]> {
+  const d = depot()
   const slugs = await listerSlugsCodex()
   return Promise.all(slugs.map(async (slug) => {
-    const publie = await data().getItem<CodexInput>(`codex:publie:${slug}`)
-    const b = await data().getItem<{ data: CodexInput; modifie: string }>(`codex:brouillon:${slug}`)
-    const src = publie ?? (await lireYaml(slug)) ?? b?.data
+    const [publie, b, versions] = await Promise.all([d.publie(slug), d.brouillon(slug), d.versions(slug)])
+    const src = publie?.data ?? (await lireYaml(slug)) ?? b?.data
     const c = CodexSchema.shape.codex.safeParse((src as CodexInput | undefined)?.codex)
     const meta = c.success ? c.data : { nom: slug, faction: '?', version: '?', statut: 'experimental', couleur: undefined }
     return {
       slug,
       nom: (b?.data.codex.nom as string) ?? meta.nom,
       faction: meta.faction,
-      version: meta.version,
+      version: publie?.version ?? meta.version,
       statut: meta.statut,
       couleur: meta.couleur,
       source: publie ? 'publie' : 'yaml',
       brouillon: !!b,
       brouillon_modifie: b?.modifie,
-      versions: (await data().getKeys(`codex:versions:${slug}`)).length,
+      versions: versions.length,
+      stockage: d.nom,
     }
   }))
 }
@@ -114,8 +222,8 @@ export function codexVide(slug: string, nom: string, faction: 'imperium' | 'chao
     options: [],
     formations: [],
     sections: [
-      { id: 'principales', titre: `FORMATIONS PRINCIPALES`, formations: [], contraintes: [], options: [], notes: {} },
-      { id: 'supports', titre: `SUPPORTS`, formations: [], contraintes: [{ type: 'consomme', budget: 'rare', quoi: 'points' }], options: [], notes: {} },
+      { id: 'principales', titre: 'FORMATIONS PRINCIPALES', formations: [], contraintes: [], options: [], notes: {} },
+      { id: 'supports', titre: 'SUPPORTS', formations: [], contraintes: [{ type: 'consomme', budget: 'rare', quoi: 'points' }], options: [], notes: {} },
     ],
     listes_test: [],
   }
