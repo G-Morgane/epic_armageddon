@@ -428,12 +428,46 @@ export function resoudreFormation(idx: IndexCodex, fi: FormationInstance, profon
   if (profondeur === 0 && trouve(cs, 'non_autonome')) erreur(ctx, 'non_autonome', `${def.nom} ne peut être pris qu'au sein d'une autre formation`)
 
   const initiative = trouve(contraintes(def, variante), 'initiative')?.valeur ?? trouve(section.contraintes, 'initiative')?.valeur ?? idx.codex.codex.initiative.defaut
+  const vues = new Set<string>()
+  const uniques = erreurs.filter((e) => { const k = `${e.formation}|${e.type}|${e.message}`; if (vues.has(k)) return false; vues.add(k); return true })
+  erreurs.length = 0
+  erreurs.push(...uniques)
 
   return {
     instance: fi, def, variante, section, unites, options, sous_formations: sous, mots_cles: mots,
     cout_base, cout_options, cout_sous_formations: cout_sous, cout: cout_base + cout_options + cout_sous,
     initiative, activation: !trouve(cs, 'pas_une_activation'), erreurs,
   }
+}
+
+/**
+ * Options encore ajoutables à une formation résolue (pour le sélecteur du builder).
+ * Tient compte de : max par formation, quota d'améliorations, exclusions, unités requises, max par armée.
+ */
+export function optionsAjoutables(idx: IndexCodex, f: FormationResolue, compteArmee: (optionId: string) => number = () => 0): Option[] {
+  const section = f.section
+  const maxOptions = trouve(contraintes(f.def, f.variante), 'max_options') ?? trouve(section.contraintes, 'max_options')
+  const comptees = f.options.filter((o) => o.compte_quota).length
+  const presentes = f.options.map((o) => o.def)
+  return optionsDisponibles(idx, f.def)
+    .map((id) => idx.options.get(id))
+    .filter((o): o is Option => !!o)
+    .filter((o) => {
+      const cs = o.contraintes
+      const horsQuota = !!trouve(cs, 'hors_quota_options')
+      if (maxOptions && !horsQuota && comptees >= maxOptions.valeur) return false
+      const maxF = trouve(cs, 'max_par_formation')
+      if (maxF && f.instance.options.filter((x) => x.option === o.id).length >= maxF.valeur * (maxF.par_taille ? f.variante.taille : 1)) return false
+      const maxA = trouve(cs, 'max_par_armee')
+      if (maxA && compteArmee(o.id) >= maxA.valeur) return false
+      const excl = trouve(cs, 'exclusif')
+      if (excl && presentes.some((p) => trouve(p.contraintes, 'exclusif')?.groupe === excl.groupe)) return false
+      if (tous(cs, 'exclut').some((k) => presentes.some((p) => k.options.includes(p.id)))) return false
+      if (presentes.some((p) => tous(p.contraintes, 'exclut').some((k) => k.options.includes(o.id)))) return false
+      const req = trouve(cs, 'requiert_unite')
+      if (req && !f.unites.some((u) => req.unites.includes(u.unite))) return false
+      return true
+    })
 }
 
 /**

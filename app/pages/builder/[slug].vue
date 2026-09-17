@@ -27,6 +27,12 @@ watch(liste, (l) => { if (pret.value) try { localStorage.setItem(cle, JSON.strin
 
 const resultat = computed<ResultatListe>(() => calculerListe(idx, liste.value))
 const resolueDe = (id: string) => resultat.value.formations.find((f) => f.instance.id === id)
+const compteArmee = (optionId: string) => {
+  let n = 0
+  const parcourir = (f: FormationInstance) => { n += f.options.filter((o) => o.option === optionId).length; f.sous_formations.forEach(parcourir) }
+  liste.value.formations.forEach(parcourir)
+  return n
+}
 
 const sectionsCatalogue = computed(() => c.sections.filter((s) => !s.contraintes.some((k) => k.type === 'non_autonome')))
 
@@ -104,6 +110,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
             :idx="idx"
             :instance="f"
             :resolue="resolueDe(f.id)"
+            :compte-armee="compteArmee"
             @supprimer="supprimer(f.id)"
             @dupliquer="dupliquer(f.id)"
           />

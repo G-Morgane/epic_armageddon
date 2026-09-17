@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
-import { optionsDisponibles, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
+import { optionsDisponibles, optionsAjoutables, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { phraseOption, coutOption, pluriel } from '~~/shared/codex/phrases'
@@ -10,6 +10,8 @@ const props = defineProps<{
   instance: FormationInstance
   resolue?: FormationResolue
   sous?: boolean
+  /** nombre d'occurrences d'une option dans toute l'armée (pour les limites par armée) */
+  compteArmee?: (optionId: string) => number
 }>()
 const emit = defineEmits<{ supprimer: []; dupliquer: [] }>()
 
@@ -17,6 +19,7 @@ const def = computed(() => props.idx.formations.get(props.instance.formation))
 const variante = computed(() => def.value?.variantes.find((v) => v.id === props.instance.variante) ?? def.value?.variantes[0])
 const nomU = (id: string) => props.idx.unites.get(id)?.nom ?? id
 const dispo = computed(() => (def.value ? optionsDisponibles(props.idx, def.value).map((o) => props.idx.options.get(o)!).filter(Boolean) : []))
+const ajoutables = computed(() => (props.resolue ? optionsAjoutables(props.idx, props.resolue, props.compteArmee) : dispo.value))
 const specSous = computed(() => variante.value?.sous_formations ?? def.value?.sous_formations)
 const erreursIci = computed(() => props.resolue?.erreurs.filter((e) => e.formation === props.instance.id) ?? [])
 
@@ -154,10 +157,11 @@ const unitesVisibles = computed(() => props.resolue?.unites.filter((u) => !u.imp
           <span class="ml-auto text-gold">{{ resolue?.options.find((o) => o.instance.id === oi.id)?.cout ?? 0 }} pts</span>
           <button type="button" class="bouton-ghost text-red-300" @click="retirerOption(oi.id)">✕</button>
         </div>
-        <select class="champ w-full" :value="''" @change="ajouterOption(($event.target as HTMLSelectElement).value); ($event.target as HTMLSelectElement).value = ''">
+        <select v-if="ajoutables.length" class="champ w-full" :value="''" @change="ajouterOption(($event.target as HTMLSelectElement).value); ($event.target as HTMLSelectElement).value = ''">
           <option value="">+ Ajouter une amélioration…</option>
-          <option v-for="o in dispo" :key="o.id" :value="o.id" :title="phraseOption(idx, o)">{{ o.nom }} · {{ coutOption(o) }}</option>
+          <option v-for="o in ajoutables" :key="o.id" :value="o.id" :title="phraseOption(idx, o)">{{ o.nom }} · {{ coutOption(o) }}</option>
         </select>
+        <p v-else-if="instance.options.length" class="text-xs text-stone-500">Plus d'amélioration disponible pour cette formation.</p>
       </div>
 
       <!-- sous-formations -->
