@@ -452,44 +452,6 @@ unites:
       - "Transport (60+60+6) : Tactiques, Devastators, Marines d'Assaut, Scouts, Terminators, Dreadnoughts, Motos et Motos d'Assaut, plus 60 véhicules parmi Rhinos, Razorbacks, Whirlwinds, Hunters, Predators, Vindicators et Land Raiders ainsi que 9 Thunderhawks et Thunderhawks Transporteurs. De plus, la Barge de Bataille peut transporter le nombre nécessaire de Modules d'Atterrissage, Stormeagles, Stormravens, Béliers d'Assaut Caestus et Barges de Débarquement pour transporter le reste des unités à son bord."
 
   # ---- Légions Titaniques ----
-  - id: warhound
-    nom: Warhound
-    type: EG
-    vitesse: 30cm
-    blindage: "5+"
-    cc: "4+"
-    ff: "4+"
-    armes:
-      - { nom: Méga Bolter Vulcain (F), portee: 45cm, puissance: "4x AP3+/AC5+, Frt" }
-      - { nom: Canon Plasma Léger (F), portee: 45cm, puissance: "2xMA2+, Rchg, Frt" }
-    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
-    degats: { cd: 3, bi: 2, critique: "Le titan est déséquilibré et vacille. Déplacez-le dans une direction aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 6+" }
-  - id: reaver
-    nom: Reaver
-    type: EG
-    vitesse: 20cm
-    blindage: "4+"
-    cc: "3+"
-    ff: "3+"
-    armes:
-      - { nom: Lance-missiles Apocalypse, portee: 60cm, puissance: "4PB, FrtF" }
-      - { nom: 2x Destructeurs Turbo laser, portee: 60cm, puissance: "4xAP5+/AC3+, Frt" }
-    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
-    degats: { cd: 6, bi: 4, critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée" }
-  - id: warlord
-    nom: Warlord
-    type: EG
-    vitesse: 15cm
-    blindage: "4+"
-    cc: "2+"
-    ff: "3+"
-    armes:
-      - { nom: 2x Destructeurs Turbo laser (FF), portee: 60cm, puissance: "4xAP5+/AC3+, FrtF" }
-      - { nom: Canon Gatling, portee: 60cm, puissance: "4xAP4+/AC4+, Frt" }
-      - { nom: Canon Volcano, portee: 90cm, puissance: "MA2+, TT (D3), Frt" }
-    notes: [Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
-    degats: { cd: 8, bi: 6, critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée" }
-
 options:
   - id: commandant
     nom: Commandant
@@ -710,22 +672,6 @@ formations:
     contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
     phrase_pdf: "0-1 Soutien Orbital"
 
-  # ---- Supports : Légions Titaniques ----
-  - id: titan_warhound
-    nom: Titan Warhound
-    variantes:
-      - { id: un, nom: 1 Titan Warhound, cout: 275, composition: [{ unite: warhound, nombre: 1 }] }
-      - { id: deux, nom: 2 Titans Warhound, cout: 500, composition: [{ unite: warhound, nombre: 2 }] }
-    phrase_pdf: "1 Titan Warhound (Ajouter 1 Titan Warhound : +225 pts)"
-  - id: titan_reaver
-    nom: Titan Reaver
-    variantes:
-      - { id: base, cout: 650, composition: [{ unite: reaver, nombre: 1 }] }
-  - id: titan_warlord
-    nom: Titan Warlord
-    variantes:
-      - { id: base, cout: 850, composition: [{ unite: warlord, nombre: 1 }] }
-
 sections:
   - id: detachements
     titre: DÉTACHEMENTS SPACE MARINES CODEX
@@ -743,7 +689,8 @@ sections:
     titre: SOUTIENS DES LÉGIONS TITANIQUES
     sous_titre: "SUPPORTS SPACE MARINES CODEX"
     contraintes: [{ type: consomme, budget: rare, quoi: points }]
-    formations: [titan_warhound, titan_reaver, titan_warlord]
+    formations: []
+    allies: { codex: adeptus-titanicus }
     notes:
       sans_peur: "Les formations prises en Soutien des Légions Titaniques ne bénéficient pas de la règle « Et ils ne connaîtront pas la peur »."
 
@@ -766,7 +713,7 @@ listes_test:
           - { option: land_raider, quantite: 2 }
           - { option: teleportation }
       - { formation: predators, variante: annihilator }
-      - { formation: titan_warhound, variante: un }
+      - { formation: titan_warhound }
   - nom: "2000 pts valide, compositions au choix"
     limite: 2000
     attendu: valide

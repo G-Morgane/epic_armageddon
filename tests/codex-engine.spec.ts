@@ -6,6 +6,7 @@ import { normaliserFormation } from '../shared/codex/liste'
 describe('moteur : listes de test des codex', () => {
   for (const slug of listerSlugs()) {
     const codex = chargerCodexParSlug(slug)
+    if (!codex.listes_test.length) continue
     const idx = indexerCodex(codex)
     describe(slug, () => {
       for (const test of codex.listes_test) {

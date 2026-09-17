@@ -234,6 +234,18 @@ export const SectionSchema = z.object({
   titre: z.string(),
   sous_titre: z.string().optional(),
   formations: z.array(id),
+  /**
+   * Alliance : la section propose les formations d'un autre codex (Adeptus Titanicus, Aeronautica…).
+   * Les unités, options et formations de l'allié sont fusionnées à la lecture ; les règles de CETTE section
+   * (par exemple « compte dans le budget Supports ») s'appliquent aux formations importées.
+   */
+  allies: z
+    .object({
+      codex: z.string().regex(/^[a-z0-9-]+$/),
+      /** sections de l'allié à importer (toutes par défaut) */
+      sections: z.array(id).optional(),
+    })
+    .optional(),
   contraintes: z.array(ContrainteSchema).default([]),
   /** options disponibles pour toutes les formations de la section */
   options: z.array(id).default([]),
@@ -306,6 +318,8 @@ export const CodexSchema = z.object({
     nom: z.string(),
     version: z.string(),
     faction: z.enum(['imperium', 'chaos', 'xenos']),
+    /** `soutien` : liste partagée (Titans, aviation) utilisée en alliance par d'autres codex, pas une armée jouable seule */
+    type: z.enum(['armee', 'soutien']).default('armee'),
     categorie: z.string().optional(),
     statut: z.enum(['official', 'beta', 'experimental', '30k']).default('official'),
     couleur: z.string().optional(),

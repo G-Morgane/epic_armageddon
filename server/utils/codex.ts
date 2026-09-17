@@ -1,6 +1,7 @@
 import { parse } from 'yaml'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { CodexSchema, chargerCodex, type Codex, type CodexInput } from '~~/shared/codex/schema'
+import { fusionnerAllies, alliesReferences } from '~~/shared/codex/allies'
 
 /**
  * Sources d'un codex, par priorité : dernière version publiée > YAML embarqué.
@@ -128,6 +129,7 @@ export interface EtatCodex {
   brouillon_modifie?: string
   versions: number
   stockage: string
+  type: 'armee' | 'soutien'
 }
 
 async function lireYaml(slug: string): Promise<unknown | null> {
@@ -144,14 +146,28 @@ export async function listerSlugsCodex(): Promise<string[]> {
   return [...new Set([...yaml, ...(await depot().slugs())])].sort()
 }
 
-/** Codex tel que le public le voit (dernière version publiée, sinon YAML). */
-export async function lireCodex(slug: string): Promise<Codex> {
+/** Codex publié seul (dernière version publiée, sinon YAML), sans ses alliés. */
+async function lireCodexSeul(slug: string): Promise<Codex> {
   verifierSlug(slug)
   const publie = await depot().publie(slug)
   if (publie) return chargerCodex(publie.data)
   const yaml = await lireYaml(slug)
   if (yaml == null) throw new Error(`codex introuvable : ${slug}`)
   return chargerCodex(yaml)
+}
+
+/** Fusionne les codex alliés (versions publiées) dans un codex. */
+export async function avecAllies(codex: Codex): Promise<Codex> {
+  const allies: Record<string, Codex> = {}
+  for (const a of alliesReferences(codex)) {
+    try { allies[a] = await lireCodexSeul(a) } catch { throw new Error(`Codex allié introuvable : ${a}`) }
+  }
+  return fusionnerAllies(codex, allies)
+}
+
+/** Codex tel que le public le voit : version publiée + formations des alliés. */
+export async function lireCodex(slug: string): Promise<Codex> {
+  return avecAllies(await lireCodexSeul(slug))
 }
 
 /** Brouillon brut (non validé) ; s'il n'existe pas, part du codex public. */
@@ -196,7 +212,7 @@ export async function etatsCodex(): Promise<EtatCodex[]> {
     const [publie, b, versions] = await Promise.all([d.publie(slug), d.brouillon(slug), d.versions(slug)])
     const src = publie?.data ?? (await lireYaml(slug)) ?? b?.data
     const c = CodexSchema.shape.codex.safeParse((src as CodexInput | undefined)?.codex)
-    const meta = c.success ? c.data : { nom: slug, faction: '?', version: '?', statut: 'experimental', couleur: undefined }
+    const meta = c.success ? c.data : { nom: slug, faction: '?', version: '?', statut: 'experimental', couleur: undefined, type: 'armee' as const }
     return {
       slug,
       nom: (b?.data.codex.nom as string) ?? meta.nom,
@@ -209,6 +225,7 @@ export async function etatsCodex(): Promise<EtatCodex[]> {
       brouillon_modifie: b?.modifie,
       versions: versions.length,
       stockage: d.nom,
+      type: meta.type,
     }
   }))
 }

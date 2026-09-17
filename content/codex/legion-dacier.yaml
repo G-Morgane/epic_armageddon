@@ -329,81 +329,6 @@ unites:
       - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
     notes: [Blindage Renforcé]
     degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
-  # ---- Aeronautica Imperialis ----
-  - id: thunderbolt
-    nom: Thunderbolt
-    type: A
-    vitesse: CB
-    blindage: "6+"
-    cc: "-"
-    ff: "-"
-    armes:
-      - { nom: Fulgurants, portee: 15cm, puissance: "AP4+/AA5+, FrtF" }
-      - { nom: Multi-Lasers (FF), portee: 30cm, puissance: "AP5+/AC6+/AA5+, FrtF" }
-      - { nom: Roquettes, portee: 30cm, puissance: "AC4+, FrtF" }
-  - id: marauder
-    nom: Bombardier Marauder
-    type: A/EG
-    vitesse: B
-    blindage: "5+"
-    cc: "-"
-    ff: "-"
-    armes:
-      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
-      - { nom: Bolters Lourds Jumelés (AA Arr), portee: 30cm, puissance: "AA5+, Arr" }
-      - { nom: Canons Laser Jumelés (AA Avant), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
-      - { nom: Bombes (Bomber), portee: 15cm, puissance: "3PB, FrtF" }
-    degats: { cd: 2, critique: "le Bombardier Marauder s'écrase au sol et est détruit" }
-  - id: croiseur_lunar
-    nom: Croiseur Classe Lunar
-    type: VS
-    armes:
-      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
-      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
-  - id: cuirasse_emperor
-    nom: Cuirassé Emperor
-    type: VS
-    armes:
-      - { nom: Bombardement Orbital (8), portee: "∞", puissance: "8PB, MA" }
-    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
-  # ---- Adeptus Titanicus ----
-  - id: warhound
-    nom: Warhound
-    type: EG
-    vitesse: 30cm
-    blindage: "5+"
-    cc: "4+"
-    ff: "4+"
-    armes:
-      - { nom: Méga Bolter Vulcain (F), portee: 45cm, puissance: "4x AP3+/AC5+, Frt" }
-      - { nom: Canon Plasma Léger (F), portee: 45cm, puissance: "2xMA2+, Rchg, Frt" }
-    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
-    degats: { cd: 3, bi: 2, critique: "Le titan est déséquilibré et vacille. Déplacez-le dans une direction aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 6+" }
-  - id: reaver
-    nom: Reaver
-    type: EG
-    vitesse: 20cm
-    blindage: "4+"
-    cc: "3+"
-    ff: "3+"
-    armes:
-      - { nom: Lance-missiles Apocalypse, portee: 60cm, puissance: "4PB, FrtF" }
-      - { nom: 2x Destructeurs Turbo laser, portee: 60cm, puissance: "4xAP5+/AC3+, Frt" }
-    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
-    degats: { cd: 6, bi: 4, critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée" }
-  - id: warlord
-    nom: Warlord
-    type: EG
-    vitesse: 15cm
-    blindage: "4+"
-    cc: "2+"
-    ff: "3+"
-    armes:
-      - { nom: 2x Destructeurs Turbo laser (FF), portee: 60cm, puissance: "4xAP5+/AC3+, FrtF" }
-      - { nom: Canon Gatling, portee: 60cm, puissance: "4xAP4+/AC4+, Frt" }
-      - { nom: Canon Volcano, portee: 90cm, puissance: "MA2+, TT (D3), Frt" }
-    notes: [Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
-    degats: { cd: 8, bi: 6, critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée" }
 
 options:
   - id: peloton_appui_feu
@@ -580,41 +505,6 @@ formations:
     variantes:
       - { id: base, cout: 300, composition: [{ unite: vulture, nombre: 4 }] }
 
-  # ---- Supports : Aeronautica ----
-  - id: escadrille_intercepteurs
-    nom: Escadrille d'Intercepteurs
-    variantes:
-      - { id: deux, nom: 2 Chasseurs Thunderbolts, cout: 150, composition: [{ unite: thunderbolt, nombre: 2 }] }
-      - { id: quatre, nom: 4 Chasseurs Thunderbolts, cout: 300, composition: [{ unite: thunderbolt, nombre: 4 }] }
-  - id: escadrille_bombardiers
-    nom: Escadrille de Bombardiers
-    variantes:
-      - { id: base, cout: 250, composition: [{ unite: marauder, nombre: 2 }] }
-  - id: soutien_orbital
-    nom: Soutien Orbital
-    variantes:
-      - { id: lunar, nom: 1 Croiseur Lunar, cout: 150, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
-      - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
-
-  # ---- Supports : Titanicus ----
-  - id: titan_warhound
-    nom: Titan Warhound
-    variantes:
-      - { id: base, cout: 275, composition: [{ unite: warhound, nombre: 1 }] }
-  - id: meute_warhounds
-    nom: Meute de Warhounds
-    variantes:
-      - { id: base, cout: 500, composition: [{ unite: warhound, nombre: 2 }] }
-  - id: titan_reaver
-    nom: Titan Reaver
-    variantes:
-      - { id: base, cout: 650, composition: [{ unite: reaver, nombre: 1 }] }
-  - id: titan_warlord
-    nom: Titan Warlord
-    variantes:
-      - { id: base, cout: 850, composition: [{ unite: warlord, nombre: 1 }] }
-
 sections:
   - id: compagnies
     titre: COMPAGNIES DE LA LÉGION D'ACIER
@@ -637,12 +527,14 @@ sections:
     titre: FLOTTES DE L'AERONAUTICA IMPERIALIS
     sous_titre: "SUPPORTS DE LA LÉGION D'ACIER"
     contraintes: [{ type: consomme, budget: rare, quoi: points }]
-    formations: [escadrille_intercepteurs, escadrille_bombardiers, soutien_orbital]
+    formations: []
+    allies: { codex: aeronautica-imperialis }
   - id: titanicus
     titre: SOUTIENS DE L'ADEPTUS TITANICUS
     sous_titre: "SUPPORTS DE LA LÉGION D'ACIER"
     contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "1+" }]
-    formations: [titan_warhound, meute_warhounds, titan_reaver, titan_warlord]
+    formations: []
+    allies: { codex: adeptus-titanicus }
 
 listes_test:
   - nom: "3000 pts valide"

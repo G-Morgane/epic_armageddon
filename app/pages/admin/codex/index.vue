@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'admin', middleware: 'admin' })
 
-interface Etat { slug: string; nom: string; faction: string; version: string; statut: string; couleur?: string; source: 'yaml' | 'publie'; brouillon: boolean; brouillon_modifie?: string; versions: number }
+interface Etat { slug: string; nom: string; faction: string; version: string; statut: string; couleur?: string; source: 'yaml' | 'publie'; brouillon: boolean; brouillon_modifie?: string; versions: number; type: 'armee' | 'soutien' }
 
 const api = useAdminApi()
 const etats = ref<Etat[]>([])
@@ -56,6 +56,7 @@ async function creer() {
             <td class="px-5 py-3">
               <NuxtLink :to="`/admin/codex/${e.slug}`" class="flex items-center gap-3 font-medium text-gray-100 hover:text-gold">
                 <span class="inline-block h-3 w-3 rounded-full border border-white/20" :style="{ background: e.couleur ?? '#8a6d3b' }" />{{ e.nom }}
+                <span v-if="e.type === 'soutien'" class="rounded bg-gold/10 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-gold">soutien partagé</span>
               </NuxtLink>
             </td>
             <td class="py-3 text-gray-300">{{ factions[e.faction] ?? e.faction }}</td>

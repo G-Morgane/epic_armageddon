@@ -10,6 +10,12 @@ type SectionInput = CodexInput['sections'][number]
 type VarianteInput = FormationInput['variantes'][number]
 
 const codex = useBrouillonCodex()
+/** codex disponibles pour une alliance (tous sauf celui-ci) */
+const { data: catalogue } = useFetch<Array<{ slug: string; nom: string; type: string }>>('/api/codex', { default: () => [] })
+const alliesPossibles = computed(() => (catalogue.value ?? []).filter((c) => c.slug !== codex.value.codex.slug))
+function setAllie(s: SectionInput, slug: string) {
+  s.allies = slug ? { codex: slug } : undefined
+}
 
 /** Version validée du brouillon pour les phrases (défauts appliqués). Null si le brouillon est incohérent. */
 const valide = computed<Codex | null>(() => {
@@ -199,6 +205,9 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
               <td class="py-1.5 pr-3 text-right"><div v-for="(l, li) in lignes(fid)" :key="li">{{ l.cout }}</div></td>
               <td class="py-1.5 text-center text-[#9a7b3c]">✎</td>
             </tr>
+            <tr v-if="s.allies">
+              <td colspan="5" class="px-3 py-1.5 text-xs italic text-[#7a6d5c]">+ les formations de « {{ alliesPossibles.find((c) => c.slug === s.allies!.codex)?.nom ?? s.allies.codex }} » (alliance, affichées dans l'aperçu)</td>
+            </tr>
             <tr>
               <td colspan="5" class="px-3 py-1.5">
                 <button type="button" class="text-xs text-[#9a7b3c] hover:underline" @click.stop="ajouterFormation(s)">+ Ajouter une formation</button>
@@ -289,6 +298,12 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
           <label v-for="o in codex.options ?? []" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300"><input type="checkbox" :checked="sectionSel.options?.includes(o.id)" @change="toggleOptionSection(sectionSel, o.id)">{{ o.nom }}</label>
           <p v-if="!codex.options?.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
         </div>
+        <p class="lbl mt-4">Alliance <span class="normal-case text-gray-600">· formations d'un autre codex proposées dans cette section</span></p>
+        <select :value="sectionSel.allies?.codex ?? ''" class="champ mt-1 w-full" @change="setAllie(sectionSel, ($event.target as HTMLSelectElement).value)">
+          <option value="">Aucune</option>
+          <option v-for="c in alliesPossibles" :key="c.slug" :value="c.slug">{{ c.nom }}{{ c.type === 'soutien' ? ' (liste de soutien)' : '' }}</option>
+        </select>
+        <p v-if="sectionSel.allies" class="mt-1 text-[11px] text-gray-500">Les formations de « {{ alliesPossibles.find((c) => c.slug === sectionSel!.allies!.codex)?.nom ?? sectionSel.allies.codex }} » apparaîtront ici dans le PDF et le builder. Les règles de la section (par exemple « Compte dans le budget Supports ») s'appliquent à elles. La limite classique est 1/3 des points.</p>
         <label class="mt-3 flex items-center gap-2 text-xs text-gray-300"><input type="checkbox" :checked="!!sectionSel.tableau_options" @change="toggleTableauOptions(sectionSel, ($event.target as HTMLInputElement).checked)"> Tableau « Améliorations » séparé dans le PDF</label>
         <template v-if="sectionSel.tableau_options">
           <input v-model="sectionSel.tableau_options.titre" class="champ mt-1 w-full uppercase" placeholder="Titre du tableau">

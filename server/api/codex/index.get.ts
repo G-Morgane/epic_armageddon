@@ -7,6 +7,7 @@ export default defineEventHandler(async () => {
     nom: c.codex.nom,
     version: c.codex.version,
     faction: c.codex.faction,
+    type: c.codex.type,
     statut: c.codex.statut,
     couleur: c.codex.couleur,
     unites: c.unites.length,

@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
       // le brouillon est parsé avec valeurs par défaut mais sans exiger la cohérence des références
       const res = CodexSchema.safeParse(b.data)
       if (!res.success) throw createError({ statusCode: 422, statusMessage: 'Brouillon invalide', message: res.error.issues.map((i) => `${i.path.join('.')} : ${i.message}`).join('\n') })
-      return res.data
+      return await avecAllies(res.data)
     }
     return await lireCodex(slug)
   } catch (e) {

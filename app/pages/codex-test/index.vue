@@ -1,6 +1,8 @@
 <script setup lang="ts">
 useHead({ title: 'Codex unifiés (test)' })
-const { data: codex } = await useFetch('/api/codex')
+const { data: tous } = await useFetch<Array<{ slug: string; nom: string; version: string; faction: string; statut: string; couleur?: string; type: string; unites: number; formations: number; options: number }>>('/api/codex')
+const codex = computed(() => (tous.value ?? []).filter((c) => c.type !== 'soutien'))
+const soutiens = computed(() => (tous.value ?? []).filter((c) => c.type === 'soutien'))
 const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos', xenos: 'Xenos' }
 </script>
 
@@ -30,5 +32,16 @@ const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos',
         </div>
       </div>
     </div>
+
+    <template v-if="soutiens.length">
+      <h2 class="mt-10 font-heading text-xl font-semibold text-white">Listes de soutien partagées</h2>
+      <p class="mt-1 text-sm text-stone-400">Écrites une fois, proposées en alliance dans les codex qui y ont droit (1/3 des points en général).</p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
+        <div v-for="c in soutiens" :key="c.slug" class="flex items-center justify-between rounded-lg border border-white/10 bg-surface-light px-5 py-3">
+          <div><p class="font-heading text-lg text-white">{{ c.nom }}</p><p class="text-xs text-stone-400">{{ c.unites }} unités · {{ c.formations }} formations</p></div>
+          <div class="flex gap-2 text-sm"><NuxtLink :to="`/codex-test/${c.slug}/imprimer`" class="rounded border border-white/20 px-3 py-1 text-stone-200 hover:bg-white/5">Aperçu</NuxtLink><a :href="`/api/codex/${c.slug}.json`" class="rounded px-3 py-1 text-stone-400 hover:text-white">JSON</a></div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
