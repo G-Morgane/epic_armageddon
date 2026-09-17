@@ -39,10 +39,11 @@ async function creer() {
         <h1 class="font-heading text-3xl font-bold text-white">Codex</h1>
         <p class="mt-1 max-w-2xl text-sm text-gray-400">Une fiche par armée : unités, formations, améliorations et règles. Le PDF et le builder en découlent. <span class="text-gold">Démo</span> : les brouillons sont stockés côté serveur, la base de données viendra ensuite.</p>
       </div>
-      <button type="button" class="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-surface hover:bg-gold-light" @click="modale = true">+ Nouvelle armée</button>
+      <div class="flex items-center gap-2">
+        <AdminCodexGuide libelle="Comment créer une armée" />
+        <button type="button" class="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-surface hover:bg-gold-light" @click="modale = true">+ Nouvelle armée</button>
+      </div>
     </div>
-
-    <AdminCodexGuide class="mb-6" />
 
     <div v-if="chargement" class="py-16 text-center text-gray-500">Chargement…</div>
     <div v-else class="overflow-hidden rounded-lg border border-gold/10 bg-surface-light">

@@ -132,6 +132,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
           </h1>
         </div>
         <div class="flex flex-wrap items-center gap-2">
+          <AdminCodexGuide volet="recettes" />
           <span class="text-xs" :class="{ 'text-gray-500': sauvegarde === 'propre', 'text-amber-300': sauvegarde === 'modifie' || sauvegarde === 'encours', 'text-emerald-300': sauvegarde === 'ok' }">
             {{ sauvegarde === 'encours' ? 'Enregistrement…' : sauvegarde === 'ok' ? 'Brouillon enregistré' : sauvegarde === 'modifie' ? 'Modifications non enregistrées' : existe ? 'Brouillon en cours' : 'Aucune modification' }}
           </span>
@@ -147,8 +148,6 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
         <p class="mb-2 text-xs uppercase tracking-wider">À corriger avant publication</p>
         <ul class="list-disc space-y-0.5 pl-5"><li v-for="(p, i) in problemes" :key="i">{{ p }}</li></ul>
       </div>
-
-      <AdminCodexGuide replie cle="admin-codex-guide-fiche" class="mb-5" />
 
       <!-- Onglets -->
       <div class="mb-5 flex gap-1 border-b border-gold/10">
