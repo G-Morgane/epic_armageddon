@@ -1,0 +1,831 @@
+{
+ "codex": {
+  "id": "evil_sunz",
+  "name": "Evil Sunz",
+  "version": "1.0",
+  "faction": "Orks",
+  "color": "#CC1100",
+  "logo": "evilsunz.png",
+  "categorie": "armees-xenos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 4,
+   "valeur_strategique_notes": "VS 4 au T1, VS 3 aux tours suivants",
+   "initiative_defaut": "3+",
+   "label_rares": "Truk'eud'mek",
+   "taille_transport": {
+    "boyz": 1,
+    "nob_evil_sunz": 1,
+    "tankbusta": 1
+   },
+   "capacite_transport": {
+    "chariot_guerre": 2,
+    "chariot_kanon": 1,
+    "chariot_flak": 1
+   },
+   "transport_notes": "Chariot de Guerre : +1 Gretchin gratuit en plus des 2 places"
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "big_bad_biker_boss_es",
+   "name": "Big Bad Biker Boss",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "IsNotOption": true,
+   "description": "Commandant Suprême obligatoire (50 pts). Donne Speedwaaagh! à sa formation.",
+   "unites": [
+    {
+     "id": "big_bad_biker_boss",
+     "name": "Big Bad Biker Boss",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "boyz_gretchin_es",
+   "name": "Boyz (+1 Gretchin)",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 2,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 1 ou 2 Boyz (chacun vient avec 1 Gretchin gratuit) — 25 pts/Boy",
+   "unites": [
+    {
+     "id": "boyz",
+     "name": "Boyz",
+     "nombre": 1
+    },
+    {
+     "id": "gretchin",
+     "name": "Gretchin",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "tankbusta_supp_es",
+   "name": "TankBustas",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "affiche_dans_composition": true,
+   "description": "Ajouter des TankBustas (25 pts chacun)",
+   "unites": [
+    {
+     "id": "tankbusta",
+     "name": "TankBusta",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "chokboyz_supp_es",
+   "name": "Chokboyz",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "affiche_dans_composition": true,
+   "description": "Ajouter des Chokboyz (25 pts chacun)",
+   "unites": [
+    {
+     "id": "chokboyz",
+     "name": "Chokboyz",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "moto_supp_es",
+   "name": "Motos",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "affiche_dans_composition": true,
+   "description": "Ajouter des Motos (25 pts chacune)",
+   "unites": [
+    {
+     "id": "motos",
+     "name": "Motos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "buggy_supp_es",
+   "name": "Buggys/Traks",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "description": "Ajouter des Buggys/Traks (25 pts chacun)",
+   "unites": [
+    {
+     "id": "buggy",
+     "name": "Buggy/Trak",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "karbonisator_supp_es",
+   "name": "Karbonisators",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "description": "Ajouter des Karbonisators (25 pts chacun)",
+   "unites": [
+    {
+     "id": "karbonisator",
+     "name": "Karbonisator",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "chariot_guerre_supp_es",
+   "name": "Chariots de Guerre",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "description": "Ajouter des Chariots de Guerre (25 pts chacun)",
+   "unites": [
+    {
+     "id": "chariot_guerre",
+     "name": "Chariot de Guerre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "kopter_supp_es",
+   "name": "2 Kopters",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 10,
+   "description": "Ajouter des Kopters par paires (50 pts les 2)",
+   "unites": [
+    {
+     "id": "kopter",
+     "name": "Kopter",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "chariot_kanon_supp_es",
+   "name": "2 Chariots Kanons",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 10,
+   "description": "Ajouter des Chariot Kanons par paires (50 pts les 2)",
+   "unites": [
+    {
+     "id": "chariot_kanon",
+     "name": "Chariot Kanon",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "chariot_flak_supp_es",
+   "name": "2 Chariots Flak",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 10,
+   "description": "Ajouter des Chariot Flaks par paires (50 pts les 2)",
+   "unites": [
+    {
+     "id": "chariot_flak",
+     "name": "Chariot Flak",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "nobz_supp_es",
+   "name": "0-1 2 Nobz Evil Sunz",
+   "cout": 50,
+   "limit": 1,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 1 Nobz Evil Sunz (25 pts, dans la tranche 50 pts les 2)",
+   "unites": [
+    {
+     "id": "nob_evil_sunz",
+     "name": "Nobz Evil Sunz",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "nobz_motos_es",
+   "name": "0-1 2 Nobz sur Motos",
+   "cout": 50,
+   "cout_par_unite": false,
+   "max": 1,
+   "description": "Les Nobz Evil Sunz montent sur Motos : mouvement 35cm, blindage 5+, gagnent Montés et ne peuvent plus embarquer dans les transports.",
+   "requires_unites": [
+    "nob_evil_sunz"
+   ],
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "nob_evil_sunz"
+    ],
+    "par_unite": "nob_evil_sunz_motos",
+    "par_name": "Nobz Evil Sunz Montés"
+   },
+   "unites": []
+  },
+  {
+   "id": "brikolo_supp_es",
+   "name": "0-1 Brikolo",
+   "cout": 50,
+   "cout_par_unite": false,
+   "limit": 1,
+   "limit_par_variante": {
+    "default": 1,
+    "bdg_mastok": 2,
+    "bdg_tre_mastok": 3,
+    "kdv_mastok": 2,
+    "kdv_tre_mastok": 3,
+    "bb_mastok": 2,
+    "bb_tre_mastok": 3,
+    "bf_mastok": 2,
+    "bf_tre_mastok": 3
+   },
+   "choix": [
+    {
+     "id": "brikolo_super_zap",
+     "name": "Brikolo Super Zap",
+     "stat_nom": "Brikolo Super Zap"
+    },
+    {
+     "id": "brikolo_superkanon",
+     "name": "Brikolo Superkanon",
+     "stat_nom": "Brikolo Superkanon"
+    }
+   ],
+   "description": "Ajouter 1 Brikolo — nécessite une Forteresse à Kanons ou un Chariot Kanon dans la formation",
+   "requires_unites": [
+    "forteresse_kanons",
+    "chariot_kanon"
+   ],
+   "unites": [
+    {
+     "id": "brikolo",
+     "name": "Brikolo",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "meka_fissa_supp_es",
+   "name": "0-1 Meka Fissa",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Meka Fissa (50 pts)",
+   "unites": [
+    {
+     "id": "meka_fissa",
+     "name": "Meka Fissa",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "super_mekboy_supp_es",
+   "name": "0-1 Super Mekboy",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Super Mekboy (0-1 par armée, 50 pts)",
+   "unites": [
+    {
+     "id": "super_mekboy",
+     "name": "Super Mekboy",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "forteresse_bataille_supp_es",
+   "name": "Forteresse de Bataille",
+   "cout": 125,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 4,
+   "description": "Ajouter une Forteresse de Bataille (125 pts chacune)",
+   "unites": [
+    {
+     "id": "forteresse_bataille",
+     "name": "Forteresse de Bataille",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "forteresse_kanons_supp_es",
+   "name": "Forteresse à Kanons",
+   "cout": 125,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 4,
+   "description": "Ajouter une Forteresse à Kanons (125 pts chacune)",
+   "unites": [
+    {
+     "id": "forteresse_kanons",
+     "name": "Forteresse à Kanons",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "forteresse_kanons_limit_es",
+   "name": "0-1 Forteresse à Kanons",
+   "cout": 125,
+   "limit": 1,
+   "description": "Ajouter 1 Forteresse à Kanons (125 pts, Brigade Blitz uniquement)",
+   "unites": [
+    {
+     "id": "forteresse_kanons",
+     "name": "Forteresse à Kanons",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "motokross_supp_es",
+   "name": "MotoKross",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 1,
+   "min": 1,
+   "max": 20,
+   "affiche_dans_composition": true,
+   "description": "Ajouter des MotoKross (50 pts les 2)",
+   "unites": [
+    {
+     "id": "motokross",
+     "name": "MotoKross",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "bandes_orks_es",
+   "name": "BANDES ORKS",
+   "type": "principale",
+   "description": "Formations principales Evil Sunz. Chaque Bande fournit 2 slots Truk'en'plus. Chaque Kulte d'la Vitesse fournit 1 slot MotoKross.",
+   "formations": [
+    {
+     "id": "bande_guerre_es",
+     "name": "Bande de Guerre",
+     "cout": 200,
+     "FormationLimitationTag": {
+      "slot_truk_es": 2
+     },
+     "unites": [
+      {
+       "id": "nob_evil_sunz",
+       "name": "Nobz Evil Sunz",
+       "nombre": 2
+      },
+      {
+       "id": "boyz",
+       "name": "Boyz",
+       "nombre": 6
+      },
+      {
+       "id": "gretchin",
+       "name": "Gretchin",
+       "nombre": 2
+      }
+     ],
+     "variantes": [
+      {
+       "id": "bdg_mastok",
+       "name": "Mastok' — 4 Nobz, 12 Boyz, 4 Gretchins",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "nob_evil_sunz",
+         "name": "Nobz Evil Sunz",
+         "nombre": 4
+        },
+        {
+         "id": "boyz",
+         "name": "Boyz",
+         "nombre": 12
+        },
+        {
+         "id": "gretchin",
+         "name": "Gretchin",
+         "nombre": 4
+        }
+       ]
+      },
+      {
+       "id": "bdg_tre_mastok",
+       "name": "Tré Mastok' — 6 Nobz, 18 Boyz, 6 Gretchins",
+       "cout": 500,
+       "unites_override": [
+        {
+         "id": "nob_evil_sunz",
+         "name": "Nobz Evil Sunz",
+         "nombre": 6
+        },
+        {
+         "id": "boyz",
+         "name": "Boyz",
+         "nombre": 18
+        },
+        {
+         "id": "gretchin",
+         "name": "Gretchin",
+         "nombre": 6
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "nobz_motos_es",
+      "boyz_gretchin_es",
+      "tankbusta_supp_es",
+      "chokboyz_supp_es",
+      "moto_supp_es",
+      "buggy_supp_es",
+      "karbonisator_supp_es",
+      "chariot_guerre_supp_es",
+      "kopter_supp_es",
+      "chariot_kanon_supp_es",
+      "chariot_flak_supp_es",
+      "nobz_supp_es",
+      "brikolo_supp_es",
+      "forteresse_bataille_supp_es",
+      "forteresse_kanons_supp_es"
+     ]
+    },
+    {
+     "id": "kulte_vitesse_es",
+     "name": "Kulte d'la Vitesse",
+     "cout": 200,
+     "FormationLimitationTag": {
+      "slot_truk_es": 2,
+      "slot_motokross_es": 1
+     },
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 8,
+      "description": "8 unités parmi Buggys/Traks, Motos et Karbonisators",
+      "principale": true,
+      "options": [
+       {
+        "id": "buggy",
+        "name": "Buggy/Trak",
+        "unitId": "buggy",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "motos",
+        "name": "Motos",
+        "unitId": "motos",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "karbonisator",
+        "name": "Karbonisator",
+        "unitId": "karbonisator",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       }
+      ]
+     },
+     "variantes": [
+      {
+       "id": "kdv_mastok",
+       "name": "Mastok' — 16 unités",
+       "cout": 350,
+       "total_composition": 16
+      },
+      {
+       "id": "kdv_tre_mastok",
+       "name": "Tré Mastok' — 24 unités",
+       "cout": 500,
+       "total_composition": 24
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "moto_supp_es",
+      "buggy_supp_es",
+      "karbonisator_supp_es",
+      "kopter_supp_es",
+      "chariot_kanon_supp_es",
+      "chariot_flak_supp_es",
+      "nobz_supp_es",
+      "meka_fissa_supp_es",
+      "brikolo_supp_es",
+      "super_mekboy_supp_es"
+     ]
+    },
+    {
+     "id": "brigade_blitz_es",
+     "name": "Brigade Blitz",
+     "cout": 150,
+     "FormationLimitationTag": {
+      "slot_truk_es": 2
+     },
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 4,
+      "description": "4 unités parmi Chariots Kanons, Chariots Flak et Kopters",
+      "principale": true,
+      "options": [
+       {
+        "id": "chariot_kanon",
+        "name": "Chariot Kanon",
+        "unitId": "chariot_kanon",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "chariot_flak",
+        "name": "Chariot Flak",
+        "unitId": "chariot_flak",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "kopter",
+        "name": "Kopter",
+        "unitId": "kopter",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       }
+      ]
+     },
+     "variantes": [
+      {
+       "id": "bb_mastok",
+       "name": "Mastok' — 8 unités",
+       "cout": 250,
+       "total_composition": 8
+      },
+      {
+       "id": "bb_tre_mastok",
+       "name": "Tré Mastok' — 12 unités",
+       "cout": 350,
+       "total_composition": 12
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "moto_supp_es",
+      "buggy_supp_es",
+      "karbonisator_supp_es",
+      "kopter_supp_es",
+      "chariot_kanon_supp_es",
+      "chariot_flak_supp_es",
+      "nobz_supp_es",
+      "brikolo_supp_es",
+      "meka_fissa_supp_es",
+      "forteresse_kanons_limit_es"
+     ]
+    },
+    {
+     "id": "bande_forteresses_es",
+     "name": "Bande de Forteresses",
+     "cout": 250,
+     "FormationLimitationTag": {
+      "slot_truk_es": 2
+     },
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 2,
+      "description": "Forteresses parmi Forteresse de Bataille et Forteresse à Kanons",
+      "principale": true,
+      "options": [
+       {
+        "id": "forteresse_bataille",
+        "name": "Forteresse de Bataille",
+        "unitId": "forteresse_bataille",
+        "cout": 0,
+        "min": 0,
+        "max": 2
+       },
+       {
+        "id": "forteresse_kanons",
+        "name": "Forteresse à Kanons",
+        "unitId": "forteresse_kanons",
+        "cout": 0,
+        "min": 0,
+        "max": 2
+       }
+      ]
+     },
+     "variantes": [
+      {
+       "id": "bf_mastok",
+       "name": "Mastok' — 4 Forteresses",
+       "cout": 450,
+       "total_composition": 4
+      },
+      {
+       "id": "bf_tre_mastok",
+       "name": "Tré Mastok' — 6 Forteresses",
+       "cout": 625,
+       "total_composition": 6
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "boyz_gretchin_es",
+      "tankbusta_supp_es",
+      "chokboyz_supp_es",
+      "moto_supp_es",
+      "buggy_supp_es",
+      "karbonisator_supp_es",
+      "kopter_supp_es",
+      "chariot_kanon_supp_es",
+      "chariot_flak_supp_es",
+      "nobz_supp_es",
+      "brikolo_supp_es"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "truk_en_plus_es",
+   "name": "LES TRUK'EN'PLUS",
+   "type": "associee",
+   "LimitationTag": "slot_truk_es",
+   "description": "Jusqu'à 2 Truk'en'plus par Bande Orks",
+   "formations": [
+    {
+     "id": "chokboyz_es",
+     "name": "Chokboyz",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "chokboyz",
+       "name": "Chokboyz",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "chokboyz_supp_es",
+      "buggy_supp_es",
+      "moto_supp_es",
+      "karbonisator_supp_es",
+      "kopter_supp_es"
+     ]
+    },
+    {
+     "id": "tankbustas_es",
+     "name": "TankBustas",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "tankbusta",
+       "name": "TankBusta",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "chariot_guerre_supp_es",
+      "kopter_supp_es",
+      "chariot_kanon_supp_es",
+      "chariot_flak_supp_es",
+      "brikolo_supp_es",
+      "forteresse_bataille_supp_es",
+      "forteresse_kanons_supp_es"
+     ]
+    },
+    {
+     "id": "motokross_es",
+     "name": "MotoKross",
+     "cout": 175,
+     "unites": [
+      {
+       "id": "motokross",
+       "name": "MotoKross",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "big_bad_biker_boss_es",
+      "motokross_supp_es",
+      "kopter_supp_es"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "trukEudMek_es",
+   "name": "TRUK'EUD'MEK",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "chassa_bombas_es",
+     "name": "Chassa-Bombas",
+     "cout": 0,
+     "rare": true,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 4,
+      "max_total": 9,
+      "description": "4 à 9 Chassa-Bombas (50 pts chacun)",
+      "principale": true,
+      "options": [
+       {
+        "id": "chassa_bomba",
+        "name": "Chassa-Bomba",
+        "unitId": "chassa_bomba",
+        "cout": 50,
+        "min": 4,
+        "max": 9,
+        "force_slider": true
+       }
+      ]
+     },
+     "ameliorations": []
+    },
+    {
+     "id": "dakka_jets_es",
+     "name": "Dakka-Jets",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "dakka_jet",
+       "name": "Dakka-Jet",
+       "nombre": 6
+      }
+     ],
+     "variantes": [
+      {
+       "id": "dakkajets_9",
+       "name": "9 Dakka-Jets",
+       "cout": 300,
+       "nombre_exact": 9
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "krama_bombas_es",
+     "name": "Krama-Bombas",
+     "cout": 250,
+     "rare": true,
+     "unites": [
+      {
+       "id": "krama_bomba",
+       "name": "Krama-Bomba",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

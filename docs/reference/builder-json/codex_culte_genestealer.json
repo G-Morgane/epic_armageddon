@@ -1,0 +1,614 @@
+{
+ "codex": {
+  "id": "culte_genestealer",
+  "name": "Culte Genestealer",
+  "version": "1.0",
+  "faction": "Culte Genestealer",
+  "color": "#6B3FA0",
+  "logo": "cg.png",
+  "categorie": "armees-xenos",
+  "regles_speciales": {
+   "valeur_strategique": 2,
+   "initiative_defaut": "2+",
+   "taille_transport": {
+    "patriarche": 1,
+    "magus": 1,
+    "hybride_acolyte": 1,
+    "hybride_neophyte": 1,
+    "genestealer_culte": 1,
+    "assassin_metamorphe": 1,
+    "hybride_metamorphe": 1,
+    "aberrant": 1,
+    "infanterie_neophyte": 1,
+    "appui_feu_neophyte": 1,
+    "atalan_jackal": 1,
+    "atalan_wolfsquad": 1
+   },
+   "capacite_transport": {
+    "chimere": 2,
+    "goliath": 2,
+    "goliath_brise_roche": 2,
+    "limousine_blindee": 1
+   }
+  },
+  "statut": "brouillon"
+ },
+ "ameliorations": [
+  {
+   "id": "primus_cg",
+   "name": "0-1 Primus",
+   "cout": 50,
+   "limiteOptionGlobal": 1,
+   "limit": 1,
+   "description": "Un personnage Primus pour toute l'armée (0-1 par armée, 50 pts). La formation s'active sur 1+.",
+   "unites": [
+    {
+     "id": "primus",
+     "name": "Primus",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "genestealers_cg",
+   "name": "Genestealers",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 3,
+   "affiche_dans_composition": true,
+   "description": "Ajouter jusqu'à 3 Genestealers à la formation (25 pts chacun)",
+   "unites": [
+    {
+     "id": "genestealer_culte",
+     "name": "Genestealer",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "hybrides_metamorphes_cg",
+   "name": "Hybrides Métamorphes",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 4,
+   "affiche_dans_composition": true,
+   "description": "Ajouter jusqu'à 4 Hybrides Métamorphes à la formation (25 pts chacun)",
+   "unites": [
+    {
+     "id": "hybride_metamorphe",
+     "name": "Hybride Métamorphe",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "aberrants_cg",
+   "name": "Aberrants",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 5,
+   "affiche_dans_composition": true,
+   "description": "Ajouter jusqu'à 5 Aberrants à la formation (25 pts chacun)",
+   "unites": [
+    {
+     "id": "aberrant",
+     "name": "Aberrant",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "hydre_cg",
+   "name": "Hydre",
+   "cout": 50,
+   "limit": 1,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 1 Hydre à la formation (50 pts)",
+   "unites": [
+    {
+     "id": "hydre",
+     "name": "Hydre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "soldats_neophytes_cg",
+   "name": "Soldats Néophytes",
+   "cout": 100,
+   "limit": 1,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 6 unités d'Infanterie Néophyte à la formation (100 pts)",
+   "unites": [
+    {
+     "id": "infanterie_neophyte",
+     "name": "Infanterie Néophyte",
+     "nombre": 6
+    }
+   ]
+  },
+  {
+   "id": "appui_feu_neophytes_cg",
+   "name": "Appui-Feu Néophytes",
+   "cout": 100,
+   "limit": 1,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 4 unités d'Appui-Feu Néophytes à la formation (100 pts)",
+   "unites": [
+    {
+     "id": "appui_feu_neophyte",
+     "name": "Appui-Feu Néophyte",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "transport_cg",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "IsNotOption": true,
+   "description": "Ajouter des véhicules de transport (combinaison libre — Goliath Brise-Roche compté par paire)",
+   "unites": [],
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 12,
+    "description": "Choisir les véhicules de transport (Chimère ×2 places, Goliath ×2, Goliath Brise-Roche ×2 par paire)",
+    "options": [
+     {
+      "id": "tp_chimere_cg",
+      "name": "Chimère",
+      "unitId": "chimere",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "tp_goliath_cg",
+      "name": "Goliath",
+      "unitId": "goliath",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "tp_goliath_brise_roche_cg",
+      "name": "Goliath Brise-Roche (paire)",
+      "unitId": "goliath_brise_roche",
+      "cout": 75,
+      "min": 0,
+      "max": 6
+     }
+    ]
+   }
+  },
+  {
+   "id": "transport_chef_cg",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "IsNotOption": true,
+   "description": "Transport incluant 1 Limousine Blindée gratuite pour le Patriarche ou le Magus",
+   "unites": [],
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 13,
+    "description": "1 Limousine Blindée gratuite (incluse) + véhicules supplémentaires au choix",
+    "options": [
+     {
+      "id": "tp_limousine_cg",
+      "name": "Limousine Blindée (gratuite)",
+      "unitId": "limousine_blindee",
+      "cout": 0,
+      "min": 1,
+      "max": 1
+     },
+     {
+      "id": "tp_chimere_chef_cg",
+      "name": "Chimère",
+      "unitId": "chimere",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "tp_goliath_chef_cg",
+      "name": "Goliath",
+      "unitId": "goliath",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "tp_goliath_brise_roche_chef_cg",
+      "name": "Goliath Brise-Roche (paire)",
+      "unitId": "goliath_brise_roche",
+      "cout": 75,
+      "min": 0,
+      "max": 6
+     }
+    ]
+   }
+  },
+  {
+   "id": "achille_supp_cg",
+   "name": "+1 ou 2 Achille Ridgerunner",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 2,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 1 ou 2 Achille Ridgerunner supplémentaires (25 pts chacun)",
+   "unites": [
+    {
+     "id": "achille_ridgerunner",
+     "name": "Achille Ridgerunner",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principaux_cg",
+   "name": "DÉTACHEMENTS PRINCIPAUX CULTE GENESTEALER",
+   "type": "principale",
+   "min_formations": 1,
+   "formations": [
+    {
+     "id": "couvain_patriarche_cg",
+     "name": "Couvain du Patriarche",
+     "cout": 325,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "FormationMinimum": 1,
+     "FormationLimitationTag": {
+      "slot_soutien_cg": 2
+     },
+     "description": "1 Patriarche + 12 unités parmi Hybrides Acolytes et Néophytes. La formation est Sans Peur tant que le Patriarche est en vie.",
+     "unites": [
+      {
+       "id": "patriarche",
+       "name": "Patriarche",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 12,
+      "description": "Choisir 12 unités parmi Hybrides Acolytes et Néophytes",
+      "options": [
+       {
+        "id": "hybride_acolyte",
+        "name": "Hybrides Acolytes",
+        "unitId": "hybride_acolyte",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       },
+       {
+        "id": "hybride_neophyte",
+        "name": "Hybrides Néophytes",
+        "unitId": "hybride_neophyte",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       }
+      ]
+     },
+     "ameliorations": [
+      "transport_chef_cg",
+      "appui_feu_neophytes_cg",
+      "soldats_neophytes_cg",
+      "genestealers_cg",
+      "hybrides_metamorphes_cg",
+      "aberrants_cg",
+      "hydre_cg"
+     ]
+    },
+    {
+     "id": "couvain_magus_cg",
+     "name": "Couvain du Magus",
+     "cout": 250,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "FormationMinimum": 1,
+     "FormationLimitationTag": {
+      "slot_soutien_cg": 2
+     },
+     "description": "1 Magus + 12 unités parmi Hybrides Acolytes et Néophytes.",
+     "unites": [
+      {
+       "id": "magus",
+       "name": "Magus",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 12,
+      "description": "Choisir 12 unités parmi Hybrides Acolytes et Néophytes",
+      "options": [
+       {
+        "id": "hybride_acolyte",
+        "name": "Hybrides Acolytes",
+        "unitId": "hybride_acolyte",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       },
+       {
+        "id": "hybride_neophyte",
+        "name": "Hybrides Néophytes",
+        "unitId": "hybride_neophyte",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       }
+      ]
+     },
+     "ameliorations": [
+      "transport_chef_cg",
+      "appui_feu_neophytes_cg",
+      "soldats_neophytes_cg",
+      "genestealers_cg",
+      "hybrides_metamorphes_cg",
+      "aberrants_cg",
+      "hydre_cg"
+     ]
+    },
+    {
+     "id": "hybrides_acolytes_cg",
+     "name": "Escouade d'Hybrides Acolytes",
+     "cout": 175,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_soutien_cg": 2
+     },
+     "unites": [
+      {
+       "id": "hybride_acolyte",
+       "name": "Hybride Acolyte",
+       "nombre": 12
+      }
+     ],
+     "ameliorations": [
+      "transport_cg",
+      "appui_feu_neophytes_cg",
+      "soldats_neophytes_cg",
+      "genestealers_cg",
+      "hybrides_metamorphes_cg",
+      "aberrants_cg",
+      "hydre_cg"
+     ]
+    },
+    {
+     "id": "hybrides_neophytes_cg",
+     "name": "Escouade d'Hybrides Néophytes",
+     "cout": 200,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "hybride_neophyte",
+       "name": "Hybride Néophyte",
+       "nombre": 12
+      }
+     ],
+     "ameliorations": [
+      "transport_cg",
+      "appui_feu_neophytes_cg",
+      "soldats_neophytes_cg",
+      "genestealers_cg",
+      "hybrides_metamorphes_cg",
+      "aberrants_cg",
+      "hydre_cg"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_genovores_cg",
+   "name": "DÉTACHEMENTS DE SOUTIEN GENOVORES",
+   "type": "associee",
+   "description": "Max 2 détachements de soutien (Génovores + Infectés confondus) par Couvain ou Escouade d'Hybrides Acolytes",
+   "LimitationTag": "slot_soutien_cg",
+   "max_par_tag": 2,
+   "formations": [
+    {
+     "id": "couvain_peres_cg",
+     "name": "Couvain des Pères",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "genestealer_culte",
+       "name": "Genestealer du Culte",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "primus_cg"
+     ]
+    },
+    {
+     "id": "couvain_incursion_cg",
+     "name": "Couvain d'Incursion",
+     "cout": 125,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "achille_ridgerunner",
+       "name": "Achille Ridgerunner",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "achille_supp_cg"
+     ]
+    },
+    {
+     "id": "couvain_metamorphes_cg",
+     "name": "Couvain Métamorphes",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "assassin_metamorphe",
+       "name": "Assassin Métamorphe",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "transport_cg",
+      "appui_feu_neophytes_cg",
+      "soldats_neophytes_cg",
+      "genestealers_cg",
+      "hybrides_metamorphes_cg",
+      "aberrants_cg",
+      "hydre_cg"
+     ]
+    },
+    {
+     "id": "couvain_exploration_cg",
+     "name": "Couvain d'Exploration",
+     "cout": 150,
+     "initiative": "2+",
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 6,
+      "description": "Choisir 6 unités parmi Atalan Jackals et Atalan Wolfsquads",
+      "principale": true,
+      "options": [
+       {
+        "id": "atalan_jackal",
+        "name": "Atalan Jackal",
+        "unitId": "atalan_jackal",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "atalan_wolfsquad",
+        "name": "Atalan Wolfsquad",
+        "unitId": "atalan_wolfsquad",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "soutien_infectes_cg",
+   "name": "DÉTACHEMENTS DE SOUTIEN INFECTÉS",
+   "type": "associee",
+   "description": "Max 2 détachements de soutien (Génovores + Infectés confondus) par Couvain ou Escouade d'Hybrides Acolytes",
+   "LimitationTag": "slot_soutien_cg",
+   "max_par_tag": 2,
+   "formations": [
+    {
+     "id": "infanterie_infectee_cg",
+     "name": "Infanterie",
+     "cout": 225,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "infanterie_neophyte",
+       "name": "Infanterie Néophyte",
+       "nombre": 12
+      }
+     ],
+     "ameliorations": [
+      "transport_cg",
+      "appui_feu_neophytes_cg",
+      "soldats_neophytes_cg",
+      "genestealers_cg",
+      "hybrides_metamorphes_cg",
+      "aberrants_cg",
+      "primus_cg",
+      "hydre_cg"
+     ]
+    },
+    {
+     "id": "blindes_infectes_cg",
+     "name": "Blindés",
+     "cout": 350,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "hydre_cg",
+      "primus_cg"
+     ]
+    },
+    {
+     "id": "blindes_lourds_infectes_cg",
+     "name": "Blindés Lourds",
+     "cout": 200,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "baneblade",
+       "name": "Baneblade",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "trois_baneblades_cg",
+       "name": "3 Baneblades",
+       "cout": 500,
+       "nombre_exact": 3
+      }
+     ],
+     "ameliorations": [
+      "hydre_cg",
+      "primus_cg"
+     ]
+    },
+    {
+     "id": "artillerie_legere_cg",
+     "name": "Artillerie Légère",
+     "cout": 225,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "griffon",
+       "name": "Griffon",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "artillerie_cg",
+     "name": "Artillerie",
+     "cout": 225,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "basilisk",
+       "name": "Basilisk",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

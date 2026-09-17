@@ -1,0 +1,1075 @@
+{
+ "codex": {
+  "id": "eldars_iyanden",
+  "name": "Eldars d'Iyanden",
+  "version": "1.1",
+  "faction": "Eldars",
+  "color": "#C8A415",
+  "logo": "iyanden.png",
+  "categorie": "armees-xenos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+",
+   "initiative_elites": "1+",
+   "taille_transport": {
+    "spirite": 1,
+    "grand_prophete": 1,
+    "gardien": 1,
+    "plateforme_arme_lourde": 1,
+    "ranger": 1,
+    "guerrier_scorpion": 1,
+    "banshee": 1,
+    "vengeur": 1,
+    "dragon_feu": 1,
+    "faucheur_noir": 1,
+    "lance_lumiere": 1,
+    "araignee_spectrale": 1,
+    "garde_fantome": 2
+   },
+   "capacite_transport": {
+    "falcon": 1,
+    "wave_serpent": 2
+   }
+  },
+  "statut": "brouillon"
+ },
+ "ameliorations": [
+  {
+   "id": "transport_falcon",
+   "name": "Falcons",
+   "cout": 50,
+   "cout_par_unite": true,
+   "IsNotOption": true,
+   "limit": 1,
+   "min": 1,
+   "max": 8,
+   "description": "Transport 1 — chaque Falcon transporte 1 unité (50 pts/Falcon)",
+   "unites": [
+    {
+     "id": "falcon",
+     "name": "Falcon",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_wave_serpent",
+   "name": "Wave Serpents",
+   "cout": 0,
+   "IsNotOption": true,
+   "limit": 1,
+   "description": "Transport 2 — 50 pts pour 1 Wave Serpent, 75 pts pour 2",
+   "choix": [
+    {
+     "name": "1 Wave Serpent",
+     "cout": 50,
+     "nb_unites": 1
+    },
+    {
+     "name": "2 Wave Serpents",
+     "cout": 75,
+     "nb_unites": 2
+    },
+    {
+     "name": "3 Wave Serpents",
+     "cout": 125,
+     "nb_unites": 3
+    },
+    {
+     "name": "4 Wave Serpents",
+     "cout": 150,
+     "nb_unites": 4
+    },
+    {
+     "name": "5 Wave Serpents",
+     "cout": 200,
+     "nb_unites": 5
+    },
+    {
+     "name": "6 Wave Serpents",
+     "cout": 225,
+     "nb_unites": 6
+    }
+   ],
+   "unites": [
+    {
+     "id": "wave_serpent",
+     "name": "Wave Serpent",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "commandant_supreme_prophete",
+   "name": "0-1 Commandant Suprême",
+   "cout": 50,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "limit": 1,
+   "description": "Un Grand Prophète de la formation devient Commandant Suprême (0-1 par armée, 50 pts)",
+   "unites": []
+  },
+  {
+   "id": "remplacement_plateforme",
+   "name": "Plate-formes d'Arme Lourde",
+   "cout": 0,
+   "cout_par_unite": true,
+   "description": "Remplacer gratuitement jusqu'à 3 Gardiens par des Plate-formes d'Arme Lourde",
+   "min": 1,
+   "max": 3,
+   "type_remplacement": {
+    "remplace_unites": [
+     "gardien"
+    ],
+    "par_unite": "plateforme_arme_lourde",
+    "par_name": "Plate-forme d'Arme Lourde"
+   },
+   "unites": [
+    {
+     "id": "plateforme_arme_lourde",
+     "name": "Plate-forme d'Arme Lourde",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "plateformes_support",
+   "name": "Plate-formes d'Arme de Support",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 3 Plate-formes d'Arme de Support (50 pts)",
+   "unites": [
+    {
+     "id": "plateforme_support",
+     "name": "Plate-forme d'Arme de Support",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "exarque",
+   "name": "Exarque",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter 1 Exarque à une unité de Guerriers Aspects",
+   "unites": []
+  },
+  {
+   "id": "pierres_esprit",
+   "name": "Pierres Esprit",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter des Pierres-Esprits (la formation gagne Meneur)",
+   "unites": []
+  },
+  {
+   "id": "fantomes",
+   "name": "Fantômes",
+   "cout": 0,
+   "limit": 1,
+   "description": "Option Fantômes — choisir une sous-option (1 seul choix par formation)",
+   "choix": [
+    {
+     "name": "Remplacer 2 Guerriers Fantômes par 2 Gardes Fantômes",
+     "cout": 25,
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "guerrier_fantome"
+      ],
+      "par_unite": "garde_fantome",
+      "par_name": "Garde Fantôme"
+     }
+    },
+    {
+     "name": "+1 Garde Fantôme",
+     "cout": 50,
+     "ajouter_unites": [
+      {
+       "id": "garde_fantome",
+       "name": "Garde Fantôme",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "name": "+2 Gardes Fantômes",
+     "cout": 100,
+     "ajouter_unites": [
+      {
+       "id": "garde_fantome",
+       "name": "Garde Fantôme",
+       "nombre": 2
+      }
+     ]
+    },
+    {
+     "name": "+3 Gardes Fantômes",
+     "cout": 150,
+     "ajouter_unites": [
+      {
+       "id": "garde_fantome",
+       "name": "Garde Fantôme",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "name": "+2 Guerriers Fantômes",
+     "cout": 75,
+     "ajouter_unites": [
+      {
+       "id": "guerrier_fantome",
+       "name": "Guerrier Fantôme",
+       "nombre": 2
+      }
+     ]
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "ost_fantome_gardes_guerriers",
+   "name": "Ost Fantôme — Gardes↔Guerriers (gratuit)",
+   "cout": 0,
+   "min": 1,
+   "max": 6,
+   "description": "Remplacer des Gardes Fantômes par des Guerriers Fantômes (Règle Ost Fantôme, gratuit)",
+   "requires_unites": [
+    "garde_fantome"
+   ],
+   "type_remplacement": {
+    "remplace_unites": [
+     "garde_fantome"
+    ],
+    "par_unite": "guerrier_fantome",
+    "par_name": "Guerrier Fantôme"
+   },
+   "unites": [
+    {
+     "id": "guerrier_fantome",
+     "name": "Guerrier Fantôme",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "ost_fantome_guerriers_gardes",
+   "name": "Ost Fantôme — Guerriers↔Gardes (gratuit)",
+   "cout": 0,
+   "min": 1,
+   "max": 6,
+   "description": "Remplacer des Guerriers Fantômes par des Gardes Fantômes (Règle Ost Fantôme, gratuit)",
+   "requires_unites": [
+    "guerrier_fantome"
+   ],
+   "type_remplacement": {
+    "remplace_unites": [
+     "guerrier_fantome"
+    ],
+    "par_unite": "garde_fantome",
+    "par_name": "Garde Fantôme"
+   },
+   "unites": [
+    {
+     "id": "garde_fantome",
+     "name": "Garde Fantôme",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "seigneurs_fantomes",
+   "name": "Seigneurs Fantômes",
+   "cout": 0,
+   "limit": 1,
+   "description": "Option Seigneurs Fantômes — choisir une sous-option (1 seul choix par formation)",
+   "choix": [
+    {
+     "name": "Remplacer 2 Seigneurs Fantômes d'Assaut par 2 Seigneurs Fantômes",
+     "cout": 25,
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "seigneur_fantome_assaut"
+      ],
+      "par_unite": "seigneur_fantome",
+      "par_name": "Seigneur Fantôme"
+     }
+    },
+    {
+     "name": "+3 Seigneurs Fantômes",
+     "cout": 175,
+     "ajouter_unites": [
+      {
+       "id": "seigneur_fantome",
+       "name": "Seigneur Fantôme",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "name": "+3 Seigneurs Fantômes d'Assaut",
+     "cout": 150,
+     "ajouter_unites": [
+      {
+       "id": "seigneur_fantome_assaut",
+       "name": "Seigneur Fantôme d'Assaut",
+       "nombre": 3
+      }
+     ]
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "ost_fantome_seigneurs_assaut",
+   "name": "Ost Fantôme — SF↔SF d'Assaut (gratuit)",
+   "cout": 0,
+   "min": 1,
+   "max": 6,
+   "description": "Remplacer des Seigneurs Fantômes par des SF d'Assaut (Règle Ost Fantôme, gratuit)",
+   "requires_unites": [
+    "seigneur_fantome"
+   ],
+   "type_remplacement": {
+    "remplace_unites": [
+     "seigneur_fantome"
+    ],
+    "par_unite": "seigneur_fantome_assaut",
+    "par_name": "Seigneur Fantôme d'Assaut"
+   },
+   "unites": [
+    {
+     "id": "seigneur_fantome_assaut",
+     "name": "Seigneur Fantôme d'Assaut",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "firestorm_ajout",
+   "name": "Firestorm (+1 à l'Ost, 75 pts)",
+   "cout": 75,
+   "limit": 1,
+   "affiche_dans_composition": true,
+   "description": "Ajouter 1 Firestorm à la formation (75 pts)",
+   "unites": [
+    {
+     "id": "firestorm",
+     "name": "Firestorm",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "firestorm_remplacement",
+   "name": "Firestorm (remplacer véhicules, 25 pts/u)",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 2,
+   "description": "Remplacer 1 ou 2 véhicules blindés par des Firestorms (25 pts chacun)",
+   "type_remplacement": {
+    "remplace_unites": [
+     "tisseur_nuit",
+     "falcon",
+     "warp_hunter",
+     "prisme_feu"
+    ],
+    "par_unite": "firestorm",
+    "par_name": "Firestorm"
+   },
+   "unites": [
+    {
+     "id": "firestorm",
+     "name": "Firestorm",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "machine_de_vaul",
+   "name": "Machine de Vaul",
+   "cout": 0,
+   "description": "Ajouter 1 ou 2 engins de guerre supplémentaires (200 pts chacun)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 2,
+    "description": "Choisir 1 ou 2 engins supplémentaires",
+    "options": [
+     {
+      "id": "cobra",
+      "name": "Cobra",
+      "unitId": "cobra",
+      "cout": 200,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "scorpion",
+      "name": "Scorpion",
+      "unitId": "scorpion",
+      "cout": 200,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "storm_serpent",
+      "name": "Storm Serpent",
+      "unitId": "storm_serpent",
+      "cout": 200,
+      "min": 0,
+      "max": 2
+     }
+    ]
+   },
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "personnages_iyanden",
+   "name": "PERSONNAGE/OPTION D'IYANDEN",
+   "type": "principale",
+   "description": "Personnages et options spéciales d'Iyanden",
+   "formations": [
+    {
+     "id": "portail_fantome",
+     "name": "Portail Fantôme",
+     "cout": 50,
+     "nbacti": false,
+     "FormationLimite": 1,
+     "description": "0-1 Portail Fantôme par armée — permet de garder jusqu'à 3 formations en réserve",
+     "unites": [
+      {
+       "id": "portail_fantome",
+       "name": "Portail Fantôme",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "avatar",
+     "name": "Avatar",
+     "cout": 100,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "description": "0-1 Avatar par armée",
+     "unites": [
+      {
+       "id": "avatar",
+       "name": "Avatar",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "osts_guerre_iyanden",
+   "name": "OSTS DE GUERRE D'IYANDEN",
+   "type": "principale",
+   "description": "Formations principales d'Iyanden. Chaque Ost de Guerre permet de recruter jusqu'à 2 formations de support.",
+   "min_formations": 1,
+   "formations": [
+    {
+     "id": "ost_guerre_gardiens",
+     "name": "Ost de Guerre de Gardiens",
+     "cout": 200,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_support_iyanden": 2
+     },
+     "description": "1 Grand Prophète, 2 Gardes Fantômes, 3 Gardiens (remplacer gratuitement jusqu'à 3 Gardiens par des Plate-formes d'Arme Lourde)",
+     "unites": [
+      {
+       "id": "grand_prophete",
+       "name": "Grand Prophète",
+       "nombre": 1
+      },
+      {
+       "id": "garde_fantome",
+       "name": "Garde Fantôme",
+       "nombre": 2
+      },
+      {
+       "id": "gardien",
+       "name": "Gardiens",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_prophete",
+      "remplacement_plateforme",
+      "plateformes_support",
+      "fantomes",
+      "seigneurs_fantomes",
+      "transport_falcon",
+      "transport_wave_serpent",
+      "firestorm_ajout",
+      "firestorm_remplacement"
+     ]
+    },
+    {
+     "id": "ost_gardes_fantomes",
+     "name": "Ost de Gardes Fantômes",
+     "cout": 325,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_support_iyanden": 2
+     },
+     "description": "1 Spirite, 4 Gardes Fantômes, 2 Guerriers Fantômes. Pas de Tactique du tirer et courir. Le Spirite donne +1 à l'activation.",
+     "unites": [
+      {
+       "id": "spirite",
+       "name": "Spirite",
+       "nombre": 1,
+       "stat_nom": "Spirit"
+      },
+      {
+       "id": "garde_fantome",
+       "name": "Garde Fantôme",
+       "nombre": 4
+      },
+      {
+       "id": "guerrier_fantome",
+       "name": "Guerrier Fantôme",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": [
+      "pierres_esprit",
+      "fantomes",
+      "ost_fantome_gardes_guerriers",
+      "ost_fantome_guerriers_gardes",
+      "transport_falcon",
+      "transport_wave_serpent",
+      "firestorm_ajout",
+      "firestorm_remplacement"
+     ]
+    },
+    {
+     "id": "ost_seigneurs_fantomes",
+     "name": "Ost de Seigneurs Fantômes",
+     "cout": 375,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_support_iyanden": 2
+     },
+     "description": "1 Spirite, 4 Seigneurs Fantômes, 2 Seigneurs Fantômes d'Assaut. Pas de Tactique du tirer et courir. Le Spirite donne +1 à l'activation.",
+     "unites": [
+      {
+       "id": "spirite",
+       "name": "Spirite",
+       "nombre": 1,
+       "stat_nom": "Spirit"
+      },
+      {
+       "id": "seigneur_fantome",
+       "name": "Seigneur Fantôme",
+       "nombre": 4
+      },
+      {
+       "id": "seigneur_fantome_assaut",
+       "name": "Seigneur Fantôme d'Assaut",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": [
+      "pierres_esprit",
+      "seigneurs_fantomes",
+      "ost_fantome_seigneurs_assaut"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "formations_support_iyanden",
+   "name": "FORMATIONS DE SUPPORT",
+   "type": "associee",
+   "description": "Jusqu'à 2 formations de support par Ost de Guerre",
+   "LimitationTag": "slot_support_iyanden",
+   "max_par_tag": 2,
+   "formations": [
+    {
+     "id": "peloton_guerriers_aspects",
+     "name": "0-1 Peloton de Guerriers Aspects",
+     "cout": 175,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 4,
+      "description": "Choisir 4 Guerriers Aspects identiques",
+      "principale": true,
+      "options": [
+       {
+        "id": "vengeur",
+        "name": "Vengeurs",
+        "unitId": "vengeur",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "guerrier_scorpion",
+        "name": "Guerriers Scorpions",
+        "unitId": "guerrier_scorpion",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "banshee",
+        "name": "Banshees",
+        "unitId": "banshee",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "dragon_feu",
+        "name": "Dragons de Feu",
+        "unitId": "dragon_feu",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "faucheur_noir",
+        "name": "Faucheurs Noirs",
+        "unitId": "faucheur_noir",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "araignee_spectrale",
+        "name": "Araignées Spectrales",
+        "unitId": "araignee_spectrale",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "aigle_chasseur",
+        "name": "Aigles Chasseurs",
+        "unitId": "aigle_chasseur",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "lance_lumiere",
+        "name": "Lances de Lumière",
+        "unitId": "lance_lumiere",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       }
+      ]
+     },
+     "ameliorations": [
+      "exarque",
+      "transport_falcon",
+      "transport_wave_serpent"
+     ]
+    },
+    {
+     "id": "peloton_rangers",
+     "name": "Peloton de Rangers",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "ranger",
+       "name": "Rangers",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "peloton_windrider",
+     "name": "Peloton Windrider",
+     "cout": 200,
+     "initiative": "2+",
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 6,
+      "description": "Choisir 6 unités parmi Motojets et Vypers",
+      "principale": true,
+      "options": [
+       {
+        "id": "motojet_wind_rider",
+        "name": "Motojet Wind Rider",
+        "unitId": "motojet_wind_rider",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "vyper_wild_rider",
+        "name": "Vyper Wild Rider",
+        "unitId": "vyper_wild_rider",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       }
+      ]
+     },
+     "ameliorations": []
+    },
+    {
+     "id": "escadron_marcheurs",
+     "name": "0-2 Escadron de Marcheurs",
+     "cout": 150,
+     "initiative": "2+",
+     "FormationLimite": 2,
+     "unites": [
+      {
+       "id": "marcheur_combat",
+       "name": "Marcheur de Combat",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadron_bouclier_vaul",
+     "name": "Escadron Bouclier de Vaul",
+     "cout": 175,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "tisseur_nuit",
+       "name": "Tisseur de Nuit",
+       "nombre": 3
+      }
+     ],
+     "variantes": [
+      {
+       "id": "avec_firestorm",
+       "name": "2 Tisseurs de Nuit + 1 Firestorm",
+       "cout": 175,
+       "unites_override": [
+        {
+         "id": "tisseur_nuit",
+         "name": "Tisseur de Nuit",
+         "nombre": 2
+        },
+        {
+         "id": "firestorm",
+         "name": "Firestorm",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "firestorm_remplacement"
+     ]
+    },
+    {
+     "id": "escadron_lame_vaul",
+     "name": "Escadron Lame de Vaul",
+     "cout": 0,
+     "initiative": "2+",
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 5,
+      "max_total": 6,
+      "description": "Choisir 5 ou 6 véhicules (50 pts chacun)",
+      "principale": true,
+      "options": [
+       {
+        "id": "falcon",
+        "name": "Falcon",
+        "unitId": "falcon",
+        "cout": 50,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "warp_hunter",
+        "name": "Warp Hunter",
+        "unitId": "warp_hunter",
+        "cout": 50,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "prisme_feu",
+        "name": "Prisme de Feu",
+        "unitId": "prisme_feu",
+        "cout": 50,
+        "min": 0,
+        "max": 6
+       }
+      ]
+     },
+     "ameliorations": [
+      "firestorm_remplacement"
+     ]
+    },
+    {
+     "id": "escadron_machine_vaul",
+     "name": "Escadron Machine de Vaul",
+     "cout": 0,
+     "initiative": "2+",
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 1,
+      "max_total": 1,
+      "description": "Choisir 1 engin de guerre (250 pts)",
+      "principale": true,
+      "options": [
+       {
+        "id": "cobra",
+        "name": "Cobra",
+        "unitId": "cobra",
+        "cout": 250,
+        "min": 0,
+        "max": 1
+       },
+       {
+        "id": "scorpion",
+        "name": "Scorpion",
+        "unitId": "scorpion",
+        "cout": 250,
+        "min": 0,
+        "max": 1
+       },
+       {
+        "id": "storm_serpent",
+        "name": "Storm Serpent",
+        "unitId": "storm_serpent",
+        "cout": 250,
+        "min": 0,
+        "max": 1
+       }
+      ]
+     },
+     "ameliorations": [
+      "machine_de_vaul"
+     ]
+    },
+    {
+     "id": "escadron_chevaliers",
+     "name": "Escadron de Chevaliers",
+     "cout": 300,
+     "initiative": "2+",
+     "rare": true,
+     "cout_rare_base": 300,
+     "description": "3 Chevaliers Fantômes — coût inclus dans les 1/3 de support lourd",
+     "unites": [
+      {
+       "id": "chevalier_fantome",
+       "name": "Chevalier Fantôme",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "pierres_esprit"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "support_lourd_iyanden",
+   "name": "FORMATIONS DE SUPPORT LOURD",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "rare": true,
+   "formations": [
+    {
+     "id": "croiseur_eldar",
+     "name": "0-1 Croiseur Eldar",
+     "cout": 0,
+     "FormationLimite": 1,
+     "rare": true,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 1,
+      "max_total": 1,
+      "description": "Choisir le type de croiseur",
+      "principale": true,
+      "options": [
+       {
+        "id": "vaisseau_fantome",
+        "name": "Vaisseau Fantôme",
+        "unitId": "vaisseau_fantome",
+        "cout": 150,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "vaisseau_dragon"
+        ]
+       },
+       {
+        "id": "vaisseau_dragon",
+        "name": "Vaisseau Dragon",
+        "unitId": "vaisseau_dragon",
+        "cout": 300,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "vaisseau_fantome"
+        ]
+       }
+      ]
+     },
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_hemlock",
+     "name": "Escadrille Hemlock",
+     "cout": 200,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "chasseur_hemlock",
+       "name": "Chasseur Hemlock",
+       "nombre": 2
+      }
+     ],
+     "variantes": [
+      {
+       "id": "hemlock_3",
+       "name": "3 Chasseurs Hemlocks",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "chasseur_hemlock",
+         "name": "Chasseur Hemlock",
+         "nombre": 3
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_phoenix",
+     "name": "Escadrille Phoenix",
+     "cout": 250,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "bombardier_phoenix",
+       "name": "Bombardier Phoenix",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "vampire_hunter",
+     "name": "Vampire Hunter",
+     "cout": 200,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "vampire_hunter",
+       "name": "Vampire Hunter",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_archonte",
+     "name": "0-1 Titan Archonte",
+     "cout": 850,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_archonte",
+       "name": "Titan Archonte",
+       "nombre": 1,
+       "options": [
+        {
+         "id": "armement",
+         "name": "Armement",
+         "requis": true,
+         "items": [
+          {
+           "id": "lance_psychique_laser_pulsar",
+           "name": "Lance Psychique + Laser Pulsar",
+           "cout": 0
+          },
+          {
+           "id": "lance_psychique_poing_energetique",
+           "name": "Lance Psychique + Poing Énergétique",
+           "cout": 0
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_fantome",
+     "name": "Titan Fantôme",
+     "cout": 750,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_fantome",
+       "name": "Titan Fantôme",
+       "nombre": 1,
+       "options": [
+        {
+         "id": "armement",
+         "name": "Armement",
+         "requis": true,
+         "items": [
+          {
+           "id": "2_lasers_pulsars",
+           "name": "2 Lasers Pulsars",
+           "cout": 0
+          },
+          {
+           "id": "laser_pulsar_poing_energetique",
+           "name": "Laser Pulsar + Poing Énergétique",
+           "cout": 0
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadron_titans_revenants",
+     "name": "Escadron de Titans Revenants",
+     "cout": 650,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_revenant",
+       "name": "Titan Revenant",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

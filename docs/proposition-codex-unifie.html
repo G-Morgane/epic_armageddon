@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Un seul endroit pour les listes d'armée</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+  :root {
+    --ink: #1c1917; --muted: #6b6560; --line: #e2ddd5; --paper: #ffffff;
+    --gold: #b8892b; --gold-soft: #f4ecd9; --brown: #4a3521;
+    --ok: #2f7a4a; --ok-soft: #e6f3ea; --warn: #b0561c; --warn-soft: #fbeadb; --bad: #a33a2a; --bad-soft: #f8e3df;
+    --blue: #2c4f7c; --blue-soft: #e5ecf5;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink); font-size: 10.5pt; line-height: 1.45; margin: 0; background: var(--paper); }
+  h1 { font-size: 26pt; line-height: 1.1; margin: 0 0 6pt; color: var(--brown); letter-spacing: -0.3pt; }
+  h2 { font-size: 16pt; margin: 0 0 10pt; color: var(--brown); border-bottom: 2px solid var(--gold); padding-bottom: 4pt; break-after: avoid; }
+  h3 { font-size: 11.5pt; margin: 14pt 0 5pt; color: var(--ink); break-after: avoid; }
+  p { margin: 0 0 8pt; }
+  .lead { font-size: 12.5pt; color: #3d3733; }
+  .page { break-after: page; }
+  .page:last-child { break-after: auto; }
+  .kicker { text-transform: uppercase; letter-spacing: 1.5pt; font-size: 8.5pt; color: var(--gold); font-weight: 700; margin-bottom: 8pt; }
+  .cover { display: flex; flex-direction: column; justify-content: center; min-height: 240mm; }
+  .cover .box { border-left: 6px solid var(--gold); padding-left: 16pt; margin: 22pt 0; }
+  .cover .meta { color: var(--muted); font-size: 9.5pt; margin-top: 30pt; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10pt; margin-bottom: 4pt; }
+  .card { border: 1px solid var(--line); border-radius: 6pt; padding: 10pt 12pt; background: #fff; break-inside: avoid; }
+  .card h4 { margin: 0 0 4pt; font-size: 10.5pt; }
+  .card p { margin: 0; font-size: 9.5pt; color: #3d3733; }
+  .tag { display: inline-block; font-size: 8pt; font-weight: 700; padding: 1pt 6pt; border-radius: 10pt; vertical-align: middle; }
+  .ok { background: var(--ok-soft); color: var(--ok); } .warn { background: var(--warn-soft); color: var(--warn); } .bad { background: var(--bad-soft); color: var(--bad); } .info { background: var(--blue-soft); color: var(--blue); } .goldtag { background: var(--gold-soft); color: #7a5a17; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 6pt 0 10pt; }
+  th { text-align: left; background: var(--gold-soft); color: var(--brown); font-weight: 700; padding: 5pt 7pt; border-bottom: 1px solid var(--gold); }
+  td { padding: 5pt 7pt; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr { break-inside: avoid; }
+  .note { background: var(--gold-soft); border-left: 4px solid var(--gold); padding: 8pt 10pt; border-radius: 0 4pt 4pt 0; margin: 10pt 0; font-size: 9.8pt; break-inside: avoid; }
+  .muted { color: var(--muted); }
+  ul { margin: 0 0 8pt; padding-left: 16pt; } li { margin-bottom: 3pt; }
+
+  /* schémas */
+  .flow { display: flex; align-items: stretch; gap: 8pt; margin: 8pt 0 10pt; }
+  .flow .node { flex: 1; border: 1.5px solid var(--line); border-radius: 6pt; padding: 8pt 10pt; text-align: center; font-size: 9.5pt; background: #fff; }
+  .flow .node b { display: block; font-size: 10.5pt; margin-bottom: 2pt; }
+  .flow .node.src { border-color: var(--gold); background: var(--gold-soft); }
+  .flow .arrow { align-self: center; color: var(--gold); font-size: 16pt; }
+  .flow .col { flex: 1; display: flex; flex-direction: column; gap: 6pt; }
+  .flow .node.bad { border-color: #e0a89e; background: var(--bad-soft); }
+
+  /* mockup fenêtre */
+  .win { border: 1px solid #c9c2b8; border-radius: 8pt; overflow: hidden; background: #faf8f4; break-inside: avoid; margin: 8pt 0 12pt; box-shadow: 0 1pt 3pt rgba(0,0,0,.08); }
+  .win .bar { background: #ebe6de; padding: 5pt 10pt; font-size: 8.5pt; color: #5a534c; display: flex; gap: 6pt; align-items: center; }
+  .win .bar .dot { width: 7pt; height: 7pt; border-radius: 50%; background: #d3ccc1; display: inline-block; }
+  .win .body { padding: 10pt 12pt; }
+  .tabs { display: flex; gap: 2pt; border-bottom: 1px solid #d8d1c6; margin-bottom: 10pt; font-size: 9pt; }
+  .tabs span { padding: 4pt 9pt; color: #6b6560; border-radius: 4pt 4pt 0 0; }
+  .tabs span.on { background: #fff; color: var(--brown); font-weight: 700; border: 1px solid #d8d1c6; border-bottom: 1px solid #fff; margin-bottom: -1px; }
+  .form { display: grid; grid-template-columns: 120pt 1fr; gap: 5pt 8pt; font-size: 9pt; align-items: center; }
+  .form label { color: #5a534c; text-align: right; }
+  .field { border: 1px solid #cfc8bd; background: #fff; border-radius: 3pt; padding: 3pt 6pt; min-height: 15pt; }
+  .field.sel::after { content: "▾"; float: right; color: #9a928a; }
+  .row { display: flex; gap: 6pt; align-items: center; margin: 3pt 0; font-size: 9pt; }
+  .qty { border: 1px solid #cfc8bd; background: #fff; border-radius: 3pt; padding: 2pt 6pt; min-width: 24pt; text-align: center; }
+  .chip { border: 1px solid #cfc8bd; background: #fff; border-radius: 12pt; padding: 2pt 8pt; font-size: 8.5pt; }
+  .chip.add { border-style: dashed; color: #8a827a; }
+  .gen { font-size: 8.5pt; color: var(--ok); font-style: italic; }
+  .check { display: inline-block; width: 9pt; height: 9pt; border: 1px solid #9a928a; border-radius: 2pt; margin-right: 4pt; vertical-align: -1pt; background: #fff; text-align: center; font-size: 7pt; line-height: 9pt; }
+  .check.on { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .subtitle { font-size: 8.5pt; color: #6b6560; margin-bottom: 6pt; }
+  .btn { display: inline-block; background: var(--gold); color: #fff; font-weight: 700; padding: 3pt 9pt; border-radius: 4pt; font-size: 8.5pt; }
+  .btn.ghost { background: #fff; color: var(--brown); border: 1px solid #cfc8bd; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+
+  /* mockup PDF */
+  .pdfmock { background: #fff; border: 1px solid #d8d1c6; padding: 10pt 12pt; font-size: 7.5pt; }
+  .pdfmock .band { background: #c9a56a; color: #fff; text-align: center; font-weight: 700; font-size: 8pt; padding: 3pt; margin: 6pt 0 2pt; letter-spacing: .3pt; }
+  .pdfmock .band small { display: block; font-weight: 400; font-size: 6.8pt; font-style: italic; }
+  .pdfmock table { font-size: 7.2pt; margin: 0; }
+  .pdfmock th { background: none; color: #333; border-bottom: 1px solid #999; padding: 2pt 4pt; font-size: 7pt; }
+  .pdfmock td { padding: 2pt 4pt; border-bottom: 1px dotted #ddd; }
+  .pdfmock .foot { font-size: 6.5pt; color: #666; margin-top: 4pt; }
+
+  /* mockup builder */
+  .blist { background: #fff; border: 1px solid #d8d1c6; padding: 8pt 10pt; font-size: 8.5pt; }
+  .blist .f { display: flex; justify-content: space-between; padding: 4pt 0; border-bottom: 1px solid #eee; }
+  .blist .f small { display: block; color: #6b6560; font-size: 7.8pt; }
+  .meter { height: 6pt; background: #eee; border-radius: 3pt; overflow: hidden; margin: 2pt 0 5pt; }
+  .meter i { display: block; height: 100%; background: var(--gold); }
+  .meter i.full { background: var(--bad); }
+  .edit-table { width:100%; border-collapse:collapse; font-size:8.8pt; background:#fff; }
+  .edit-table th { background:#c9a56a; color:#fff; font-weight:700; padding:4pt 7pt; border:none; font-size:8.5pt; }
+  .edit-table td { padding:5pt 7pt; border-bottom:1px solid #eee; }
+  .edit-table tr.sel td { background:#fbf4e4; outline:1.5px solid var(--gold); }
+  .edit-table td.act { color:#9a928a; text-align:right; white-space:nowrap; }
+  .panel { background:#fff; border:1.5px solid var(--gold); border-radius:6pt; padding:10pt 12pt; font-size:9pt; }
+  .panel .lbl { font-size:8pt; color:#6b6560; text-transform:uppercase; letter-spacing:.6pt; margin:8pt 0 3pt; }
+  .panel .lbl:first-child { margin-top:0; }
+  .bigfield { border:1px solid #cfc8bd; border-radius:4pt; padding:5pt 8pt; background:#fff; font-size:9.5pt; }
+  .hint { font-size:8pt; color:#9a928a; margin-top:2pt; }
+  .sentence { background:#fff; border:1px solid #e2ddd5; border-radius:4pt; padding:5pt 8pt; margin:3pt 0; font-size:9pt; display:flex; align-items:center; gap:4pt; flex-wrap:wrap; }
+  .sentence .blank { border-bottom:2px solid var(--gold); padding:0 6pt; font-weight:700; color:var(--brown); background:#fbf4e4; }
+  .sentence .x { margin-left:auto; color:#b8b0a6; }
+  .footer { position: fixed; bottom: -8mm; left: 0; right: 0; font-size: 7.5pt; color: #9a928a; text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ===== COUVERTURE ===== -->
+<section class="page cover">
+  <div class="kicker">Epic Armageddon FR · proposition</div>
+  <h1>Un seul endroit pour saisir les listes d'armée,<br>et en sortir le PDF <em>et</em> le list builder</h1>
+  <div class="box">
+    <p class="lead">Aujourd'hui, chaque codex existe deux fois : un PDF mis en page à la main sur epicarmageddon.fr, et un fichier de données écrit à la main dans le list builder. Deux saisies, deux façons de se tromper, et déjà des écarts entre les deux.</p>
+    <p class="lead">La proposition : une fiche unique par armée, remplie dans l'admin du site, qui génère automatiquement le PDF et alimente un builder intégré au site.</p>
+  </div>
+  <div class="meta">
+    Septembre 2026 · Document de cadrage, sans détails d'implémentation.<br>
+    Pour aller plus loin : <code>docs/modele-codex-unifie.md</code> et l'exemple complet <code>docs/exemples/legion-dacier.codex.yaml</code> dans le dépôt du site.
+  </div>
+</section>
+
+<!-- ===== 1. AUJOURD'HUI ===== -->
+<section class="page">
+  <div class="kicker">1</div>
+  <h2>Comment ça marche aujourd'hui</h2>
+
+  <div class="flow">
+    <div class="col">
+      <div class="node"><b>Auteur du codex</b>règles, coûts, unités</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col">
+      <div class="node bad"><b>Saisie 1 : le PDF</b>mise en page manuelle, envoyé sur le site</div>
+      <div class="node bad"><b>Saisie 2 : le builder</b>fichier de données écrit à la main par Cerkaire</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col">
+      <div class="node"><b>Joueurs</b>lisent le PDF</div>
+      <div class="node"><b>Joueurs</b>construisent une liste</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Le site (epicarmageddon.fr)</h4>
+      <p>41 armées. Pour chacune, le site ne connaît que le nom, la faction, une citation et <b>un fichier PDF par version</b>. Il ne sait pas ce qu'il y a dedans : ni les unités, ni les formations, ni les coûts.</p>
+    </div>
+    <div class="card">
+      <h4>Le list builder (Cerkaire)</h4>
+      <p>37 armées. Chaque armée est un fichier de données décrivant les formations, coûts et options. <b>Aucune stat d'unité</b> (vitesse, blindage, armes) : elles n'existent que dans le PDF. Le vocabulaire a grossi au fil des codex, avec des cas particuliers codés à part.</p>
+    </div>
+  </div>
+
+  <h3>Et ça diverge déjà</h3>
+  <p>Légion d'Acier, comparaison du PDF en ligne (v1.3.1) et du builder (v1.2.1) :</p>
+  <table>
+    <tr><th>Règle</th><th>PDF du site</th><th>Builder</th></tr>
+    <tr><td>Formations d'appui autorisées par compagnie</td><td>2</td><td>3</td></tr>
+    <tr><td>Batterie de Griffons</td><td>3 Griffons</td><td>4 Griffons</td></tr>
+    <tr><td>Escadron de Vultures (300 pts)</td><td>présent</td><td>absent</td></tr>
+  </table>
+  <p class="muted">Personne n'a fait d'erreur : c'est mécanique quand deux personnes maintiennent deux copies de la même information. Il y a 41 codex et chacun bouge plusieurs fois par an.</p>
+
+  <h3>Ce que ça coûte</h3>
+  <ul>
+    <li>Chaque changement de règle se fait deux fois, par deux personnes, à deux moments.</li>
+    <li>Les joueurs ne savent pas quelle version fait foi quand le builder et le PDF ne disent pas la même chose.</li>
+    <li>Les 4 armées absentes du builder (Yme-Loc, Emperor's Children, Grey Knights, Orks Sauvages) attendent que quelqu'un les ressaisisse.</li>
+    <li>Les stats d'unités ne sont exploitables nulle part (pas de recherche, pas de fiche unité, pas de comparaison).</li>
+  </ul>
+</section>
+
+<!-- ===== 2. PROPOSITION ===== -->
+<section class="page">
+  <div class="kicker">2</div>
+  <h2>La proposition : une fiche, deux sorties</h2>
+
+  <div class="flow">
+    <div class="col">
+      <div class="node src"><b>Fiche d'armée</b>saisie dans l'admin du site<br><span class="muted">unités · formations · options · règles · textes</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col">
+      <div class="node"><b>PDF généré</b>même contenu que le PDF actuel, produit au clic « Publier »</div>
+      <div class="node"><b>Builder intégré</b>page du site, mêmes règles que le PDF</div>
+    </div>
+  </div>
+
+  <p style="margin-bottom:4pt">La fiche d'armée rassemble tout ce qu'un codex contient, en trois blocs :</p>
+  <div class="grid3">
+    <div class="card"><h4>1 · L'armée</h4><p>Nom, faction, statut (officiel, bêta, 30k), citation, texte d'introduction, règles spéciales en texte libre, valeur stratégique, initiative.</p></div>
+    <div class="card"><h4>2 · Les unités</h4><p>Une fiche par unité : type, vitesse, blindage, CC, FF, armes, notes. Plus ce qui sert au builder : capacité de transport, place occupée.</p></div>
+    <div class="card"><h4>3 · La liste d'armée</h4><p>Les sections (Compagnies, Appui, Supports), les formations avec leur composition et leurs variantes « ou », les options, et les règles de construction.</p></div>
+  </div>
+
+  <h3>Le point clé : les règles de construction deviennent des cases à cocher</h3>
+  <p>Aujourd'hui, une règle comme « jusqu'à 2 formations d'appui par compagnie » est une phrase dans le PDF et une ligne de code dans le builder. Dans la fiche, c'est <b>une règle choisie dans une liste fermée</b>, avec sa valeur. Le site en déduit lui-même la phrase du PDF et le comportement du builder.</p>
+
+  <table>
+    <tr><th style="width:38%">Règle (choisie dans la liste)</th><th>Ce que ça donne dans le PDF</th><th>Ce que ça donne dans le builder</th></tr>
+    <tr><td>Maximum 1 par armée</td><td>Préfixe « 0-1 » devant le nom</td><td>Bouton grisé après la première</td></tr>
+    <tr><td>Maximum 3 options par formation</td><td>« jusqu'à un maximum de 3 »</td><td>Compteur 2/3, refus au-delà</td></tr>
+    <tr><td>Ouvre 2 places « appui »</td><td>« Jusqu'à 2 formations d'appui par compagnie »</td><td>Jauge de places disponibles</td></tr>
+    <tr><td>Compte dans le budget « rare » (1/3 des points)</td><td>« Jusqu'à 1/3 des points peuvent être dépensés… »</td><td>Jauge de points rares</td></tr>
+    <tr><td>Commissaire gratuit par tranche de 1000 pts</td><td>Le paragraphe « Règle spéciale : Commissaires »</td><td>Compteur 1/3 commissaires</td></tr>
+      </table>
+
+  <div class="note" style="margin-top:4pt"><b>Une quinzaine de règles suffisent</b> pour couvrir les 37 codex du builder actuel. On l'a vérifié en reprenant toutes les clés qu'il utilise : chacune trouve sa place. Quand un futur codex aura besoin d'une règle qui n'existe pas, on l'ajoute à la liste une fois, et elle est disponible pour tous.</div>
+</section>
+
+<!-- ===== 3. À QUOI ÇA RESSEMBLE : ADMIN ===== -->
+<section class="page">
+  <div class="kicker">3</div>
+  <h2>À quoi ça ressemblerait : la saisie</h2>
+  <p>Principe : <b>l'écran de saisie ressemble au PDF</b>. On voit le tableau tel qu'il sera imprimé. On clique sur une ligne pour la modifier dans le panneau de droite, on écrit la composition comme on l'écrirait dans le codex, et ce qu'on tape apparaît aussitôt dans le tableau.</p>
+
+  <div class="win">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp; epicarmageddon.fr/admin/armees/legion-dacier</div>
+    <div class="body">
+      <div class="tabs"><span>Armée</span><span>Unités (25)</span><span class="on">Liste d'armée</span><span>Aperçu PDF</span><span>Aperçu builder</span></div>
+
+      <div class="split" style="grid-template-columns: 1.25fr 1fr">
+        <div>
+          <table class="edit-table">
+            <tr><th colspan="4">COMPAGNIES DE LA LÉGION D'ACIER</th></tr>
+            <tr><td>0-1 QG Régimentaire</td><td>1 QG Régimentaire, 12 Gardes Impériaux, 7 Chimères</td><td>450 pts</td><td class="act">✎</td></tr>
+            <tr><td>Compagnie d'Infanterie Mécanisée</td><td>1 Commandement, 12 Gardes Impériaux, 7 Chimères</td><td>400 pts</td><td class="act">✎</td></tr>
+            <tr><td>Compagnie d'Infanterie</td><td>1 Commandement, 12 Gardes Impériaux</td><td>250 pts</td><td class="act">✎</td></tr>
+            <tr class="sel"><td><b>Compagnie Blindée</b></td><td>10 Leman Russ<br><i>1 Vanquisher gratuit · Remplacer 3 par 3 Démolisseurs (+50)</i></td><td>600 pts</td><td class="act">✎</td></tr>
+            <tr><td>Compagnie de Super Lourds</td><td>3 au choix parmi Baneblade, Shadowsword</td><td>500 pts</td><td class="act">✎</td></tr>
+            <tr><td>Compagnie d'Artillerie</td><td>9 au choix parmi Basilisk, Manticore, Bombarde</td><td>550 pts</td><td class="act">✎</td></tr>
+            <tr><td colspan="4" style="color:#9a928a">+ Ajouter une formation</td></tr>
+          </table>
+          <div class="hint" style="margin:6pt 0 10pt">Chaque compagnie inclut 1 Commissaire (règle spéciale, non affiché dans le tableau).</div>
+
+          <table class="edit-table">
+            <tr><th colspan="4">FORMATIONS D'APPUI <span style="font-weight:400;font-style:italic">(Jusqu'à 2 formations d'appui par compagnie)</span></th></tr>
+            <tr><td>Peloton de char Super Lourd</td><td>1 Baneblade <i>ou</i> 1 Shadowsword</td><td>200 pts</td><td class="act">✎</td></tr>
+            <tr><td>Batterie d'Artillerie</td><td>3 Basilisks <i>ou</i> 3 Manticores <i>ou</i> 3 Bombardes</td><td>225 / 250 pts</td><td class="act">✎</td></tr>
+            <tr><td colspan="4" style="color:#9a928a">…</td></tr>
+          </table>
+        </div>
+
+        <div class="panel">
+          <div class="lbl">Nom</div>
+          <div class="bigfield">Compagnie Blindée</div>
+          <div class="lbl">Coût</div>
+          <div class="bigfield" style="width:70pt">600 pts</div>
+          <div class="lbl">Composition</div>
+          <div class="bigfield">10 Leman Russ</div>
+          <div class="hint">Écrire comme dans le codex : « 12 Gardes Impériaux, 7 Chimères » ou « 3 au choix parmi Baneblade, Shadowsword ». Le site reconnaît les unités saisies dans l'onglet Unités.</div>
+          <div class="lbl">Variante « ou »</div>
+          <div class="hint" style="margin-top:0">Aucune. <span style="color:var(--gold)">+ Ajouter une variante</span> (exemple : « 3 Manticores, 250 pts »)</div>
+          <div class="lbl">Règles propres à cette formation</div>
+          <div class="sentence">Au plus <span class="blank">1</span> dans l'armée <span class="x">✕</span></div>
+          <div class="sentence">1 <span class="blank">Leman Russ</span> peut devenir <span class="blank">Leman Russ Vanquisher</span> pour <span class="blank">0</span> pts <span class="x">✕</span></div>
+          <div class="sentence">Remplacer <span class="blank">3</span> <span class="blank">Leman Russ</span> par <span class="blank">3</span> <span class="blank">Leman Russ Démolisseur</span> pour <span class="blank">50</span> pts <span class="x">✕</span></div>
+          <div class="hint"><span style="color:var(--gold)">+ Ajouter une règle</span> : on choisit une phrase dans la liste, on remplit les trous.</div>
+          <div class="row" style="justify-content:flex-end;margin-top:10pt"><span class="btn">Enregistrer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3b. RÈGLES DE SECTION ===== -->
+<section class="page">
+  <div class="kicker">3 · suite</div>
+  <h2>Les règles se posent une fois, au niveau de la section</h2>
+  <p>La plupart des règles ne concernent pas une formation mais toute une section : « les compagnies ouvrent 2 places d'appui », « les compagnies ont ces 10 options », « les supports sont limités à 1/3 des points ». On les écrit donc une fois par section, sous forme de phrases à trous. Les formations en héritent.</p>
+
+  <div class="win">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp; Section « Compagnies de la Légion d'Acier » · réglages</div>
+    <div class="body">
+      <div class="split">
+        <div>
+          <div class="lbl" style="font-size:8pt;color:#6b6560;text-transform:uppercase;letter-spacing:.6pt;margin-bottom:4pt">Règles de la section</div>
+          <div class="sentence">Chaque formation ouvre <span class="blank">2</span> places « <span class="blank">appui</span> » <span class="x">✕</span></div>
+          <div class="sentence">Chaque formation peut prendre au plus <span class="blank">3</span> options <span class="x">✕</span></div>
+          <div class="sentence">Chaque option au plus <span class="blank">1</span> fois par formation <span class="x">✕</span></div>
+          <div class="sentence">Chaque formation inclut <span class="blank">1</span> <span class="blank">Commissaire</span>, non affiché <span class="x">✕</span></div>
+          <div class="sentence">1 <span class="blank">Commissaire</span> gratuit par tranche de <span class="blank">1 000</span> pts de cette section, à placer dans <span class="blank">Formations d'appui</span> <span class="x">✕</span></div>
+          <div class="hint"><span style="color:var(--gold)">+ Ajouter une règle</span></div>
+
+          <div class="lbl" style="font-size:8pt;color:#6b6560;text-transform:uppercase;letter-spacing:.6pt;margin:12pt 0 4pt">Ce que le PDF affichera</div>
+          <div class="pdfmock" style="padding:6pt 8pt">
+            <div class="band" style="margin-top:0">COMPAGNIES DE LA LÉGION D'ACIER</div>
+            <div class="band">FORMATIONS D'APPUI<small>(Jusqu'à 2 formations d'appui par compagnie)</small></div>
+            <div class="band">AMÉLIORATIONS DE COMPAGNIES<small>(Chaque amélioration ne peut être prise qu'une seule fois par formation et jusqu'à un maximum de 3)</small></div>
+            <div style="font-size:6.8pt;margin-top:4pt"><b>Règle spéciale : Commissaires.</b> Pour chaque Compagnie qu'inclut votre armée, un commissaire y est automatiquement intégré. De plus, vous pouvez ajouter gratuitement un commissaire dans une Formation d'Appui pour chaque tranche de 1 000 points…</div>
+          </div>
+        </div>
+        <div>
+          <div class="lbl" style="font-size:8pt;color:#6b6560;text-transform:uppercase;letter-spacing:.6pt;margin-bottom:4pt">Options disponibles pour toutes les formations de la section</div>
+          <table class="edit-table">
+            <tr><th>Option</th><th>Ajoute</th><th>Coût</th></tr>
+            <tr><td>Peloton d'Appui-feu *</td><td>4 Appui-feu</td><td>100</td></tr>
+            <tr><td>Peloton d'Infanterie *</td><td>6 Gardes Impériaux</td><td>100</td></tr>
+            <tr><td>Escadron de Chars</td><td>3 Leman Russ <i>ou</i> 3 Démolisseurs</td><td>175 / 225</td></tr>
+            <tr><td>Escadron de Hellhounds</td><td>3 Hellhounds</td><td>150</td></tr>
+            <tr><td>Batterie de Griffons</td><td>3 Griffons</td><td>100</td></tr>
+            <tr><td>DCA</td><td>1 Hydre</td><td>50</td></tr>
+            <tr><td>Snipers *</td><td>1 à 2 Ratlings</td><td>25 chacun</td></tr>
+            <tr><td>Ogryns *</td><td>1 à 2 Ogryns</td><td>25 chacun</td></tr>
+            <tr><td>Transport Chimères</td><td>Chimères, autant que nécessaire</td><td>25 chacune</td></tr>
+            <tr><td colspan="3" style="color:#9a928a">+ Ajouter une option</td></tr>
+          </table>
+          <div class="hint">* Note de bas de tableau : « Les unités de cette amélioration peuvent être embarquées pour 25 points par Chimère… ». Une option peut être retirée ou ajoutée pour une formation précise depuis sa ligne.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h4>Onglet Unités</h4><p>Un tableau : une ligne par unité, ses armes en dessous. Bouton « Pré-remplir depuis le PDF actuel » pour ne pas tout retaper. Les noms saisis ici sont ceux que le site reconnaît dans les compositions.</p></div>
+    <div class="card"><h4>Onglets Aperçu</h4><p>Le PDF et le builder, régénérés à chaque enregistrement. On voit l'effet d'un changement avant de publier.</p></div>
+  </div>
+</section>
+
+<!-- ===== 4. À QUOI ÇA RESSEMBLE : SORTIES ===== -->
+<section class="page">
+  <div class="kicker">4</div>
+  <h2>À quoi ça ressemblerait : les sorties</h2>
+  <p>Les deux sorties viennent de la même fiche. Ci-dessous, ce qu'elle produit pour la Légion d'Acier.</p>
+
+  <div class="split">
+    <div>
+      <h3 style="margin-top:0">Le PDF généré</h3>
+      <div class="pdfmock">
+        <div style="font-weight:700;text-align:center;font-size:8.5pt;margin-bottom:3pt">LISTE D'ARMÉE DE LA LÉGION D'ACIER</div>
+        <div style="text-align:center;font-size:6.8pt;margin-bottom:4pt">Valeur stratégique <b>2</b>. Soutiens de l'Adeptus Titanicus : initiative <b>1+</b>. Autres détachements : <b>2+</b>.</div>
+        <div class="band">COMPAGNIES DE LA LÉGION D'ACIER</div>
+        <table>
+          <tr><th>Formations</th><th>Unités</th><th style="text-align:right">Coût</th></tr>
+          <tr><td>0-1 QG Régimentaire</td><td>1 QG Régimentaire, 12 Gardes Impériaux et 7 Chimères</td><td style="text-align:right">450 pts</td></tr>
+          <tr><td>Compagnie Blindée</td><td>10 Leman Russ, dont 1 peut devenir un Vanquisher gratuitement<br><i>Remplacez 3 Leman Russ par 3 Leman Russ Démolisseurs</i></td><td style="text-align:right">600 pts<br><i>(+50 pts)</i></td></tr>
+          <tr><td>Compagnie de Super Lourds</td><td>3 Baneblades et/ou Shadowswords, selon n'importe quelle combinaison</td><td style="text-align:right">500 pts</td></tr>
+        </table>
+        <div class="band">FORMATIONS D'APPUI DE LA LÉGION D'ACIER<small>(Jusqu'à 2 formations d'appui par compagnie)</small></div>
+        <table>
+          <tr><td>Batterie d'Artillerie</td><td>3 Basilisks<br><i>ou</i> 3 Manticores <i>ou</i> 3 Bombardes</td><td style="text-align:right">225 pts<br>250 pts</td></tr>
+          <tr><td>0-1 Batterie de Missiles Deathstrike</td><td>2 Deathstrike</td><td style="text-align:right">225 pts</td></tr>
+        </table>
+        <div class="band">SUPPORTS DE LA LÉGION D'ACIER<small>(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations)</small></div>
+        <div class="foot">Feuille de références générée depuis les fiches d'unités, page suivante.</div>
+      </div>
+      <p class="muted" style="font-size:8.5pt;margin-top:4pt">Les phrases en italique et entre parenthèses sont écrites par le site à partir des règles cochées. Le texte d'introduction et les règles spéciales narratives restent en texte libre, tels que l'auteur les écrit.</p>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Le builder</h3>
+      <div class="blist">
+        <div style="display:flex;justify-content:space-between;font-weight:700"><span>Ma liste Légion d'Acier</span><span>2 725 / 3 000 pts</span></div>
+        <div class="muted" style="font-size:7.8pt;margin:4pt 0 2pt">Places d'appui : 3 / 4</div><div class="meter"><i style="width:75%"></i></div>
+        <div class="muted" style="font-size:7.8pt;margin:0 0 2pt">Supports (rares) : 775 / 1 000 pts</div><div class="meter"><i style="width:77%"></i></div>
+        <div class="muted" style="font-size:7.8pt;margin:0 0 2pt">Commissaires gratuits : 2 / 2</div><div class="meter"><i class="full" style="width:100%"></i></div>
+        <div class="f"><span>QG Régimentaire<small>+ Escadron de Chars (3 Leman Russ), + Peloton d'Infanterie, 3 Chimères</small></span><span>750</span></div>
+        <div class="f"><span>Compagnie Blindée<small>1 Vanquisher gratuit</small></span><span>600</span></div>
+        <div class="f"><span>Peloton de Leman Russ<small>+ Commissaire</small></span><span>350</span></div>
+        <div class="f"><span>Batterie d'Artillerie · 3 Manticores<small>+ Commissaire</small></span><span>250</span></div>
+        <div class="f"><span>Titan Warhound <span class="tag goldtag">rare</span></span><span>275</span></div>
+        <div class="f"><span>Meute de Warhounds <span class="tag goldtag">rare</span></span><span>500</span></div>
+        <div class="row" style="margin-top:6pt"><span class="btn ghost">+ Formation</span><span class="muted" style="font-size:7.8pt">Commissaire grisé : quota atteint</span></div>
+      </div>
+      <p class="muted" style="font-size:8.5pt;margin-top:4pt">Le builder est une page du site. Les jauges viennent des règles de la fiche, la liste se sauvegarde sur le compte du joueur, et le builder est à jour dès qu'une version est publiée.</p>
+    </div>
+  </div>
+
+  <h3>Un builder intégré au site</h3>
+  <p>Le builder devient une page d'epicarmageddon.fr, à côté des PDF. Il lit les mêmes fiches que le PDF et applique les mêmes règles, avec le même moteur : impossible qu'il dise autre chose que le codex. Les joueurs se créent un compte sur le site pour enregistrer, partager et imprimer leurs listes. Le builder de Cerkaire reste en ligne pendant la transition.</p>
+</section>
+
+<!-- ===== 5. GAINS ===== -->
+<section class="page">
+  <div class="kicker">5</div>
+  <h2>Ce qu'on y gagne</h2>
+
+  <div class="grid2">
+    <div class="card"><h4><span class="tag ok">Cohérence</span> Une seule vérité</h4><p>Le PDF et le builder ne peuvent plus diverger : ils sortent de la même fiche, en même temps. Le cas Légion d'Acier (2 vs 3 appuis, 3 vs 4 Griffons) devient impossible.</p></div>
+    <div class="card"><h4><span class="tag ok">Temps</span> Une saisie au lieu de deux</h4><p>Un changement de coût se fait à un endroit, par une personne, puis « Publier ». Plus de coordination entre le PDF et le builder, plus de fichier à envoyer.</p></div>
+    <div class="card"><h4><span class="tag ok">Qualité</span> Moins d'erreurs de saisie</h4><p>Une formation ne peut pas référencer une unité qui n'existe pas. Un coût s'additionne tout seul. Une règle mal écrite se voit dans l'aperçu avant publication.</p></div>
+    <div class="card"><h4><span class="tag ok">Sécurité</span> Des listes de test par codex</h4><p>Chaque armée garde deux ou trois listes types (« celle-ci doit passer », « celle-là doit être refusée »). Publier échoue si une règle modifiée les casse. On retouche un codex sans peur.</p></div>
+    <div class="card"><h4><span class="tag ok">Réutilisation</span> Modules partagés</h4><p>L'Aeronautica Imperialis et l'Adeptus Titanicus sont recopiés dans une vingtaine de codex. Ils deviennent un module écrit une fois, inclus par référence. Idem plus tard pour le socle commun des chapitres Space Marines.</p></div>
+    <div class="card"><h4><span class="tag ok">Historique</span> Versions et changelog</h4><p>Le site garde déjà l'historique des PDF. Il gardera aussi la fiche à chaque version : on pourra comparer deux versions et pré-remplir le changelog à partir des différences.</p></div>
+    <div class="card"><h4><span class="tag ok">Données</span> Les unités deviennent exploitables</h4><p>Une fois les stats saisies, le site peut proposer des fiches unités, une recherche (« quelles armées ont un Land Raider ? »), des comparaisons. Impossible avec des PDF.</p></div>
+    <div class="card"><h4><span class="tag ok">Couverture</span> 41 armées dans le builder</h4><p>Toute armée publiée sur le site est dans le builder le jour même, y compris les 4 qui n'y sont pas aujourd'hui. Un seul site pour lire le codex et construire sa liste.</p></div>
+  </div>
+</section>
+
+<!-- ===== 6. LIMITES ===== -->
+<section class="page">
+  <div class="kicker">6</div>
+  <h2>Les limites d'utilisation</h2>
+
+  <div class="card" style="margin-bottom:10pt"><h4><span class="tag warn">Règles</span> Une règle hors liste demande un développement</h4><p>Le système repose sur une liste fermée de règles de construction. Si un futur codex invente une mécanique vraiment nouvelle, l'auteur ne peut pas la saisir seul : il faut l'ajouter à la liste (côté code) avant. C'est un choix assumé : c'est ce qui garantit que le PDF et le builder disent la même chose. En pratique, les 37 codex actuels tiennent dans une quinzaine de règles ; les nouveautés devraient être rares.</p></div>
+
+  <div class="card" style="margin-bottom:10pt"><h4><span class="tag warn">Mise en page</span> Le PDF suit un gabarit</h4><p>Le PDF généré ressemble beaucoup aux PDF actuels (mêmes tableaux, mêmes bandeaux, même feuille de références), mais il n'est plus mis en page à la main. On perd la liberté de déplacer un tableau, d'insérer une illustration au milieu d'une page ou de forcer une coupure. En échange, tous les codex ont exactement la même présentation. La page de garde garde son illustration (image à envoyer).</p></div>
+
+  <div class="card" style="margin-bottom:10pt"><h4><span class="tag warn">Migration</span> 41 codex à ressaisir et relire</h4><p>Le gros du travail est au départ. Les formations et options s'importent automatiquement depuis les fichiers du builder. Les stats d'unités se pré-remplissent depuis les PDF, mais l'extraction n'est pas parfaite : il faut une relecture humaine par armée. Compter environ une heure par codex pour la relecture, une fois l'outil en place.</p></div>
+
+  <div class="card" style="margin-bottom:10pt"><h4><span class="tag warn">Chantier</span> Le builder est à construire</h4><p>Un builder intégré est un vrai développement en plus de l'admin et du PDF : construction de liste, sauvegarde, partage, impression, comptes joueurs. Ce qui le rend abordable : toutes les règles sont déjà écrites une fois dans le moteur commun, le builder ne fait que les afficher. Il arrive en dernier, une fois l'admin et le PDF en place.</p></div>
+
+  <div class="card" style="margin-bottom:10pt"><h4><span class="tag warn">Listes des joueurs</span> Pas de reprise automatique</h4><p>Les listes enregistrées dans le builder actuel appartiennent à un autre site et un autre système de comptes. Elles ne se transfèrent pas toutes seules. Deux options : laisser l'ancien builder en ligne un temps, ou proposer un import manuel (coller sa liste). À décider avec Cerkaire.</p></div>
+
+  <div class="card" style="margin-bottom:10pt"><h4><span class="tag warn">Édition</span> Un brouillon à la fois par armée</h4><p>Deux personnes ne peuvent pas modifier la même armée en même temps (pas de co-édition en direct comme dans un Google Doc). Le brouillon est enregistré au fil de l'eau ; le dernier qui enregistre gagne. Avec l'équipe actuelle, c'est acceptable.</p></div>
+
+  <div class="card"><h4><span class="tag info">Technique</span> Génération du PDF côté serveur</h4><p>Produire le PDF au clic « Publier » nécessite un navigateur sans écran côté serveur. L'hébergement doit le permettre (c'est standard, mais à vérifier). Alternative : le PDF se génère à la demande dans le navigateur de l'admin, puis s'envoie comme aujourd'hui.</p></div>
+</section>
+
+<!-- ===== 7. PERTE D'INFOS ===== -->
+<section class="page">
+  <div class="kicker">7</div>
+  <h2>Est-ce qu'on perd des informations ?</h2>
+  <p>Réponse courte : <b>non sur le fond, un peu sur la forme</b>. Le détail, source par source.</p>
+
+  <h3>Depuis les PDF actuels</h3>
+  <table>
+    <tr><th style="width:34%">Information</th><th style="width:14%">Sort</th><th>Commentaire</th></tr>
+    <tr><td>Tableaux de formations, coûts, options</td><td><span class="tag ok">Conservé</span></td><td>Deviennent la partie structurée de la fiche. C'est même mieux : plus de fautes de frappe entre PDF et builder.</td></tr>
+    <tr><td>Feuille de références (stats des unités)</td><td><span class="tag ok">Conservé</span></td><td>Devient l'onglet Unités. Pré-remplissage depuis le PDF, relecture humaine.</td></tr>
+    <tr><td>Introduction, règles spéciales, texte d'ambiance</td><td><span class="tag ok">Conservé</span></td><td>Texte libre, avec mise en forme simple (gras, italique, listes).</td></tr>
+    <tr><td>Citation et auteur, illustration de couverture</td><td><span class="tag ok">Conservé</span></td><td>Déjà dans le site pour la citation. Image de couverture à envoyer.</td></tr>
+    <tr><td>Notes de bas de tableau (astérisques)</td><td><span class="tag ok">Conservé</span></td><td>Attachées à l'option concernée, le PDF les replace en bas du tableau.</td></tr>
+    <tr><td>Mise en page fine faite à la main</td><td><span class="tag warn">Transformé</span></td><td>Remplacée par un gabarit commun. Positions exactes, coupures de page et polices peuvent différer légèrement.</td></tr>
+    <tr><td>Anciennes versions de PDF</td><td><span class="tag ok">Conservé</span></td><td>Restent téléchargeables telles quelles. Seules les nouvelles versions sont générées.</td></tr>
+  </table>
+
+  <h3>Depuis les fichiers du builder</h3>
+  <table>
+    <tr><th style="width:34%">Information</th><th style="width:14%">Sort</th><th>Commentaire</th></tr>
+    <tr><td>Formations, coûts, variantes, options, remplacements</td><td><span class="tag ok">Conservé</span></td><td>Import automatique. Chaque clé du format actuel a sa correspondance.</td></tr>
+    <tr><td>Règles de construction (places, quota rare, commissaires, limites)</td><td><span class="tag ok">Conservé</span></td><td>Deviennent des règles cochées. Le comportement du builder est identique.</td></tr>
+    <tr><td>Identifiants des formations</td><td><span class="tag ok">Conservé</span></td><td>Gardés à l'import, ce qui rend un import manuel des anciennes listes possible.</td></tr>
+    <tr><td>Bricolages techniques (nom de stat à afficher, drapeaux divers)</td><td><span class="tag info">Inutile</span></td><td>Servaient à compenser l'absence des unités. Disparaissent puisque l'unité porte désormais ses propres infos.</td></tr>
+    <tr><td>Quelques cas très particuliers (5 clés utilisées 1 à 12 fois)</td><td><span class="tag warn">À vérifier</span></td><td>Coûts par palier, exclusions entre choix. Probablement exprimables avec les règles prévues ; à confirmer codex par codex à l'import.</td></tr>
+    <tr><td>Listes sauvegardées des joueurs</td><td><span class="tag warn">Non reprises</span></td><td>Restent dans l'ancien builder. Import manuel possible. Voir limites.</td></tr>
+  </table>
+</section>
+
+<!-- ===== 8. ÉTAPES ===== -->
+<section class="page">
+  <div class="kicker">8</div>
+  <h2>Comment on y va</h2>
+  <p>Dans l'ordre, en commençant par ce qui permet de vérifier que le modèle tient la route avant de construire l'interface.</p>
+
+  <table>
+    <tr><th style="width:6%">#</th><th style="width:30%">Étape</th><th>Ce qu'on obtient</th><th style="width:26%">Comment on vérifie</th></tr>
+    <tr><td>1</td><td>Le modèle et son moteur de règles</td><td>La définition de la fiche, le calcul des coûts, la validation d'une liste, les phrases du PDF.</td><td>Les 37 codex du builder actuel passent dans le nouveau format sans perte.</td></tr>
+    <tr><td>2</td><td>Import automatique</td><td>Les 37 fichiers convertis, les stats d'unités pré-remplies depuis les PDF.</td><td>Légion d'Acier complète, PDF généré comparé à l'actuel.</td></tr>
+    <tr><td>3</td><td>Gabarit PDF et génération</td><td>Le PDF produit au clic « Publier », stocké comme aujourd'hui.</td><td>Trois codex comparés à l'œil avec les PDF en ligne.</td></tr>
+    <tr><td>4</td><td>Interface admin</td><td>Onglets Unités et Liste d'armée d'abord, puis Armée et Aperçus.</td><td>Saisie d'un codex neuf de bout en bout par quelqu'un qui n'a pas développé l'outil.</td></tr>
+    <tr><td>5</td><td>Relecture des 41 codex</td><td>Chaque armée relue et publiée dans le nouveau système.</td><td>Un codex à la fois, l'ancien PDF reste en ligne jusqu'à validation.</td></tr>
+    <tr><td>6</td><td>Builder intégré</td><td>Page de construction de liste, comptes joueurs, sauvegarde, partage, impression.</td><td>Les listes de test de chaque codex donnent le même verdict que dans l'ancien builder.</td></tr>
+  </table>
+
+  <div class="note">Pendant toute la transition, <b>rien ne casse</b> : les PDF actuels restent téléchargeables, le builder de Cerkaire continue de fonctionner tel quel, et chaque armée bascule quand elle est relue.</div>
+
+  <h3>Décisions à prendre</h3>
+  <ul>
+    <li><b>Fidélité du PDF</b> : reproduire la maquette actuelle au plus près, ou accepter un gabarit un peu différent mais plus simple ? La seconde option coûte nettement moins.</li>
+    <li><b>Ancien builder</b> : combien de temps le laisser en ligne après l'ouverture du nouveau, et propose-t-on un import manuel des listes ?</li>
+    <li><b>Comptes joueurs</b> : connexion par e-mail simple (lien magique) ou aussi Google/Discord ?</li>
+    <li><b>Modules partagés</b> : commencer par Aeronautica et Titanicus (évidents), puis le socle Space Marines ?</li>
+    <li><b>Qui relit</b> les 41 codex ? Une heure par codex environ, à répartir.</li>
+  </ul>
+
+  <p class="muted" style="margin-top:18pt">Détails techniques, modèle complet et exemple : <code>docs/modele-codex-unifie.md</code> et <code>docs/exemples/legion-dacier.codex.yaml</code>.</p>
+</section>
+
+</body>
+</html>
