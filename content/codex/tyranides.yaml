@@ -1,0 +1,892 @@
+# Tyranides, transcrit depuis le PDF v1.4 (source de vérité).
+codex:
+  slug: tyranides
+  nom: Tyranides
+  version: "1.4"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  couleur: "#96009e"
+  citation:
+    texte: "Il est ironique de voir qu'alors que nous répandons la paix et l'espoir dans la galaxie, les tyranides font de même avec la peur et la mort. Nous devons nous unir pour espérer leur résister."
+    auteur: Aun'shi de l'Empire T'au
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée issue des flottes ruches tyranides telles que Leviathan, Jormungandr ou Behemoth.
+
+    Les armées tyranides sont organisées autour de formations appelées Groupe Synaptique, Essaims Indépendants Communs et Essaims Indépendants rares.
+
+    Chaque Groupe Synaptique a une puissance synaptique qui liste les formations sélectionnées parmi les essaims instinctifs qui doivent être ajoutées au Groupe Synaptique.
+
+    Les Essaims Indépendants Communs sont des formations autonomes des Groupes Synaptiques. Chaque Essaim Indépendant Commun peut recevoir des améliorations. La liste d'armée indique quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par Essaim. Les améliorations font partie intégrante des Essaims et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'un Essaim tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les Essaims Indépendants Rares sont des formations autonomes des Groupes Synaptiques. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Synapse"
+      texte: |
+        Une créature Synapse permet de retirer 1 pion impact supplémentaire au Groupe Synaptique si celui-ci réussit son jet de ralliement (une synapse ayant la capacité Meneur peut donc enlever 2 PI au Groupe Synaptique si le jet est réussi). Une Dominatrix peut toujours retirer 3 pions impacts supplémentaires au groupe Nexus (la capacité Meneur donnée par la capacité Commandant Suprême est déjà incluse dans ces 3 pions impacts).
+
+        Tant qu'une créature Synapse est vivante, le Groupe Synaptique lui correspondant bénéficie d'un bonus de +1 pour un jet de ralliement.
+
+        Dans le cas où toutes les créatures Synapses du Groupe Synaptique sont détruites, les essaims instinctifs associés continuent à agir comme une seule formation, mais celle-ci subit un malus de -2 à l'initiative et perd le bonus de +1 pour le jet de ralliement.
+    - titre: "Règle spéciale : Implacable"
+      texte: |
+        Un essaim Tyranide bénéficie toujours d'un bonus de +1 au test d'action pour un ordre d'assaut.
+
+        Un essaim Tyranide devant effectuer l'action Tenir, peut uniquement effectuer un double mouvement sans possibilité d'effectuer de soutien d'assaut.
+    - titre: "Règle spéciale : Mobilité"
+      texte: |
+        Les véhicules blindés et les engins de guerre Tyranides ignorent tous les tests de terrain dangereux.
+
+        Les véhicules légers tyranides peuvent traverser les terrains et profiter des règles de couvert comme s'il s'agissait d'infanterie.
+
+        Les éléments de fortification (champs de mines, barbelés, etc.) et les éléments de terrains spéciaux (rivière de lave, etc.) affectent cependant les Tyranides normalement.
+    - titre: "Règle spéciale : Déploiement"
+      texte: |
+        Seuls les Essaims Indépendants peuvent se déployer en garnison, s'ils respectent les conditions le permettant.
+    - titre: "Règle spéciale : Gaunt"
+      texte: |
+        Les unités de Gaunts détruites ne comptent pas dans le décompte des pertes pour déterminer le vainqueur d'un assaut tant qu'une créature Synapse est présente dans la formation et si et seulement si le joueur Tyranide a initié l'assaut.
+    - titre: "Règle spéciale : Prime"
+      texte: |
+        Les Trygons Prime et les Hiérodules Prime (Cracheur ou Faucheur) ajoutent les notes Synapse et Sans peur à leurs profils.
+    - titre: "Règle spéciale : Tunnelier"
+      texte: |
+        Les formations où toutes les unités sont tunneliers (ou sont transportées dans des unités qui sont tunneliers) peuvent être gardées hors de la table et peuvent apparaître au début du deuxième tour ou après. Mettre en place les unités au contact du bord de la table de leur propre camp avant le début de la bataille en même temps que les vaisseaux spatiaux sont installés (voir 4.3.1). Toutes les unités transportées dans le tunnelier doivent également être placées de côté à ce moment.
+
+        Notez secrètement l'emplacement où le tunnelier fera surface en même temps et de la même manière que vous enregistrez les coordonnées d'une zone de largage (voir 4.3.1). Vous devez également enregistrer secrètement quand le tunnelier fera surface. S'il doit faire surface dans votre moitié de table, il peut arriver à partir du deuxième tour. S'il doit faire surface dans la moitié opposée de la table, il peut arriver à partir du troisième tour.
+
+        Placer le tunnelier au début du tour indiqué, avant de placer les unités avec téléportation, à l'endroit que vous avez noté. Toutes les unités transportées sont autorisées à débarquer immédiatement après leur remontée à la surface. La remontée ne compte pas comme un mouvement pour ce qui est du déclenchement des tirs d'état d'alerte. Le débarquement déclenche normalement le tir d'état d'alerte.
+
+        Si le tunnelier fait surface sur un terrain qui lui est infranchissable, sous une unité amie ou dans une zone de contrôle ennemie, on suppose que l'équipement de détection embarqué le détournera vers un autre point d'entrée. L'unité doit être déplacée par le joueur adverse vers la zone la plus proche où elle peut faire surface.
+
+        Les formations de plusieurs tunneliers n'ont besoin d'enregistrer qu'un seul emplacement où elles feront surface. Placez une unité à cet emplacement, ou à moins de 5 cm d'une autre unité qui a déjà été placée, à condition que toutes les unités soient placées à moins de 15 cm de l'emplacement et sur la moitié appropriée de la table.
+
+        Le tunnelier, et toutes les unités qui y sont transportées, peuvent effectuer une action le tour où ils apparaissent.
+    - titre: "Règle spéciale : Spore Mycétique"
+      texte: |
+        Un Groupe Synaptique peut embarquer dans un Spore Mycétique pour 50 pts, si :
+
+        - un Croiseur Razorfiend (2 spores mycétiques max.) ou un Vaisseau Ruche (5 spores mycétique max.) est sélectionné dans la liste ;
+        - la formation ne compte pas plus de 15 unités ;
+        - la formation ne comprend que les unités suivantes : Termagants, Hormagaunts, Biovores, Rôdeur, Carnifex, Prince Tyranide, Prince Maître des Essaims, Guerriers Tyranides, Zoanthropes ;
+
+        De plus, cette option interdit la prise de Prince Ailé ou de Guerriers Tyranide Ailés.
+    - titre: "Règle spéciale : Objectifs et conditions de victoire"
+      texte: |
+        Seuls les essaims Indépendants et les créatures Synapses (pas les essaims instinctifs) peuvent contrôler ou contester les objectifs.
+
+        De même pour la condition de victoire « ils ne passeront pas », seuls les essaims Indépendants et les créatures Synapses (pas les essaims instinctifs) comptent s'ils sont dans la moitié de table adverse.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par GW LTD 2019."
+  valeur_strategique: 1
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Groupe Nexus", valeur: "1+" }
+      - { portee: "Bio-titans", valeur: "1+" }
+
+budgets:
+  - id: rare
+    libelle: Essaims indépendants rares
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Les essaims indépendants rares ne doivent pas dépasser 1/3 des points de l'armée. Notez que le coût d'une Dominatrix soit 400pts doit être inclus dans ce tiers."
+  - id: communs
+    libelle: Essaims indépendants communs
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Les essaims indépendants communs ne doivent pas dépasser 1/3 des points de l'armée"
+  - id: essaim_commun
+    libelle: Essaims indépendants communs par Groupe Synaptique
+    capacite: { source: fournitures }
+    phrase_pdf: "Vous pouvez prendre jusqu'à un essaim indépendant commun par Groupe Synaptique"
+  - id: essaim_rare
+    libelle: Essaims indépendants rares par Groupe Synaptique
+    capacite: { source: fournitures }
+    phrase_pdf: "Vous pouvez prendre jusqu'à un essaim indépendant rare par groupe synaptique"
+
+unites:
+  # ---- Feuille de références Tyranides ----
+  - id: genestealer_alpha
+    nom: Genestealer Alpha
+    type: Perso
+    armes:
+      - { nom: Pinces broyeuses, portee: (contact), puissance: "Armes d'assaut, +1A, Snip" }
+    notes: [Sauvegarde invulnérable, Charismatique]
+    roles: [personnage]
+  - id: gargouille
+    nom: Gargouilles
+    type: Inf
+    vitesse: 30cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Attaque de nuée, portee: 15cm, puissance: "AA6+" }
+      - { nom: Écorcheur, portee: (15cm), puissance: Armes légères }
+    notes: [Réacteurs dorsaux, Gaunts]
+  - id: genestealer
+    nom: Genestealers
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Griffes tranchantes, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Frappe en premier, Infiltrateurs, Éclaireurs]
+  - id: hormagaunt
+    nom: Hormagaunts
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: Griffes tranchantes, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Infiltrateurs, Gaunts]
+  - id: termagant
+    nom: Termagants
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Écorcheur, portee: (15cm), puissance: Armes légères }
+    notes: [Gaunts]
+  - id: biovore
+    nom: Biovore
+    type: VL
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Spores mines, portee: 30cm, puissance: "AP5+/AC6+/AA6+, Rupt, Ind" }
+    taille_transport: 2
+  - id: guerrier_tyranide
+    nom: Guerrier Tyranide
+    type: VL
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes tranchantes, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Canon venin, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Synapse, Sans peur, "Les Guerriers Tyranides peuvent avoir des ailes, auquel cas ils gagnent Réacteurs dorsaux, voient leur vitesse augmentée à 30cm et leur blindage réduit à 5+."]
+    roles: [synapse]
+    taille_transport: 2
+  - id: guerrier_tyranide_aile
+    nom: Guerrier Tyranide Ailé
+    type: VL
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes tranchantes, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Canon venin, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Synapse, Sans peur, Réacteurs dorsaux]
+    roles: [synapse]
+    taille_transport: 2
+  - id: lictor
+    nom: Lictor
+    type: VL
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Pinces broyeuses, portee: (contact), puissance: "Armes d'assaut, +1A, Snip" }
+      - { nom: La mort bondissante, portee: (15cm), puissance: Armes légères }
+    notes: [Sauvegarde invulnérable, Frappe en premier, Infiltrateur, Éclaireur, Téléportation]
+    taille_transport: 2
+  - id: rodeur
+    nom: Rôdeur
+    type: VL
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Griffes tranchantes, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Dévoreur, portee: (15cm), puissance: Armes légères }
+    notes: [Infiltrateur, Tunnelier]
+    taille_transport: 2
+  - id: zoanthrope
+    nom: Zoanthrope
+    type: VL
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Éclair Warp, portee: (15cm), puissance: "Armes légères, MA" }
+      - { nom: et, portee: 30cm, puissance: "AP4+/AC5+" }
+    notes: [Synapse, Sans peur, Blindage renforcé]
+    roles: [synapse]
+    taille_transport: 2
+  - id: prince_tyranide
+    nom: Prince Tyranide
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes acérées, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Canon venin, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Synapse, Sans Peur, Blindage Renforcé, Commandant, Meneur, "Le Prince peut avoir des ailes, auquel cas il gagne Réacteurs dorsaux, voit sa vitesse augmentée à 30cm et son blindage réduit à 5+."]
+    roles: [synapse, commandant]
+  - id: prince_tyranide_aile
+    nom: Prince Tyranide Ailé
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes acérées, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Canon venin, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Synapse, Sans Peur, Blindage Renforcé, Commandant, Meneur, Réacteurs dorsaux]
+    roles: [synapse, commandant]
+  - id: prince_maitre_essaims
+    nom: Prince Maître des Essaims
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes acérées, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Canon venin, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Synapse, Sans Peur, Blindage Renforcé, Commandant suprême, Charismatique, Sauvegarde invulnérable, "Le Prince peut avoir des ailes, auquel cas il gagne Réacteurs dorsaux, voit sa vitesse augmentée à 30cm et son blindage réduit à 5+."]
+    roles: [synapse, commandant_supreme]
+  - id: carnifex
+    nom: Carnifex
+    type: VB
+    vitesse: 20cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes acérées, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Canon venin, portee: 30cm, puissance: "AP5+/AC6+" }
+  - id: dactylis
+    nom: Dactylis
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Nodules de bile, portee: 45cm, puissance: "1PB, Rpt, Ind" }
+      - { nom: ou, portee: 60cm, puissance: "AP4+/AC5+, Rupt" }
+  - id: exocrine
+    nom: Exocrine
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Bio-canon, portee: 45cm, puissance: "2xAP3+/AC4+" }
+  - id: haruspex
+    nom: Haruspex
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Pinces hypertrophiées, portee: (contact), puissance: "Armes d'assaut, +2A, MA" }
+      - { nom: Langue protractile, portee: (15cm), puissance: Armes légères }
+    notes: [Blindage renforcé]
+  - id: malefactor
+    nom: Malefactor
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Épines à fragmentation, portee: (15cm), puissance: "Armes légères, +1A, IC" }
+      - { nom: et, portee: 15cm, puissance: "2xAP4+" }
+    notes: [Blindage renforcé, "Transport (4) parmi Termagants, Hormagaunts, Gargouilles, Guerriers Tyranides, Zoanthropes, Rôdeurs, Biovores. Les Véhicules légers prennent 2 places."]
+    transport: { capacite: 4, accepte: [termagant, hormagaunt, gargouille, guerrier_tyranide, zoanthrope, rodeur, biovore] }
+  # ---- Feuille de références Bio-titans ----
+  - id: harridan
+    nom: Harridan
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces hypertrophiées, portee: (contact), puissance: "Armes d'assaut, +2A, MA" }
+      - { nom: Bio-canons jumelés, portee: 45cm, puissance: "3xAP3+/AC4+, FrtF" }
+    notes: [Synapse, Sans peur, Blindage renforcé, Antigrav, "Transport (4 unités de Gargouilles)"]
+    roles: [synapse]
+    transport: { capacite: 4, accepte: [gargouille] }
+    degats: { cd: 2, critique: "Le plexus nerveux central du Harridan est détruit. La créature est tuée." }
+  - id: trygon
+    nom: Trygon
+    type: EG
+    vitesse: 25cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces hypertrophiées, portee: (contact), puissance: "Armes d'assaut, +2A, MA" }
+      - { nom: Champ bio-électrique, portee: 15cm, puissance: "2xAP3+/AC6+" }
+    notes: [Sauvegarde invulnérable, Tunnelier]
+    degats: { cd: 2, critique: "Le plexus nerveux central du Trygon est détruit. La créature est tuée." }
+  - id: trygon_prime
+    nom: Trygon Prime
+    type: EG
+    vitesse: 25cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces hypertrophiées, portee: (contact), puissance: "Armes d'assaut, +2A, MA" }
+      - { nom: Champ bio-électrique, portee: 15cm, puissance: "2xAP3+/AC6+" }
+    notes: [Sauvegarde invulnérable, Tunnelier, Synapse, Sans peur]
+    roles: [synapse]
+    degats: { cd: 2, critique: "Le plexus nerveux central du Trygon est détruit. La créature est tuée." }
+  - id: hierodule_cracheur
+    nom: Hiérodule Cracheur
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes acérées, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Bio-canons jumelés, portee: 45cm, puissance: "3xAP3+/AC4+, FrtF" }
+    notes: [Blindage renforcé, Sauvegarde invulnérable]
+    degats: { cd: 3, critique: "Le plexus nerveux central du Hiérodule est détruit. La créature est tuée." }
+  - id: hierodule_faucheur
+    nom: Hiérodule Faucheur
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces rasoir, portee: (contact), puissance: "Armes d'assaut, +2A, TT (1)" }
+      - { nom: Pyro-acide, portee: (15cm), puissance: "Armes légères, +1A, IC" }
+    notes: [Blindage Renforcé, Sauvegarde Invulnérable]
+    degats: { cd: 3, critique: "Le plexus nerveux central du Hiérodule est détruit. La créature est tuée." }
+  - id: hierodule_prime_cracheur
+    nom: Hiérodule Prime Cracheur
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes acérées, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Bio-canons jumelés, portee: 45cm, puissance: "3xAP3+/AC4+, FrtF" }
+    notes: [Blindage renforcé, Sauvegarde invulnérable, Synapse, Sans peur]
+    roles: [synapse]
+    degats: { cd: 3, critique: "Le plexus nerveux central du Hiérodule est détruit. La créature est tuée." }
+  - id: hierodule_prime_faucheur
+    nom: Hiérodule Prime Faucheur
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces rasoir, portee: (contact), puissance: "Armes d'assaut, +2A, TT (1)" }
+      - { nom: Pyro-acide, portee: (15cm), puissance: "Armes légères, +1A, IC" }
+    notes: [Blindage Renforcé, Sauvegarde Invulnérable, Synapse, Sans peur]
+    roles: [synapse]
+    degats: { cd: 3, critique: "Le plexus nerveux central du Hiérodule est détruit. La créature est tuée." }
+  - id: dominatrix
+    nom: Dominatrix
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes monstrueuses, portee: (contact), puissance: "Armes d'assaut, +2A, TT (D3)" }
+      - { nom: Flot d'énergie, portee: 30cm, puissance: "AP4+/AC4+/AA5+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+      - { nom: Bio-plasma, portee: 15cm, puissance: "3PB MA, FrtF" }
+      - { nom: Bio-canon dorsal, portee: 45cm, puissance: "2xAP3+/AC4+, FrtF" }
+    notes: [Synapse, Sans peur, Blindage renforcé, Sauvegarde invulnérable, Charismatique, Commandant suprême, "Peut enjamber les unités et les terrains infranchissables moins hauts que son abdomen et d'au maximum 2cm de large"]
+    roles: [synapse, commandant_supreme]
+    degats: { cd: 6, critique: "Lancez 1D6 et consultez le tableau ci-dessous. 1 : La Dominatrix hurle de rage et se débat sous l'effet de la blessure. Toute unité en contact avec son socle subit une attaque MA6+. 2-5 : Un liquide visqueux s'écoule d'une profonde blessure de la Dominatrix, qui perd 1 CD supplémentaire. 6 : Un organe vital est touché. Elle perd 1D3 CD supplémentaires." }
+  - id: hierophant
+    nom: Hiérophant
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces rasoir, portee: (contact), puissance: "Armes d'assaut, +2A, TT (1)" }
+      - { nom: Lances-dards, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: 2x Bio-canon, portee: 45cm, puissance: "2xAP3+/AC4+" }
+    notes: [Sans peur, Blindage renforcé, Sauvegarde invulnérable, "Peut enjamber les unités et les terrains infranchissables moins hauts que son abdomen et d'au maximum 2cm de large"]
+    degats: { cd: 6, critique: "Lancez 1D6 et consultez le tableau ci-dessous. 1 : Le Hiérophant hurle de rage et se débat sous l'effet de la blessure. Toute unité en contact avec son socle subit une attaque MA6+. 2-5 : Un liquide visqueux s'écoule d'une profonde blessure du Hierophant, qui perd 1 CD supplémentaire. 6 : Le plexus nerveux central du Hiérophant est détruit. La créature est tuée." }
+  - id: hydraphant
+    nom: Hydraphant
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes monstrueuses, portee: (contact), puissance: "Armes d'assaut, +2A, TT (D3)" }
+      - { nom: Tentacules, portee: (contact), puissance: "Armes d'assaut, +2A, FeP" }
+      - { nom: 2x Lances-dards, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: Bio-plasma lourd, portee: 30cm, puissance: "4PB MA, FrtF" }
+      - { nom: 2x Bio-canon lourd, portee: 60cm, puissance: "2xAP3+/AC4+, FrtF" }
+    notes: [Sans peur, Blindage renforcé, Sauvegarde invulnérable, "Peut enjamber les unités et les terrains infranchissables moins hauts que son abdomen et d'au maximum 2cm de large"]
+    degats: { cd: 8, critique: "Lancez 1D6 et consultez le tableau ci-dessous. 1 : Le Hydraphant hurle de rage et se débat sous l'effet de la blessure. Toute unité en contact avec son socle subit une attaque MA6+. 2-5 : Un liquide visqueux s'écoule d'une profonde blessure du Hydraphant, qui perd 1 CD supplémentaire. 6 : Le plexus nerveux central du Hydraphant est détruit. La créature est tuée." }
+  # ---- Feuille de références Flotte ----
+  - id: harpie
+    nom: Harpies
+    type: A
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Étrangleurs jumelés, portee: 30cm, puissance: "AP4+, Rpt" }
+      - { nom: Attaque au passage, portee: 15cm, puissance: "AP5+/AC5+/AA5+" }
+      - { nom: Spores mines bombardées, portee: 15cm, puissance: "1PB" }
+  - id: virago
+    nom: Virago
+    type: A
+    vitesse: C
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon salivaire, portee: 30cm, puissance: "AP4+/AC5+, FrtF" }
+      - { nom: Tentaclide, portee: 15cm, puissance: "AA6+" }
+  - id: croiseur_razorfiend
+    nom: Croiseur Razorfiend
+    type: VS
+    armes:
+      - { nom: Bombardement orbital, portee: "∞", puissance: "3PB" }
+    notes: ["Transport (jusqu'à deux spores mycétiques et tout ce qu'elles contiennent)"]
+    transport: { capacite: 2, accepte: [spore_mycetique] }
+  - id: vaisseau_ruche
+    nom: Vaisseau Ruche
+    type: VS
+    armes:
+      - { nom: Bombardement orbital (VR), portee: "∞", puissance: "8PB" }
+    notes: [Lent, "Transport (jusqu'à cinq spores mycétiques et tout ce qu'elles contiennent)"]
+    transport: { capacite: 5, accepte: [spore_mycetique] }
+  - id: spore_mycetique
+    nom: Spores Mycétiques
+    type: VB
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Tentacules éventreurs, portee: 15cm, puissance: "AP6+, Rpt" }
+    notes:
+      - Assaut planétaire
+      - "Transport (15) : Termagants, Hormagaunts, Biovores, Rôdeur, Carnifex, Prince, Guerriers Tyranides, Zoanthropes."
+      - "Une fois que les Spores ont atterries, les tentacules éventreurs s'attaquent à chaque unité ennemie dans un rayon de 15cm. Chaque formation ainsi attaquée reçoit un pion impact pour être sous le feu de l'ennemi puis résolvez les attaques. Enfin, toutes les troupes transportées doivent débarquer à moins de 5cm des Spores ou à moins de 5cm d'une autre unité ayant déjà débarqué, du moment que toutes les unités soient placées dans un rayon de 15cm autour des spores."
+    transport: { capacite: 15, accepte: [termagant, hormagaunt, biovore, rodeur, carnifex, prince_tyranide, prince_maitre_essaims, guerrier_tyranide, zoanthrope] }
+
+options:
+  # ---- Groupes synaptiques ----
+  - id: alpha_prince
+    nom: Prince Alpha
+    effet: { type: mot_cle, texte: "Prince Alpha : gagne la note Charismatique", cout: 25, cible: [prince_tyranide, prince_tyranide_aile] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "Un seul Prince Tyranide par armée peut devenir un Prince Alpha pour +25pts, il gagne la note Charismatique"
+  - id: spore_transport
+    nom: Spore Mycétique
+    effet: { type: ajouter, cout: 50, unites: [{ unite: spore_mycetique, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: taille_max_formation, valeur: 15 }
+      - { type: exclut, options: [guerriers_ailes, prince_aile] }
+    note_md: "Un Croiseur Razorfiend (2 spores max.) ou un Vaisseau Ruche (5 spores max.) doit être sélectionné dans la liste. La formation ne doit comprendre que des Termagants, Hormagaunts, Biovores, Rôdeurs, Carnifex, Princes Tyranides, Princes Maîtres des Essaims, Guerriers Tyranides et Zoanthropes."
+    phrase_pdf: "spore mycétique"
+  - id: guerriers_ailes
+    nom: Guerriers Tyranides Ailés
+    effet: { type: remplacer, de: guerrier_tyranide, par: guerrier_tyranide_aile, tout: true, cout: 0 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [guerrier_tyranide] }
+      - { type: exclut, options: [spore_transport] }
+    note_md: "Les Guerriers Tyranides gagnent Réacteurs dorsaux, leur vitesse passe à 30cm et leur blindage à 5+."
+  - id: prince_aile
+    nom: Prince Ailé
+    effet: { type: remplacer, de: prince_tyranide, par: prince_tyranide_aile, tout: true, cout: 0 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [prince_tyranide] }
+      - { type: exclut, options: [spore_transport] }
+    note_md: "Le Prince Tyranide gagne Réacteurs dorsaux, sa vitesse passe à 30cm et son blindage à 5+."
+  # ---- Essaims indépendants communs ----
+  - id: genestealers_supp
+    nom: Genestealers supplémentaires
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: genestealer }], max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-3 Genestealers pour +25 pts / unité"
+  - id: genestealer_alpha
+    nom: Genestealer Alpha
+    effet: { type: ajouter, cout: 25, unites: [{ unite: genestealer_alpha, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-1 Genestealers Alpha pour +25 pts"
+  - id: lictors_supp
+    nom: Lictors supplémentaires
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: lictor }], max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-2 Lictors pour +50 pts / unité"
+  # ---- Essaims indépendants rares ----
+  - id: harpies_supp
+    nom: Harpies supplémentaires
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: harpie }], max: 2 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [harpie] }
+    phrase_pdf: "0-2 Harpies supplémentaires pour 50 pts chacune"
+
+formations:
+  # ---- Groupe synaptique ----
+  - id: groupe_nexus
+    nom: Groupe Nexus
+    variantes:
+      - id: dominatrix
+        nom: 1 Dominatrix
+        cout: 400
+        composition:
+          - { unite: dominatrix, nombre: 1 }
+        contraintes:
+          - { type: consomme, budget: rare, quoi: points }
+          - { type: cout_rare, valeur: 400 }
+      - id: prince_maitre
+        nom: 1 Prince Maître des Essaims et 2 unités synaptiques
+        cout: 175
+        composition:
+          - { unite: prince_maitre_essaims, nombre: 1 }
+          - choix:
+              total: 2
+              parmi: [{ unite: guerrier_tyranide }, { unite: zoanthrope }]
+              phrase_pdf: "2 unités parmi : Guerriers Tyranides ; Zoanthrope"
+    sous_formations:
+      label: essaims instinctifs
+      total: { min: 2, max: 6 }
+      parmi: [gaunts, bio_artillerie, gargouilles, carnifex, bio_soutien, bio_tank, hierodule, fouisseurs]
+      phrase_pdf: "2-6 essaims instinctifs, spore mycétique"
+    options: [spore_transport, guerriers_ailes]
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: initiative, valeur: "1+" }
+  - id: centre_synaptique
+    nom: Centre Synaptique
+    variantes:
+      - id: base
+        cout: 125
+        composition:
+          - { unite: prince_tyranide, nombre: 1 }
+          - choix:
+              total: 2
+              parmi: [{ unite: guerrier_tyranide }, { unite: zoanthrope }]
+              phrase_pdf: "2 unités parmi : Guerriers Tyranides ; Zoanthrope"
+    sous_formations:
+      label: essaims instinctifs
+      total: { min: 2, max: 5 }
+      parmi: [gaunts, bio_artillerie, gargouilles, carnifex, bio_soutien, bio_tank, hierodule, fouisseurs]
+      phrase_pdf: "2-5 essaims instinctifs, spore mycétique"
+    options: [alpha_prince, spore_transport, guerriers_ailes, prince_aile]
+  - id: relais_synaptique
+    nom: Relais Synaptique
+    variantes:
+      - id: base
+        cout: 100
+        composition:
+          - { unite: guerrier_tyranide, nombre: 1 }
+          - choix:
+              total: 2
+              parmi: [{ unite: guerrier_tyranide }, { unite: zoanthrope }]
+              phrase_pdf: "2 unités parmi : Guerriers Tyranides ; Zoanthrope"
+    sous_formations:
+      label: essaims instinctifs
+      total: { min: 2, max: 4 }
+      parmi: [gaunts, bio_artillerie, gargouilles, carnifex, bio_soutien, bio_tank, hierodule, fouisseurs]
+      phrase_pdf: "2-4 essaims instinctifs, spore mycétique"
+    options: [spore_transport, guerriers_ailes]
+  - id: soutien_synaptique
+    nom: Soutien Synaptique
+    variantes:
+      - { id: cracheur, nom: 1 Hiérodule Prime Cracheur, cout: 150, composition: [{ unite: hierodule_prime_cracheur, nombre: 1 }] }
+      - { id: faucheur, nom: 1 Hiérodule Prime Faucheur, cout: 150, composition: [{ unite: hierodule_prime_faucheur, nombre: 1 }] }
+    sous_formations:
+      label: essaims instinctifs
+      total: { min: 2, max: 4 }
+      parmi: [gaunts, gargouilles, bio_artillerie, bio_soutien, bio_tank, carnifex]
+      phrase_pdf: "2-4 essaims instinctifs parmi : Gaunts ; Gargouilles ; Bio-artillerie ; Bio-soutien ; Bio-tank ; Carnifex"
+    options: []
+  - id: briseur_siege
+    nom: Briseur de siège
+    variantes:
+      - { id: cracheur, nom: 1 Hiérodule Prime Cracheur, cout: 150, composition: [{ unite: hierodule_prime_cracheur, nombre: 1 }] }
+      - { id: faucheur, nom: 1 Hiérodule Prime Faucheur, cout: 150, composition: [{ unite: hierodule_prime_faucheur, nombre: 1 }] }
+    sous_formations:
+      label: essaims instinctifs
+      total: { min: 1, max: 2 }
+      parmi: [hierodule]
+      phrase_pdf: "1-2 essaims instinctifs parmi : Hiérodule"
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+  - id: groupe_appui
+    nom: Groupe d'Appui
+    variantes:
+      - id: tunnelier
+        nom: 1 Trygon Prime (tunnelier)
+        cout: 125
+        composition: [{ unite: trygon_prime, nombre: 1 }]
+        sous_formations:
+          label: essaims instinctifs
+          total: { min: 1, max: 2 }
+          parmi: [gaunts, fouisseurs]
+          phrase_pdf: "1-2 essaims instinctifs parmi : Gaunts (les unités de l'essaim gagnent la capacité tunnelier gratuitement) ; Fouisseur"
+      - id: sans_tunnelier
+        nom: 1 Trygon Prime (sans tunnelier)
+        cout: 125
+        composition: [{ unite: trygon_prime, nombre: 1 }]
+        sous_formations:
+          label: essaims instinctifs
+          total: { min: 1, max: 2 }
+          parmi: [bio_soutien, bio_tank]
+          phrase_pdf: "1-2 essaims instinctifs parmi : Bio-soutien et Bio-tank (le Trygon Prime perd la capacité tunnelier)"
+    options: []
+  - id: groupe_chasse
+    nom: Groupe de Chasse
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 1, max: 2 }
+              parmi: [{ unite: harridan, cout: 125 }]
+              phrase_pdf: "1 ou 2 Harridan"
+    sous_formations:
+      label: essaims instinctifs
+      total: { min: 1, max: 2 }
+      parmi: [gargouilles]
+      phrase_pdf: "1-2 essaims instinctifs parmi : Gargouilles"
+    options: []
+    phrase_pdf: "125 pts l'unité"
+
+  # ---- Essaims instinctifs ----
+  - id: gaunts
+    nom: Gaunts
+    variantes:
+      - id: base
+        cout: 75
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: termagant }, { unite: hormagaunt }]
+              phrase_pdf: "6 unités parmi les suivantes : Termagant ; Hormagaunt"
+  - id: bio_artillerie
+    nom: Bio-artillerie
+    variantes:
+      - { id: base, cout: 75, composition: [{ unite: biovore, nombre: 3 }] }
+  - id: gargouilles
+    nom: Gargouilles
+    variantes:
+      - { id: base, cout: 75, composition: [{ unite: gargouille, nombre: 4 }] }
+  - id: carnifex
+    nom: Carnifex
+    variantes:
+      - { id: base, cout: 100, composition: [{ unite: carnifex, nombre: 3 }] }
+  - id: bio_soutien
+    nom: Bio-soutien
+    variantes:
+      - { id: dactylis, nom: 3 Dactylis, cout: 150, composition: [{ unite: dactylis, nombre: 3 }] }
+      - { id: exocrines, nom: 3 Exocrines, cout: 150, composition: [{ unite: exocrine, nombre: 3 }] }
+  - id: bio_tank
+    nom: Bio-tank
+    variantes:
+      - { id: haruspex, nom: 3 Haruspex, cout: 150, composition: [{ unite: haruspex, nombre: 3 }] }
+      - { id: malefactors, nom: 3 Malefactors, cout: 150, composition: [{ unite: malefactor, nombre: 3 }] }
+  - id: hierodule
+    nom: Hiérodule
+    variantes:
+      - { id: cracheur, nom: 1 Hiérodule Cracheur, cout: 125, composition: [{ unite: hierodule_cracheur, nombre: 1 }] }
+      - { id: faucheur, nom: 1 Hiérodule Faucheur, cout: 125, composition: [{ unite: hierodule_faucheur, nombre: 1 }] }
+  - id: fouisseurs
+    nom: Fouisseurs
+    variantes:
+      - { id: trygon, nom: 1 Trygon, cout: 100, composition: [{ unite: trygon, nombre: 1 }] }
+      - { id: rodeurs, nom: 3 Rôdeurs, cout: 50, composition: [{ unite: rodeur, nombre: 3 }] }
+
+  # ---- Essaims indépendants communs ----
+  - id: genestealers
+    nom: Essaim de Genestealers
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: genestealer, nombre: 6 }] }
+    options: [genestealers_supp, genestealer_alpha]
+  - id: lictors
+    nom: Essaim de Lictors
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: lictor, nombre: 4 }] }
+    options: [lictors_supp]
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+
+  # ---- Essaims indépendants rares ----
+  - id: bio_aviation
+    nom: Bio-aviation
+    variantes:
+      - { id: harpies, nom: 2 Harpies, cout: 125, composition: [{ unite: harpie, nombre: 2 }] }
+      - { id: viragos, nom: 3 Viragos, cout: 150, composition: [{ unite: virago, nombre: 3 }] }
+    options: [harpies_supp]
+  - id: bio_titans
+    nom: Bio-titans
+    variantes:
+      - { id: hierophant, nom: 1 Bio-titan Hiérophant, cout: 350, composition: [{ unite: hierophant, nombre: 1 }] }
+      - { id: hydraphant, nom: 1 Bio-titan Hydraphant, cout: 550, composition: [{ unite: hydraphant, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: bio_vaisseaux
+    nom: Bio-vaisseaux
+    variantes:
+      - { id: razorfiend, nom: 1 Croiseur Razorfiend, cout: 150, composition: [{ unite: croiseur_razorfiend, nombre: 1 }] }
+      - { id: vaisseau_ruche, nom: 1 Vaisseau Ruche, cout: 250, composition: [{ unite: vaisseau_ruche, nombre: 1 }] }
+    options: []
+    contraintes:
+      - { type: initiative, valeur: "1+" }
+      - { type: pas_une_activation }
+
+sections:
+  - id: groupe_synaptique
+    titre: GROUPE SYNAPTIQUE
+    formations: [groupe_nexus, centre_synaptique, relais_synaptique, soutien_synaptique, briseur_siege, groupe_appui, groupe_chasse]
+    contraintes:
+      - { type: fournit, budget: essaim_commun, quantite: 1 }
+      - { type: fournit, budget: essaim_rare, quantite: 1 }
+    options: [spore_transport, guerriers_ailes, prince_aile]
+  - id: essaims_instinctifs
+    titre: ESSAIMS INSTINCTIFS
+    sous_titre: "Vous devez impérativement prendre le nombre d'options nécessaires au Groupe Synaptique choisi. Par exemple si vous avez pris un relais synaptique, vous avez l'obligation de prendre deux essaims instinctifs parmi le choix proposé"
+    formations: [gaunts, bio_artillerie, gargouilles, carnifex, bio_soutien, bio_tank, hierodule, fouisseurs]
+    contraintes: [{ type: non_autonome }]
+  - id: essaims_communs
+    titre: ESSAIMS INDÉPENDANTS COMMUNS
+    sous_titre: "Vous pouvez prendre jusqu'à un essaim indépendant commun par Groupe Synaptique. Les essaims indépendants communs ne doivent pas dépasser 1/3 des points de l'armée"
+    formations: [genestealers, lictors]
+    contraintes:
+      - { type: consomme, budget: essaim_commun }
+      - { type: consomme, budget: communs, quoi: points }
+    options: [genestealers_supp, genestealer_alpha, lictors_supp]
+    colonne_options: true
+  - id: essaims_rares
+    titre: ESSAIMS INDÉPENDANTS RARES
+    sous_titre: "Vous pouvez prendre jusqu'à un essaim indépendant rare par groupe synaptique. Les essaims indépendants rares ne doivent pas dépasser 1/3 des points de l'armée. Notez que le coût d'une Dominatrix soit 400pts doit être inclus dans ce tiers."
+    formations: [bio_aviation, bio_titans, bio_vaisseaux]
+    contraintes:
+      - { type: consomme, budget: essaim_rare }
+      - { type: consomme, budget: rare, quoi: points }
+    options: [harpies_supp]
+
+listes_test:
+  - nom: "3000 pts valide : Nexus Dominatrix, Centre, Relais, communs et rares"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: groupe_nexus
+        variante: dominatrix
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: gaunts, choix: { "0": { termagant: 6 } } }
+          - { formation: carnifex }
+      - formation: centre_synaptique
+        choix: { "1": { guerrier_tyranide: 1, zoanthrope: 1 } }
+        options: [{ option: alpha_prince }]
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { termagant: 3, hormagaunt: 3 } } }
+          - { formation: bio_artillerie }
+          - { formation: gargouilles }
+      - formation: relais_synaptique
+        choix: { "1": { guerrier_tyranide: 2 } }
+        options: [{ option: spore_transport }]
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: gaunts, choix: { "0": { termagant: 6 } } }
+      - formation: genestealers
+        options: [{ option: genestealers_supp, quantite: 2 }, { option: genestealer_alpha }]
+      - { formation: lictors, options: [{ option: lictors_supp, quantite: 1 }] }
+      - { formation: bio_titans, variante: hierophant }
+      - { formation: bio_vaisseaux, variante: razorfiend }
+  - nom: "2 essaims communs pour un seul groupe synaptique"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: centre_synaptique
+        choix: { "1": { zoanthrope: 2 } }
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: gargouilles }
+      - { formation: genestealers }
+      - { formation: lictors }
+  - nom: "Relais Synaptique avec 5 essaims (max 4)"
+    limite: 3000
+    attendu: refusee
+    erreur: sous_formations
+    formations:
+      - formation: relais_synaptique
+        choix: { "1": { guerrier_tyranide: 1, zoanthrope: 1 } }
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: gaunts, choix: { "0": { termagant: 6 } } }
+          - { formation: bio_artillerie }
+          - { formation: gargouilles }
+          - { formation: carnifex }
+  - nom: "Spore Mycétique et Prince ailé dans la même formation"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: centre_synaptique
+        choix: { "1": { guerrier_tyranide: 2 } }
+        options: [{ option: spore_transport }, { option: prince_aile }]
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: bio_artillerie }
+      - { formation: bio_vaisseaux, variante: razorfiend }
+  - nom: "deux Groupes Nexus"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: groupe_nexus
+        variante: dominatrix
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: gargouilles }
+      - formation: groupe_nexus
+        variante: prince_maitre
+        choix: { "1": { guerrier_tyranide: 2 } }
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { termagant: 6 } } }
+          - { formation: carnifex }
+  - nom: "Dominatrix et Hydraphant au-delà du tiers des rares à 2000 pts"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: groupe_nexus
+        variante: dominatrix
+        sous_formations:
+          - { formation: gaunts, choix: { "0": { hormagaunt: 6 } } }
+          - { formation: gaunts, choix: { "0": { termagant: 6 } } }
+      - { formation: bio_titans, variante: hydraphant }

@@ -1,0 +1,716 @@
+# Orks de Ghazghkull, transcrit depuis le PDF EAFR rev 1.7.1 (source de vérité).
+codex:
+  slug: orks-ghazghkull
+  nom: Orks de Ghazghkull
+  version: "1.7.1"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  couleur: "#236d44"
+  logo: ork.png
+  citation:
+    texte: "CHUI L'TOUT PUISSAN SAIGNEUR GHAZGHKULL MAG URUK THRAKA, ET CH'KOZ AVEK LA VOIX DÉ DIEUS ON VA KRABOUILLÉ L'UNIVERS ET TUÉ TOU CEU KI S'RBIFRON ET ON L'FRA A KAUZ KON É DÉ ZORKS ET KON É FÉ POUR S'BATT ET GAGNER"
+    auteur: Graffiti trouvé par des Dark Angels sur les débris d'un Titan Warlord à Westerisle, sur Piscina IV
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied une WAAAGH! d'Orks basée sur celle de GHAZGHKULL MAD URUK THRAKA lors de la IIIème Guerre pour Armageddon. Cette liste peut également être utilisée pour représenter d'autres armées orks comme celles de DREGRUK ou GATHROG.
+
+    Les armées des Orks sont organisées autour de grandes formations appelées bandes, qui peuvent s'acheter selon 3 tailles, la bande normale, la mastok (doubler l'effectif de départ) ou la tré mastok (tripler l'effectif de départ).
+
+    Chaque bande peut recevoir des kust'oms. La liste d'armée indique pour chaque catégorie de bande quels kust'oms sont autorisés. Chaque kust'om autorisé peut être pris un nombre illimité de fois par bande, sauf s'il est fait état d'une limitation de kust'om. Les limitations de kust'om sont multipliées de la même façon que l'effectif de départ, ainsi si un Kulte d'la Vitesse normal ne peut accueillir qu'un Brikolo supplémentaire, un Kulte d'la Vitesse tré mastok peut en inclure jusqu'à 3. Les kust'oms font partie intégrante des bandes et doivent en respecter la cohésion.
+
+    Les truk'eud'meks sont des formations autonomes des bandes. Un maximum de ⅓ des points de l'armée peuvent être dépensés pour ces formations.
+
+    Les armées Orks de Ghazghkull ont une valeur stratégique de 3. Toutes les formations Orks de Ghazghkull ont une initiative de 3+ mais reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la Waaagh!) ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande).
+  regles_md:
+    - titre: "Règle spéciale : Da Big Boss"
+      texte: |
+        Chaque armée Ork doit inclure une unité de commandant suprême appelée Big Boss. Cette unité est gratuite et doit obligatoirement rejoindre un Grand Gargant. S'il n'y en a pas, le Big Boss rejoindra un Gargant ou un socle de Nobz.
+    - titre: "Règle spéciale : Pouvoir de la Waaagh!"
+      texte: |
+        Les Orks ne sont pas de fins stratèges mais la perspective d'une bonne bagarre les galvanise toujours. Afin de représenter ceci, une formation tentant une action d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son test d'action.
+
+        Les formations aériennes ont +2 de bonus pour les tests d'actions lorsqu'elles tentent une Interception ou une Attaque au sol.
+    - titre: "Règle spéciale : R'mise en bande"
+      texte: |
+        Lorsque les bandes Orks tentent un test de ralliement, ils reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 lorsqu'ils sont plus de 10. Les engins de guerre faisant partie de ces bandes comptent pour autant d'unités que leur capacité de dommage de départ. Ne sont pas comptabilisables dans le calcul ni les Gretchins ni les Groskalibr'.
+    - titre: "Règle spéciale : Champ énergétique"
+      texte: |
+        Certains engins de guerre Orks possèdent des champs énergétiques. Le nombre dont en dispose chaque engin est indiqué sur sa fiche d'unité. Les champs énergétiques fonctionnent de la même manière que les Boucliers du Vide des impériaux, à la différence qu'une fois abattus, ils ne sont pas réparables et restent donc inactifs jusqu'à la fin de la bataille.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture rasmusillustration."
+  valeur_strategique: 3
+  initiative:
+    defaut: "3+"
+    exceptions: []
+
+budgets:
+  - id: rare
+    libelle: Truk'eud'mek
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: big_boss
+    nom: Big Boss
+    type: Perso
+    armes:
+      - { nom: Big Gros Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme, personnage]
+  - id: brikolo_super_zap
+    nom: Brikolo Super Zap
+    type: Perso
+    armes:
+      - { nom: Super Zap, portee: 60cm, puissance: "MA3+, TT (D3)" }
+    notes: ["Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un de ses Gros Kanons ou Grokalibr' en Super Zap"]
+    roles: [personnage]
+  - id: brikolo_superkanon
+    nom: Brikolo Superkanon
+    type: Perso
+    armes:
+      - { nom: Superkanon, portee: 60cm, puissance: "2PB MA, FrtF" }
+    notes: ["Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un de ses Gros Kanons ou Grokalibr' en Superkanon"]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: nobz
+    nom: Nobz
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Gros Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Meneur]
+  - id: boyz
+    nom: Boyz
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+  - id: gretchins
+    nom: Gretchins
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+    notes: ["Les formations incluant au moins une unité d'Ork ne reçoivent pas de pions d'impact pour les unités de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d'un assaut"]
+  - id: chokboyz
+    nom: Chokboyz
+    type: Inf
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+    notes: [Éclaireurs, Réacteurs dorsaux]
+  - id: kommandos
+    nom: Kommandos
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+    notes: [Éclaireurs, Infiltrateurs]
+  - id: grokalibr
+    nom: Grokalibr'
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Grokalibr', portee: 45cm, puissance: "AP5+/AC5+" }
+  - id: motos
+    nom: Motos
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Fling' jumelés, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Montés]
+
+  # ---- Véhicules légers ----
+  - id: buggy
+    nom: Buggy / Trak
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Fling' jumelés, portee: 30cm, puissance: "AP5+/AC5+" }
+    taille_transport: 2
+  - id: karbonisator
+    nom: Karbonisator
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Karbonisator, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, IC" }
+    taille_transport: 2
+  - id: kopter
+    nom: Kopter
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Antigrav]
+    taille_transport: 2
+
+  # ---- Véhicules blindés ----
+  - id: chariot_guerre
+    nom: Chariot de Guerre
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: ["Transport (2) : Boyz, Nobz, Kommandos, Grokalibrs' (peut remplacer une des deux unités transportées). Peut embarquer une unité de Gretchins en plus des autres unités"]
+    transport: { capacite: 2, accepte: [boyz, nobz, kommandos, grokalibr] }
+  - id: chariot_kanon
+    nom: Chariot Kanon
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: ["Transport (1) : Boyz, Kommandos, Gretchins, Nobz, Grokalibr'"]
+    transport: { capacite: 1, accepte: [boyz, kommandos, gretchins, nobz, grokalibr] }
+  - id: chariot_flak
+    nom: Chariot Flak
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Kanon flak, portee: 30cm, puissance: "AP5+/AC6+/AA5+" }
+    notes: ["Transport (1) : Boyz, Kommandos, Gretchins, Nobz, Grokalibr'"]
+    transport: { capacite: 1, accepte: [boyz, kommandos, gretchins, nobz, grokalibr] }
+  - id: boit_kitu
+    nom: Boit'Kitu
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Pince de kombat, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Marcheur]
+  - id: dreadnought
+    nom: Dreadnought
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: Pince de kombat, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Marcheur]
+    taille_transport: 2
+  - id: krabouillator
+    nom: Krabouillator
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: 2-3 Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: 0-1 Marto de kombat, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: et, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Blindage renforcé, Marcheur, "Peut être équipé de 3 Gros kanons ou de 2 Gros kanons et 1 Marto de kombat"]
+
+  # ---- Engins de guerre ----
+  - id: forteresse_bataille
+    nom: Forteresse de Bataille
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 4x Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé, "Transport (8) : Boyz, Nobz, Kommandos, Grokalibr'. Peut embarquer quatre unités de Gretchins en plus des autres unités."]
+    transport: { capacite: 8, accepte: [boyz, nobz, kommandos, grokalibr] }
+    degats: { cd: 3, critique: "Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+." }
+  - id: forteresse_kanons
+    nom: Forteresse à Kanons
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 5x Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 3x Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé, "Transport (4) : Boyz, Nobz, Kommandos, Grokalibr'. Peut embarquer quatre unités de Gretchins en plus des autres unités."]
+    transport: { capacite: 4, accepte: [boyz, nobz, kommandos, grokalibr] }
+    degats: { cd: 3, critique: "Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+." }
+  - id: super_krabouillator
+    nom: Super Krabouillator
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: 2-3 Superkanons, portee: 60cm, puissance: "2PB MA, FrtF" }
+      - { nom: 0-1 Méga kikoup', portee: 45cm, puissance: "AP5+/AC5+, FrtF" }
+      - { nom: et, portee: (contact), puissance: "Armes d'assaut, +1A, TT (D3)" }
+    notes: [Blindage renforcé, Marcheur, Sans Peur, "Peut être équipé de 3 Superkanons ou 2 Superkanons et 1 Méga Kikoup'"]
+    degats: { cd: 4, bi: "Champs Énergétiques : 1D3", critique: "La tête du Super Krabouillator explose, tuant le Kaptaine. Il subit une pénalité de -1 pour toucher sur ses tirs. Les critiques suivants causeront 1 point de dommage supplémentaire." }
+  - id: gargant
+    nom: Gargant
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: 2-3 Superkanons, portee: 60cm, puissance: "2PB MA, FrtF" }
+      - { nom: 0-1 Super Zap, portee: 60cm, puissance: "MA3+, TT (D3)" }
+      - { nom: 0-1 Méga kikoup', portee: 45cm, puissance: "AP5+/AC5+, FrtF" }
+      - { nom: et, portee: (contact), puissance: "Armes d'assaut, +1A, TT (D3)" }
+    notes: [Blindage renforcé, Sans peur, Marcheur, "Peut être équipé de 3 Superkanons ou 2 Superkanons et soit 1 Méga kikoup', soit 1 Super Zap"]
+    degats: { cd: 8, bi: "Champs Énergétiques : 1D3+3", critique: "Le Gargant subit un incendie, jetez 1D6 pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur un résultat de 5 / 6, le feu s'éteint. Tout incendie non éteint cause 1 point de dommage à la fin de la phase d'action." }
+  - id: grand_gargant
+    nom: Grand Gargant
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: 2x Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: Superkanon, portee: 60cm, puissance: "2PB MA, FrtF" }
+      - { nom: 1-2 Superkanons Jumelés, portee: 60cm, puissance: "3PB, MA, FrtF" }
+      - { nom: 0-1 Leva lacha, portee: 60cm, puissance: "MA3+, TT (D3), FrtF" }
+      - { nom: et, portee: (contact), puissance: "Armes d'Assaut, +1A, TT (D3)" }
+    notes: [Blindage renforcé, Sans peur, Marcheur, "Peut être équipé de 2 Superkanons jumelés ou d'1 Superkanon jumelé et d'1 Leva lacha"]
+    degats: { cd: 12, bi: "Champs Énergétiques : 1D6+6", critique: "Le Gargant subit un incendie, jetez 1D6 pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur un résultat de 5 / 6, le feu s'éteint. Tout incendie non éteint cause 1 point de dommage supplémentaire." }
+
+  # ---- Aéronefs et vaisseaux ----
+  - id: chassa_bomba
+    nom: Chassa-Bomba
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Aéro Fling', portee: 15cm, puissance: "AP5+/AA5+, FrtF" }
+      - { nom: Rokettes Kass'Tank, portee: 30cm, puissance: "AC4+, FrtF" }
+  - id: vesso_debarkment
+    nom: Vesso de Débark'ment
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Tourelles, portee: 15cm, puissance: "D6+3xAP5+/AA6+" }
+      - { nom: 2x Rokettes Kass'Tank, portee: 30cm, puissance: "AC4+, FrtF" }
+    notes: [Blindage Renforcé, Assaut Planétaire, "Transport (10) : Boyz, Nobz, Kommandos, Chokboyz, Motos, Buggy, Karbonisator, Kopter, Boit'Kitu, Dreadnought. Les Dreadnoughts et les Véhicules Légers occupent deux places. Peut embarquer quatre unités de Gretchins en plus des autres unités"]
+    transport: { capacite: 10, accepte: [boyz, nobz, kommandos, chokboyz, motos, buggy, karbonisator, kopter, boit_kitu, dreadnought] }
+    degats: { cd: 3, critique: "L'appareil s'écrase au sol, tuant tous ses occupants." }
+  - id: kroiseur_kitu
+    nom: Kroiseur Kitu
+    type: VS
+    armes:
+      - { nom: Missiles Pulsors (Kitu), portee: "∞", puissance: "D6+1PB MA" }
+  - id: kroiseur_la_mort
+    nom: Kroiseur d'la Mort
+    type: VS
+    armes:
+      - { nom: Missiles Pulsors (d'la Mort), portee: "∞", puissance: "D6+3PB MA" }
+    notes: ["Transport : Peut transporter 12 Vesso de Débark'ment plus les troupes qu'ils transportent.", "Lent, ne peut être utilisé lors du premier ou deuxième tour de la partie."]
+    transport: { capacite: 12, accepte: [vesso_debarkment] }
+
+options:
+  # ---- Kust'oms à +25 pts chacun (illimités sauf mention) ----
+  - id: boyz_gretchin
+    nom: Boyz (plus une unité de Gretchins gratuite)
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boyz }, { unite: gretchins }], max: 2, par_taille: true }
+    phrase_pdf: "0-2 Boyz (plus une unité de gretchins gratuite)"
+  - id: kommandos
+    nom: Kommandos
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: kommandos }] }
+  - id: chokboyz
+    nom: Chokboyz
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chokboyz }] }
+  - id: grokalibr
+    nom: Grokalibr'
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: grokalibr }] }
+  - id: motos
+    nom: Moto
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: motos }] }
+  - id: buggy
+    nom: Buggy
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: buggy }] }
+  - id: karbonisator
+    nom: Karbonisator
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: karbonisator }] }
+  - id: chariot_guerre
+    nom: Chariot de Guerre
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chariot_guerre }] }
+  - id: boit_kitu
+    nom: Boit'Kitu
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boit_kitu }] }
+
+  # ---- Kust'oms à +50 pts la paire ----
+  - id: kopter
+    nom: Kopter
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: kopter, nombre: 2 }] }
+    phrase_pdf: "Kopter (+50 pts la paire)"
+  - id: dreadnought
+    nom: Dreadnought
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: dreadnought, nombre: 2 }] }
+    phrase_pdf: "Dreadnought (+50 pts la paire)"
+  - id: chariot_kanon
+    nom: Chariot Kanon
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chariot_kanon, nombre: 2 }] }
+    phrase_pdf: "Chariot Kanon (+50 pts la paire)"
+  - id: chariot_flak
+    nom: Chariot Flak
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chariot_flak, nombre: 2 }] }
+    phrase_pdf: "Chariot Flak (+50 pts la paire)"
+  - id: nobz
+    nom: Nobz
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: nobz, nombre: 2 }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Nobz (+50 pts la paire)"
+
+  # ---- Kust'oms à +50 pts chacun ----
+  - id: krabouillators
+    nom: Krabouillators
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: krabouillator }] }
+  - id: brikolo
+    nom: Brikolo
+    effet:
+      type: choix
+      parmi:
+        - { id: super_zap, nom: Brikolo Super Zap, cout: 50, effet: { type: ajouter, unites: [{ unite: brikolo_super_zap }] } }
+        - { id: superkanon, nom: Brikolo Superkanon, cout: 50, effet: { type: ajouter, unites: [{ unite: brikolo_superkanon }] } }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [forteresse_kanons, chariot_kanon, grokalibr] }
+    note_md: "Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un de ses Gros Kanons ou Grokalibr' en Super Zap ou Superkanon."
+    phrase_pdf: "0-1 Brikolo (+50 pts chacun)"
+
+  # ---- Kust'oms à +125 pts chacun ----
+  - id: forteresse
+    nom: Forteresse de bataille ou à Kanon
+    effet:
+      type: choix
+      parmi:
+        - { id: forteresse_bataille, nom: Forteresse de Bataille, cout: 125, effet: { type: ajouter, unites: [{ unite: forteresse_bataille }] } }
+        - { id: forteresse_kanons, nom: Forteresse à Kanons, cout: 125, effet: { type: ajouter, unites: [{ unite: forteresse_kanons }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1, par_taille: true }]
+    phrase_pdf: "Forteresse de bataille ou à Kanon (+125 pts chacun)"
+  - id: forteresse_kanons_seule
+    nom: Forteresse à Kanon
+    effet: { type: ajouter, cout: 125, unites: [{ unite: forteresse_kanons }] }
+    contraintes: [{ type: max_par_formation, valeur: 1, par_taille: true }]
+    phrase_pdf: "0-1 Forteresse à Kanon (+125 pts chacun)"
+
+  # ---- Da Big Boss ----
+  - id: big_boss
+    nom: Big Boss
+    effet: { type: ajouter, cout: 0, unites: [{ unite: big_boss }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: min_par_armee, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Chaque armée Ork doit inclure une unité de commandant suprême appelée Big Boss. Cette unité est gratuite et doit obligatoirement rejoindre un Grand Gargant. S'il n'y en a pas, le Big Boss rejoindra un Gargant ou un socle de Nobz."
+    phrase_pdf: "Big Boss (gratuit, obligatoire, 1 par armée)"
+
+formations:
+  # ---- Bandes Orks ----
+  - id: bande_guerre
+    nom: Bande de Guerre
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 200
+        taille: 1
+        composition:
+          - { unite: nobz, nombre: 2 }
+          - { unite: boyz, nombre: 6 }
+          - { unite: gretchins, nombre: 2 }
+      - id: mastok
+        nom: Mastok'
+        cout: 350
+        taille: 2
+        composition:
+          - { unite: nobz, nombre: 4 }
+          - { unite: boyz, nombre: 12 }
+          - { unite: gretchins, nombre: 4 }
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 500
+        taille: 3
+        composition:
+          - { unite: nobz, nombre: 6 }
+          - { unite: boyz, nombre: 18 }
+          - { unite: gretchins, nombre: 6 }
+    options: [big_boss, boyz_gretchin, kommandos, chokboyz, grokalibr, motos, buggy, karbonisator, chariot_guerre, boit_kitu, kopter, dreadnought, chariot_kanon, chariot_flak, nobz, krabouillators, brikolo, forteresse]
+  - id: kulte_vitesse
+    nom: Kulte d'la Vitesse
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 200
+        taille: 1
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: buggy }, { unite: motos }, { unite: karbonisator }]
+              phrase_pdf: "8 unités parmi : Buggy, Motos, Karbonisators"
+      - id: mastok
+        nom: Mastok'
+        cout: 350
+        taille: 2
+        composition:
+          - choix:
+              total: 16
+              parmi: [{ unite: buggy }, { unite: motos }, { unite: karbonisator }]
+              phrase_pdf: "16 unités parmi : Buggy, Motos, Karbonisators"
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 500
+        taille: 3
+        composition:
+          - choix:
+              total: 24
+              parmi: [{ unite: buggy }, { unite: motos }, { unite: karbonisator }]
+              phrase_pdf: "24 unités parmi : Buggy, Motos, Karbonisators"
+    options: [motos, buggy, karbonisator, kopter, chariot_kanon, chariot_flak, brikolo]
+  - id: brigade_blitz
+    nom: Brigade Blitz
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 150
+        taille: 1
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: chariot_kanon }, { unite: chariot_flak }, { unite: kopter }]
+              phrase_pdf: "4 unités parmi : Chariots Kanons, Chariots Flak, Kopters"
+      - id: mastok
+        nom: Mastok'
+        cout: 250
+        taille: 2
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: chariot_kanon }, { unite: chariot_flak }, { unite: kopter }]
+              phrase_pdf: "8 unités parmi : Chariots Kanons, Chariots Flak, Kopters"
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 350
+        taille: 3
+        composition:
+          - choix:
+              total: 12
+              parmi: [{ unite: chariot_kanon }, { unite: chariot_flak }, { unite: kopter }]
+              phrase_pdf: "12 unités parmi : Chariots Kanons, Chariots Flak, Kopters"
+    options: [motos, buggy, karbonisator, kopter, chariot_kanon, chariot_flak, brikolo, forteresse_kanons_seule]
+  - id: batterie_grokalibr
+    nom: Batterie de Grokalibr'
+    variantes:
+      - { id: normale, nom: Normale, cout: 125, taille: 1, composition: [{ unite: grokalibr, nombre: 5 }] }
+      - { id: mastok, nom: Mastok', cout: 225, taille: 2, composition: [{ unite: grokalibr, nombre: 10 }] }
+      - { id: tre_mastok, nom: Tré Mastok', cout: 325, taille: 3, composition: [{ unite: grokalibr, nombre: 15 }] }
+    options: [grokalibr, chariot_guerre, chariot_flak, nobz, brikolo]
+  - id: bande_chokboyz
+    nom: Bande de Chokboyz
+    variantes:
+      - { id: normale, nom: Normale, cout: 150, taille: 1, composition: [{ unite: chokboyz, nombre: 6 }] }
+    options: [kommandos, chokboyz, buggy, motos, karbonisator, kopter]
+  - id: bande_kommandos
+    nom: Bande de Kommandos
+    variantes:
+      - { id: normale, nom: Normale, cout: 150, taille: 1, composition: [{ unite: kommandos, nombre: 6 }] }
+    options: [kommandos]
+  - id: bande_krabouillators
+    nom: Bande de Krabouillators
+    variantes:
+      - { id: normale, nom: Normale, cout: 200, taille: 1, composition: [{ unite: krabouillator, nombre: 4 }] }
+      - { id: mastok, nom: Mastok', cout: 400, taille: 2, composition: [{ unite: krabouillator, nombre: 8 }] }
+      - { id: tre_mastok, nom: Tré Mastok', cout: 550, taille: 3, composition: [{ unite: krabouillator, nombre: 12 }] }
+    options: [boit_kitu, dreadnought, chariot_flak, krabouillators]
+  - id: bande_super_krabouillator
+    nom: Bande du Super Krabouillator
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 500
+        taille: 1
+        composition:
+          - { unite: super_krabouillator, nombre: 1 }
+          - { unite: krabouillator, nombre: 4 }
+    options: [boit_kitu, dreadnought, chariot_flak, krabouillators]
+
+  # ---- Truk'eud'mek ----
+  - id: super_krabouillator
+    nom: Super Krabouillator
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: super_krabouillator, nombre: 1 }] }
+    options: []
+  - id: gargant
+    nom: Gargant
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: gargant, nombre: 1 }] }
+    options: [big_boss]
+  - id: grand_gargant
+    nom: Grand Gargant
+    variantes:
+      - { id: base, cout: 850, composition: [{ unite: grand_gargant, nombre: 1 }] }
+    options: [big_boss]
+  - id: chassa_bombas
+    nom: Chassa-Bombas
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 4, max: 9 }
+              parmi: [{ unite: chassa_bomba, cout: 50 }]
+              phrase_pdf: "4 à 9 Chassa-Bombas"
+    options: []
+    phrase_pdf: "50 pts chacun"
+  - id: vesso_debarkment
+    nom: Vesso de Débark'ment
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: vesso_debarkment, nombre: 1 }] }
+    options: []
+  - id: kroiseur
+    nom: Kroiseur
+    variantes:
+      - { id: kitu, nom: 1 Kroiseur Kitu, cout: 200, composition: [{ unite: kroiseur_kitu, nombre: 1 }] }
+      - { id: la_mort, nom: 1 Kroiseur d'la Mort, cout: 250, composition: [{ unite: kroiseur_la_mort, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: pas_une_activation }]
+
+sections:
+  - id: bandes
+    titre: BANDES ORKS
+    sous_titre: "Chaque formation peut être prise dans l'une des tailles autorisées"
+    formations: [bande_guerre, kulte_vitesse, brigade_blitz, batterie_grokalibr, bande_chokboyz, bande_kommandos, bande_krabouillators, bande_super_krabouillator]
+    colonne_options: true
+  - id: truk_eudmek
+    titre: TRUK'EUD'MEK
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: [super_krabouillator, gargant, grand_gargant, chassa_bombas, vesso_debarkment, kroiseur]
+
+listes_test:
+  - nom: "3000 pts valide, Big Boss dans un Gargant"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: bande_guerre
+        variante: mastok
+        options:
+          - { option: boyz_gretchin, quantite: 4 }
+          - { option: kommandos, quantite: 2 }
+          - { option: nobz, quantite: 1 }
+          - { option: forteresse, choix: forteresse_bataille }
+      - formation: kulte_vitesse
+        variante: normale
+        choix: { "0": { buggy: 5, motos: 3 } }
+        options: [{ option: kopter, quantite: 2 }]
+      - formation: batterie_grokalibr
+        variante: normale
+        options: [{ option: brikolo, choix: super_zap }]
+      - { formation: bande_chokboyz }
+      - formation: gargant
+        options: [{ option: big_boss }]
+      - formation: chassa_bombas
+        choix: { "0": { chassa_bomba: 4 } }
+  - nom: "sans Big Boss"
+    limite: 3000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: bande_guerre, variante: normale }
+      - formation: kulte_vitesse
+        variante: normale
+        choix: { "0": { buggy: 8 } }
+  - nom: "bande normale avec 3 lots de Boyz"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: boyz_gretchin, quantite: 3 }]
+      - formation: gargant
+        options: [{ option: big_boss }]
+  - nom: "Truk'eud'mek au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: bande_guerre, variante: normale }
+      - formation: grand_gargant
+        options: [{ option: big_boss }]
+  - nom: "Forteresse de Bataille sur une Brigade Blitz"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: brigade_blitz
+        variante: normale
+        choix: { "0": { chariot_kanon: 2, chariot_flak: 1, kopter: 1 } }
+        options: [{ option: forteresse, choix: forteresse_bataille }]
+      - formation: gargant
+        options: [{ option: big_boss }]
+  - nom: "deux Big Boss"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_boss }]
+      - formation: gargant
+        options: [{ option: big_boss }]

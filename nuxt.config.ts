@@ -13,6 +13,10 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
   },
+  nitro: {
+    // Codex YAML (source de vérité) embarqués dans le serveur
+    serverAssets: [{ baseName: 'codex', dir: '../content/codex' }],
+  },
   app: {
     head: {
       htmlAttrs: { class: 'dark', lang: 'fr' },
