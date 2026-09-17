@@ -1,11 +1,20 @@
 <script setup lang="ts">
 /** Tutoriel : comment créer une armée de A à Z. Dépliable, état mémorisé dans le navigateur. */
-const ouvert = ref(true)
-const onglet = ref<'etapes' | 'composition' | 'recettes'>('etapes')
-const CLE = 'admin-codex-guide'
+const props = defineProps<{
+  /** replié au premier affichage (pense-bête sur la fiche d'un codex) */
+  replie?: boolean
+  /** clé de mémorisation, pour distinguer la liste et la fiche */
+  cle?: string
+}>()
+const ouvert = ref(!props.replie)
+const onglet = ref<'etapes' | 'composition' | 'recettes'>(props.replie ? 'recettes' : 'etapes')
+const CLE = props.cle ?? 'admin-codex-guide'
 
 onMounted(() => {
-  try { ouvert.value = localStorage.getItem(CLE) !== 'ferme' } catch { /* ignore */ }
+  try {
+    const v = localStorage.getItem(CLE)
+    if (v) ouvert.value = v === 'ouvert'
+  } catch { /* ignore */ }
 })
 watch(ouvert, (v) => { try { localStorage.setItem(CLE, v ? 'ouvert' : 'ferme') } catch { /* ignore */ } })
 
@@ -71,7 +80,7 @@ const recettes = [
     <button type="button" class="flex w-full items-center justify-between px-5 py-3 text-left" @click="ouvert = !ouvert">
       <span class="flex items-center gap-3">
         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-gold/15 font-heading text-sm font-bold text-gold">?</span>
-        <span class="font-heading text-base font-semibold text-gray-100">Comment créer une armée</span>
+        <span class="font-heading text-base font-semibold text-gray-100">{{ replie ? 'Pense-bête : comment créer une armée' : 'Comment créer une armée' }}</span>
         <span class="hidden text-xs text-gray-500 sm:inline">7 étapes, la syntaxe des compositions, et les recettes des cas classiques</span>
       </span>
       <span class="text-gray-500">{{ ouvert ? '▴' : '▾' }}</span>

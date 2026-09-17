@@ -148,6 +148,8 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
         <ul class="list-disc space-y-0.5 pl-5"><li v-for="(p, i) in problemes" :key="i">{{ p }}</li></ul>
       </div>
 
+      <AdminCodexGuide replie cle="admin-codex-guide-fiche" class="mb-5" />
+
       <!-- Onglets -->
       <div class="mb-5 flex gap-1 border-b border-gold/10">
         <button v-for="o in onglets" :key="o.id" type="button" class="-mb-px rounded-t-md px-4 py-2 text-sm font-medium" :class="onglet === o.id ? 'border border-gold/20 border-b-surface bg-surface text-gold' : 'text-gray-400 hover:text-gray-200'" @click="onglet = o.id">
