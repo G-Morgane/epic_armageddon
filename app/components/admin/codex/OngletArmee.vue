@@ -43,7 +43,7 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
         </label>
         <label class="champ-label">Couleur<input v-model="meta.couleur" type="color" class="champ h-9 p-1"></label>
         <label class="champ-label">Valeur stratégique<input v-model="meta.valeur_strategique" class="champ"></label>
-        <label class="champ-label">Initiative par défaut<input v-model="meta.initiative.defaut" class="champ w-24"></label>
+        <label class="champ-label">Initiative par défaut<input v-model="meta.initiative.defaut" class="champ"></label>
       </div>
       <div class="mt-3">
         <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Exceptions d'initiative</p>
@@ -107,6 +107,6 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
 .carte { @apply rounded-lg border border-gold/10 bg-surface-light p-5; }
 .titre-carte { @apply mb-3 font-heading text-base font-semibold text-gold; }
 .champ-label { @apply flex flex-col gap-1 text-xs text-gray-400; }
-.champ { @apply rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100 focus:border-gold focus:outline-none; }
+.champ { @apply w-full rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100 focus:border-gold focus:outline-none; }
 .lien { @apply text-sm text-gold hover:underline; }
 </style>
