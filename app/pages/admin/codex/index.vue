@@ -42,6 +42,8 @@ async function creer() {
       <button type="button" class="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-surface hover:bg-gold-light" @click="modale = true">+ Nouvelle armée</button>
     </div>
 
+    <AdminCodexGuide class="mb-6" />
+
     <div v-if="chargement" class="py-16 text-center text-gray-500">Chargement…</div>
     <div v-else class="overflow-hidden rounded-lg border border-gold/10 bg-surface-light">
       <table class="w-full text-sm">

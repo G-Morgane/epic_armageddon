@@ -14,6 +14,8 @@ const versions = ref<Array<{ version?: string; changelog?: string; publie?: stri
 const existe = ref(false)
 const chargement = ref(true)
 const pret = ref(false)
+/** dernier état enregistré (ou chargé), pour ne pas créer de brouillon sans changement réel */
+let dernierEtat = ''
 const erreurChargement = ref('')
 const onglet = ref<'armee' | 'unites' | 'liste' | 'options' | 'apercu'>('liste')
 const sauvegarde = ref<'propre' | 'modifie' | 'encours' | 'ok'>('propre')
@@ -29,6 +31,7 @@ onMounted(async () => {
   try {
     const r = await api.get<{ data: CodexInput; existe: boolean; versions: typeof versions.value }>(`/api/admin/codex/${slug}/brouillon`)
     brouillon.value = r.data
+    dernierEtat = JSON.stringify(r.data)
     existe.value = r.existe
     versions.value = r.versions
     problemes.value = verifier()
@@ -51,6 +54,7 @@ function verifier(): string[] {
 let minuteur: ReturnType<typeof setTimeout> | undefined
 watch(brouillon, () => {
   if (!pret.value) return
+  if (JSON.stringify(brouillon.value) === dernierEtat) return
   sauvegarde.value = 'modifie'
   problemes.value = verifier()
   clearTimeout(minuteur)
@@ -63,6 +67,7 @@ async function enregistrer() {
   try {
     const r = await api.put<{ problemes: string[] }>(`/api/admin/codex/${slug}/brouillon`, brouillon.value)
     problemes.value = r.problemes
+    dernierEtat = JSON.stringify(brouillon.value)
     existe.value = true
     sauvegarde.value = 'ok'
     apercuCle.value++
