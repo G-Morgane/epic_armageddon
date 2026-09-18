@@ -1,0 +1,922 @@
+===== PAGE 1 =====
+ 
+0 
+
+
+===== PAGE 2 =====
+ELDARS NOIRS 
+ 
+ 
+ 
+« Nous sommes les maîtres du ciel ténébreux. 
+Nous refusons de ramper dans la fange du champ de bataille. 
+Nous laissons cela aux espèces indignes. 
+Nous ne poserons le pied sur la terre natale de ces vermines 
+que pour appuyer nos talons sur leur gorge. » 
+- Archonte Vraesque Malidrach, Prince de la Couronne 
+Empoisonnée. 
+ 
+ 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une force Eldars 
+Noirs. 
+Les armées Eldars Noirs sont organisées autour de formations 
+principales, elles-mêmes complétées par des formations et des  
+formations d’élites qui leurs sont autonomes.  
+Chaque formation principale permet de choisir jusqu’à 3 formations 
+soit dans la liste des formations associée à cette formation 
+principale soit dans la liste des formations d’élites. 
+Chaque formation peut recevoir des améliorations. La liste d’armée 
+indique pour chaque formation quelle amélioration est autorisée. 
+Chaque amélioration autorisée ne peut être prise qu’une fois par 
+formation et jusqu’à un maximum de 4 améliorations par formation. 
+Les améliorations font partie intégrante des formations et doivent 
+respecter les règles de cohésion. 
+Les formations de support sont des formations autonomes. Elles ne 
+peuvent pas recevoir d'améliorations. Un maximum de ⅓ des points 
+peuvent être dépensés pour ces formations. 
+ 
+ 
+Règle spéciale : “Hit and run” 
+Les formations Eldars Noirs qui reçoivent l’ordre avance ou 
+avance rapide peuvent choisir de tirer soit avant, soit après 
+chaque mouvement. Elles ne peuvent néanmoins tirer qu’une 
+seule fois durant l’action. Par exemple, une formation Eldar Noir 
+avec un ordre avance peut tirer puis se déplacer ou se déplacer 
+puis tirer, de même une formation avec un ordre de avance rapide 
+peut tirer et se déplacer deux fois, se déplacer deux fois et tirer, 
+ou se déplacer puis tirer puis encore bouger. 
+De plus, les formations Eldars Noirs qui remportent un assaut 
+sont autorisées à utiliser la totalité de leur mouvement 
+lorsqu'elles consolident leur position, au lieu d'être limitées à un 
+mouvement de 5 cm. Cependant, les formations Eldars Noirs qui 
+choisissent de consolider de leur mouvement complet, ne 
+peuvent pas soutenir un autre assaut durant ce tour. Les 
+formations qui souhaitent soutenir un autre assaut ne doivent 
+alors consolider que de 5 cm. 
+Les unités Eldars Noirs possédant la note Virtuose peuvent elles, 
+toujours consolider de leur mouvement complet et soutenir 
+d'autres assauts. Il s’agit des unités de Grand voivode et sa cour ; 
+Maîtresses de sang ; Immaculés ; Incubes et Hémoxytes. 
+Remarque : Une même formation peut contenir des unités 
+“Virtuose” et d'autres non. 
+Règle spéciale : “La puissance vient de la 
+souffrance” 
+Les Eldars Noirs se nourrissent de la souffrance de leurs 
+adversaires. Ainsi, pour chaque perte infligée en assaut par une 
+unité Eldar Noir non démoralisée, sa formation pourra retirer un 
+pion impact à la fin de son action. Les pertes dues à la différence 
+de résultat du combat comptent. Il n'est pas possible de retirer le 
+dernier pion impact de cette façon. 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture : Igor Sid 
+1 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 3 =====
+ 
+Règle spéciale : “Pas de garnison” 
+Les Eldars Noirs sont une armée de pirates très mobiles, qui a rarement suffisamment d’effectif pour prendre et tenir une position. C’est 
+pourquoi, au lieu de maintenir une lourde garnison sur la ligne de front, ils comptent sur un écran formé par des éclaireurs pour les avertir 
+de l'approche de toutes forces ennemies. En attendant, la majeure partie de l'armée Eldar Noir reste dans la toile, où elle se tient prête à 
+débarquer rapidement. En jeu, seules les formations de Fléaux, d’Hélion, de Maîtres des bêtes et de Mandragores peuvent se déployer en 
+garnison. De plus si une formation comprend l’amélioration Portail Noir, celle-ci ne peut être positionnée en garnison. 
+ 
+Règle spéciale : “Portail noir” 
+Les portails sont utilisés par les Eldars Noirs pour sortir de la toile. Ils sont présents sur les Barges des souffrances et sur les 
+Moissonneurs. De plus, chaque personnage de l’armée peuvent recevoir l’amélioration “Portail noir”. Elle coute 50pts et ajoute la note 
+portail noir au profil du personnage. Elle compte dans le nombre maximum d’amélioration de la formation du personnage. Enfin, l’unité du 
+Grand Voïvode et sa cour peut également recevoir cette amélioration. 
+Chaque portail inclus dans une armée permet au joueur Eldar Noir de prendre trois formations et de les conserver en réserve dans la toile. 
+Ces formations en réserve peuvent entrer en jeu par un portail, en réalisant une action qui comporte un mouvement. Ce mouvement est 
+mesuré à partir de la position du portail sur la table de jeu. Notez que les formations peuvent apparaître à travers n’importe quel portail, 
+pas seulement celui qui a été « utilisé » pour permettre de conserver la formation en réserve. Une seule formation peut voyager à travers 
+chaque portail par tour. Notez qu'une formation qui rate son activation en tentant de franchir un portail recevra automatiquement l'ordre 
+tenir (donc peut entrer en jeu en réalisant un simple mouvement en prenant 1 PI pour l'activation ratée, ou alors rester hors de table et se 
+regrouper). Si elle choisit de se regrouper en restant hors de table, cela permettra à une autre formation de pouvoir utiliser ce portail car il 
+ne sera pas considéré comme utilisé par la formation précédente ayant raté son activation. Toute formation voyageant à travers un portail 
+noir porté par une unité démoralisée, recevra immédiatement un PI. 
+Seules les unités d'infanterie, les véhicules légers peuvent utiliser les portails noirs. 
+ 
+Règle spéciale : “Transport ouvert” 
+Des unités d’infanterie Eldars Noirs peuvent être transportées en Raider, Venom ou Barge Tantale. Si vous choisissez de faire transporter 
+une formation, vous devez alors prendre un nombre de transport permettant d’embarquer toute la formation sans laisser aucun espace de 
+transport vide.  
+Les unités Eldars Noirs transportées peuvent toujours effectuer leurs tirs ou leurs attaques FF. Mesurez les portées à partir du transport. 
+Les unités transportées (y compris les unités Virtuoses) ne peuvent pas soutenir d’assaut après un mouvement entier de consolidation, 
+mais peuvent le faire si le mouvement de consolidation est de 5 cm. 
+Règle spéciale : “Holochamp” 
+Les Holo-champs procurent aux titans une sauvegarde spéciale de 3+ qui peut-être utilisée à la place de la sauvegarde normale du titan. 
+Cette sauvegarde peut toujours être utilisée, même en corps à corps, en fusillade et contre les armes tueuses de titan ou les macro armes. 
+Faites une seule sauvegarde contre les armes avec la capacité tueuse de titan, au lieu de séparer les sauvegardes pour chaque point de 
+dommage. Si un véhicule avec un Holo-champ a aussi un blindage renforcé, alors il est autorisé à relancer ses sauvegardes, sauf pour les 
+attaques faites avec des armes ayant la capacité lance, macro-armes ou tueuses de titans. La relance doit être faite en utilisant la 
+sauvegarde d’armure de l’unité et non pas celle de l'Holo-champ. Aucun pion d'impact n'est placé pour une touche sauvée par le 
+Holo-champ. 
+ 
+Règle spéciale : “Manteau d’ombre” 
+Les Manteaux d'Ombre sont des dispositifs sophistiqués qui drainent littéralement la lumière des objets, empêchant ainsi les Eldars Noirs 
+d'être pris pour cible. Les Manteaux d'Ombre affectent d'un malus de -1 tout tir porté contre l'unité, ce malus n’étant pas cumulatif avec un 
+éventuel  malus de couvert. Ne fonctionne pas lors d’un assaut.  
+ 
+ 
+2 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 4 =====
+LISTE D'ARMÉE CODEX – ELDARS NOIRS 
+Une armée d’Eldars noirs possède une valeur stratégique de 5 pour le tour 1 puis de 4 pour les tours suivants. 
+Les formations d’Immaculés, Incubes, Maîtresses de sang, Hémoxyte et les formations du soutien titanique possèdent une 
+initiative de 1+. Les autres formations possèdent une initiative de 2+. 
+FORMATIONS PRINCIPALES ELDARS NOIRS 
+(Chaque formation principale permet de choisir jusqu’à 3 formations soit dans la liste des formations associée à cette formation principale soit dans la liste des 
+formations d’élites) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Cabale Eldars Noirs 
+8 unités de Guerriers Cabalistes 
+Transport, Voïvode, Banshee 
+175 pts 
+Culte Céraste 
+8 unités de Cérastes 
+Transport, Succube 
+150 pts 
+Coterie du Tourmenteur 
+8 unités de Gorgones 
+Machine de Tourment, Grotesques, Transport, Tourmenteur 
+175 pts 
+ 
+FORMATIONS DE LA CABALE ELDARS NOIRS 
+ 
+FORMATIONS DE LA COTERIE DU TOURMENTEUR 
+Formations 
+Unités 
+Améliorations 
+Coût 
+ Formations 
+Unités 
+Améliorations 
+Coût 
+0-1 Immaculés 
+6 ou 8 unités 
+d'Immaculés 
+Transport, Voïvode, Grand 
+Voïvode, Sybarite 
+225 pts / 
+300 pts 
+ 0-1 Hémoxytes 6 unités d'Hémoxytes 
+Machine de Tourment, 
+Grotesques, Transport, 
+Tourmenteur, Grand Voïvode 
+200 pts 
+Ravageurs 
+4 à 6 Ravageurs (tous 
+types) 
+Reaper, Banshee 
+50 pts 
+chacun 
+ Talos 
+4 unités de Talos 
+Machine de Tourment 
+200 pts 
+Barge de souffrance 
+1 Barge de souffrance 
+ 
+275 pts 
+ Ravageurs 
+4 à 6 Ravageurs (tous types) Reaper, Banshee 
+50 pts 
+chacun 
+ 
+ 
+ 
+FORMATIONS DU CULTE CERASTE 
+ 
+FORMATIONS D'ÉLITES ELDARS NOIRS 
+Formations 
+Unités 
+Améliorations 
+Coût 
+ Formations 
+Unités 
+Améliorations 
+Coût 
+0-1 Maîtresses de 
+Sang Hekatrix 
+6 unités de Maîtresses de 
+sang Hekatrix 
+Transport, Succube, Grand 
+Voïvode 
+225 pts 
+ 0-1 Incubes 
+6 ou 8 unités d'incubes 
+Transport, Voïvode, Grand 
+Voïvode, Exécuteur 
+250 pts / 
+350 pts 
+Hellions 
+6 unités d'Hellions 
+ 
+200 pts 
+ Fléaux 
+6 unités de Fléaux 
+Téléportation 
+175 pts 
+Reavers 
+6 unité de Reavers 
+Succube 
+200 pts 
+ 0-2 Maîtres des 
+Bêtes 
+6 unités de Maître des bêtes  
+150 pts 
+Barge de Souffrance 
+1 Barge de souffrance 
+ 
+275 pts 
+ Mandragores 
+4 à 8 unités de Mandragores Téléportation 
+75 pts la 
+paire 
+ 
+ 
+FORMATIONS DE SOUTIEN ELDARS NOIRS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces 
+formations) 
+ 
+FLOTTE DE GUERRE ELDARS NOIRS 
+Formations 
+Unités 
+Coût 
+Escadrille d’Intercepteurs 2 ou 3 Razorwings 
+100 pts chacun 
+Escadrille de Voidravens 
+2 Voidravens 
+250 pts 
+Transporteur 
+1 Slavebringer 
+200 pts 
+Soutien Orbital 
+1 Croiseur Torture 
+ou 
+1 Escorteur de classe Corsaire 
+(ajouter 1 ou 2 Escorteurs) 
+200 pts 
+ 
+150 pts 
+(+100 pts chacun) 
+ 
+ 
+ 
+SOUTIEN TITANIQUE DES ELDARS NOIRS 
+Formations 
+Unités 
+Coût 
+Titans Tourmenteurs 
+1 Titan Tourmenteur 
+2 Titans Tourmenteurs 
+350 pts 
+700 pts 
+0-1 Titan Moissoneur 
+1 Moissonneur 
+650 pts 
+0-1 Horreur de Vect 
+1 Horreur de Vect 
+750 pts 
+ 
+ 
+ 
+AMÉLIORATIONS DES ELDARS NOIRS 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation et 
+chaque formation peut recevoir au plus 4 améliorations) 
+Améliorations 
+Unités 
+Coût 
+0-1 Grand Voïvode 
+et sa cour 
+Remplacer une des unités par l'unité de Grand 
+Voïvode et sa cour 
+75 pts 
+Voïvode 
+Ajouter un personnage de Voïvode à l’une des 
+unités de la formation. 
+25 pts 
+Succube 
+Ajouter un personnage de Succube à l’une des 
+unités de la formation. 
+25 pts 
+Tourmenteur 
+Ajouter un personnage de Tourmenteur à l’une des 
+unités de la formation. 
+50 pts 
+Exécuteur 
+Ajouter un personnage d'Exécuteur à l’une des 
+unités de la formation. 
+25 pts 
+Sybarite 
+Ajouter un Sybarite à l’une des unités de la 
+formation. 
+25 pts 
+Téléportation 
+Ajouter la Note Téléportation aux unités d’infanterie 
+de la formation 
+50 pts 
+Grotesque 
+Remplacer jusqu'à 6 unités de la formation par 
+autant d'unités de Grotesques 
+25 pts la paire 
+Machine de 
+Tourment 
+Ajouter jusqu'à 2 Talos ou Cronos à la formation 
+50 pts chacun 
+Transport 
+Ajouter suffisamment de véhicule pour transporter 
+toute la formation sans qu’il ne reste de place libre. 
+Venom ou Raider 
+Barge Tantale. 
+ 
+ 
+25 pts chacun 
+100 pts chacun 
+Banshee 
+Ajouter 1 Raider Banshee à la formation 
+50 pts 
+Reaper 
+Remplacer de 1 à 2 Ravageurs de la formation par 
+autant de Reaper 
+25 pts chacun 
+ 
+3 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 5 =====
+FEUILLE DE RÉFÉRENCES ELDARS NOIRS 
+Nom 
+Type 
+Vitesse 
+Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Grand Voivode et sa 
+Cour 
+Inf 
+15cm 
+4+ 
+3+ 3+ Lame dessicante 
+Regard de Medusae 
+et 
+(contact) 
+30cm 
+(15cm) 
+Armes d’assaut, +1A, MA 
+MA4+ 
+Arme Légère, +1A, MA 
+Commandant suprême, Charismatique, Sauvegarde Invulnérable, Blindage renforcé, 
+Virtuose 
+Voivode 
+Pers 
+- 
+- 
+- 
+- 
+Lame dessicante 
+Pierre de sang 
+(contact) 
+(15cm) 
+Armes d’assaut, +1A, MA 
+Armes légères, +1A, MA 
+Commandant 
+Succube 
+Pers 
+- 
+- 
+- 
+- 
+Lames dessicantes 
+(contact) 
+Armes d’assaut, +2A, MA 
+Commandant 
+Tourmenteur 
+Pers 
+- 
+- 
+- 
+- 
+Agoniseur 
+Hexrifle 
+(contact) 
+30cm 
+Armes d’assaut, +1A 
+AP3+, Snp 
+Charismatique, Meneur, Sauvegarde Invulnérable 
+Exécuteur 
+Pers 
+- 
+- 
+- 
+- 
+Demiklaives 
+(contact) 
+Armes d’assaut, +1A 
+Charismatique 
+Sybarite 
+Pers 
+- 
+- 
+- 
+- 
+Pistolet disloqueur 
+(15cm) 
+Armes légères, +1A 
+Charismatique 
+Guerriers Cabalistes 
+Inf 
+15cm 
+- 
+5+ 4+ Fusils éclateurs 
+Canon éclateur 
+(15cm) 
+30cm 
+Armes légères 
+AP5+ 
+- 
+Immaculés 
+Inf 
+15cm 
+5+ 
+6+ 3+ Fusils éclateurs 
+2x Canon éclateur 
+(15cm) 
+30cm 
+Armes légères 
+AP5+ 
+Virtuose 
+Incubes 
+Inf 
+15cm 
+4+ 
+3+ - 
+Klaives 
+(contact) 
+Armes d’assaut, +1A, MA 
+Frappe en premier, Virtuose 
+Cérastes 
+Inf 
+15cm 
+- 
+4+ 6+ Armes de cérastes 
+Pistolets éclateurs 
+(contact) 
+(15cm) 
+Armes d’assaut 
+Armes légères 
+Frappe en premier, Infiltrateur 
+Maîtresses de Sang 
+Hékatrix 
+Inf 
+15cm 
+- 
+3+ 6+ Armes d’Hekatrix 
+Pistolets éclateurs 
+(contact) 
+(15cm) 
+Armes d’assaut, +1A 
+Armes légères 
+Frappe en premier, Infiltrateur, Virtuose 
+Hélion 
+Inf 
+35cm 
+4+ 
+3+ 5+ Fusils éclateurs 
+Vouges 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d’assaut 
+Eclaireur, Réacteurs dorsaux 
+Reaver 
+Inf 
+40cm 
+5+ 
+4+ 5+ Lames montées 
+Lance de feu 
+et 
+(contact) 
+15cm 
+(15cm) 
+Armes d’assaut 
+MA5+ 
+MA 
+Antigrav, Monté 
+Gorgone 
+Inf 
+15cm 
+5+ 
+4+ 6+ Armes empoisonnées 
+Liquefactor 
+(contact) 
+(15cm) 
+Armes d’assaut 
+Armes légères 
+Sauvegarde Invulnérable 
+Hémoxytes 
+Inf 
+15cm 
+5+ 
+4+ 6+ Armes empoisonnées 
+Liquefactor 
+Ossefactor 
+(contact) 
+(15cm) 
+30cm 
+Armes d’assaut 
+Armes légères 
+AP5+ 
+Sauvegarde Invulnérable, Sans peur, Virtuose 
+Grotesque 
+Inf 
+15cm 
+3+ 
+4+ - 
+Lames venimeuses 
+(contact) 
+Armes d’assaut, +1A 
+Sans peur 
+Maîtres des Bêtes 
+Inf 
+20cm 
+- 
+4+ - 
+Griffes et crocs 
+(contact) 
+Armes d’assaut, +1A 
+Infiltrateur, Eclaireur, Frappe en premier 
+Fléaux 
+Inf 
+35cm 
+5+ 
+5+ 5+ Lance de feu 
+et 
+15cm 
+(15cm) 
+MA5+ 
+MA 
+Réacteurs dorsaux, Eclaireur 
+Mandragore 
+Inf 
+15cm 
+6+ 
+4+ 5+ Lames de l’enfer 
+Ombreflamme 
+(contact) 
+(15cm) 
+Armes d’assaut, +1A 
+Armes légères 
+Frappe en premier, Infiltrateur, Manteau d'ombre, Eclaireur 
+ 
+ 
+ 
+4 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 6 =====
+ 
+Nom 
+Type 
+Vitesse 
+Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Venom 
+VL 
+35cm 
+5+ 
+6+ 5+ Fusils éclateurs jumelés 
+Canon éclateur 
+(15cm) 
+30cm 
+Armes légères 
+AP5+ 
+Antigrav, Transport 1 (parmi: Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, 
+Céraste, Maîtresse de sang Hekatrix, Gorgones) 
+Raider 
+VL 
+35cm 
+4+ 
+6+ 6+ Lance des ténèbres 
+30cm 
+AC5+, Lance 
+Antigrav, Transport 2 (parmi Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, 
+Céraste, Maîtresse de sang Hekatrix, Gorgones, Grotesques) Les unités de Grotesques 
+prennent 2 places 
+Ravageur Désintégrateur VL 
+35cm 
+4+ 
+6+ 3+ 3x Canon désintégrateur 30cm 
+AP5+, Lance 
+Antigrav, Sauvegarde Invulnérable 
+Ravageur des Ténèbres 
+VL 
+35cm 
+4+ 
+6+ 5+ 3x Lance des ténèbres 
+30cm 
+AC5+, Lance 
+Antigrav, Sauvegarde Invulnérable 
+Reaper 
+VL 
+35cm 
+4+ 
+6+ 6+ Projecteur de tempête 
+vortex 
+45cm 
+2xMA3+, Rpt 
+Antigrav, Sauvegarde Invulnérable 
+Raider Banshee 
+VL 
+35cm 
+4+ 
+6+ 6+ Splinterstorm 
+45cm 
+2xAC6+/AA5+, Lance 
+Antigrav 
+Talos 
+VL 
+15cm 
+4+ 
+4+ 5+ Griffes de Talos 
+Canon éclateur jumelé 
+(contact) 
+30cm 
+Armes d’assaut, +1A, MA 
+AP4+ 
+Blindage renforcé, Marcheur, Antigrav, Sans peur 
+Cronos 
+VL 
+15cm 
+4+ 
+5+ 4+ Vouges 
+Siphon d’âme 
+Vortex d’âme 
+(contact) 
+(15cm) 
+15cm 
+Armes d’assaut 
+Armes légères, +1A 
+AP4+, Rpt 
+Blindage renforcé, Marcheur, Antigrav, Sans peur 
+ 
+ 
+ 
+5 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCES ENGINS DE GUERRES 
+Nom 
+Type Vitesse Blindage CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Barge Tantale 
+EG 
+35cm 
+5+ 
+4+ 
+4+ 
+Fusils éclateurs 
+Lames énergétiques 
+2x Canon désintégrateur lourd 
+(15cm) 
+(contact) 
+30cm 
+Armes légères 
+Armes d’assaut, +1A, MA 
+2xAP5+, Rpt 
+Capacité de dommages: 2 
+Critique : Le moteur à antimatière explose et détruit la barge.Toutes les unités en 
+contact subissent une touche MA sur un 6 
+Notes : Antigrav, Manteau d’ombre, Sauvegarde Invulnérable, Blindage renforcé, 
+Transport 4 (parmi Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, Céraste, 
+Maîtresse de sang Hekatrix, Gorgones, Grotesques) Les unités de Grotesques 
+prennent 2 places) 
+Barge des 
+Souffrances 
+EG 
+35cm 
+5+ 
+6+ 
+4+ 
+Fusils éclateurs 
+2x Canon désintégrateur lourd 
+Lance des ténèbres 
+(15cm) 
+30cm 
+30cm 
+Armes légères 
+2xAP5+, Rpt 
+AC5+, Lance 
+Capacité de dommages: 3 
+Critique : Le moteur à antimatière explose et détruit la barge. Toutes les unités en 
+contact subissent une touche MA sur un 6 
+Notes : Antigrav, Manteau d’ombre, Sauvegarde Invulnérable, Blindage renforcé, 
+Portail noir 
+Titan Tourmenteur EG 
+35cm 
+5+ 
+3+ 
+4+ 
+Poings tourmenteur 
+Canon disloqueur 
+et 
+Projecteur de tempête vortex 
+(contact) 
+45cm 
+(15cm) 
+45cm 
+Armes d’assaut, +2A, TT (1) 
+3xAP4+ 
+Armes légères, +2A 
+2xMA3+, Rpt 
+Capacité de dommages: 4 
+Critique : Le dispositif optique de brouillage du titan est détruit. Celui-ci perd les 
+capacités "manteau d’ombre" et "sauvegarde invulnérable". Tout dégât critique 
+supplémentaire occasionnera la perte d’un point de CD. 
+Notes : Blindage renforcé, Manteau d’ombre, Sauvegarde Invulnérable, Marcheur, 
+Réacteurs dorsaux, Sans peur. 
+Les armes des titans Eldars noirs ont un arc de tir de 360° dû à leur exceptionnelle 
+manœuvrabilité. 
+Moissonneur 
+EG 
+25cm 
+5+ 
+- 
+4+ 
+2x Lance à antimatière lourde 
+Projecteur de tempête vortex 
+4x Lance des ténèbres 
+4x Canon désintégrateur lourd 
+75cm 
+45cm 
+30cm 
+30cm 
+MA2+, FrtF 
+2xMA3+, Rpt 
+AC5+, Lance 
+2xAP5+, Rpt 
+Capacité de dommages: 8 
+Critique : Le dispositif optique de brouillage du titan est détruit. Celui-ci perd la 
+capacité "manteau d’ombre" . Tout dégât critique supplémentaire occasionnera la 
+perte d’un point de CD. 
+Notes : Antigrav, Assaut orbital, Blindage renforcé, Blindage arrière renforcé, 
+Sauvegarde Invulnérable, Manteau d’ombre, Portail noir, Sans peur 
+Horreur de Vect 
+EG 
+25cm 
+5+ 
+3+ 
+3+ 
+Lance des cauchemars 
+et 
+Projecteur de tempête vortex 
+Poing hydre 
+et 
+ou 
+30cm 
+(15cm) 
+45cm 
+30cm 
+(15cm) 
+(contact) 
+3PB, MA, Rpt, IC, TT(d3) 
+Arme Légère, +3A 
+2xMA3+, Rpt 
+6xAP4+/AC4+ 
+Arme Légère, +3A 
+Armes d’assaut, +2A, MA, TT (d3) 
+Capacité de dommages: 6 
+Critique : La touche critique provoque un point de dommage supplémentaire et la 
+sauvegarde holographique est réduite à 4+ pour le reste de la partie. La prochaine 
+touche critique détruira définitivement le générateur d'Holo-champs et causera un 
+point de dommage supplémentaire. Toutes les touches critiques suivantes 
+provoquent un point de dommage supplémentaire. 
+Notes : Blindage renforcé, Holochamp(3+), Marcheur, Sans peur. 
+Les armes des titans Eldars noirs ont un arc de tir de 360° dû à leur exceptionnelle 
+manœuvrabilité. 
+ 
+ 
+ 
+6 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCES FLOTTE ELDARS NOIRS 
+ 
+Nom 
+Type 
+Vitesse Blindage 
+CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Razorwing 
+A 
+C 
+4+ 
+- 
+- 
+Missiles Monofaux 
+2x Lance des ténèbres (AA) 
+30cm 
+30cm 
+AP4+, FrtF 
+AC5+/AA5+, Lance, FrtF 
+- 
+Voidraven 
+A 
+CB 
+5+ 
+- 
+- 
+Missiles à implosion 
+2x Lance à antimatière 
+15cm 
+30cm 
+2PB, Lance, FrtF 
+AC4+/AA5+, Lance, FrtF 
+Blindage renforcé 
+Transporteur 
+Slavebringer 
+A/EG 
+B 
+5+ 
+6+ 5+ 
+2x Lance à antimatière 
+Tourelles de canons éclateurs 
+lourds jumelés 
+30cm 
+30cm 
+AC4+/AA5+, Lance, FrtF 
+AP5+/AA5+ 
+Capacité de dommages: 2 
+Critique : Détruit ainsi que toutes les unités transportées. 
+Notes : Assaut orbital, Blindage Renforcé,Transport 8 (Parmi : Grand Voïvode, Guerrier 
+cabaliste, Immaculé, Incube, Fléaux, Céraste, Maîtresse de sang Hekatrix, Maîtres des bêtes, 
+Hellions, Gorgones, Grotesques, Talos) Les unités de Grotesques, Chronos et Talos prennent 
+2 places 
+Escorteur de classe 
+Corsaire 
+VS 
+- 
+- 
+- 
+- 
+Bombardement orbital 
+Frappe chirurgicale 
+∞ 
+- 
+2PB MA 
+MA2+, TT (D3) 
+Tous les escorteurs sélectionnés forment une seule et même formation qui agit de la même 
+manière qu’un vaisseau spatial simple. Ils peuvent combiner leur bombardement orbital en 
+une même attaque, ou tirer séparément (les gabarits ne peuvent se superposer). Chaque 
+Corsaire peut choisir de renoncer à sa frappe chirurgicale pour transporter jusqu’à 3 
+Transporteurs Slavebringer et jusqu’à 1 Moissonneur ainsi que leurs cargaisons. 
+Croiseur de classe 
+Torture 
+VS 
+- 
+- 
+- 
+- 
+3x Bombardement orbital 
+2x Frappe chirurgicale 
+∞ 
+- 
+2PB MA 
+MA2+, TT (D3) 
+Lent, Transport, peut transporter jusqu’à 6 Transporteurs Slavebringer ainsi que leurs 
+cargaisons. De plus, le croiseur peut choisir de renoncer à ses frappes chirurgicales pour 
+transporter jusqu’à 10 Transporteurs Slavebringer et jusqu’à 2 Moissonneurs ainsi que leurs 
+cargaisons. 
+ 
+7 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
+
+
+===== PAGE 9 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS  
+ 
+8 - CODEX ELDARS NOIRS - EAFR - REV-1.5 

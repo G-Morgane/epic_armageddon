@@ -1,0 +1,731 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+
+===== PAGE 2 =====
+TYRANIDES 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+"Il est ironique de voir qu'alors que nous répandons la paix et 
+l'espoir dans la galaxie, les tyranides font de même avec la 
+peur et la mort. Nous devons nous unir pour espérer leur 
+résister." 
+ 
+Aun'shi de l'Empire T’au.  
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée 
+issue des flottes ruches tyranides telles que Leviathan, 
+Jormungandr ou Behemoth. 
+Les armées tyranides sont organisées autour de formations 
+appelées 
+Groupe 
+Synaptique, 
+Essaims 
+Indépendants 
+Communs et Essaims Indépendants rares. 
+Chaque Groupe Synaptique a une puissance synaptique qui 
+liste les formations sélectionnées parmi les essaims 
+instinctifs qui doivent être ajoutées au Groupe Synaptique. 
+Les Essaims Indépendants Communs sont des formations 
+autonomes des Groupes Synaptiques. Chaque Essaim 
+Indépendant Commun peut recevoir des améliorations. La 
+liste d’armée indique quelle amélioration est autorisée. 
+Chaque amélioration autorisée ne peut être prise qu’une fois 
+par Essaim. Les améliorations font partie intégrante des 
+Essaims et doivent respecter les règles de cohésion. Noter 
+que certaines améliorations remplacent des unités d’un 
+Essaim 
+tandis 
+que 
+d’autres 
+ajoutent 
+des 
+unités 
+supplémentaires.  
+Les Essaims Indépendants Rares sont des formations 
+autonomes des Groupes Synaptiques. Un maximum de ⅓ des 
+points peuvent être dépensés pour ces formations. 
+ 
+Règle spéciale : Synapse 
+Une créature Synapse permet de retirer 1 pion impact 
+supplémentaire au Groupe Synaptique si celui-ci réussit 
+son jet de ralliement (une synapse ayant la capacité 
+Meneur peut donc enlever 2 PI au Groupe Synaptique si le 
+jet est réussi). Une Dominatrix peut toujours retirer 3 pions 
+impacts supplémentaires au groupe Nexus (la capacité 
+Meneur donnée par la capacité Commandant Suprême est 
+déjà incluse dans ces 3 pions impacts).  
+Tant qu’une créature Synapse est vivante, le Groupe 
+Synaptique lui correspondant bénéficie d’un bonus de +1 
+pour un jet de ralliement.  
+Dans le cas où toutes les créatures Synapses du Groupe 
+Synaptique sont détruites, les essaims instinctifs associés 
+continuent à agir comme une seule formation, mais celle-ci 
+subit un malus de -2 à l’initiative et perd le bonus de +1 
+pour le jet de ralliement. 
+Règle spéciale : Implacable 
+Un essaim Tyranide bénéficie toujours d’un bonus de +1 au 
+test d’action pour un ordre d’assaut.  
+Un essaim Tyranide devant effectuer l’action Tenir, peut 
+uniquement 
+effectuer 
+un 
+double 
+mouvement sans 
+possibilité d’effectuer de soutien d’assaut. 
+Règle spéciale : Mobilité 
+Les véhicules blindés et les engins de guerre Tyranides 
+ignorent tous les tests de terrain dangereux.  
+Les véhicules légers tyranides peuvent traverser les 
+terrains et profiter des règles de couvert comme s’il 
+s’agissait d’infanterie.  
+Les éléments de fortification (champs de mines, barbelés, 
+etc.) et les éléments de terrains spéciaux (rivière de lave, 
+etc.) affectent cependant les Tyranides normalement.   
+Règle spéciale : Déploiement 
+Seuls les Essaims Indépendants peuvent se déployer en 
+garnison, s’ils respectent les conditions le permettant. 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture par GW LTD 2019. 
+1 - CODEX TYRANIDES - EAFR - REV 1.4 
+
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Gaunt 
+ 
+Les unités de Gaunts détruites ne comptent pas dans le décompte des pertes pour déterminer le vainqueur d’un assaut 
+tant qu’une créature Synapse est présente dans la formation et si et seulement si le joueur Tyranide a initié l’assaut. 
+ 
+Règle spéciale : Prime 
+ 
+Les Trygons Prime et les Hiérodules Prime (Cracheur ou Faucheur) ajoutent les notes Synapse et Sans peur à leurs 
+profils. 
+ 
+Règle spéciale : Tunnelier  
+Les formations où toutes les unités sont tunneliers (ou sont transportées dans des unités qui sont tunneliers) peuvent 
+être gardées hors de la table et peuvent apparaître au début du deuxième tour ou après. Mettre en place les unités au 
+contact du bord de la table de leur propre camp avant le début de la bataille en même temps que les vaisseaux spatiaux 
+sont installés (voir 4.3.1). Toutes les unités transportées dans le tunnelier doivent également être placées de côté à ce 
+moment. 
+Notez secrètement l'emplacement où le tunnelier fera surface en même temps et de la même manière que vous 
+enregistrez les coordonnées d'une zone de largage (voir 4.3.1). Vous devez également enregistrer secrètement quand le 
+tunnelier fera surface. S'il doit faire surface dans votre moitié de table, il peut arriver à partir du deuxième tour. S'il doit 
+faire surface dans la moitié opposée de la table, il peut arriver à partir du troisième tour.  
+Placer le tunnelier au début du tour indiqué, avant de placer les unités avec téléportation, à l'endroit que vous avez noté. 
+Toutes les unités transportées sont autorisées à débarquer immédiatement après leur remontée à la surface. La 
+remontée ne compte pas comme un mouvement pour ce qui est du déclenchement des tirs d'état d'alerte. Le 
+débarquement déclenche normalement le tir d'état d'alerte.  
+Si le tunnelier fait surface sur un terrain qui lui est infranchissable, sous une unité amie ou dans une zone de contrôle 
+ennemie, on suppose que l'équipement de détection embarqué le détournera vers un autre point d'entrée. L'unité doit 
+être déplacée par le joueur adverse vers la zone la plus proche où elle peut faire surface.  
+Les formations de plusieurs tunneliers n'ont besoin d'enregistrer qu'un seul emplacement où elles feront surface. Placez 
+une unité à cet emplacement, ou à moins de 5 cm d'une autre unité qui a déjà été placée, à condition que toutes les 
+unités soient placées à moins de 15 cm de l'emplacement et sur la moitié appropriée de la table.  
+Le tunnelier, et toutes les unités qui y sont transportées, peuvent effectuer une action le tour où ils apparaissent. 
+ 
+Règle spéciale : Spore Mycétique 
+Un Groupe Synaptique peut embarquer dans un Spore Mycétique pour 50 pts, si :  
+●​
+un Croiseur Razorfiend (2 spores mycétiques max.) ou un Vaisseau Ruche (5 spores mycétique max.) est 
+sélectionné dans la liste ; 
+●​
+la formation ne compte pas plus de 15 unités ; 
+●​
+la formation ne comprend que les unités suivantes : Termagants, Hormagaunts, Biovores, Rôdeur, Carnifex, Prince 
+Tyranide, Prince Maître des Essaims, Guerriers Tyranides, Zoanthropes ; 
+De plus, cette option interdit la prise de Prince Ailé ou de Guerriers Tyranide Ailés. 
+ 
+Règle spéciale : Objectifs et conditions de victoire 
+Seuls les essaims Indépendants et les créatures Synapses (pas les essaims instinctifs) peuvent contrôler ou contester 
+les objectifs.  
+De même pour la condition de victoire « ils ne passeront pas », seuls les essaims Indépendants et les créatures 
+Synapses (pas les essaims instinctifs) comptent s’ils sont dans la moitié de table adverse. 
+ 
+2 - CODEX TYRANIDES - EAFR - REV 1.4 
+
+
+===== PAGE 4 =====
+LISTE D'ARMÉE TYRANIDES 
+Les Tyranides possèdent une valeur stratégique de 1. Les formations: Groupe Nexus et Bio-titan possèdent une initiative de 
+1+. Toutes les autres formations possèdent une initiative de 2+. 
+GROUPE SYNAPTIQUE 
+Formations 
+Unités 
+Puissance Synaptique 
+Coût 
+0-1 Groupe Nexus 
+1 Dominatrix 
+ou 
+1 Prince Maître des Essaims et 2 unités parmi : 
+Guerriers Tyranides ; Zoanthrope 
+2-6 essaims instinctifs, spore mycétique 
+ 
+400 pts 
+ 
+175 pts 
+Centre Synaptique 
+1 Prince Tyranide et 2 unités parmi : 
+Guerriers Tyranides ; Zoanthrope 
+2-5 essaims instinctifs, spore mycétique 
+Un seul Prince Tyranide par armée peut devenir un Prince 
+Alpha pour +25pts, il gagne la note Charismatique 
+125 pts 
+Relais Synaptique 
+1 Guerriers Tyranides et 2 unités parmi : 
+Guerriers Tyranides ; Zoanthrope 
+2-4 essaims instinctifs, spore mycétique 
+100 pts 
+Soutien Synaptique 
+1 Hiérodule Prime (Cracheur ou Faucheur) 
+2-4 essaims instinctifs parmi : Gaunts; Gargouilles; 
+Bio-artillerie; Bio-soutien; Bio-tank; Carnifex 
+150 pts 
+0-2 Briseur de siège 
+1 Hiérodule Prime (Cracheur ou Faucheur) 
+1-2 essaims instinctifs parmi : Hiérodule 
+150 pts 
+Groupe d’Appui 
+1 Trygon Prime 
+1-2 essaims instinctifs parmi : Gaunts (les unités de 
+l’essaim gagnent la capacité tunnelier gratuitement) ; 
+Fouisseur 
+ou 
+1-2 essaims instinctifs parmi : Bio-soutien et Bio-tank 
+(le Trygon Prime perd la capacité tunnelier) 
+125 pts 
+Groupe de Chasse 
+1 ou 2 Harridan 
+1-2 essaims instinctifs parmi : Gargouilles 
+125 pts l’unité 
+ 
+ESSAIMS INSTINCTIFS 
+(Vous devez impérativement prendre le nombre d'options nécessaires au Groupe Synaptique choisi. Par exemple si vous avez pris un relais synaptique, vous 
+avez l'obligation de prendre deux essaims instinctifs parmi le choix proposé) 
+Formations 
+Unités 
+Coût 
+Gaunts 
+6 unités parmi les suivantes : Termagant ; Hormagaunt 
+75 pts 
+Bio-artillerie 
+3 Biovores 
+75 pts 
+Gargouilles 
+4 Gargouilles 
+75 pts 
+Carnifex 
+3 Carnifex 
+100 pts 
+Bio-soutien 
+3 Dactylis ou 3 Exocrines 
+150 pts 
+Bio-tank 
+3 Haruspex ou 3 Malefactors 
+150 pts 
+Hiérodule 
+1 Hiérodule (Cracheur ou Faucheur) 
+125 pts 
+Fouisseurs 
+1 Trygon ou 3 Rôdeurs 
+100 pts / 50 pts 
+ 
+ESSAIMS INDÉPENDANTS COMMUNS 
+(Vous pouvez prendre jusqu'à un essaim indépendant commun par Groupe Synaptique. Les essaims indépendants communs ne doivent pas dépasser 1/3 des 
+points de l'armée) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Essaim de 
+Genestealers 
+6 Genestealers 
+0-3 Genestealers pour +25 pts / unité 
+0-1 Genestealers Alpha pour +25 pts 
+150 pts 
+0-2 Essaim de Lictors 
+4 Lictors 
+0-2 Lictors pour +50 pts / unité 
+175 pts 
+ 
+ESSAIMS INDÉPENDANTS RARES 
+(Vous pouvez prendre jusqu’à un essaim indépendant rare par groupe synaptique. Les essaims indépendants rares ne doivent pas dépasser 1/3 des points de 
+l’armée. Notez que le coût d’une Dominatrix soit 400pts doit être inclus dans ce tiers.) 
+Formations 
+Unités 
+Coût 
+Bio-aviation 
+2 Harpies (0-2 Harpies supplémentaires pour 50 pts chacune) 
+3 Viragos 
+125 pts 
+150 pts 
+Bio-titans 
+1 Bio-titan Hiérophant 
+1 Bio-titan Hydraphant 
+ 
+350 pts 
+550 pts 
+Bio-vaisseaux 
+1 Croiseur Razorfiend 
+1 Vaisseau Ruche 
+150 pts 
+250 pts 
+ 
+3 - CODEX TYRANIDES - EAFR - REV 1.4 
+
+
+===== PAGE 5 =====
+ 
+FEUILLES DE RÉFÉRENCES TYRANIDES 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Genestealer Alpha 
+Perso 
+- 
+- 
+- 
+- 
+Pinces broyeuses 
+(contact) Armes d’assaut, +1A, Snip 
+Sauvegarde invulnérable, Charismatique 
+Gargouilles 
+Inf 
+30cm 
+- 
+6+ 
+5+ Attaque de nuée 
+Écorcheur 
+15cm 
+(15cm) 
+AA6+ 
+Armes légères 
+Réacteurs dorsaux, Gaunts 
+Genestealers 
+Inf 
+20cm 
+6+ 
+4+ 
+- 
+Griffes tranchantes 
+(contact) Armes d’assaut, +1A 
+Frappe en premier, Infiltrateurs, Éclaireurs 
+Hormagaunts 
+Inf 
+20cm 
+- 
+5+ 
+- 
+Griffes tranchantes 
+(contact) Armes d’assaut, +1A 
+Infiltrateurs, Gaunts 
+Termagants 
+Inf 
+20cm 
+- 
+6+ 
+5+ Écorcheur 
+(15cm) 
+Armes légères 
+Gaunts 
+Biovore 
+VL 
+15cm 
+5+ 
+6+ 
+6+ Spores mines 
+30cm 
+AP5+/AC6+/AA6+, Rupt, Ind 
+- 
+Guerrier Tyranide 
+VL 
+20cm 
+4+ 
+3+ 
+5+ Griffes tranchantes 
+Canon venin 
+(contact) 
+30cm 
+Armes d’assaut, +1A 
+AP5+/AC6+ 
+Synapse, Sans peur 
+Les Guerriers Tyranides peuvent avoir des ailes, auquel cas ils gagnent Réacteurs dorsaux, 
+voient leur vitesse augmentée à 30cm et leur blindage réduit à 5+. 
+Lictor 
+VL 
+15cm 
+5+ 
+3+ 
+6+ Pinces broyeuses 
+La mort bondissante 
+(contact) 
+(15cm) 
+Armes d’assaut, +1A, Snip 
+Armes légères 
+Sauvegarde invulnérable, Frappe en premier, Infiltrateur, Éclaireur, Téléportation 
+Rôdeur 
+VL 
+20cm 
+5+ 
+3+ 
+6+ Griffes tranchantes 
+Dévoreur 
+(contact) 
+(15cm) 
+Armes d’assaut, +1A 
+Armes légères 
+Infiltrateur, Tunnelier 
+Zoanthrope 
+VL 
+15cm 
+5+ 
+6+ 
+5+ Éclair Warp 
+(15cm) 
+30cm 
+Armes légères, MA 
+AP4+/AC5+ 
+Synapse, Sans peur, Blindage renforcé 
+Prince Tyranide 
+VB 
+20cm 
+4+ 
+3+ 
+5+ Griffes acérées 
+Canon venin 
+(contact) 
+30cm 
+Armes d’assaut, +1A, MA 
+AP5+/AC6+ 
+Synapse, Sans Peur, Blindage Renforcé, Commandant, Meneur 
+Le Prince peut avoir des ailes, auquel cas il gagne Réacteurs dorsaux, voit sa vitesse 
+augmentée à 30cm et son blindage réduit à 5+. 
+Prince Maître des 
+Essaims 
+VB 
+20cm 
+4+ 
+3+ 
+5+ Griffes acérées 
+Canon venin 
+(contact) 
+30cm 
+Armes d’assaut, +1A, MA 
+AP5+/AC6+ 
+Synapse, Sans Peur, Blindage Renforcé, Commandant suprême, Charismatique, Sauvegarde 
+invulnérable 
+Le Prince peut avoir des ailes, auquel cas il gagne Réacteurs dorsaux, voit sa vitesse 
+augmentée à 30cm et son blindage réduit à 5+. 
+Carnifex 
+VB 
+20cm 
+3+ 
+3+ 
+5+ Griffes acérées 
+Canon venin 
+(contact) 
+30cm 
+Armes d’assaut, +1A, MA 
+AP5+/AC6+ 
+- 
+Dactylis 
+VB 
+25cm 
+5+ 
+6+ 
+6+ Nodules de bile 
+ou 
+45cm 
+60cm 
+1PB, Rpt, Ind 
+AP4+/AC5+, Rupt 
+- 
+ 
+ 
+Exocrine 
+VB 
+25cm 
+4+ 
+5+ 
+5+ Bio-canon 
+45cm 
+2xAP3+/AC4+ 
+- 
+Haruspex 
+VB 
+25cm 
+4+ 
+3+ 
+6+ Pinces hypertrophiées 
+Langue protractile 
+(contact) 
+(15cm) 
+Armes d’assaut, +2A, MA 
+Armes légères 
+Blindage renforcé 
+Malefactor 
+VB 
+25cm 
+5+ 
+4+ 
+5+ Épines à fragmentation 
+(15cm) 
+15cm 
+Armes légères, +1A, IC 
+2xAP4+ 
+Blindage renforcé, Transport (4) parmi Termagants, Hormagaunts, Gargouilles, Guerriers 
+Tyranides, Zoanthropes, Rôdeurs, Biovores. Les Véhicules légers prennent 2 places. 
+ 
+ 
+4 - CODEX TYRANIDES - EAFR - REV 1.4 
+
+
+===== PAGE 6 =====
+FEUILLES DE RÉFÉRENCES BIO-TITANS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Harridan 
+EG 
+35cm 
+5+ 
+4+ 
+5+ Pinces hypertrophiées 
+Bio-canons jumelés 
+(contact) 
+45cm 
+Armes d’assaut, +2A, MA 
+3xAP3+/AC4+, FrtF 
+CD2 – Critique : Le plexus nerveux central du Harridan est détruit. La créature est tuée. 
+Synapse, Sans peur, Blindage renforcé, Antigrav, Transport (4 unités de Gargouilles) 
+Trygon 
+EG 
+25cm 
+3+ 
+3+ 
+5+ Pinces hypertrophiées 
+Champ bio-électrique 
+(contact) 
+15cm 
+Armes d’assaut, +2A, MA 
+2xAP3+/AC6+ 
+CD2 – Critique : Le plexus nerveux central du Trygon est détruit. La créature est tuée. 
+Sauvegarde invulnérable, Tunnelier 
+Hiérodule Cracheur 
+EG 
+25cm 
+5+ 
+4+ 
+5+ Griffes acérées 
+Bio-canons jumelés 
+(contact) 
+45cm 
+Armes d’assaut, +1A, MA 
+3xAP3+/AC4+, FrtF 
+CD3 – Critique : Le plexus nerveux central du Hiérodule est détruit. La créature est tuée. 
+Blindage renforcé, Sauvegarde invulnérable 
+Hiérodule Faucheur 
+EG 
+25cm 
+5+ 
+3+ 
+5+ Pinces rasoir 
+Pyro-acide 
+(contact) 
+(15cm) 
+Armes d’assaut, +2A, TT (1) 
+Armes légères, +1A, IC 
+CD3 – Critique : Le plexus nerveux central du Hiérodule est détruit. La créature est tuée. 
+Blindage Renforcé, Sauvegarde Invulnérable 
+Dominatrix 
+EG 
+25cm 
+4+ 
+3+ 
+5+ Griffes monstrueuses 
+Flot d'énergie 
+et 
+Bio-plasma 
+Bio-canon dorsal 
+(contact) 
+30cm 
+(15cm) 
+15cm 
+45cm 
+Armes d’assaut, +2A, TT (D3) 
+AP4+/AC4+/AA5+ 
+Armes légères, +1A, MA 
+3PB MA, FrtF 
+2xAP3+/AC4+, FrtF 
+CD6 – Critique : Lancez 1D6 et consultez le tableau ci-dessous 
+1 : La Dominatrix hurle de rage et se débat sous l’effet de la blessure. Toute unité en contact 
+avec son socle subit une attaque MA6+. 
+2-5 : Un liquide visqueux s’écoule d’une profonde blessure de la Dominatrix, qui perd 1 CD 
+supplémentaire. 
+6 : Un organe vital est touché. Elle perd 1D3 CD supplémentaires. 
+ 
+Synapse, Sans peur, Blindage renforcé, Sauvegarde invulnérable, Charismatique, 
+Commandant suprême 
+Peut enjamber les unités et les terrains infranchissables moins hauts que son abdomen et 
+d’au maximum 2cm de large 
+Hiérophant 
+EG 
+25cm 
+4+ 
+3+ 
+5+ Pinces rasoir 
+Lances-dards 
+2x Bio-canon 
+(contact) 
+(15cm) 
+45cm 
+Armes d’assaut, +2A, TT (1) 
+Armes légères, +1A 
+2xAP3+/AC4+ 
+CD6 – Critique : Lancez 1D6 et consultez le tableau ci-dessous 
+1 : Le Hiérophant hurle de rage et se débat sous l’effet de la blessure. Toute unité en contact 
+avec son socle subit une attaque MA6+. 
+2-5 : Un liquide visqueux s’écoule d’une profonde blessure du Hierophant, qui perd 1 CD 
+supplémentaire. 
+6 : Le plexus nerveux central du Hiérophant est détruit. La créature est tuée. 
+ 
+Sans peur, Blindage renforcé, Sauvegarde invulnérable 
+Peut enjamber les unités et les terrains infranchissables moins hauts que son abdomen et 
+d’au maximum 2cm de large 
+Hydraphant 
+EG 
+25cm 
+4+ 
+3+ 
+5+ Griffes monstrueuses 
+Tentacules 
+2x Lances-dards 
+Bio-plasma lourd 
+2x Bio-canon lourd 
+(contact) 
+(contact) 
+(15cm) 
+30cm 
+60cm 
+Armes d’assaut, +2A, TT (D3) 
+Armes d'assaut, +2A, FeP 
+Armes légères, +1A 
+4PB MA, FrtF 
+2xAP3+/AC4+, FrtF 
+CD8 – Critique : Lancez 1D6 et consultez le tableau ci-dessous 
+1 : Le Hydraphant hurle de rage et se débat sous l’effet de la blessure. Toute unité en contact 
+avec son socle subit une attaque MA6+. 
+2-5 : Un liquide visqueux s’écoule d’une profonde blessure du Hydraphant, qui perd 1 CD 
+supplémentaire. 
+6 : Le plexus nerveux central du Hydraphant est détruit. La créature est tuée. 
+ 
+Sans peur, Blindage renforcé, Sauvegarde invulnérable 
+Peut enjamber les unités et les terrains infranchissables moins hauts que son abdomen et 
+d’au maximum 2cm de large 
+ 
+ 
+ 
+ 
+5 - CODEX TYRANIDES - EAFR - REV 1.4 
+
+
+===== PAGE 7 =====
+FEUILLES DE RÉFÉRENCES FLOTTE TYRANIDES 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Harpies 
+B 
+- 
+5+ 
+- 
+- 
+Étrangleurs jumelés 
+Attaque au passage 
+Spores mines bombardées 
+30cm 
+15cm 
+15cm 
+AP4+, Rpt 
+AP5+/AC5+/AA5+ 
+1PB 
+- 
+Virago 
+C 
+- 
+5+ 
+- 
+- 
+Canon salivaire 
+Tentaclide 
+30cm 
+15cm 
+AP4+/AC5+, FrtF 
+AA6+ 
+- 
+Croiseur Razorfiend 
+- 
+- 
+- 
+- 
+- 
+Bombardement orbital 
+∞ 
+3PB 
+Transport (jusqu’à deux spores mycétiques et tout ce qu’elles contiennent) 
+Vaisseau Ruche 
+- 
+- 
+- 
+- 
+- 
+Bombardement orbital (VR) 
+∞ 
+8PB 
+Lent, Transport (jusqu’à cinq spores mycétiques et tout ce qu’elles contiennent) 
+Spores Mycétiques 
+VB 
+- 
+- 
+- 
+- 
+Tentacules éventreurs 
+15cm 
+AP6+, Rpt 
+Assaut planétaire, Transport (15) : Termagants, Hormagaunts, Biovores, Rôdeur, Carnifex, 
+Prince, Guerriers Tyranides, Zoanthropes. 
+Une fois que les Spores ont atterries, les tentacules éventreurs s’attaquent à chaque unité 
+ennemie dans un rayon de 15cm. Chaque formation ainsi attaquée reçoit un pion impact pour 
+être sous le feu de l’ennemi puis résolvez les attaques. Enfin, toutes les troupes transportées 
+doivent débarquer à moins de 5cm des Spores ou à moins de 5cm d’une autre unité ayant 
+déjà débarqué, du moment que toutes les unités soient placées dans un rayon de 15cm 
+autour des spores. 
+ 
+6 - CODEX TYRANIDES - EAFR - REV 1.4 
+
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+7 - CODEX TYRANIDES - EAFR - REV 1.4 

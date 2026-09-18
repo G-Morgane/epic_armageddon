@@ -13,6 +13,12 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
   },
+  nitro: {
+    // Codex YAML (source de vérité) embarqués dans le serveur
+    serverAssets: [{ baseName: 'codex', dir: '../content/codex' }],
+    // Génération de PDF : Chromium met quelques secondes à démarrer sur Vercel
+    vercel: { functions: { maxDuration: 60 } },
+  },
   app: {
     head: {
       htmlAttrs: { class: 'dark', lang: 'fr' },
@@ -45,6 +51,8 @@ export default defineNuxtConfig({
     r2SecretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
     r2BucketName: process.env.R2_BUCKET_NAME,
     public: {
+      // Démo locale uniquement : contourne la connexion admin pour les écrans Codex (jamais actif en build de prod)
+      codexDemoSansAuth: process.env.CODEX_DEMO_SANS_AUTH === '1',
       supabaseUrl: process.env.SUPABASE_URL,
       supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
       r2PublicUrl: process.env.R2_PUBLIC_URL,

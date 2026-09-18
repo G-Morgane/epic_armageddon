@@ -1,0 +1,74 @@
+# Flottes de l'Aeronautica Imperialis : liste partagée, utilisée en alliance par les codex de la Garde Impériale.
+codex:
+  slug: aeronautica-imperialis
+  nom: Aeronautica Imperialis
+  type: soutien
+  version: "1.0"
+  faction: imperium
+  statut: official
+  couleur: "#3b4a6b"
+  intro_md: |
+    Aviation et soutien orbital de l'Imperium, proposés en alliance aux armées qui y ont droit (en général dans la limite de 1/3 des points).
+  valeur_strategique: "-"
+  initiative:
+    defaut: "2+"
+
+unites:
+  - id: thunderbolt
+    nom: Thunderbolt
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Fulgurants, portee: 15cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Multi-Lasers (FF), portee: 30cm, puissance: "AP5+/AC6+/AA5+, FrtF" }
+      - { nom: Roquettes, portee: 30cm, puissance: "AC4+, FrtF" }
+  - id: marauder
+    nom: Bombardier Marauder
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Arr), portee: 30cm, puissance: "AA5+, Arr" }
+      - { nom: Canons Laser Jumelés (AA Avant), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Bombes (Bomber), portee: 15cm, puissance: "3PB, FrtF" }
+    degats: { cd: 2, critique: "le Bombardier Marauder s'écrase au sol et est détruit" }
+  - id: croiseur_lunar
+    nom: Croiseur Classe Lunar
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+  - id: cuirasse_emperor
+    nom: Cuirassé Emperor
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (8), portee: "∞", puissance: "8PB, MA" }
+    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
+
+formations:
+  - id: escadrille_intercepteurs
+    nom: Escadrille d'Intercepteurs
+    variantes:
+      - { id: deux, nom: 2 Chasseurs Thunderbolts, cout: 150, composition: [{ unite: thunderbolt, nombre: 2 }] }
+      - { id: quatre, nom: 4 Chasseurs Thunderbolts, cout: 300, composition: [{ unite: thunderbolt, nombre: 4 }] }
+  - id: escadrille_bombardiers
+    nom: Escadrille de Bombardiers
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: marauder, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: lunar, nom: 1 Croiseur Lunar, cout: 150, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
+      - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
+    contraintes: [{ type: pas_une_activation }]
+
+sections:
+  - id: aeronautica
+    titre: FLOTTES DE L'AERONAUTICA IMPERIALIS
+    formations: [escadrille_intercepteurs, escadrille_bombardiers, soutien_orbital]

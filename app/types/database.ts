@@ -47,9 +47,34 @@ export interface GameEvent {
   created_at: string
 }
 
+export interface CodexDraftRow {
+  slug: string
+  data: unknown
+  updated_at: string
+}
+
+export interface CodexVersionRow {
+  id: string
+  slug: string
+  version: string
+  changelog: string | null
+  data: unknown
+  published_at: string
+}
+
 export interface Database {
   public: {
     Tables: {
+      codex_drafts: {
+        Row: CodexDraftRow
+        Insert: Omit<CodexDraftRow, 'updated_at'> & { updated_at?: string }
+        Update: Partial<CodexDraftRow>
+      }
+      codex_versions: {
+        Row: CodexVersionRow
+        Insert: Omit<CodexVersionRow, 'id' | 'published_at'> & { published_at?: string }
+        Update: Partial<CodexVersionRow>
+      }
       armies: {
         Row: Army
         Insert: Omit<Army, 'id' | 'created_at'>
