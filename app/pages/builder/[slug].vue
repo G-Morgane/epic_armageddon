@@ -36,6 +36,15 @@ const compteArmee = (optionId: string) => {
 }
 
 const sectionsCatalogue = computed(() => c.sections.filter((s) => !s.contraintes.some((k) => k.type === 'non_autonome')))
+/** accordéon du catalogue : sections dépliées (la première par défaut), mémorisé par codex */
+const cleAccordeon = `builder:${slug}:sections`
+const ouvertes = ref<string[]>([sectionsCatalogue.value[0]?.id ?? ''])
+onMounted(() => { try { const v = localStorage.getItem(cleAccordeon); if (v) ouvertes.value = JSON.parse(v) } catch { /* ignore */ } })
+function basculer(id: string) {
+  ouvertes.value = ouvertes.value.includes(id) ? ouvertes.value.filter((x) => x !== id) : [...ouvertes.value, id]
+  try { localStorage.setItem(cleAccordeon, JSON.stringify(ouvertes.value)) } catch { /* ignore */ }
+}
+const nbDansListe = (sectionId: string) => resultat.value.formations.filter((f) => f.section.id === sectionId).length
 
 function ajouter(fid: string, variante?: string) {
   const f = idx.formations.get(fid)
@@ -80,10 +89,17 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
 
     <div class="mt-6 grid gap-6 lg:grid-cols-[280px_1fr_260px]">
       <!-- Catalogue -->
-      <aside class="space-y-4 impression-cacher">
-        <div v-for="s in sectionsCatalogue" :key="s.id">
-          <h2 class="mb-1 font-heading text-xs uppercase tracking-wider text-gold">{{ s.titre }}</h2>
-          <ul class="divide-y divide-white/5 rounded border border-white/10 bg-surface-light">
+      <aside class="space-y-2 impression-cacher">
+        <div v-for="s in sectionsCatalogue" :key="s.id" class="rounded border border-white/10 bg-surface-light">
+          <button type="button" class="flex w-full items-center justify-between gap-2 px-3 py-2 text-left" @click="basculer(s.id)">
+            <span class="font-heading text-xs uppercase tracking-wider text-gold">{{ s.titre }}</span>
+            <span class="flex shrink-0 items-center gap-2 text-xs text-stone-500">
+              <span v-if="nbDansListe(s.id)" class="rounded-full bg-gold/15 px-1.5 py-0.5 text-gold">{{ nbDansListe(s.id) }}</span>
+              <span>{{ s.formations.length }}</span>
+              <span class="text-stone-400">{{ ouvertes.includes(s.id) ? '▴' : '▾' }}</span>
+            </span>
+          </button>
+          <ul v-show="ouvertes.includes(s.id)" class="divide-y divide-white/5 border-t border-white/10">
             <li v-for="fid in s.formations" :key="fid" class="flex items-center justify-between gap-2 px-3 py-2 text-sm">
               <div class="min-w-0">
                 <p class="truncate text-stone-100" :title="lignesFormation(idx, idx.formations.get(fid)!)[0]?.composition">{{ prefixeFormation(idx, idx.formations.get(fid)!) }}{{ idx.formations.get(fid)!.nom }}</p>
