@@ -4,6 +4,8 @@ const { data: tous } = await useFetch<Array<{ slug: string; nom: string; version
 const codex = computed(() => (tous.value ?? []).filter((c) => c.type !== 'soutien'))
 const soutiens = computed(() => (tous.value ?? []).filter((c) => c.type === 'soutien'))
 const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos', xenos: 'Xenos' }
+const apercu = ref<{ slug: string; nom: string } | null>(null)
+const apercuOuvert = computed({ get: () => !!apercu.value, set: (v: boolean) => { if (!v) apercu.value = null } })
 </script>
 
 <template>
@@ -25,7 +27,7 @@ const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos',
         </div>
         <p class="mt-3 text-sm text-stone-400">{{ c.unites }} unités · {{ c.formations }} formations · {{ c.options }} options</p>
         <div class="mt-4 flex flex-wrap gap-2 text-sm">
-          <NuxtLink :to="`/codex-test/${c.slug}/imprimer`" class="rounded border border-gold/60 px-3 py-1.5 text-gold hover:bg-gold/10">Aperçu PDF</NuxtLink>
+          <button type="button" class="rounded border border-gold/60 px-3 py-1.5 text-gold hover:bg-gold/10" @click="apercu = { slug: c.slug, nom: c.nom }">Aperçu PDF</button>
           <a :href="`/api/codex/${c.slug}/pdf`" class="rounded border border-white/20 px-3 py-1.5 text-stone-200 hover:bg-white/5">Télécharger le PDF</a>
           <NuxtLink :to="`/builder/${c.slug}`" class="rounded bg-gold px-3 py-1.5 font-semibold text-surface hover:bg-gold-light">Builder</NuxtLink>
           <a :href="`/api/codex/${c.slug}.json`" class="rounded px-3 py-1.5 text-stone-400 hover:text-white">JSON</a>
@@ -39,9 +41,11 @@ const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos',
       <div class="mt-4 grid gap-3 sm:grid-cols-2">
         <div v-for="c in soutiens" :key="c.slug" class="flex items-center justify-between rounded-lg border border-white/10 bg-surface-light px-5 py-3">
           <div><p class="font-heading text-lg text-white">{{ c.nom }}</p><p class="text-xs text-stone-400">{{ c.unites }} unités · {{ c.formations }} formations</p></div>
-          <div class="flex gap-2 text-sm"><NuxtLink :to="`/codex-test/${c.slug}/imprimer`" class="rounded border border-white/20 px-3 py-1 text-stone-200 hover:bg-white/5">Aperçu</NuxtLink><a :href="`/api/codex/${c.slug}.json`" class="rounded px-3 py-1 text-stone-400 hover:text-white">JSON</a></div>
+          <div class="flex gap-2 text-sm"><button type="button" class="rounded border border-white/20 px-3 py-1 text-stone-200 hover:bg-white/5" @click="apercu = { slug: c.slug, nom: c.nom }">Aperçu</button><a :href="`/api/codex/${c.slug}.json`" class="rounded px-3 py-1 text-stone-400 hover:text-white">JSON</a></div>
         </div>
       </div>
     </template>
+
+    <CodexVisionneusePdf v-if="apercu" v-model="apercuOuvert" :slug="apercu.slug" :nom="apercu.nom" />
   </div>
 </template>

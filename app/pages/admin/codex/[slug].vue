@@ -24,6 +24,7 @@ const afficherProblemes = ref(false)
 const modalePublier = ref(false)
 const publication = ref({ version: '', changelog: '', encours: false, erreur: '' })
 const apercuCle = ref(0)
+const visionneuse = ref(false)
 
 provide(CLE_BROUILLON, brouillon as Ref<CodexInput>)
 
@@ -133,6 +134,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
         </div>
         <div class="flex flex-wrap items-center gap-2">
           <AdminCodexGuide volet="recettes" />
+          <button type="button" class="rounded-md border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10" @click="visionneuse = true">Aperçu PDF</button>
           <span class="text-xs" :class="{ 'text-gray-500': sauvegarde === 'propre', 'text-amber-300': sauvegarde === 'modifie' || sauvegarde === 'encours', 'text-emerald-300': sauvegarde === 'ok' }">
             {{ sauvegarde === 'encours' ? 'Enregistrement…' : sauvegarde === 'ok' ? 'Brouillon enregistré' : sauvegarde === 'modifie' ? 'Modifications non enregistrées' : existe ? 'Brouillon en cours' : 'Aucune modification' }}
           </span>
@@ -166,11 +168,14 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
       <div v-else class="space-y-4">
         <div class="flex flex-wrap items-center gap-3 text-sm">
           <p class="text-gray-400">Aperçu du brouillon, régénéré à chaque enregistrement.</p>
-          <a :href="apercuUrl" target="_blank" class="rounded-md border border-gold/40 px-3 py-1.5 text-gold hover:bg-gold/10">Ouvrir le PDF dans un onglet</a>
+          <button type="button" class="rounded-md border border-gold/40 px-3 py-1.5 text-gold hover:bg-gold/10" @click="visionneuse = true">Ouvrir en grand</button>
+          <a :href="`/api/codex/${slug}/pdf?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Télécharger le PDF du brouillon</a>
           <a :href="`/builder/${slug}?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Tester dans le builder</a>
         </div>
         <iframe :key="apercuCle" :src="apercuUrl" class="h-[80vh] w-full rounded-lg border border-gold/10 bg-white" />
       </div>
+
+      <CodexVisionneusePdf v-model="visionneuse" :slug="slug" :nom="brouillon.codex.nom" brouillon :version="apercuCle" />
 
       <!-- Versions -->
       <div v-if="versions.length && onglet === 'armee'" class="mt-6 rounded-lg border border-gold/10 bg-surface-light p-5">

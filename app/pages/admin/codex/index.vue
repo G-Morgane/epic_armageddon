@@ -9,6 +9,9 @@ const chargement = ref(true)
 const modale = ref(false)
 const creation = ref({ nom: '', faction: 'imperium' as 'imperium' | 'chaos' | 'xenos', encours: false, erreur: '' })
 
+const apercu = ref<{ slug: string; nom: string } | null>(null)
+const apercuOuvert = computed({ get: () => !!apercu.value, set: (v: boolean) => { if (!v) apercu.value = null } })
+
 const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos', xenos: 'Xenos' }
 const statuts: Record<string, string> = { official: 'Officiel', beta: 'Bêta', experimental: 'Expérimental', '30k': '30k' }
 
@@ -71,13 +74,15 @@ async function creer() {
             </td>
             <td class="py-3 pr-5 text-right whitespace-nowrap">
               <NuxtLink :to="`/admin/codex/${e.slug}`" class="rounded-md bg-gold/90 px-3 py-1 text-xs font-semibold text-surface hover:bg-gold-light">Modifier</NuxtLink>
-              <a :href="`/codex-test/${e.slug}/imprimer`" target="_blank" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5">PDF</a>
+              <button type="button" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5" @click="apercu = { slug: e.slug, nom: e.nom }">Aperçu PDF</button>
               <a :href="`/builder/${e.slug}`" target="_blank" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5">Builder</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+
+    <CodexVisionneusePdf v-if="apercu" v-model="apercuOuvert" :slug="apercu.slug" :nom="apercu.nom" />
 
     <div v-if="modale" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" @click.self="modale = false">
       <div class="w-full max-w-md rounded-lg border border-gold/20 bg-surface-light p-6">
