@@ -7,7 +7,7 @@ const api = useAdminApi()
 const etats = ref<Etat[]>([])
 const chargement = ref(true)
 const modale = ref(false)
-const creation = ref({ nom: '', faction: 'imperium' as 'imperium' | 'chaos' | 'xenos', encours: false, erreur: '' })
+const creation = ref({ nom: '', faction: 'imperium' as 'imperium' | 'chaos' | 'xenos', type: 'armee' as 'armee' | 'soutien', encours: false, erreur: '' })
 
 const apercu = ref<{ slug: string; nom: string } | null>(null)
 const apercuOuvert = computed({ get: () => !!apercu.value, set: (v: boolean) => { if (!v) apercu.value = null } })
@@ -25,7 +25,7 @@ async function creer() {
   creation.value.encours = true
   creation.value.erreur = ''
   try {
-    const r = await api.post<{ slug: string }>('/api/admin/codex', { nom: creation.value.nom, faction: creation.value.faction })
+    const r = await api.post<{ slug: string }>('/api/admin/codex', { nom: creation.value.nom, faction: creation.value.faction, type: creation.value.type })
     await navigateTo(`/admin/codex/${r.slug}`)
   } catch (e) {
     creation.value.erreur = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
@@ -87,7 +87,14 @@ async function creer() {
     <div v-if="modale" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" @click.self="modale = false">
       <div class="w-full max-w-md rounded-lg border border-gold/20 bg-surface-light p-6">
         <h2 class="font-heading text-xl font-bold text-white">Nouvelle armée</h2>
-        <p class="mt-1 text-sm text-gray-400">Crée une fiche vide avec deux sections (principales, supports) et le budget « 1/3 des points ».</p>
+        <div class="mt-4 grid grid-cols-2 gap-2 text-sm">
+          <button type="button" class="rounded-md border px-3 py-2 text-left" :class="creation.type === 'armee' ? 'border-gold bg-gold/10 text-gray-100' : 'border-white/10 text-gray-400 hover:border-white/30'" @click="creation.type = 'armee'">
+            <span class="block font-semibold">Armée jouable</span><span class="block text-xs">Codex complet : deux sections de départ et le budget « 1/3 des points ».</span>
+          </button>
+          <button type="button" class="rounded-md border px-3 py-2 text-left" :class="creation.type === 'soutien' ? 'border-gold bg-gold/10 text-gray-100' : 'border-white/10 text-gray-400 hover:border-white/30'" @click="creation.type = 'soutien'">
+            <span class="block font-semibold">Liste de soutien partagée</span><span class="block text-xs">Titans, aviation… proposée en alliance par d'autres codex, pas jouable seule.</span>
+          </button>
+        </div>
         <label class="mt-4 flex flex-col gap-1 text-xs text-gray-400">Nom<input v-model="creation.nom" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100" placeholder="Eldars d'Yme-Loc" @keyup.enter="creer"></label>
         <label class="mt-3 flex flex-col gap-1 text-xs text-gray-400">Faction
           <select v-model="creation.faction" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100"><option value="imperium">Imperium</option><option value="chaos">Chaos</option><option value="xenos">Xenos</option></select>

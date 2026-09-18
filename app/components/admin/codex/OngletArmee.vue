@@ -38,6 +38,9 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
         <label class="champ-label">Faction
           <select v-model="meta.faction" class="champ"><option value="imperium">Imperium</option><option value="chaos">Chaos</option><option value="xenos">Xenos</option></select>
         </label>
+        <label class="champ-label">Type
+          <select v-model="meta.type" class="champ"><option value="armee">Armée jouable</option><option value="soutien">Liste de soutien partagée (alliance)</option></select>
+        </label>
         <label class="champ-label">Statut
           <select v-model="meta.statut" class="champ"><option value="official">Officiel</option><option value="beta">Bêta</option><option value="experimental">Expérimental</option><option value="30k">30k</option></select>
         </label>

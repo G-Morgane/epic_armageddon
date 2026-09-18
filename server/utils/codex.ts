@@ -231,9 +231,20 @@ export async function etatsCodex(): Promise<EtatCodex[]> {
 }
 
 /** Squelette d'une nouvelle armée. */
-export function codexVide(slug: string, nom: string, faction: 'imperium' | 'chaos' | 'xenos'): CodexInput {
+export function codexVide(slug: string, nom: string, faction: 'imperium' | 'chaos' | 'xenos', type: 'armee' | 'soutien' = 'armee'): CodexInput {
+  if (type === 'soutien') {
+    return {
+      codex: { slug, nom, type, version: '0.1', faction, statut: 'experimental', valeur_strategique: '-', initiative: { defaut: '2+', exceptions: [] }, regles_md: [], intro_md: 'Liste de soutien partagée : ses formations sont proposées en alliance par les codex qui y ont droit.' },
+      budgets: [],
+      unites: [],
+      options: [],
+      formations: [],
+      sections: [{ id: 'soutiens', titre: nom.toUpperCase(), formations: [], contraintes: [], options: [], notes: {} }],
+      listes_test: [],
+    }
+  }
   return {
-    codex: { slug, nom, version: '0.1', faction, statut: 'experimental', valeur_strategique: 2, initiative: { defaut: '2+', exceptions: [] }, regles_md: [] },
+    codex: { slug, nom, type, version: '0.1', faction, statut: 'experimental', valeur_strategique: 2, initiative: { defaut: '2+', exceptions: [] }, regles_md: [] },
     budgets: [{ id: 'rare', libelle: 'Supports', capacite: { source: 'ratio_points', ratio: 0.3334, base: 'limite_liste' }, phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations" }],
     unites: [],
     options: [],
