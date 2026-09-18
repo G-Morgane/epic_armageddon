@@ -98,6 +98,13 @@ export function optionsDisponibles(idx: IndexCodex, formation: Formation): strin
   return [...new Set([...base, ...formation.options_plus])].filter((o) => !moins.has(o))
 }
 
+/** Options à ajouter d'office quand on crée une formation (règle « obligatoire »). */
+export function optionsObligatoires(idx: IndexCodex, formationId: string): string[] {
+  const def = idx.formations.get(formationId)
+  if (!def) return []
+  return optionsDisponibles(idx, def).filter((id) => idx.options.get(id)?.contraintes.some((c) => c.type === 'obligatoire'))
+}
+
 export function varianteParDefaut(idx: IndexCodex, formationId: string): string {
   return idx.formations.get(formationId)?.variantes[0]?.id ?? 'base'
 }

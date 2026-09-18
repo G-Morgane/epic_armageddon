@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Codex } from '~~/shared/codex/schema'
-import { indexerCodex, calculerListe, type ResultatListe } from '~~/shared/codex/engine'
+import { indexerCodex, calculerListe, optionsObligatoires, type ResultatListe } from '~~/shared/codex/engine'
 import type { Liste, FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { lignesFormation, prefixeFormation } from '~~/shared/codex/phrases'
@@ -49,7 +49,8 @@ const nbDansListe = (sectionId: string) => resultat.value.formations.filter((f) 
 function ajouter(fid: string, variante?: string) {
   const f = idx.formations.get(fid)
   if (!f) return
-  liste.value.formations.push({ id: genererId('f'), formation: fid, variante: variante ?? f.variantes[0]!.id, choix: {}, options: [], sous_formations: [] })
+  const options = optionsObligatoires(idx, fid).map((option) => ({ id: genererId('o'), option }))
+  liste.value.formations.push({ id: genererId('f'), formation: fid, variante: variante ?? f.variantes[0]!.id, choix: {}, options, sous_formations: [] })
 }
 function supprimer(id: string) {
   liste.value.formations = liste.value.formations.filter((f) => f.id !== id)

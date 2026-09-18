@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
-import { optionsDisponibles, optionsAjoutables, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
+import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { phraseOption, coutOption, pluriel } from '~~/shared/codex/phrases'
@@ -93,7 +93,8 @@ function ajouterSous(fid: string) {
   if (!fid) return
   const f = props.idx.formations.get(fid)
   if (!f) return
-  props.instance.sous_formations.push({ id: genererId('f'), formation: fid, variante: f.variantes[0]!.id, choix: {}, options: [], sous_formations: [] })
+  const options = optionsObligatoires(props.idx, fid).map((option) => ({ id: genererId('o'), option }))
+  props.instance.sous_formations.push({ id: genererId('f'), formation: fid, variante: f.variantes[0]!.id, choix: {}, options, sous_formations: [] })
 }
 function retirerSous(id: string) {
   props.instance.sous_formations = props.instance.sous_formations.filter((s) => s.id !== id)
