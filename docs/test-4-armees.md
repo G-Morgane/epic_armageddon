@@ -1,4 +1,4 @@
-# Test du modèle unifié sur 4 armées
+# Test du modèle unifié (7 armées, 2 listes de soutien)
 
 Branche `feat/codex-unifie`. Prouve qu'une seule fiche par armée produit le PDF et le builder.
 
@@ -9,11 +9,11 @@ Branche `feat/codex-unifie`. Prouve qu'une seule fiche par armée produit le PDF
 | Schéma du format natif (zod) | `shared/codex/schema.ts` | définit la fiche, vérifie les références |
 | Moteur de règles | `shared/codex/engine.ts` | résout une liste (unités, coûts, transports, remplacements), budgets, contraintes |
 | Phrases PDF | `shared/codex/phrases.ts` | génère « 0-1 », « ou », « Jusqu'à 2 formations… » depuis les données |
-| 4 codex | `content/codex/*.yaml` | Légion d'Acier, Adeptus Astartes, Tyranides, Orks de Ghazghkull |
+| 7 codex + 2 listes de soutien | `content/codex/*.yaml` | Légion d'Acier, Adeptus Astartes, Dark Angels, Black Legion, Tyranides, Orks de Ghazghkull, Eldars Noirs ; Adeptus Titanicus et Aeronautica Imperialis en alliance |
 | API | `server/api/codex/` | liste, JSON d'un codex, PDF généré (`/api/codex/{slug}/pdf`, Chromium sans écran) |
 | Page imprimable | `app/pages/codex-test/[slug]/imprimer.vue` | la maquette du PDF (page de garde, liste d'armée, feuille de références) |
 | Builder | `app/pages/builder/[slug].vue` + `app/components/codex/FormationCarte.vue` | construction de liste, budgets, erreurs, sauvegarde locale, impression |
-| Tests | `tests/*.spec.ts` | schéma + références des 4 YAML, et les 27 listes fixtures rejouées dans le moteur |
+| Tests | `tests/*.spec.ts` | schéma + références de chaque YAML, et les listes fixtures rejouées dans le moteur (51 tests) |
 
 Exemples de PDF générés : `docs/exemples/generes/`.
 
@@ -48,6 +48,10 @@ npx nuxi dev          # puis /codex-test, /builder/legion-dacier, /codex-test/le
 ```
 
 Le PDF serveur cherche Chromium dans `CHROMIUM_PATH`, sinon Google Chrome (macOS) ou `/usr/bin/chromium`.
+
+## Alliances
+
+Une section peut pointer vers un autre codex (`allies: { codex: adeptus-titanicus }`) : ses formations, unités et options sont fusionnées à la lecture, et ce sont les règles de la section hôte qui s'appliquent (en général « compte dans le budget Supports », donc 1/3 des points). Les listes de soutien (`codex.type: soutien`) s'écrivent une fois et ne sont pas jouables seules. Dans l'admin : « Nouvelle armée » → « Liste de soutien partagée », puis dans le codex hôte, bandeau de section → « Alliance ».
 
 ## Résultat
 
