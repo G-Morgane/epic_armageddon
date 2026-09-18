@@ -25,7 +25,7 @@ export const GABARITS: Gabarit[] = [
   { type: 'requiert_unite', portee: ['option'], phrase: 'Seulement si la formation contient {unites}', trous: { unites: { type: 'unites', defaut: [] } } },
   { type: 'taille_max_formation', portee: ['option'], phrase: 'Formation de {valeur} unités au maximum', trous: { valeur: { type: 'nombre', defaut: 15 } } },
   { type: 'obligatoire', portee: ['option'], phrase: 'Obligatoire dans chaque formation qui la propose', trous: {} },
-  { type: 'fournit', portee: ['formation', 'section'], phrase: 'Ouvre {quantite} place(s) « {budget} »', trous: { quantite: { type: 'nombre', defaut: 1 }, budget: { type: 'budget' } } },
+  { type: 'fournit', portee: ['formation', 'option', 'section'], phrase: 'Ouvre {quantite} place(s) « {budget} »', trous: { quantite: { type: 'nombre', defaut: 1 }, budget: { type: 'budget' } } },
   { type: 'consomme', portee: ['formation', 'option', 'section'], phrase: 'Compte dans le budget « {budget} » ({quoi})', trous: { budget: { type: 'budget' }, quoi: { type: 'texte', defaut: 'un' } } },
   { type: 'cout_rare', portee: ['formation'], phrase: 'Compte pour {valeur} pts dans le budget', trous: { valeur: { type: 'nombre', defaut: 0 } } },
   { type: 'initiative', portee: ['formation', 'section'], phrase: 'Initiative {valeur}', trous: { valeur: { type: 'texte', defaut: '1+' } } },

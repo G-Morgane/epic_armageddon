@@ -607,7 +607,16 @@ export function calculerListe(idx: IndexCodex, liste: Liste): ResultatListe {
       const base = c.perimetre?.startsWith('section:') ? (pointsSection.get(c.perimetre.slice(8)) ?? 0) : total
       cap = Math.ceil(base / c.points)
     } else {
-      for (const f of toutes) for (const k of tous(contraintes(f.section, f.def, f.variante), 'fournit')) if (k.budget === b.id) cap += k.quantite
+      for (const f of toutes) {
+        for (const k of tous(contraintes(f.section, f.def, f.variante), 'fournit')) if (k.budget === b.id) cap += k.quantite
+        // une option peut aussi ouvrir des places (Porte-icône du Chaos : une formation démoniaque par icône)
+        for (const o of f.options) {
+          const csO = o.def.effet.type === 'choix'
+            ? [...o.def.contraintes, ...(o.def.effet.parmi.find((p) => p.id === o.instance.choix) ?? o.def.effet.parmi[0]!).contraintes]
+            : o.def.contraintes
+          for (const k of tous(csO, 'fournit')) if (k.budget === b.id) cap += k.quantite * (o.instance.quantite ?? 1)
+        }
+      }
     }
     capacite.set(b.id, cap)
   }
