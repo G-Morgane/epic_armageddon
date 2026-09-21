@@ -108,6 +108,6 @@ Les PDF actuels ont une couverture pleine page : bandeau Epic Armageddon, illust
 - L'image couvre la feuille entière, bords perdus compris. Le bloc de titre (Epic Armageddon, nom, faction, citation, version) se pose vers le bas, sur un voile dégradé qui garde l'illustration visible.
 - Sans image, le même bloc s'affiche centré sur fond blanc.
 - L'image attendue est une **illustration nue** : le titre est écrit par le site. Une couverture déjà finie afficherait son titre sous celui du site.
-- Les illustrations livrées sont recadrées depuis les anciens PDF (bandeau du haut et cartouche du bas retirés), à remplacer par de meilleures sources quand on en a.
+- Les illustrations sont stockées sur R2 sous `codex/couvertures/`, pas dans le dépôt. Le script `scripts/migrer-couvertures-r2.ts` téléverse un dossier d'images et réécrit le champ `illustration` des YAML ; l'onglet Armée de l'admin permet de remplacer une image à l'unité.
 
 Reprise des couvertures existantes : elles sont incrustées dans les anciens PDF, pas stockées à part sur R2. Il faut les extraire page 1 par page 1 puis les téléverser.

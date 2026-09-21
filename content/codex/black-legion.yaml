@@ -6,7 +6,7 @@ codex:
   faction: chaos
   categorie: armees-chaos
   statut: official
-  illustration: /codex/couvertures/black-legion.jpg
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/black-legion.jpg
   couleur: "#3B2F2F"
   citation:
     texte: "Je suis l'archi-ennemi, le Destructeur de Mondes. C'est par ma main que le faux empereur sera déchu."

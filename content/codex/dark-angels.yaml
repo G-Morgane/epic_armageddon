@@ -6,7 +6,7 @@ codex:
   faction: imperium
   categorie: armees-astartes
   statut: official
-  illustration: /codex/couvertures/dark-angels.jpg
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/dark-angels.jpg
   couleur: "#1b611d"
   citation:
     texte: "Tous seront-ils retrouvés ? Un authentique fils du Lion verra-t-il le dernier Déchu rendre son soupir ? En vérité, je l'ignore. Nous ne savons ni combien ils sont, ni où ils se trouvent, mais nous les traquerons jusqu'au bout quoi qu'il en soit."

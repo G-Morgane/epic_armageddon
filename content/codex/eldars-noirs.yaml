@@ -6,7 +6,7 @@ codex:
   faction: xenos
   categorie: armees-xenos
   statut: official
-  illustration: /codex/couvertures/eldars-noirs.jpg
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/eldars-noirs.jpg
   couleur: "#6100be"
   citation:
     texte: "Nous sommes les maîtres du ciel ténébreux. Nous refusons de ramper dans la fange du champ de bataille. Nous laissons cela aux espèces indignes. Nous ne poserons le pied sur la terre natale de ces vermines que pour appuyer nos talons sur leur gorge."

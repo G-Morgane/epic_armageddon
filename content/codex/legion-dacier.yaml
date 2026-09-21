@@ -6,7 +6,7 @@ codex:
   faction: imperium
   categorie: armees-imperiales
   statut: official
-  illustration: /codex/couvertures/legion-dacier.jpg
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/legion-dacier.jpg
   couleur: "#686000"
   citation:
     texte: "Héros d'Armageddon ! Vous avez résisté à l'horrible sauvagerie des Orks, et à présent vous n'avez plus rien à en craindre. Levez haut l'étendard noir de la vengeance, car la victoire sera à nous !"
