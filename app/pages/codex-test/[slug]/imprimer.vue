@@ -23,7 +23,8 @@ const paysage = opts.orientation === 'paysage'
 useHead({
   title: `Codex ${c.codex.nom}`,
   htmlAttrs: { class: 'print' },
-  style: [{ innerHTML: `@page { size: A4 ${paysage ? 'landscape' : 'portrait'}; margin: 12mm 12mm 14mm 12mm; }` }],
+  style: [{ innerHTML: `@page { size: A4 ${paysage ? 'landscape' : 'portrait'}; margin: 12mm 12mm 14mm 12mm; }
+@page couverture { size: A4 ${paysage ? 'landscape' : 'portrait'}; margin: 0; }` }],
 })
 
 const paragraphes = (md?: string) => paragraphesEnrichis(md)
@@ -330,7 +331,7 @@ tr { break-inside: avoid; }
 .doc.paysage .couverture { min-height: 184mm; }
 /* l'illustration déborde des marges pour couvrir la feuille entière
    (div et non img : un élément remplacé en position absolue ignore les décalages) */
-.couverture-fond { position: absolute; top: -12mm; right: -12mm; bottom: -14mm; left: -12mm; background-position: center; background-size: cover; background-repeat: no-repeat; }
+.couverture-fond { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
 .couverture-bloc { position: relative; display: flex; flex-direction: column; align-items: center; }
 .couverture-bande { width: 90mm; height: 3pt; background: var(--accent); }
 .couverture-bande.bas { margin-top: 18pt; }
@@ -343,9 +344,27 @@ tr { break-inside: avoid; }
 
 /* Avec illustration : l'image occupe tout le papier, le bandeau de titre se pose vers le bas.
    Le padding-bas de `.page` est annulé, sinon le cadre de l'image dépasse et l'image est rognée. */
-.couverture.illustree { justify-content: flex-end; background: #111; padding-bottom: 0; }
+/* page dédiée sans marges : sinon le navigateur rogne l'illustration au niveau des marges */
+.couverture.illustree {
+  page: couverture;
+  justify-content: flex-end;
+  background: #111;
+  width: 210mm;
+  min-height: 297mm;
+  margin-left: -12mm;
+  padding: 0;
+}
+.doc.paysage .couverture.illustree { width: 297mm; min-height: 210mm; }
 /* voile dégradé : le texte reste lisible sans masquer l'illustration */
-.couverture.illustree::after { content: ''; position: absolute; right: -12mm; bottom: -14mm; left: -12mm; height: 135mm; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .62) 30%, rgba(0, 0, 0, .9) 55%, rgba(0, 0, 0, .94) 100%); }
+.couverture.illustree::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 58%;
+  background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, .96) 18%, rgba(0, 0, 0, .86) 34%, rgba(0, 0, 0, .62) 52%, rgba(0, 0, 0, .32) 72%, rgba(0, 0, 0, .1) 88%, rgba(0, 0, 0, 0) 100%);
+}
 .couverture.illustree .couverture-bloc { z-index: 1; padding: 0 14mm 16mm; color: #fff; }
 .couverture.illustree .couverture-bande { width: 110mm; }
 .couverture.illustree .couverture-sur { color: #e2e2e2; }
@@ -373,11 +392,11 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
 /* Aperçu écran : feuilles séparées, au format réel, pour juger de la mise en page. */
 @media screen {
   .doc, .doc.paysage { max-width: none; background: transparent; display: flex; flex-direction: column; align-items: center; gap: 6mm; padding: 6mm 4mm; }
-  .doc .page { width: 186mm; min-height: 271mm; background: #fff; padding: 12mm 12mm 14mm; box-shadow: 0 1mm 4mm rgba(0, 0, 0, .45); }
-  .doc.paysage .page { width: 273mm; min-height: 184mm; }
-  /* la feuille porte déjà ses marges : l'illustration ne doit plus déborder, sinon elle sort du A4 */
-  .doc .couverture-fond { top: 0; right: 0; bottom: 0; left: 0; }
-  .doc .couverture.illustree::after { right: 0; bottom: 0; left: 0; }
-  .doc .couverture.illustree { overflow: hidden; }
+  /* box-sizing: border-box, donc la feuille mesure bien un A4 marges comprises */
+  .doc .page { width: 210mm; min-height: 297mm; background: #fff; padding: 12mm 12mm 14mm; box-shadow: 0 1mm 4mm rgba(0, 0, 0, .45); }
+  .doc.paysage .page { width: 297mm; min-height: 210mm; }
+  /* la couverture illustrée est une page sans marges : à l'écran elle garde la largeur des autres feuilles */
+  .doc .couverture.illustree { width: 210mm; min-height: 297mm; margin-left: 0; padding: 0; overflow: hidden; }
+  .doc.paysage .couverture.illustree { width: 297mm; min-height: 210mm; }
 }
 </style>
