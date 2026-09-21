@@ -111,3 +111,20 @@ Les PDF actuels ont une couverture pleine page : bandeau Epic Armageddon, illust
 - Les illustrations sont stockées sur R2 sous `codex/couvertures/`, pas dans le dépôt. Le script `scripts/migrer-couvertures-r2.ts` téléverse un dossier d'images et réécrit le champ `illustration` des YAML ; l'onglet Armée de l'admin permet de remplacer une image à l'unité.
 
 Reprise des couvertures existantes : elles sont incrustées dans les anciens PDF, pas stockées à part sur R2. Il faut les extraire page 1 par page 1 puis les téléverser.
+
+## Passage à la base de données
+
+Trois choses sortent du dépôt :
+
+| Élément | Avant | Maintenant |
+| --- | --- | --- |
+| Contenu des codex | fichiers `content/codex/*.yaml` | table `codex_versions`, les YAML ne servent plus que de graine |
+| Illustrations de couverture | `public/codex/couvertures/` | R2, sous `codex/couvertures/` |
+| Listes du builder | stockage local du navigateur | table `listes_armee` pour les comptes connectés, stockage local sinon |
+
+Scripts de reprise, à lancer depuis la racine du projet, essai à blanc par défaut :
+
+- `scripts/migrer-couvertures-r2.ts` téléverse les images et réécrit le champ `illustration` des YAML.
+- `scripts/publier-codex.ts` publie les YAML dans `codex_versions` en conservant le numéro de version du PDF d'origine, après contrôle du schéma, des références, des alliés et des listes de test.
+
+Tables à créer : `supabase/codex.sql` puis `supabase/listes.sql`. Aucune table existante n'est modifiée.
