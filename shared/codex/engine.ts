@@ -105,6 +105,13 @@ export function optionsObligatoires(idx: IndexCodex, formationId: string): strin
   return optionsDisponibles(idx, def).filter((id) => idx.options.get(id)?.contraintes.some((c) => c.type === 'obligatoire'))
 }
 
+/** Nombre maximal de fois qu'une formation peut figurer dans l'armée, `null` si non limité. */
+export function plafondFormation(idx: IndexCodex, formationId: string): number | null {
+  const def = idx.formations.get(formationId)
+  if (!def) return null
+  return trouve(contraintes(idx.sectionDe.get(def.id), def), 'max_par_armee')?.valeur ?? null
+}
+
 export function varianteParDefaut(idx: IndexCodex, formationId: string): string {
   return idx.formations.get(formationId)?.variantes[0]?.id ?? 'base'
 }

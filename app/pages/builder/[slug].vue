@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Codex } from '~~/shared/codex/schema'
-import { indexerCodex, calculerListe, optionsObligatoires, type ResultatListe } from '~~/shared/codex/engine'
+import { indexerCodex, calculerListe, optionsObligatoires, plafondFormation, type ResultatListe } from '~~/shared/codex/engine'
 import type { Liste, FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { lignesFormation, prefixeFormation } from '~~/shared/codex/phrases'
@@ -45,6 +45,19 @@ function basculer(id: string) {
   try { localStorage.setItem(cleAccordeon, JSON.stringify(ouvertes.value)) } catch { /* ignore */ }
 }
 const nbDansListe = (sectionId: string) => resultat.value.formations.filter((f) => f.section.id === sectionId).length
+
+/** nombre de fois qu'une formation figure déjà dans l'armée (sous-formations comprises) */
+function compteFormation(fid: string) {
+  let n = 0
+  const parcourir = (f: FormationInstance) => { if (f.formation === fid) n += 1; f.sous_formations.forEach(parcourir) }
+  liste.value.formations.forEach(parcourir)
+  return n
+}
+/** limite atteinte : le bouton d'ajout du catalogue est désactivé */
+function plafondAtteint(fid: string) {
+  const max = plafondFormation(idx, fid)
+  return max !== null && compteFormation(fid) >= max
+}
 /** formation dépliée dans le catalogue : sa composition (les profils sont sur les cartes de la liste) */
 const detail = ref<string | null>(null)
 
@@ -109,7 +122,14 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
                   <p class="flex items-center gap-1 text-stone-100"><span class="truncate">{{ prefixeFormation(idx, idx.formations.get(fid)!) }}{{ idx.formations.get(fid)!.nom }}</span><span class="shrink-0 text-[10px] text-stone-500">{{ detail === fid ? '▴' : '▾' }}</span></p>
                   <p class="text-xs text-stone-500">{{ idx.formations.get(fid)!.variantes.map((v) => v.cout).filter((x, i, a) => a.indexOf(x) === i).join(' / ') }} pts</p>
                 </button>
-                <button type="button" class="shrink-0 rounded bg-gold/90 px-2 py-0.5 font-bold text-surface hover:bg-gold-light" @click="ajouter(fid)">+</button>
+                <button
+                  type="button"
+                  class="shrink-0 rounded px-2 py-0.5 font-bold"
+                  :class="plafondAtteint(fid) ? 'cursor-not-allowed bg-white/5 text-stone-600' : 'bg-gold/90 text-surface hover:bg-gold-light'"
+                  :disabled="plafondAtteint(fid)"
+                  :title="plafondAtteint(fid) ? `Limite atteinte : au plus ${plafondFormation(idx, fid)} dans l'armée` : 'Ajouter à la liste'"
+                  @click="ajouter(fid)"
+                >+</button>
               </div>
               <div v-if="detail === fid" class="space-y-1 border-t border-white/5 bg-black/10 px-3 py-2">
                 <p v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="text-xs text-stone-300"><span v-if="l.nom" class="text-gold">{{ l.nom }} : </span>{{ l.composition }} <span class="text-stone-500">· {{ l.cout }}</span></p>

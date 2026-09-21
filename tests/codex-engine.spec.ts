@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { listerSlugs, chargerCodexParSlug, chargerCodexBrut } from '../shared/codex/charger'
 import { chargerCodex } from '../shared/codex/schema'
-import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation } from '../shared/codex/engine'
+import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation } from '../shared/codex/engine'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
 import { trierParType, lignesComplementaires, requeteOptionsPdf, lireOptionsPdf, OPTIONS_PDF_DEFAUT } from '../shared/codex/pdf'
@@ -86,5 +86,23 @@ describe('mise en forme et composition du PDF', () => {
     expect(requeteOptionsPdf(OPTIONS_PDF_DEFAUT)).toBe('')
     expect(requeteOptionsPdf({ ...OPTIONS_PDF_DEFAUT, profils: true, orientation: 'paysage' })).toBe('?profils=1&orientation=paysage')
     expect(lireOptionsPdf({ couverture: '0', profils: '1' })).toEqual({ couverture: false, profils: true, references: true, orientation: 'portrait' })
+  })
+})
+
+describe('limite de formations par armée', () => {
+  const idx = indexerCodex(chargerCodexParSlug('tyranides'))
+
+  it('une formation « 0-1 » est plafonnée à 1', () => {
+    expect(plafondFormation(idx, 'groupe_nexus')).toBe(1)
+  })
+
+  it('une formation sans limite renvoie null', () => {
+    expect(plafondFormation(idx, 'centre_synaptique')).toBeNull()
+  })
+
+  it('dépasser la limite reste une erreur du moteur', () => {
+    const f = (id: string) => normaliserFormation({ id, formation: 'groupe_nexus' } as never, (x) => varianteParDefaut(idx, x))
+    const res = calculerListe(idx, { id: 'l', nom: 'x', codex: 'tyranides', limite: 3000, formations: [f('a'), f('b')] })
+    expect(res.erreurs.map((e) => e.type)).toContain('max_par_armee')
   })
 })
