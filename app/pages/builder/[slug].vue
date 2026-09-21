@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Codex } from '~~/shared/codex/schema'
+import type { Codex, Unite } from '~~/shared/codex/schema'
 import { indexerCodex, calculerListe, optionsObligatoires, type ResultatListe } from '~~/shared/codex/engine'
 import type { Liste, FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
@@ -45,6 +45,20 @@ function basculer(id: string) {
   try { localStorage.setItem(cleAccordeon, JSON.stringify(ouvertes.value)) } catch { /* ignore */ }
 }
 const nbDansListe = (sectionId: string) => resultat.value.formations.filter((f) => f.section.id === sectionId).length
+/** formation dépliée dans le catalogue (composition + profils des unités) */
+const detail = ref<string | null>(null)
+function unitesFormation(fid: string) {
+  const f = idx.formations.get(fid)
+  const vues = new Set<string>()
+  const out: Unite[] = []
+  const pousser = (id: string) => { const u = idx.unites.get(id); if (u && !vues.has(id)) { vues.add(id); out.push(u) } }
+  for (const v of f?.variantes ?? []) for (const l of v.composition) {
+    if ('unite' in l) pousser(l.unite)
+    else if ('choix' in l) l.choix.parmi.forEach((p) => pousser(p.unite))
+    else pousser(l.transports.unite)
+  }
+  return out
+}
 
 function ajouter(fid: string, variante?: string) {
   const f = idx.formations.get(fid)
@@ -103,12 +117,18 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
             </span>
           </button>
           <ul v-show="ouvertes.includes(s.id)" class="divide-y divide-white/5 border-t border-white/10">
-            <li v-for="fid in s.formations" :key="fid" class="flex items-center justify-between gap-2 px-3 py-2 text-sm">
-              <div class="min-w-0">
-                <p class="truncate text-stone-100" :title="lignesFormation(idx, idx.formations.get(fid)!)[0]?.composition">{{ prefixeFormation(idx, idx.formations.get(fid)!) }}{{ idx.formations.get(fid)!.nom }}</p>
-                <p class="text-xs text-stone-500">{{ idx.formations.get(fid)!.variantes.map((v) => v.cout).filter((x, i, a) => a.indexOf(x) === i).join(' / ') }} pts</p>
+            <li v-for="fid in s.formations" :key="fid" class="text-sm">
+              <div class="flex items-center justify-between gap-2 px-3 py-2">
+                <button type="button" class="min-w-0 flex-1 text-left" :title="detail === fid ? 'Replier' : 'Voir la composition et les profils'" @click="detail = detail === fid ? null : fid">
+                  <p class="flex items-center gap-1 text-stone-100"><span class="truncate">{{ prefixeFormation(idx, idx.formations.get(fid)!) }}{{ idx.formations.get(fid)!.nom }}</span><span class="shrink-0 text-[10px] text-stone-500">{{ detail === fid ? '▴' : '▾' }}</span></p>
+                  <p class="text-xs text-stone-500">{{ idx.formations.get(fid)!.variantes.map((v) => v.cout).filter((x, i, a) => a.indexOf(x) === i).join(' / ') }} pts</p>
+                </button>
+                <button type="button" class="shrink-0 rounded bg-gold/90 px-2 py-0.5 font-bold text-surface hover:bg-gold-light" @click="ajouter(fid)">+</button>
               </div>
-              <button type="button" class="shrink-0 rounded bg-gold/90 px-2 py-0.5 font-bold text-surface hover:bg-gold-light" @click="ajouter(fid)">+</button>
+              <div v-if="detail === fid" class="space-y-2 border-t border-white/5 bg-black/10 px-3 py-2">
+                <p v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="text-xs text-stone-300"><span v-if="l.nom" class="text-gold">{{ l.nom }} : </span>{{ l.composition }} <span class="text-stone-500">· {{ l.cout }}</span></p>
+                <CodexUniteProfil v-for="u in unitesFormation(fid)" :key="u.id" :idx="idx" :unite="u" compact />
+              </div>
             </li>
           </ul>
         </div>
