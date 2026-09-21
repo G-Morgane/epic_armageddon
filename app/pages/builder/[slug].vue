@@ -17,13 +17,46 @@ useHead({ title: `Builder ${c.codex.nom}` })
 const cle = `builder:${slug}`
 const liste = ref<Liste>({ id: genererId('l'), nom: `Ma liste ${c.codex.nom}`, codex: slug, limite: 3000, formations: [] })
 const pret = ref(false)
-onMounted(() => {
+
+/** identifiant de la liste côté serveur, quand elle y est enregistrée */
+const idServeur = ref<string | null>(null)
+const cleServeur = `builder:${slug}:id`
+const listesApi = useListes()
+const listesOuvert = ref(false)
+const messagePartage = ref('')
+
+onMounted(async () => {
+  // un lien de partage prend le pas sur le brouillon local
+  const code = route.query.liste
+  if (typeof code === 'string' && code) {
+    try {
+      const partagee = await listesApi.lirePartage(code)
+      liste.value = partagee.data
+      messagePartage.value = `Liste partagée « ${partagee.nom} » ouverte en lecture. Enregistre-la pour en garder ta propre copie.`
+      pret.value = true
+      return
+    } catch {
+      messagePartage.value = "Ce lien de partage n'est plus valable."
+    }
+  }
   try {
     const brut = localStorage.getItem(cle)
     if (brut) liste.value = JSON.parse(brut)
+    idServeur.value = localStorage.getItem(cleServeur)
   } catch { /* stockage indisponible */ }
   pret.value = true
 })
+
+function chargerListe(l: Liste, id: string) {
+  liste.value = l
+  idServeur.value = id
+  messagePartage.value = ''
+  try { localStorage.setItem(cleServeur, id) } catch { /* ignore */ }
+}
+function listeEnregistree(id: string) {
+  idServeur.value = id
+  try { localStorage.setItem(cleServeur, id) } catch { /* ignore */ }
+}
 watch(liste, (l) => { if (pret.value) try { localStorage.setItem(cle, JSON.stringify(l)) } catch { /* ignore */ } }, { deep: true })
 
 const resultat = computed<ResultatListe>(() => calculerListe(idx, liste.value))
@@ -98,10 +131,24 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       <div class="flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
         <label class="flex items-center gap-2 text-sm text-stone-300">Limite <input v-model.number="liste.limite" type="number" step="250" min="250" class="champ w-24"> pts</label>
+        <button type="button" class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10" @click="listesOuvert = true">Mes listes</button>
         <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="imprimer">Imprimer</button>
         <button type="button" class="rounded border border-red-400/40 px-3 py-1.5 text-sm text-red-300 hover:bg-red-500/10" @click="vider">Vider</button>
       </div>
     </div>
+
+    <p v-if="messagePartage" class="mt-4 rounded border border-gold/30 bg-gold/10 px-4 py-2 text-sm text-gold-light impression-cacher">{{ messagePartage }}</p>
+
+    <CodexMesListes
+      v-model="listesOuvert"
+      :slug="slug"
+      :courante="liste"
+      :total="resultat.total"
+      :valide="resultat.valide"
+      :id-serveur="idServeur"
+      @charger="chargerListe"
+      @enregistree="listeEnregistree"
+    />
 
     <div class="mt-6 grid gap-6 lg:grid-cols-[280px_1fr_260px]">
       <!-- Catalogue -->

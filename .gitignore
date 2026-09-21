@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# Script de migration R2 historique : contient des clés en clair, ne jamais committer
+scripts/migrate-to-r2.ts
