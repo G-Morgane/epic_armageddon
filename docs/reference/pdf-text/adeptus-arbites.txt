@@ -1,0 +1,559 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+ 
+ADEPTUS ARBITES 
+ 
+ 
+« Aucun serviteur de l’Empereur ne meurt sans vengeance, nul 
+ennemi de l’Empereur n’échappe au châtiment!» 
+Promesse de la Pax Imperialis 
+ 
+La liste qui suit vous permet de mettre sur pied une armée de 
+l’Adeptus Arbites.  
+Les armées de l’Adeptus Arbites sont organisées autour de 
+petites formations appelées détachements principaux ainsi 
+que des détachements de soutien qui leurs sont autonomes. 
+Chaque détachement peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut 
+être 
+prise 
+qu’une 
+fois 
+par 
+détachement. 
+Les 
+améliorations font partie intégrante des détachements et 
+doivent respecter les règles de cohésion. Noter que certaines 
+améliorations remplacent des unités d’un détachement tandis 
+que d’autres ajoutent des unités supplémentaires.  
+Les formations de support sont des formations autonomes 
+des détachements. Un maximum du tiers des points peut être 
+dépensé pour ces formations. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Emblème des Troupes de Choc de l’Adeptus Arbites. 
+ 
+Règle spéciale : Auxiliaires de Imperium 
+ 
+Les troupes de l’Adeptus Arbites sont des troupes d’élites 
+chargées du maintien de l’ordre dans les mondes ruches 
+de l’Imperium. Aussi, elles combattent rarement seules 
+lorsqu’un conflit d’ampleur éclate sur un monde sous leur 
+juridiction. Un tiers des points d’une liste de l’Adeptus 
+Arbites peut être sélectionné dans les codex Adeptus 
+Astartes, Astra Militarum et Adepta Sororitas. Cette 
+sélection doit respecter la structure de ces listes (ex : un 
+choix de base pour avoir deux choix de soutien, etc.) et elle 
+ne 
+peut 
+pas 
+inclure 
+d'unités 
+possédant 
+la 
+note 
+Commandant Suprême. 
+Arbitrator de l’Adeptus Arbites. 
+ 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture.deviantart.com/thefirstangel.
+ 
+1 - CODEX ADEPTUS ARBITES - EAFR - REV 1.3 
+
+===== PAGE 3 =====
+ 
+ 
+ 
+LISTE D'ARMÉE ADEPTUS ARBITES 
+ 
+Les armées de l’Adeptus Arbites ont une valeur stratégique de 3.  Les Détachements incluant un personnage ont une initiative 
+de 1+. Les autres détachements ont une initiative de 2+. 
+DÉTACHEMENTS PRINCIPAUX DE L'ADEPTUS ARBITES 
+(Au moins une patrouille Repressor obligatoire) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+1+ Patrouille Repressor 
+8 unités parmis Arbitrators de Choc / 
+Assaut 
+Juge suprême, Officier,s  K9 team, Sniper Team, Plateforme Sabre, 
+Transport 
+225 pts 
+Patrouille Interceptor 
+8 Motos Arbites 
+Juge suprême, Officiers 
+225 pts 
+Patrouille Purgator 
+8 Unités de Arbitrator de Soutien 
+Juge suprême, Officiers, K9 team, Sniper Team, Plateforme Sabre, 
+Transport 
+250 pts 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+DÉTACHEMENTS DE SOUTIEN DE L'ADEPTUS ARBITES 
+(Jusqu'à 2 détachements de soutien par détachement principal) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Patrouille Tormentor 
+8 unités d’Arbitrators de Choc/Assaut + ​
+4 Valkyries 
+Officiers 
+350 pts 
+Patrouille Lupus 
+6 K9 Team 
+Officiers, Sniper team 
+150 pts 
+Patrouille Fortitude 
+6 Leman russ 
+Officiers, ​
+(Remplacer jusqu’à 3 Leman Russ par des Leman Russ Punisher) 
+350 pts​
+(Gratuit) 
+Patrouille Punition 
+3 Black Maria 
+ 
+250 pts 
+Patrouille Interception 
+6 Sentinelles Arbites 
+Officiers 
+125 pts 
+Patrouille Soumission 
+1 Marshall + 4 unités d’Ogryns 
+Ajouter 0-2 unités d’Ogryns pour 25 pts/1, Transport (Chimères 
+uniquement) 
+150 pts 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+AMÉLIORATIONS DE L'ADEPTUS ARBITES 
+(Chaque amélioration ne peut être prise qu'une seule fois par détachement) 
+Améliorations 
+Unités 
+  
+ 
+ 
+Coût 
+0-1 Juge Suprême 
+Ajouter un Juge Suprême à la formation 
+50 pts 
+Officier 
+Ajouter un Marshall ou un Sheriff à la formation 
+25 pts 
+Transports 
+Ajouter suffisamment de véhicules pour transporter pour toutes les unités de la formation parmis :  
+Rhino ou 
+Repressor ou 
+Chimère ou 
+Mastodon (uniquement si la formation contient un Juge Suprême) 
+ 
+10 pts 
+15 pts 
+25 pts 
+225 pts 
+K9 team 
+Ajouter jusqu'à 2 unités à la formation 
+25 pts chacun 
+Sniper Team 
+Ajouter jusqu'à 2 unités à la formation 
+25 pts chacun 
+Plateformes Sabre 
+Ajouter jusqu'à 3 unités à la formation 
+25 pts chacun 
+ 
+SUPPORTS DE L'ADEPTUS ARBITES 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+FLOTTE DE L’AERONAUTICA IMPERIALIS 
+ 
+AUXILIAIRES DU DEPARTMENTO MUNITORUM 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Escadron d’interception 
+2 Chasseurs Avengers 
+150 pts 
+ 
+Rédemptionistes 
+1 unité de Magister + 9 unités de 
+Dévots 
+150 pts 
+Soutien Orbital 
+1 Croiseur d’Attaque 
+150 pts 
+ 
+Légions Pénales 
+1 unité d’Arbitrators de Choc + 12 
+unités de Légionnaires 
+(Ajouter + 1 Officier à la formation) 
+225 pts 
+(+25 pts) 
+ 
+ 
+2 - CODEX ADEPTUS ARBITES - EAFR - REV 1.3 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES ADEPTUS ARBITES 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Juge Suprême 
+Perso - 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) Arme d'Assaut, +1A, MA 
+Commandant Suprême, Sauvegarde Invulnérable, Charismatique, Sans peur 
+Marshall 
+Perso - 
+- 
+- 
+- 
+Matraque Énergétique 
+(contact) Arme d'Assaut, +1A 
+Commandant, Meneur 
+Sheriff 
+Perso - 
+- 
+- 
+- 
+Frappe Psionique 
+(15cm) 
+Arme Légère, +1A, MA 
+Meneur 
+Arbitrators de Choc 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Fusils de Justice 
+2x Lance-Grenades (Arbites) 
+(15cm) 
+15cm 
+Arme Légère, IC 
+AP5+/AC6+ 
+- 
+Arbitrators d'Assaut 
+Inf 
+15cm 
+4+ 
+4+ 
+- 
+Matraques 
+(contact) Arme d'Assaut 
+- 
+Arbitrators de Soutien 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ 2x Bolter Lourd 
+Fusils de Justice 
+30cm 
+(15cm) 
+AP5+ 
+Arme Légère, IC 
+- 
+Motos Arbites 
+Inf 
+35cm 
+4+ 
+5+ 
+4+ Matraques 
+Fusils à Pompe 
+(contact) 
+(15cm) 
+Arme d'Assaut 
+Arme Légère 
+Montés 
+K9 Team 
+Inf 
+15cm 
+5+ 
+4+ 
+6+ Cybermastif 
+Fusils à Pompe 
+(contact) 
+(15cm) 
+Arme d'Assaut 
+Arme Légère 
+Infiltrateurs, Éclaireurs 
+Sniper Team 
+Inf 
+15cm 
+5+ 
+6+ 5+ Fusils de Justice Amélioré 
+30cm 
+(15cm) 
+AP5+, Sniper 
+Arme Légère, Snp, IC 
+Éclaireurs 
+Plateforme Sabre 
+Inf 
+10cm 
+6+ 
+6+ 
+5+ Canons Hydre 
+45cm 
+AP4+/AC5+/AA5+ 
+ 
+Ogryns 
+Inf 
+15cm 
+3+ 
+4+ 
+5+ Ripper guns 
+Arme de Corps-à-corps 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut, +1A 
+Massifs (prennent 2 places dans les transports) 
+Sentinelle Arbites 
+VL 
+20cm 
+5+ 
+6+ 
+5+ Autocanon 
+45cm 
+AP5+/AC6+ 
+Marcheurs 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Infanterie 
+Repressor 
+VB 
+25cm 
+5+ 
+5+ 
+5+ Lance-Flammes MkI 
+et 
+15cm 
+(15cm) 
+AP4+, IC 
+Arme Légère, IC 
+Marcheur, Transport (2) : Infanterie 
+Rhino 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Fulgurant 
+(15cm) 
+Arme Légère 
+Transport (2) : Infanterie 
+Leman Russ 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Obusier 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC4+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ Punisher 
+VB 
+20cm 
+4+ 
+6+ 
+3+ Canons Punisher jumelés 
+et 
+Canon Laser 
+2x Bolter Lourd 
+15cm 
+(15cm) 
+45cm 
+30cm 
+2xAP3+ 
+Arme Légère, +1A 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Black Maria 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Lance-Missiles Pacificator 
+Bolter Lourd 
+45cm 
+30cm 
+1PB, Rpt, IC, Ind 
+AP5+ 
+- 
+Valkyrie 
+VB 
+35cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+2x Bolter Lourd 
+2x Nacelles de roquettes 
+30cm 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+1PB, Uniq, Rpt 
+Antigrav, Éclaireur, Transport (2) 
+Mastodon 
+EG 
+20cm 
+4+ 
+5+ 
+4+ Fuseur de Siège 
+et 
+2x Canon Laser 
+Batterie Skyreaper 
+2x Lance-Flammes Lourd 
+et 
+15cm 
+(15cm) 
+45cm 
+30cm 
+15cm 
+(15cm) 
+2xMA4+ 
+Arme Légère, +1A, MA, FrtF 
+AC5+ 
+2xAP4+/AC5+/AA5+ 
+AP4+, IC 
+Arme Légère, +1A, IC 
+Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Transport (10). 
+Ne peut pas transporter d'Ogryns. Peut transporter jusqu'à 2 Plateformes 
+Sabres. 
+CD2 / BI2 - Critique : Le Mastodon est détruit. 
+3 - CODEX ADEPTUS ARBITES - EAFR - REV 1.3 
+
+===== PAGE 5 =====
+AUXILIAIRES DU DEPARTMENTO MUNITORUM 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Magister 
+Inf 
+15cm 
+6+ 
+4+ 
+- 
+Eviscerator 
+(contact) 
+Arme d'Assaut, MA 
+Charismatique, Sans Peur 
+Dévots 
+Inf 
+15cm 
+- 
+6+ 
+6+ Armes de Poing 
+(15cm) 
+Armes Légères 
+Sans Peur 
+Légionnaires 
+Inf 
+15cm 
+- 
+6+ 
+5+ Fusils Laser 
+Mitrailleuse Lourde 
+(15cm) 
+30cm 
+Arme Légère 
+AP6+ 
+Sacrifiable 
+FLOTTE DE L’AERONAUTICA IMPERIALIS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Avenger 
+A 
+C 
+6+ 
+- 
+- 
+Canon Avenger 
+Canon Laser (AA) 
+Mitrailleuse Lourde(AA) 
+30cm 
+30cm 
+30cm 
+AP3+/AC5+, FrtF 
+AC5+/AA6+, FrtF 
+AA6+, Arr 
+ 
+Croiseur d'Attaque (Arbites) 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (3) 
+Frappe Chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+ 
+ 
+4 - CODEX ADEPTUS ARBITES - EAFR - REV 1.3 

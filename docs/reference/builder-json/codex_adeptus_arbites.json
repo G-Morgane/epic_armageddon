@@ -1,0 +1,564 @@
+{
+ "codex": {
+  "id": "adeptus_arbites",
+  "name": "Adeptus Arbites",
+  "version": "1.2",
+  "faction": "Impérium",
+  "color": "#2a3a8c",
+  "logo": "arbites.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+",
+   "initiative_personnage": "1+ (avec un personnage)",
+   "taille_transport": {
+    "arbitrator_choc": 1,
+    "arbitrator_assaut": 1,
+    "arbitrator_soutien": 1,
+    "k9_team": 1,
+    "sniper_team": 1,
+    "plateforme_sabre": 1,
+    "ogryn": 2,
+    "magister": 1,
+    "devot": 1,
+    "legionnaire": 1,
+    "marshall_arbites": 1,
+    "juge_supreme": 1,
+    "marshall": 1,
+    "sheriff": 1
+   },
+   "capacite_transport": {
+    "rhino": 2,
+    "repressor": 2,
+    "chimere": 2,
+    "mastodon": 10,
+    "valkyrie": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "juge_supreme_arb",
+   "name": "Juge Suprême",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "description": "Ajouter le Juge Suprême à la formation (0-1 par armée)",
+   "unites": [
+    {
+     "id": "juge_supreme",
+     "name": "Juge Suprême",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "officier_arb",
+   "name": "Officier",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter un officier à la formation",
+   "choix": [
+    {
+     "id": "marshall_arb",
+     "name": "Marshall",
+     "cout": 25,
+     "unitId": "marshall"
+    },
+    {
+     "id": "sheriff_arb",
+     "name": "Sheriff",
+     "cout": 25,
+     "unitId": "sheriff"
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "k9_arb",
+   "name": "K9 Teams",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 K9 Teams (25 pts/unité)",
+   "unites": [
+    {
+     "id": "k9_team",
+     "name": "K9 Team",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "sniper_arb",
+   "name": "Sniper Teams",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Sniper Teams (25 pts/unité)",
+   "unites": [
+    {
+     "id": "sniper_team",
+     "name": "Sniper Team",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "sabre_arb",
+   "name": "Plateformes Sabre",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 3,
+   "description": "Ajouter 1 à 3 Plateformes Sabre (25 pts/unité)",
+   "unites": [
+    {
+     "id": "plateforme_sabre",
+     "name": "Plateforme Sabre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_arb",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des véhicules de transport (combinaison libre)",
+   "unites": [],
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 8,
+    "description": "Choisir les véhicules de transport (Rhino ×2 places, Repressor ×2, Chimère ×2, Mastodon ×10)",
+    "options": [
+     {
+      "id": "tp_rhino_arb",
+      "name": "Rhino",
+      "unitId": "rhino",
+      "cout": 10,
+      "min": 0,
+      "max": 8
+     },
+     {
+      "id": "tp_repressor_arb",
+      "name": "Repressor",
+      "unitId": "repressor",
+      "cout": 15,
+      "min": 0,
+      "max": 8
+     },
+     {
+      "id": "tp_chimere_arb",
+      "name": "Chimère",
+      "unitId": "chimere",
+      "cout": 25,
+      "min": 0,
+      "max": 8
+     },
+     {
+      "id": "tp_mastodon_arb",
+      "name": "Mastodon",
+      "unitId": "mastodon",
+      "cout": 225,
+      "min": 0,
+      "max": 1
+     }
+    ]
+   }
+  },
+  {
+   "id": "chimere_soumission_arb",
+   "name": "Transport (Chimères)",
+   "cout": 0,
+   "limit": 5,
+   "description": "Ajouter des Chimères pour transporter toutes les unités (Chimères uniquement)",
+   "unites": [],
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 5,
+    "description": "Choisir le nombre de Chimères (25 pts chacune)",
+    "options": [
+     {
+      "id": "tp_chimere_soumission",
+      "name": "Chimère",
+      "unitId": "chimere",
+      "cout": 25,
+      "min": 0,
+      "max": 5
+     }
+    ]
+   }
+  },
+  {
+   "id": "ogryns_arb",
+   "name": "Ogryns supplémentaires",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter jusqu'à 2 Ogryns supplémentaires (25 pts/unité)",
+   "unites": [
+    {
+     "id": "ogryn",
+     "name": "Ogryn",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principale_arb",
+   "name": "DÉTACHEMENTS PRINCIPAUX DE L'ADEPTUS ARBITES",
+   "type": "principale",
+   "description": "Au moins une Patrouille Repressor obligatoire",
+   "formations": [
+    {
+     "id": "patrouille_repressor",
+     "name": "Patrouille Repressor",
+     "cout": 225,
+     "FormationLimitationTag": {
+      "slot_soutien_arb_A": 2
+     },
+     "unites": [],
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 8,
+      "description": "Choisir 8 unités parmi Arbitrators de Choc et Arbitrators d'Assaut",
+      "options": [
+       {
+        "id": "arb_choc_repressor",
+        "name": "Arbitrators de Choc",
+        "unitId": "arbitrator_choc",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "arb_assaut_repressor",
+        "name": "Arbitrators d'Assaut",
+        "unitId": "arbitrator_assaut",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       }
+      ]
+     },
+     "ameliorations": [
+      "juge_supreme_arb",
+      "officier_arb",
+      "k9_arb",
+      "sniper_arb",
+      "sabre_arb",
+      "transport_arb"
+     ]
+    },
+    {
+     "id": "patrouille_interceptor",
+     "name": "Patrouille Interceptor",
+     "cout": 225,
+     "FormationLimitationTag": {
+      "slot_soutien_arb_A": 2
+     },
+     "unites": [
+      {
+       "id": "moto_arbites",
+       "name": "Moto Arbites",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "juge_supreme_arb",
+      "officier_arb"
+     ]
+    },
+    {
+     "id": "patrouille_purgator",
+     "name": "Patrouille Purgator",
+     "cout": 250,
+     "FormationLimitationTag": {
+      "slot_soutien_arb_A": 2
+     },
+     "unites": [
+      {
+       "id": "arbitrator_soutien",
+       "name": "Arbitrator de Soutien",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "juge_supreme_arb",
+      "officier_arb",
+      "k9_arb",
+      "sniper_arb",
+      "sabre_arb",
+      "transport_arb"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_arb",
+   "name": "DÉTACHEMENTS DE SOUTIEN DE L'ADEPTUS ARBITES",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_arb_A",
+   "description": "Jusqu'à 2 détachements de soutien par détachement principal",
+   "formations": [
+    {
+     "id": "patrouille_tormentor",
+     "name": "Patrouille Tormentor",
+     "cout": 350,
+     "unites": [
+      {
+       "id": "valkyrie",
+       "name": "Valkyrie",
+       "nombre": 4
+      }
+     ],
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 8,
+      "description": "Choisir 8 unités parmi Arbitrators de Choc et Arbitrators d'Assaut",
+      "options": [
+       {
+        "id": "arb_choc_tormentor",
+        "name": "Arbitrators de Choc",
+        "unitId": "arbitrator_choc",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "arb_assaut_tormentor",
+        "name": "Arbitrators d'Assaut",
+        "unitId": "arbitrator_assaut",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       }
+      ]
+     },
+     "ameliorations": [
+      "officier_arb"
+     ]
+    },
+    {
+     "id": "patrouille_lupus",
+     "name": "Patrouille Lupus",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "k9_team",
+       "name": "K9 Team",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "officier_arb",
+      "sniper_arb"
+     ]
+    },
+    {
+     "id": "patrouille_fortitude",
+     "name": "Patrouille Fortitude",
+     "cout": 350,
+     "description": "Jusqu'à 3 Leman Russ peuvent être des Punisher",
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 6
+      }
+     ],
+     "variantes": [
+      {
+       "id": "fortitude_5lr_1pun",
+       "name": "5 Leman Russ + 1 Punisher",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "leman_russ",
+         "name": "Leman Russ",
+         "nombre": 5
+        },
+        {
+         "id": "leman_russ_punisher",
+         "name": "Leman Russ Punisher",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "fortitude_4lr_2pun",
+       "name": "4 Leman Russ + 2 Punishers",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "leman_russ",
+         "name": "Leman Russ",
+         "nombre": 4
+        },
+        {
+         "id": "leman_russ_punisher",
+         "name": "Leman Russ Punisher",
+         "nombre": 2
+        }
+       ]
+      },
+      {
+       "id": "fortitude_3lr_3pun",
+       "name": "3 Leman Russ + 3 Punishers",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "leman_russ",
+         "name": "Leman Russ",
+         "nombre": 3
+        },
+        {
+         "id": "leman_russ_punisher",
+         "name": "Leman Russ Punisher",
+         "nombre": 3
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "officier_arb"
+     ]
+    },
+    {
+     "id": "patrouille_punition",
+     "name": "Patrouille Punition",
+     "cout": 250,
+     "unites": [
+      {
+       "id": "black_maria",
+       "name": "Black Maria",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "patrouille_interception",
+     "name": "Patrouille Interception",
+     "cout": 125,
+     "unites": [
+      {
+       "id": "sentinelle_arbites",
+       "name": "Sentinelle Arbites",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "officier_arb"
+     ]
+    },
+    {
+     "id": "patrouille_soumission",
+     "name": "Patrouille Soumission",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "marshall_arbites",
+       "name": "Marshall",
+       "nombre": 1
+      },
+      {
+       "id": "ogryn",
+       "name": "Ogryn",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "ogryns_arb",
+      "chimere_soumission_arb"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "supports_arb",
+   "name": "SUPPORTS DE L'ADEPTUS ARBITES",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "redemptionistes",
+     "name": "Rédemptionistes",
+     "cout": 150,
+     "rare": true,
+     "unites": [
+      {
+       "id": "magister",
+       "name": "Magister",
+       "nombre": 1
+      },
+      {
+       "id": "devot",
+       "name": "Dévot",
+       "nombre": 9
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "legions_penales",
+     "name": "Légions Pénales",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "arbitrator_choc",
+       "name": "Arbitrator de Choc",
+       "nombre": 1
+      },
+      {
+       "id": "legionnaire",
+       "name": "Légionnaire",
+       "nombre": 12
+      }
+     ],
+     "ameliorations": [
+      "officier_arb"
+     ]
+    },
+    {
+     "id": "escadron_interception",
+     "name": "Escadron d'Interception",
+     "cout": 150,
+     "rare": true,
+     "unites": [
+      {
+       "id": "avenger",
+       "name": "Avenger",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_arb",
+     "name": "0-1 Soutien Orbital",
+     "cout": 150,
+     "rare": true,
+     "FormationLimite": 1,
+     "unites": [
+      {
+       "id": "croiseur_lunar",
+       "name": "Croiseur de Classe Lunar",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

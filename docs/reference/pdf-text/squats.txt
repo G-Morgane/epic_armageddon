@@ -1,0 +1,758 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+LES SQUATS 
+ 
+ 
+ 
+ 
+ 
+“Ne sous-estimez pas les Squats. Ils ont survécu des millénaires 
+coupés de l’Impérium et assaillis de tous les côtés. Leur détermination 
+et leur résistance est un exemple pour tout le monde ."  
+ 
+Leman Russ, Méditations sur le commandement Impérial, 
+Livre XVI  
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de 
+Squats. 
+Les armées Squats sont organisées en formations séparées 
+en trois catégories: Confréries, Formations de soutien, et 
+Engins de Guerre. 
+Chaque formation de Confréries et formation de soutien peut 
+recevoir des améliorations. La liste d’armée indique pour 
+chaque formation quelle amélioration est autorisée. Chaque 
+amélioration autorisée ne peut être prise qu’une fois par 
+formation pour un maximum de quatre par formation. Les 
+améliorations font partie intégrante des formations et doivent 
+respecter les règles de cohésion. Notez que certaines 
+améliorations remplacent des unités d’une formation tandis 
+que d’autres ajoutent des unités supplémentaires.  
+ 
+ 
+ 
+ 
+ 
+ 
+Emblème de guerre Squat                                                    
+ 
+ 
+Règle spéciale : Disrupteur (Drpt) 
+Les Squats utilisent des canons de vaisseau spatial 
+appelés « Canon Furie », montés sur forteresse mobile.  
+Ce canon projette un rayon continu très puissant faisant 
+rapidement surchauffer les systèmes de protection. 
+Chaque Touche avec ces armes détruit deux Boucliers du 
+vide (ou autre appareil de protection ayant les mêmes 
+effets) au lieu d'un. 
+Règle spéciale : Obstiné 
+Les Squats sont un peuple obstiné et difficile à vaincre en 
+assaut. Leur nature bornée les pousse également à se 
+rallier plus vite que les autres races pour retourner au 
+combat !  
+- Une formation Squat est démoralisée dès qu'elle a 
+accumulé un nombre de pions Impact égal au nombre 
+d'unités + 1.  
+- Lorsqu'une formation Squat perd un assaut, elle subit une 
+perte de moins lors de la résolution des touches 
+supplémentaires. Ceci peut réduire à zéro les pertes 
+encourues en résolution. 
+Règle spéciale : Esprit des Ancêtres 
+Les Ancêtres vivants sont vénérés en tant qu’incarnations 
+de l’Esprit des Ancêtres qui veille sur la forteresse. Ceux-ci 
+développent de puissants pouvoirs psychiques, souvent de 
+nature prémonitoire et protectrice.  
+Tant qu’il se trouve dans la formation, un Ancêtre Vivant 
+confère à l’ensemble des unités qui la compose la règle 
+Sauvegarde Invulnérable. 
+ 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Alexey Kruglov 
+1 - CODEX SQUATS - EAFR - REV 1.3 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Boucliers du Vide 
+Certains engins de guerre comme les Léviathans sont protégés par des boucliers énergétiques. Le nombre de boucliers 
+de chaque engin de guerre est noté sur sa fiche d'unité.  
+Chaque bouclier annule automatiquement un point de dommage avant de se désactiver. Ne faites pas de sauvegarde 
+contre les attaques stoppées par des boucliers, n'ajoutez pas non plus de pion d'impact pour chaque bouclier désactivé.  
+Une fois que tous les boucliers sont désactivés, l'engin de guerre peut être endommagé normalement. Faites les jets de 
+sauvegarde habituels contre les touches subies.  
+Les touches de corps-à-corps lors d'un assaut ignorent les boucliers mais pas les touches des unités utilisant leur 
+valeur de fusillade.  
+Les boucliers désactivés peuvent être réparés. Un engin de guerre peut réparer un bouclier désactivé à la fin de chaque 
+tour.  
+De plus, si un engin de guerre se regroupe, il peut utiliser le résultat de son dé pour retirer des pions d'impact et/ou pour 
+réparer des boucliers (par exemple, si le résultat est 2, vous pouvez retirer 2 pions d'impact ou réparer 2 boucliers, ou 
+retirer 1 pion d'impact et réparer 1 bouclier). 
+ 
+Règle spéciale : Tunneliers 
+Les formations où toutes les unités sont tunneliers (ou sont transportées dans des unités qui sont tunneliers) peuvent 
+être gardées hors de la table et peuvent apparaître au début du deuxième tour ou après. Mettez en place les unités au 
+contact du bord de la table de leur propre camp avant le début de la bataille en même temps que les vaisseaux spatiaux 
+sont installés (voir 4.3.1). Toutes les unités transportées dans le tunnelier doivent également être placées de côté à ce 
+moment.  
+Notez secrètement l'emplacement où le tunnelier fera surface en même temps et de la même manière que vous 
+enregistrez les coordonnées d'une zone de largage (voir 4.3.1). Vous devez également enregistrer secrètement quand le 
+tunnelier fera surface. S'il doit faire surface dans votre moitié de table, il peut arriver à partir du deuxième tour. S'il doit 
+faire surface dans la moitié opposée de la table, il peut arriver à partir du troisième tour. 
+Placez le tunnelier au début du tour indiqué, avant de placer les unités avec téléportation, à l'endroit que vous avez noté. 
+Toutes les unités transportées sont autorisées à débarquer immédiatement après leur remontée à la surface. La 
+remontée ne compte pas comme un mouvement pour ce qui est du déclenchement des tirs d'état d'alerte. Le 
+débarquement déclenche normalement les tirs d'état d'alerte.  
+Si le tunnelier fait surface sur un terrain qui lui est infranchissable, sous une unité amie ou dans une zone de contrôle 
+ennemie, on suppose que l'équipement de détection embarqué le détournera vers un autre point d'entrée. L'unité doit être 
+déplacée par le joueur adverse vers la zone la plus proche où elle peut faire surface. Les formations de plusieurs 
+tunneliers n'ont besoin d'enregistrer qu'un seul emplacement où elles feront surface.  
+Placez une unité à cet emplacement, ou à moins de 5 cm d'une autre unité qui a déjà été placée, à condition que toutes 
+les unités soient placées à moins de 15 cm de l'emplacement et sur la moitié appropriée de la table.  
+Le tunnelier, et toutes les unités qui y sont transportées, peuvent effectuer une action le tour où ils apparaissent. 
+ 
+ 
+ 
+2 - CODEX SQUATS - EAFR - REV 1.3 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE DES SQUATS 
+ 
+Les armées Squats ont une valeur stratégique de 3. Les Gardes du Foyer, le Colossus, le Cyclope et le Train Blindé ont une 
+valeur d’initiative de 1+. Les autres formations Squat ont une valeur d’initiative de 2+. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3 - CODEX SQUATS - EAFR - REV 1.3 
+CONFRÉRIES 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Confrérie de Guerriers 
+1 unité de Seigneur 
++ 7 ou 11 unités de Guerriers 
+Seigneur de Guerre, Ancêtre Vivant, Exo-armure, Léviathan 
+200 pts / 300 pts 
+Confrérie de Berserkers 
+1 unité de Seigneur 
++ 7 ou 11 unités de Berserkers 
+Seigneur de Guerre, Exo-armure, Léviathan, Tunneliers, Rhinos 
+175 pts / 250 pts 
+Confrérie de Motards de la Guilde 
+8 ou 10 unités de Motards de la Guilde 
+Seigneur de Guerre, Maître de la Guilde, Trikes, Exotrikes 
+200 pts / 250 pts 
+ 
+FORMATIONS DE SOUTIEN 
+(Deux formations de soutien par Confrérie) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Confrérie de Gardes du Foyer 
+6 ou 8 unités de Gardes du Foyer 
+Seigneur de Guerre, Ancêtre Vivant, Léviathan, Tunneliers, Land Raiders 
+275 pts / 375 pts 
+Confrérie de Guerriers Tonnerre 
+6 ou 8 unités de Guerriers Tonnerre 
+Seigneur de Guerre, Ancêtre Vivant, Léviathan, Rhinos, Tunneliers, Land Raiders 
+225 pts / 300 pts 
+Formation de Robots de la Guilde 
+5 unités de Robots 
+ 
+200 pts 
+Dirigeable Overlord 
+1 ou 2 Dirigeable Overlord 
+ 
+200 pts chacun 
+Formation de Gyrocoptères 
+5 unités de Gyrocoptères 
+ 
+275 pts 
+Batterie Foudre 
+3 à 5 unités de Canons Foudre 
+ 
+50 pts chacun 
+Batterie d'artillerie 
+6 unités de Thudd Guns 
+ou 6 unités de Mortiers-Taupe 
+ou 6 unités de Tarentules 
+Canon Foudre 
+225 pts 
+200 pts 
+175 pts 
+Batterie d'artillerie lourde 
+1 ou 2 Méga-Canon Goliath 
+Canon Foudre 
+250 pts / 400 pts 
+ 
+ENGINS DE GUERRE 
+(jusqu'à 1/3 de la valeur totale de l'armée) 
+Formations 
+Unités 
+Coût 
+ Formations 
+Unités 
+Coût 
+Léviathan 
+1 Léviathan 
+350 pts 
+Train Blindé 
+1 Locomotive et de 4 à 7 Wagons 
+0-7 Wagon Canon 
+0-7 Wagon Berserker 
+0-7 Wagon Mortier 
+0-7 Wagon Marteau Céleste 
+0-7 Wagon Dragon 
+0-1 Wagon Bombe H 
+200 pts 
++100 pts/Wagon 
++75 pts/Wagon 
++125 pts/Wagon 
++125 pts/Wagon 
++100 pts/Wagon 
++150 pts/Wagon 
+Colossus 
+1 Colossus 
+500 pts 
+Cyclope 
+1 Cyclope 
+500 pts 
+ 
+ 
+AMÉLIORATIONS 
+(Chaque amélioration ne peut être prise qu'une fois par formation) 
+Améliorations 
+Notes 
+Coût 
+0-1 Seigneur de Guerre 
+Ajouter un personnage de Seigneur de Guerre à une unité de la formation 
+50 pts 
+0-1 Ancêtre Vivant 
+Ajouter un personnage d'Ancêtre Vivant à une unité de la formation 
+50 pts 
+Maître de la Guilde 
+Ajouter un personnage de Maître de la Guilde à une unité de Motard de la Guilde 
+50 pts 
+Exo-armure 
+Le seigneur gagne la compétence Blindage Renforcé 
+25 pts 
+Exotrikes 
+Ajouter 1 ou 2 unités d'Exotrikes à la formation 
+50 pts chacun 
+Canon Foudre 
+Ajouter 1 ou 2 unités de Canons Foudre à la formation 
+50 pts chacun 
+Léviathan 
+Ajouter un Léviathan à la formation 
+350 pts 
+Trikes 
+Remplacer des unités de Motards de la Guilde par autant de Trikes 
+5 pts chacun 
+Tunneliers 
+Ajouter une Fouisseuse à la formation ou 
+Ajouter suffisamment de Taupe et/ou Termite pour transporter toute la formation sans qu'il ne reste de place disponible 
+75 pts 
+50 pts par Taupe 
+25 pts par Termite 
+Rhinos 
+Ajouter suffisamment de Rhinos pour transporter la formation 
+15 pts chacun 
+Land Raiders 
+Ajouter suffisamment de Land Raiders pour transporter la formation 
+75 pts chacun 
+125 pts les 2 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES DES SQUATS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Seigneur de Guerre 
+Perso 
+- 
+- 
+- 
+- 
+Arme énergétique 
+(contact) 
+Armes d'assaut, +1A, MA 
+Blindage Renforcé, Blindage Arrière Renforcé, Commandant Suprême 
+Ancêtre Vivant 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Charismatique, Meneur, Sauvegarde Invulnérable, Esprit des Ancêtres 
+Maître de la Guilde 
+Perso 
+- 
+- 
+- 
+- 
+Doom Lance 
+(contact) 
+Armes d'assaut, MA, FeP 
+Blindage Renforcé, Blindage Arrière Renforcé, Commandant, Meneur 
+Seigneur 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Hache énergétique 
+Lance-missiles 
+(contact) 
+45cm 
+Armes d'assaut, +1A, MA 
+AP5+/AC6+ 
+Meneur 
+Le seigneur est équipé d'une hache énergétique s'il accompagne des Berserkers et d'un 
+lance-missiles s'il accompagne des Guerriers 
+Guerriers 
+Inf 
+15cm 
+5+ 
+5+ 
+5+ Lance-missiles 
+45cm 
+AP5+/AC6+ 
+- 
+Berserkers 
+Inf 
+15cm 
+5+ 
+4+ 
+6+ Hache tronçonneuse 
+Pistolet bolter 
+(contact) 
+(15cm) 
+Armes d'assaut 
+Armes légères 
+- 
+Motards de la Guilde 
+Inf 
+35cm 
+5+ 
+4+ 
+5+ Pistolet bolter 
+(15cm) 
+Armes légères 
+Monté 
+Trikes de la Guilde 
+VL 
+35cm 
+5+ 
+5+ 
+5+ Multi-Fuseur 
+15cm 
+(15cm) 
+MA5+ 
+Arme Légère, MA 
+- 
+ExoTrikes 
+VL 
+30cm 
+4+ 
+3+ 
+4+ Doom Lance 
+Pistolet bolter 
+(contact) 
+(15cm) 
+Armes d'assaut, MA, FeP 
+Armes légères 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Guerriers Tonnerre 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ 2x Armes lourdes 
+45cm 
+AP5+/AC5+ 
+- 
+Gardes du Foyer 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Artefact Squat 
+Arme énergétique 
+30cm 
+(contact) 
+AP5+/AC5+ 
+Armes d'assaut, +1A, MA 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Robots de la Guilde 
+VL 
+15cm 
+4+ 
+5+ 
+5+ Arme cybernétique 
+Autocanon 
+(contact) 
+45cm 
+Armes d'assaut, +1A 
+AP5+/AC6+ 
+Marcheur, Éclaireur, Sans Peur, Sauvegarde Invulnérable 
+Ne peut pas contrôler les objectifs, seulement les contester. 
+Mortier Taupe 
+Inf 
+10cm 
+6+ 
+6+ 
+5+ Torpille souterraine 
+30cm 
+AP5+/AC5+, IC, Ind 
+- 
+Thudd Gun 
+Inf 
+10cm 
+6+ 
+6+ 
+5+ Obus 
+45cm 
+AP4+/AC6+, Ind 
+- 
+Tarentule 
+Inf 
+15cm 
+6+ 
+6+ 
+5+ Laser Tarentule 
+45cm 
+2xAP6+/AC5+ 
+- 
+Canon Foudre 
+VB 
+0cm 
+5+ 
+6+ 
+5+ Fût à accélérateur gravitique 60cm 
+2xAP6+/AC5+/AA5+ 
+- 
+Rhino 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Fulgurant 
+(15cm) 
+Armes légères 
+Transport (2) : Berserkers, Guerriers Tonnerre 
+Land Raider 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 2x Canons lasers jumelés 
+Bolters lourds jumelés 
+45cm 
+30cm 
+AC4+ 
+AP4+ 
+Blindage Renforcé, Blindage Arrière Renforcé, Transport (2) : Guerriers Tonnerre, Gardes du Foyer 
+(prennent deux places). 
+Gyrocoptère 
+VB 
+35cm 
+5+ 
+6+ 
+4+ Autocanon jumelé 
+2x Autocanon 
+45cm 
+45cm 
+AP4+/AC5+ 
+AP5+/AC6+ 
+Antigrav, Éclaireur 
+Termite 
+VB 
+15cm 
+5+ 
+6+ 
+- 
+Tête de Foreuse 
+(contact) 
+Armes d'assaut 
+Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (2) : Berserkers, Guerrier 
+Tonnerre 
+Taupe 
+EG 
+15cm 
+4+ 
+5+ 
+- 
+Tête de Foreuse 
+(contact) 
+Armes d'assaut 
+Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (8) : Berserkers, Guerriers 
+Tonnerre. 
+CD 2 - Critique : la Taupe est détruite suite à l'explosion du moteur. 
+Fouisseuse 
+EG 
+15cm 
+4+ 
+5+ 
+- 
+Tête de Foreuse 
+(contact) 
+Armes d'assaut 
+Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (16) : Berserkers, Guerriers 
+Tonnerre, Gardes du Foyer (prennent deux places). 
+CD 4 - Critique : la Fouisseuse est détruite suite à l'explosion du moteur. 
+Mega-Canon Goliath 
+EG 
+10cm 
+5+ 
+6+ 
+6+ Canon Goliath 
+90cm 
+3PB, MA, Ind 
+Blindage Renforcé 
+CD 2 - Critique : le Méga-Canon est détruit. 
+4 - CODEX SQUATS - EAFR - REV 1.3 
+
+===== PAGE 6 =====
+FEUILLES DE RÉFÉRENCES DES ENGINS DE GUERRE 
+Nom 
+Type Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Dirigeable Overlord 
+EG 
+20cm 
+4+ 
+6+ 
+4+ 3x Autocanon (g) 
+3x Autocanon (d) 
+Bombe 
+Canon Céleste 
+45cm 
+45cm 
+15cm 
+30 cm 
+AP5+/AC6+, Gch 
+AP5+/AC6+, Drt 
+3PB 
+AP6+/AC5+/AA5+ 
+Antigrav, Blindage Renforcé 
+CD 3 - Critique : La nacelle est détruite, l'Overlord s’écrase au sol et est retiré du jeu. 
+Léviathan 
+EG 
+15cm 
+4+ 
+6+ 
+4+ Canon Apocalypse 
+Obusier 
+3x Canons lasers jumelés (d) 
+3x Canons lasers jumelés (g) 
+90cm 
+75cm 
+45cm 
+45cm 
+3PB MA, FrtF 
+AP4+/AC4+ 
+AC4+, Drt 
+AC4+, Gch 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Transport (16) : Guerriers, Berserkers, 
+Guerriers Tonnerre, Gardes du Foyer (prennent deux places). 
+CD 4 / BV 2 - Critique : Lancer 1D6 à la fin de chaque tour pour chaque coup 
+critique reçu : 
+1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les 
+unités dans un rayon de 5 cm. 
+2-3 : Le système de propulsion est endommagé. Le Léviathan est immobilisé. Si le Léviathan est 
+déjà immobilisé, le Léviathan perd un point de structure supplémentaire. 
+4-6 : La fissure est réparée. 
+Colossus 
+EG 
+15cm 
+4+ 
+5+ 
+3+ Canon Apocalypse 
+Canon Tonnerre 
+2x Obusier (d) 
+2x Obusier (g) 
+4x Missile à Plasma 
+90cm 
+30cm 
+75cm 
+75cm 
+45cm 
+3PB MA, FrtF 
+2xAP3+/AC4+, IC 
+AP4+/AC4+, Drt 
+AP4+/AC4+, Gch 
+1PB, MA, Uniq 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur 
+Un gyrocoptère (non représenté en jeu) accompagne le Colossus : il confère à son Canon 
+Apocalypse et à ses Missile à Plasma la note Tir Indirect. 
+CD 4 / BV 3 - Critique : Lancer 1D6 à la fin de chaque tour pour chaque coup critique reçu : 
+1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les 
+unités dans un rayon de 5 cm. 
+2-3 : Le Gyrocoptère qui accompagne le Colossus est détruit. Les armes du Colossus perdent la 
+capacité Tir Indirect. Si cette capacité a déjà été perdue, le Colossus perd un point de structure 
+supplémentaire. 
+4-6 : La fissure est réparée. 
+Cyclope 
+EG 
+15cm 
+4+ 
+5+ 
+3+ Canon Furie 
+Obusier 
+6x Missiles vortex 
+Canon Fuseur (d) 
+ 
+Canon Fuseur (g) 
+90cm 
+75cm 
+60cm 
+30cm 
+(15cm) 
+30cm 
+(15cm) 
+MA2+, FrtF, Drpt, TT (2D3) 
+AP4+/AC4+ 
+MA4+, Uniq 
+MA4+, Drt 
+Armes légères, +1A, MA 
+MA4+, Gch 
+Armes légères, +1A, MA 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur 
+CD 4 / BV 3 - Critique : Lancer 1D6 à la fin de chaque tour pour chaque coup 
+critique reçu : 
+1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les 
+unités dans un rayon de 5 cm. 
+2-3 : Le système de visée est endommagé. Le Cyclope perd la capacité Disrupteur. Si cette 
+capacité a déjà été perdue, le Cyclope perd un point de structure supplémentaire. 
+4-6 : La fissure est réparée. 
+ 
+ 
+ 
+ 
+ 
+5 - CODEX SQUATS - EAFR - REV 1.3 
+
+===== PAGE 7 =====
+Nom 
+Type Vitesse Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Train Blindé (Locomotive) 
+EG 
+20cm 
+4+ 
+4+ 
+3+ Canon Apocalypse 
+2x Obusier 
+90cm 
+75cm 
+3PB MA, FrtF 
+AP4+/AC4+ 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur. 
+CD 1 (+1 par Wagon) / BV 1 (+1 par Wagon) - Critique : Lancer 1D6 à la fin de chaque 
+tour pour chaque coup critique reçu : 
+1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 4+ à 
+toutes les unités dans un rayon de 5 cm. 
+2-3 : Le système de protection est endommagé. Il n’est plus possible de réparer les 
+boucliers. Si les boucliers sont déjà détruits, le Train Blindé perd un point de structure 
+supplémentaire. 
+4-6 : La fissure est réparée. 
+Wagon Canon 
+EG 
+20cm 
+ 
+ 
+ 
+Obusier 
+75cm 
+AP4+/AC4+ 
+- 
+Wagon Berserker 
+EG 
+20cm 
+ 
+ 
+ 
+Armes Secondaires (berserker) 45cm 
+2xAP3+/AC5+ 
+Transport (8) : Guerriers, Berserkers, Guerriers Tonnerre, Gardes du Foyer (prennent 
+deux places), Motos, Trikes. 
+Wagon Dragon 
+EG 
+20cm 
+ 
+ 
+ 
+Armes Secondaires (Dragon) 
+30cm 
+(15cm) 
+2xAP3+/AC5+, IC 
+Armes légères, +1A, IC 
+- 
+Wagon Marteau Céleste 
+EG 
+20cm 
+ 
+ 
+ 
+Canon Marteau Céleste 
+45cm 
+2xAP6+/AC5+/AA5+ 
+- 
+Wagon Mortier 
+EG 
+20cm 
+ 
+ 
+ 
+Mortier de Siège 
+90cm 
+1PB, MA 
+ 
+- 
+Wagon Bombe H 
+EG 
+20cm 
+ 
+ 
+ 
+Bombe atomique 
+∞ 
+AP3+/AC4+, IC, Rpt, Ind, Uniq, 
+Gabarit Orbital 
+- 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6 - CODEX SQUATS - EAFR - REV 1.3 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS
+ 
+7 - CODEX SQUATS - EAFR - REV 1.3 

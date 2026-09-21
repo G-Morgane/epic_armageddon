@@ -1,0 +1,930 @@
+# Eldars Noirs, transcrit depuis le PDF EAFR rev 1.5 (source de vérité).
+codex:
+  slug: eldars-noirs
+  armee_id: b84a978f-90d5-4b39-831d-23faeff41874
+  nom: Eldars Noirs
+  version: "1.5"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/eldars-noirs.jpg
+  couleur: "#6100be"
+  citation:
+    texte: "Nous sommes les maîtres du ciel ténébreux. Nous refusons de ramper dans la fange du champ de bataille. Nous laissons cela aux espèces indignes. Nous ne poserons le pied sur la terre natale de ces vermines que pour appuyer nos talons sur leur gorge."
+    auteur: Archonte Vraesque Malidrach, Prince de la Couronne Empoisonnée
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une force Eldars Noirs.
+
+    Les armées Eldars Noirs sont organisées autour de formations principales, elles-mêmes complétées par des formations et des formations d'élites qui leurs sont autonomes.
+
+    Chaque formation principale permet de choisir jusqu'à 3 formations soit dans la liste des formations associée à cette formation principale soit dans la liste des formations d'élites.
+
+    Chaque formation peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par formation et jusqu'à un maximum de 4 améliorations par formation. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion.
+
+    Les formations de support sont des formations autonomes. Elles ne peuvent pas recevoir d'améliorations. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Hit and run"
+      texte: |
+        Les formations Eldars Noirs qui reçoivent l'ordre avance ou avance rapide peuvent choisir de tirer soit avant, soit après chaque mouvement. Elles ne peuvent néanmoins tirer qu'une seule fois durant l'action. Par exemple, une formation Eldar Noir avec un ordre avance peut tirer puis se déplacer ou se déplacer puis tirer, de même une formation avec un ordre de avance rapide peut tirer et se déplacer deux fois, se déplacer deux fois et tirer, ou se déplacer puis tirer puis encore bouger.
+
+        De plus, les formations Eldars Noirs qui remportent un assaut sont autorisées à utiliser la totalité de leur mouvement lorsqu'elles consolident leur position, au lieu d'être limitées à un mouvement de 5 cm. Cependant, les formations Eldars Noirs qui choisissent de consolider de leur mouvement complet, ne peuvent pas soutenir un autre assaut durant ce tour. Les formations qui souhaitent soutenir un autre assaut ne doivent alors consolider que de 5 cm.
+
+        Les unités Eldars Noirs possédant la note Virtuose peuvent elles, toujours consolider de leur mouvement complet et soutenir d'autres assauts. Il s'agit des unités de Grand voivode et sa cour ; Maîtresses de sang ; Immaculés ; Incubes et Hémoxytes.
+
+        Remarque : une même formation peut contenir des unités Virtuose et d'autres non.
+    - titre: "Règle spéciale : La puissance vient de la souffrance"
+      texte: |
+        Les Eldars Noirs se nourrissent de la souffrance de leurs adversaires. Ainsi, pour chaque perte infligée en assaut par une unité Eldar Noir non démoralisée, sa formation pourra retirer un pion impact à la fin de son action. Les pertes dues à la différence de résultat du combat comptent. Il n'est pas possible de retirer le dernier pion impact de cette façon.
+    - titre: "Règle spéciale : Pas de garnison"
+      texte: |
+        Les Eldars Noirs sont une armée de pirates très mobiles, qui a rarement suffisamment d'effectif pour prendre et tenir une position. C'est pourquoi, au lieu de maintenir une lourde garnison sur la ligne de front, ils comptent sur un écran formé par des éclaireurs pour les avertir de l'approche de toutes forces ennemies. En attendant, la majeure partie de l'armée Eldar Noir reste dans la toile, où elle se tient prête à débarquer rapidement. En jeu, seules les formations de Fléaux, d'Hélion, de Maîtres des bêtes et de Mandragores peuvent se déployer en garnison. De plus si une formation comprend l'amélioration Portail Noir, celle-ci ne peut être positionnée en garnison.
+    - titre: "Règle spéciale : Portail noir"
+      texte: |
+        Les portails sont utilisés par les Eldars Noirs pour sortir de la toile. Ils sont présents sur les Barges des souffrances et sur les Moissonneurs. De plus, chaque personnage de l'armée peut recevoir l'amélioration Portail noir. Elle coûte 50 pts et ajoute la note portail noir au profil du personnage. Elle compte dans le nombre maximum d'améliorations de la formation du personnage. Enfin, l'unité du Grand Voïvode et sa cour peut également recevoir cette amélioration.
+
+        Chaque portail inclus dans une armée permet au joueur Eldar Noir de prendre trois formations et de les conserver en réserve dans la toile. Ces formations en réserve peuvent entrer en jeu par un portail, en réalisant une action qui comporte un mouvement. Ce mouvement est mesuré à partir de la position du portail sur la table de jeu. Notez que les formations peuvent apparaître à travers n'importe quel portail, pas seulement celui qui a été « utilisé » pour permettre de conserver la formation en réserve. Une seule formation peut voyager à travers chaque portail par tour. Notez qu'une formation qui rate son activation en tentant de franchir un portail recevra automatiquement l'ordre tenir (donc peut entrer en jeu en réalisant un simple mouvement en prenant 1 PI pour l'activation ratée, ou alors rester hors de table et se regrouper). Si elle choisit de se regrouper en restant hors de table, cela permettra à une autre formation de pouvoir utiliser ce portail car il ne sera pas considéré comme utilisé par la formation précédente ayant raté son activation. Toute formation voyageant à travers un portail noir porté par une unité démoralisée, recevra immédiatement un PI.
+
+        Seules les unités d'infanterie et les véhicules légers peuvent utiliser les portails noirs.
+    - titre: "Règle spéciale : Transport ouvert"
+      texte: |
+        Des unités d'infanterie Eldars Noirs peuvent être transportées en Raider, Venom ou Barge Tantale. Si vous choisissez de faire transporter une formation, vous devez alors prendre un nombre de transports permettant d'embarquer toute la formation sans laisser aucun espace de transport vide.
+
+        Les unités Eldars Noirs transportées peuvent toujours effectuer leurs tirs ou leurs attaques FF. Mesurez les portées à partir du transport. Les unités transportées (y compris les unités Virtuoses) ne peuvent pas soutenir d'assaut après un mouvement entier de consolidation, mais peuvent le faire si le mouvement de consolidation est de 5 cm.
+    - titre: "Règle spéciale : Holochamp"
+      texte: |
+        Les Holo-champs procurent aux titans une sauvegarde spéciale de 3+ qui peut être utilisée à la place de la sauvegarde normale du titan. Cette sauvegarde peut toujours être utilisée, même en corps à corps, en fusillade et contre les armes tueuses de titan ou les macro-armes. Faites une seule sauvegarde contre les armes avec la capacité tueuse de titan, au lieu de séparer les sauvegardes pour chaque point de dommage. Si un véhicule avec un Holo-champ a aussi un blindage renforcé, alors il est autorisé à relancer ses sauvegardes, sauf pour les attaques faites avec des armes ayant la capacité lance, macro-armes ou tueuses de titans. La relance doit être faite en utilisant la sauvegarde d'armure de l'unité et non pas celle de l'Holo-champ. Aucun pion d'impact n'est placé pour une touche sauvée par le Holo-champ.
+    - titre: "Règle spéciale : Manteau d'ombre"
+      texte: |
+        Les Manteaux d'Ombre sont des dispositifs sophistiqués qui drainent littéralement la lumière des objets, empêchant ainsi les Eldars Noirs d'être pris pour cible. Les Manteaux d'Ombre affectent d'un malus de -1 tout tir porté contre l'unité, ce malus n'étant pas cumulatif avec un éventuel malus de couvert. Ne fonctionne pas lors d'un assaut.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture : Igor Sid."
+  valeur_strategique: "5 au tour 1, puis 4 les tours suivants"
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations d'Immaculés, d'Incubes, de Maîtresses de sang Hekatrix et d'Hémoxytes", valeur: "1+" }
+      - { portee: "Soutien titanique des Eldars Noirs", valeur: "1+" }
+
+budgets:
+  - id: slot_cabale
+    libelle: Formations de la Cabale
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 formations associées ou d'élites par formation principale"
+  - id: slot_culte
+    libelle: Formations du Culte Céraste
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 formations associées ou d'élites par formation principale"
+  - id: slot_coterie
+    libelle: Formations de la Coterie du Tourmenteur
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 formations associées ou d'élites par formation principale"
+  - id: rare
+    libelle: Formations de soutien
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages et cour ----
+  - id: grand_voivode
+    nom: Grand Voïvode et sa Cour
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Lame dessicante, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Regard de Medusae, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Commandant suprême, Charismatique, Sauvegarde Invulnérable, Blindage renforcé, Virtuose]
+    roles: [commandant_supreme]
+  - id: voivode
+    nom: Voïvode
+    type: Perso
+    armes:
+      - { nom: Lame dessicante, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Pierre de sang, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+    notes: [Commandant]
+    roles: [personnage, commandant]
+  - id: succube
+    nom: Succube
+    type: Perso
+    armes:
+      - { nom: Lames dessicantes, portee: (contact), puissance: "Armes d'assaut, +2A, MA" }
+    notes: [Commandant]
+    roles: [personnage, commandant]
+  - id: tourmenteur
+    nom: Tourmenteur
+    type: Perso
+    armes:
+      - { nom: Agoniseur, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Hexrifle, portee: 30cm, puissance: "AP3+, Snp" }
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: executeur
+    nom: Exécuteur
+    type: Perso
+    armes:
+      - { nom: Demiklaives, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Charismatique]
+    roles: [personnage]
+  - id: sybarite
+    nom: Sybarite
+    type: Perso
+    armes:
+      - { nom: Pistolet disloqueur, portee: (15cm), puissance: "Armes légères, +1A" }
+    notes: [Charismatique]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: guerriers_cabalistes
+    nom: Guerriers Cabalistes
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Fusils éclateurs, portee: (15cm), puissance: Armes légères }
+      - { nom: Canon éclateur, portee: 30cm, puissance: "AP5+" }
+  - id: immacules
+    nom: Immaculés
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Fusils éclateurs, portee: (15cm), puissance: Armes légères }
+      - { nom: 2x Canon éclateur, portee: 30cm, puissance: "AP5+" }
+    notes: [Virtuose]
+  - id: incubes
+    nom: Incubes
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Klaives, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Frappe en premier, Virtuose]
+  - id: cerastes
+    nom: Cérastes
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Armes de cérastes, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Pistolets éclateurs, portee: (15cm), puissance: Armes légères }
+    notes: [Frappe en premier, Infiltrateur]
+  - id: maitresses_sang
+    nom: Maîtresses de Sang Hékatrix
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Armes d'Hekatrix, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Pistolets éclateurs, portee: (15cm), puissance: Armes légères }
+    notes: [Frappe en premier, Infiltrateur, Virtuose]
+  - id: hellions
+    nom: Hélion
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils éclateurs, portee: (15cm), puissance: Armes légères }
+      - { nom: Vouges, portee: (contact), puissance: "Armes d'assaut" }
+    notes: [Eclaireur, Réacteurs dorsaux]
+  - id: reavers
+    nom: Reaver
+    type: Inf
+    vitesse: 40cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lames montées, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Lance de feu, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "MA" }
+    notes: [Antigrav, Monté]
+  - id: gorgones
+    nom: Gorgone
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Armes empoisonnées, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Liquefactor, portee: (15cm), puissance: Armes légères }
+    notes: [Sauvegarde Invulnérable]
+  - id: hemoxytes
+    nom: Hémoxytes
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Armes empoisonnées, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Liquefactor, portee: (15cm), puissance: Armes légères }
+      - { nom: Ossefactor, portee: 30cm, puissance: "AP5+" }
+    notes: [Sauvegarde Invulnérable, Sans peur, Virtuose]
+  - id: grotesques
+    nom: Grotesque
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Lames venimeuses, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Sans peur, "Prennent 2 places dans les transports"]
+    taille_transport: 2
+  - id: maitres_betes
+    nom: Maîtres des Bêtes
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Griffes et crocs, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Infiltrateur, Eclaireur, Frappe en premier]
+  - id: fleaux
+    nom: Fléaux
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance de feu, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "MA" }
+    notes: [Réacteurs dorsaux, Eclaireur]
+  - id: mandragores
+    nom: Mandragore
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lames de l'enfer, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Ombreflamme, portee: (15cm), puissance: Armes légères }
+    notes: [Frappe en premier, Infiltrateur, Manteau d'ombre, Eclaireur]
+
+  # ---- Véhicules légers ----
+  - id: venom
+    nom: Venom
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils éclateurs jumelés, portee: (15cm), puissance: Armes légères }
+      - { nom: Canon éclateur, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, "Transport 1 (parmi : Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, Céraste, Maîtresse de sang Hekatrix, Gorgones)"]
+    transport: { capacite: 1, accepte: [grand_voivode, guerriers_cabalistes, immacules, incubes, cerastes, maitresses_sang, gorgones, hemoxytes] }
+  - id: raider
+    nom: Raider
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Lance des ténèbres, portee: 30cm, puissance: "AC5+, Lance" }
+    notes: [Antigrav, "Transport 2 (parmi : Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, Céraste, Maîtresse de sang Hekatrix, Gorgones, Grotesques). Les unités de Grotesques prennent 2 places"]
+    transport: { capacite: 2, accepte: [grand_voivode, guerriers_cabalistes, immacules, incubes, cerastes, maitresses_sang, gorgones, grotesques, hemoxytes] }
+  - id: ravageur_desintegrateur
+    nom: Ravageur Désintégrateur
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: 3x Canon désintégrateur, portee: 30cm, puissance: "AP5+, Lance" }
+    notes: [Antigrav, Sauvegarde Invulnérable]
+  - id: ravageur_tenebres
+    nom: Ravageur des Ténèbres
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 3x Lance des ténèbres, portee: 30cm, puissance: "AC5+, Lance" }
+    notes: [Antigrav, Sauvegarde Invulnérable]
+  - id: reaper
+    nom: Reaper
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Projecteur de tempête vortex, portee: 45cm, puissance: "2xMA3+, Rpt" }
+    notes: [Antigrav, Sauvegarde Invulnérable]
+  - id: raider_banshee
+    nom: Raider Banshee
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Splinterstorm, portee: 45cm, puissance: "2xAC6+/AA5+, Lance" }
+    notes: [Antigrav]
+  - id: talos
+    nom: Talos
+    type: VL
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes de Talos, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Canon éclateur jumelé, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage renforcé, Marcheur, Antigrav, Sans peur]
+    taille_transport: 2
+  - id: cronos
+    nom: Cronos
+    type: VL
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Vouges, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Siphon d'âme, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: Vortex d'âme, portee: 15cm, puissance: "AP4+, Rpt" }
+    notes: [Blindage renforcé, Marcheur, Antigrav, Sans peur]
+    taille_transport: 2
+
+  # ---- Engins de guerre ----
+  - id: barge_tantale
+    nom: Barge Tantale
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Fusils éclateurs, portee: (15cm), puissance: Armes légères }
+      - { nom: Lames énergétiques, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: 2x Canon désintégrateur lourd, portee: 30cm, puissance: "2xAP5+, Rpt" }
+    notes: [Antigrav, Manteau d'ombre, Sauvegarde Invulnérable, Blindage renforcé, "Transport 4 (parmi : Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, Céraste, Maîtresse de sang Hekatrix, Gorgones, Grotesques). Les unités de Grotesques prennent 2 places"]
+    transport: { capacite: 4, accepte: [grand_voivode, guerriers_cabalistes, immacules, incubes, cerastes, maitresses_sang, gorgones, grotesques, hemoxytes] }
+    degats: { cd: 2, critique: "Le moteur à antimatière explose et détruit la barge. Toutes les unités en contact subissent une touche MA sur un 6." }
+  - id: barge_souffrances
+    nom: Barge des Souffrances
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Fusils éclateurs, portee: (15cm), puissance: Armes légères }
+      - { nom: 2x Canon désintégrateur lourd, portee: 30cm, puissance: "2xAP5+, Rpt" }
+      - { nom: Lance des ténèbres, portee: 30cm, puissance: "AC5+, Lance" }
+    notes: [Antigrav, Manteau d'ombre, Sauvegarde Invulnérable, Blindage renforcé, Portail noir]
+    degats: { cd: 3, critique: "Le moteur à antimatière explose et détruit la barge. Toutes les unités en contact subissent une touche MA sur un 6." }
+  - id: titan_tourmenteur
+    nom: Titan Tourmenteur
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Poings tourmenteur, portee: (contact), puissance: "Armes d'assaut, +2A, TT (1)" }
+      - { nom: Canon disloqueur, portee: 45cm, puissance: "3xAP4+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +2A" }
+      - { nom: Projecteur de tempête vortex, portee: 45cm, puissance: "2xMA3+, Rpt" }
+    notes: [Blindage renforcé, Manteau d'ombre, Sauvegarde Invulnérable, Marcheur, Réacteurs dorsaux, Sans peur, "Les armes des titans Eldars noirs ont un arc de tir de 360° dû à leur exceptionnelle manœuvrabilité"]
+    degats: { cd: 4, critique: "Le dispositif optique de brouillage du titan est détruit. Celui-ci perd les capacités Manteau d'ombre et Sauvegarde invulnérable. Tout dégât critique supplémentaire occasionnera la perte d'un point de CD." }
+  - id: moissonneur
+    nom: Moissonneur
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "-"
+    ff: "4+"
+    armes:
+      - { nom: 2x Lance à antimatière lourde, portee: 75cm, puissance: "MA2+, FrtF" }
+      - { nom: Projecteur de tempête vortex, portee: 45cm, puissance: "2xMA3+, Rpt" }
+      - { nom: 4x Lance des ténèbres, portee: 30cm, puissance: "AC5+, Lance" }
+      - { nom: 4x Canon désintégrateur lourd, portee: 30cm, puissance: "2xAP5+, Rpt" }
+    notes: [Antigrav, Assaut orbital, Blindage renforcé, Blindage arrière renforcé, Sauvegarde Invulnérable, Manteau d'ombre, Portail noir, Sans peur]
+    degats: { cd: 8, critique: "Le dispositif optique de brouillage du titan est détruit. Celui-ci perd la capacité Manteau d'ombre. Tout dégât critique supplémentaire occasionnera la perte d'un point de CD." }
+  - id: horreur_vect
+    nom: Horreur de Vect
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Lance des cauchemars, portee: 30cm, puissance: "3PB, MA, Rpt, IC, TT (D3)" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +3A" }
+      - { nom: Projecteur de tempête vortex, portee: 45cm, puissance: "2xMA3+, Rpt" }
+      - { nom: Poing hydre, portee: 30cm, puissance: "6xAP4+/AC4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +3A" }
+      - { nom: ou, portee: (contact), puissance: "Armes d'assaut, +2A, MA, TT (D3)" }
+    notes: [Blindage renforcé, "Holochamp (3+)", Marcheur, Sans peur, "Les armes des titans Eldars noirs ont un arc de tir de 360° dû à leur exceptionnelle manœuvrabilité"]
+    degats: { cd: 6, critique: "La touche critique provoque un point de dommage supplémentaire et la sauvegarde holographique est réduite à 4+ pour le reste de la partie. La prochaine touche critique détruira définitivement le générateur d'Holo-champs et causera un point de dommage supplémentaire. Toutes les touches critiques suivantes provoquent un point de dommage supplémentaire." }
+
+  # ---- Flotte de guerre ----
+  - id: razorwing
+    nom: Razorwing
+    type: A
+    vitesse: C
+    blindage: "4+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Missiles Monofaux, portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Lance des ténèbres (AA), portee: 30cm, puissance: "AC5+/AA5+, Lance, FrtF" }
+  - id: voidraven
+    nom: Voidraven
+    type: A
+    vitesse: CB
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Missiles à implosion, portee: 15cm, puissance: "2PB, Lance, FrtF" }
+      - { nom: 2x Lance à antimatière, portee: 30cm, puissance: "AC4+/AA5+, Lance, FrtF" }
+    notes: [Blindage renforcé]
+  - id: slavebringer
+    nom: Transporteur Slavebringer
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Lance à antimatière, portee: 30cm, puissance: "AC4+/AA5+, Lance, FrtF" }
+      - { nom: Tourelles de canons éclateurs lourds jumelés, portee: 30cm, puissance: "AP5+/AA5+" }
+    notes: [Assaut orbital, Blindage renforcé, "Transport 8 (parmi : Grand Voïvode, Guerrier cabaliste, Immaculé, Incube, Fléaux, Céraste, Maîtresse de sang Hekatrix, Maîtres des bêtes, Hellions, Gorgones, Grotesques, Talos). Les unités de Grotesques, Cronos et Talos prennent 2 places"]
+    transport: { capacite: 8, accepte: [grand_voivode, guerriers_cabalistes, immacules, incubes, fleaux, cerastes, maitresses_sang, maitres_betes, hellions, gorgones, grotesques, talos, cronos] }
+    degats: { cd: 2, critique: "Détruit ainsi que toutes les unités transportées." }
+  - id: escorteur_corsaire
+    nom: Escorteur de classe Corsaire
+    type: VS
+    armes:
+      - { nom: Bombardement orbital, portee: "∞", puissance: "2PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "-", puissance: "MA2+, TT (D3)" }
+    notes:
+      - "Tous les escorteurs sélectionnés forment une seule et même formation qui agit de la même manière qu'un vaisseau spatial simple. Ils peuvent combiner leur bombardement orbital en une même attaque, ou tirer séparément (les gabarits ne peuvent se superposer)."
+      - "Chaque Corsaire peut choisir de renoncer à sa frappe chirurgicale pour transporter jusqu'à 3 Transporteurs Slavebringer et jusqu'à 1 Moissonneur ainsi que leurs cargaisons."
+  - id: croiseur_torture
+    nom: Croiseur de classe Torture
+    type: VS
+    armes:
+      - { nom: 3x Bombardement orbital, portee: "∞", puissance: "2PB, MA" }
+      - { nom: 2x Frappe chirurgicale, portee: "-", puissance: "MA2+, TT (D3)" }
+    notes:
+      - "Lent"
+      - "Transport : peut transporter jusqu'à 6 Transporteurs Slavebringer ainsi que leurs cargaisons. De plus, le croiseur peut choisir de renoncer à ses frappes chirurgicales pour transporter jusqu'à 10 Transporteurs Slavebringer et jusqu'à 2 Moissonneurs ainsi que leurs cargaisons."
+
+options:
+  # ---- Personnages ----
+  - id: grand_voivode
+    nom: Grand Voïvode et sa cour
+    effet: { type: remplacer, de: [immacules, incubes, maitresses_sang, hemoxytes], par: grand_voivode, lot: 1, max: 1, cout: 75 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "Remplacer une des unités par l'unité de Grand Voïvode et sa cour"
+    note_md: "Un seul Grand Voïvode et sa cour par armée (Commandant suprême)."
+  - id: voivode
+    nom: Voïvode
+    effet: { type: ajouter, cout: 25, unites: [{ unite: voivode }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un personnage de Voïvode à l'une des unités de la formation"
+  - id: succube
+    nom: Succube
+    effet: { type: ajouter, cout: 25, unites: [{ unite: succube }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un personnage de Succube à l'une des unités de la formation"
+  - id: tourmenteur
+    nom: Tourmenteur
+    effet: { type: ajouter, cout: 50, unites: [{ unite: tourmenteur }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un personnage de Tourmenteur à l'une des unités de la formation"
+  - id: executeur
+    nom: Exécuteur
+    effet: { type: ajouter, cout: 25, unites: [{ unite: executeur }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un personnage d'Exécuteur à l'une des unités de la formation"
+  - id: sybarite
+    nom: Sybarite
+    effet: { type: ajouter, cout: 25, unites: [{ unite: sybarite }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Sybarite à l'une des unités de la formation"
+  - id: portail_noir
+    nom: Portail noir
+    effet: { type: mot_cle, texte: Portail noir, cout: 50, cible: [voivode, succube, tourmenteur, executeur, sybarite, grand_voivode] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [voivode, succube, tourmenteur, executeur, sybarite, grand_voivode] }
+    phrase_pdf: "Ajouter la note Portail noir à un personnage de la formation ou à l'unité de Grand Voïvode et sa cour"
+    note_md: "Règle spéciale Portail noir : chaque portail permet de conserver trois formations en réserve dans la toile. Une formation comprenant un Portail noir ne peut pas être positionnée en garnison."
+
+  # ---- Notes ----
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50, cible: [fleaux, mandragores] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la Note Téléportation aux unités d'infanterie de la formation"
+
+  # ---- Remplacements et ajouts ----
+  - id: grotesques
+    nom: Grotesque
+    effet: { type: remplacer, de: [gorgones, hemoxytes], par: grotesques, lot: 2, max: 3, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer jusqu'à 6 unités de la formation par autant d'unités de Grotesques (25 pts la paire)"
+  - id: machine_tourment
+    nom: Machine de Tourment
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi:
+        - { unite: talos, cout: 50 }
+        - { unite: cronos, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 2 Talos ou Cronos à la formation"
+  - id: banshee
+    nom: Banshee
+    effet: { type: ajouter, cout: 50, unites: [{ unite: raider_banshee }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Raider Banshee à la formation"
+  - id: reaper
+    nom: Reaper
+    effet: { type: remplacer, de: [ravageur_desintegrateur, ravageur_tenebres], par: reaper, lot: 1, max: 2, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer de 1 à 2 Ravageurs de la formation par autant de Reaper"
+
+  # ---- Transport (une ligne par type d'appareil, combinables) ----
+  - id: transport_venom
+    nom: Transport en Venoms
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: venom }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: transport
+    phrase_pdf: "Transport : ajouter suffisamment de Venoms pour transporter toute la formation sans qu'il ne reste de place libre"
+  - id: transport_raider
+    nom: Transport en Raiders
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: raider }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: transport
+    phrase_pdf: "Transport : ajouter suffisamment de Raiders pour transporter toute la formation sans qu'il ne reste de place libre"
+  - id: transport_barge_tantale
+    nom: Transport en Barges Tantale
+    effet: { type: ajouter, cout_par_unite: 100, unites: [{ unite: barge_tantale }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: transport
+    phrase_pdf: "Transport : ajouter suffisamment de Barges Tantale pour transporter toute la formation sans qu'il ne reste de place libre"
+
+formations:
+  # ---- Formations principales ----
+  - id: cabale_eldars_noirs
+    nom: Cabale Eldars Noirs
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: guerriers_cabalistes, nombre: 8 }] }
+    options: [transport_venom, transport_raider, transport_barge_tantale, voivode, banshee, portail_noir]
+    contraintes: [{ type: fournit, budget: slot_cabale, quantite: 3 }]
+  - id: culte_ceraste
+    nom: Culte Céraste
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: cerastes, nombre: 8 }] }
+    options: [transport_venom, transport_raider, transport_barge_tantale, succube, portail_noir]
+    contraintes: [{ type: fournit, budget: slot_culte, quantite: 3 }]
+  - id: coterie_tourmenteur
+    nom: Coterie du Tourmenteur
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: gorgones, nombre: 8 }] }
+    options: [machine_tourment, grotesques, transport_venom, transport_raider, transport_barge_tantale, tourmenteur, portail_noir]
+    contraintes: [{ type: fournit, budget: slot_coterie, quantite: 3 }]
+
+  # ---- Formations de la Cabale ----
+  - id: immacules
+    nom: Immaculés
+    variantes:
+      - { id: six, nom: 6 unités d'Immaculés, cout: 225, composition: [{ unite: immacules, nombre: 6 }] }
+      - { id: huit, nom: 8 unités d'Immaculés, cout: 300, composition: [{ unite: immacules, nombre: 8 }] }
+    options: [transport_venom, transport_raider, transport_barge_tantale, voivode, grand_voivode, sybarite, portail_noir]
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: initiative, valeur: "1+" }
+  - id: ravageurs_cabale
+    nom: Ravageurs
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 4, max: 6 }
+              parmi: [{ unite: ravageur_desintegrateur, cout: 50 }, { unite: ravageur_tenebres, cout: 50 }]
+              phrase_pdf: "4 à 6 Ravageurs (tous types)"
+    options: [reaper, banshee]
+  - id: barge_souffrances_cabale
+    nom: Barge de souffrance
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: barge_souffrances, nombre: 1 }] }
+    options: []
+
+  # ---- Formations de la Coterie du Tourmenteur ----
+  - id: hemoxytes
+    nom: Hémoxytes
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: hemoxytes, nombre: 6 }] }
+    options: [machine_tourment, grotesques, transport_venom, transport_raider, transport_barge_tantale, tourmenteur, grand_voivode, portail_noir]
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: initiative, valeur: "1+" }
+  - id: talos
+    nom: Talos
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: talos, nombre: 4 }] }
+    options: [machine_tourment]
+  - id: ravageurs_coterie
+    nom: Ravageurs
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 4, max: 6 }
+              parmi: [{ unite: ravageur_desintegrateur, cout: 50 }, { unite: ravageur_tenebres, cout: 50 }]
+              phrase_pdf: "4 à 6 Ravageurs (tous types)"
+    options: [reaper, banshee]
+
+  # ---- Formations du Culte Céraste ----
+  - id: maitresses_sang_hekatrix
+    nom: Maîtresses de Sang Hekatrix
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: maitresses_sang, nombre: 6 }] }
+    options: [transport_venom, transport_raider, transport_barge_tantale, succube, grand_voivode, portail_noir]
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: initiative, valeur: "1+" }
+  - id: hellions
+    nom: Hellions
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: hellions, nombre: 6 }] }
+    options: []
+  - id: reavers
+    nom: Reavers
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: reavers, nombre: 6 }] }
+    options: [succube, portail_noir]
+  - id: barge_souffrances_culte
+    nom: Barge de Souffrance
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: barge_souffrances, nombre: 1 }] }
+    options: []
+
+  # ---- Formations d'élites ----
+  - id: incubes
+    nom: Incubes
+    variantes:
+      - { id: six, nom: 6 unités d'Incubes, cout: 250, composition: [{ unite: incubes, nombre: 6 }] }
+      - { id: huit, nom: 8 unités d'Incubes, cout: 350, composition: [{ unite: incubes, nombre: 8 }] }
+    options: [transport_venom, transport_raider, transport_barge_tantale, voivode, grand_voivode, executeur, portail_noir]
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: initiative, valeur: "1+" }
+  - id: fleaux
+    nom: Fléaux
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: fleaux, nombre: 6 }] }
+    options: [teleportation]
+  - id: maitres_betes
+    nom: Maîtres des Bêtes
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: maitres_betes, nombre: 6 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+  - id: mandragores
+    nom: Mandragores
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 2, max: 4 }
+              parmi: [{ unite: mandragores, cout: 75, par_pioche: 2 }]
+              phrase_pdf: "4 à 8 unités de Mandragores (75 pts la paire)"
+    options: [teleportation]
+
+  # ---- Flotte de guerre ----
+  - id: escadrille_intercepteurs
+    nom: Escadrille d'Intercepteurs
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 2, max: 3 }
+              parmi: [{ unite: razorwing, cout: 100 }]
+              phrase_pdf: "2 ou 3 Razorwings"
+    options: []
+  - id: escadrille_voidravens
+    nom: Escadrille de Voidravens
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: voidraven, nombre: 2 }] }
+    options: []
+  - id: transporteur
+    nom: Transporteur
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: slavebringer, nombre: 1 }] }
+    options: []
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: croiseur, nom: 1 Croiseur Torture, cout: 200, composition: [{ unite: croiseur_torture, nombre: 1 }] }
+      - id: corsaires
+        nom: 1 Escorteur de classe Corsaire (ajouter 1 ou 2 Escorteurs, +100 pts chacun)
+        cout: 150
+        composition:
+          - { unite: escorteur_corsaire, nombre: 1 }
+          - choix:
+              total: { min: 0, max: 2 }
+              parmi: [{ unite: escorteur_corsaire, cout: 100 }]
+              phrase_pdf: "(ajouter 1 ou 2 Escorteurs, +100 pts chacun)"
+    options: []
+    contraintes: [{ type: pas_une_activation }]
+
+  # ---- Soutien titanique ----
+  - id: titans_tourmenteurs
+    nom: Titans Tourmenteurs
+    variantes:
+      - { id: un, nom: 1 Titan Tourmenteur, cout: 350, composition: [{ unite: titan_tourmenteur, nombre: 1 }] }
+      - { id: deux, nom: 2 Titans Tourmenteurs, cout: 700, composition: [{ unite: titan_tourmenteur, nombre: 2 }] }
+    options: []
+  - id: titan_moissonneur
+    nom: Titan Moissonneur
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: moissonneur, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: horreur_vect
+    nom: Horreur de Vect
+    variantes:
+      - { id: base, cout: 750, composition: [{ unite: horreur_vect, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+
+sections:
+  - id: principales
+    titre: FORMATIONS PRINCIPALES ELDARS NOIRS
+    sous_titre: "Chaque formation principale permet de choisir jusqu'à 3 formations soit dans la liste des formations associée à cette formation principale soit dans la liste des formations d'élites"
+    formations: [cabale_eldars_noirs, culte_ceraste, coterie_tourmenteur]
+    contraintes: [{ type: max_options, valeur: 4 }]
+    colonne_options: true
+    options: [grand_voivode, voivode, succube, tourmenteur, executeur, sybarite, portail_noir, teleportation, grotesques, machine_tourment, transport_venom, transport_raider, transport_barge_tantale, banshee, reaper]
+    tableau_options:
+      titre: AMÉLIORATIONS DES ELDARS NOIRS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation et chaque formation peut recevoir au plus 4 améliorations"
+    notes:
+      transport: "Transport : ajouter suffisamment de véhicules pour transporter toute la formation sans qu'il ne reste de place libre. Venom ou Raider 25 pts chacun, Barge Tantale 100 pts chacune. Les types d'appareils peuvent être combinés, chaque type compte comme une amélioration."
+  - id: cabale
+    titre: FORMATIONS DE LA CABALE ELDARS NOIRS
+    formations: [immacules, ravageurs_cabale, barge_souffrances_cabale]
+    contraintes:
+      - { type: consomme, budget: slot_cabale }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: coterie
+    titre: FORMATIONS DE LA COTERIE DU TOURMENTEUR
+    formations: [hemoxytes, talos, ravageurs_coterie]
+    contraintes:
+      - { type: consomme, budget: slot_coterie }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: culte
+    titre: FORMATIONS DU CULTE CERASTE
+    formations: [maitresses_sang_hekatrix, hellions, reavers, barge_souffrances_culte]
+    contraintes:
+      - { type: consomme, budget: slot_culte }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: elites
+    titre: FORMATIONS D'ÉLITES ELDARS NOIRS
+    formations: [incubes, fleaux, maitres_betes, mandragores]
+    contraintes:
+      - { type: consomme, budget: [slot_cabale, slot_culte, slot_coterie] }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: flotte
+    titre: FLOTTE DE GUERRE ELDARS NOIRS
+    sous_titre: "FORMATIONS DE SOUTIEN ELDARS NOIRS"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: [escadrille_intercepteurs, escadrille_voidravens, transporteur, soutien_orbital]
+  - id: soutien_titanique
+    titre: SOUTIEN TITANIQUE DES ELDARS NOIRS
+    sous_titre: "FORMATIONS DE SOUTIEN ELDARS NOIRS"
+    contraintes:
+      - { type: consomme, budget: rare, quoi: points }
+      - { type: initiative, valeur: "1+" }
+    formations: [titans_tourmenteurs, titan_moissonneur, horreur_vect]
+
+listes_test:
+  - nom: "3000 pts valide, Cabale et Coterie avec leurs formations"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: cabale_eldars_noirs
+        options:
+          - { option: transport_raider, quantite: 4 }
+          - { option: voivode }
+          - { option: portail_noir }
+          - { option: banshee }
+      - formation: immacules
+        variante: huit
+        options:
+          - { option: sybarite }
+          - { option: transport_raider, quantite: 4 }
+          - { option: grand_voivode }
+      - formation: ravageurs_cabale
+        choix: { "0": { ravageur_tenebres: 3, ravageur_desintegrateur: 2 } }
+        options: [{ option: reaper, quantite: 2 }]
+      - formation: coterie_tourmenteur
+        options:
+          - { option: grotesques, quantite: 2 }
+          - { option: machine_tourment, repartition: { talos: 1, cronos: 1 } }
+          - { option: tourmenteur }
+      - { formation: hemoxytes }
+      - formation: incubes
+        variante: six
+        options: [{ option: executeur }]
+      - formation: fleaux
+        options: [{ option: teleportation }]
+      - { formation: titans_tourmenteurs, variante: un }
+      - formation: escadrille_intercepteurs
+        choix: { "0": { razorwing: 2 } }
+  - nom: "2000 pts valide, transports combinés, Mandragores et Corsaires"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: culte_ceraste
+        options:
+          - { option: transport_venom, quantite: 8 }
+          - { option: succube }
+          - { option: portail_noir }
+      - formation: maitresses_sang_hekatrix
+        options:
+          - { option: transport_barge_tantale, quantite: 1 }
+          - { option: transport_raider, quantite: 1 }
+      - formation: reavers
+        options: [{ option: succube }]
+      - formation: mandragores
+        choix: { "0": { mandragores: 3 } }
+        options: [{ option: teleportation }]
+      - { formation: cabale_eldars_noirs }
+      - { formation: maitres_betes }
+      - formation: soutien_orbital
+        variante: corsaires
+        choix: { "1": { escorteur_corsaire: 2 } }
+  - nom: "soutien au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: cabale_eldars_noirs }
+      - { formation: horreur_vect }
+  - nom: "deux formations d'Incubes"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: cabale_eldars_noirs }
+      - { formation: incubes, variante: six }
+      - { formation: incubes, variante: six }
+  - nom: "trop de Raiders pour la Cabale"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: cabale_eldars_noirs
+        options: [{ option: transport_raider, quantite: 5 }]
+  - nom: "quatre formations pour une seule Cabale"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: cabale_eldars_noirs }
+      - { formation: immacules, variante: six }
+      - formation: ravageurs_cabale
+        choix: { "0": { ravageur_tenebres: 4 } }
+      - { formation: barge_souffrances_cabale }
+      - { formation: fleaux }

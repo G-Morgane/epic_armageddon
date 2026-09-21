@@ -1,0 +1,618 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+LÉGIONS TITANIQUES 
+ 
+ 
+“En vérité, un Titan n’a que trois ennemis contre lesquels il doit se 
+protéger : la folie, l’orgueil et un de ses semblables."  
+ 
+Grand Maître Volkus, Ordo Sinister  
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une Légion 
+Titanique. Les Titans sont d’immenses machines de combat, 
+des guerriers humanoïdes mécaniques pouvant atteindre 
+jusqu’à 30 mètres de haut. Ils instillent la terreur par leur 
+simple présence, et peu de choses peuvent égaler leur 
+armement. Peu d’ennemis, à part un autre Titan, peuvent 
+s’opposer à eux. 
+Les Légions Titaniques sont organisées en formations 
+appelées formations de bases, formations de soutien et 
+formations de soutien rare. 
+Pour chaque formation de base vous pouvez prendre jusqu’à 
+deux formations de soutien et/ou une formation de soutien 
+rare (jusqu’à un maximum d’⅓ des points de l’armée). 
+Chaque formation peut recevoir des améliorations. La liste 
+d’armée indique pour chaque formation quelle amélioration 
+est autorisée. Chaque amélioration autorisée ne peut être 
+prise qu’une fois par formation pour un maximum de quatre 
+par détachement. Les améliorations font partie intégrante des 
+formations et doivent respecter les règles de cohésion.  
+ 
+Emblème du Collegia Titanica. 
+ 
+Règle spéciale : Boucliers du vide 
+Certains engins de guerre comme les Titans impériaux, les 
+Léviathans de la Garde Impériale et des Squats ou encore 
+les Deathwheels de la Black Legion sont protégés par des 
+boucliers énergétiques. Le nombre de boucliers de chaque 
+engin de guerre est noté sur sa fiche d'unité. 
+Chaque bouclier stoppe automatiquement un point de 
+dommages avant de se désactiver. Ne faites pas de 
+sauvegarde contre les attaques stoppées par des 
+boucliers, n'ajoutez pas non plus de pion d'impact pour 
+chaque bouclier désactivé. Une fois que tous les boucliers 
+sont désactivés, l'engin de guerre peut être endommagé 
+normalement. Faites les jets de sauvegarde habituels 
+contre les touches subies.  
+Les touches de corps à corps lors d'un assaut ignorent les 
+boucliers, mais pas celles de fusillade. 
+Les boucliers désactivés peuvent être réparés. Un engin de 
+guerre répare un bouclier désactivé à la fin de chaque 
+tour. De plus, si un engin de guerre se regroupe, il peut 
+utiliser le résultat de son dé pour retirer des pions d'impact 
+ou pour réparer des boucliers (par exemple, si le résultat 
+est 2, vous pouvez soit retirer 2 pions d'impact, soit réparer 
+2 boucliers, soit retirer 1 pion d'impact et réparer 1 
+bouclier). 
+ 
+Règle spéciale : Tunneliers 
+Le Mechanicum utilise des Tunneliers pour mener sans 
+danger par voie souterraine les troupes à des lieux clés du 
+champ de bataille : 
+- Les tunneliers sont déployés sur leur bord de table avant 
+la bataille, au même moment que les vaisseaux spatiaux, 
+ils n’interviennent pas directement dans le jeu tant qu’ils 
+n’émergent pas. 
+- Noter secrètement au début de quel tour ils feront surface 
+ainsi que les coordonnées (à partir de la pointe de la ou 
+d’une des foreuses) où vous voulez qu’ils émergent, de la 
+même façon que vous notez celles de vos zones de 
+largage. 
+- Si les tunneliers apparaissent dans votre moitié de table, 
+ils ne peuvent le faire qu’à partir du second tour et s’ils 
+comptent émerger dans la moitié de table ennemie, ils ne 
+peuvent le faire qu’à partir du troisième tour. 
+- Les tunneliers émergeant sont placés en début de tour, 
+avant le jet de stratégie. Une fois les tunneliers placés vous 
+pouvez faire débarquer vos troupes de suite. 
+- Il n’y a pas de déviation mais si toutefois, ils émergent 
+sous les pieds de n'importe quel type d'unité (amie ou 
+ennemie) ou dans une zone de contrôle ennemie, l'unité est 
+placée par l'adversaire dans la zone dégagée la plus 
+proche pouvant la recevoir. 
+- S’il y a plus d’une unité de Tunnelier qui émerge, après le 
+placement de la première, les autres sont toutes placées à 
+15cm maximum de celle-ci tout en restant en formation. 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture GW LTD.
+ 
+1 - CODEX LEGIONS TITANIQUES - EAFR - REV 1.4.1 
+
+===== PAGE 3 =====
+ 
+Alliance : Mechanicum 
+ 
+Un tiers des points d’une liste de Légions Titaniques peut être sélectionné dans l’un des deux codex Chevaliers Impériaux ou 
+Adeptus Mechanicus. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux choix de 
+soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême. 
+ 
+LISTE D'ARMÉE DES LÉGIONS TITANIQUES 
+ 
+Les armées des Légions Titaniques ont une valeur stratégique de 3. Les formations de l’armée ont une initiative de 1+. 
+ 
+FORMATIONS DE BASES 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Titan Warlord 
+1 titan Warlord 
+Légat, Princeps Vétéran, Multi-lasers de carapace, Icône sacrée, Auspex Amélioré, Cloche de 
+dévotion 
+725 pts 
+Titan Warbringer Nemesis 
+1 titan Warbringer 
+Légat, Princeps Vétéran, Icône sacrée, Auspex Amélioré 
+700 pts 
+Titan Reaver 
+1 titan Reaver 
+Légat, Princeps Vétéran, Multi-lasers de carapace, Icône sacrée, Auspex amélioré 
+575 pts 
+0-2 Meutes de Warhounds 
+2 titans Warhounds 
+Princeps Vétéran 
+500 pts 
+ 
+FORMATIONS DE SOUTIEN 
+(Deux formations de soutiens par formations de bases) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Titan Warhound 
+1 titan Warhound 
+Princeps Vétéran 
+275 pts 
+Cohorte de Secutarii Peltastes 
+8 unités de Secutarii Peltastes 
+Tunneliers 
+200 pts 
+Cohorte de Secutarii Hoplites 
+8 unités de Secutarii Hoplites 
+Tunneliers 
+200 pts 
+ 
+FORMATIONS DE SOUTIEN RARE 
+(Une formation de soutien rare par formation de base jusqu'à 1/3 des points maximum) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Titan Imperator 
+1 titan Imperator 
+Légat 
+1250 pts 
+Titan Imperator Warmonger 
+1 titan Imperator Warmonger 
+Légat 
+1250 pts 
+ 
+AMÉLIORATIONS 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation et chaque formation peut recevoir au plus 4 améliorations) 
+Améliorations 
+Notes 
+Coût 
+0-1 Légat 
+Ajouter un Légat au Titan 
+50 pts 
+Princeps Vétéran 
+Ajouter un Princeps Vétéran au Titan : 
+Warlord 
+Warhound, Reaver, Warbringer 
+ 
+25 pts 
+50 pts 
+Multi-lasers de Carapace 
+Ajouter des Multi-lasers de carapace au Titan 
+25 pts 
+Icône Sacrée 
+Equiper le Titan d'une Icône Sacrée 
+ou remplacer un système d'arme de carapace par une Icône Sacrée 
+50 pts 
+Gratuit 
+Cloche de Dévotion 
+Equiper le Titan d'une Cloche de Dévotion 
+ou remplacer deux systèmes d'arme de carapace pour une Cloche de Dévotion 
+100 pts 
+Gratuit 
+Auspex amélioré 
+Equiper le Titan d'un Auspex amélioré 
+25 pts 
+Tunneliers 
+Vous pouvez choisir l'une des options suivantes : 
+Ajouter 4 Termites à la formation 
+Ajouter 1 Taupe à la formation 
+Ajouter 1 Fouisseuse à la formation 
+ 
+100 pts 
+50 pts 
+75 pts 
+ 
+ 
+2 - CODEX LEGIONS TITANIQUES - EAFR - REV 1.4.1 
+
+===== PAGE 4 =====
+ 
+Armement des Titans 
+Les Titans choisissent leur armement avec les restrictions suivantes : 
+1.​
+Un Titan Warhound est équipé de deux armes légères. 
+2.​
+Un Titan Reaver doit être équipé de 3 armes aux choix parmi les armes d'assaut, tactiques et de support. 
+3.​
+Un Titan Warbringer Nemesis doit être équipé de 2 Armes de bras à choisir parmi Canon Gatling, Turbo Laser, Canon Fuseur et Canon Volcano. 
+4.​
+Un Titan Warlord doit être équipé de 4 armes aux choix parmi les armes d'assaut, tactiques et de support 
+Les armes des catégories Légères et Assaut sont gratuites, les armes Tactiques coûtent 25 points pièce et les armes de support coûtent 50 points pièce. 
+Ces points s'ajoutent à ceux du Titan sélectionné. 
+Le Titan Warlord a la possibilité de prendre une deuxième arme tactique de carapace identique gratuitement, parmi : Lance-roquette apocalypse, Destructeur 
+Turbo-laser, Méga-bolter Vulcain, Canon Gatling. 
+ 
+ 
+ARMES LÉGÈRES 
+Arme 
+Portée 
+Puissance de feu 
+Griffe d’Ursus 
+(contact) 
+Arme d’assaut, +1A, TT (1D3) 
+Natrix Shock Lance 
+30cm 
+(15cm) 
+2xAC3+, Lance, Ignore les boucliers du Vide 
+Arme Légère, +1A, Lance, Ignore les boucliers du Vide 
+Canon à Plasma Léger 
+45cm 
+2xMA2+, Rchg 
+Canon Inferno Léger 
+30cm 
+(15cm) 
+2PB, IC 
+Arme Légère, +1A, IC 
+Destructeur Turbo Laser Léger 
+45cm 
+4xAP5+/AC3+ 
+Méga Bolter Vulcain Léger 
+45cm 
+4x AP3+/AC5+ 
+ 
+ARMES D'ASSAUT 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Module d'assaut Corvus 
+(15cm) 
+Arme Légère, +4A, Transport (8) 
+Emplacement de Bras uniquement, Titan Warlord uniquement, Transport d’Infanterie exclusif 
+Poing de Combat 
+(contact) 
+Arme d'Assaut, +3A, TT (D3) 
+Emplacement de Bras uniquement 
+Poing tronçonneur 
+(contact) 
+Arme d'Assaut, +6A, MA 
+Emplacement de Bras uniquement 
+Démolisseur 
+(contact) 
+Arme d'Assaut, +1A, TT (D6), FeP Emplacement de Bras uniquement 
+ 
+ARMES TACTIQUES 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Canon à Plasma 
+60cm 
+3xMA2+, Rchg 
+Emplacement de Bras uniquement 
+Canon Inferno (PB) 
+30cm 
+(15cm) 
+4PB, IC 
+Arme Légère, +2A, IC 
+Emplacement de Bras uniquement 
+Destructeur Turbo Laser 
+60cm 
+4xAP5+/AC3+ 
+ 
+Méga Bolter Vulcain 
+45cm 
+6x AP3+/AC5+ 
+ 
+Lance-roquettes Apocalypse 
+60cm 
+4PB 
+Emplacement de carapace uniquement 
+Canon Gatling (Titan) 
+60cm 
+4xAP4+/AC4+ 
+ 
+Thermo Fuseur 
+(15cm) 
+Arme Légère, +3A, MA 
+Emplacement de Bras uniquement 
+Canon Fuseur 
+30cm 
+(15cm) 
+2xMA3+, TT (1) 
+Arme Légère, +1A, TT (D3) 
+Emplacement de Bras uniquement 
+Poing de Combat Arioch 
+30cm 
+(contact) 
+2x AP3+/AC5+ 
+Arme d'Assaut, +3A, TT (D3) 
+Emplacement de Bras uniquement, Titan Warlord uniquement 
+ 
+ARMES DE SUPPORT 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Annihilateur à plasma 
+90cm 
+4xMA2+, Rchg 
+Emplacement de Bras uniquement 
+Sismo Canon (Titan) 
+90cm 
+3PB, MA 
+Emplacement de Bras uniquement 
+Canon Volcano (Titan) 
+90cm 
+MA2+, TT (D3) 
+Emplacement de Bras uniquement 
+0-1 Missile Warp 
+Illimité 
+MA2+, Uniq, TT (D3), Ind 
+Cette Arme ignore les boucliers du Vide. Emplacement de carapace uniquement 
+Missile de barrage 
+Illimité 
+8PB, Uniq, Rpt, Ind 
+Emplacement de carapace uniquement 
+ 
+AMÉLIORATIONS DES TITANS 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Multi-Laser de Carapace 
+30cm 
+AP5+/AC6+/AA5+ 
+ 
+Icône Sacrée 
+- 
+- 
+Ajouter la Note Charismatique au Titan. 
+Cloche de Dévotion 
+- 
+- 
+Mouvement Titan +5cm, ajouter la Note Charismatique, Meneur et Sauvegarde Invulnérable 
+au Titan. 
+Auspex Amélioré 
+- 
+- 
+Ajouter la Note Tir Indirect à toutes les Armes ayant une valeur de Barrage. 
+ 
+3 - CODEX LEGIONS TITANIQUES - EAFR - REV 1.4.1 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES DES LÉGIONS TITANIQUES 
+Nom 
+Type Vitesse Blindage 
+CC 
+FF Arme 
+Portée Puissance de feu 
+Notes 
+Titan Warhound 
+EG 
+30cm 
+5+ 
+4+ 
+4+ 2x Armes de Bras 
+- 
+Frt 
+CD3 / BI2 – Critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour 
+chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warhound et infligeant une 
+touche sur un 6+ à toute unité dans un rayon de 5cm, Sur 2-3, le Warhound subit un point de 
+dommage supplémentaire, Et sur 4-6 la fissure est réparée. 
+ 
+Notes : Blindage renforcé, Marcheur, Sans peur 
+ 
+Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les 
+genoux du titan et au maximum de 2cm de large. 
+Titan Reaver 
+EG 
+20cm 
+4+ 
+3+ 
+3+ Armes de Carapace 
+2x Armes de Bras 
+- 
+- 
+FrtF 
+Frt 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour 
+chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Reaver et infligeant une 
+touche sur un 5+ à toute unité dans un rayon de 5cm, Sur 2-3, le Reaver subit un point de 
+dommage supplémentaire, Et sur 4-6 la fissure est réparée. 
+ 
+Notes : Blindage renforcé, Marcheur, Sans peur 
+ 
+Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les 
+genoux du titan et au maximum de 2cm de large. 
+Titan Warbringer 
+Nemesis 
+EG 
+15cm 
+4+ 
+3+ 
+3+ Nemesis Quake Canon 
+2x Batterie de Défense modèle Anvillus 
+2x Arme de bras Warbringer Nemesis 
+90cm 
+45cm 
+- 
+3PB, MA, Ind, FrtF 
+2x AP3+/AC4+/AA5+ 
+Frt 
+CD7 / BI5 – Critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour 
+chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warbringer et infligeant une 
+touche sur un 4+ à toute unité dans un rayon de 5cm, Sur 2-3, le Warbringer subit un point de 
+dommage supplémentaire. Et sur 4-6 la fissure est réparée. 
+ 
+Notes : Blindage renforcé, Blindage arrière renforcé, Marcheur, Sans peur 
+ 
+Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les 
+genoux du titan et au maximum de 2cm de large. 
+Titan Warlord 
+EG 
+15cm 
+4+ 
+2+ 
+3+ 2x Armes de carapace 
+2x Armes de Bras 
+- 
+- 
+FrtF 
+Frt 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour 
+chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warlord et infligeant une 
+touche sur un 4+ à toute unité dans un rayon de 5cm, Sur 2-3, le Warlord subit un point de 
+dommage supplémentaire. Et sur 4-6 la fissure est réparée. 
+ 
+Notes : Blindage renforcé, Blindage arrière renforcé, Marcheur, Sans peur 
+ 
+Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les 
+genoux du titan et au maximum de 2cm de large 
+ 
+4 - CODEX LEGIONS TITANIQUES - EAFR - REV 1.4.1 
+
+===== PAGE 6 =====
+ 
+Nom 
+Type 
+Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Titan Imperator 
+EG 
+15cm 
+4+ 
+4+ 
+3+ Canon Fournaise 
+4x Obusier 
+Sismo Canon 
+Laser de défense 
+Annihilateur à Plasma Suzerain 
+Armement Tertiaire 
+Bastions 
+60cm 
+75cm 
+90cm 
+90cm 
+90cm 
+(15cm) 
+(15cm) 
+10PB, FrtF 
+AP4+/AC4+ 
+3PB, MA, FrtF 
+MA2+/AA4+, TT (D3) 
+4xMA2+, FrtF, Rchg, TT (D3) 
+Arme Légère, +2A 
+Arme Légère, +4A 
+CD12 / BI8 – Critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour 
+chaque fissure. Sur un résultat de 1 le réacteur explose détruisant l’Imperator et infligeant une 
+touche sur un 5+ à toute unité dans un rayon de 5cm, Sur 2-3, l’Imperator subit un point de 
+dommage supplémentaire, Et sur 4-6 la fissure est réparée. 
+ 
+Notes : Charismatique, Blindage renforcé, Marcheur, Sans peur, Transport (8) : Secutarii 
+ 
+Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que 
+les genoux du titan et au maximum de 2cm de large. 
+Titan Imperator 
+Warmonger 
+EG 
+15cm 
+4+ 
+4+ 
+3+ Missiles Doomstrikes 
+Canon Vengeance 
+4x Autocanon Hydre 
+Arme de tête 
+Armement Tertiaire 
+Bastions 
+(illimité) 
+90cm 
+45cm 
+45cm 
+(15cm) 
+(15cm) 
+2xMA3+ 
+2xMA2+ 
+2xAP4+/AC5+/AA5+ 
+AP4+/AC4+, FrtF 
+Arme Légère, +2A 
+Arme Légère, +4A 
+CD12 / BI8 – Critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour 
+chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warmonger et infligeant 
+une touche sur un 5+ à toute unité dans un rayon de 5cm, Sur 2-3, le Warmonger subit un point 
+de dommage supplémentaire, Et sur 4-6 la fissure est réparée. 
+ 
+Notes : Charismatique Blindage renforcé, Marcheur, Sans peur, Centre de contrôle (permet 1 fois 
+par tour de relancer un jet pour toucher d'une arme ou d'un système d'arme), Transport (8) : 
+Secutarii 
+ 
+Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que 
+les genoux du titan et au maximum de 2cm de large. 
+Légat 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Commandant Suprême. Le Légat doit obligatoirement rejoindre le titan avec la plus grande 
+Capacité de Dommages de l'armée. 
+Princeps Vétéran 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Commandant, Meneur 
+Secutarii Hoplites 
+Inf 
+15cm 
+4+ 
+4+ 
+5+ Arc Lance 
+(contact) Arme d'Assaut 
+Sauvegarde invulnérable 
+Secutarii Peltastes 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Galvanic Caster 
+(15cm) 
+Arme Légère 
+Sauvegarde invulnérable 
+Termite (AMTL) 
+VB 
+15cm 
+5+ 
+6+ 
+- 
+Tête de Foreuse 
+(contact) Arme d'Assaut 
+Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (2) : Secutarii 
+Taupe (AMTL) 
+EG 
+15cm 
+4+ 
+5+ 
+- 
+Tête de Foreuse 
+(contact) Arme d'Assaut 
+Capacité de dommage : 2, Critique: Détruit 
+Notes : Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (8) : Secutarii 
+Fouisseuse (AMTL) 
+EG 
+15cm 
+4+ 
+5+ 
+- 
+Tête de Foreuse 
+(contact) Arme d'Assaut 
+Capacité de dommage : 4, Critique: Détruit 
+Notes : Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (16) : Secutarii 
+ 
+ 
+ 
+5 - CODEX LEGIONS TITANIQUES - EAFR - REV 1.4.1 
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+6 - CODEX LEGIONS TITANIQUES - EAFR - REV 1.4.1 

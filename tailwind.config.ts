@@ -21,7 +21,8 @@ export default {
       fontFamily: {
         heading: ['Oswald', 'sans-serif'],
         logo: ['Black Ops One', 'sans-serif'],
-        body: ['Crimson Text', 'serif'],
+        // texte courant : sans-serif très lisible, y compris en petits corps
+        body: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
       },
     },
   },

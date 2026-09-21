@@ -1,0 +1,422 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+ 
+ORKS SAUVAGES 
+ 
+ 
+« Suivr’ Gork et Mork. Allé trouvé la guerre. Tué tout s’ki 
+pass’ à porté. Lé vieilles méthod’ cé lé meilleur’. » 
+Sacerdoce des Orques Sauvages 
+(traduction approximative) 
+ 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous autorise à mettre sur pied une armée  
+d’Orks Sauvages 
+Les armées des Orks sont organisées autour de grandes 
+formations appelées bandes, qui peuvent s’acheter selon 3 
+tailles, la bande normale, la mastok (doubler l’effectif de 
+départ) ou la tré mastok (tripler l’effectif de départ). 
+Chaque bande peut recevoir des kust’oms. La liste d’armée 
+indique pour chaque catégorie de bande quels kust’oms sont 
+autorisés. Chaque kust’om autorisé peut être pris un nombre 
+illimité de fois par bande, sauf s’il est fait état d’une limitation 
+de kust’om. Les limitations de kust’om sont multipliées de la 
+même façon que l’effectif de départ, ainsi une bande de 
+guerre tré mastok peut inclure jusqu’à 3 nobz supplémentaire, 
+et 3 Bizarboyz. Les kust’oms font partie intégrante des 
+bandes et doivent en respecter la cohésion. Les kust’oms qui 
+sont 
+des 
+personnages 
+doivent 
+rejoindre 
+une 
+unité 
+initialement dans la bande, pas un autre kust’oms. 
+ 
+Règle spéciale : SEIGNEUR DE GUERRE 
+Chaque armée d’Orks Sauvages doit inclure une unité 
+Commandement Suprême appelée Seigneur de Guerre. 
+Cette unité est gratuite et doit être ajoutée à la formation 
+de votre armée comportant le plus d’unités. Les Engins de 
+Guerre comptent un nombre d’unités égal à leur Capacité 
+de dommages de départ. En cas d’égalité, choisissez 
+quelle formation doit rejoindre le Seigneur de Guerre. 
+ 
+ 
+Règle spéciale : POUVOIR DE LA WAAAGH! 
+Les Orks ne sont pas de fins stratèges mais la perspective 
+d'une bonne bagarre les galvanise toujours. Afin de 
+représenter ceci, une formation tentant une action 
+d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son 
+test d'action. 
+Les formations aériennes ont +2 de bonus pour les tests 
+d'actions lorsqu'elles tentent une Interception ou une 
+Attaque au sol. 
+Règle spéciale : R’MISE EN BANDE 
+Lorsque les bandes Orks tentent un test de ralliement, ils 
+reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 
+lorsqu'ils sont plus de 10. Les engins de guerre faisant 
+partie de ces bandes comptent pour autant d'unités que 
+leur capacité de dommage de départ. Les Gretchins ne 
+sont pas comptabilisables dans le calcul. 
+Règle spéciale : ORKEOSAURUS 
+Dans les parties de tournois, ces unités peuvent seulement 
+transporter les unités de leur propre formation. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Samuel Bourguignon , page 1 Chase Toole
+ 
+1 - CODEX ORKS SAUVAGES - EAFR - REV 1.1 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE ORKS SAUVAGES 
+Les armées Orks sauvages ont une valeur stratégique de 2. Toutes les formations Orks sauvages, ont une initiative de 3+ mais 
+reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la Waaagh!) ou 
+de leur taille lorsqu'elles tentent de se rallier (R'mise en bande). 
+ 
+ 
+ 
+BANDES ORKS 
+(Chaque formation peut être prise dans l'une des tailles autorisées) 
+Formations 
+Unités 
+Coût 
+Bande de Wildboyz 
+2 unités de Nobz, 6 unités de Wildboyz, 2 unités de WildGrots 
+Normale 
+Mastok' 
+Tré Mastok' 
+175 pts 
+300 pts 
+425 pts 
+ 
+KUST'OM 
+Boyz (plus une unité de gretchins gratuite), Goretboyz 
+Paire de Wildboyz 
+0-1 Paire de Nobz 
+Squiggoths 
+0-3 Katapultes à Squigs 
+0-1 Bizarboyz 
+0-1 Orkeosaurus 
+(+25 pts chacun) 
+(+25 pts la paire) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+(+25 pts chacun) 
+(+50 pts chacun) 
+(+200 pts chacun) 
+Horde de Goretboyz 
+6 unités de Goretboyz 
+Normale 
+Mastok' 
+Tré Mastok' 
+125 pts 
+225 pts 
+300 pts 
+ 
+KUST'OM 
+Goretboyz 
+0-1 Bizarboyz 
+(+25 pts chacun) 
+(+50 pts chacun) 
+Trappeurz 
+6 unités de Wildboyz 
+(Toutes les unités de la formation gagnent Eclaireur gratuitement) 
+Normale 
+Mastok' 
+Tré Mastok' 
+150 pts 
+- 
+- 
+ 
+KUST'OM 
+0-1 Paire de Nobz 
+(+50 pts la paire) 
+Brigade Tas d’Boue 
+6 Tas d’Boue, 6 unités de Boyz 
+Normale 
+Mastok' 
+Tré Mastok' 
+175 pts 
+300 pts 
+- 
+ 
+KUST'OM 
+Boyz (+ 1 Tas d’Boue gratuit) 
+0-1 Nobz (+1 Tas d’Boue gratuit) 
+0-1 Bizarboyz 
+(+25 pts chacun) 
+(+50 pts) 
+(+50 pts chacun) 
+0-1 Horde de 
+Dingueboyz 
+5 unités de Dingueboyz 
+Normale 
+Mastok' 
+Tré Mastok' 
+100 pts 
+- 
+- 
+ 
+KUST'OM 
+0- 3 Paire de Dingueboyz 
+0- 3 Bizarboyz 
+(+25 pts la paire) 
+(+50 pts chacun) 
+0-1 Gargant à Vapeur 
+1 Gargant à Vapeur 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+350 pts 
+500 pts 
+ 
+ 
+ 
+ 
+ 
+2 - CODEX ORKS SAUVAGES - EAFR - REV 1.1 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES ORKS SAUVAGES 
+Nom 
+Type 
+Vit 
+Bli 
+CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Seigneur de guerre 
+Perso 
+- 
+- 
+- 
+- 
+Big Gros Kikoup' 
+(contact) 
+Armes d’assaut, +1A, MA 
+Commandant Suprême 
+Bizardboyz 
+Perso 
+- 
+- 
+- 
+- 
+Poing de Gork 
+45cm 
+MA5+/AA5+, MA 
+- 
+Nobz 
+Inf 
+15cm 
+4+ 
+3+ 
+5+ 
+2x Gros Fling’ 
+Ch’ti Fling’ 
+Gros Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut, +1A 
+Meneur. 
+Boyz 
+Inf 
+15cm 
+6+ 
+4+ 
+6+ 
+Gros Fling’ 
+Ch’ti Fling’ 
+Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut 
+- 
+Gretchins 
+Inf 
+15cm 
+- 
+6+ 
+6+ 
+Ch’ti Fling’ 
+(15cm) 
+Armes légères 
+Les formations incluant au moins une unité d’Ork ne reçoivent pas de pions 
+d’impact pour les unités de Gretchins détruites, et ces dernières ne comptent 
+pas pour déterminer le vainqueur d’un assaut 
+WildGrots 
+Inf 
+15cm 
+- 
+6+ 
+- 
+Ch’ti Kikoup’ 
+(contact) 
+Armes d’assaut 
+Les formations incluant au moins une unité d’Ork ne reçoivent pas de pions 
+d’impact pour les unités de WildGrots détruites, et ces dernières ne comptent 
+pas pour déterminer le vainqueur d’un assaut 
+Dingueboyz 
+Inf 
+15cm 
+6+ 
+4+ 
+6+ 
+Ch’ti Fling’ 
+Kikoup' 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d’assaut 
+Sans peur 
+Wildboyz 
+Inf 
+15cm 
+6+ 
+4+ 
+- 
+Kikoup’ 
+(contact) 
+Armes d’assaut 
+- 
+Goretboyz 
+Inf 
+20cm 
+5+ 
+4+ 
+6+ 
+Ch’ti Fling’ 
+Kikoup’ 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d’assaut 
+Montés, Infiltrateurs 
+Katapulte à squigg 
+Inf 
+10cm 
+- 
+6+ 
+5+ 
+Katapulte à squigg 
+45cm 
+1PB, Rpt 
+ 
+Tas d’boue 
+VL 
+25cm 
+5+ 
+5+ 
+6+ 
+- 
+- 
+- 
+Transport (1) : Boyz, Nobz, Wildboys, Peut embarquer une unité de 
+Gretchins/Wildgrots en plus des autres unités 
+Squiggoth 
+VL 
+20cm 
+4+ 
+4+ 
+5+ 
+Cornes et crocs 
+2x Ch'ti Kanon jumelés 
+Gros Kanon 
+(contact) 
+30cm 
+45cm 
+Arme d’assaut, +D3A , MA 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage Renforcé, Blindage Arrière Renforcé, Transport (4) : Boyz, Nobz, 
+Wildboys, Peut embarquer deux unités de Gretchins/Wildgrots en plus des autres 
+unités 
+Orkeosaurus 
+EG 
+ 
+ 
+15cm 
+4+ 
+4+ 
+5+ 
+Défense frontal 
+ou 
+4x Chti’ Kanon Jumelés 
+2x Gros Kanon 
+(contact) 
+(contact) 
+30cm 
+45cm 
+Arme d’assaut, +D3A , MA 
+Arme d’assaut, +1A, TT(D3) 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage Renforcé, Transport (12) : Boyz, Nobz, Wildboys, Peut embarquer six 
+unités de Gretchins/Wildgrots en plus des autres unités 
+ 
+Capacité de Dommages : 6, Touche Critique : Le tir enrage l’Orkeosaurus.  Il se déplace immédiatement en furie sur une distance de 3D6 cm dans une direction aléatoire ( ignorez les zones de contrôle et les 
+unités amies ou ennemies pendant ce déplacement, à la fin du mouvement, les unités sous le socle de l’Orkéosaurus sont placées au contact de celui-ci) et subit un point de dégât supplémentaire. Si ce 
+mouvement l'amène sur un terrain infranchissable, il s'arrête immédiatement et est détruit. S'il l'amène au contact d'une Machine de Guerre, il s'arrête immédiatement. Toute unité survolée ou contactée subit 
+un tir d'arme de type Macro-arme sur un résultat de 6+ au dé (D6). 
+ 
+Gargant à vapeur 
+EG 
+15cm 
+4+ 
+4+ 
+4+ 
+Point de Gork 
+0-2 Méga Kikoup' 
+0-2 Superkanons 
+45cm 
+(contact) 
+60cm 
+MA5+/AA5+, MA 
+Armes d'assaut, +1A, TT(D3) 
+2PB MA 
+Blindage renforcé, Marcheur, Sans Peur. Peut être équipé de 2 armes au choix 
+parmi Méga Kikoup’ et Superkanon. 
+ 
+Capacité de Dommages : 4, Touche Critique : Le gargant à vapeur explose. Toutes les unités dans un rayon de 2D6cm subissent une touche. 
+ 
+3 - CODEX ORKS SAUVAGES - EAFR - REV 1.1 

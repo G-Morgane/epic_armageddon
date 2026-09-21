@@ -1,0 +1,629 @@
+{
+ "codex": {
+  "id": "salamanders",
+  "name": "Salamanders",
+  "version": "1.1",
+  "faction": "Astartes",
+  "color": "#1a4d1a",
+  "logo": "salam.png",
+  "categorie": "armees-astartes",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 5,
+   "initiative_defaut": "1+",
+   "taille_transport": {
+    "tactiques": 1,
+    "devastators": 1,
+    "scouts": 1,
+    "terminator_assaut": 2
+   },
+   "capacite_transport": {
+    "razorback": 1,
+    "rhino": 2,
+    "land_raider": 2,
+    "land_raider_redeemer": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "commandant_sal",
+   "name": "Commandant",
+   "cout": 50,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Capitaine"
+    },
+    {
+     "name": "Maître de Chapitre",
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Chapelain"
+    },
+    {
+     "name": "Archiviste"
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_remplacement_sal",
+   "name": "Remplacer transports",
+   "cout": 0,
+   "limit": 1,
+   "IsNotOption": true,
+   "description": "Remplacer les Rhinos par 1 Dreadnought ou 1 Module d'atterrissage",
+   "choix": [
+    {
+     "id": "dreadnought",
+     "name": "Dreadnought",
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "rhino"
+      ],
+      "par_unite": "dreadnought",
+      "par_name": "Dreadnought",
+      "par_nombre": 1
+     }
+    },
+    {
+     "id": "module_atterrissage",
+     "name": "Module d'atterrissage",
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "rhino"
+      ],
+      "par_unite": "module_atterrissage",
+      "par_name": "Module d'atterrissage",
+      "par_nombre": 1
+     }
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "dreadnoughts_sal",
+   "name": "Dreadnought",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 2,
+   "unites": []
+  },
+  {
+   "id": "support_lourd_sal",
+   "name": "Support Lourd",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 2 véhicules de support lourd, dans n'importe quelle combinaison",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 2,
+    "description": "Choisir jusqu'à 2 véhicules de support lourd (combinaison libre)",
+    "options": [
+     {
+      "id": "sl_predator_destructor_sal_o",
+      "name": "Predator Destructor",
+      "unitId": "predator_destructor",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_predator_annihilator_sal_o",
+      "name": "Predator Annihilator",
+      "unitId": "predator_annihilator",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_vindicator_sal_o",
+      "name": "Vindicator",
+      "unitId": "vindicator",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_land_raider_sal_o",
+      "name": "Land Raider",
+      "unitId": "land_raider",
+      "cout": 75,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_land_raider_redeemer_sal_o",
+      "name": "Land Raider Redeemer",
+      "unitId": "land_raider_redeemer",
+      "cout": 75,
+      "min": 0,
+      "max": 2
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "razorback_sal",
+   "name": "Razorback",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 6 Razorbacks (Bolters Lourds ou Canons Laser, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 6,
+    "description": "Choisir jusqu'à 6 Razorbacks (combinaison libre)",
+    "options": [
+     {
+      "id": "razorback_sal_bolters_lourds",
+      "name": "Razorback Bolters Lourds",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 6
+     },
+     {
+      "id": "razorback_sal_canons_laser",
+      "name": "Razorback Canons Laser",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 6
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "razorback_scouts_sal",
+   "name": "Razorback",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 4 Razorbacks (Bolters Lourds ou Canons Laser, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 4,
+    "description": "Choisir jusqu'à 4 Razorbacks (combinaison libre)",
+    "options": [
+     {
+      "id": "razorback_scouts_sal_bolters_lourds",
+      "name": "Razorback Bolters Lourds",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "razorback_scouts_sal_canons_laser",
+      "name": "Razorback Canons Laser",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 4
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "sniper_sal",
+   "name": "Sniper",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "hunter_sal",
+   "name": "Hunter",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "teleportation_sal",
+   "name": "Téléportation",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "vindicator_sal",
+   "name": "Vindicator",
+   "cout": 65,
+   "cout_par_unite": true,
+   "limit": 2,
+   "unites": []
+  },
+  {
+   "id": "lr_terminator_sal",
+   "name": "Land Raiders",
+   "cout": 75,
+   "cout_par_unite": true,
+   "limit": 4,
+   "unites": [
+    {
+     "id": "land_raider",
+     "name": "Land Raider",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principale_sal",
+   "name": "DÉTACHEMENTS PRINCIPAUX SALAMANDERS",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "tactique_sal",
+     "name": "Tactique",
+     "cout": 300,
+     "FormationLimitationTag": {
+      "slot_soutien_sal_A": 3
+     },
+     "limiteOptionFormation": 3,
+     "description": "6 unités de Tactiques Salamanders + Rhinos",
+     "ameliorations": [
+      "commandant_sal",
+      "transport_remplacement_sal",
+      "dreadnoughts_sal",
+      "support_lourd_sal",
+      "razorback_sal",
+      "hunter_sal"
+     ],
+     "unites": [
+      {
+       "id": "tactiques",
+       "name": "Tactiques",
+       "nombre": 6
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "devastator_sal",
+     "name": "Devastator",
+     "cout": 250,
+     "FormationLimitationTag": {
+      "slot_soutien_sal_A": 3
+     },
+     "limiteOptionFormation": 3,
+     "description": "4 unités de Devastators Salamanders + Rhinos",
+     "ameliorations": [
+      "commandant_sal",
+      "transport_remplacement_sal",
+      "dreadnoughts_sal",
+      "support_lourd_sal",
+      "razorback_sal",
+      "hunter_sal"
+     ],
+     "unites": [
+      {
+       "id": "devastators",
+       "name": "Devastators",
+       "nombre": 4
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_sal",
+   "name": "DÉTACHEMENTS DE SOUTIEN SALAMANDERS",
+   "description": "Jusqu'à 3 Détachements de Soutien par Détachement principal",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_sal_A",
+   "formations": [
+    {
+     "id": "assaut_sal",
+     "name": "0-1 Assaut",
+     "cout": 175,
+     "FormationLimite": 1,
+     "description": "4 unités de Marines d'Assaut",
+     "ameliorations": [
+      "commandant_sal"
+     ],
+     "unites": []
+    },
+    {
+     "id": "terminator_sal",
+     "name": "Terminator",
+     "cout": 300,
+     "description": "4 unités de Terminators Salamanders",
+     "ameliorations": [
+      "commandant_sal",
+      "dreadnoughts_sal",
+      "lr_terminator_sal",
+      "teleportation_sal"
+     ],
+     "unites": [
+      {
+       "id": "terminator_assaut",
+       "name": "Terminators Salamanders",
+       "nombre": 4
+      }
+     ]
+    },
+    {
+     "id": "scouts_sal",
+     "name": "Scouts",
+     "cout": 150,
+     "description": "4 unités de Scouts + Rhinos",
+     "ameliorations": [
+      "commandant_sal",
+      "razorback_scouts_sal",
+      "sniper_sal"
+     ],
+     "unites": [
+      {
+       "id": "scouts",
+       "name": "Scouts",
+       "nombre": 4
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 2
+      }
+     ]
+    },
+    {
+     "id": "motos_sal",
+     "name": "0-1 Motos",
+     "cout": 200,
+     "FormationLimite": 1,
+     "description": "5 unités parmi : Motos, Motos d'Assaut",
+     "ameliorations": [
+      "commandant_sal"
+     ],
+     "unites": []
+    },
+    {
+     "id": "land_speeders_sal",
+     "name": "0-1 Land Speeders",
+     "cout": 200,
+     "FormationLimite": 1,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 5,
+      "description": "Choisir 5 Land Speeders (Tornado +5 pts/unité, Typhoon +15 pts/unité)",
+      "principale": true,
+      "options": [
+       {
+        "id": "land_speeder",
+        "name": "Land Speeder",
+        "unitId": "land_speeder",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "id": "land_speeder_tornado",
+        "name": "Land Speeder Tornado",
+        "unitId": "land_speeder_tornado",
+        "cout": 5,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "id": "land_speeder_typhoon",
+        "name": "Land Speeder Typhoon",
+        "unitId": "land_speeder_typhoon",
+        "cout": 15,
+        "min": 0,
+        "max": 5
+       }
+      ]
+     },
+     "ameliorations": [
+      "commandant_sal"
+     ],
+     "unites": []
+    },
+    {
+     "id": "land_raiders_sal",
+     "name": "Land Raiders",
+     "cout": 350,
+     "description": "4 Land Raiders et/ou Land Raiders Redeemer",
+     "ameliorations": [
+      "commandant_sal",
+      "vindicator_sal"
+     ],
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 4,
+      "max_total": 4,
+      "description": "Choisir 4 Land Raiders (Land Raider ou Land Raider Redeemer, combinaison libre)",
+      "options": [
+       {
+        "id": "lr_sal_land_raider",
+        "name": "Land Raider",
+        "unitId": "land_raider",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "id": "lr_sal_land_raider_redeemer",
+        "name": "Land Raider Redeemer",
+        "unitId": "land_raider_redeemer",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       }
+      ]
+     },
+     "unites": []
+    },
+    {
+     "id": "predators_sal",
+     "name": "Prédators",
+     "ameliorations": [
+      "commandant_sal",
+      "vindicator_sal"
+     ],
+     "variantes": [
+      {
+       "name": "4 Predators Destructor",
+       "cout": 225,
+       "nombre_exact": 4
+      },
+      {
+       "name": "4 Predators Annihilator",
+       "cout": 275,
+       "nombre_exact": 4
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "vindicators_sal",
+     "name": "Vindicators",
+     "cout": 250,
+     "description": "4 Vindicators",
+     "ameliorations": [
+      "commandant_sal"
+     ],
+     "unites": []
+    },
+    {
+     "id": "whirlwinds_sal",
+     "name": "0-1 Whirlwinds",
+     "cout": 300,
+     "FormationLimite": 1,
+     "description": "4 Whirlwinds",
+     "ameliorations": [
+      "commandant_sal",
+      "hunter_sal"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "flotte_sal",
+   "name": "FLOTTE SALAMANDERS",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "type": "rare",
+   "formations": [
+    {
+     "id": "thunderhawk_transporteurs_sal",
+     "name": "Thunderhawks Transporteurs",
+     "ameliorations": [],
+     "variantes": [
+      {
+       "name": "2 Thunderhawk Transporteurs",
+       "cout": 300,
+       "nombre_exact": 2
+      },
+      {
+       "name": "3 Thunderhawk Transporteurs",
+       "cout": 450,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "thunderhawk_sal",
+     "name": "Thunderhawk",
+     "cout": 225,
+     "description": "1 Thunderhawk",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "barge_debarquement_sal",
+     "name": "Barge de Débarquement",
+     "cout": 400,
+     "description": "1 Barge de Débarquement",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "stormtalons_sal",
+     "name": "Intercepteurs Stormtalons",
+     "ameliorations": [],
+     "variantes": [
+      {
+       "name": "2 Stormtalons Destructor",
+       "cout": 200,
+       "nombre_exact": 2
+      },
+      {
+       "name": "2 Stormtalons Annihilator",
+       "cout": 250,
+       "nombre_exact": 2
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "stormeagles_sal",
+     "name": "Stormeagles",
+     "cout": 275,
+     "description": "2 Stormeagles",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "caestus_sal",
+     "name": "Béliers d'Assaut Caestus",
+     "ameliorations": [],
+     "variantes": [
+      {
+       "name": "2 Caestus",
+       "cout": 250,
+       "nombre_exact": 2
+      },
+      {
+       "name": "3 Caestus",
+       "cout": 350,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "soutien_orbital_sal",
+     "name": "0-1 Soutien Orbital",
+     "FormationLimite": 1,
+     "ameliorations": [],
+     "variantes": [
+      {
+       "name": "1 Croiseur d'Attaque",
+       "cout": 200,
+       "nombre_exact": 1
+      },
+      {
+       "name": "1 Barge de Bataille",
+       "cout": 350,
+       "nombre_exact": 1
+      }
+     ],
+     "unites": []
+    }
+   ]
+  }
+ ]
+}

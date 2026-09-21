@@ -1,0 +1,811 @@
+# Death Korps de Krieg, transcrit depuis le PDF EAFR rev 1.5.1 (source de vérité).
+codex:
+  slug: death-korps-de-krieg
+  armee_id: da66e374-161f-4951-b366-44cb34ed4348
+  nom: Death Korps de Krieg
+  version: "1.5.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/death-korps-de-krieg.jpg
+  couleur: "#4a5240"
+  citation:
+    texte: "Heureux ceux qui tombent les premiers, car ils recevront la miséricorde de l'Empereur."
+    auteur: Colonel Von Stross, Commandant, 143ème Régiment de Siège
+  intro_md: |
+    La Death Korps of Krieg utilise les feuilles de référence de la Death Korps of Krieg, de l'Aeronautica Imperialis et de l'Adeptus Titanicus.
+
+    La liste qui suit vous permet de mettre sur pied une armée de l'Astra Militarum basée sur un régiment de la Death Korps of Krieg (DKoK).
+
+    Les formations de la DKoK sont de deux types : les compagnies et les formations de support. Chaque compagnie que vous incluez dans l'armée vous permet de mettre sur pied deux formations de support et un ensemble de positions fortifiées pour les seules compagnies QG et d'Infanterie. Vous ne pouvez prendre de formation de support que si vous avez pris au préalable une compagnie. Ces deux formations sont traitées indépendamment durant la bataille et vous n'avez pas à respecter les règles de cohésion.
+
+    En plus de cela, les compagnies peuvent recevoir 3 améliorations. Chaque amélioration ne peut être prise qu'une fois par compagnie. A l'inverse des formations de support, les améliorations font partie intégrante des compagnies. Les formations d'appui ne peuvent en principe pas recevoir d'améliorations, sauf celles indiquées dans la liste d'armée (par exemple : vous pouvez payer 100 pts pour ajouter un transport Gorgone à des Grenadiers qui sont une formation de support). Chaque amélioration est ajoutée au total du coût en point d'une compagnie.
+
+    Les armées de la DKoK peuvent être soutenues par la flotte de l'Aeronautica Imperialis et les légions de l'Adeptus Titanicus. 1/3 des points peuvent être dépensé pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Commissaires"
+      texte: |
+        Pour chaque Compagnie de la Death Korps of Krieg qu'inclut votre armée, un Commissaire est automatiquement intégré.
+
+        De plus, vous pouvez ajouter gratuitement un Commissaire dans une formation d'appui pour chaque tranche de 1 000 pts dans votre armée, hors appareils de la flotte et soutien titanique.
+    - titre: "Règle spéciale : Maître de sièges (DKOK)"
+      texte: |
+        Le QG Régimentaire et les Compagnies d'Infanterie permettent de prendre un ensemble de positions fortifiées. Ces positions fortifiées devront être déployées en garnison ou dans la zone de déploiement, lors de la phase de déploiement, et ne pourront être conservées en réserve d'aucune sorte.
+
+        Effets des Positions Fortifiées DKOK, dans l'ordre Infanterie / Véhicule / Engin de Guerre :
+
+        - **Tranchées (2)** : Couvert 4+ / Dangereux / Sans effet
+        - **Emplacement d'artillerie (1)** : Couvert 4+ / Couvert 5+ / Sans effet
+        - **Bunkers (2)** : Couvert 3+ / Infranchissable / Infranchissable
+        - **Barbelés** : Dangereux / Sans effet / Sans effet
+
+        Les (X) indiquent le nombre d'unités maximum pouvant occuper ces fortifications par tronçon de 4 cm de longueur.
+
+        Le joueur ayant la valeur stratégique la plus forte décide quel joueur déploie son premier set de Positions Fortifiées en alternance.
+
+        Les Positions Fortifiées doivent être placées après les Objectifs, mais avant que les Vaisseaux Spatiaux et les Garnisons ne se déploient.
+
+        Elles peuvent être placées partout où pourrait l'être un véhicule, dans la moitié de table du joueur actif.
+
+        Bien qu'elles soient des éléments de terrains, les Positions Fortifiées doivent respecter les règles de cohésion de formation entre elles (par exemple, vous pouvez diviser les tranchées en plusieurs éléments, du moment qu'il y a un espace maximum de 5 cm entre chaque élément).
+
+        Les Barbelés n'ont pas à être disposés en cohésion avec vos autres Positions Fortifiées, mais doivent respecter la cohésion entre eux.
+
+        Une fois positionnées, les Positions Fortifiées sont considérées comme un élément de terrain neutre et toute unité ayant la capacité à finir son mouvement à l'intérieur pourra l'occuper.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Brilliane Feldo."
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Soutiens de l'Adeptus Titanicus", valeur: "1+" }
+
+budgets:
+  - id: slot_appui
+    libelle: Formations d'appui
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations d'appui par Compagnie"
+  - id: slot_fortification
+    libelle: Fortifications
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 1 fortification par QG Régimentaire et Compagnie d'Infanterie"
+  - id: rare
+    libelle: Supports
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: commissaires_gratuits
+    libelle: Commissaires gratuits
+    capacite: { source: par_tranche, points: 1000 }
+    phrase_pdf: "1 Commissaire gratuit par tranche de 1 000 pts de l'armée, hors flotte et soutien titanique"
+
+unites:
+  # ---- Personnages ----
+  - id: commissaire
+    nom: Commissaire
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sans Peur]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: quartier_general
+    nom: Quartier Général DKOK
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Mitrailleuses Lourdes Jumelées (Inf), portee: 30cm, puissance: "AP5+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme]
+  - id: commandement
+    nom: Commandement DKOK
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Mitrailleuses Lourdes Jumelées (Inf), portee: 30cm, puissance: "AP5+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Commandant]
+  - id: commandement_death_riders
+    nom: Commandement Death Riders
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Lances Énergétiques, portee: (contact), puissance: "Arme d'Assaut, FeP" }
+    notes: [Infiltrateur, Montés, Commandant]
+  - id: fantassins
+    nom: Fantassins DKOK
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+  - id: grenadiers
+    nom: Grenadiers DKOK
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-Flammes Lourd (DKOK), portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Fusils Radiants Laser, portee: (15cm), puissance: Arme Légère }
+  - id: ingenieurs
+    nom: Ingénieurs DKOK
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier Taupe léger, portee: 30cm, puissance: "AP5+, IC" }
+      - { nom: Grenades à Gaz, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Tunneliers]
+  - id: death_riders
+    nom: Death Riders
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Pistolets Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Lances Énergétiques, portee: (contact), puissance: "Arme d'Assaut, FeP" }
+    notes: [Infiltrateur, Montés]
+  - id: appui_feu
+    nom: Appui-feu DKOK
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Mitrailleuses Lourdes Jumelées (Inf), portee: 30cm, puissance: "AP5+" }
+  - id: mortier_lourd
+    nom: Mortier Lourd DKOK
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Mortiers Lourds, portee: 30cm, puissance: "1PB, Ind" }
+  - id: quad_launcher
+    nom: Quad Launcher
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Quad Launcher, portee: 45cm, puissance: "AP4+/AC6+, Ind" }
+
+  # ---- Véhicules légers ----
+  - id: centaure
+    nom: Centaure
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Mitrailleuses Lourdes, portee: 30cm, puissance: "AP6+" }
+    notes: ["Transport (1) : Commandant, Fantassins, Grenadiers, Quad Launcher* ou Mortier lourd* (*vitesse réduite à 20cm)"]
+    transport: { capacite: 1, accepte: [commandement, fantassins, grenadiers, quad_launcher, mortier_lourd] }
+
+  # ---- Véhicules blindés ----
+  - id: canon_seisme
+    nom: Canon Séisme
+    type: VB
+    vitesse: 0cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Séisme, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+  - id: canon_medusa
+    nom: Canon Médusa
+    type: VB
+    vitesse: 0cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Médusa, portee: 60cm, puissance: "MA4+, IC" }
+  - id: canon_aa_lourd
+    nom: Canon Antiaérien Lourd
+    type: VB
+    vitesse: 0cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Lourd AA, portee: 60cm, puissance: "AP6+/AC5+/AA5+" }
+  - id: bombarde
+    nom: Bombarde
+    type: VB
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier de Siège, portee: 60cm, puissance: "2PB, Ind, Rchg, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: trojan
+    nom: Trojan
+    type: VB
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (1) : Canon Séisme ou Canon Médusa ou Canon AA Lourd"]
+    transport: { capacite: 1, accepte: [canon_seisme, canon_medusa, canon_aa_lourd] }
+  - id: chimere_storm
+    nom: Chimère Storm
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Lance-Flammes Lourd (DKOK), portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: ["Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [quartier_general, commandement, commandement_death_riders, fantassins, grenadiers, ingenieurs, death_riders, appui_feu, mortier_lourd, quad_launcher]
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_vanquisher
+    nom: Leman Russ Vanquisher
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Vanquisher, portee: 75cm, puissance: "AP4+/AC2+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_thunderer
+    nom: Leman Russ Thunderer
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Démolisseur (Thunderer), portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage Renforcé]
+
+  # ---- Engins de guerre ----
+  - id: silo_deathstrike
+    nom: Silo à missiles Deathstrike
+    type: EG
+    vitesse: 0cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Missile Deathstrike (DKOK), portee: "∞", puissance: "MA2+, TT (D6), Ind, Rchg" }
+    notes: [Sans Peur]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche MA4+." }
+  - id: gorgone
+    nom: Gorgone
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+      - { nom: 2x Mitrailleuses lourdes jumelées, portee: 30cm, puissance: "AP5+, Frt" }
+    notes: [Blindage Renforcé, Marcheur, "Transport (10) : Commandant Suprême, Commandant, Fantassins, Appui-feu"]
+    transport: { capacite: 10, accepte: [quartier_general, commandement, fantassins, appui_feu] }
+    degats: { cd: 3, critique: "Immobilisé, puis détruit au prochain dommage." }
+  - id: gorgone_mortiers
+    nom: Gorgone (Mortiers)
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: 2x Mortiers Gorgone, portee: 30cm, puissance: "1PB, Ind, Uniq, FrtF" }
+      - { nom: 2x Mitrailleuses lourdes jumelées, portee: 30cm, puissance: "AP5+, Frt" }
+    notes: [Blindage Renforcé, Marcheur, "Transport (10) : Commandant Suprême, Commandant, Fantassins, Appui-feu"]
+    transport: { capacite: 10, accepte: [quartier_general, commandement, fantassins, appui_feu] }
+    degats: { cd: 3, critique: "Immobilisé, puis détruit au prochain dommage." }
+  - id: macharius_commandement
+    nom: Char de Commandement Macharius
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canon Vanquisher, portee: 75cm, puissance: "AP4+/AC2+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: Mitrailleuses Lourdes Jumelées, portee: 30cm, puissance: "AP5+, Frt" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit." }
+  - id: macharius
+    nom: Macharius
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: Mitrailleuses Lourdes Jumelées, portee: 30cm, puissance: "AP5+, Frt" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit." }
+  - id: macharius_vulcain
+    nom: Macharius Vulcain
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Méga Bolter Vulcain (Macharius), portee: 45cm, puissance: "4xAP3+/AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: Mitrailleuses Lourdes Jumelées, portee: 30cm, puissance: "AP5+, Frt" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit." }
+  - id: baneblade
+    nom: Baneblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Super Obusier, portee: 75cm, puissance: "AP3+/AC3+" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Canon Démolisseur (FF), portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: shadowsword
+    nom: Shadowsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Volcano (FF), portee: 90cm, puissance: "MA2+, TT (D3), FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormsword
+    nom: Stormsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon de siège, portee: 30cm, puissance: "3PB, IC, FrtF" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+
+  # ---- Positions fortifiées (éléments de terrain, pas des unités de combat) ----
+  - id: tranchees
+    nom: Tranchées
+    type: Bat
+    notes:
+      - "Infanterie : Couvert 4+. Véhicule : Dangereux. Engin de Guerre : Sans effet."
+      - "2 unités maximum par tronçon de 4 cm de longueur."
+  - id: emplacement_artillerie
+    nom: Emplacement d'artillerie
+    type: Bat
+    notes:
+      - "Infanterie : Couvert 4+. Véhicule : Couvert 5+. Engin de Guerre : Sans effet."
+      - "1 unité maximum par tronçon de 4 cm de longueur."
+  - id: bunker
+    nom: Bunker
+    type: Bat
+    notes:
+      - "Infanterie : Couvert 3+. Véhicule : Infranchissable. Engin de Guerre : Infranchissable."
+      - "2 unités maximum par tronçon de 4 cm de longueur."
+  - id: barbeles
+    nom: Barbelés
+    type: Bat
+    notes:
+      - "Infanterie : Dangereux. Véhicule : Sans effet. Engin de Guerre : Sans effet."
+      - "Les Barbelés n'ont pas à être disposés en cohésion avec les autres Positions Fortifiées, mais doivent respecter la cohésion entre eux."
+
+options:
+  # ---- Améliorations de compagnie ----
+  - id: peloton_infanterie
+    nom: Peloton d'Infanterie
+    effet: { type: ajouter, cout: 100, unites: [{ unite: fantassins, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: peloton_appui_feu
+    nom: Peloton d'appui-feu
+    effet: { type: ajouter, cout: 100, unites: [{ unite: appui_feu, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: peloton_support
+    nom: Peloton de support
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: quad_launchers, nom: 4 Quads Launchers, cout: 125, unites: [{ unite: quad_launcher, nombre: 4 }] }
+        - { id: mortiers_lourds, nom: 4 Mortiers Lourds, cout: 125, unites: [{ unite: mortier_lourd, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: transport_siege
+    nom: Transport de Siège
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: gorgones, nom: 2 Gorgones, cout: 175, unites: [{ unite: gorgone, nombre: 2 }] }
+        - { id: gorgones_mortiers, nom: 2 Gorgones Mortiers, cout: 175, unites: [{ unite: gorgone_mortiers, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ne peut être ajouté qu'aux Compagnies QG ou d'Infanterie."
+  - id: escadron_hellhounds
+    nom: Escadron de Hellhounds
+    effet: { type: ajouter, cout: 150, unites: [{ unite: hellhound, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: escadron_leman_russ
+    nom: Escadron de Leman Russ
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: leman_russ, nom: 3 Leman Russ, cout: 175, unites: [{ unite: leman_russ, nombre: 3 }] }
+        - { id: thunderer, nom: 3 Leman Russ Thunderer, cout: 175, unites: [{ unite: leman_russ_thunderer, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: char_lourd
+    nom: Char Lourd
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: vulcain, nom: 1 Macharius Vulcain, cout: 150, unites: [{ unite: macharius_vulcain, nombre: 1 }] }
+        - { id: macharius, nom: 1 Macharius, cout: 125, unites: [{ unite: macharius, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+  # ---- Améliorations propres à certaines formations d'appui ----
+  - id: transport_grenadiers
+    nom: Transport des Grenadiers
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: centaures, nom: 8 Centaures, cout: 75, unites: [{ unite: centaure, nombre: 8 }] }
+        - { id: gorgone, nom: 1 Gorgone, cout: 100, unites: [{ unite: gorgone, nombre: 1 }] }
+        - { id: gorgone_mortiers, nom: 1 Gorgone Mortiers, cout: 100, unites: [{ unite: gorgone_mortiers, nombre: 1 }] }
+        - { id: chimeres, nom: 4 Chimères Storm, cout: 125, unites: [{ unite: chimere_storm, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: servants_batterie_lourde
+    nom: Emplacements ou Trojans
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: emplacements, nom: 3 emplacements d'artillerie, cout: 25, unites: [{ unite: emplacement_artillerie, nombre: 3 }] }
+        - { id: trojans, nom: 3 Trojans, cout: 25, unites: [{ unite: trojan, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: emplacements_bombardes
+    nom: Emplacements d'artillerie
+    effet: { type: ajouter, cout: 25, unites: [{ unite: emplacement_artillerie, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+  # ---- Commissaire gratuit ----
+  - id: commissaire_appui
+    nom: Commissaire
+    effet: { type: ajouter, cout: 0, unites: [{ unite: commissaire, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: consomme, budget: commissaires_gratuits }
+
+formations:
+  # ---- Compagnies ----
+  - id: qg_regimentaire
+    nom: QG Régimentaire
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: quartier_general, nombre: 1 }
+          - { unite: fantassins, nombre: 12 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: fournit, budget: slot_fortification, quantite: 1 }
+    options_plus: [transport_siege]
+  - id: compagnie_infanterie
+    nom: Compagnie d'Infanterie
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: commandement, nombre: 1 }
+          - { unite: fantassins, nombre: 12 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    contraintes: [{ type: fournit, budget: slot_fortification, quantite: 1 }]
+    options_plus: [transport_siege]
+  - id: compagnie_death_riders
+    nom: Compagnie de Death Riders
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - { unite: commandement_death_riders, nombre: 1 }
+          - { unite: death_riders, nombre: 11 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_artillerie
+    nom: Compagnie d'Artillerie
+    variantes:
+      - id: base
+        cout: 400
+        composition:
+          - choix:
+              total: 9
+              parmi: [{ unite: canon_aa_lourd }, { unite: canon_seisme }, { unite: canon_medusa }]
+              phrase_pdf: "9 unités parmi : Canon Antiaérien Lourd, Canon Séisme et Canon Medusa"
+          - { unite: emplacement_artillerie, nombre: 9 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_leman_russ
+    nom: Compagnie de Leman Russ
+    variantes:
+      - id: base
+        cout: 600
+        composition:
+          - { unite: leman_russ_vanquisher, nombre: 1 }
+          - { unite: leman_russ, nombre: 9 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_chars_lourds
+    nom: Compagnie de Chars Lourds
+    variantes:
+      - id: macharius
+        nom: 2 Macharius et 1 Char Lourd de Commandement Macharius
+        cout: 350
+        composition:
+          - { unite: macharius, nombre: 2 }
+          - { unite: macharius_commandement, nombre: 1 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+      - id: vulcains
+        nom: 3 Macharius Vulcain
+        cout: 350
+        composition:
+          - { unite: macharius_vulcain, nombre: 3 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+
+  # ---- Formations d'appui ----
+  - id: peloton_grenadiers
+    nom: Peloton de Grenadiers
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: grenadiers, nombre: 8 }] }
+    options_plus: [transport_grenadiers]
+  - id: peloton_ingenieurs
+    nom: Peloton d'Ingénieurs
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: ingenieurs, nombre: 6 }] }
+  - id: peloton_death_riders
+    nom: Peloton de Death Riders
+    phrase_pdf: "6 unités de Death Riders (toutes les unités gagnent la capacité Éclaireur)"
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: death_riders, nombre: 6 }] }
+  - id: silo_deathstrike
+    nom: Silo Deathstrike
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: silo_deathstrike, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: batterie_legere_support
+    nom: Batterie Légère de Support
+    variantes:
+      - id: quad_launchers
+        nom: 4 Quads Launchers et 4 Centaures
+        cout: 200
+        composition: [{ unite: quad_launcher, nombre: 4 }, { unite: centaure, nombre: 4 }]
+      - id: mortiers_lourds
+        nom: 4 Mortiers Lourds et 4 Centaures
+        cout: 200
+        composition: [{ unite: mortier_lourd, nombre: 4 }, { unite: centaure, nombre: 4 }]
+  - id: batterie_lourde_support
+    nom: Batterie Lourde de Support
+    variantes:
+      - { id: seisme, nom: 3 Canons Séisme, cout: 150, composition: [{ unite: canon_seisme, nombre: 3 }] }
+      - { id: medusa, nom: 3 Canons Medusa, cout: 150, composition: [{ unite: canon_medusa, nombre: 3 }] }
+      - { id: aa, nom: 3 Canons Antiaériens Lourds, cout: 100, composition: [{ unite: canon_aa_lourd, nombre: 3 }] }
+    options_plus: [servants_batterie_lourde]
+  - id: batterie_lourde_siege
+    nom: Batterie Lourde de Siège
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: bombarde, nombre: 3 }] }
+    options_plus: [emplacements_bombardes]
+  - id: peloton_hellhounds
+    nom: Peloton de Hellhounds
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: hellhound, nombre: 6 }] }
+  - id: peloton_leman_russ
+    nom: Peloton de Leman Russ
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: leman_russ, nombre: 6 }] }
+  - id: peloton_super_lourd
+    nom: Peloton de Char Super Lourd
+    variantes:
+      - { id: shadowsword, nom: 1 Shadowsword, cout: 200, composition: [{ unite: shadowsword, nombre: 1 }] }
+      - { id: baneblade, nom: 1 Baneblade, cout: 200, composition: [{ unite: baneblade, nombre: 1 }] }
+      - { id: stormsword, nom: 1 Stormsword, cout: 200, composition: [{ unite: stormsword, nombre: 1 }] }
+
+  # ---- Fortifications ----
+  - id: positions_fortifiees
+    nom: Positions fortifiées
+    phrase_pdf: "Jusqu'à 80cm de Tranchées, 3 Bunkers et jusqu'à 80cm de Barbelés"
+    variantes:
+      - id: base
+        cout: 100
+        composition:
+          - { unite: tranchees, nombre: 1 }
+          - { unite: bunker, nombre: 3 }
+          - { unite: barbeles, nombre: 1 }
+
+sections:
+  - id: compagnies
+    titre: COMPAGNIES DE LA DEATH KORPS DE KRIEG
+    formations: [qg_regimentaire, compagnie_infanterie, compagnie_death_riders, compagnie_artillerie, compagnie_leman_russ, compagnie_chars_lourds]
+    contraintes:
+      - { type: max_options, valeur: 3 }
+      - { type: fournit, budget: slot_appui, quantite: 2 }
+    options: [peloton_infanterie, peloton_appui_feu, peloton_support, escadron_hellhounds, escadron_leman_russ, char_lourd]
+    tableau_options:
+      titre: AMÉLIORATIONS DE LA DEATH KORPS DE KRIEG
+      sous_titre: "Jusqu'à 3 améliorations différentes par Compagnie"
+  - id: appui
+    titre: FORMATIONS D'APPUI DE LA DEATH KORPS DE KRIEG
+    contraintes: [{ type: consomme, budget: slot_appui }]
+    options: [commissaire_appui]
+    formations: [peloton_grenadiers, peloton_ingenieurs, peloton_death_riders, silo_deathstrike, batterie_legere_support, batterie_lourde_support, batterie_lourde_siege, peloton_hellhounds, peloton_leman_russ, peloton_super_lourd]
+  - id: fortifications
+    titre: FORTIFICATIONS DE LA DEATH KORPS DE KRIEG
+    contraintes: [{ type: consomme, budget: slot_fortification }]
+    formations: [positions_fortifiees]
+  - id: aeronautica
+    titre: FLOTTES DE L'AERONAUTICA IMPERIALIS
+    sous_titre: "SUPPORTS DE LA DEATH KORPS DE KRIEG"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: []
+    allies: { codex: aeronautica-imperialis }
+  - id: titanicus
+    titre: SOUTIENS DE L'ADEPTUS TITANICUS
+    sous_titre: "SUPPORTS DE LA DEATH KORPS DE KRIEG"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "1+" }]
+    formations: []
+    allies: { codex: adeptus-titanicus }
+
+listes_test:
+  - nom: "3000 pts valide, QG, infanterie, appuis et fortification"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: qg_regimentaire
+        options:
+          - { option: peloton_infanterie }
+          - { option: transport_siege, variante: gorgones }
+      - formation: compagnie_infanterie
+        options: [{ option: peloton_appui_feu }]
+      - { formation: positions_fortifiees }
+      - formation: peloton_grenadiers
+        options:
+          - { option: transport_grenadiers, variante: centaures }
+          - { option: commissaire_appui }
+      - formation: batterie_lourde_support
+        variante: seisme
+        options: [{ option: servants_batterie_lourde, variante: emplacements }]
+      - formation: peloton_leman_russ
+        options: [{ option: commissaire_appui }]
+      - { formation: titan_warhound }
+  - nom: "2000 pts valide, artillerie et chars lourds"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: compagnie_artillerie
+        choix: { "0": { canon_seisme: 5, canon_medusa: 4 } }
+      - { formation: compagnie_chars_lourds, variante: vulcains }
+      - formation: batterie_lourde_siege
+        options: [{ option: emplacements_bombardes }]
+      - { formation: silo_deathstrike }
+  - nom: "formation d'appui sans compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: peloton_leman_russ }
+  - nom: "quatre améliorations sur une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: compagnie_infanterie
+        options:
+          - { option: peloton_infanterie }
+          - { option: peloton_appui_feu }
+          - { option: peloton_support, variante: quad_launchers }
+          - { option: escadron_hellhounds }
+  - nom: "Transport de Siège sur une Compagnie de Leman Russ"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: compagnie_leman_russ
+        options: [{ option: transport_siege, variante: gorgones }]
+  - nom: "quota de commissaires gratuits dépassé"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: peloton_death_riders, options: [{ option: commissaire_appui }] }
+      - { formation: peloton_ingenieurs, options: [{ option: commissaire_appui }] }
+  - nom: "fortification sans QG ni Compagnie d'Infanterie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_death_riders }
+      - { formation: positions_fortifiees }
+  - nom: "supports au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: titan_warlord }

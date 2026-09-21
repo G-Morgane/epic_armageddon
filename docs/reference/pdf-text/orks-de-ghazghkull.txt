@@ -1,0 +1,662 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+ORKS DE GHAZGHKULL 
+ 
+ 
+"CHUI L’TOUT PUISSAN SAIGNEUR GHAZGHKULL MAG URUK 
+THRAKA, ET CH’KOZ AVEK LA VOIX DÉ DIEUS ON VA 
+KRABOUILLÉ L’UNIVERS ET TUÉ TOU CEU KI S’RBIFRON ET ON 
+L’FRA A KAUZ KON É DÉ ZORKS ET KON É FÉ POUR S’BATT ET 
+GAGNER"  
+Graffiti trouvé par des Dark Angels sur les débris d’un Titan 
+Warlord à Westerisle, sur Piscina IV  
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous autorise à mettre sur pied une WAAAGH!  
+d’Orks basée sur celle de GHAZGHKULL MAD URUK THRAKA 
+lors de  la IIIème Guerre pour Armageddon. Cette liste peut 
+également être utilisée pour représenter d’autres armées orks 
+comme celles de DREGRUK ou GATHROG.  
+Les armées des Orks sont organisées autour de grandes 
+formations appelées bandes, qui peuvent s’acheter selon 3 
+tailles, la bande normale, la mastok (doubler l’effectif de 
+départ) ou la tré mastok (tripler l’effectif de départ). 
+Chaque bande peut recevoir des kust’oms. La liste d’armée 
+indique pour chaque catégorie de bande quels kust’oms sont 
+autorisés. Chaque kust’om autorisé peut être pris un nombre 
+illimité de fois par bande, sauf s’il est fait état d’une limitation 
+de kust’om. Les limitations de kust’om sont multipliées de la 
+même façon que l’effectif de départ, ainsi si un Kulte d’la 
+Vitesse 
+normal 
+ne 
+peut 
+accueillir 
+qu’un 
+Brikolo 
+supplémentaire, un Kulte d’la Vitesse tré mastok peut en 
+inclure jusqu’à 3. Les kust’oms font partie intégrante des 
+bandes et doivent en respecter la cohésion. 
+Les truk’eud’meks sont des formations autonomes des 
+bandes. Un maximum de ⅓ des points de l’armée peuvent 
+être dépensés pour ces formations. 
+ 
+Règle spéciale : DA BIG BOSS 
+Chaque armée Ork doit inclure une unité de commandant 
+suprême appelée Big Boss. Cette unité est gratuite et doit 
+obligatoirement rejoindre un Grand Gargant. S’il n’y en a 
+pas, le Big Boss rejoindra un Gargant ou un socle de Nobz. 
+Règle spéciale : POUVOIR DE LA WAAAGH! 
+Les Orks ne sont pas de fins stratèges mais la perspective 
+d'une bonne bagarre les galvanise toujours. Afin de 
+représenter ceci, une formation tentant une action 
+d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son 
+test d'action. 
+Les formations aériennes ont +2 de bonus pour les tests 
+d'actions lorsqu'elles tentent une Interception ou une 
+Attaque au sol. 
+Règle spéciale : R’MISE EN BANDE 
+Lorsque les bandes Orks tentent un test de ralliement, ils 
+reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 
+lorsqu'ils sont plus de 10. Les engins de guerre faisant 
+partie de ces bandes comptent pour autant d'unités que 
+leur capacité de dommage de départ. Ne sont pas 
+comptabilisables dans le calcul ni les Gretchins ni les 
+Groskalibr'. 
+Règle spéciale : CHAMP ÉNERGÉTIQUE 
+Certains engins de guerre Orks possèdent des champs 
+énergétiques. Le nombre dont en dispose chaque engin est 
+indiqué sur sa fiche d’unité. Les champs énergétiques 
+fonctionnent de la même manière que les Boucliers du 
+Vide des impériaux, à la différence qu’une fois abattus, ils 
+ne sont pas réparables et restent donc inactifs jusqu’à la fin 
+de la bataille. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Emblème de guerre du Klan Goff 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture rasmusillustration.
+ 
+1 - CODEX ORKS - EAFR - REV 1.7.1 
+
+===== PAGE 3 =====
+ 
+LISTE D'ARMÉE ORKS - WAAAGH! EUD’ GHAZGHKULL 
+Les armées Orks de Ghazghkull ont une valeur stratégique de 3. Toutes les formations Orks de Ghazghkull, ont une initiative de 
+3+ mais reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la 
+Waaagh!) ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande). 
+BANDES ORKS 
+(Chaque formation peut être prise dans l'une des tailles autorisées) 
+Formations 
+Unités 
+Coût 
+Bande de Guerre 
+2 unités de Nobz, 6 unités de Boyz, 2 unités de Gretchins 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+350 pts 
+500 pts 
+ 
+KUST'OM 0-2 Boyz (plus une unité de gretchins gratuite), Kommandos, Chokboyz, 
+Grokalibr’, Moto, Buggy, Karbonisator,,Chariot de Guerre, Boit’ kitu 
+Kopter, Dreadnought, Chariot Kanon, Chariot Flak, 0-1 Nobz 
+Krabouillators, 0-1 Brikolo 
+Forteresse de bataille ou à Kanon 
+(+25 pts chacun) 
+(+25 pts chacun) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+(+125 pts chacun) 
+Kulte d’la Vitesse 
+8 unités parmi : Buggy, Motos, Karbonisators 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+350 pts 
+500 pts 
+ 
+KUST'OM 
+Moto, Buggy, Karbonisator 
+Kopter, Chariot Kanon, Chariot Flak 
+0-1 Brikolo 
+(+25 pts chacun) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+Brigade Blitz 
+4 unités parmi : Chariots Kanons, Chariots Flak, Kopters 
+Normale 
+Mastok' 
+Tré Mastok' 
+150 pts 
+250 pts 
+350 pts 
+ 
+KUST'OM 
+Moto, Buggy, Karbonisator 
+Kopter, Chariot Kanon , Chariot Flak 
+0-1 Brikolo 
+0-1 Forteresse à Kanon 
+(+25 pts chacun) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+(+125 pts chacun) 
+Batterie de Grokalibr' 
+5 unités de Grokalibr' 
+Normale 
+Mastok' 
+Tré Mastok' 
+125 pts 
+225 pts 
+325 pts 
+ 
+KUST'OM 
+Grokalibr’, Chariot de Guerre 
+Chariot Flak, 0-1 Nobz 
+0-1 Brikolo 
+(+25 pts chacun) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+Bande de Chokboyz 
+6 unités de Chokboyz 
+Normale 
+Mastok' 
+Tré Mastok' 
+150 pts 
+- 
+- 
+ 
+KUST'OM 
+Kommandos, Chokboyz, Buggy, Moto, Karbonisator 
+Kopter 
+(+25 pts chacun) 
+(+50 pts la paire) 
+Bande de Kommandos 
+6 unités de Kommandos 
+Normale 
+Mastok' 
+Tré Mastok' 
+150 pts 
+- 
+- 
+ 
+KUST'OM 
+Kommandos, 
+(+25 pts chacun) 
+Bande de Krabouillators 
+4 unités de Krabouillators 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+400 pts 
+550 pts 
+ 
+KUST'OM 
+Boit’ kitue 
+Dreadnought, Chariot Flak 
+Krabouillators 
+(+25 pts chacun) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+Bande du Super Krabouillator 
+1 Super Krabouillator et 4 unités de Krabouillators 
+Normale 
+Mastok' 
+Tré Mastok' 
+500 pts 
+- 
+- 
+ 
+KUST'OM 
+Boit’ kitue 
+Dreadnought, Chariot Flak 
+Krabouillators 
+(+25 pts chacun) 
+(+50 pts la paire) 
+(+50 pts chacun) 
+ 
+TRUK'EUD'MEK 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Super Krabouillator 
+1 Super Krabouillator 
+300 pts 
+ 
+Chassa-Bombas 
+4 à 9 Chassa-Bombas 
+50 pts chacun 
+Gargant 
+1 Gargant 
+650 pts 
+ 
+Vesso de Débark'ment 
+1 Vesso de Debark'ment 
+250 pts 
+Grand Gargant 
+1 Grand Gargant 
+850 pts 
+ 
+Kroiseur 
+1 Kroiseur Kitu 
+ou 1 Kroiseur d'la Mort 
+200 pts 
+250 pts 
+ 
+ 
+ 
+2 - CODEX ORKS - EAFR - REV 1.7.1 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES DÉZ ORKS DE GHAZGHKULL 
+Nom 
+Type 
+Vitesse 
+Blindage 
+CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Big Boss 
+Perso - 
+- 
+- 
+- 
+Big Gros Kikoup' 
+(contact) Armes d’assaut, +1A, MA 
+Commandant Suprême 
+Nobz 
+Inf 
+15cm 
+4+ 
+3+ 5+ 2x Gros Fling’ 
+Ch’ti Fling’ 
+Gros Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut, +1A 
+Meneur 
+Boyz 
+Inf 
+15cm 
+6+ 
+4+ 6+ Gros Fling’ 
+Ch’ti Fling’ 
+Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut 
+- 
+Gretchins 
+Inf 
+15cm 
+- 
+6+ 6+ Ch’ti Fling’ 
+(15cm) 
+Armes légères 
+Les formations incluant au moins une unité d’Ork ne reçoivent pas de pions d’impact pour les unités 
+de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d’un assaut 
+Chokboyz 
+Inf 
+30cm 
+6+ 
+4+ 6+ Ch’ti Fling’ 
+Kikoup' 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d’assaut 
+Éclaireurs, Réacteurs dorsaux 
+Kommandos 
+Inf 
+15cm 
+6+ 
+4+ 6+ Gros Fling’ 
+Ch’ti Fling’ 
+Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut 
+Éclaireurs, Infiltrateurs 
+Brikolo 
+Perso - 
+- 
+- 
+- 
+SOIT Super Zap 
+SOIT Superkanon 
+60cm 
+60cm 
+MA3+, TT (D3) 
+2PB MA, FrtF 
+Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un 
+de ses Gros Kanons ou Grokalibr’ en Super Zap ou Superkanon 
+Grokalibr’ 
+Inf 
+10cm 
+- 
+6+ 5+ Grokalibr' 
+45cm 
+AP5+/AC5+ 
+- 
+Motos 
+Inf 
+35cm 
+5+ 
+4+ 6+ Fling' jumelés 
+15cm 
+AP5+/AC5+ 
+Montés 
+Buggy / Trak 
+VL 
+35cm 
+5+ 
+5+ 5+ Gros Fling’ jumelés 30cm 
+AP5+/AC5+ 
+- 
+Karbonisator 
+VL 
+35cm 
+5+ 
+6+ 5+ Karbonisator 
+15cm 
+(15cm) 
+AP4+, IC 
+Armes légères, IC 
+- 
+Kopter 
+VL 
+35cm 
+4+ 
+6+ 5+ Ch'ti Kanon 
+30cm 
+AP5+/AC6+ 
+Antigrav 
+Chariot de Guerre VB 
+30cm 
+5+ 
+5+ 5+ Ch’ti Kanon 
+30cm 
+AP5+/AC6+ 
+Transport (2) : Boyz, Nobz, Kommandos, Grokalibrs’ (peut remplacer une des deux unités transportées). 
+Peut embarquer une unité de Gretchins en plus des autres unités 
+Chariot Kanon 
+VB 
+30cm 
+5+ 
+5+ 5+ Gros Kanon 
+45cm 
+AP5+/AC5+ 
+Transport (1) : Boyz, Kommandos, Gretchins, Nobz, Grokalibr' 
+Chariot Flak 
+VB 
+30cm 
+5+ 
+5+ 5+ Kanon flak 
+30cm 
+AP5+/AC6+/AA5+ 
+Transport (1) : Boyz, Kommandos, Gretchins, Nobz, Grokalibr' 
+Forteresse de 
+Bataille 
+EG 
+30cm 
+5+ 
+4+ 4+ 4x Ch’ti Kanon 
+Gros Kanon 
+30cm 
+45cm 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage renforcé, Transport (8) : Boyz, Nobz, Kommandos, Grokalibr’. Peut embarquer quatre unités de 
+Gretchins en plus des autres unités. 
+CD3 – Critique : Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes 
+les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+. 
+Forteresse à 
+Kanons 
+EG 
+30cm 
+5+ 
+4+ 4+ 5x Ch’ti Kanon 
+3x Gros Kanon 
+30cm 
+45cm 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage renforcé, Transport (4) : Boyz, Nobz, Kommandos, Grokalibr’. Peut embarquer quatre unités de 
+Gretchins en plus des autres unités. 
+CD3 – Critique : Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes 
+les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+. 
+Boit'Kitu 
+VB 
+15cm 
+5+ 
+4+ 6+ Gros Fling’ 
+Pince de kombat 
+30cm 
+(contact) 
+AP6+/AC6+ 
+Armes d’assaut, +1A, MA 
+Marcheur 
+Dreadnought 
+VB 
+15cm 
+4+ 
+4+ 5+ Gros Kanon 
+Pince de kombat 
+45cm 
+(contact) 
+AP5+/AC5+ 
+Armes d’assaut, +1A, MA 
+Marcheur 
+ 
+3 - CODEX ORKS - EAFR - REV 1.7.1 
+
+===== PAGE 5 =====
+ 
+ 
+Nom 
+Type 
+Vitesse 
+Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Krabouillator 
+VB 
+15cm 
+4+ 
+3+ 
+4+ 2-3 Gros Kanon 
+0-1 Marto de kombat 
+et 
+45cm 
+30cm 
+(contact) 
+AP5+/AC5+ 
+AP5+/AC6+ 
+Armes d'assaut, +1A, MA 
+Blindage renforcé, Marcheur. Peut être équipé de 3 Gros kanons ou de 2 Gros kanons et 1 
+Marto de kombat. 
+Super 
+Krabouillator 
+EG 
+15cm 
+4+ 
+4+ 
+4+ Regard de Mork 
+2-3 Superkanons 
+0-1 Méga kikoup' 
+30cm 
+60cm 
+45cm 
+(contact) 
+MA4+, TT (1) 
+2PB MA, FrtF 
+AP5+/AC5+, FrtF 
+Armes d’assaut, +1A, TT (D3) 
+Blindage renforcé, Marcheur, Sans Peur. 
+CD4 / Champs Énergétiques : 1D3 – Critique : La tête du Super Krabouillator explose, tuant le 
+Kaptaine. Il subit une pénalité de -1 pour toucher sur ses tirs. Les critiques suivants causeront 
+1 point de dommage supplémentaire. 
+Peut être équipé de 3 Superkanons ou 2 Superkanons et 1 Méga Kikoup' 
+ 
+ 
+FEUILLE DE RÉFÉRENCE DÉ TRUK'EUD'MEK 
+ 
+ 
+ 
+Nom 
+Type 
+Vitesse 
+Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Gargant 
+EG 
+15cm 
+4+ 
+3+ 3+ Regard de Mork 
+2-3 Superkanons 
+0-1 Super Zap 
+0-1 Méga kikoup' 
+30cm 
+60cm 
+60cm 
+45cm 
+(contact) 
+MA4+, TT (1) 
+2PB MA, FrtF 
+MA3+, TT (D3) 
+AP5+/AC5+, FrtF 
+Armes d’assaut, +1A, TT (D3) 
+Blindage renforcé, Sans peur, Marcheur. 
+CD8 / Champs Énergétiques :1D3+3 – Critique : Le Gargant subit un incendie, jetez 1D6 pour 
+chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur 
+un résultat de 5 / 6, le feu s'éteint. Tout incendie non éteint cause 1 point de dommage à la fin 
+de la phase d'action. 
+Peut être équipé de 3 Superkanons ou 2 Superkanons et soit 1 Méga kikoup', soit 1 Super Zap 
+Grand Gargant 
+EG 
+15cm 
+4+ 
+3+ 3+ Regard de Mork 
+2x Gros Kanon 
+Superkanon 
+1-2 Superkanons Jumelés 
+0-1 Leva lacha 
+30cm 
+45cm 
+60cm 
+60cm 
+60cm 
+(contact) 
+MA4+, TT (1) 
+AP5+/AC5+ 
+2PB MA, FrtF 
+3PB, MA, FrtF 
+MA3+, TT (D3), FrtF 
+Armes d’Assaut, +1A, TT (D3) 
+Blindage renforcé, Sans peur, Marcheur. 
+CD12 / Champs Énergétiques : 1D6+6 – Critique : Le Gargant subit un incendie, jetez 1D6 pour 
+chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur 
+un résultat de 5 / 6, le feu s'éteint. Tout incendie non éteint cause 1 point de dommage 
+supplémentaire. 
+Peut être équipé de 2 Superkanons jumelés ou d'1 Superkanon jumelé et d'1 Leva lacha 
+Chassa-Bomba 
+A 
+CB 
+6+ 
+- 
+- 
+Aéro Fling’ 
+Rokettes Kass’Tank 
+15cm 
+30cm 
+AP5+/AA5+, FrtF 
+AC4+, FrtF 
+- 
+Vesso de 
+Débark'ment 
+A/EG 
+B 
+5+ 
+6+ 4+ Tourelles 
+2x Rokettes Kass’Tank 
+15cm 
+30cm 
+D6+3xAP5+/AA6+ 
+AC4+, FrtF 
+CD3 – Critique : L’appareil s’écrase au sol, tuant tous ses occupants. 
+Blindage Renforcé, Assaut Planétaire, Transport (Peut transporter dix unités parmi : Boyz, 
+Nobz, Kommandos, Chokboyz, Motos, Buggy, Karbonisator, Kopter, Boit’Kitu, Dreadnought. Les 
+Dreadnoughts et les Véhicules Légers occupent deux places. Peut embarquer quatre unités de 
+Gretchins en plus des autres unités) 
+Kroiseur Kitu 
+V 
+- 
+- 
+- 
+- 
+Missiles Pulsors (Kitu) 
+∞ 
+D6+1PB MA 
+- 
+Kroiseur d'la Mort 
+V 
+- 
+- 
+- 
+- 
+Missiles Pulsors (d'la Mort) ∞ 
+D6+3PB MA 
+Transport : Peut transporter 12 Vesso de Débark'ment plus les troupes qu'ils transportent. 
+Lent, ne peut être utilisé lors du premier ou deuxième tour de la partie. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX ORKS - EAFR - REV 1.7.1 
+
+===== PAGE 6 =====
+ 
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+ 
+5 - CODEX ORKS - EAFR - REV 1.7.1 

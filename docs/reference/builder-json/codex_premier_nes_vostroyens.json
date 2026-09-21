@@ -1,0 +1,1089 @@
+{
+ "codex": {
+  "id": "premier_nes_vostroyens",
+  "name": "Premier-nés Vostroyens",
+  "version": "1.4",
+  "faction": "Impérium",
+  "color": "#610505",
+  "logo": "vostro.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "label_rares": "Soutien du Munitorum",
+   "valeur_strategique": 2,
+   "initiative_defaut": "2+",
+   "commissaire_quota_soutien": {
+    "points_par_tranche": 1000
+   },
+   "taille_transport": {
+    "gardes_imperiaux": 1,
+    "quartier_general": 1,
+    "commandement": 1,
+    "ratlings": 1,
+    "ogryns": 2,
+    "tempestus_scions": 1
+   },
+   "capacite_transport": {
+    "chimere": 2,
+    "crassus": 6,
+    "taurox": 1,
+    "taurox_prime": 1
+   }
+  },
+  "statut": "validation"
+ },
+ "ameliorations": [
+  {
+   "id": "commandant_supreme_qg_vn",
+   "name": "0-1 Commandant Suprême",
+   "cout": 0,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "description": "Ajoutez la Note Commandant Suprême à une unité",
+   "unites": []
+  },
+  {
+   "id": "commandant_supreme_vn",
+   "name": "0-1 Commandant Suprême",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "description": "Ajoutez la Note Commandant Suprême à une unité",
+   "unites": []
+  },
+  {
+   "id": "escadron_chars_vn",
+   "name": "Escadron de Chars",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "id": "lr_3_vn",
+     "name": "3 Leman Russ",
+     "cout": 175,
+     "unit_stat_name": "Leman Russ"
+    },
+    {
+     "id": "lr_executioner_3_vn",
+     "name": "3 Leman Russ Executioner",
+     "cout": 175,
+     "unit_stat_name": "Leman Russ Executioner"
+    },
+    {
+     "id": "lr_conqueror_3_vn",
+     "name": "3 Leman Russ Conqueror",
+     "cout": 150,
+     "unit_stat_name": "Leman Russ Conqueror"
+    },
+    {
+     "id": "lr_demolisseur_3_vn",
+     "name": "3 Leman Russ Démolisseurs",
+     "cout": 225,
+     "unit_stat_name": "Leman Russ Démolisseur"
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "hellhounds_vn",
+   "name": "3 Hellhounds",
+   "cout": 150,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "hellhound",
+     "name": "Hellhound",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "hydre_vn",
+   "name": "1 Hydre",
+   "cout": 50,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "hydre",
+     "name": "Hydre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "taurox_mecanisee_vn",
+   "name": "Remplacer Chimères : Taurox",
+   "cout": 0,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "taurox",
+    "par_name": "Taurox",
+    "par_nombre": 7
+   },
+   "unites": [
+    {
+     "id": "taurox",
+     "name": "Taurox",
+     "nombre": 7
+    }
+   ]
+  },
+  {
+   "id": "taurox_prime_mecanisee_vn",
+   "name": "Remplacer Chimères : Taurox Prime (5 pts/Chimère)",
+   "cout": 35,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "taurox_prime",
+    "par_name": "Taurox Prime",
+    "par_nombre": 7
+   },
+   "unites": [
+    {
+     "id": "taurox_prime",
+     "name": "Taurox Prime",
+     "nombre": 7
+    }
+   ]
+  },
+  {
+   "id": "crassus_mecanisee_vn",
+   "name": "Remplacer Chimères : Crassus (25 pts/3 Chimères)",
+   "cout": 50,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "crassus",
+    "par_name": "Crassus",
+    "par_nombre": 2,
+    "max_remplace": 6
+   },
+   "unites": [
+    {
+     "id": "crassus",
+     "name": "Crassus",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "taurox_peloton_vn",
+   "name": "Remplacer Chimères : Taurox",
+   "cout": 0,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "taurox",
+    "par_name": "Taurox",
+    "par_nombre": 3
+   },
+   "unites": [
+    {
+     "id": "taurox",
+     "name": "Taurox",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "taurox_prime_peloton_vn",
+   "name": "Remplacer Chimères : Taurox Prime (5 pts/Chimère)",
+   "cout": 15,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "taurox_prime",
+    "par_name": "Taurox Prime",
+    "par_nombre": 3
+   },
+   "unites": [
+    {
+     "id": "taurox_prime",
+     "name": "Taurox Prime",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "crassus_peloton_vn",
+   "name": "Remplacer Chimères : Crassus (25 pts/3 Chimères)",
+   "cout": 25,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "crassus",
+    "par_name": "Crassus",
+    "par_nombre": 1
+   },
+   "unites": [
+    {
+     "id": "crassus",
+     "name": "Crassus",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "taurox_tempestus_vn",
+   "name": "Remplacer Chimères : Taurox",
+   "cout": 0,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "taurox",
+    "par_name": "Taurox",
+    "par_nombre": 4
+   },
+   "unites": [
+    {
+     "id": "taurox",
+     "name": "Taurox",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "taurox_prime_tempestus_vn",
+   "name": "Remplacer Chimères : Taurox Prime (5 pts/Chimère)",
+   "cout": 20,
+   "limit": 1,
+   "type_remplacement": {
+    "remplace_tout": true,
+    "remplace_unites": [
+     "chimere"
+    ],
+    "par_unite": "taurox_prime",
+    "par_name": "Taurox Prime",
+    "par_nombre": 4
+   },
+   "unites": [
+    {
+     "id": "taurox_prime",
+     "name": "Taurox Prime",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "commissaire_vn",
+   "name": "Commissaire",
+   "cout": 0,
+   "limit": 1,
+   "commissaire": true,
+   "regle_quota": "commissaire_quota_soutien",
+   "description": "Ajouter un Commissaire à la formation (1 gratuit par tranche de 1000 pts de compagnies)",
+   "unites": [
+    {
+     "id": "commissaire",
+     "name": "Commissaire",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "compagnies_vn",
+   "name": "COMPAGNIE DES PREMIERS-NÉS VOSTROYENS",
+   "description": "Jusqu'à 2 formations d'appui par compagnie / Jusqu'à 3 améliorations différentes par compagnie",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "qg_regimentaire_vn",
+     "name": "0-1 Compagnie de Commandement",
+     "cout": 600,
+     "FormationLimite": 1,
+     "FormationLimitationTag": {
+      "slot_appui_vn_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "leviathan",
+       "name": "Léviathan",
+       "nombre": 1
+      },
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 12
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_qg_vn",
+      "escadron_chars_vn",
+      "hellhounds_vn",
+      "hydre_vn"
+     ]
+    },
+    {
+     "id": "infanterie_mecanisee_vn",
+     "name": "Compagnie d'Infanterie Mécanisée",
+     "cout": 400,
+     "FormationLimitationTag": {
+      "slot_appui_vn_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "commandement",
+       "name": "Commandement",
+       "nombre": 1
+      },
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 12
+      },
+      {
+       "id": "chimere",
+       "name": "Chimère",
+       "nombre": 7
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_vn",
+      "taurox_mecanisee_vn",
+      "taurox_prime_mecanisee_vn",
+      "crassus_mecanisee_vn",
+      "escadron_chars_vn",
+      "hellhounds_vn",
+      "hydre_vn"
+     ]
+    },
+    {
+     "id": "blindee_legere_vn",
+     "name": "Compagnie Blindée Légère",
+     "cout": 475,
+     "FormationLimitationTag": {
+      "slot_appui_vn_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "lr_vanquisher_allege",
+       "name": "Leman Russ Vanquisher Allégé",
+       "nombre": 1
+      },
+      {
+       "id": "lr_conqueror",
+       "name": "Leman Russ Conqueror",
+       "nombre": 9
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_vn",
+      "escadron_chars_vn",
+      "hellhounds_vn",
+      "hydre_vn"
+     ]
+    },
+    {
+     "id": "blindee_vn",
+     "name": "Compagnie Blindée",
+     "cout": 600,
+     "FormationLimitationTag": {
+      "slot_appui_vn_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "lr_vanquisher",
+       "name": "Leman Russ Vanquisher",
+       "nombre": 1
+      },
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 9
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_vn",
+      "escadron_chars_vn",
+      "hellhounds_vn",
+      "hydre_vn"
+     ]
+    },
+    {
+     "id": "chasseurs_titans_vn",
+     "name": "Compagnie de Chasseurs de Titans",
+     "cout": 500,
+     "FormationLimitationTag": {
+      "slot_appui_vn_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "min_total": 3,
+      "max_total": 3,
+      "description": "3 unités (Shadowswords et/ou Stormblades, toute combinaison)",
+      "options": [
+       {
+        "id": "shadowsword_opt",
+        "name": "Shadowsword",
+        "unitId": "shadowsword",
+        "cout": 0,
+        "min": 0,
+        "max": 3
+       },
+       {
+        "id": "stormblade_opt",
+        "name": "Stormblade",
+        "unitId": "stormblade",
+        "cout": 0,
+        "min": 0,
+        "max": 3
+       }
+      ]
+     },
+     "ameliorations": [
+      "commandant_supreme_vn",
+      "escadron_chars_vn",
+      "hellhounds_vn",
+      "hydre_vn"
+     ]
+    },
+    {
+     "id": "mur_de_feu_vn",
+     "name": "Compagnie Mur de Feu",
+     "cout": 500,
+     "FormationLimitationTag": {
+      "slot_appui_vn_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "min_total": 3,
+      "max_total": 3,
+      "description": "3 unités (Baneblades et/ou Stormswords, toute combinaison)",
+      "options": [
+       {
+        "id": "baneblade_opt",
+        "name": "Baneblade",
+        "unitId": "baneblade",
+        "cout": 0,
+        "min": 0,
+        "max": 3
+       },
+       {
+        "id": "stormsword_opt",
+        "name": "Stormsword",
+        "unitId": "stormsword",
+        "cout": 0,
+        "min": 0,
+        "max": 3
+       }
+      ]
+     },
+     "ameliorations": [
+      "commandant_supreme_vn",
+      "escadron_chars_vn",
+      "hellhounds_vn",
+      "hydre_vn"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "formations_appui_vn",
+   "name": "FORMATIONS D'APPUI DES PREMIERS-NÉS VOSTROYENS",
+   "description": "Jusqu'à 2 formations d'appui par compagnie",
+   "type": "associee",
+   "LimitationTag": "slot_appui_vn_A",
+   "formations": [
+    {
+     "id": "deathstrike_vn",
+     "name": "0-1 Batterie de Missiles Deathstrike",
+     "cout": 225,
+     "FormationLimite": 1,
+     "unites": [
+      {
+       "id": "deathstrike",
+       "name": "Deathstrike",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "peloton_infanterie_vn",
+     "name": "Peloton d'Infanterie Mécanisée",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 6
+      },
+      {
+       "id": "chimere",
+       "name": "Chimère",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "leman_russ_vn",
+     "name": "Peloton de Leman Russ",
+     "cout": 350,
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "nettoyage_vn",
+     "name": "Peloton de Nettoyage",
+     "cout": 300,
+     "unites": [
+      {
+       "id": "hellhound",
+       "name": "Hellhound",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "artillerie_vn",
+     "name": "Batterie d'Artillerie",
+     "cout": 225,
+     "variantes": [
+      {
+       "id": "manticores_vn",
+       "name": "3 Manticores",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "manticore",
+         "name": "Manticore",
+         "nombre": 3
+        }
+       ]
+      },
+      {
+       "id": "bombardes_vn",
+       "name": "3 Bombardes",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "bombarde",
+         "name": "Bombarde",
+         "nombre": 3
+        }
+       ]
+      },
+      {
+       "id": "wyverns_vn",
+       "name": "3 Wyverns",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "wyvern",
+         "name": "Wyvern",
+         "nombre": 3
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "basilisk",
+       "name": "Basilisk",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "artillerie_lourde_vn",
+     "name": "Batterie d'Artillerie Lourde",
+     "cout": 275,
+     "variantes": [
+      {
+       "id": "minotaurs_vn",
+       "name": "2 Minotaurs",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "minotaur",
+         "name": "Minotaur",
+         "nombre": 2
+        }
+       ]
+      },
+      {
+       "id": "praetors_vn",
+       "name": "2 Praetors",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "praetor",
+         "name": "Praetor",
+         "nombre": 2
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "dominus",
+       "name": "Dominus",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "anti_aerienne_vn",
+     "name": "Batterie Anti-Aérienne",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "hydre",
+       "name": "Hydre",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "griffons_vn",
+     "name": "Batterie de Griffons",
+     "cout": 250,
+     "unites": [
+      {
+       "id": "griffon",
+       "name": "Griffon",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "reconnaissance_vn",
+     "name": "Peloton de Reconnaissance",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "salamandre_commandement",
+       "name": "Salamandre de Commandement",
+       "nombre": 1
+      },
+      {
+       "id": "salamandre",
+       "name": "Salamandre",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "conquerors_vn",
+     "name": "Escadron de Leman Russ Conqueror",
+     "cout": 300,
+     "unites": [
+      {
+       "id": "lr_vanquisher_allege",
+       "name": "Leman Russ Vanquisher Allégé",
+       "nombre": 1
+      },
+      {
+       "id": "lr_conqueror",
+       "name": "Leman Russ Conqueror",
+       "nombre": 5
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "tempestus_vn",
+     "name": "Militarum Tempestus",
+     "cout": 300,
+     "unites": [
+      {
+       "id": "tempestus_scions",
+       "name": "Tempestus Scions",
+       "nombre": 8
+      },
+      {
+       "id": "chimere",
+       "name": "Chimère",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "lr_speciaux_vn",
+     "name": "0-1 Escadron de Leman Russ Spéciaux",
+     "cout": 300,
+     "FormationLimite": 1,
+     "variantes": [
+      {
+       "id": "lr_exterminators_vn",
+       "name": "6 Leman Russ Exterminators",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "lr_exterminator",
+         "name": "Leman Russ Exterminator",
+         "nombre": 6
+        }
+       ]
+      },
+      {
+       "id": "lr_thunderers_vn",
+       "name": "6 Leman Russ Thunderers",
+       "cout": 350,
+       "unites_override": [
+        {
+         "id": "lr_thunderer",
+         "name": "Leman Russ Thunderer",
+         "nombre": 6
+        }
+       ]
+      },
+      {
+       "id": "lr_executioner_vn",
+       "name": "6 Leman Russ Executioner",
+       "cout": 400,
+       "unites_override": [
+        {
+         "id": "lr_executioner",
+         "name": "Leman Russ Executioner",
+         "nombre": 6
+        }
+       ]
+      },
+      {
+       "id": "lr_demolisseurs_vn",
+       "name": "6 Leman Russ Démolisseurs",
+       "cout": 450,
+       "unites_override": [
+        {
+         "id": "lr_demolisseur",
+         "name": "Leman Russ Démolisseur",
+         "nombre": 6
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "leman_russ_destroyers",
+       "name": "Leman Russ Destroyers",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "appui_lourd_vn",
+     "name": "0-1 Peloton d'Appui Lourd",
+     "cout": 300,
+     "FormationLimite": 1,
+     "variantes": [
+      {
+       "id": "stormlord_vn",
+       "name": "6 Gardes Impériaux + 1 Stormlord",
+       "cout": 325,
+       "unites_override": [
+        {
+         "id": "gardes_imperiaux",
+         "name": "Gardes Impériaux",
+         "nombre": 6
+        },
+        {
+         "id": "stormlord",
+         "name": "Stormlord",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "banehammer_vn",
+       "name": "6 Gardes Impériaux + 1 Banehammer",
+       "cout": 325,
+       "unites_override": [
+        {
+         "id": "gardes_imperiaux",
+         "name": "Gardes Impériaux",
+         "nombre": 6
+        },
+        {
+         "id": "banehammer",
+         "name": "Banehammer",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 6
+      },
+      {
+       "id": "doomhammer",
+       "name": "Doomhammer",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    },
+    {
+     "id": "super_lourd_vn",
+     "name": "Peloton de Char Super Lourd",
+     "cout": 200,
+     "variantes": [
+      {
+       "id": "shadowsword_vn",
+       "name": "1 Shadowsword",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "shadowsword",
+         "name": "Shadowsword",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "stormblade_vn",
+       "name": "1 Stormblade",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "stormblade",
+         "name": "Stormblade",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "stormsword_vn",
+       "name": "1 Stormsword",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "stormsword",
+         "name": "Stormsword",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "baneblade",
+       "name": "Baneblade",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commissaire_vn"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flottes_vn",
+   "name": "FLOTTES DE L'AERONAUTICA IMPERIALIS",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "type": "rare",
+   "formations": [
+    {
+     "id": "intercepteurs_vn",
+     "name": "Escadrille d'Intercepteurs",
+     "cout": 150,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "thunderbolts_4_vn",
+       "name": "4 Chasseurs Thunderbolts",
+       "cout": 300,
+       "nombre_exact": 4
+      }
+     ],
+     "unites": [
+      {
+       "id": "thunderbolt",
+       "name": "Thunderbolt",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "bombardiers_vn",
+     "name": "Escadrille de Bombardiers",
+     "cout": 250,
+     "rare": true,
+     "unites": [
+      {
+       "id": "bombardier_marauder",
+       "name": "Bombardier Marauder",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_vn",
+     "name": "Soutien Orbital",
+     "cout": 100,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "emperor_vn",
+       "name": "1 Cuirassé Emperor",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "cuirasse_emperor",
+         "name": "Cuirassé Emperor",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "croiseur_lunar",
+       "name": "Croiseur Classe Lunar",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_vn",
+   "name": "SOUTIENS DE L'ADEPTUS TITANICUS",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "type": "rare",
+   "formations": [
+    {
+     "id": "titan_reaver_vn",
+     "name": "Titan Reaver",
+     "cout": 650,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_reaver",
+       "name": "Titan Reaver",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_warlord_vn",
+     "name": "Titan Warlord",
+     "cout": 850,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_warlord",
+       "name": "Titan Warlord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

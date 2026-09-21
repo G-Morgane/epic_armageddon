@@ -1,0 +1,1235 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+EGARÉS ET DAMNÉS 
+ 
+ 
+ 
+"La chair et les os sont faibles et mutables, et pourtant le 
+démon est finalement insignifiant et impuissant. Être maître à 
+la fois de la matière et de l'énergie, et combiner cette maîtrise 
+avec le contrôle ultime de sa conscience, c'est atteindre la 
+véritable immortalité - ni confinée par la matière, ni séparée de 
+celle-ci."  
+ 
+Magos Kaudge Elizah 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée 
+d'Égarés et de Damnés composée de cultistes du Chaos, 
+démons issus des quatres dieux du Chaos et leurs machines 
+de guerres infernales. 
+Pour chaque Loge Renégate sélectionnée dans votre liste 
+d'armée, vous pouvez également sélectionner une Formation 
+d'Appui Renégate ET une formation parmi : Formation de 
+Machines démoniaques OU une Formation de Démons OU une 
+Formation du Chaos Universel.  
+Chaque Loge Renégate, Formation du Chaos Universel et 
+Formation de Démons peut recevoir des améliorations. La 
+liste 
+d’armée 
+indique 
+pour 
+chaque 
+formation 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut être prise qu’une fois par détachement pour un 
+maximum de quatre par formation. Les améliorations font 
+partie intégrante des formations et doivent respecter les 
+règles de cohésion. Noter que certaines améliorations 
+remplacent des unités d’une formation tandis que d’autres 
+ajoutent des unités supplémentaires.  
+ 
+Icône de guerre d’une loge non identifiée.
+Règle spéciale : Archi-Hérétique 
+ 
+Un Démagogue, Aspirant Champion Marine du Chaos, 
+Champion des dieux Sombres ou Prince Démon dans 
+l’armée 
+doit 
+obligatoirement 
+être 
+amélioré 
+en 
+Archi-Hérétique. Cette amélioration de personnage ne 
+coûte aucun point supplémentaire. 
+Règle spéciale : Instables 
+ 
+Si les démons sont démoralisés, ils sont détruits. Ils ne 
+peuvent que contester les objectifs, pas les contrôler. 
+Règle spéciale : Infestations  
+ 
+Le déploiement des Infestations fonctionne exactement 
+comme la règle Téléportation, mais après avoir placé une 
+unité lancez 2D6+6 pour savoir de combien de socles de 
+Zombies de la Peste la formation est composée. Testez 
+ensuite 
+normalement 
+les 
+pions 
+impact 
+pour 
+la 
+Téléportation (cela représente une infestation de zombies 
+de la peste qui a été lâchée sur l’ennemi). 
+ 
+ 
+ 
+L’avancée du Stigmatus lors de la percée d’Achero. 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture par GW LTD 2019. Couverture : Lorenzo Mastroianni; P1 : Jason Juta.  
+1 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 3 =====
+ 
+Règle spéciale :  Invocation de démons 
+Au début de la partie, toutes les formations de Démons sélectionnée lors de la composition de l’armée sont placées en 
+réserve. La note Icône Démoniaque permet, lors de la phase de Téléportation, d’invoquer une de ces formations. 
+L’unité possédant Icône Démoniaque est nommée unité Invocatrice. 
+La formation de  l’unité Invocatrice et la formation invoquée doivent appartenir à la même allégeance. La formation invoquée 
+apparaît à moins de 15 cm de l’unité Invocatrice. Si l’unité Invocatrice est éliminée, les démons ne peuvent plus être invoqués 
+par cette formation. 
+On ne peut invoquer qu'une seule formation de démons par Icône Démoniaque et par partie. Une formation s’étant téléportée 
+ce tour-ci ne peut pas invoquer de démons. La formation invoquée ne subit pas de PI suite à sa « téléportation ». 
+Elle devient immédiatement une formation à part entière et en suit les règles habituelles d’activation, de cohésion, etc. Elle 
+reste ensuite en jeu jusqu’à la fin de la partie ou jusqu’à sa destruction. 
+ 
+Règle spéciale : Concentration démoniaque (X) 
+Une fois par partie, une unité possédant la note Concentration Démoniaque (X) peut invoquer des démons mineurs de la 
+manière suivante : 
+Au moment de l’activation de la formation de l’unité et avant qu’elle ne fasse son jet d’activation, X démons mineurs 
+correspondants à l’allégeance de l’armée sont ajoutés à la formation. Tous les démons ainsi invoqués doivent être placés à 
+5cm de l’unité. 
+Les démons restent attachés à la formation jusqu’à la fin de la partie, ou jusqu’à leur destruction. Les démons et la formation 
+devenant ainsi une seule et même formation suivant toutes les règles de cohésion, d’activation, etc. 
+Remarque :  ces démons n’ont pas à avoir été préalablement sélectionnés lors de la composition de l’armée. 
+ 
+Règle spéciale : Allégeance 
+ 
+Une armée Egarés et Damnés doit prêter allégeance à l’un des Dieux du Chaos (Khorne, Nurgle, Slaanesh ou Tzeentch). Vous 
+devez décider à quelle allégeance appartient votre armée au début de la bataille et le noter sur votre liste d’armée. Il est 
+impossible de lier des alliances entre les différents dieux. Vous n'aurez accès qu'aux formations de Démons et de Machines 
+Démons du Dieu choisi, ainsi qu’à celles du Chaos Universel pour constituer votre armée.  
+ 
+FACTIONS 
+DÉMONS MINEURS 
+DÉMONS MAJEURS 
+MACHINES DÉMONS 
+KHORNE 
+Sanguinaires 
+Buveur de Sang 
+Seigneurs de Batailles, Grands 
+Scorpions d'Airain, Machines Démon de 
+Khorne, Canons de Khorne 
+TZEENTCH 
+Incendiaires 
+Duc du Changement 
+Palais du Warp, Tours d'Argent, 
+Firelords, Doomwings 
+NURGLE 
+Portes-peste 
+Grand Immonde 
+Tours de la Peste, Drônes de la Ruine, 
+Machines de Contagion, Zombies de la 
+Peste 
+SLAANESH 
+Démonettes 
+Gardien des Secrets 
+Subjugators, Questors, Chevaliers 
+Hell-Scourge, Chevaliers Hell-Striders 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE DES EGARÉS ET DAMNÉS 
+ 
+L'armée des Egarés et Damnés a une valeur stratégique de 2. Les Engins de Guerre démoniaques (hors Firelords et Doomwings) 
+ou toute formation contenant un Démon Majeur disposent d'une initiative de 1+. Toutes les autres formations disposent d'une 
+initiative de 2+. 
+LOGES RENÉGATES 
+(Chaque Loge Stigmatus permet de sélectionner une Loge Gigantis) 
+Formations 
+Unités 
+Coût 
+Loge Stigmatus 
+1 Aspirant Champion Marine du Chaos ou 1 Démagogue + 11 unités de cultistes et/ou de Mutants 
+175 pts 
+Loge Gigantis 
+1 Aspirant Champion Marine du Chaos ou 1 Démagogue + 5 Mutants Géants et/ou Ogryns Renégats 
+ou 6 Mutants Géants et/ou Ogryns Renégats 
+275 pts 
+250 pts 
+ 
+ 
+FORMATIONS DE SOUTIEN 
+(Jusqu'à 1 Formation d'Appui par Loge Renégate + soit 1 Formation de Démons, 
+soit 1 du Chaos Universel soit 1 de Machines Démons) 
+ 
+FORMATIONS D'APPUI RENÉGATES 
+Formations 
+Unités 
+Coût 
+Peloton de Cavaliers 
+6 unités de Cavaliers Renégats 
+150 pts 
+Escadron de Sentinelles 
+4 Sentinelles 
+100 pts 
+Batterie Antiaérienne 
+3 Hydres 
+150 pts 
+Batterie d'Artillerie 
+3 Basilisks 
+225 pts 
+Compagnie Blindée 
+6 Leman Russ 
+350 pts 
+Escadrilles de Chasseurs 
+2 Chasseurs thunderbolts 
+150 pts 
+Escadrille de Bombardiers 2 Bombardiers Marauders 
+250 pts 
+ 
+FORMATIONS DU CHAOS UNIVERSEL 
+Formations 
+Unité 
+Améliorations 
+Coût 
+Loge Primatus 
+1 Démagogue ou Aspirant 
+Champion du Chaos, 7 unités 
+d'Acolytes, et 4 Chimères 
+Prince Démon, 
+Champion des Dieux 
+Sombres, Pacte 
+démoniaque, Flak 
+Renégate 
+300 pts 
+Defilers 
+4 Defilers 
+Defilers 
+300 pts 
+Meute Sauvage 
+8 unités de Chiens du Chaos 
+Chiens du Chaos 
+150 pts 
+Horde Mutante 
+6 Enfants du Chaos 
+Enfants du Chaos 
+200 pts 
+ 
+FORMATIONS DE DÉMONS 
+Formations 
+Unités 
+Améliorations 
+Coût 
+0-1 Démon Majeur 
+1 Démon Majeur 
+ 
+200 pts 
+0-2 Démons Mineurs 
+8 ou 12 unités de 
+Démons Mineurs 
+Démon Majeur (si non 
+sélectionné en formation) 
+175 pts 
+ou 275 pts 
+ 
+FORMATIONS DE MACHINES DÉMONS 
+Formations 
+Unités 
+Coût 
+Seigneurs de Batailles 
+1 ou 2 Seigneurs de Batailles 
+400 pts chacun 
+Scorpions d'Airain 
+1 à 3 Grands Scorpions d'Airain 
+225 pts chacun 
+Meute du Carnage 
+4 ou 6 Machines Démon de Khorne 
+275 / 400 pts 
+Batterie Feu d'Enfer 
+4 ou 6 Canons de Khorne 
+225 / 325 pts 
+Palais du Warp 
+1 ou 2 Palais du Warp 
+375 pts chacun 
+Flèche des Arcanes 
+4 ou 6 Tours d'Argent 
+250 / 375 pts 
+Vol de Bombardiers Firelords 
+2 à 3 Firelords 
+150 pts chacun 
+Vol de Chasseurs Doomwings 
+3 Doomwings 
+200 pts 
+Tours de la Peste 
+1 ou 2 Tours de la Peste 
+375 pts chacune 
+Avant-garde de la Ruine 
+4 ou 6 Drônes de la Ruine 
+225 / 325 pts 
+Artillerie de la Peste 
+4 ou 6 Machines de Contagion 
+300 / 450 pts 
+Infestation de Zombies 
+2D6+6 Zombies de la Peste 
+175 pts 
+Titan Léger Démoniaque 
+1 ou 2 Titans Légers parmi : 
+Subjugator 
+Questor 
+ 
+250 pts chacun 
+275 pts chacun 
+Phalange Infernale 
+4 ou 6 Chevaliers Hell-Scourge 
+275 / 400 pts 
+Cohorte Infernale 
+4 ou 6 Chevaliers Hell-Striders 
+225 / 325 pts 
+ 
+ 
+AMÉLIORATIONS 
+(Jusqu'à 4 améliorations différentes par Loge Renégates ou Formation de 
+Soutien) 
+Unité 
+Améliorations 
+Coût 
+0-1 Démon Majeur 
+Ajouter un Démon Majeur à une 
+formation de Démons Mineurs 
+correspondant à l'allégeance de la 
+formation 
+150 pts 
+0-1 Autel du Chaos 
+Ajouter un Autel du Chaos à la 
+formation 
+200 pts 
+0-1 Prince 
+Démon/Prince Démon 
+Ailé 
+Remplacer l'Aspirant Champion Space 
+Marine du Chaos ou le Démagogue par 
+un Prince Démon 
+50 pts 
+Champion des Dieux 
+Sombres 
+Ajouter la note Concentration 
+Démoniaque (2D3) à une unité de la 
+formation 
+100 pts 
+0-1 Cardinal 
+Un Démagogue gagne la note 
+Charismatique 
+25 pts 
+Pacte Démoniaque 
+Ajouter un personnage de Porte-icône à 
+une unité de la formation. 
+25 pts 
+Defilers 
+Ajouter un à deux Defilers à la 
+formation 
+75 / 125 pts 
+Cultistes ou Mutants 
+Ajouter jusqu'à 8 Cultistes et/ou 
+Mutants 
+10 pts chacun 
+Transports Renégats 
+Ajouter suffisamment de Transporteurs 
+et/ou des Chimères pour véhiculer 
+toutes les infanteries ayant un 
+mouvement inférieur ou égal à 15cm 
+10 pts / 25 pts 
+chacun 
+Enfants du Chaos 
+Ajouter jusqu'à 3 unités d'Enfants du 
+Chaos 
+25 pts chacun 
+Chien du Chaos 
+Ajouter jusqu'à 3 unités de Chiens du 
+Chaos 
+10 pts chacun 
+Appuis-feux Renégats Ajouter jusqu'à 4 unités d'Appuis-feux 
+25 pts chacun 
+Griffons Renégats 
+Ajouter jusqu'à 3 Griffons 
+35 pts chacun 
+Hellhounds Renégats 
+Ajouter jusqu'à 3 Hellhounds 
+50 pts chacun 
+Chars Renégats 
+Ajouter jusqu'à 3 Leman Russ 
+Ajouter jusqu'à 3 Leman Russ 
+Démolisseurs 
+75 pts chacun 
+85 pts chacun 
+DCA Renégate 
+Ajouter une Hydre 
+50 pts 
+ 
+3 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 5 =====
+ 
+FEUILLES DE RÉFÉRENCES DES EGARÉS ET DAMNÉS 
+Nom 
+Type 
+Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Archi-Hérétique 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Commandant Suprême 
+Champion des Dieux 
+Sombres 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Meneur, Sauvegarde invulnérable, Concentration démoniaque (2d3) 
+Porte-Icône 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Sauvegarde Invulnérable, Icône Démoniaque 
+Aspirant Champion Space 
+Marine du Chaos 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Autocanon 
+Bolter 
+Arme Démon 
+45cm 
+(15cm) 
+(contact) 
+AP5+/AC6+ 
+Arme Légère 
+Arme d'Assaut, +1A, MA 
+Sauvegarde invulnérable, Commandant, Meneur 
+Démagogue 
+Inf 
+15cm 
+6+ 
+5+ 
+5+ Lance Grenades 
+Pouvoir de l'Arcane 
+Arme Démon 
+30cm 
+30cm 
+(contact) 
+(15cm) 
+AP6+/AC6+ 
+MA6+, MA 
+Arme d'Assaut, +1A, MA 
+Arme Légère 
+Sauvegarde invulnérable, Meneur, Icône démoniaque 
+Prince Démon 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ Arme Possédée 
+Explosion Warp 
+(contact) 
+(15cm) 
+Arme d'Assaut, +2A, MA 
+Arme Légère, +1A, MA 
+Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, 
+Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation 
+Prince Démon Ailé 
+Inf 
+30cm 
+5+ 
+3+ 
+3+ Arme Possédée 
+Explosion Warp 
+(contact) 
+(15cm) 
+Arme d'Assaut, +2A, MA 
+Arme Légère, +1A, MA 
+Réacteurs Dorsaux, Blindage Renforcé, Blindage Arrière Renforcé, 
+Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, 
+Téléportation 
+Cultiste 
+Inf 
+15cm 
+- 
+6+ 
+5+ Mitrailleuse Lourde 
+Arme à Feu 
+30cm 
+(15cm) 
+AP6+ 
+Arme Légère 
+ 
+Mutant Géant 
+Inf 
+15cm 
+3+ 
+4+ 
+6+ Arme Lourde 
+(contact) Arme d'Assaut, +1A, MA Massif (prennent 2 places dans les transports) 
+Mutant 
+Inf 
+15cm 
+6+ 
+4+ 
+6+ Arme à Feu 
+Diverses Armes 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut 
+- 
+Ogryn Renégat 
+Inf 
+15cm 
+3+ 
+4+ 
+4+ 2x Mitrailleuse Lourde 
+30cm 
+AP6+ 
+Massif (prennent 2 places dans les transports) 
+Acolyte 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Lance-Plasma 
+Arme Moderne 
+15cm 
+(15cm) 
+AP5+/AC5+ 
+Arme Légère 
+- 
+Cavalier Renégat 
+Inf 
+20cm 
+6+ 
+4+ 
+6+ Pistolets Laser 
+Lances énergétiques 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut, FeP 
+Montés, Eclaireurs, Infiltrateurs 
+Chien du Chaos 
+Inf 
+30cm 
+6+ 
+4+ 
+- 
+Crocs 
+(contact) Arme d'Assaut 
+ 
+Enfant du Chaos 
+Inf 
+15cm 
+3+ 
+4+ 
+- 
+Horribles Mutations 
+(contact) Arme d'Assaut, +D3A 
+Sans Peur, Sauvegarde Invulnérable 
+Les Enfants du Chaos ne peuvent que contester les objectifs, pas les contrôler. 
+Appui-feu 
+Inf 
+15cm 
+- 
+6+ 
+4+ 2x Autocanon 
+45cm 
+AP5+/AC6+ 
+- 
+Sentinelle 
+VL 
+20cm 
+6+ 
+6+ 
+5+ Multi-Laser 
+30cm 
+AP5+/AC6+ 
+Marcheur, Éclaireur 
+Hydre 
+VB 
+30cm 
+6+ 
+6+ 
+5+ 2x Canons Hydre 
+Bolter Lourd 
+45cm 
+30cm 
+AP4+/AC5+/AA5+ 
+AP5+ 
+- 
+Basilisk 
+VB 
+20cm 
+5+ 
+6+ 
+5+ Canon Tremble-Terre 
+ou 
+Bolter Lourd 
+120cm 
+120cm 
+30cm 
+1PB, Ind 
+AP4+/AC4+ 
+AP5+ 
+- 
+4 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 6 =====
+ 
+Nom 
+Type 
+Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Leman Russ 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Obusier 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC4+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ Démolisseur 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Canon Démolisseur 
+et 
+Canon Laser 
+2x Lance-Plasma Lourd 
+30cm 
+(15cm) 
+45cm 
+30cm 
+MA4+ 
+Arme Légère, +1A, MA 
+AC5+ 
+AP5+/AC5+ 
+Blindage Renforcé 
+Defiler 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Obusier 
+Faucheurs (defiler) 
+Griffes de combat 
+Lance-flammes Lourd 
+75cm 
+30cm 
+(contact) 
+15cm 
+(15cm) 
+AP4+/AC4+ 
+AP3+/AC5+ 
+Arme d'Assaut, +1A, MA 
+AP4+, IC 
+Arme légère, +1A, IC 
+Blindage Renforcé, Marcheur, Sans Peur, Sauvegarde invulnérable 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Démagogue, Aspirant Champion Marine du Chaos, Cultistes, 
+Mutants, Acolytes, Appui Feu Renégats, Prince Démon*, Mutants Géants* et 
+Ogryns Renégats* (* prennent 2 places) 
+Transporteur Terrestre 
+VB 
+30cm 
+6+ 
+6+ 
+- 
+- 
+- 
+- 
+Transport (2) : Démagogue, Aspirant Champion Marine du Chaos, Cultistes, 
+Mutants, Acolytes, Appui Feu Renégats, Prince Démon*, Mutants Géants* et 
+Ogryns Renégats* (* prennent 2 places) 
+Hellhound 
+VB 
+30cm 
+4+ 
+6+ 
+3+ Canon Inferno 
+et 
+Bolter Lourd 
+30cm 
+(15cm) 
+30cm 
+AP3+, IC 
+Arme Légère, IC 
+AP5+ 
+- 
+Griffon 
+VB 
+30cm 
+6+ 
+6+ 
+5+ Mortier Griffon 
+Bolter Lourd 
+30cm 
+30cm 
+1PB, Ind 
+AP5+ 
+- 
+Autel du Chaos 
+EG 
+15cm 
+4+ 
+4+ 
+4+ Arcano-technologie 
+45cm 
+D3xAP4+/AC4+/AA4+ 
+Blindage renforcé, Charismatique, Concentration démoniaque (2d3), Sans peur, 
+Sauvegarde invulnérable 
+CD3 – Critique : L’Autel est aspiré dans le Warp et est détruit. Toutes les unités 
+dans un rayon de 5 cm subissent une touche MA6+ à cause du contrecoup de 
+pouvoir brut du Warp 
+Thunderbolt 
+A 
+CB 
+6+ 
+- 
+- 
+Fulgurants 
+Multi-Lasers (FF) 
+Roquettes 
+15cm 
+30cm 
+30cm 
+AP4+/AA5+, FrtF 
+AP5+/AC6+/AA5+, FrtF 
+AC4+, FrtF 
+- 
+Bombardier Marauder 
+A/EG 
+B 
+5+ 
+- 
+- 
+Bolters Lourds Jumelés (AA) 
+Bolters Lourds Jumelés (AA Arr) 
+Canons Laser Jumelés (FF+AA) 
+Bombes (Bomber) 
+30cm 
+30cm 
+45cm 
+15cm 
+AA5+ 
+AA5+, Arr 
+AC4+/AA5+, FrtF 
+3PB, FrtF 
+CD2 – Critique: le Bombardier Marauder s'écrase au sol et est détruit. 
+ 
+ 
+ 
+5 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 7 =====
+ 
+FEUILLE DE RÉFÉRENCES DÉMONS 
+Nom 
+Type 
+Vitesse Blindage 
+CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Buveur de Sang 
+EG 
+30cm 
+4+ 
+3+ 
+- 
+Hache de Khorne 
+Fouet de Khorne 
+(contact) 
+(contact) 
+Arme d'Assaut, +2A, TT (1) 
+Arme d'Assaut, +1A, TT (1) 
+Blindage Renforcé, Charismatique, Marcheur, Meneur, Réacteurs Dorsaux, Sauvegarde 
+Invulnérable, Sacrifiable, Instable 
+CD3 – Critique : Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins 
+de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6 
+Sanguinaires 
+Inf 
+15cm 
+4+ 
+4+ 
+- 
+Lame d’Enfer 
+(contact) 
+Arme d'Assaut, +1A 
+Sauvegarde Invulnérable, Sacrifiables, Instables 
+Duc du Changement 
+EG 
+30cm 
+4+ 
+5+ 
+4+ 
+Regard Cinglant 
+ 
+Bâton de Chari Vari 
+30cm 
+(15cm) 
+(contact) 
+2xMA3+ 
+Arme Légère, +1A, MA 
+Arme d'Assaut, +1A, MA 
+Blindage Renforcé, Charismatique, Marcheur, Meneur, Réacteurs Dorsaux, Sauvegarde 
+Invulnérable, Sacrifiable, Instable 
+CD3 – Critique : Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins 
+de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6 
+Incendiaires 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ 
+Flammes de Tzeentch 
+(15cm) 
+Arme Légère, IC 
+Sauvegarde Invulnérable, Sacrifiables, Instables 
+Grand Immonde 
+EG 
+15cm 
+4+ 
+4+ 
+5+ 
+Nuée de Nurglings 
+Flot de Corruption 
+(contact) 
+(souffle) 
+(15cm) 
+Arme d'Assaut, +1A, MA 
+AP4+/AC5+, Rpt, IC 
+Arme Légère, +1A, IC 
+Blindage Renforcé, Charismatique, Meneur, Marcheur, Sauvegarde Invulnérable, 
+Sacrifiable, Instable 
+CD4 – Critique : Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins 
+de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6 
+Portepestes 
+Inf 
+15cm 
+3+ 
+3+ 
+6+ 
+Epée de la Peste 
+Nuée de Mouches 
+(contact) 
+(15cm) 
+Arme d'Assaut 
+Arme Légère 
+Sauvegarde Invulnérable, Sacrifiables, Instables 
+Gardien des Secrets 
+EG 
+20cm 
+4+ 
+3+ 
+4+ 
+Regard de Slaanesh 
+ 
+Fouet du Tourment 
+45cm 
+(15cm) 
+(contact) 
+2xMA4+ 
+Arme Légère, +1A, MA, FeP 
+Arme d'Assaut, +1A, MA, FeP 
+Blindage Renforcé, Charismatique, Meneur, Marcheur, Sauvegarde Invulnérable, 
+Sacrifiable, Instable 
+CD3 – Critique : Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins 
+de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6 
+Démonettes 
+Inf 
+20cm 
+4+ 
+3+ 
+- 
+Griffes Démoniaques 
+(contact) 
+Arme d'Assaut 
+Frappe en Premier, Sauvegarde Invulnérable, Sacrifiables, Instables 
+ 
+6 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCES DES MACHINES DÉMONS 
+Nom 
+Type 
+Vitesse Blindage 
+CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Seigneur de Bataille 
+EG 
+25cm 
+4+ 
+3+ 
+5+ 
+Deathstorm 
+2x Obusier 
+Poing Tronçonneur 
+45cm 
+75cm 
+(contact) 
+4xAP4+/AC4+, Frt 
+AP4+/AC4+ 
+Arme d'Assaut, +3A, TT (1) 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Sauvegarde Invulnérable 
+CD6 – Critique : Une des runes canalisant l’énergie du Warp est endommagée 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque rune endommagée : 
+- 1 : le Seigneur de Bataille est aspiré dans le Warp, et considéré comme détruit 
+- 2-3 : il subit 1 point de dommages supplémentaire, et bouge immédiatement de 3D6 cm 
+dans une direction aléatoire. S’il percute un terrain difficile ou une autre unité qu’il ne peut 
+pousser, il s’arrête et subit un point de dommages supplémentaire. Les unités qu’il percute 
+subissent une touche sur un résultat de 4+ 
+- 4-6 : la rune est réparée 
+Grand Scorpion d'Airain 
+EG 
+20cm 
+5+ 
+3+ 
+4+ 
+Mega Canon Scorpion 
+Canon Hellmaw 
+Canon Démolisseur 
+et 
+2x Griffes de Combat 
+30cm 
+15cm 
+30cm 
+(15cm) 
+(contact) 
+2xAP3+/AC5+ 
+2x AP4+, IC 
+MA4+ 
+Arme Légère, +1A, MA 
+Arme d'Assaut, +1A, MA 
+Infiltrateur, Marcheur, Blindage Renforcé, Sans Peur, Sauvegarde Invulnérable. Peut passer 
+au-dessus d’unités et de terrains infranchissables ou dangereux moins haut que les 
+genoux du Grand Scorpion d’Airain et de 2cm de large maximum 
+CD3 – Critique : Le Scorpion d'Airain est détruit. Toutes les unités dans un rayon de 5cm 
+subissent une touche sur 6+ 
+Machine Démon de 
+Khorne 
+VB 
+25cm 
+4+ 
+3+ 
+4+ 
+Canon Sanguinaire 
+Lames Démoniaques 
+30cm 
+(contact) 
+2xAP4+/AC4+ 
+Arme d'Assaut, +D3A 
+Blindage Renforcé, Sans Peur, Sauvegarde Invulnérable 
+Canon de Khorne 
+VB 
+20cm 
+4+ 
+6+ 
+4+ 
+Canon Feu d’Enfer 
+60cm 
+MA4+ 
+Sans Peur, Sauvegarde Invulnérable 
+Palais du Warp 
+EG 
+20cm 
+5+ 
+5+ 
+4+ 
+3x Canon des Arcanes 
+Rayon du Pouvoir 
+Feu du Warp de Tzeentch 
+45cm 
+60cm 
+(15cm) 
+30cm 
+AP4+/AC4+ 
+MA3+ 
+Arme Légère, +1A, MA 
+3PB, TT (D3), IC 
+Antigrav, Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Sauvegarde 
+Invulnérable 
+CD6 – Critique : Une des runes canalisant l’énergie du Warp est endommagée 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque rune endommagée 
+- 1 : le Palais du Warp est aspiré dans le Warp, et considéré comme détruit 
+- 2-3 : il subit 1 point de dommages supplémentaire, et chaque unité dans un rayon de 5cm 
+subit une touche Macro arme sur 6+ 
+- 4-6 : la rune est réparée 
+Tour d'Argent 
+VB 
+20cm 
+4+ 
+6+ 
+4+ 
+Pouvoir de Tzeentch 
+Canon des Arcanes 
+45cm 
+45cm 
+1PB, MA 
+AP4+/AC4+ 
+Antigrav, Sans Peur, Sauvegarde Invulnérable 
+Firelord 
+A 
+B 
+6+ 
+- 
+- 
+Canon à Flammes 
+Canons Laser Jumelés AA 
+Bombes Firestorm 
+15cm 
+45cm 
+15cm 
+AP4+/AC4+/AA4+, IC, FrtF 
+AC4+/AA5+, FrtF 
+D3+1PB, IC 
+Sauvegarde Invulnérable 
+CD2 – Critique : Le Firelord s'écrase et est détruit 
+Doomwing 
+A 
+C 
+6+ 
+- 
+- 
+Canon à Flammes 
+15cm 
+AP4+/AC4+/AA4+, IC, FrtF 
+Sauvegarde Invulnérable 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 9 =====
+ 
+Nom 
+Type 
+Vitesse Blindage 
+CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Tour de la Peste 
+EG 
+15cm 
+4+ 
+5+ 
+4+ 
+Mortier de la Peste 
+Canon de la Pourriture 
+2x Obusier 
+60cm 
+90cm 
+75cm 
+D3+3PB, Rpt, FrtF 
+AP3+/AC5+, IC, FrtF 
+AP4+/AC4+ 
+Blindage Renforcé, Sans Peur, Sauvegarde Invulnérable, 
+Transport (16) : Marines de la Peste, Havocs, Démagogues, Aspirants Champions, 
+Cultistes, Mutants, Acolytes, Chiens du Chaos, Appui Feu Renégats, Portepestes, Elus 
+Terminators*, Obliterators*, Prince Démon*, Enfant du Chaos*, Mutants Géants*, Ogryns 
+Renégats*, Grand Immonde** (les unités avec astérisque * prennent 2 places, ** 4 places) 
+CD6 – Critique : Une des Runes canalisant l’énergie du Warp est endommagée 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque rune endommagée : 
+- 1 : la Tour de la Peste est aspirée dans le Warp, et considérée comme détruite 
+- 2-3 : elle subit 1 point de dommages supplémentaire, et des explosions internes tuent 
+1D3 passagers (sans sauvegarde autorisée) au choix de leur possesseur 
+- 4-6 : la rune est réparée 
+Drone de la Ruine 
+VB 
+30cm 
+5+ 
+6+ 
+4+ 
+Canon Maw 
+Autocanon Faucheur 
+Canon à Peste 
+30cm 
+30cm 
+(15cm) 
+AP3+/AC5+, IC 
+AP4+/AC6+ 
+Arme Légère, IC 
+Antigrav, Sans Peur, Blindage Arrière Renforcé, Sauvegarde Invulnérable 
+Machine de Contagion 
+VB 
+20cm 
+5+ 
+5+ 
+5+ 
+Catapulte de la Peste 
+Canon à Vomi 
+45cm 
+30cm 
+1PB, Ind, Rpt 
+AP4+/AC6+, IC 
+Sans Peur, Sauvegarde Invulnérable 
+Zombies de la Peste 
+Inf 
+10cm 
+5+ 
+6+ 
+- 
+Griffes et Crocs 
+(contact) 
+Arme d'Assaut 
+Infiltrateurs, Infestation 
+Les Zombies de la Peste peuvent contester les objectifs mais pas les tenir. 
+Titan Subjugator 
+EG 
+35cm 
+5+ 
+3+ 
+5+ 
+Canon Psy 
+Canon Laser 
+Lame de l’Enfer 
+45cm 
+45cm 
+(contact) 
+MA4+ 
+AC5+ 
+Arme d'Assaut, +1A, TT (D3) 
+Blindage Renforcé, Marcheur, Sans Peur. 
+Peut se déplacer au-dessus de terrains dangereux/infranchissables et d’unités qui ne sont 
+pas plus hauts que les genoux du Titan et dont la largeur ne fait pas plus de 2 cm 
+CD3 / BI2 - Critique : Le Subjugator est déséquilibré et trébuche. Déplacez-le de 1D6 cm 
+dans une direction aléatoire. S’il percute un terrain infranchissable ou une unité qu’il ne 
+peut pas pousser, il s’arrête et subit un point de dommage supplémentaire. Les unités qu’il 
+percute subissent une touche sur un 6+ 
+Titan Questor 
+EG 
+35cm 
+5+ 
+5+ 
+3+ 
+2x Canon Castigator 
+2x Canon Laser 
+45cm 
+45cm 
+3xAP3+/AC5+ 
+AC5+ 
+Blindage Renforcé, Marcheur, Sans Peur. 
+Peut se déplacer au-dessus de terrains dangereux/infranchissables et d’unités qui ne sont 
+pas plus hauts que les genoux du Titan et dont la largeur ne fait pas plus de 2 cm 
+CD3 / BI2 – Critique : Le Questor est déséquilibré et trébuche. Déplacez-le de 1D6 cm dans 
+une direction aléatoire. S’il percute un terrain infranchissable ou une unité qu’il ne peut pas 
+pousser, il s’arrête et subit un point de dommage supplémentaire. Les unités qu’il percute 
+subissent une touche sur un 6+ 
+Chevalier Hell Scourge 
+VB 
+30cm 
+4+ 
+5+ 
+4+ 
+Canon Castigator 
+45cm 
+3xAP3+/AC5+ 
+Eclaireur, Marcheur, Sans Peur, Sauvegarde Invulnérable 
+Chevalier Hell Strider 
+VB 
+35cm 
+5+ 
+6+ 
+5+ 
+Canons Laser Jumelés 
+Multi Fuseur 
+45cm 
+15cm 
+(15cm) 
+AC4+ 
+MA5+ 
+Arme Légère, MA 
+Marcheur, Sans Peur, Sauvegarde Invulnérable 
+ 
+8 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 
+
+===== PAGE 10 =====
+ 
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+9 - CODEX ÉGARÉS & DAMNÉS - EAFR - REV 1.9 

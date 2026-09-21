@@ -1,0 +1,919 @@
+# Grey Knights, transcrit depuis le PDF EAFR rev 1.2 (source de vérité).
+codex:
+  slug: grey-knights
+  armee_id: 297c4bc5-675a-458c-9da2-520a60c8b537
+  nom: Grey Knights
+  version: "1.2"
+  faction: imperium
+  categorie: armees-astartes
+  statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/grey-knights.jpg
+  couleur: "#6e7b88"
+  citation:
+    texte: "Nous sommes des guerriers Chevaliers Gris, dont l'armure est la Foi, le bouclier la Dévotion et l'arme notre Devoir Sacré. Mais plus que tout, nous portons la flamme divine de l'Empereur de l'Humanité dans les ténèbres afin d'y purger le Démon."
+    auteur: Frère-Capitaine Stern des Chevaliers Gris
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de Grey Knights.
+
+    Les armées des Grey Knights sont organisées autour de petites formations appelées détachements principaux ainsi que des détachements de soutien qui leurs sont autonomes.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations de support sont des formations autonomes des détachements. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+
+    Concernant le transport, les unités suivantes seront jugées comme équivalentes : Terminators d'assaut, Paladins ↔ Terminators.
+  regles_md:
+    - titre: "Règle spéciale : Némésis du Chaos"
+      texte: |
+        Quand une formation de Space Marines Grey Knights est engagée dans un assaut comprenant au moins une unité de démons invoqués (démon mineur ou majeur), elle comptera comme Charismatique pour ce combat.
+    - titre: "Règle spéciale : Psyker"
+      texte: |
+        Une formation contenant au moins 1 Psyker peut effectuer un tir à 30 cm après qu'elle ait été désignée pour s'activer et avant de lancer le jet d'initiative. La qualité de la touche dépendra du nombre d'unités non neutralisées disposant de la note Psyker dans la formation. Cette action spéciale est considérée comme un tir concernant les règles mais une seule unité a besoin d'une ligne de vue sur la formation ciblée.
+
+        Si la formation fait ce tir, elle aura un malus de -1 pour s'activer à ce tour.
+
+        Table des Psykers :
+
+        - 1 à 3 Psykers : MA5+
+        - 4 à 5 Psykers : MA4+
+        - 6 à 7 Psykers : MA3+
+        - 8 Psykers et plus : MA2+
+
+        Les unités contenant 1 Archiviste ou le Maître de Chapitre comptent comme 3 Psykers. Les unités de Paladins comptent comme 2 Psykers.
+
+        Si l'action entreprise ensuite par la formation comporte un tir ou si l'action est un assaut, la formation ciblée doit impérativement être la même que celle du tir psy.
+    - titre: "Règle spéciale : Et ils ne connaîtront pas la peur"
+      texte: |
+        La bravoure et la ténacité des Space Marines sont légendaires. Ces traits de caractère sont représentés par les règles suivantes :
+
+        - Il faut deux pions d'impact pour neutraliser une unité Space Marines ou détruire une unité démoralisée (ignorez les pions d'impacts en plus).
+        - Les formations Space Marines ne sont démoralisées qu'à partir du moment où elles ont deux pions d'impact ou plus par unité.
+        - Les formations Space Marines comptent comme ayant la moitié de leur nombre de pions impact lors de la résolution de l'assaut (arrondi à l'inférieur, à un minimum de 1 pion impact).
+        - Réduisez de moitié le nombre de touches supplémentaires subies par une formation de Space Marines perdant un assaut, en arrondissant à l'entier inférieur en faveur des Space Marines.
+        - Lorsqu'une formation Space Marines démoralisée se rallie, elle reçoit un nombre de pions impact égal au nombre d'unités plutôt qu'à la moitié du nombre d'unités.
+        - Les Meneurs Space Marines retirent deux pions d'impact au lieu d'habituellement un seul.
+
+        Attention : les formations de Servitors, la Suite Inquisitoriale et les formations des Légions Titaniques ne bénéficient pas de cette règle.
+    - titre: "Règle spéciale : Transports"
+      texte: |
+        Les formations Space Marines disposant d'unités avec le suffixe « + Transports » peuvent prendre assez de Rhinos pour transporter l'intégralité de la formation. Si cette option est prise, le nombre de Rhinos doit être suffisant, mais la capacité totale de transport ne doit pas être excédentaire par rapport au nombre d'unités à transporter.
+
+        Si des véhicules avec une capacité de transport ont été achetés pour la formation (comme des Razorbacks ou des Land Raiders), on considère qu'ils transportent au maximum de leurs capacités et qu'il est possible de prendre assez de Rhinos pour transporter ce qu'il reste de la formation (même si un Rhino se retrouve à moitié vide).
+
+        En outre, il est possible de remplacer gratuitement tous les Rhinos de la formation par un Dreadnought ou un Dreadnought Feu d'enfer, ou par un Dreadnought Vénérable (+25 pts).
+
+        Les Grey Knights n'ont pas accès aux Modules d'assaut planétaire.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Judas Chaban, page 1 Paul Dainton, page 2 Tze Kun Chin."
+  valeur_strategique: 5
+  initiative:
+    defaut: "1+"
+    exceptions:
+      - { portee: "Servitors et Suite Inquisitoriale", valeur: "2+" }
+
+budgets:
+  - id: rare
+    libelle: Supports
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: soutien
+    libelle: Détachements de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "3 détachements de soutien maximum par détachement principal"
+
+unites:
+  # ---- Personnages ----
+  - id: maitre_chapitre
+    nom: Maître de chapitre
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: capitaine
+    nom: Capitaine
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: chapelain
+    nom: Chapelain
+    type: Perso
+    armes:
+      - { nom: Crozius Arcanum, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: archiviste
+    nom: Archiviste
+    type: Perso
+    armes:
+      - { nom: Frappe Psychique, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Arme de Force, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: inquisiteur_ordo_hereticus
+    nom: Inquisiteur de l'Ordo Hereticus
+    type: Perso
+    armes:
+      - { nom: Eviscérator, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: techmarines
+    nom: Techmarines
+    type: Perso
+    armes:
+      - { nom: Servo-bras, portee: (contact), puissance: "Arme d'Assaut +1A, MA" }
+    notes: [Commandant, Meneur, Psyker, Sauvegarde invulnérable]
+    roles: [personnage, commandant]
+
+  # ---- Infanterie ----
+  - id: strikes_squad
+    nom: Strikes Squad
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Gatling Psy, portee: 30cm, puissance: "2x AP5+" }
+      - { nom: Storm Bolters, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée de Force Némésis, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Psykers]
+  - id: terminators
+    nom: Terminators
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Psycanons, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Storm Bolters, portee: (15cm), puissance: Arme Légère }
+      - { nom: Armes de Force, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage renforcé, Blindage arrière renforcé, Psykers]
+    taille_transport: 2
+  - id: terminators_assaut
+    nom: Terminators d'Assaut
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Paire de Falchion Némésis, portee: (contact), puissance: "Arme d'Assaut, MA" }
+      - { nom: et, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage renforcé, Blindage arrière renforcé, Sauvegarde Invulnérable, Psykers]
+    taille_transport: 2
+  - id: paladins
+    nom: Paladins
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Psycanons, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Maîtrise Psy, portee: (15cm), puissance: "Arme Légère, +1, MA" }
+      - { nom: Armes de Force, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage renforcé, Blindage arrière renforcé, Sauvegarde Invulnérable, Psykers]
+    taille_transport: 2
+  - id: purifiers
+    nom: Purifiers
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Épée de Force Némésis, portee: (contact), puissance: "Arme d'Assaut, MA" }
+      - { nom: Purifying Flame, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Psykers]
+  - id: interceptors
+    nom: Interceptors
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Épée de Force Némésis, portee: (contact), puissance: "Arme d'Assaut, MA" }
+      - { nom: Storm Bolters, portee: (15cm), puissance: Arme Légère }
+    notes: [Téléportation, Infiltrateurs, Psyker]
+  - id: purgators
+    nom: Purgators
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Incinerators, portee: 15cm, puissance: "2xAP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Psykers]
+  - id: servitors
+    nom: Servitors
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: Multi-Fuseur de servitor, portee: 15cm, puissance: "MA5+" }
+      - { nom: Servo-bras, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Non Space Marines]
+  - id: troupe_choc_inquisitoriale
+    nom: Troupe de Choc Inquisitoriale
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance Plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Eclaireur, Non Space Marine]
+
+  # ---- Véhicules légers ----
+  - id: dreadknight_incinerator
+    nom: Dreadknight Incinerator
+    type: VL
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Heavy Incinerator, portee: 15cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+      - { nom: Heavy Psy Gatling, portee: 30cm, puissance: "2x AP4+" }
+      - { nom: Dread Fists, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage renforcé, Blindage arrière renforcé, Marcheur, Sauvegarde Invulnérable, Psykers]
+  - id: dreadknight_daemon_hunter
+    nom: Dreadknight Daemon Hunter
+    type: VL
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Psycanons Lourds, portee: 30cm, puissance: "AP4+/AC4+" }
+      - { nom: Nemesis Daemon Greathammer, portee: (contact), puissance: "Arme d'Assaut, +1A, MA, TT(1)" }
+    notes: [Blindage renforcé, Blindage arrière renforcé, Marcheur, Sauvegarde Invulnérable, Psykers]
+
+  # ---- Véhicules blindés ----
+  - id: dreadnought
+    nom: Dreadnought Grey Knight
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Psycanon, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Poing Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Marcheur, Sans peur, Psyker]
+    taille_transport: 2
+  - id: dreadnought_feu_enfer
+    nom: Dreadnought Feu d'Enfer Grey Knight
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Psycanon Lourds, portee: 30cm, puissance: "AP4+/AC4+" }
+      - { nom: Heavy Incinerator, portee: 15cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Marcheur, Sans peur, Psyker]
+    taille_transport: 2
+  - id: dreadnought_venerable
+    nom: Dreadnought Vénérable Grey Knight
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Psycanon Lourds, portee: 30cm, puissance: "AP4+/AC4+" }
+      - { nom: Poing Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage renforcé, Meneur, Marcheur, Sans peur, Psyker]
+    taille_transport: 2
+  - id: land_raider
+    nom: Land raider
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (2) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 places)"]
+    transport: { capacite: 2, accepte: [strikes_squad, purifiers, purgators, terminators, terminators_assaut, paladins] }
+    taille_transport: 2
+  - id: land_raider_redeemer
+    nom: Land Raider Redeemer
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canons inferno, portee: 30cm, puissance: "2xAP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Armes Légères, +1A, IC" }
+      - { nom: Canons d'assaut jumelés, portee: 30cm, puissance: "AP4+/AC4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (2) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 places)"]
+    transport: { capacite: 2, accepte: [strikes_squad, purifiers, purgators, terminators, terminators_assaut, paladins] }
+    taille_transport: 2
+  - id: land_raider_crusader
+    nom: Land Raider Crusader
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canons d'assaut Jumelés, portee: 30cm, puissance: "AP4+/AC4+" }
+      - { nom: Multi Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, MA" }
+      - { nom: Storm Bolters, portee: (15cm), puissance: "Armes légères +1A" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (3) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 places)"]
+    transport: { capacite: 3, accepte: [strikes_squad, purifiers, purgators, terminators, terminators_assaut, paladins] }
+    taille_transport: 2
+  - id: rhino
+    nom: Rhino
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fulgurant, portee: (15cm), puissance: Arme Légère }
+    notes: ["Transport (2) : Strikes Squads, Purifiers, Purgators"]
+    transport: { capacite: 2, accepte: [strikes_squad, purifiers, purgators] }
+  - id: razorback_bolters_lourds
+    nom: Razorback bolters lourds
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: ["Transport (1) : Strikes Squads, Purifiers, Purgators"]
+    transport: { capacite: 1, accepte: [strikes_squad, purifiers, purgators] }
+  - id: razorback_canons_laser
+    nom: Razorback canons laser
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+    notes: ["Transport (1) : Strikes Squads, Purifiers, Purgators"]
+    transport: { capacite: 1, accepte: [strikes_squad, purifiers, purgators] }
+  - id: hunter
+    nom: Hunter
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Lance-missiles Skyspear, portee: 60cm, puissance: "AC4+/AA4+" }
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Troupes de Choc Inquisitoriales"]
+    transport: { capacite: 2, accepte: [troupe_choc_inquisitoriale] }
+  - id: valkyrie_inquisitoriale
+    nom: Valkyrie inquisitoriale
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Bolters Lourds, portee: 30cm, puissance: "AP5+" }
+      - { nom: 2x Roquettes, portee: 30cm, puissance: "1PB, Uniq, Rpt" }
+    notes: [Antigrav, Eclaireur, "Transport (2) : Troupes de Choc Inquisitoriales"]
+    transport: { capacite: 2, accepte: [troupe_choc_inquisitoriale] }
+
+  # ---- Flotte Grey Knights ----
+  - id: stormtalon_destructor
+    nom: Stormtalon Destructor
+    type: A
+    vitesse: C
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons d'Assaut Jumelés (AA), portee: 30cm, puissance: "AP4+/AC4+/AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Avant), portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+  - id: stormtalon_annihilator
+    nom: Stormtalon Annihilator
+    type: A
+    vitesse: C
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons d'Assaut Jumelés (AA), portee: 30cm, puissance: "AP4+/AC4+/AA5+" }
+      - { nom: Canons Laser Jumelés (FF+AA), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+  - id: stormhawk_interceptor
+    nom: Stormhawk Interceptor
+    type: A
+    vitesse: C
+    blindage: "5+"
+    armes:
+      - { nom: Canons d'Assaut Jumelés (AA), portee: 30cm, puissance: "AP4+/AC4+/AA5+, FrtF" }
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Canon tempête Icarus, portee: 45cm, puissance: "AP6+/AC6+/AA6+, FrtF" }
+  - id: stormraven
+    nom: Stormraven
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Multi fuseur Jumelés, portee: 15cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA, FrtF" }
+      - { nom: Canons d'assaut jumelés, portee: 30cm, puissance: "AP4+/AC4+/AA5+, Frt" }
+      - { nom: Missiles Bloodstrike, portee: 45cm, puissance: "AC4+, Frt" }
+    notes:
+      - Blindage renforcé
+      - Assaut planétaire
+      - "Transport (2) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 places). Un Dreadnought peut toujours être embarqué en plus de ces unités."
+    transport: { capacite: 2, accepte: [strikes_squad, purifiers, purgators, terminators, terminators_assaut, paladins] }
+    degats: { cd: 1 }
+  - id: thunderhawk_transporteur
+    nom: Thunderhawk Transporteur
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Bolters Lourds Jumelés (AA Droite), portee: 30cm, puissance: "AP4+/AA5+, Drt" }
+      - { nom: 2x Bolters Lourds Jumelés (AA Gauche), portee: 30cm, puissance: "AP4+/AA5+, Gch" }
+    notes: [Assaut planétaire, Blindage renforcé, "Transport (2) : Land Raider (prennent deux places), Rhinos, Razorbacks, Hunters et les unités qu'ils transportent"]
+    transport: { capacite: 2, accepte: [land_raider, land_raider_redeemer, land_raider_crusader, rhino, razorback_bolters_lourds, razorback_canons_laser, hunter] }
+    degats: { cd: 2, critique: "L'appareil s'écrase au sol, tuant tous ceux à son bord" }
+  - id: thunderhawk
+    nom: Thunderhawk
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier (Avant), portee: 75cm, puissance: "AP4+/AC4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés (AA Avant), portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Bolters Lourds Jumelés (AA Droite), portee: 30cm, puissance: "AP4+/AA5+, Drt" }
+      - { nom: Bolters Lourds Jumelés (AA Gauche), portee: 30cm, puissance: "AP4+/AA5+, Gch" }
+    notes: [Assaut planétaire, Blindage renforcé, "Transport (8) : Strikes Squads, Purifiers, Purgators, Terminators, Dreadnought (Terminators et Dreadnought prennent 2 places)"]
+    transport: { capacite: 8, accepte: [strikes_squad, purifiers, purgators, terminators, terminators_assaut, paladins, dreadnought, dreadnought_feu_enfer, dreadnought_venerable] }
+    degats: { cd: 2, critique: "L'appareil s'écrase au sol, tuant tous ceux à son bord" }
+  - id: barge_debarquement
+    nom: Barge de débarquement
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: 3x Bolters Lourds Jumelés (Barge), portee: 30cm, puissance: "AP4+/AA5+" }
+    notes:
+      - Blindage Renforcé
+      - Blindage Arrière Renforcé
+      - Assaut planétaire
+      - "Transport (12+6/4) : Strikes Squads, Purifiers, Purgators, Terminators, Dreadnought (Terminators et Dreadnought prennent 2 places), plus 6 véhicules parmi Rhinos, Razorbacks, Hunters, ou 4 Land Raiders"
+    transport: { capacite: 12, accepte: [strikes_squad, purifiers, purgators, terminators, terminators_assaut, paladins, dreadnought, dreadnought_feu_enfer, dreadnought_venerable] }
+    degats: { cd: 4, critique: "La Barge de débarquement s'écrase au sol et est détruite, ainsi que toutes les unités à son bord. Toute unité dans un rayon de 5cm de l'appareil subit une touche si la Barge de débarquement se trouvait au sol." }
+  - id: croiseur_attaque
+    nom: Croiseur d'attaque
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (5), portee: "∞", puissance: "5PB, MA" }
+    notes:
+      - "Transport (20+20+6) : Strikes Squads, Purifiers, Purgators, Terminators, Dreadnought, plus 20 véhicules parmi Rhinos, Razorbacks, Hunters et Land Raiders ainsi que 6 Thunderhawks et Thunderhawks Transporteurs. De plus, le Croiseur d'Attaque peut transporter le nombre nécessaire de Stormravens et Barges de Débarquement pour transporter le reste des unités à son bord."
+  - id: barge_bataille
+    nom: Barge de bataille
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (14), portee: "∞", puissance: "14PB, MA" }
+    notes:
+      - "Lent, ne peut être utilisé aux tours 1 et 2."
+      - "Transport (60+60+6) : Strikes Squads, Purifiers, Purgators, Terminators, Dreadnought, plus 60 véhicules parmi Rhinos, Razorbacks, Hunters et Land Raiders ainsi que 6 Thunderhawks et Thunderhawks Transporteurs. De plus, la Barge de Bataille peut transporter le nombre nécessaire de Stormravens et Barges de Débarquement pour transporter le reste des unités à son bord."
+
+  # ---- Légions Titaniques : importées par l'alliance avec adeptus-titanicus ----
+
+options:
+  - id: commandant
+    nom: Commandant
+    effet:
+      type: choix
+      parmi:
+        - { id: capitaine, nom: Capitaine, cout: 50, effet: { type: ajouter, unites: [{ unite: capitaine }] } }
+        - { id: archiviste, nom: Archiviste, cout: 50, effet: { type: ajouter, unites: [{ unite: archiviste }] } }
+        - { id: chapelain, nom: Chapelain, cout: 50, effet: { type: ajouter, unites: [{ unite: chapelain }] } }
+        - id: maitre_chapitre
+          nom: Maître de Chapitre
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: maitre_chapitre }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Capitaine ou un Archiviste ou un Chapelain (50 pts) ; remplacer un Capitaine par 0-1 Maître de Chapitre (gratuit)"
+    note_md: "Le Maître de Chapitre remplace le Capitaine sans surcoût : l'amélioration coûte 50 pts dans tous les cas, et l'armée ne peut en aligner qu'un seul. Le détachement Némésis DreadKnights ne peut prendre cette amélioration que sous la forme du Maître de Chapitre."
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50, cible: [terminators, terminators_assaut, paladins] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la Note Téléportation aux unités d'infanterie de la formation"
+    note_md: "La note n'est ajoutée qu'aux unités d'infanterie de la formation. Le détachement Némésis DreadKnights peut acheter l'amélioration bien que les DreadKnights soient des véhicules légers."
+  - id: techmarines
+    nom: Techmarines
+    effet: { type: ajouter, cout: 25, unites: [{ unite: techmarines }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 personnage de Techmarines à la formation"
+  - id: hunter
+    nom: Hunter
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hunter }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Hunter à la formation"
+  - id: razorback
+    nom: Razorback
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: besoin_transport }
+      parmi:
+        - { unite: razorback_bolters_lourds, cout: 25 }
+        - { unite: razorback_canons_laser, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à autant de Razorbacks Bolters Lourds ou de Razorbacks Canons Laser que d'unités à transporter, 25 pts chacun"
+  - id: dreadnought
+    nom: Dreadnought
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi:
+        - { unite: dreadnought, cout: 50 }
+        - { unite: dreadnought_feu_enfer, cout: 50 }
+        - { unite: dreadnought_venerable, cout: 75 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 ou 2 Dreadnoughts à la formation selon n'importe quelle combinaison : Dreadnought, Dreadnought Feu d'enfer (50 pts chacun), Dreadnought Vénérable (75 pts chacun)"
+  - id: support_specialistes
+    nom: Support Spécialistes
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 4 }
+      parmi:
+        - { unite: purgators, cout: 50 }
+        - { unite: purifiers, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 4 unités de soutien à la formation selon n'importe quelle combinaison parmi Purgators et Purifiers, 50 pts chacune"
+  - id: land_raider
+    nom: Land Raider
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 4 }
+      parmi:
+        - { unite: land_raider, cout: 75 }
+        - { unite: land_raider_redeemer, cout: 75 }
+        - { unite: land_raider_crusader, cout: 75 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 4 Land Raiders ou Land Raiders Redeemer ou Land Raiders Crusader à la formation, 75 pts chacun"
+  - id: terminators
+    nom: Terminators
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: un_terminator, nom: 1 Terminator, cout: 75, unites: [{ unite: terminators }] }
+        - { id: deux_terminators, nom: 2 Terminators, cout: 150, unites: [{ unite: terminators, nombre: 2 }] }
+        - { id: un_paladin, nom: 1 Paladin, cout: 90, unites: [{ unite: paladins }] }
+        - { id: deux_paladins, nom: 2 Paladins, cout: 175, unites: [{ unite: paladins, nombre: 2 }] }
+        - { id: terminator_paladin, nom: 1 Terminator et 1 Paladin, cout: 165, unites: [{ unite: terminators }, { unite: paladins }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 2 unités à la formation selon n'importe quelle combinaison parmi Terminator (75 pts chacun) et Paladin (90 pts chacun, 175 pts les deux)"
+    note_md: "La paire de Paladins est facturée 175 pts et non 180 : les cinq combinaisons possibles sont donc listées avec leur prix exact."
+  - id: chimere
+    nom: Chimère
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez assez de Chimères Inquisitoriales pour transporter toute la formation, 25 pts chacune"
+    note_md: "La Chimère ne transporte que des Troupes de Choc Inquisitoriales : l'Inquisiteur, personnage rattaché à la formation, n'occupe pas de place."
+  - id: valkyrie
+    nom: Valkyrie
+    effet: { type: ajouter, cout: 150, unites: [{ unite: valkyrie_inquisitoriale, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 4 Valkyries Inquisitoriales à la formation"
+  - id: transport_remplacement
+    nom: Remplacer les transports
+    effet:
+      type: choix
+      parmi:
+        - id: dreadnought
+          nom: Dreadnought à la place des Rhinos
+          cout: 0
+          effet: { type: remplacer, de: rhino, par: dreadnought, tout: true, par_nombre: 1, cout: 0 }
+        - id: dreadnought_feu_enfer
+          nom: Dreadnought Feu d'Enfer à la place des Rhinos
+          cout: 0
+          effet: { type: remplacer, de: rhino, par: dreadnought_feu_enfer, tout: true, par_nombre: 1, cout: 0 }
+        - id: dreadnought_venerable
+          nom: Dreadnought Vénérable à la place des Rhinos
+          cout: 25
+          effet: { type: remplacer, de: rhino, par: dreadnought_venerable, tout: true, par_nombre: 1, cout: 0 }
+    contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer gratuitement tous les Rhinos de la formation par un Dreadnought ou un Dreadnought Feu d'enfer, ou par un Dreadnought Vénérable (+25 pts)"
+    note_md: "Vient de la règle spéciale Transports et non du tableau des améliorations. Les Grey Knights n'ont pas accès aux Modules d'assaut planétaire."
+
+formations:
+  # ---- Détachements principaux ----
+  - id: terminators
+    nom: Terminators
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: terminators, nombre: 4 }] }
+    options: [commandant, dreadnought, land_raider, teleportation, terminators]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 3 }]
+    phrase_pdf: "4 unités de Terminators"
+  - id: strikes_squad
+    nom: Strikes Squad
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: strikes_squad, nombre: 6 }
+          - { transports: { unite: rhino } }
+    options: [commandant, dreadnought, land_raider, razorback, hunter, support_specialistes, transport_remplacement]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 3 }, { type: min_par_armee, valeur: 1 }]
+    phrase_pdf: "1+ détachement, 6 unités de Strikes Squad + transports"
+
+  # ---- Détachements de soutien ----
+  - id: dreadknights
+    nom: Némésis DreadKnights
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 3, max: 6 }
+              parmi:
+                - { unite: dreadknight_incinerator, cout: 75 }
+                - { unite: dreadknight_daemon_hunter, cout: 75 }
+              phrase_pdf: "3 à 6 unités de DreadKnights, 75 pts chacune"
+    options: [commandant, teleportation]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    phrase_pdf: "0-1 détachement, 3 à 6 unités de DreadKnights (75 pts chacune)"
+  - id: paladins
+    nom: Paladins
+    variantes:
+      - { id: base, cout: 375, composition: [{ unite: paladins, nombre: 4 }] }
+    options: [commandant, dreadnought, land_raider, teleportation, terminators]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    phrase_pdf: "0-1 détachement, 4 unités de Paladins"
+  - id: terminators_assaut
+    nom: Terminators d'Assaut
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: terminators_assaut, nombre: 4 }] }
+    options: [commandant, dreadnought, land_raider, teleportation, terminators]
+    phrase_pdf: "4 unités de Terminators d'Assaut"
+  - id: interceptors
+    nom: Interceptors
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: interceptors, nombre: 6 }] }
+    options: [commandant]
+    phrase_pdf: "6 unités d'Interceptors"
+  - id: purgators
+    nom: Purgators
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: purgators, nombre: 4 }
+          - { transports: { unite: rhino } }
+    options: [commandant, dreadnought, land_raider, razorback, hunter, transport_remplacement]
+    phrase_pdf: "4 unités de Purgators + transports"
+  - id: purifiers
+    nom: Purifiers
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: purifiers, nombre: 6 }
+          - { transports: { unite: rhino } }
+    options: [commandant, dreadnought, land_raider, razorback, transport_remplacement]
+    phrase_pdf: "6 unités de Purifiers + transports"
+  - id: land_raiders
+    nom: Land Raiders
+    variantes:
+      - id: base
+        cout: 350
+        composition:
+          - choix:
+              total: 4
+              parmi:
+                - { unite: land_raider, cout: 0 }
+                - { unite: land_raider_redeemer, cout: 0 }
+                - { unite: land_raider_crusader, cout: 0 }
+              phrase_pdf: "4 Land Raiders ou Land Raiders Redeemer ou Land Raiders Crusader"
+    options: [commandant, land_raider]
+  - id: servitors
+    nom: Servitors
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: servitors, nombre: 6 }] }
+    options: [techmarines]
+    contraintes: [{ type: initiative, valeur: "2+" }]
+    phrase_pdf: "6 Servitors"
+  - id: suite_inquisitoriale
+    nom: Suite Inquisitoriale
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: troupe_choc_inquisitoriale, nombre: 8 }
+          - { unite: inquisiteur_ordo_hereticus, nombre: 1 }
+    options: [chimere, valkyrie]
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: initiative, valeur: "2+" }]
+    phrase_pdf: "0-1 détachement, 8 unités de Troupes de Choc Inquisitoriales et 1 Inquisiteur de l'Ordo Hereticus"
+
+  # ---- Supports : Flotte Grey Knights ----
+  - id: thunderhawks_transporteurs
+    nom: Thunderhawks Transporteurs
+    variantes:
+      - { id: deux, nom: 2 Thunderhawks transporteurs, cout: 300, composition: [{ unite: thunderhawk_transporteur, nombre: 2 }] }
+      - { id: trois, nom: 3 Thunderhawks transporteurs, cout: 450, composition: [{ unite: thunderhawk_transporteur, nombre: 3 }] }
+    phrase_pdf: "2 Thunderhawks transporteurs (Ajouter 1 Thunderhawk transporteur : +150 pts)"
+  - id: thunderhawk
+    nom: Thunderhawk
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: thunderhawk, nombre: 1 }] }
+  - id: barge_debarquement
+    nom: Barge de Débarquement
+    variantes:
+      - { id: base, cout: 400, composition: [{ unite: barge_debarquement, nombre: 1 }] }
+  - id: intercepteurs_stormtalons
+    nom: Intercepteurs Stormtalons
+    variantes:
+      - { id: destructor, nom: 2 Stormtalons Destructor, cout: 200, composition: [{ unite: stormtalon_destructor, nombre: 2 }] }
+      - { id: annihilator, nom: 2 Stormtalons Annihilator, cout: 250, composition: [{ unite: stormtalon_annihilator, nombre: 2 }] }
+  - id: intercepteurs_stormhawk
+    nom: Intercepteurs Stormhawk
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: stormhawk_interceptor, nombre: 2 }] }
+    phrase_pdf: "2 Stormhawks"
+  - id: storm_raven
+    nom: Storm Raven
+    variantes:
+      - { id: deux, nom: 2 Stormravens, cout: 275, composition: [{ unite: stormraven, nombre: 2 }] }
+      - { id: trois, nom: 3 Stormravens, cout: 400, composition: [{ unite: stormraven, nombre: 3 }] }
+      - { id: quatre, nom: 4 Stormravens, cout: 525, composition: [{ unite: stormraven, nombre: 4 }] }
+    phrase_pdf: "2 Stormravens (Ajouter jusqu'à 2 Stormravens : +125 pts chacun)"
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: croiseur, nom: 1 Croiseur d'attaque Grey Knights, cout: 150, composition: [{ unite: croiseur_attaque, nombre: 1 }] }
+      - { id: barge_bataille, nom: 1 Barge de bataille Grey Knights, cout: 250, composition: [{ unite: barge_bataille, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    phrase_pdf: "0-1 Soutien Orbital"
+
+sections:
+  - id: detachements_principaux
+    titre: DÉTACHEMENTS PRINCIPAUX GREY KNIGHTS
+    formations: [terminators, strikes_squad]
+    colonne_options: true
+    notes:
+      strikes_squad: "L'armée doit comprendre au moins un détachement de Strikes Squad."
+  - id: detachements_soutien
+    titre: DÉTACHEMENTS DE SOUTIEN
+    sous_titre: "3 Détachements de Soutien maximum par Détachement Principal"
+    formations: [dreadknights, paladins, terminators_assaut, interceptors, purgators, purifiers, land_raiders, servitors, suite_inquisitoriale]
+    contraintes: [{ type: consomme, budget: soutien }]
+    colonne_options: true
+    # Tableau unique des améliorations du PDF : `options` reprend toutes les améliorations dans l'ordre du PDF
+    # (chaque formation garde sa propre liste `options`, cette liste ne sert qu'au tableau).
+    options: [commandant, teleportation, techmarines, hunter, razorback, dreadnought, support_specialistes, land_raider, terminators, chimere, valkyrie, transport_remplacement]
+    tableau_options:
+      titre: AMÉLIORATIONS GREY KNIGHTS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement"
+    notes:
+      dreadknights: "Le détachement Némésis DreadKnights ne peut prendre l'amélioration Commandant que sous la forme du Maître de Chapitre."
+      sans_peur: "Les formations de Servitors et la Suite Inquisitoriale ne bénéficient pas de la règle « Et ils ne connaîtront pas la peur » et ont une initiative de 2+."
+  - id: flotte
+    titre: FLOTTE GREY KNIGHTS
+    sous_titre: "SUPPORTS GREY KNIGHTS"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: [thunderhawks_transporteurs, thunderhawk, barge_debarquement, intercepteurs_stormtalons, intercepteurs_stormhawk, storm_raven, soutien_orbital]
+  - id: titanicus
+    titre: SOUTIENS DES LÉGIONS TITANIQUES
+    sous_titre: "SUPPORTS GREY KNIGHTS"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: []
+    allies: { codex: adeptus-titanicus }
+    notes:
+      sans_peur: "Les formations des Légions Titaniques ne bénéficient pas de la règle « Et ils ne connaîtront pas la peur »."
+
+listes_test:
+  - nom: "3000 pts valide, deux détachements principaux, Paladins, DreadKnights et Suite Inquisitoriale"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: strikes_squad
+        options:
+          - { option: commandant, choix: capitaine }
+          - { option: dreadnought, repartition: { dreadnought: 1 } }
+      - formation: terminators
+        options:
+          - { option: teleportation }
+          - { option: land_raider, repartition: { land_raider: 1, land_raider_crusader: 1 } }
+      - formation: paladins
+        options:
+          - { option: commandant, choix: maitre_chapitre }
+      - formation: dreadknights
+        choix: { "0": { dreadknight_incinerator: 2, dreadknight_daemon_hunter: 1 } }
+      - formation: suite_inquisitoriale
+        options:
+          - { option: chimere, quantite: 4 }
+      - { formation: interceptors }
+      - { formation: thunderhawk }
+      - { formation: titan_warhound }
+  - nom: "2000 pts valide, Razorbacks, Dreadnought à la place des Rhinos et paire de Paladins"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: strikes_squad
+        options:
+          - { option: razorback, repartition: { razorback_bolters_lourds: 2, razorback_canons_laser: 1 } }
+          - { option: transport_remplacement, choix: dreadnought_venerable }
+      - formation: terminators_assaut
+        options:
+          - { option: terminators, variante: deux_paladins }
+      - formation: land_raiders
+        choix: { "0": { land_raider: 2, land_raider_redeemer: 1, land_raider_crusader: 1 } }
+      - { formation: soutien_orbital, variante: croiseur }
+  - nom: "1500 pts valide, Servitors, Purifiers et Stormtalons"
+    limite: 1500
+    attendu: valide
+    formations:
+      - formation: strikes_squad
+        options:
+          - { option: support_specialistes, repartition: { purgators: 2 } }
+      - formation: servitors
+        options: [{ option: techmarines }]
+      - formation: purifiers
+        options: [{ option: commandant, choix: archiviste }]
+      - { formation: intercepteurs_stormtalons, variante: annihilator }
+  - nom: "armée sans détachement de Strikes Squad"
+    limite: 1500
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: terminators }
+      - { formation: terminators_assaut }
+  - nom: "deux Maîtres de Chapitre"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: strikes_squad
+        options: [{ option: commandant, choix: maitre_chapitre }]
+      - formation: terminators
+        options: [{ option: commandant, choix: maitre_chapitre }]
+  - nom: "quatre détachements de soutien pour un seul détachement principal"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: strikes_squad }
+      - { formation: interceptors }
+      - { formation: terminators_assaut }
+      - { formation: purifiers }
+      - { formation: servitors }
+  - nom: "Razorbacks sur un détachement de Terminators"
+    limite: 2000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - { formation: strikes_squad }
+      - formation: terminators
+        options: [{ option: razorback, repartition: { razorback_bolters_lourds: 2 } }]
+  - nom: "trois Dreadnoughts en une seule amélioration"
+    limite: 2000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: strikes_squad
+        options:
+          - { option: dreadnought, repartition: { dreadnought: 2, dreadnought_venerable: 1 } }
