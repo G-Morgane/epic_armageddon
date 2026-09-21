@@ -375,5 +375,9 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
   .doc, .doc.paysage { max-width: none; background: transparent; display: flex; flex-direction: column; align-items: center; gap: 6mm; padding: 6mm 4mm; }
   .doc .page { width: 186mm; min-height: 271mm; background: #fff; padding: 12mm 12mm 14mm; box-shadow: 0 1mm 4mm rgba(0, 0, 0, .45); }
   .doc.paysage .page { width: 273mm; min-height: 184mm; }
+  /* la feuille porte déjà ses marges : l'illustration ne doit plus déborder, sinon elle sort du A4 */
+  .doc .couverture-fond { top: 0; right: 0; bottom: 0; left: 0; }
+  .doc .couverture.illustree::after { right: 0; bottom: 0; left: 0; }
+  .doc .couverture.illustree { overflow: hidden; }
 }
 </style>
