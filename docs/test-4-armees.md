@@ -128,3 +128,17 @@ Scripts de reprise, à lancer depuis la racine du projet, essai à blanc par dé
 - `scripts/publier-codex.ts` publie les YAML dans `codex_versions` en conservant le numéro de version du PDF d'origine, après contrôle du schéma, des références, des alliés et des listes de test.
 
 Tables à créer : `supabase/codex.sql` puis `supabase/listes.sql`. Aucune table existante n'est modifiée.
+
+## Divergences entre PDF sources, à trancher par les auteurs
+
+Le modèle ne tranche pas ces cas : il reprend une source et signale l'écart. Une décision éditoriale est nécessaire.
+
+| Sujet | Écart constaté | Ce que fait le modèle |
+| --- | --- | --- |
+| Critique du Warhound | La feuille de références Salamanders donne « CD3 / BI2, Critique : Détruit ». Le codex Adeptus Titanicus donne un critique de déséquilibre avec déplacement aléatoire. | Les titans arrivent par alliance, donc c'est le profil du codex Titanicus qui s'affiche partout. En attente d'arbitrage. |
+
+Cas déjà tranchés :
+
+| Sujet | Décision |
+| --- | --- |
+| Remplacement des transports chez les Scouts Salamanders | Coquille du PDF Salamanders, qui omet la clause présente dans les autres codex Space Marines. L'option est retirée du détachement de Scouts. |
