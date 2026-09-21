@@ -23,8 +23,8 @@ function apercu(o: OptionInput) {
 const TYPES = [
   { v: 'ajouter', l: 'Ajouter des unités' },
   { v: 'remplacer', l: 'Remplacer des unités' },
-  { v: 'mot_cle', l: 'Mot-clé / règle spéciale' },
-  { v: 'choix', l: 'Un choix parmi plusieurs' },
+  { v: 'mot_cle', l: 'Arme, équipement ou règle spéciale (texte)' },
+  { v: 'choix', l: 'Un choix parmi plusieurs (armes au choix, personnage…)' },
   { v: 'choix_multiple', l: 'Plusieurs unités au choix (répartition)' },
 ]
 function ajouter() {
@@ -145,15 +145,16 @@ function appliquerJson(o: OptionInput, txt: string) {
 
           <!-- mot-clé -->
           <template v-else-if="eff(o).type === 'mot_cle'">
-            <label class="lbl">Texte<input v-model="eff(o).texte" class="champ" placeholder="Téléportation"></label>
+            <label class="lbl">Texte<input v-model="eff(o).texte" class="champ" placeholder="Multi-Laser de Carapace, Téléportation…"></label>
             <label class="lbl">Coût<input v-model.number="eff(o).cout" type="number" min="0" class="champ w-24"></label>
+            <p class="text-[11px] text-gray-500">Aucune unité ajoutée : le texte s'affiche sur la formation (PDF et builder) et son coût s'ajoute. Pour une arme qui peut être prise deux fois, règle « Au plus 2 fois par formation ».</p>
           </template>
 
           <!-- choix -->
           <template v-else-if="eff(o).type === 'choix'">
             <div v-for="(p, pi) in eff(o).parmi" :key="pi" class="flex gap-2"><input v-model="p.nom" class="champ flex-1" placeholder="Capitaine"><input v-model.number="p.cout" type="number" class="champ w-20"><button type="button" class="icone hover:text-red-300" @click="eff(o).parmi.splice(pi, 1)">✕</button></div>
             <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ id: 'c' + (eff(o).parmi.length + 1), nom: 'Choix', cout: 0 })">+ Choix</button>
-            <p class="text-[11px] text-gray-500">Les effets par choix (unité ajoutée, remplacement) se règlent dans l'éditeur avancé à droite.</p>
+            <p class="text-[11px] text-gray-500">Chaque ligne est un libellé avec son coût, par exemple une arme (Poing de Combat 0, Canon Gatling 25, Canon Volcano 50). Le joueur en prend une par emplacement : pour deux bras, règle « Au plus 2 fois par formation ». Un choix qui ajoute ou remplace des unités se règle dans l'éditeur avancé à droite.</p>
           </template>
 
           <!-- choix multiple -->
