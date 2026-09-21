@@ -22,6 +22,12 @@ onMounted(() => {
 })
 watch(opts, (o) => { try { localStorage.setItem(CLE, JSON.stringify(o)) } catch { /* ignore */ } }, { deep: true })
 
+const parties = [
+  { cle: 'couverture', nom: 'Couverture', detail: 'Page de garde au nom du codex' },
+  { cle: 'profils', nom: 'Profils d\'unité', detail: 'Une fiche par unité, à l\'ancienne' },
+  { cle: 'references', nom: 'Feuille de références', detail: 'Tous les profils dans un tableau' },
+] as const
+
 const extra = computed(() => {
   const e: Record<string, string> = {}
   if (props.brouillon) e.brouillon = '1'
@@ -60,18 +66,38 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
           </div>
         </header>
 
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-gold/10 bg-surface-light/60 px-5 py-2.5 text-xs text-stone-300">
-          <span class="text-[11px] uppercase tracking-wider text-stone-500">Contenu du document</span>
-          <label class="flex items-center gap-1.5"><input v-model="opts.couverture" type="checkbox" class="accent-gold"> Couverture</label>
-          <label class="flex items-center gap-1.5 text-stone-500"><input type="checkbox" checked disabled class="accent-gold"> Règles et liste d'armée</label>
-          <label class="flex items-center gap-1.5"><input v-model="opts.profils" type="checkbox" class="accent-gold"> Profils d'unité (une fiche par unité)</label>
-          <label class="flex items-center gap-1.5"><input v-model="opts.references" type="checkbox" class="accent-gold"> Feuille de références</label>
-          <div class="ml-auto flex items-center gap-2">
-            <span class="text-[11px] uppercase tracking-wider text-stone-500">Sens</span>
-            <div class="flex rounded border border-white/15">
-              <button type="button" class="px-2.5 py-1" :class="opts.orientation === 'portrait' ? 'bg-gold/20 text-gold' : 'text-stone-400 hover:text-white'" @click="opts.orientation = 'portrait'">Portrait</button>
-              <button type="button" class="border-l border-white/15 px-2.5 py-1" :class="opts.orientation === 'paysage' ? 'bg-gold/20 text-gold' : 'text-stone-400 hover:text-white'" @click="opts.orientation = 'paysage'">Paysage</button>
+        <div class="border-b border-gold/15 bg-gradient-to-b from-gold/[.07] to-transparent px-5 py-4">
+          <div class="mb-2.5 flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-gold">Contenu du document</h3>
+            <div class="flex items-center gap-2">
+              <span class="text-[11px] uppercase tracking-wider text-stone-500">Sens de la page</span>
+              <div class="flex overflow-hidden rounded-md border border-gold/25">
+                <button type="button" class="px-3 py-1.5 text-xs font-semibold transition" :class="opts.orientation === 'portrait' ? 'bg-gold text-surface' : 'text-stone-300 hover:bg-white/5'" @click="opts.orientation = 'portrait'">Portrait</button>
+                <button type="button" class="border-l border-gold/25 px-3 py-1.5 text-xs font-semibold transition" :class="opts.orientation === 'paysage' ? 'bg-gold text-surface' : 'text-stone-300 hover:bg-white/5'" @click="opts.orientation = 'paysage'">Paysage</button>
+              </div>
             </div>
+          </div>
+
+          <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 opacity-70">
+              <p class="flex items-center gap-2 text-sm font-medium text-stone-200"><span class="text-gold">✓</span> Règles et liste d'armée</p>
+              <p class="mt-0.5 pl-6 text-[11px] text-stone-500">Toujours incluses</p>
+            </div>
+            <button
+              v-for="p in parties"
+              :key="p.cle"
+              type="button"
+              class="rounded-lg border px-3 py-2 text-left transition"
+              :class="opts[p.cle] ? 'border-gold/60 bg-gold/10' : 'border-white/10 bg-black/20 hover:border-white/25'"
+              :aria-pressed="opts[p.cle]"
+              @click="opts[p.cle] = !opts[p.cle]"
+            >
+              <p class="flex items-center gap-2 text-sm font-medium" :class="opts[p.cle] ? 'text-white' : 'text-stone-300'">
+                <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border text-[10px]" :class="opts[p.cle] ? 'border-gold bg-gold text-surface' : 'border-white/30'">{{ opts[p.cle] ? '✓' : '' }}</span>
+                {{ p.nom }}
+              </p>
+              <p class="mt-0.5 pl-6 text-[11px]" :class="opts[p.cle] ? 'text-stone-400' : 'text-stone-500'">{{ p.detail }}</p>
+            </button>
           </div>
         </div>
 
