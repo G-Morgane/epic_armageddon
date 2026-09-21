@@ -68,6 +68,7 @@ function vider() {
   if (confirm('Vider la liste ?')) liste.value.formations = []
 }
 function imprimer() { window.print() }
+const ficheOuverte = ref(false)
 
 const erreursGlobales = computed(() => resultat.value.erreurs.filter((e) => !e.formation))
 const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? Math.min(100, Math.round((b.utilise / b.capacite) * 100)) : b.utilise ? 100 : 0)
@@ -83,6 +84,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       <div class="flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
         <label class="flex items-center gap-2 text-sm text-stone-300">Limite <input v-model.number="liste.limite" type="number" step="250" min="250" class="champ w-24"> pts</label>
+        <button type="button" class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10" @click="ficheOuverte = true">Fiche de références</button>
         <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="imprimer">Imprimer</button>
         <button type="button" class="rounded border border-red-400/40 px-3 py-1.5 text-sm text-red-300 hover:bg-red-500/10" @click="vider">Vider</button>
       </div>
@@ -121,6 +123,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
         <p v-if="!liste.formations.length" class="rounded border border-dashed border-white/15 p-8 text-center text-stone-400">
           Ajoutez des formations depuis le catalogue à gauche.
         </p>
+        <CodexFicheReferences v-model="ficheOuverte" :idx="idx" :formations="resultat.formations" :nom="c.codex.nom" />
         <ClientOnly>
           <CodexFormationCarte
             v-for="f in liste.formations"
