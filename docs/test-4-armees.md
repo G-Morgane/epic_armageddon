@@ -129,16 +129,11 @@ Scripts de reprise, à lancer depuis la racine du projet, essai à blanc par dé
 
 Tables à créer : `supabase/codex.sql` puis `supabase/listes.sql`. Aucune table existante n'est modifiée.
 
-## Divergences entre PDF sources, à trancher par les auteurs
+## Divergences entre PDF sources
 
-Le modèle ne tranche pas ces cas : il reprend une source et signale l'écart. Une décision éditoriale est nécessaire.
+Quand deux PDF se contredisent, le modèle reprend une source et l'écart est tranché ici. Aucun cas n'est laissé en suspens dans les fichiers.
 
-| Sujet | Écart constaté | Ce que fait le modèle |
+| Sujet | Écart constaté | Décision |
 | --- | --- | --- |
-| Critique du Warhound | La feuille de références Salamanders donne « CD3 / BI2, Critique : Détruit ». Le codex Adeptus Titanicus donne un critique de déséquilibre avec déplacement aléatoire. | Les titans arrivent par alliance, donc c'est le profil du codex Titanicus qui s'affiche partout. En attente d'arbitrage. |
-
-Cas déjà tranchés :
-
-| Sujet | Décision |
-| --- | --- |
-| Remplacement des transports chez les Scouts Salamanders | Coquille du PDF Salamanders, qui omet la clause présente dans les autres codex Space Marines. L'option est retirée du détachement de Scouts. |
+| Critique du Warhound | La feuille de références Salamanders donne « CD3 / BI2, Critique : Détruit ». Le codex Adeptus Titanicus donne un critique de déséquilibre avec déplacement aléatoire. | Le déséquilibre fait foi. Les titans arrivant par alliance, c'est déjà le profil servi partout, aucune modification nécessaire. |
+| Remplacement des transports chez les Scouts Salamanders | Le PDF Salamanders omet la clause « excepté pour les détachements de Scouts » que portent les autres codex Space Marines. | Coquille. L'option est retirée du détachement de Scouts, une liste de test verrouille le refus. |
