@@ -3,6 +3,26 @@ import { enrichir } from '~~/shared/codex/markdown'
 const codex = useBrouillonCodex()
 const meta = computed(() => codex.value.codex)
 
+const { uploadImage } = useUploadPdf()
+const envoi = ref(false)
+const erreurIllustration = ref('')
+async function envoyerIllustration(e: Event) {
+  const input = e.target as HTMLInputElement
+  const fichier = input.files?.[0]
+  if (!fichier) return
+  envoi.value = true
+  erreurIllustration.value = ''
+  try {
+    const ext = fichier.name.split('.').pop()?.toLowerCase() || 'jpg'
+    meta.value.illustration = await uploadImage(fichier, `codex/${meta.value.slug}-couverture.${ext}`)
+  } catch (err) {
+    erreurIllustration.value = (err as Error).message
+  } finally {
+    envoi.value = false
+    input.value = ''
+  }
+}
+
 function ajouterRegle() {
   ;(meta.value.regles_md ??= []).push({ titre: 'Règle spéciale : ', texte: '' })
 }
@@ -57,6 +77,32 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
           <button type="button" class="text-gray-500 hover:text-red-300" @click="meta.initiative.exceptions!.splice(i, 1)">✕</button>
         </div>
         <button type="button" class="lien" @click="ajouterException">+ Ajouter une exception</button>
+      </div>
+    </section>
+
+    <section class="carte">
+      <h3 class="titre-carte">Couverture du PDF <span class="text-xs font-normal text-gray-500">(illustration pleine page, optionnelle)</span></h3>
+      <div class="flex items-start gap-3">
+        <div class="flex h-24 w-[68px] shrink-0 items-center justify-center overflow-hidden rounded border border-white/10 bg-black/30 text-[10px] text-gray-600">
+          <img v-if="meta.illustration" :src="meta.illustration" alt="" class="h-full w-full object-cover">
+          <span v-else>Aucune</span>
+        </div>
+        <div class="min-w-0 flex-1">
+          <input v-model="meta.illustration" class="champ w-full" placeholder="https://…/imperium/black-templars.jpg">
+          <div class="mt-2 flex flex-wrap items-center gap-2">
+            <label class="lien cursor-pointer">
+              {{ envoi ? 'Envoi…' : 'Choisir une image…' }}
+              <input type="file" accept="image/*" class="hidden" :disabled="envoi" @change="envoyerIllustration">
+            </label>
+            <button v-if="meta.illustration" type="button" class="text-xs text-gray-500 hover:text-red-300" @click="meta.illustration = undefined">Retirer</button>
+          </div>
+          <p v-if="erreurIllustration" class="mt-1 text-xs text-red-300">{{ erreurIllustration }}</p>
+          <label v-if="meta.illustration" class="mt-2 flex items-start gap-2 text-xs text-gray-300">
+            <input v-model="meta.illustration_titre" type="checkbox" class="mt-0.5">
+            <span>Incruster le bandeau et le titre par-dessus<span class="block text-[11px] text-gray-500">À cocher seulement si l'image est une illustration nue. Les couvertures reprises des anciens PDF portent déjà leur titre.</span></span>
+          </label>
+          <p class="mt-1 text-[11px] text-gray-500">Format portrait conseillé (environ 1450 × 2050). Sans illustration, la couverture reste typographique.</p>
+        </div>
       </div>
     </section>
 

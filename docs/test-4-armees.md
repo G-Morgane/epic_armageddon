@@ -99,3 +99,14 @@ Les YAML suivent le PDF.
 | Orientation paysage | Fait, au choix à l'export ; le paysage passe aussi les fiches de profil sur deux colonnes |
 
 Non traité : emplacement pour une photo d'unité (jugé inutile dans le retour), colonne « Notes » propre à chaque arme (l'information tient dans la puissance de feu).
+
+### Couverture illustrée
+
+Les PDF actuels ont une couverture pleine page : bandeau Epic Armageddon, illustration, cartouche « CODEX / NOM / EA-FR ». Le générateur la reproduit.
+
+- Champ `codex.illustration` (URL de l'image, téléversée sur R2 depuis l'onglet Armée).
+- Par défaut l'image est affichée seule, pleine page, bords perdus compris : c'est ce qu'il faut pour réutiliser les couvertures existantes, qui portent déjà leur titre.
+- `codex.illustration_titre` incruste le bandeau et le cartouche par-dessus, pour une illustration nue.
+- Sans image, la couverture typographique reste utilisée.
+
+Reprise des couvertures existantes : elles sont incrustées dans les anciens PDF, pas stockées à part sur R2. Il faut les extraire page 1 par page 1 puis les téléverser.

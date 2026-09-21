@@ -98,8 +98,19 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 
 <template>
   <div class="doc" :class="{ paysage }" data-pret :style="{ '--accent': couleur }">
-    <!-- Couverture (optionnelle) -->
-    <section v-if="opts.couverture" class="page couverture">
+    <!-- Couverture (optionnelle) : illustration pleine page si le codex en a une, sinon typographique -->
+    <section v-if="opts.couverture && c.codex.illustration" class="page couverture-image">
+      <img :src="c.codex.illustration" alt="" class="couverture-fond">
+      <template v-if="c.codex.illustration_titre">
+        <div class="couverture-bandeau">Epic Armageddon</div>
+        <div class="couverture-cartouche">
+          <p class="couverture-codex">Codex</p>
+          <h1 class="couverture-nom">{{ c.codex.nom }}</h1>
+          <p class="couverture-ea">EA-FR · Version {{ c.codex.version }}</p>
+        </div>
+      </template>
+    </section>
+    <section v-else-if="opts.couverture" class="page couverture">
       <div class="couverture-bande" />
       <p class="couverture-sur">Epic Armageddon</p>
       <h1 class="couverture-titre">{{ c.codex.nom }}</h1>
@@ -323,8 +334,8 @@ table.stats tr.vide td { padding: 0; }
 tr { break-inside: avoid; }
 
 /* Couverture */
-.couverture { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 263mm; }
-.doc.paysage .couverture { min-height: 176mm; }
+.couverture { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }
+.doc.paysage .couverture { min-height: 184mm; }
 .couverture-bande { width: 60%; height: 3pt; background: var(--accent); }
 .couverture-bande.bas { margin-top: 18pt; }
 .couverture-sur { font-size: 10pt; letter-spacing: 3pt; text-transform: uppercase; color: #555; margin: 14pt 0 0; }
@@ -333,6 +344,17 @@ tr { break-inside: avoid; }
 .couverture-citation { font-style: italic; font-size: 10pt; max-width: 120mm; margin: 0 0 18pt; }
 .couverture-citation footer { font-style: normal; font-size: 8pt; margin-top: 4pt; color: #555; }
 .couverture-version { font-size: 8.5pt; color: #555; margin: 0; }
+
+/* Couverture illustrée : l'image occupe toute la page, le cartouche se pose dessus. */
+.couverture-image { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 271mm; background: #111; }
+.doc.paysage .couverture-image { min-height: 184mm; }
+/* l'image déborde des marges de page pour couvrir la feuille entière */
+.couverture-fond { position: absolute; top: -12mm; right: -12mm; bottom: -14mm; left: -12mm; object-fit: cover; }
+.couverture-bandeau { position: relative; align-self: center; background: var(--accent); color: #fff; font-size: 12pt; font-weight: 700; letter-spacing: 4pt; text-transform: uppercase; padding: 4pt 16pt; }
+.couverture-cartouche { position: relative; background: rgba(0, 0, 0, .68); color: #fff; text-align: center; padding: 8pt 12pt 10pt; }
+.couverture-codex { font-size: 11pt; letter-spacing: 6pt; text-transform: uppercase; margin: 0 0 2pt; text-align: center; }
+.couverture-nom { font-size: 30pt; line-height: 1.05; text-transform: uppercase; letter-spacing: 1.5pt; margin: 0; color: #fff; }
+.couverture-ea { font-size: 8pt; letter-spacing: 2pt; text-transform: uppercase; margin: 4pt 0 0; color: #ddd; text-align: center; }
 
 /* Fiches de profils à l'ancienne */
 .fiches { display: grid; grid-template-columns: 1fr; gap: 6pt; }
