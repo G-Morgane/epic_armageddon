@@ -567,7 +567,7 @@ options:
           contraintes: [{ type: exclut, options: [razorback, hunter, support_lourd] }]
     contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
     phrase_pdf: "Remplacer tous les Rhinos de la formation par un Dreadnought ou par un Module d'atterrissage"
-    note_md: "Vient de la règle spéciale Transports et non du tableau des améliorations : elle ne consomme donc pas le quota de 3 améliorations. Une formation contenant des unités ne pouvant pas être déployées en Module d'atterrissage (Razorbacks, Hunter, Support Lourd) ne peut pas choisir le Module. Le Module d'atterrissage ne transporte que des Tactiques, des Devastators et un Dreadnought : un détachement de Scouts ne peut donc prendre que le Dreadnought."
+    note_md: "Vient de la règle spéciale Transports et non du tableau des améliorations : elle ne consomme donc pas le quota de 3 améliorations. Une formation contenant des unités ne pouvant pas être déployées en Module d'atterrissage (Razorbacks, Hunter, Support Lourd) ne peut pas choisir le Module. Les détachements de Scouts n'y ont pas droit : le PDF Salamanders omet cette clause, présente dans les autres codex Space Marines."
 
 formations:
   # ---- Détachements principaux ----
@@ -616,7 +616,7 @@ formations:
         composition:
           - { unite: scouts, nombre: 4 }
           - { transports: { unite: rhino } }
-    options: [commandant, razorback, sniper, transport_remplacement]
+    options: [commandant, razorback, sniper]
     phrase_pdf: "4 unités de Scouts + Transports"
   - id: motos
     nom: Motos
@@ -828,3 +828,13 @@ listes_test:
     formations:
       - { formation: tactique }
       - { formation: titan_warlord }
+
+  - nom: "Module d'atterrissage sur un détachement de Scouts"
+    limite: 1000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: tactique
+      - formation: scouts
+        options:
+          - { option: transport_remplacement, choix: module_atterrissage }
