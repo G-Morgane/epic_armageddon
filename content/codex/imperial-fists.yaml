@@ -1,6 +1,7 @@
 # Imperial Fists, transcrit depuis le PDF EAFR rev 1.4 (source de vérité).
 codex:
   slug: imperial-fists
+  armee_id: 023fe678-b9e5-4918-ac7a-8fa1a92363e4
   nom: Imperial Fists
   version: "1.4"
   faction: imperium

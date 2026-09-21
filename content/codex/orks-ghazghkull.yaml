@@ -1,6 +1,7 @@
 # Orks de Ghazghkull, transcrit depuis le PDF EAFR rev 1.7.1 (source de vérité).
 codex:
   slug: orks-ghazghkull
+  armee_id: 709b48d0-4578-4e83-900c-af9e00a00f98
   nom: Orks de Ghazghkull
   version: "1.7.1"
   faction: xenos

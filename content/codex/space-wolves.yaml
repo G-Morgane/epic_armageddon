@@ -1,6 +1,7 @@
 # Space Wolves, transcrit depuis le PDF EAFR rev 1.2 (source de vérité).
 codex:
   slug: space-wolves
+  armee_id: bddd312b-b314-4ccf-becd-efc83b9493a7
   nom: Space Wolves
   version: "1.2"
   faction: imperium

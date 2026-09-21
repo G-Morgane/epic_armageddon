@@ -1,6 +1,7 @@
 # Adeptus Mechanicus, transcrit depuis le PDF EAFR rev 1.5 (source de vérité).
 codex:
   slug: adeptus-mechanicus
+  armee_id: 39f3778c-babf-4b09-88bd-b79c866f0085
   nom: Adeptus Mechanicus
   version: "1.5"
   faction: imperium

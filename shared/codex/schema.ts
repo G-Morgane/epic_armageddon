@@ -315,6 +315,8 @@ export const ListeTestSchema = z.object({
 export const CodexSchema = z.object({
   codex: z.object({
     slug: z.string().regex(/^[a-z0-9-]+$/),
+    /** uuid de la ligne `armies` du site : fait le lien avec la fiche d'armée publique. */
+    armee_id: z.string().uuid().optional(),
     nom: z.string(),
     version: z.string(),
     faction: z.enum(['imperium', 'chaos', 'xenos']),

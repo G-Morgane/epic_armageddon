@@ -1,6 +1,7 @@
 # White Scars, transcrit depuis le PDF EAFR rev 1.2 (source de vérité).
 codex:
   slug: white-scars
+  armee_id: 954cb043-a144-47be-9ff1-e03fd210f4fc
   nom: White Scars
   version: "1.2"
   faction: imperium

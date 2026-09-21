@@ -1,6 +1,7 @@
 # Dark Angels, transcrit depuis le PDF EAFR rev 1.0 (source de vérité).
 codex:
   slug: dark-angels
+  armee_id: 0510153c-f2e8-4ef7-9e33-7941874137d4
   nom: Dark Angels
   version: "1.0"
   faction: imperium

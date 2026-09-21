@@ -1,6 +1,7 @@
 # Tyranides, transcrit depuis le PDF v1.4 (source de vérité).
 codex:
   slug: tyranides
+  armee_id: 5553f3a9-bed5-49ce-9eec-a71ff9c6c015
   nom: Tyranides
   version: "1.4"
   faction: xenos

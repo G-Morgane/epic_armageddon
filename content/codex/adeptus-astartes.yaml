@@ -1,6 +1,7 @@
 # Adeptus Astartes, transcrit depuis le PDF EAFR rev 1.5 (source de vérité).
 codex:
   slug: adeptus-astartes
+  armee_id: 2ccaacb8-9b82-4ff6-9e31-0dac78d430fa
   nom: Adeptus Astartes
   version: "1.5"
   faction: imperium

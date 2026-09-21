@@ -1,6 +1,7 @@
 # Black Templars, transcrit depuis le PDF EAFR rev 1.4.1 (source de vérité).
 codex:
   slug: black-templars
+  armee_id: a3d34e5d-0503-47a8-aabb-105a7aff8487
   nom: Black Templars
   version: "1.4.1"
   faction: imperium

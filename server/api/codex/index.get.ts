@@ -10,6 +10,7 @@ export default defineEventHandler(async () => {
     const c = r.value
     return [{
       slug: c.codex.slug,
+      armee_id: c.codex.armee_id,
       nom: c.codex.nom,
       version: c.codex.version,
       faction: c.codex.faction,

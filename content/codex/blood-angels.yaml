@@ -1,6 +1,7 @@
 # Blood Angels, transcrit depuis le PDF EAFR rev 1.2 (source de vérité).
 codex:
   slug: blood-angels
+  armee_id: 475ed4ba-452e-4433-b455-aee36ed57152
   nom: Blood Angels
   version: "1.2"
   faction: imperium
