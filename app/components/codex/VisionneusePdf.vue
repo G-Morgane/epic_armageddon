@@ -54,7 +54,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
       <div v-if="ouvert" class="fixed inset-0 z-[60] bg-black/60" @click="fermer" />
     </Transition>
     <Transition enter-active-class="transition duration-250 ease-out" enter-from-class="translate-x-full" enter-to-class="translate-x-0" leave-active-class="transition duration-200 ease-in" leave-from-class="translate-x-0" leave-to-class="translate-x-full">
-      <aside v-if="ouvert" class="fixed inset-y-0 right-0 z-[61] flex w-full max-w-5xl flex-col border-l border-gold/20 bg-surface shadow-2xl" role="dialog" :aria-label="`Aperçu PDF ${nom ?? slug}`">
+      <aside v-if="ouvert" class="fixed inset-y-0 right-0 z-[61] flex w-full flex-col border-l border-gold/20 bg-surface shadow-2xl transition-[max-width] duration-300" :class="opts.orientation === 'paysage' ? 'max-w-[92rem]' : 'max-w-5xl'" role="dialog" :aria-label="`Aperçu PDF ${nom ?? slug}`">
         <header class="flex items-center justify-between gap-3 border-b border-gold/10 bg-surface-light px-5 py-3">
           <div class="min-w-0">
             <p class="text-xs uppercase tracking-widest text-gold">Aperçu PDF{{ brouillon ? ' · brouillon' : '' }}</p>

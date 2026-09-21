@@ -269,11 +269,17 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 <style>
 /* la taille de page est injectée par useHead (portrait ou paysage) */
 html.print, html.print body { background: #fff; color: #111; }
+
+/* À l'écran (aperçu dans le tiroir) : chaque section devient une feuille A4 posée sur un fond neutre. */
+@media screen {
+  html.print, html.print body { background: #4a4540; }
+}
 </style>
 
 <style scoped>
 .doc { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; line-height: 1.35; color: #111; background: #fff; max-width: 186mm; margin: 0 auto; }
 .doc.paysage { max-width: 273mm; }
+
 .page { position: relative; break-after: page; padding-bottom: 8mm; }
 .page:last-child { break-after: auto; }
 .titre { font-size: 24pt; letter-spacing: 1pt; text-transform: uppercase; margin: 0 0 8pt; color: #222; }
@@ -341,4 +347,10 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
 .fiche-arme td:first-child { width: 38%; }
 .fiche-comp td { font-size: 6.8pt; font-style: italic; border-top: 1px solid #eee; }
 .fiche-comp strong { font-style: normal; }
+/* Aperçu écran : feuilles séparées, au format réel, pour juger de la mise en page. */
+@media screen {
+  .doc, .doc.paysage { max-width: none; background: transparent; display: flex; flex-direction: column; align-items: center; gap: 6mm; padding: 6mm 4mm; }
+  .doc .page { width: 186mm; min-height: 271mm; background: #fff; padding: 12mm 12mm 14mm; box-shadow: 0 1mm 4mm rgba(0, 0, 0, .45); }
+  .doc.paysage .page { width: 273mm; min-height: 184mm; }
+}
 </style>
