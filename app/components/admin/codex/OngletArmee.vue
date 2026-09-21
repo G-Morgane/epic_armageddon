@@ -97,11 +97,7 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
             <button v-if="meta.illustration" type="button" class="text-xs text-gray-500 hover:text-red-300" @click="meta.illustration = undefined">Retirer</button>
           </div>
           <p v-if="erreurIllustration" class="mt-1 text-xs text-red-300">{{ erreurIllustration }}</p>
-          <label v-if="meta.illustration" class="mt-2 flex items-start gap-2 text-xs text-gray-300">
-            <input v-model="meta.illustration_titre" type="checkbox" class="mt-0.5">
-            <span>Incruster le bandeau et le titre par-dessus<span class="block text-[11px] text-gray-500">À cocher seulement si l'image est une illustration nue. Les couvertures reprises des anciens PDF portent déjà leur titre.</span></span>
-          </label>
-          <p class="mt-1 text-[11px] text-gray-500">Format portrait conseillé (environ 1450 × 2050). Sans illustration, la couverture reste typographique.</p>
+          <p class="mt-1 text-[11px] text-gray-500">Format portrait conseillé (environ 1450 × 2050). L'image occupe toute la page, le titre du codex se pose dessus. Sans illustration, la couverture garde son fond blanc.</p>
         </div>
       </div>
     </section>

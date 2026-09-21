@@ -327,8 +327,6 @@ export const CodexSchema = z.object({
     citation: z.object({ texte: z.string(), auteur: z.string().optional() }).optional(),
     /** illustration pleine page de la couverture du PDF (URL) */
     illustration: z.string().optional(),
-    /** incruster le bandeau et le titre sur l'illustration (inutile si l'image est déjà une couverture finie) */
-    illustration_titre: z.boolean().default(false),
     intro_md: z.string().optional(),
     regles_md: z.array(z.object({ titre: z.string(), texte: z.string() })).default([]),
     credits: z.string().optional(),

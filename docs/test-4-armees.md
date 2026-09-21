@@ -105,8 +105,8 @@ Non traité : emplacement pour une photo d'unité (jugé inutile dans le retour)
 Les PDF actuels ont une couverture pleine page : bandeau Epic Armageddon, illustration, cartouche « CODEX / NOM / EA-FR ». Le générateur la reproduit.
 
 - Champ `codex.illustration` (URL de l'image, téléversée sur R2 depuis l'onglet Armée).
-- Par défaut l'image est affichée seule, pleine page, bords perdus compris : c'est ce qu'il faut pour réutiliser les couvertures existantes, qui portent déjà leur titre.
-- `codex.illustration_titre` incruste le bandeau et le cartouche par-dessus, pour une illustration nue.
-- Sans image, la couverture typographique reste utilisée.
+- L'image couvre la feuille entière, bords perdus compris. Le bloc de titre (Epic Armageddon, nom, faction, citation, version) se pose dessus sur un fond sombre translucide.
+- Sans image, le même bloc s'affiche sur fond blanc.
+- Il faut donc fournir une illustration nue : le titre est écrit par le site, pas par l'image.
 
 Reprise des couvertures existantes : elles sont incrustées dans les anciens PDF, pas stockées à part sur R2. Il faut les extraire page 1 par page 1 puis les téléverser.

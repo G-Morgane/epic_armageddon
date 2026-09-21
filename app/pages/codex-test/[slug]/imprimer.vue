@@ -98,29 +98,21 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 
 <template>
   <div class="doc" :class="{ paysage }" data-pret :style="{ '--accent': couleur }">
-    <!-- Couverture (optionnelle) : illustration pleine page si le codex en a une, sinon typographique -->
-    <section v-if="opts.couverture && c.codex.illustration" class="page couverture-image">
-      <img :src="c.codex.illustration" alt="" class="couverture-fond">
-      <template v-if="c.codex.illustration_titre">
-        <div class="couverture-bandeau">Epic Armageddon</div>
-        <div class="couverture-cartouche">
-          <p class="couverture-codex">Codex</p>
-          <h1 class="couverture-nom">{{ c.codex.nom }}</h1>
-          <p class="couverture-ea">EA-FR · Version {{ c.codex.version }}</p>
-        </div>
-      </template>
-    </section>
-    <section v-else-if="opts.couverture" class="page couverture">
-      <div class="couverture-bande" />
-      <p class="couverture-sur">Epic Armageddon</p>
-      <h1 class="couverture-titre">{{ c.codex.nom }}</h1>
-      <p class="couverture-sous">Liste d'armée {{ c.codex.faction }}</p>
-      <blockquote v-if="c.codex.citation" class="couverture-citation">
-        « {{ c.codex.citation.texte }} »
-        <footer v-if="c.codex.citation.auteur">{{ c.codex.citation.auteur }}</footer>
-      </blockquote>
-      <p class="couverture-version">Version {{ c.codex.version }}</p>
-      <div class="couverture-bande bas" />
+    <!-- Couverture (optionnelle) : même mise en page, avec l'illustration en fond si le codex en a une -->
+    <section v-if="opts.couverture" class="page couverture" :class="{ illustree: !!c.codex.illustration }">
+      <img v-if="c.codex.illustration" :src="c.codex.illustration" alt="" class="couverture-fond">
+      <div class="couverture-bloc">
+        <div class="couverture-bande" />
+        <p class="couverture-sur">Epic Armageddon</p>
+        <h1 class="couverture-titre">{{ c.codex.nom }}</h1>
+        <p class="couverture-sous">Liste d'armée {{ c.codex.faction }}</p>
+        <blockquote v-if="c.codex.citation" class="couverture-citation">
+          « {{ c.codex.citation.texte }} »
+          <footer v-if="c.codex.citation.auteur">{{ c.codex.citation.auteur }}</footer>
+        </blockquote>
+        <p class="couverture-version">Version {{ c.codex.version }}</p>
+        <div class="couverture-bande bas" />
+      </div>
     </section>
 
     <!-- Présentation et règles spéciales -->
@@ -333,10 +325,13 @@ table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
 table.stats tr.vide td { padding: 0; }
 tr { break-inside: avoid; }
 
-/* Couverture */
-.couverture { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }
+/* Couverture : bloc typographique centré, posé sur l'illustration quand il y en a une. */
+.couverture { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }
 .doc.paysage .couverture { min-height: 184mm; }
-.couverture-bande { width: 60%; height: 3pt; background: var(--accent); }
+/* l'illustration déborde des marges pour couvrir la feuille entière */
+.couverture-fond { position: absolute; top: -12mm; right: -12mm; bottom: -14mm; left: -12mm; object-fit: cover; }
+.couverture-bloc { position: relative; display: flex; flex-direction: column; align-items: center; }
+.couverture-bande { width: 90mm; height: 3pt; background: var(--accent); }
 .couverture-bande.bas { margin-top: 18pt; }
 .couverture-sur { font-size: 10pt; letter-spacing: 3pt; text-transform: uppercase; color: #555; margin: 14pt 0 0; }
 .couverture-titre { font-size: 40pt; line-height: 1.1; text-transform: uppercase; letter-spacing: 2pt; margin: 6pt 0; color: #222; }
@@ -345,16 +340,17 @@ tr { break-inside: avoid; }
 .couverture-citation footer { font-style: normal; font-size: 8pt; margin-top: 4pt; color: #555; }
 .couverture-version { font-size: 8.5pt; color: #555; margin: 0; }
 
-/* Couverture illustrée : l'image occupe toute la page, le cartouche se pose dessus. */
-.couverture-image { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 271mm; background: #111; }
-.doc.paysage .couverture-image { min-height: 184mm; }
-/* l'image déborde des marges de page pour couvrir la feuille entière */
-.couverture-fond { position: absolute; top: -12mm; right: -12mm; bottom: -14mm; left: -12mm; object-fit: cover; }
-.couverture-bandeau { position: relative; align-self: center; background: var(--accent); color: #fff; font-size: 12pt; font-weight: 700; letter-spacing: 4pt; text-transform: uppercase; padding: 4pt 16pt; }
-.couverture-cartouche { position: relative; background: rgba(0, 0, 0, .68); color: #fff; text-align: center; padding: 8pt 12pt 10pt; }
-.couverture-codex { font-size: 11pt; letter-spacing: 6pt; text-transform: uppercase; margin: 0 0 2pt; text-align: center; }
-.couverture-nom { font-size: 30pt; line-height: 1.05; text-transform: uppercase; letter-spacing: 1.5pt; margin: 0; color: #fff; }
-.couverture-ea { font-size: 8pt; letter-spacing: 2pt; text-transform: uppercase; margin: 4pt 0 0; color: #ddd; text-align: center; }
+/* Sur illustration : fond sombre translucide et texte clair, pour rester lisible. */
+.couverture.illustree { background: #111; }
+.couverture.illustree .couverture-bloc { background: rgba(0, 0, 0, .7); color: #fff; padding: 10mm 14mm 12mm; max-width: 150mm; }
+.couverture.illustree .couverture-sur { color: #ddd; }
+.couverture.illustree .couverture-titre { color: #fff; }
+.couverture.illustree .couverture-citation { color: #eee; }
+.couverture.illustree .couverture-citation footer,
+.couverture.illustree .couverture-version { color: #ccc; }
+/* la couleur du codex est souvent trop sombre sur fond noir : on l'éclaircit */
+.couverture.illustree .couverture-bande { background: color-mix(in srgb, var(--accent) 35%, #fff); }
+.couverture.illustree .couverture-sous { color: color-mix(in srgb, var(--accent) 30%, #fff); }
 
 /* Fiches de profils à l'ancienne */
 .fiches { display: grid; grid-template-columns: 1fr; gap: 6pt; }
