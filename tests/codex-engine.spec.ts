@@ -3,6 +3,8 @@ import { listerSlugs, chargerCodexParSlug, chargerCodexBrut } from '../shared/co
 import { chargerCodex } from '../shared/codex/schema'
 import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation } from '../shared/codex/engine'
 import { normaliserFormation } from '../shared/codex/liste'
+import { enrichir } from '../shared/codex/markdown'
+import { trierParType, lignesComplementaires, requeteOptionsPdf, lireOptionsPdf, OPTIONS_PDF_DEFAUT } from '../shared/codex/pdf'
 
 describe('moteur : listes de test des codex', () => {
   for (const slug of listerSlugs()) {
@@ -55,5 +57,34 @@ describe('moteur : armes en amélioration (sans unité)', () => {
   it('un troisième bras est refusé', () => {
     const r = resoudreFormation(idx, reaver([{ option: 'bras_reaver', choix: 'poing' }, { option: 'bras_reaver', choix: 'poing' }, { option: 'bras_reaver', choix: 'gatling' }]) as any)
     expect(r.erreurs.map((e) => e.message)).toContain('Armement de Bras : au plus 2 fois par formation')
+  })
+})
+
+describe('mise en forme et composition du PDF', () => {
+  it('gras et italique deviennent du HTML sûr', () => {
+    expect(enrichir('Une **règle** en *italique*')).toBe('Une <strong>règle</strong> en <em>italique</em>')
+    expect(enrichir('Le _Warhound_ et __le Reaver__')).toBe('Le <em>Warhound</em> et <strong>le Reaver</strong>')
+    expect(enrichir('<script>alert(1)</script>')).toBe('&lt;script&gt;alert(1)&lt;/script&gt;')
+    expect(enrichir('nom_de_fichier.yaml')).toBe('nom_de_fichier.yaml')
+  })
+
+  it('les unités sont triées par type', () => {
+    const u = (id: string, type: string) => ({ id, nom: id, type, armes: [], notes: [], roles: [] })
+    const tri = trierParType([u('a', 'VS'), u('b', 'Inf'), u('c', 'Perso'), u('d', 'EG'), u('e', 'Truc'), u('f', 'VB')])
+    expect(tri.map((x) => x.id)).toEqual(['c', 'b', 'f', 'd', 'a', 'e'])
+  })
+
+  it('les lignes de bas de fiche omettent ce qui est vide', () => {
+    const base = { id: 'x', nom: 'X', type: 'Inf', armes: [], notes: [], roles: [] }
+    expect(lignesComplementaires(base as never)).toEqual([])
+    const complet = { ...base, notes: ['Sans peur'], degats: { cd: 3, bi: 2, critique: 'Explose' } }
+    expect(lignesComplementaires(complet as never).map((l) => l.label)).toEqual(['Capacité de dommage', 'Critique', 'Notes'])
+    expect(lignesComplementaires(complet as never, true)[0]).toEqual({ texte: 'CD 3 / BI 2' })
+  })
+
+  it('la query string ne porte que ce qui diffère du défaut', () => {
+    expect(requeteOptionsPdf(OPTIONS_PDF_DEFAUT)).toBe('')
+    expect(requeteOptionsPdf({ ...OPTIONS_PDF_DEFAUT, profils: true, orientation: 'paysage' })).toBe('?profils=1&orientation=paysage')
+    expect(lireOptionsPdf({ couverture: '0', profils: '1' })).toEqual({ couverture: false, profils: true, references: true, orientation: 'portrait' })
   })
 })

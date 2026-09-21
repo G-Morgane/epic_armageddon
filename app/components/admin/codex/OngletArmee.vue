@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { enrichir } from '~~/shared/codex/markdown'
 const codex = useBrouillonCodex()
 const meta = computed(() => codex.value.codex)
 
@@ -69,6 +70,7 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
     <section class="carte lg:col-span-2">
       <h3 class="titre-carte">Utiliser la liste d'armée <span class="text-xs font-normal text-gray-500">(texte d'introduction, paragraphes séparés par une ligne vide)</span></h3>
       <textarea v-model="meta.intro_md" rows="7" class="champ font-body text-base" />
+      <p class="mt-1 text-[11px] text-gray-500">Mise en forme : <code>**gras**</code> et <code>*italique*</code> (ou <code>__gras__</code> et <code>_italique_</code>).</p>
     </section>
 
     <section class="carte lg:col-span-2">
@@ -79,8 +81,11 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
           <button type="button" class="text-gray-500 hover:text-red-300" @click="retirerRegle(i)">✕</button>
         </div>
         <textarea v-model="r.texte" rows="4" class="champ mt-2 font-body text-base" />
+        <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+        <p v-if="/[*_]/.test(r.texte)" class="mt-1 rounded bg-black/20 px-2 py-1 font-body text-[13px] text-gray-300"><span class="mr-1 text-[10px] uppercase tracking-wider text-gray-500">Aperçu</span><span v-html="enrichir(r.texte)" /></p>
       </div>
       <button type="button" class="lien" @click="ajouterRegle">+ Ajouter une règle spéciale</button>
+      <p class="mt-1 text-[11px] text-gray-500">Mise en forme : <code>**gras**</code> et <code>*italique*</code> (ou <code>__gras__</code> et <code>_italique_</code>).</p>
     </section>
 
     <section class="carte lg:col-span-2">

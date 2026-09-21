@@ -1,8 +1,11 @@
 <script setup lang="ts">
 /**
  * Visionneuse d'aperçu PDF en tiroir : affiche la page imprimable du codex dans un cadre,
- * avec le téléchargement du vrai PDF. `brouillon` : aperçu du brouillon d'admin.
+ * avec le choix de la composition du document et le téléchargement du vrai PDF.
+ * `brouillon` : aperçu du brouillon d'admin.
  */
+import { OPTIONS_PDF_DEFAUT, requeteOptionsPdf, type OptionsPdf } from '~~/shared/codex/pdf'
+
 const props = defineProps<{
   slug: string
   nom?: string
@@ -12,8 +15,20 @@ const props = defineProps<{
 }>()
 const ouvert = defineModel<boolean>({ default: false })
 
-const src = computed(() => `/codex-test/${props.slug}/imprimer${props.brouillon ? '?brouillon=1' : '?'}&v=${props.version ?? 0}`)
-const pdf = computed(() => `/api/codex/${props.slug}/pdf${props.brouillon ? '?brouillon=1' : ''}`)
+const opts = ref<OptionsPdf>({ ...OPTIONS_PDF_DEFAUT })
+const CLE = 'codex:pdf:options'
+onMounted(() => {
+  try { const v = localStorage.getItem(CLE); if (v) opts.value = { ...OPTIONS_PDF_DEFAUT, ...JSON.parse(v) } } catch { /* stockage indisponible */ }
+})
+watch(opts, (o) => { try { localStorage.setItem(CLE, JSON.stringify(o)) } catch { /* ignore */ } }, { deep: true })
+
+const extra = computed(() => {
+  const e: Record<string, string> = {}
+  if (props.brouillon) e.brouillon = '1'
+  return e
+})
+const src = computed(() => `/codex-test/${props.slug}/imprimer${requeteOptionsPdf(opts.value, { ...extra.value, v: String(props.version ?? 0) })}`)
+const pdf = computed(() => `/api/codex/${props.slug}/pdf${requeteOptionsPdf(opts.value, extra.value)}`)
 const chargement = ref(true)
 
 function fermer() { ouvert.value = false }
@@ -23,6 +38,7 @@ watch(ouvert, (v) => {
   if (v) window.addEventListener('keydown', surTouche)
   else window.removeEventListener('keydown', surTouche)
 })
+watch(src, () => { chargement.value = true })
 onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
 </script>
 
@@ -43,6 +59,22 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
             <button type="button" class="rounded-md p-2 text-gray-400 hover:bg-white/10 hover:text-white" title="Fermer (Échap)" @click="fermer">✕</button>
           </div>
         </header>
+
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-gold/10 bg-surface-light/60 px-5 py-2.5 text-xs text-stone-300">
+          <span class="text-[11px] uppercase tracking-wider text-stone-500">Contenu du document</span>
+          <label class="flex items-center gap-1.5"><input v-model="opts.couverture" type="checkbox" class="accent-gold"> Couverture</label>
+          <label class="flex items-center gap-1.5 text-stone-500"><input type="checkbox" checked disabled class="accent-gold"> Règles et liste d'armée</label>
+          <label class="flex items-center gap-1.5"><input v-model="opts.profils" type="checkbox" class="accent-gold"> Profils d'unité (une fiche par unité)</label>
+          <label class="flex items-center gap-1.5"><input v-model="opts.references" type="checkbox" class="accent-gold"> Feuille de références</label>
+          <div class="ml-auto flex items-center gap-2">
+            <span class="text-[11px] uppercase tracking-wider text-stone-500">Sens</span>
+            <div class="flex rounded border border-white/15">
+              <button type="button" class="px-2.5 py-1" :class="opts.orientation === 'portrait' ? 'bg-gold/20 text-gold' : 'text-stone-400 hover:text-white'" @click="opts.orientation = 'portrait'">Portrait</button>
+              <button type="button" class="border-l border-white/15 px-2.5 py-1" :class="opts.orientation === 'paysage' ? 'bg-gold/20 text-gold' : 'text-stone-400 hover:text-white'" @click="opts.orientation = 'paysage'">Paysage</button>
+            </div>
+          </div>
+        </div>
+
         <div class="relative flex-1 bg-[#4a4540]">
           <div v-if="chargement" class="absolute inset-0 flex items-center justify-center text-sm text-gray-300">Chargement de l'aperçu…</div>
           <iframe :src="src" class="h-full w-full" :class="chargement ? 'opacity-0' : 'opacity-100'" title="Aperçu du codex" @load="chargement = false" />

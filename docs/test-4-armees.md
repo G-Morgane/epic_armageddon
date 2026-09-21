@@ -83,3 +83,19 @@ Les YAML suivent le PDF.
 2. Éditeur des choix d'option (Commandant : Capitaine / Archiviste…) sans passer par le JSON.
 3. Convertir les 37 autres codex (importeur depuis `docs/reference/builder-json/`).
 4. Builder : comptes joueurs, partage, impression soignée.
+
+## Retours de relecture (septembre 2026)
+
+| Demande | État |
+| --- | --- |
+| Gras et italique dans les textes libres | Fait : `**gras**` / `*italique*` (et `__` / `_`), aperçu sous le champ des règles spéciales |
+| Noms d'armes uniques obligatoires | Levé : une arme est une ligne de l'unité, deux unités peuvent porter le même nom d'arme avec des valeurs différentes |
+| Boîte de dialogue à la génération du PDF | Fait : barre d'options dans l'aperçu (couverture, profils d'unité, feuille de références, portrait ou paysage) |
+| Page de couverture | Fait, optionnelle (cochée par défaut) |
+| Fiches de profil « à l'ancienne » | Fait, optionnelles (décochées par défaut), une fiche par unité, sans photo |
+| Capacité de dommage et critique masqués si vides | Fait, dans les deux feuilles |
+| Feuille de références triée par type | Fait : Perso, Inf, VL, VB, EG, A, A/EG, VS, puis les types inconnus |
+| Notes sous le profil plutôt qu'en colonne | Fait, comme la maquette fournie |
+| Orientation paysage | Fait, au choix à l'export ; le paysage passe aussi les fiches de profil sur deux colonnes |
+
+Non traité : emplacement pour une photo d'unité (jugé inutile dans le retour), colonne « Notes » propre à chaque arme (l'information tient dans la puissance de feu).

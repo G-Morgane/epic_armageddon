@@ -2,6 +2,8 @@
 import type { Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
 import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, marqueNote, sousTitreSection, optionsDeSection } from '~~/shared/codex/phrases'
+import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
+import { paragraphesEnrichis, enrichir } from '~~/shared/codex/markdown'
 
 definePageMeta({ layout: false })
 
@@ -14,9 +16,28 @@ if (error.value || !codex.value) throw createError({ statusCode: 404, statusMess
 const c = codex.value
 const idx = indexerCodex(c)
 const couleur = c.codex.couleur ?? '#8a6d3b'
-useHead({ title: `Codex ${c.codex.nom}`, htmlAttrs: { class: 'print' } })
 
-const paragraphes = (md?: string) => (md ?? '').split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
+/** Composition du document, pilotée par la query string (voir shared/codex/pdf.ts). */
+const opts = lireOptionsPdf(route.query as Record<string, unknown>)
+const paysage = opts.orientation === 'paysage'
+useHead({
+  title: `Codex ${c.codex.nom}`,
+  htmlAttrs: { class: 'print' },
+  style: [{ innerHTML: `@page { size: A4 ${paysage ? 'landscape' : 'portrait'}; margin: 12mm 12mm 14mm 12mm; }` }],
+})
+
+const paragraphes = (md?: string) => paragraphesEnrichis(md)
+
+/** numérotation : seules les pages retenues comptent */
+const pages = computed(() => {
+  const n: string[] = []
+  if (opts.couverture) n.push('couverture')
+  n.push('regles', 'liste')
+  if (opts.profils) n.push('profils')
+  if (opts.references) n.push('references')
+  return n
+})
+const numero = (cle: string) => pages.value.indexOf(cle) + 1
 
 /** Regroupe les sections qui partagent un même sous_titre explicite (« SUPPORTS… ») pour les afficher côte à côte. */
 const groupes = computed(() => {
@@ -57,15 +78,13 @@ const unitesOrdonnees = computed<Unite[]>(() => {
     }
   }
   for (const u of c.unites) pousser(u.id)
-  return out
+  return trierParType(out)
 })
 
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
-const notesUnite = (u: Unite) => {
-  const parts = [...u.notes]
-  if (u.degats) parts.push(`CD${u.degats.cd}${u.degats.bi !== undefined ? ` / BI${u.degats.bi}` : ''}${u.degats.critique ? ` : Critique : ${u.degats.critique}` : ''}`)
-  return parts.join('. ')
-}
+/** lignes sous le profil : capacité de dommage, critique, notes (seulement si renseignées) */
+const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
+const nbColonnesStats = 9
 const colonneOptions = (s: Section) => !!s.colonne_options
 const optionsFormation = (fid: string) => {
   const f = idx.formations.get(fid)
@@ -78,8 +97,22 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 </script>
 
 <template>
-  <div class="doc" data-pret :style="{ '--accent': couleur }">
-    <!-- Page 1 : présentation -->
+  <div class="doc" :class="{ paysage }" data-pret :style="{ '--accent': couleur }">
+    <!-- Couverture (optionnelle) -->
+    <section v-if="opts.couverture" class="page couverture">
+      <div class="couverture-bande" />
+      <p class="couverture-sur">Epic Armageddon</p>
+      <h1 class="couverture-titre">{{ c.codex.nom }}</h1>
+      <p class="couverture-sous">Liste d'armée {{ c.codex.faction }}</p>
+      <blockquote v-if="c.codex.citation" class="couverture-citation">
+        « {{ c.codex.citation.texte }} »
+        <footer v-if="c.codex.citation.auteur">{{ c.codex.citation.auteur }}</footer>
+      </blockquote>
+      <p class="couverture-version">Version {{ c.codex.version }}</p>
+      <div class="couverture-bande bas" />
+    </section>
+
+    <!-- Présentation et règles spéciales -->
     <section class="page">
       <h1 class="titre">{{ c.codex.nom }}</h1>
       <div class="deux-colonnes">
@@ -89,17 +122,19 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
             <footer v-if="c.codex.citation.auteur">{{ c.codex.citation.auteur }}</footer>
           </blockquote>
           <h2>Utiliser la liste d'armée</h2>
-          <p v-for="(p, i) in paragraphes(c.codex.intro_md)" :key="i">{{ p }}</p>
+          <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+          <p v-for="(p, i) in paragraphes(c.codex.intro_md)" :key="i" v-html="p" />
         </div>
         <div>
           <div v-for="r in c.codex.regles_md" :key="r.titre" class="regle">
             <h2>{{ r.titre }}</h2>
-            <p v-for="(p, i) in paragraphes(r.texte)" :key="i">{{ p }}</p>
+            <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+            <p v-for="(p, i) in paragraphes(r.texte)" :key="i" v-html="p" />
           </div>
         </div>
       </div>
       <p v-if="c.codex.credits" class="credits">{{ c.codex.credits }}</p>
-      <div class="pied">1 - {{ pied }}</div>
+      <div class="pied">{{ numero('regles') }} - {{ pied }}</div>
     </section>
 
     <!-- Page 2 : liste d'armée -->
@@ -165,23 +200,48 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 </tbody>
               </table>
             </template>
-            <p v-for="(n, k) in s.notes" :key="k" class="note">* {{ n }}</p>
+            <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+            <p v-for="(n, k) in s.notes" :key="k" class="note">* <span v-html="enrichir(n)" /></p>
           </div>
         </div>
       </div>
-      <div class="pied">2 - {{ pied }}</div>
+      <div class="pied">{{ numero('liste') }} - {{ pied }}</div>
     </section>
 
-    <!-- Feuilles de références -->
-    <section class="page">
+    <!-- Fiches de profils à l'ancienne (optionnelles) : une par unité -->
+    <section v-if="opts.profils" class="page">
+      <h1 class="titre-liste">Profils d'unité {{ c.codex.nom }}</h1>
+      <div class="fiches">
+        <table v-for="u in unitesOrdonnees" :key="u.id" class="fiche">
+          <thead>
+            <tr><th class="fiche-titre" colspan="5">{{ u.nom }}</th></tr>
+            <tr class="fiche-entete"><th>Type</th><th>Vitesse</th><th>Blindage</th><th>CC</th><th>FF</th></tr>
+          </thead>
+          <tbody>
+            <tr class="fiche-stats"><td>{{ u.type }}</td><td>{{ u.vitesse ?? '-' }}</td><td>{{ u.blindage ?? '-' }}</td><td>{{ u.cc ?? '-' }}</td><td>{{ u.ff ?? '-' }}</td></tr>
+            <tr class="fiche-entete"><th colspan="2">Arme</th><th>Portée</th><th colspan="2">Puissance de feu</th></tr>
+            <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" class="fiche-arme">
+              <td colspan="2">{{ a.nom || '-' }}</td><td>{{ a.portee || '-' }}</td><td colspan="2">{{ a.puissance || '-' }}</td>
+            </tr>
+            <tr v-for="(l, li) in complements(u)" :key="`c${li}`" class="fiche-comp">
+              <td colspan="5"><strong v-if="l.label">{{ l.label }} : </strong>{{ l.texte }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pied">{{ numero('profils') }} - {{ pied }}</div>
+    </section>
+
+    <!-- Feuille de références (optionnelle) : tous les profils, triés par type -->
+    <section v-if="opts.references" class="page">
       <h1 class="titre-liste">Feuille de références {{ c.codex.nom }}</h1>
       <table class="stats">
         <thead>
-          <tr><th>Nom</th><th>Type</th><th>Vitesse</th><th>Blindage</th><th>CC</th><th>FF</th><th>Arme</th><th>Portée</th><th>Puissance de feu</th><th>Notes</th></tr>
+          <tr><th>Nom</th><th>Type</th><th>Vit</th><th>Bli</th><th>CC</th><th>FF</th><th>Arme</th><th>Portée</th><th>Puissance de feu</th></tr>
         </thead>
         <tbody>
           <template v-for="u in unitesOrdonnees" :key="u.id">
-            <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" :class="{ premiere: ai === 0, derniere: ai === lignesArmes(u).length - 1 }">
+            <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" :class="{ premiere: ai === 0 }">
               <template v-if="ai === 0">
                 <td class="nom" :rowspan="lignesArmes(u).length">{{ u.nom }}</td>
                 <td :rowspan="lignesArmes(u).length">{{ u.type }}</td>
@@ -193,23 +253,27 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
               <td>{{ a.nom }}</td>
               <td>{{ a.portee }}</td>
               <td>{{ a.puissance }}</td>
-              <td v-if="ai === 0" class="notes" :rowspan="lignesArmes(u).length">{{ notesUnite(u) }}</td>
             </tr>
+            <tr v-for="(l, li) in complements(u, true)" :key="`${u.id}-c${li}`" class="sous-ligne" :class="{ derniere: li === complements(u, true).length - 1 }">
+              <td :colspan="nbColonnesStats"><span v-if="l.label" class="etiquette">{{ l.label }} : </span>{{ l.texte }}</td>
+            </tr>
+            <tr v-if="!complements(u, true).length" class="derniere vide"><td :colspan="nbColonnesStats" /></tr>
           </template>
         </tbody>
       </table>
-      <div class="pied">3 - {{ pied }}</div>
+      <div class="pied">{{ numero('references') }} - {{ pied }}</div>
     </section>
   </div>
 </template>
 
 <style>
-@page { size: A4; margin: 12mm 12mm 14mm 12mm; }
+/* la taille de page est injectée par useHead (portrait ou paysage) */
 html.print, html.print body { background: #fff; color: #111; }
 </style>
 
 <style scoped>
 .doc { font-family: Arial, Helvetica, sans-serif; font-size: 8.5pt; line-height: 1.35; color: #111; background: #fff; max-width: 186mm; margin: 0 auto; }
+.doc.paysage { max-width: 273mm; }
 .page { position: relative; break-after: page; padding-bottom: 8mm; }
 .page:last-child { break-after: auto; }
 .titre { font-size: 24pt; letter-spacing: 1pt; text-transform: uppercase; margin: 0 0 8pt; color: #222; }
@@ -242,10 +306,39 @@ table.liste th.cout { text-align: right; }
 .petit { font-size: 7pt; }
 .note { font-size: 6.8pt; margin: 3pt 0 0; font-style: italic; }
 table.stats { width: 100%; border-collapse: collapse; font-size: 7pt; }
-table.stats th { text-align: left; font-size: 6.8pt; border-bottom: 1px solid #999; padding: 2pt 3pt; }
+table.stats th { text-align: left; font-size: 6.8pt; color: #fff; background: var(--accent); padding: 2pt 3pt; }
 table.stats td { padding: 1.5pt 3pt; vertical-align: top; }
-table.stats tr.derniere td { border-bottom: 1px solid #ddd; }
+table.stats tr.premiere td { border-top: 1px solid #bbb; }
+table.stats tr.derniere td { border-bottom: 1px solid #bbb; padding-bottom: 2.5pt; }
 table.stats td.nom { font-weight: 600; }
-table.stats td.notes { max-width: 45mm; font-size: 6.5pt; }
+table.stats tr.sous-ligne td { font-size: 6.6pt; font-style: italic; color: #333; padding-left: 6pt; }
+table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
+table.stats tr.vide td { padding: 0; }
 tr { break-inside: avoid; }
+
+/* Couverture */
+.couverture { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 263mm; }
+.doc.paysage .couverture { min-height: 176mm; }
+.couverture-bande { width: 60%; height: 3pt; background: var(--accent); }
+.couverture-bande.bas { margin-top: 18pt; }
+.couverture-sur { font-size: 10pt; letter-spacing: 3pt; text-transform: uppercase; color: #555; margin: 14pt 0 0; }
+.couverture-titre { font-size: 40pt; line-height: 1.1; text-transform: uppercase; letter-spacing: 2pt; margin: 6pt 0; color: #222; }
+.couverture-sous { font-size: 12pt; text-transform: uppercase; letter-spacing: 1.5pt; color: var(--accent); margin: 0 0 18pt; }
+.couverture-citation { font-style: italic; font-size: 10pt; max-width: 120mm; margin: 0 0 18pt; }
+.couverture-citation footer { font-style: normal; font-size: 8pt; margin-top: 4pt; color: #555; }
+.couverture-version { font-size: 8.5pt; color: #555; margin: 0; }
+
+/* Fiches de profils à l'ancienne */
+.fiches { display: grid; grid-template-columns: 1fr; gap: 6pt; }
+.doc.paysage .fiches { grid-template-columns: 1fr 1fr; }
+table.fiche { width: 100%; border-collapse: collapse; border: 1pt solid #333; break-inside: avoid; font-size: 7.2pt; }
+.fiche-titre { background: var(--accent); color: #fff; text-align: center; text-transform: uppercase; letter-spacing: .5pt; font-size: 8.5pt; padding: 2.5pt; }
+table.fiche .fiche-entete th { background: #eee; color: #111; text-align: center; font-size: 6.8pt; border-bottom: 1px solid #bbb; border-top: 1px solid #bbb; padding: 1.5pt 3pt; }
+table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
+.fiche-stats td { text-align: center; font-weight: 600; }
+.fiche-arme td { border-bottom: 1px dotted #ddd; }
+.fiche-arme td:nth-child(2) { text-align: center; width: 22%; }
+.fiche-arme td:first-child { width: 38%; }
+.fiche-comp td { font-size: 6.8pt; font-style: italic; border-top: 1px solid #eee; }
+.fiche-comp strong { font-style: normal; }
 </style>
