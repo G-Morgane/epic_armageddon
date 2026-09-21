@@ -119,22 +119,21 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
     <!-- Présentation et règles spéciales -->
     <section class="page">
       <h1 class="titre">{{ c.codex.nom }}</h1>
-      <div class="deux-colonnes">
-        <div>
-          <blockquote v-if="c.codex.citation" class="citation">
-            « {{ c.codex.citation.texte }} »
-            <footer v-if="c.codex.citation.auteur">{{ c.codex.citation.auteur }}</footer>
-          </blockquote>
+      <!-- texte au fil de deux colonnes : la seconde ne démarre qu'une fois la première remplie -->
+      <div class="colonnes">
+        <blockquote v-if="c.codex.citation && !opts.couverture" class="citation">
+          « {{ c.codex.citation.texte }} »
+          <footer v-if="c.codex.citation.auteur">{{ c.codex.citation.auteur }}</footer>
+        </blockquote>
+        <div class="regle">
           <h2>Utiliser la liste d'armée</h2>
           <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
           <p v-for="(p, i) in paragraphes(c.codex.intro_md)" :key="i" v-html="p" />
         </div>
-        <div>
-          <div v-for="r in c.codex.regles_md" :key="r.titre" class="regle">
-            <h2>{{ r.titre }}</h2>
-            <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
-            <p v-for="(p, i) in paragraphes(r.texte)" :key="i" v-html="p" />
-          </div>
+        <div v-for="r in c.codex.regles_md" :key="r.titre" class="regle">
+          <h2>{{ r.titre }}</h2>
+          <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+          <p v-for="(p, i) in paragraphes(r.texte)" :key="i" v-html="p" />
         </div>
       </div>
       <p v-if="c.codex.credits" class="credits">{{ c.codex.credits }}</p>
@@ -286,15 +285,17 @@ html.print, html.print body { background: #fff; color: #111; }
 
 .page { position: relative; break-after: page; padding-bottom: 8mm; }
 .page:last-child { break-after: auto; }
-.titre { font-size: 24pt; letter-spacing: 1pt; text-transform: uppercase; margin: 0 0 8pt; color: #222; }
+.titre { font-size: 24pt; letter-spacing: 1pt; text-transform: uppercase; margin: 0 0 8pt; color: #222; text-shadow: none; }
 .titre-liste { font-size: 13pt; text-transform: uppercase; text-align: center; margin: 0 0 4pt; letter-spacing: .5pt; }
 .chapeau { text-align: center; font-size: 8pt; margin: 0 0 8pt; }
-.deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+.colonnes { column-count: 2; column-gap: 10pt; }
+h2 { break-after: avoid; }
 .citation { font-style: italic; margin: 0 0 10pt; padding-left: 8pt; border-left: 2px solid var(--accent); font-size: 9pt; }
 .citation footer { font-style: normal; font-size: 8pt; margin-top: 3pt; }
 h2 { font-size: 10pt; margin: 8pt 0 3pt; }
 p { margin: 0 0 5pt; text-align: justify; }
 .regle { margin-bottom: 6pt; }
+.regle:first-child h2 { margin-top: 0; }
 .credits { font-size: 6.5pt; color: #555; margin-top: 12pt; }
 .pied { position: absolute; bottom: 0; left: 0; font-size: 7pt; color: #444; }
 .bandeau { background: var(--accent); color: #fff; text-align: center; font-weight: 700; font-size: 9pt; padding: 3pt; margin: 8pt 0 4pt; text-transform: uppercase; letter-spacing: .5pt; }
