@@ -6,6 +6,7 @@ codex:
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: /codex/couvertures/orks-ghazghkull.jpg
   couleur: "#236d44"
   logo: ork.png
   citation:

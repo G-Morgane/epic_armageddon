@@ -100,7 +100,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
   <div class="doc" :class="{ paysage }" data-pret :style="{ '--accent': couleur }">
     <!-- Couverture (optionnelle) : même mise en page, avec l'illustration en fond si le codex en a une -->
     <section v-if="opts.couverture" class="page couverture" :class="{ illustree: !!c.codex.illustration }">
-      <img v-if="c.codex.illustration" :src="c.codex.illustration" alt="" class="couverture-fond">
+      <div v-if="c.codex.illustration" class="couverture-fond" :style="{ backgroundImage: `url(${c.codex.illustration})` }" />
       <div class="couverture-bloc">
         <div class="couverture-bande" />
         <p class="couverture-sur">Epic Armageddon</p>
@@ -328,8 +328,9 @@ tr { break-inside: avoid; }
 /* Couverture : bloc typographique centré, posé sur l'illustration quand il y en a une. */
 .couverture { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }
 .doc.paysage .couverture { min-height: 184mm; }
-/* l'illustration déborde des marges pour couvrir la feuille entière */
-.couverture-fond { position: absolute; top: -12mm; right: -12mm; bottom: -14mm; left: -12mm; object-fit: cover; }
+/* l'illustration déborde des marges pour couvrir la feuille entière
+   (div et non img : un élément remplacé en position absolue ignore les décalages) */
+.couverture-fond { position: absolute; top: -12mm; right: -12mm; bottom: -14mm; left: -12mm; background-position: center; background-size: cover; background-repeat: no-repeat; }
 .couverture-bloc { position: relative; display: flex; flex-direction: column; align-items: center; }
 .couverture-bande { width: 90mm; height: 3pt; background: var(--accent); }
 .couverture-bande.bas { margin-top: 18pt; }
@@ -340,12 +341,16 @@ tr { break-inside: avoid; }
 .couverture-citation footer { font-style: normal; font-size: 8pt; margin-top: 4pt; color: #555; }
 .couverture-version { font-size: 8.5pt; color: #555; margin: 0; }
 
-/* Sur illustration : fond sombre translucide et texte clair, pour rester lisible. */
-.couverture.illustree { background: #111; }
-.couverture.illustree .couverture-bloc { background: rgba(0, 0, 0, .7); color: #fff; padding: 10mm 14mm 12mm; max-width: 150mm; }
-.couverture.illustree .couverture-sur { color: #ddd; }
-.couverture.illustree .couverture-titre { color: #fff; }
-.couverture.illustree .couverture-citation { color: #eee; }
+/* Avec illustration : l'image occupe tout le papier, le bandeau de titre se pose vers le bas.
+   Le padding-bas de `.page` est annulé, sinon le cadre de l'image dépasse et l'image est rognée. */
+.couverture.illustree { justify-content: flex-end; background: #111; padding-bottom: 0; }
+/* voile dégradé : le texte reste lisible sans masquer l'illustration */
+.couverture.illustree::after { content: ''; position: absolute; right: -12mm; bottom: -14mm; left: -12mm; height: 135mm; background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .62) 30%, rgba(0, 0, 0, .9) 55%, rgba(0, 0, 0, .94) 100%); }
+.couverture.illustree .couverture-bloc { z-index: 1; padding: 0 14mm 16mm; color: #fff; }
+.couverture.illustree .couverture-bande { width: 110mm; }
+.couverture.illustree .couverture-sur { color: #e2e2e2; }
+.couverture.illustree .couverture-titre { color: #fff; text-shadow: 0 1mm 3mm rgba(0, 0, 0, .8); }
+.couverture.illustree .couverture-citation { color: #eee; max-width: 130mm; }
 .couverture.illustree .couverture-citation footer,
 .couverture.illustree .couverture-version { color: #ccc; }
 /* la couleur du codex est souvent trop sombre sur fond noir : on l'éclaircit */

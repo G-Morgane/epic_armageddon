@@ -6,6 +6,7 @@ codex:
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: /codex/couvertures/tyranides.jpg
   couleur: "#96009e"
   citation:
     texte: "Il est ironique de voir qu'alors que nous répandons la paix et l'espoir dans la galaxie, les tyranides font de même avec la peur et la mort. Nous devons nous unir pour espérer leur résister."

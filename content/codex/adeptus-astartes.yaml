@@ -6,6 +6,7 @@ codex:
   faction: imperium
   categorie: armees-astartes
   statut: official
+  illustration: /codex/couvertures/adeptus-astartes.jpg
   couleur: "#1223a6"
   citation:
     texte: "La pureté nous unit. Nous sommes frères de sang. Nous sommes les Space Marines de l'Imperium. Nous sommes la lame luisante de Son poing. Le bouclier qui protège Son œuvre. Jamais nous ne vacillerons. Au nom de l'Imperium et tous ensemble, nous vaincrons."

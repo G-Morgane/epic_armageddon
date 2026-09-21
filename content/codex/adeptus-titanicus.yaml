@@ -6,6 +6,7 @@ codex:
   version: "1.0"
   faction: imperium
   statut: official
+  illustration: /codex/couvertures/adeptus-titanicus.jpg
   couleur: "#7a1f1f"
   intro_md: |
     Soutiens des Légions Titaniques proposés aux armées de l'Imperium. Cette liste n'est pas jouable seule : elle est incluse par les codex qui y ont droit, dans la limite fixée par chacun (en général 1/3 des points).
