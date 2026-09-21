@@ -6,6 +6,8 @@ import type { IndexCodex } from '~~/shared/codex/engine'
 const props = defineProps<{ idx: IndexCodex; unite: Unite; nombre?: number; compact?: boolean }>()
 const u = computed(() => props.unite)
 const degats = computed(() => u.value.degats ? `CD ${u.value.degats.cd}${u.value.degats.bi !== undefined ? ` · BI ${u.value.degats.bi}` : ''}` : '')
+/** la capacité de transport est souvent déjà écrite dans les notes : ne pas la répéter */
+const transportRedondant = computed(() => u.value.notes.some((n) => /transport/i.test(n)))
 </script>
 
 <template>
@@ -31,9 +33,9 @@ const degats = computed(() => u.value.degats ? `CD ${u.value.degats.cd}${u.value
         </tr>
       </tbody>
     </table>
-    <div v-if="u.notes.length || u.degats || u.transport" class="space-y-0.5 border-t border-white/5 py-1.5 text-[11px] text-stone-300" :class="compact ? 'px-3' : 'px-4'">
+    <div v-if="u.notes.length || u.degats || (u.transport && !transportRedondant)" class="space-y-0.5 border-t border-white/5 py-1.5 text-[11px] text-stone-300" :class="compact ? 'px-3' : 'px-4'">
       <p v-if="u.notes.length"><span class="text-stone-500">Notes : </span>{{ u.notes.join(', ') }}</p>
-      <p v-if="u.transport"><span class="text-stone-500">Transport : </span>{{ u.transport.capacite }} place{{ u.transport.capacite > 1 ? 's' : '' }}<template v-if="u.transport.accepte.length"> ({{ u.transport.accepte.map((id) => idx.unites.get(id)?.nom ?? id).join(', ') }})</template></p>
+      <p v-if="u.transport && !transportRedondant"><span class="text-stone-500">Transport : </span>{{ u.transport.capacite }} place{{ u.transport.capacite > 1 ? 's' : '' }}<template v-if="u.transport.accepte.length"> ({{ u.transport.accepte.map((id) => idx.unites.get(id)?.nom ?? id).join(', ') }})</template></p>
       <p v-if="u.degats"><span class="text-stone-500">Dégâts : </span>{{ degats }}<template v-if="u.degats.critique"> <span class="text-stone-500">· Critique : </span>{{ u.degats.critique }}</template></p>
     </div>
   </article>

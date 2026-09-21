@@ -100,6 +100,14 @@ function retirerSous(id: string) {
   props.instance.sous_formations = props.instance.sous_formations.filter((s) => s.id !== id)
 }
 const unitesVisibles = computed(() => props.resolue?.unites.filter((u) => !u.implicite) ?? [])
+
+/** profils dépliés sous la composition : les unités réellement présentes, avec leur nombre */
+const profilsOuverts = ref(false)
+const profils = computed(() => {
+  const compte = new Map<string, number>()
+  for (const u of props.resolue?.unites ?? []) compte.set(u.unite, (compte.get(u.unite) ?? 0) + u.nombre)
+  return [...compte.entries()].flatMap(([id, n]) => { const u = props.idx.unites.get(id); return u ? [{ unite: u, nombre: n }] : [] })
+})
 </script>
 
 <template>
@@ -137,10 +145,20 @@ const unitesVisibles = computed(() => props.resolue?.unites.filter((u) => !u.imp
       </template>
 
       <!-- unités résolues -->
-      <p v-if="unitesVisibles.length" class="text-stone-300">
-        <span v-for="(u, ui) in unitesVisibles" :key="ui">{{ ui ? ', ' : '' }}<span :class="u.origine === 'base' || u.origine === 'choix' ? '' : 'text-gold-light'">{{ u.nombre }} {{ u.nombre > 1 ? pluriel(u.nom) : u.nom }}</span></span>
-        <span v-if="resolue?.mots_cles.length" class="text-stone-400"> · {{ resolue.mots_cles.join(', ') }}</span>
-      </p>
+      <div v-if="unitesVisibles.length">
+        <p class="flex flex-wrap items-baseline gap-x-2 text-stone-300">
+          <span>
+            <span v-for="(u, ui) in unitesVisibles" :key="ui">{{ ui ? ', ' : '' }}<span :class="u.origine === 'base' || u.origine === 'choix' ? '' : 'text-gold-light'">{{ u.nombre }} {{ u.nombre > 1 ? pluriel(u.nom) : u.nom }}</span></span>
+            <span v-if="resolue?.mots_cles.length" class="text-stone-400"> · {{ resolue.mots_cles.join(', ') }}</span>
+          </span>
+          <button v-if="profils.length" type="button" class="shrink-0 text-xs text-gold hover:underline" @click="profilsOuverts = !profilsOuverts">
+            {{ profilsOuverts ? 'Masquer les profils' : 'Profils' }} {{ profilsOuverts ? '▴' : '▾' }}
+          </button>
+        </p>
+        <div v-if="profilsOuverts" class="mt-2 space-y-2">
+          <CodexUniteProfil v-for="p in profils" :key="p.unite.id" :idx="idx" :unite="p.unite" :nombre="p.nombre" compact />
+        </div>
+      </div>
 
       <!-- options -->
       <div v-if="dispo.length" class="space-y-2">
