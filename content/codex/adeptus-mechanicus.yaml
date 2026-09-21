@@ -1,0 +1,791 @@
+# Adeptus Mechanicus, transcrit depuis le PDF EAFR rev 1.5 (source de vérité).
+codex:
+  slug: adeptus-mechanicus
+  nom: Adeptus Mechanicus
+  version: "1.5"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/adeptus-mechanicus.jpg
+  couleur: "#8b2f13"
+  citation:
+    texte: "Le besoin intrinsèque d'un ordre parfait est profondément ancré dans la psyché. La galaxie s'oppose à cet ordre. Une telle dissidence doit être systématiquement éliminée. Sans pitié, sans exception, elle doit être éliminée, comme l'énonce la voie suprême de la logique. Voilà ce qui me pousse à envoyer mes légions paver le chemin de l'illumination de l'Omnimessie."
+    auteur: Vitruvius Eng, Technoprêtre Dominus
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de l'Adeptus Mechanicus.
+
+    Les armées de l'Adeptus Mechanicus sont organisées en formations appelées détachements principaux, détachements de soutien.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelles améliorations sont autorisées. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement sans autre contrainte. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion.
+
+    Noter que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations de support sont des formations autonomes des détachements. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Boucliers du vide"
+      texte: |
+        Certains engins de guerre sont protégés par des boucliers énergétiques. Le nombre de boucliers de chaque engin de guerre est noté sur sa fiche d'unité.
+
+        Chaque bouclier stoppe automatiquement un point de dommages avant de se désactiver. Ne faites pas de sauvegarde contre les attaques stoppées par des boucliers, n'ajoutez pas non plus de pion d'impact pour chaque bouclier désactivé. Une fois que tous les boucliers sont désactivés, l'engin de guerre peut être endommagé normalement. Faites les jets de sauvegarde habituels contre les touches subies.
+
+        Les touches de corps à corps lors d'un assaut ignorent les boucliers, mais pas celles de fusillade.
+
+        Les boucliers désactivés peuvent être réparés. Un engin de guerre répare un bouclier désactivé à la fin de chaque tour. De plus, si un engin de guerre se regroupe, il peut utiliser le résultat de son dé pour retirer des pions d'impact ou pour réparer des boucliers (par exemple, si le résultat est 2, vous pouvez soit retirer 2 pions d'impact, soit réparer 2 boucliers, soit retirer 1 pion d'impact et réparer 1 bouclier).
+    - titre: "Règle spéciale : Tunneliers"
+      texte: |
+        Le Mechanicum utilise des Tunneliers pour mener sans danger par voie souterraine les troupes à des lieux clés du champ de bataille :
+
+        - Les tunneliers sont déployés sur leur bord de table avant la bataille, au même moment que les vaisseaux spatiaux, ils n'interviennent pas directement dans le jeu tant qu'ils n'émergent pas.
+        - Noter secrètement au début de quel tour ils feront surface ainsi que les coordonnées (à partir de la pointe de la ou d'une des foreuses) où vous voulez qu'ils émergent, de la même façon que vous notez celles de vos zones de largage.
+        - Si les tunneliers apparaissent dans votre moitié de table, ils ne peuvent le faire qu'à partir du second tour et s'ils comptent émerger dans la moitié de table ennemie, ils ne peuvent le faire qu'à partir du troisième tour.
+        - Les tunneliers émergeants sont placés en début de tour, avant le jet de stratégie. Une fois les tunneliers placés vous pouvez faire débarquer vos troupes de suite.
+        - Il n'y a pas de déviation mais si toutefois, ils émergent sous les pieds de n'importe quel type d'unité (amie ou ennemie) ou dans une zone de contrôle ennemie, l'unité est placée par l'adversaire dans la zone dégagée la plus proche pouvant la recevoir.
+        - S'il y a plus d'une unité de Tunnelier qui émerge, après le placement de la première, les autres sont toutes placées à 15cm maximum de celle-ci tout en restant en formation.
+    - titre: "Alliance : Mechanicum"
+      texte: |
+        Un tiers des points d'une liste de l'Adeptus Mechanicus peut être sélectionné dans l'un des deux codex Légions Titaniques ou Chevalier Impériaux. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux choix de soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Igor Sid https://40k.gallery/artist/igor-sid/"
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations comprenant un Tech-Priest ou un Tech-Priest Dominus", valeur: "1+" }
+      - { portee: "Soutiens de l'Adeptus Titanicus", valeur: "1+" }
+
+budgets:
+  - id: slot_soutien
+    libelle: Détachements de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 détachements de soutien par détachement principal"
+  - id: rare
+    libelle: Supports
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: alliance_mechanicum
+    libelle: Alliance Mechanicum
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Un tiers des points peut être sélectionné dans le codex Légions Titaniques ou Chevaliers Impériaux"
+  - id: tech_priests
+    libelle: Tech-Priests
+    capacite: { source: par_tranche, points: 1000 }
+    phrase_pdf: "1 Tech-Priest par tranche de 1 000 pts, même incomplète"
+
+unites:
+  # ---- Personnages ----
+  - id: tech_priest_dominus
+    nom: Tech-Priest Dominus
+    type: Perso
+    armes:
+      - { nom: Rayon Eradicateur, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême, Blindage Renforcé, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: tech_priest
+    nom: Tech-Priest
+    type: Perso
+    armes:
+      - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: cybernetica_datasmith
+    nom: Cybernetica Datasmith
+    type: Perso
+    armes:
+      - { nom: Gantelet Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: electro_pretres
+    nom: Électro-Prêtres
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Bâton Électroclaste, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Sans Peur]
+  - id: skitarii_vanguards
+    nom: Skitarii Vanguards
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Carabine à radium, portee: 15cm, puissance: "AP5+" }
+  - id: skitarii_rangers
+    nom: Skitarii Rangers
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Galvanic rifle, portee: 45cm, puissance: "AP5+, Snp" }
+  - id: sicarian_ruststalkers
+    nom: Sicarian Ruststalkers
+    type: Inf
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Lames transoniques, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Infiltrateur]
+  - id: sicarian_infiltrators
+    nom: Sicarian Infiltrators
+    type: Inf
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Carabine à Fléchettes, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: et, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+  - id: kataphrons
+    nom: Kataphrons
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à Torsion, portee: 30cm, puissance: "AP5+/AC3+" }
+      - { nom: Lance-Flammes Cognis, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé]
+  - id: serberys_raiders
+    nom: Serberys Raiders
+    type: Inf
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet à phosphore, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Montés, Éclaireurs]
+  - id: pteraxii
+    nom: Pteraxii
+    type: Inf
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet à phosphore, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Réacteurs dorsaux, Téléportation]
+
+  # ---- Véhicules légers ----
+  - id: ballistarii_ironstriders
+    nom: Ballistarii Ironstriders
+    type: VL
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanons jumelés, portee: 45cm, puissance: "AP4+/AC5+" }
+    notes: [Marcheur]
+  - id: sydonian_dragoons
+    nom: Sydonian Dragoons
+    type: VL
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Lance taser, portee: (contact), puissance: "Arme d'Assaut, +1A, FeP" }
+    notes: [Marcheur, Infiltrateur]
+
+  # ---- Véhicules blindés ----
+  - id: kastelan_automata
+    nom: Kastelan automata
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Eclateur à phosphore, portee: 45cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Poing énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Marcheur, Sans Peur, Sauvegarde Invulnérable]
+  - id: onagre
+    nom: Onagre
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Laser à Neutrons, portee: 45cm, puissance: "MA4+" }
+      - { nom: Mitrailleuses cognis, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Marcheur]
+  - id: onagre_icarus
+    nom: Onagre Icarus
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Matrice Icarus, portee: 45cm, puissance: "2xAP5+/AC5+/AA4+" }
+      - { nom: Mitrailleuses cognis, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Marcheur]
+  - id: skorpius_dunerider
+    nom: Skorpius Dunerider
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Mitrailleuses cognis jumelées, portee: 30cm, puissance: "AP5+" }
+      - { nom: Mitrailleuses cognis, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Marcheur, "Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [electro_pretres, skitarii_vanguards, skitarii_rangers, sicarian_ruststalkers, sicarian_infiltrators, kataphrons, serberys_raiders, pteraxii]
+  - id: skorpius_desintegrator
+    nom: Skorpius Desintegrator
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-Missiles Disruptor, portee: 30cm, puissance: "1PB, Ind" }
+      - { nom: Canon à énergie Beleros, portee: 30cm, puissance: "AP4+/AC6+" }
+      - { nom: Mitrailleuses cognis, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Marcheur]
+  - id: archaeopter_transvector
+    nom: Archæopter Transvector
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Mitrailleuses cognis jumelées, portee: 30cm, puissance: "AP5+" }
+      - { nom: Mitrailleuses cognis, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Antigrav, "Transport (1) : Infanterie"]
+    transport:
+      capacite: 1
+      accepte: [electro_pretres, skitarii_vanguards, skitarii_rangers, sicarian_ruststalkers, sicarian_infiltrators, kataphrons, serberys_raiders, pteraxii]
+  - id: termite
+    nom: Termite (Skitarii)
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "-"
+    armes:
+      - { nom: Tête de Foreuse, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, "Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [electro_pretres, skitarii_vanguards, skitarii_rangers, sicarian_ruststalkers, sicarian_infiltrators, kataphrons, serberys_raiders, pteraxii]
+
+  # ---- Engins de guerre ----
+  - id: taupe
+    nom: Taupe (Skitarii)
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: Tête de Foreuse, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, "Transport (8) : Infanterie"]
+    transport:
+      capacite: 8
+      accepte: [electro_pretres, skitarii_vanguards, skitarii_rangers, sicarian_ruststalkers, sicarian_infiltrators, kataphrons, serberys_raiders, pteraxii]
+    degats: { cd: 2, critique: "Détruit." }
+
+  # ---- Flotte de l'Omnimessie ----
+  - id: archaeopter_stratoraptor
+    nom: Archæopter Stratoraptor
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon Laser Cognis Jumelé AA, portee: 45cm, puissance: "AC4+/AA5+, Arr" }
+      - { nom: 2x Eclateur à phosphore AA, portee: 45cm, puissance: "AP4+/AA6+, IC, FrtF" }
+  - id: archaeopter_fusilave
+    nom: Archæopter Fusilave
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Racks de Bombes, portee: 15cm, puissance: "1PB, FrtF" }
+      - { nom: Système d'Interception Cognis, portee: 30cm, puissance: "AA6+, FrtF" }
+  - id: croiseur
+    nom: Croiseur
+    type: VS
+    armes:
+      - { nom: Bombardement orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+  - id: ark_mechanicus
+    nom: Ark Mechanicus
+    type: VS
+    armes:
+      - { nom: Bombardement orbital (8), portee: "∞", puissance: "8PB, MA" }
+    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
+
+  # ---- Centurio Ordinatus ----
+  - id: ordinatus_minoris_sagittar
+    nom: Ordinatus Minoris Sagittar
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Volcano (FF), portee: 90cm, puissance: "MA2+, TT (D3), FrtF" }
+      - { nom: Couleuvrine Volkite (Droite), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Drt" }
+      - { nom: Couleuvrine Volkite (Gauche), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Gch" }
+      - { nom: Couleuvrine Volkite (Arrière), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Arr" }
+    degats: { cd: 2, bi: 2, critique: "Détruit." }
+  - id: ordinatus_minoris_ulator
+    nom: Ordinatus Minoris Ulator
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Destructeur sonique, portee: 75cm, puissance: "3PB, Rpt, FrtF" }
+      - { nom: Couleuvrine Volkite (Droite), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Drt" }
+      - { nom: Couleuvrine Volkite (Gauche), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Gch" }
+      - { nom: Couleuvrine Volkite (Arrière), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Arr" }
+    degats: { cd: 2, bi: 2, critique: "Détruit." }
+  - id: ordinatus_mars
+    nom: Ordinatus Mars
+    type: EG
+    vitesse: 10cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Disrupteur sonique, portee: 100cm, puissance: "10PB, Rpt, IC, FrtF" }
+    notes: [Blindage Arrière Renforcé, Sans Peur]
+    degats: { cd: 3, bi: 6, critique: "Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de chaque tour. Sur un 1, l'Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est réparée." }
+  - id: ordinatus_armageddon
+    nom: Ordinatus Armageddon
+    type: EG
+    vitesse: 10cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Canon Nova, portee: 100cm, puissance: "4xMA3+, TT (D3), FrtF" }
+    notes: [Blindage Arrière Renforcé, Sans Peur]
+    degats: { cd: 3, bi: 6, critique: "Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de chaque tour. Sur un 1, l'Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est réparée." }
+  - id: ordinatus_golgotha
+    nom: Ordinatus Golgotha
+    type: EG
+    vitesse: 10cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 6x Missile Hellfire, portee: "∞", puissance: "3PB, IC, MA, Ind, Uniq, FrtF" }
+    notes: [Blindage Arrière Renforcé, Sans Peur]
+    degats: { cd: 3, bi: 6, critique: "Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de chaque tour. Sur un 1, l'Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est réparée." }
+
+options:
+  - id: magos
+    nom: Magos
+    effet:
+      type: choix
+      parmi:
+        - id: tech_priest
+          nom: Tech-Priest
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: tech_priest, nombre: 1 }] }
+          contraintes: [{ type: consomme, budget: tech_priests }]
+        - id: dominus
+          nom: Tech-Priest Dominus
+          cout: 75
+          effet: { type: ajouter, unites: [{ unite: tech_priest_dominus, nombre: 1 }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajoutez un Tech-Priest à la formation (1 par tranche de 1 000 pts même incomplète) ou 1 Tech-Priest Dominus à la formation (1 par armée au maximum). Une formation qui comprend un Tech-Priest ou un Tech-Priest Dominus a une valeur d'initiative de 1+."
+  - id: avant_garde
+    nom: Avant-Garde
+    effet: { type: mot_cle, texte: Éclaireur, cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: max_par_armee, valeur: 2 }
+      - { type: exclut, options: [skorpius_dunerider] }
+    phrase_pdf: "Les unités de formation gagnent la note Éclaireur, la formation ne peut pas recevoir simultanément l'amélioration Skorpius Dunerider"
+  - id: onagre_icarus
+    nom: Onagre Icarus
+    effet:
+      type: choix
+      parmi:
+        - id: remplacement
+          nom: Remplacer un Onagre de la formation par un Onagre Icarus
+          cout: 0
+          effet: { type: remplacer, de: onagre, par: onagre_icarus, lot: 1, max: 1, cout: 25 }
+        - id: ajout
+          nom: Ajouter un Onagre Icarus à la formation
+          cout: 75
+          effet: { type: ajouter, unites: [{ unite: onagre_icarus, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: skorpius_dunerider
+    nom: Skorpius Dunerider
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: skorpius_dunerider }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez suffisamment de Duneriders pour transporter toute la formation"
+  - id: skorpius_desintegrator
+    nom: Skorpius Desintegrator
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: skorpius_desintegrator }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 ou 2 Skorpius Desintegrator"
+  - id: ordinatus_minoris
+    nom: Ordinatus Minoris
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi:
+        - { unite: ordinatus_minoris_sagittar, cout: 125 }
+        - { unite: ordinatus_minoris_ulator, cout: 125 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 ou 2 Ordinatus Minoris, Sagittar et/ou Ulator"
+  - id: tunnelier
+    nom: Tunnelier
+    effet:
+      type: choix
+      parmi:
+        - id: termites
+          nom: Ajouter suffisamment de Termites pour transporter toute la formation
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: termite }], min: 1, max: besoin_transport }
+        - id: taupe
+          nom: Ajouter 1 Taupe à la formation
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: taupe, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Vous pouvez choisir l'une des options suivantes : ajouter suffisamment de Termites pour transporter toute la formation (25 pts chacun), ou ajouter 1 Taupe à la formation (50 pts)."
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Les unités de formation gagnent la note Téléportation"
+
+formations:
+  # ---- Détachements principaux ----
+  - id: det_skitarii_vanguards
+    nom: Skitarii Vanguards
+    variantes:
+      - id: huit
+        nom: 8 Skitarii Vanguard et 4 Duneriders
+        cout: 275
+        composition:
+          - { unite: skitarii_vanguards, nombre: 8 }
+          - { unite: skorpius_dunerider, nombre: 4 }
+      - id: douze
+        nom: 12 Skitarii Vanguard et 6 Duneriders
+        cout: 425
+        composition:
+          - { unite: skitarii_vanguards, nombre: 12 }
+          - { unite: skorpius_dunerider, nombre: 6 }
+    options: [magos, skorpius_desintegrator, onagre_icarus]
+    contraintes: [{ type: min_par_armee, valeur: 1 }]
+  - id: det_kataphrons
+    nom: Kataphrons
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: kataphrons, nombre: 6 }] }
+    options: [magos, onagre_icarus]
+  - id: det_ballistarii
+    nom: Ballistarii Ironstriders
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: ballistarii_ironstriders, nombre: 6 }] }
+    options: []
+
+  # ---- Détachements de soutien ----
+  - id: groupe_assaut_souterrain
+    nom: Groupe d'assaut souterrain
+    variantes:
+      - id: termites
+        nom: 8 Skitarii Vanguard et 4 Termites
+        cout: 275
+        composition:
+          - { unite: skitarii_vanguards, nombre: 8 }
+          - { unite: termite, nombre: 4 }
+      - id: taupe
+        nom: 8 Skitarii Vanguard et 1 Taupe
+        cout: 225
+        composition:
+          - { unite: skitarii_vanguards, nombre: 8 }
+          - { unite: taupe, nombre: 1 }
+    options: [magos]
+  - id: det_skitarii_rangers
+    nom: Skitarii Rangers
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: skitarii_rangers, nombre: 6 }] }
+    options: [magos, skorpius_dunerider, avant_garde]
+  - id: det_electro_pretres
+    nom: Electro-Prêtres
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: electro_pretres, nombre: 8 }] }
+    options: [magos, tunnelier, skorpius_dunerider, skorpius_desintegrator]
+  - id: det_sicarian_infiltrators
+    nom: Sicarian Infiltrators
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: sicarian_infiltrators, nombre: 6 }] }
+    options: [teleportation]
+  - id: det_sicarian_ruststalkers
+    nom: Sicarian Ruststalkers
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: sicarian_ruststalkers, nombre: 6 }] }
+    options: [tunnelier, skorpius_dunerider]
+  - id: det_serberys_raiders
+    nom: Serberys Raiders
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: serberys_raiders, nombre: 6 }] }
+    options: []
+  - id: det_pteraxii
+    nom: Pteraxii
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: pteraxii, nombre: 4 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+  - id: det_sydonian_dragoons
+    nom: Sydonian Dragoons
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: sydonian_dragoons, nombre: 6 }] }
+    options: []
+  - id: det_kastellan_automata
+    nom: Kastellan Automata
+    variantes:
+      - id: base
+        cout: 350
+        composition:
+          - { unite: kastelan_automata, nombre: 6 }
+          - { unite: cybernetica_datasmith, nombre: 1, implicite: true }
+    options: []
+    phrase_pdf: "6 unités de Kastellan dont un Cybernetica Datasmith"
+  - id: det_onagres
+    nom: Onagre
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: onagre, nombre: 6 }] }
+    options: [onagre_icarus]
+  - id: det_skorpius_desintegrators
+    nom: Skorpius Desintegrator
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: skorpius_desintegrator, nombre: 6 }] }
+    options: [skorpius_desintegrator]
+  - id: det_archaeopter_transvector
+    nom: Archæopter Transvector
+    variantes:
+      - id: vanguards
+        nom: 6 Archæopter Transvector et 6 Vanguard Skitarii
+        cout: 300
+        composition:
+          - { unite: archaeopter_transvector, nombre: 6 }
+          - { unite: skitarii_vanguards, nombre: 6 }
+      - id: electro_pretres
+        nom: 6 Archæopter Transvector et 6 Électro-prêtres
+        cout: 325
+        composition:
+          - { unite: archaeopter_transvector, nombre: 6 }
+          - { unite: electro_pretres, nombre: 6 }
+    options: [magos]
+  - id: det_ordinatus_minoris
+    nom: Ordinatus Minoris
+    variantes:
+      - { id: sagittar, nom: 1 Ordinatus Minoris Sagittar, cout: 200, composition: [{ unite: ordinatus_minoris_sagittar, nombre: 1 }] }
+      - { id: ulator, nom: 1 Ordinatus Minoris Ulator, cout: 200, composition: [{ unite: ordinatus_minoris_ulator, nombre: 1 }] }
+    options: [ordinatus_minoris]
+
+  # ---- Supports : Flotte de l'Omnimessie ----
+  - id: escadrille_stratoraptor
+    nom: Escadrille Archeopter Stratoraptor
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 2, max: 4 }
+              parmi: [{ unite: archaeopter_stratoraptor, cout: 75 }]
+              phrase_pdf: "2 à 4 Archæopter Stratoraptor"
+    options: []
+    phrase_pdf: "75 pts chacun"
+  - id: escadrille_fusilave
+    nom: Escadrille Archeopter Fusilave
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 4, max: 6 }
+              parmi: [{ unite: archaeopter_fusilave, cout: 50 }]
+              phrase_pdf: "4 à 6 Archæopter Fusilave"
+    options: []
+    phrase_pdf: "50 pts chacun"
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: croiseur, nom: 1 Croiseur, cout: 150, composition: [{ unite: croiseur, nombre: 1 }] }
+      - { id: ark, nom: 1 Ark Mechanicus, cout: 300, composition: [{ unite: ark_mechanicus, nombre: 1 }] }
+    options: []
+
+  # ---- Supports : Soutiens du Centurio Ordinatus ----
+  - id: support_ordinatus_mars
+    nom: Ordinatus Mars
+    variantes:
+      - { id: base, cout: 400, composition: [{ unite: ordinatus_mars, nombre: 1 }] }
+    options: []
+  - id: support_ordinatus_armageddon
+    nom: Ordinatus Armageddon
+    variantes:
+      - { id: base, cout: 450, composition: [{ unite: ordinatus_armageddon, nombre: 1 }] }
+    options: []
+  - id: support_ordinatus_golgotha
+    nom: Ordinatus Golgotha
+    variantes:
+      - { id: base, cout: 550, composition: [{ unite: ordinatus_golgotha, nombre: 1 }] }
+    options: []
+
+sections:
+  - id: principaux
+    titre: DÉTACHEMENTS PRINCIPAUX DE L'ADEPTUS MECHANICUS
+    formations: [det_skitarii_vanguards, det_kataphrons, det_ballistarii]
+    contraintes: [{ type: fournit, budget: slot_soutien, quantite: 2 }]
+    colonne_options: true
+  - id: soutien
+    titre: DÉTACHEMENTS DE SOUTIEN DE L'ADEPTUS MECHANICUS
+    sous_titre: "Jusqu'à 2 détachements de soutien par détachement principal"
+    formations:
+      - groupe_assaut_souterrain
+      - det_skitarii_rangers
+      - det_electro_pretres
+      - det_sicarian_infiltrators
+      - det_sicarian_ruststalkers
+      - det_serberys_raiders
+      - det_pteraxii
+      - det_sydonian_dragoons
+      - det_kastellan_automata
+      - det_onagres
+      - det_skorpius_desintegrators
+      - det_archaeopter_transvector
+      - det_ordinatus_minoris
+    contraintes: [{ type: consomme, budget: slot_soutien }]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS DE L'ADEPTUS MECHANICUS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation"
+  - id: omnimessie
+    titre: FLOTTE DE L'OMNIMESSIE
+    sous_titre: "SUPPORTS DE L'ADEPTUS MECHANICUS"
+    formations: [escadrille_stratoraptor, escadrille_fusilave, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: centurio_ordinatus
+    titre: SOUTIENS DU CENTURIO ORDINATUS
+    sous_titre: "SUPPORTS DE L'ADEPTUS MECHANICUS"
+    formations: [support_ordinatus_mars, support_ordinatus_armageddon, support_ordinatus_golgotha]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: titanicus
+    titre: SOUTIENS DE L'ADEPTUS TITANICUS
+    sous_titre: "ALLIANCE MECHANICUM DE L'ADEPTUS MECHANICUS"
+    formations: []
+    contraintes: [{ type: consomme, budget: alliance_mechanicum, quoi: points }, { type: initiative, valeur: "1+" }]
+    allies: { codex: adeptus-titanicus }
+
+listes_test:
+  - nom: "3000 pts : deux détachements principaux et quatre soutiens"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: det_skitarii_vanguards
+        variante: huit
+        options: [{ option: magos, choix: tech_priest }]
+      - { formation: det_kataphrons }
+      - formation: det_skitarii_rangers
+        options: [{ option: skorpius_dunerider, quantite: 3 }]
+      - formation: det_electro_pretres
+        options: [{ option: tunnelier, choix: termites, quantite: 4 }]
+      - formation: det_sicarian_infiltrators
+        options: [{ option: teleportation }]
+      - formation: det_onagres
+        options: [{ option: onagre_icarus, choix: remplacement }]
+      - { formation: support_ordinatus_mars }
+      - { formation: escadrille_stratoraptor, choix: { "0": { archaeopter_stratoraptor: 3 } } }
+      - { formation: titan_warhound }
+  - nom: "2500 pts : assaut souterrain, automates et Ordinatus Minoris"
+    limite: 2500
+    attendu: valide
+    formations:
+      - { formation: det_skitarii_vanguards, variante: douze }
+      - { formation: det_ballistarii }
+      - { formation: groupe_assaut_souterrain, variante: taupe }
+      - { formation: det_kastellan_automata }
+      - formation: det_ordinatus_minoris
+        variante: sagittar
+        options: [{ option: ordinatus_minoris, repartition: { ordinatus_minoris_ulator: 1 } }]
+      - formation: det_archaeopter_transvector
+        variante: electro_pretres
+        options: [{ option: magos, choix: tech_priest }]
+  - nom: "trois détachements de soutien pour un seul détachement principal"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: det_skitarii_vanguards, variante: huit }
+      - { formation: det_serberys_raiders }
+      - { formation: det_sydonian_dragoons }
+      - { formation: det_pteraxii }
+  - nom: "supports au-delà du tiers des points"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: det_skitarii_vanguards, variante: huit }
+      - { formation: support_ordinatus_golgotha }
+      - { formation: support_ordinatus_mars }
+  - nom: "deux Tech-Priests pour moins de 2 000 pts"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: det_skitarii_vanguards
+        variante: huit
+        options: [{ option: magos, choix: tech_priest }]
+      - formation: det_kataphrons
+        options: [{ option: magos, choix: tech_priest }]
+  - nom: "deux Tech-Priests Dominus dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: det_skitarii_vanguards
+        variante: huit
+        options: [{ option: magos, choix: dominus }]
+      - formation: det_kataphrons
+        options: [{ option: magos, choix: dominus }]
+  - nom: "plus de Duneriders que nécessaire"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - { formation: det_skitarii_vanguards, variante: huit }
+      - formation: det_skitarii_rangers
+        options: [{ option: skorpius_dunerider, quantite: 4 }]
+  - nom: "Avant-Garde et Skorpius Dunerider sur la même formation"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - { formation: det_skitarii_vanguards, variante: huit }
+      - formation: det_skitarii_rangers
+        options: [{ option: avant_garde }, { option: skorpius_dunerider, quantite: 3 }]
