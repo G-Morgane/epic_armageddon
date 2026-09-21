@@ -6,6 +6,7 @@ codex:
   version: "1.0"
   faction: imperium
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/aeronautica-imperialis.jpg
   couleur: "#3b4a6b"
   intro_md: |
     Aviation et soutien orbital de l'Imperium, proposés en alliance aux armées qui y ont droit (en général dans la limite de 1/3 des points).
