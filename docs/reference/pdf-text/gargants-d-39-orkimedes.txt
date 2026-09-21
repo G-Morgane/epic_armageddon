@@ -1,0 +1,662 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+GARGANTS D’ORKIMEDES 
+ 
+ 
+"ÇA VA TIRER À MORT, AVEC DÉ TAS D’FLINGUES DE PARTOU."  
+Big Mek Badlug Na Kune Jamb’  
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous autorise à mettre sur pied une force  
+d’Orks basée sur celle d’ORKIMEDES, Gros Mek en chef de la 
+WAAAGH! de GHAZGHKULL THRAKA, dont la téléportation 
+de Gargants a dévasté les forces de la Légion d’Acier lors de 
+la IIIème Guerre pour Armageddon. 
+Les armées d’Orkimedes sont organisées en formations 
+appelées bandes d’Orkimedes  et  bandes en rab’.  
+Chaque bande d’Orkimedes permet de prendre jusqu’à trois 
+bandes en rab’, qui peuvent pour certaines s’acheter selon 3 
+tailles, la bande normale, la mastok (doubler l’effectif de 
+départ) ou la tré mastok (tripler l’effectif de départ). 
+Chaque bande peut recevoir des kust’oms. La liste d’armée 
+indique pour chaque catégorie de bande quels kust’oms sont 
+autorisés. Chaque kust’om autorisé peut être pris un nombre 
+illimité de fois par bande, sauf s’il est fait état d’une limitation 
+de kust’om. Les limitations de kust’om sont multipliées de la 
+même façon que l’effectif de départ, ainsi si une Bande de 
+Guerre de Pillards normale ne peut accueillir qu’un Nobz 
+supplémentaire, une Bande de Guerre de Pillards Tré Mastok 
+peut en inclure jusqu’à 3. Les kust’oms font partie intégrante 
+des bandes et doivent de ce fait en respecter la cohésion. 
+ 
+Règle spéciale : DA BIG MEK 
+Chaque armée Orkimedes peut inclure un personnage de 
+commandant suprême appelé Big Mek. Ce personnage est 
+gratuit et doit obligatoirement rejoindre un Grand Gargant 
+Tré Tré Kustom’ ou un Gargant Tré Kustom’. 
+Règle spéciale : POUVOIR DE LA WAAAGH! 
+Les Orks ne sont pas de fins stratèges mais la perspective 
+d'une bonne bagarre les galvanise toujours. 
+Une formation tentant une action d'Avance Rapide ou 
+d'Assaut reçoit +2 à l'initiative pour son test d'action. Les 
+formations aériennes ont +2 de bonus pour les tests 
+d'actions lorsqu'elles tentent une Interception ou une 
+Attaque au sol. 
+Règle spéciale : R’MISE EN BANDE 
+Lorsque les bandes Orks tentent un test de ralliement, ils 
+reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et un 
+bonus de +2 lorsqu'ils sont plus de 10. Les engins de guerre 
+faisant partie de ces bandes comptent pour autant d'unités 
+que leur capacité de dommage de départ. Ne sont 
+comptabilisables dans le calcul ni les Gretchins ni les 
+Grokalibr'. 
+Règle spéciale : CHAMP ÉNERGÉTIQUE 
+Certains engins de guerre Orks possèdent des champs 
+énergétiques. Le nombre dont en dispose chaque engin est 
+indiqué sur sa fiche d’unité. Les champs énergétiques 
+fonctionnent de la même manière que les boucliers du vide 
+de l’Imperium, à la différence qu’une fois abattus ils ne 
+sont pas réparables et restent donc inactifs jusqu’à la fin de 
+la bataille. 
+ 
+ 
+Une rare image d’Orkimedes 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture rasmusillustration.
+ 
+1 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : TÉLA TÉPULA 
+Le Téla Tépula permet aux unités se trouvant dans un vaisseau spatial d’être téléportées directement sur le champ de bataille. 
+ 
+Cette technologie, reste (pour les orks) encore mal maîtrisée et plusieurs règles s’appliquent : 
+- Le Téla Tépula ne peut être utilisé que si le joueur orkimedes a sélectionné un vaisseau spatial. 
+- Le Téla Tépula ne peut être utilisé que sur une bande d'Orkimedes. 
+- La règle Assaut Planétaire sera utilisée plutôt que la règle Téléportation (coordonnées secrètement choisies, activation du 
+vaisseau, déviation des unités, etc.). 
+- Lors de l’arrivée sur le champ de bataille, lancez 1D6 par unité de la formation. Les engins de guerre comptent pour autant 
+d'unités que leur capacité de dommage de départ. Sur un résultat de 1 la formation de l’unité reçoit un pion impact. 
+- Un Kroiseur Kitu peut transporter l'équivalent de 10 unités. Un Kroiseur d’la Mort peut en transporter l’équivalent de 20. 
+ 
+ 
+ 
+Règle spéciale : Forteresse de Bataille Unik’ & Forteresse à Kanons Surmezur’ 
+Dans les parties de tournois, ces unités peuvent seulement transporter les unités de leur propre formation. 
+2 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 
+Règle spéciale : TUNING 
+Orkimedes est un génie dont les merveilles technologiques éblouissent toute la galaxie. Les Titans Impériaux semblent chétifs 
+et archaïques en comparaison de ses fabuleux Gargants. Chacun de ces monuments est une orfèvrerie unique et originale. 
+ 
+Chaque unité de Gargant (Gargant Tré Kustom et Grand Gargant Tré Tré Kustom)  et chaque Super Krabouillator Personalizé 
+sélectionne ses armes comme indiqué dans son profil. Les Super Krabouillators Personalizés choisissent leurs armes dans la 
+liste des Dakka Kust’om. Les Gargants choisissent leurs armes dans la liste des Dakka Kust’om et Dakka Kust’om de Gargant. 
+Chaque arme à un coût qui s’ajoute à celui de l’Engin de Guerre. La même arme peut être sélectionnée plusieurs fois par le 
+même Engin de Guerre. Tous les emplacements d’armes doivent être utilisés. 
+ 
+Les Engins de guerre Orkimedes (sauf Drop Rok) peuvent sélectionner des améliorations appelées Ekip’ment kustom. Chaque 
+amélioration ne peut être sélectionnée qu’une fois par Engin de Guerre. 
+ 
+Chaque Forteresse de Bataille Unik' et Forteresse à Kanons Surmezur' ayant sélectionné de l’Ekip’ment kustom, ainsi que 
+chaque Super Krabouillator Personalizé, Gargant Tré Kustom' et Grand Gargant Tré Tré Kustom' doit être unique au sein de 
+l’armée. 
+
+===== PAGE 4 =====
+ 
+ 
+DAKKA KUST’OM 
+Nom 
+Coût 
+Portée 
+Puissance de feu 
+Mega-Kikoup' 
+gratuit 
+(contact) 
+et 45cm 
+Arme d’assaut, +1A, MA, TT (D3) 
+AP5+/AC6+, FrtF 
+Poing Tronçonneur 
+gratuit 
+(contact) 
+et 45cm 
+Arme d’assaut, +D3A, MA, TT (1) 
+AP5+/AC6+, FrtF 
+Kanon Gatling 
++25 pts 
+45cm 
+6x AP4+/AC5+, FrtF 
+Super Kanon 
++25 pts 
+60cm 
+2 PB, MA, FrtF 
+Super Leva-Lacha 
++25 pts 
+45cm 
+MA4+, TT (D6), FrtF 
+Super Zap 
++25 pts 
+60cm 
+MA3+, TT (D3), FrtF 
+ 
+ 
+ 
+ 
+ 
+DAKKA KUST’OM DE GARGANT 
+Nom 
+Coût 
+Portée 
+Puissance de feu 
+Kanon d’la Mort 
++50 pts 
+90cm 
+MA3+, TT (D3) , FrtF 
+Mega-Zap 
++50 pts 
+60cm 
+et (contact) 
+MA3+, TT (D3), FrtF 
+Arme d’assaut, +1A, MA, TT (D3) 
+2x Missiles Grots 
++50 pts 
+illimité 
+MA3+, TT (D3) , Uniq, Aucune ligne de vue requise, emplacement de bras uniquement 
+Mega-Lobba 
++50 pts 
+60cm 
+D3+3 PB, FrtF 
+Mega-Kanon 
++50 pts 
+75cm 
+4PB, MA, FrtF 
+Snapper 
++25 pts 
+(contact) 
+ou (15cm) 
+Arme d’assaut, +1A, MA, TT (1), FeP 
+Arme légère, +2A, FeP 
+ 
+EKIP'MENT KUST’OM 
+Amélioration 
+Notes 
+Coût 
+Boucliers en rab’ 
+Ajoute D3 Champs Énergétiques à l’Engin de Guerre. 
++25 pts 
+Chaudière Renforcée 
+Ajoute +5cm à la caractéristique de vitesse de l’Engin de Guerre. 
++50 pts 
+Blindage Supplémentaire Ajoute +1 CD à l’Engin de Guerre (pas d’impact sur Téla Tépula ou la place de transport en Kroiseur). 
++50 pts 
+Cibleurs Grots 
+Ajoute une attaque AA5+ à tous les Gros Kanons de l’Engin de Guerre. 
++50 pts 
+Grot Bidouilleur 
+L’Engin de Guerre peut relancer un jet d’incendie par tour. 
++25 pts 
+Kaptain 
+Ajoute la note Meneur à l’Engin de Guerre. 
++25 pts 
+Tête de Gork 
+Ajoute la note Charismatique à l’Engin de Guerre. Gargant uniquement. 
++50 pts 
+TAKATAKATAKA 
+L’Engin de Guerre gagne +3 attaques supplémentaires d’armes légères. Gargant uniquement. 
++50 pts 
+Transport 
+Ajoute la note Transport (Peut transporter dix unités parmi : Boyz, Nobz, Kopter, Boit’Kitu, Dreadnought. Les 
+kopters prennent deux places. Peut transporter quatre unités de Gretchins en plus des autres unités) à l’Engin 
+de Guerre. Gargant uniquement. 
++25 pts 
+ 
+ 
+ 
+ 
+3 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 
+
+===== PAGE 5 =====
+LISTE D'ARMÉE ORKS - GARGANTS D’ORKIMEDES 
+Les armées de Gargants d’Orkimedes ont une valeur stratégique de 2. Toutes les formations ont une initiative de 3+ mais 
+reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la WAAAGH!) 
+ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande). 
+ 
+BANDES D’ORKIMEDES 
+Formations 
+Unités 
+Coût 
+Kust'om 
+Bande de 
+Gargant 
+1 Gargant Tré Kustom' 
+ou 1 Grand Gargant Tré Tré 
+Kustom' 
+550 pts 
+700 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Grokalibr', Boit’ kitu 
+Kopter, Dreadnought, Chariot Flak 
+Krabouillators 
+ 
+(+25 pts chacun) 
+(+50 pts les deux) 
+(+50 pts chacun) 
+Bande de 
+Super Krabous 
+2 Super Krabouillators 
+Personalizés 
+425 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Grokalibr', Boit’ kitu 
+Kopter, Dreadnought, Chariot Flak 
+Krabouillators 
+0-1 Super Krabouillator Personalizé 
+ 
+(+25 pts chacun) 
+(+50 pts les deux) 
+(+50 pts chacun) 
+(+225 pts) 
+BANDES EN RAB' (jusqu'à 3 bandes par bande d’Orkimedes) 
+Formations 
+Unités 
+Normale Mastok' Tré Mastok' Kust'om 
+Coût 
+Super Krabou 
+1 Super Krabouillator 
+Personalizé 
+225 pts 
+- 
+- 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Boit’ kitu 
+Kopter, Dreadnought, Chariot Flak 
+Krabouillators 
+(+25 pts chacun) 
+(+50 pts les deux) 
+(+50 pts chacun) 
+Batterie de 
+Grokalibr' 
+5 unités de Grokalibr' 
+125 pts 
+225 pts 
+325 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Grokalibr’, Chariot de Guerre 
+Chariot Flak 
+(+25 pts chacun) 
+(+50 pts les deux) 
+Bande de 
+Guerre de 
+Pillards 
+6 unités de Boyz, 2 unités de 
+Gretchins 
+150 pts 
+250 pts 
+350 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+0-2 Boyz (plus une unité de gretchins gratuite) 
+Grokalibr’, Boit’ kitu, Chariot de Guerre 
+Kopter, Dreadnought, Chariot Kanon 
+Chariot Flak, 0-1 Nobz 
+0-1 Forteresse de Bataille Unik' ou Forteresse à 
+Kanons Surmezur' 
+(+25 pts chacun) 
+(+25 pts chacun) 
+(+50 pts les deux) 
+(+50 pts les deux) 
+(+125 pts) 
+Bande de 
+Krabous 
+4 Krabouillators 
+200 pts 
+400 pts 
+550 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Boit'kitu 
+Kopter, Dreadnought, Chariot Flak 
+Krabouillators 
+(+25 pts chacune) 
+(+50 pts les deux) 
+(+50 pts chacun) 
+Bande de 
+Koupkoup' 
+2 Dreadnoughts, 2 Boit'kitu 
+125 pts 
+225 pts 
+325 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Boit'kitu 
+Kopter, Dreadnought, Chariot Flak 
+(+25 pts chacune) 
+(+50 pts les deux) 
+Bande de 
+Forteresses 
+2 unités parmi :  
+Forteresse de Bataille Unik', 
+Forteresse à Kanons Surmezur' 
+250 pts 
+475 pts 
+675 pts 
+Ajouter n’importe quel nombre d’unités dans la liste suivante : 
+Kopter, Chariot Kanon, Chariot Flak, 0-1 Nobz 
+0-1 Forteresse de Bataille Unik' ou Forteresse à 
+Kanons Surmezur' 
+(+50 pts les deux) 
+(+125 pts) 
+Chassa bomba 4 unités de Chassas-bombas 
+200 pts 
+ 
+ 
+Ajouter jusqu'à 5 Chassa-Bombas supplémentaires 
+(+50 pts chacun) 
+Drop Rok 
+1 Drop Rok 
+ 
+ 
+ 
+ 
+225 pts 
+0-1 Kroiseur 
+Kitu 
+1 Kroiseur Kitu 
+Remplacer un Kroiseur Kitu par un Kroiseur d'la Mort 
+200 pts 
+(+50 pts) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 
+
+===== PAGE 6 =====
+ 
+FEUILLES DE RÉFÉRENCES DÉZ ORKS D’ORKIMEDES 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Big Mek 
+Perso 
+- 
+- 
+- 
+- Big Gros Marto 
+(contact) 
+Arme d’assaut, +1A, MA 
+Commandant Suprême 
+Nobz 
+Inf 
+15cm 
+4+ 
+3+ 5+ 2x Gros Fling’ 
+Ch’ti Fling’ 
+Gros Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Arme légère 
+Arme d’assaut, +1A 
+Meneur 
+Boyz 
+Inf 
+15cm 
+6+ 
+4+ 6+ Gros Fling’ 
+Ch’ti Fling’ 
+Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Arme légère 
+Arme d’assaut 
+ 
+Gretchins 
+Inf 
+15cm 
+- 
+6+ 6+ Ch’ti Fling’ 
+(15cm) 
+Arme légère 
+Les formations incluant au moins une unité d’Ork ne reçoivent pas de pions d’impact pour les unités 
+de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d’un assaut 
+Grokalibr’ 
+Inf 
+10cm 
+- 
+6+ 5+ Grokalibr' 
+45cm 
+AP5+/AC5+ 
+ 
+Kopter 
+VL 
+35cm 
+4+ 
+6+ 5+ Ch'ti Kanon 
+30cm 
+AP5+/AC6+ 
+Antigrav 
+Boit'Kitu 
+VB 
+15cm 
+5+ 
+4+ 6+ Gros Fling’ 
+Pince de kombat 
+30cm 
+(contact) 
+AP6+/AC6+ 
+Arme d’assaut, +1A, MA 
+Marcheur 
+Dreadnought 
+VB 
+15cm 
+4+ 
+4+ 5+ Gros Kanon 
+Pince de kombat 
+45cm 
+(contact) 
+AP5+/AC5+ 
+Arme d’assaut, +1A, MA 
+Marcheur 
+Krabouillator 
+VB 
+15cm 
+4+ 
+3+ 4+ 2-3 Gros Kanon 
+0-1 Marto de kombat 
+et 
+45cm 
+30cm 
+(contact) 
+AP5+/AC5+ 
+AP5+/AC6+ 
+Arme d'assaut, +1A, MA 
+Blindage renforcé, Marcheur. Peut être équipé de 3 Gros kanons ou de 2 Gros kanons et 1 Marto de 
+kombat. 
+Chariot de 
+Guerre 
+VB 
+30cm 
+5+ 
+5+ 5+ Ch’ti Kanon 
+30cm 
+AP5+/AC6+ 
+Transport (2) : Boyz, Nobz, Grokalibrs’ (peut remplacer une des deux unités transportées). Peut 
+embarquer une unité de Gretchins en plus des autres unités 
+Chariot Kanon 
+VB 
+30cm 
+5+ 
+5+ 5+ Gros Kanon 
+45cm 
+AP5+/AC5+ 
+Transport (1) : Boyz, Gretchins, Nobz, Grokalibr' 
+Chariot Flak 
+VB 
+30cm 
+5+ 
+5+ 5+ Kanon flak 
+30cm 
+AP5+/AC6+/AA5+ 
+Transport (1) : Boyz, Gretchins, Nobz, Grokalibr' 
+Chassa-Bomba 
+A 
+CB 
+6+ 
+- 
+- Aéro Fling’ 
+Rokettes Kass’Tank 
+15cm 
+30cm 
+AP5+/AA5+, FrtF 
+AC4+, FrtF 
+ 
+Drop Rok 
+EG 
+Immobile 
+5+ 
+6+ 4+ 2x Gros Fling’ jumelés 
+2x Gros kanon 
+30cm 
+45cm 
+AP5+/AC5+ 
+AP5+/AC5+ 
+Transport, Assaut planétaire, Sans Peur, Blindage Renforcé 
+CD3 / Champs Énergétiques : 1D3 – Critique : Détruit. Toutes les unités dans les 5cm sur une touche MA 
+sur 5+. 
+Peut embarquer vingt des unités suivantes : 
+Boyz, Nobz, Kopters (prennent 2 places), Boit’Kitus, Dreadnoughts. Quatre unités de Gretchins peuvent 
+embarquer en plus du reste. 
+Kroiseur Kitu 
+V 
+- 
+- 
+- 
+- Missiles Pulsors (Kitu) ∞ 
+D6+1PB MA 
+Transport : Téla Tépula : 10 unités. Peut transporter 3 Drop Rok plus les troupes qu'il transporte. 
+Kroiseur d'La 
+Mort 
+V 
+- 
+- 
+- 
+- Missiles Pulsors (d'la 
+Mort) 
+∞ 
+D6+3PB MA 
+Transport : Téla Tépula : 20 unités. Peut transporter 6 Drop Rok plus les troupes qu'il transporte. 
+Lent, ne peut être utilisé lors du premier ou deuxième tour de la partie. 
+5 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 
+
+===== PAGE 7 =====
+ 
+ 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu Notes 
+Forteresse de 
+Bataille Unik' 
+EG 
+30cm 
+5+ 
+4+ 4+ 4x Ch’ti Kanon 
+Gros Kanon 
+30cm 
+45cm 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage renforcé, Transport (8) : Boyz, Nobz, Grokalibr’. Peut embarquer quatre unités de 
+Gretchins en plus des autres unités. 
+CD3 – Critique : Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction 
+aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités 
+transportées survivent sur 6+. 
+Forteresse à Kanons 
+Surmezur' 
+EG 
+30cm 
+5+ 
+4+ 4+ 5x Ch’ti Kanon 
+3x Gros Kanon 
+30cm 
+45cm 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage renforcé, Transport (4) : Boyz, Nobz, Grokalibr’. Peut embarquer quatre unités de 
+Gretchins en plus des autres unités. 
+CD3 – Critique : Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction 
+aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités 
+transportées survivent sur 6+. 
+Super Krabouillator 
+Personalizé 
+EG 
+15cm 
+4+ 
+4+ 4+ Regard de Mork 
+3x Armes de 25 pts maximum 
+30cm 
+MA4+, TT (1) 
+Blindage renforcé, Sans Peur, Marcheur 
+CD4 / Champs Énergétiques : 1D3 – Critique : La tête du Super Krabouillator explose, tuant 
+le Kaptaine. Il subit une pénalité de -1 pour toucher sur ses tirs. Les critiques suivants 
+causeront 1 point de dommage supplémentaire. 
+Gargant Tré Kustom' 
+EG 
+15cm 
+4+ 
+3+ 3+ Regard de Mork 
+2x Armes de bras de 25 pts 
+maximum 
+1x Arme de 50 pts maximum 
+30cm 
+ 
+MA4+, TT (1) 
+ 
+Blindage renforcé, Sans peur, Marcheur 
+CD8 / Champs Énergétiques : 1D3+3 – Critique : Le Gargant subit un incendie. Jetez 1D6 
+pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se 
+déclare, sur un résultat de 5 / 6, l'incendie s'éteint. Tout incendie non éteint cause 1 point de 
+dommage à la fin de la phase d'action. 
+Grand Gargant Tré 
+Tré Kustom' 
+EG 
+15cm 
+4+ 
+3+ 3+ Regard de Mork 
+2x Gros kanon 
+2x Armes de bras de 50 pts 
+maximum 
+1x Arme de 50 pts maximum 
+30cm 
+45cm 
+ 
+MA4+, TT (1) 
+AP5+/AC5+ 
+ 
+Blindage renforcé, Sans peur, Marcheur 
+CD12 / Champs Énergétiques : 1D6+6 – Critique : Le Gargant subit un incendie. Jetez 1D6 
+pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se 
+déclare, sur un résultat de 5 / 6, l'incendie s'éteint. Tout incendie non éteint cause 1 point de 
+dommage à la fin de la phase d'action. 
+ 
+ 
+6 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 
+
+===== PAGE 8 =====
+ 
+ 
+ 
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+7 - CODEX GARGANTS D’ORKIMEDES - EAFR - REV 1.1.1 

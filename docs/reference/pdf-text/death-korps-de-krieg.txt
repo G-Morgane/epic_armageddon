@@ -1,0 +1,869 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+DEATH KORPS DE KRIEG 
+ 
+ 
+ 
+ 
+« Heureux ceux qui tombent les premiers, car ils recevront la 
+miséricorde de l’Empereur ». 
+ 
+Colonel Von Stross, Commandant, 143ème Régiment de Siège 
+ 
+Forces 
+La Death Korps of Krieg utilise les feuilles de référence de la Death 
+Korps of Krieg, de l’Aeronautica Imperialis et de l’Adeptus Titanicus. 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de l’Astra 
+Militarum basée sur un régiment de la Death Korps of Krieg (DKoK). 
+ 
+Les formations de la DKoK sont de deux types : les compagnies et 
+les formations de support. Chaque compagnie que vous incluez 
+dans l’armée vous permet de mettre sur pied deux formations de 
+support et un ensemble de positions fortifiées pour les seules 
+compagnies QG et d’Infanterie. Vous ne pouvez prendre de 
+formation de support que si vous avez pris au préalable une 
+compagnie. Ces deux formations sont traitées indépendamment 
+durant la bataille et vous n’avez pas à respecter les règles de 
+cohésion. 
+ 
+En plus de cela, les compagnies peuvent recevoir 3 améliorations. 
+Chaque amélioration ne peut être prise qu’une fois par compagnie. 
+A l’inverse des formations de support, les améliorations font partie 
+intégrante des compagnies. Les formations d’appui ne peuvent en 
+principe pas recevoir d'améliorations, sauf celles indiquées dans la 
+liste d’armée (ex : vous pouvez payer 100 pts pour ajouter un 
+transport Gorgone à des Grenadiers qui sont une formation de 
+support). Chaque amélioration est ajoutée au total du coût en point 
+d’une compagnie. 
+ 
+Les armées de la DKoK peuvent être soutenues par la flotte de 
+l’Aeronautica Imperialis et les légions de l’Adeptus Titanicus. 1/3 
+des points peuvent être dépensé pour ces formations.  
+ 
+ 
+Emblème officieux de la Death Korps of Krieg 
+ 
+ 
+Règle spéciale : Commissaires 
+Pour chaque Compagnie de la Death Korps of Krieg qu’inclut votre 
+armée, un Commissaire est automatiquement intégré. De plus, 
+vous pouvez ajouter gratuitement un Commissaire dans une 
+formation d’appui pour chaque tranche de 1000 pts dans votre 
+armée, hors appareils de la flotte et soutien titanique. 
+ 
+Règle spéciale : Maître de sièges (DKOK) 
+Le QG Régimentaire et les Compagnies d’Infanterie permettent de 
+prendre un ensemble de positions fortifiées. Ces positions 
+fortifiées devront être déployées en garnison ou dans la zone 
+déploiement, lors de la phase de déploiement, et ne pourront être 
+conservées en réserve d'aucune sorte.  
+ 
+Positions Fortifiées DKOK 
+Terrain 
+Infanterie 
+Véhicule 
+Engin de 
+Guerre 
+Tranchées (2)* 
+Couvert 4+ 
+Dangereux 
+Sans effet 
+Emplacement 
+d’artillerie (1)* 
+Couvert 4+ 
+Couvert 5+ 
+Sans effet 
+Bunkers (2)* 
+Couvert 3+ Infranchissable Infranchissable 
+Barbelés 
+Dangereux 
+Sans effet 
+Sans effet 
+ 
+*les (X) indiquent le nombre d’unités maximum pouvant occuper 
+ces fortifications par tronçon de 4 cm de longueur. 
+ 
+Le joueur ayant la valeur stratégique la plus forte décide 
+quel joueur déploie son premier set de Positions Fortifiées 
+en alternance. 
+Les Positions Fortifiées doivent être placées après les 
+Objectifs, mais avant que les Vaisseaux Spatiaux et les 
+Garnisons ne se déploient. 
+Elles peuvent être placées partout où pourrait l'être un 
+véhicule, dans la moitié de table du joueur actif. 
+Bien qu'elles soient des éléments de terrains, les Positions 
+Fortifiées doivent respecter les règles de cohésion de 
+formation entre elles (par exemple, vous pouvez diviser les 
+tranchées en plusieurs éléments, du moment qu'il y a un 
+espace maximum de 5cm entre chaque élément). 
+Les Barbelés n’ont pas à être disposés en cohésion avec 
+vos autres Positions Fortifiées, mais doivent respecter la 
+cohésion entre eux.  
+Une fois positionnées, les Positions Fortifiées sont 
+considérées comme un élément de terrain neutre et toute 
+unité ayant la capacité à finir son mouvement à l'intérieur 
+pourra l'occuper. 
+ 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture par Brilliane Feldo. 
+1 - CODEX DEATH KORPS DE KRIEG - EAFR - REV 1.5.1 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE DE LA DEATH KORPS DE KRIEG 
+Les armées de la Death Korps de Krieg ont une valeur stratégique de 2. Toutes les formations ont une initiative de 2+, sauf les 
+soutiens de l’Adeptus Titanicus qui ont une valeur d’initiative de 1+.  
+ 
+COMPAGNIES DE LA DEATH KORPS DE KRIEG 
+Formations 
+Unités 
+Coût 
+0-1 QG Régimentaire 
+1 unité de Quartier Général DKOK + 12 unités de Fantassins DKOK 
+250 pts 
+Compagnie d'Infanterie 
+1 unité de Commandant DKOK + 12 unités de Fantassins DKOK 
+200 pts 
+Compagnie de Death Riders 
+1 unité de Commandant Death Riders + 11 unités de Death Riders 
+275 pts 
+Compagnie d'Artillerie 
+9 unités parmi : Canon Antiaérien Lourd, Canon Séisme et Canon Medusa (+ 9 emplacements d’artillerie) 
+400 pts 
+Compagnie de Leman Russ 
+1 Leman Russ Vanquisher et 9 Leman Russ 
+600 pts 
+Compagnie de Chars Lourds 
+2 Macharius et 1 Char Lourd de Commandement Macharius ou 3 Macharius Vulcain 
+350 pts 
+AMÉLIORATIONS DE LA DEATH KORPS DE KRIEG 
+(Jusqu'à 3 améliorations différentes par Compagnie) 
+Améliorations 
+Unités 
+Coût 
+Peloton d'Infanterie 
+Ajouter 6 unités de Fantassins DKOK 
+100 pts 
+Peloton d'appui-feu 
+Ajouter 4 unités d'Appui-feu DKOK 
+100 pts 
+Peloton de support 
+Ajouter 4 Quads Launchers ou 4 Mortiers Lourds 
+125 pts 
+Transport de Siège 
+Ajouter 2 Gorgones ou 2 Gorgones Mortiers (ne peuvent être ajoutées qu'aux Compagnie QG ou 
+d'Infanterie) 
+175 pts 
+Escadron de Hellhounds 
+Ajouter 3 Hellhounds 
+150 pts 
+Escadron de Leman Russ 
+Ajouter 3 Leman Russ ou 3 Leman Russ Thunderer 
+175 pts 
+Char Lourd 
+Ajouter 1 Macharius Vulcain 
+ou 1 Macharius 
+150 pts 
+125 pts 
+FORMATIONS D'APPUI DE LA DEATH KORPS DE KRIEG 
+(Jusqu'à 2 formations d'appui par Compagnie) 
+Formations 
+Unités 
+Coût 
+Peloton de Grenadiers 
+8 unités de Grenadiers 
+(+ 8 Centaures ) ou 
+(+ 1 Gorgone / Gorgone Mortiers) ou 
+(+ 4 Chimères Storm) 
+175 pts 
+(+75 pts) 
+(+100 pts) 
+(+125 pts) 
+Peloton d’Ingénieurs 
+6 unités d’Ingénieurs de la Death Korps 
+200 pts 
+Peloton de Death Riders 
+6 unités de Death Riders (toutes les unités gagnent la capacité Éclaireur) 
+150 pts 
+0-1 Silo Deathstrike 
+1 Silo à missile Deathstrike 
+250 pts 
+Batterie Légère de Support 
+4 Quads Launchers ou 4 Mortiers Lourds et 4 Centaures 
+200 pts 
+Batterie Lourde de Support 
+3 Canons Séisme ou 
+3 Canons Medusa ou 
+3 Canons Antiaériens Lourds 
+(+ 3 emplacements d'artillerie ou 3 Trojans) 
+150 pts 
+150 pts 
+100 pts 
+(+25 pts) 
+Batterie Lourde de Siège 
+3 Bombardes 
+(+ 3 emplacements d'artillerie) 
+250 pts​
+(+25 pts) 
+Peloton de Hellhounds 
+6 Hellhounds 
+300 pts 
+Peloton de Leman Russ 
+6 Leman Russ 
+350 pts 
+Peloton de Char Super Lourd 
+1 Char Super Lourd au choix parmi : Shadowsword, Baneblade, Stormsword 
+200 pts 
+FORTIFICATIONS DE LA DEATH KORPS DE KRIEG 
+(Jusqu'à 1 fortification par QG Régimentaire et Compagnies d'infanterie) 
+Formations 
+Unité 
+Coût 
+Positions fortifiées 
+Jusqu’à 80cm de Tranchées, 3 Bunkers et jusqu’à 80cm de Barbelés 
+100 pts 
+ 
+SUPPORTS DE LA DEATH KORPS DE KRIEG 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+FLOTTES DE L'AERONAUTICA IMPERIALIS 
+ 
+SOUTIENS DE L'ADEPTUS TITANICUS 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Escadrille d’Intercepteurs 
+ 
+ou 
+2 Chasseurs Thunderbolts 
+4 Chasseurs Thunderbolts 
+150 pts 
+300 pts 
+ 
+Titan Warhound 
+ 
+ou 
+1 Titan Warhound 
+2 Titans Warhound 
+275 pts 
+500 pts 
+Escadrille de Bombardiers 
+ 
+2 Bombardiers Marauders 
+250 pts 
+ 
+Titan Reaver 
+ 
+1 Titan Reaver 
+650 pts 
+Soutien Orbital 
+ 
+ou 
+1 Croiseur Lunar 
+1 Cuirassé Emperor 
+150 pts 
+300 pts 
+ 
+Titan Warlord 
+ 
+1 Titan Warlord 
+850 pts 
+ 
+2 - CODEX DEATH KORPS DE KRIEG - EAFR - REV 1.5.1 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES DEATH KORPS OF KRIEG 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Quartier Général DKOK 
+Inf 
+15cm 
+5+ 
+4+ 
+5+ Mitrailleuses Lourdes Jumelées (Inf) 
+Fusils Laser 
+Arme Énergétique 
+30cm 
+(15cm) 
+(contact) 
+AP5+ 
+Arme Légère 
+Arme d'Assaut, +1A, MA 
+Commandant Suprême 
+Commandement DKOK 
+Inf 
+15cm 
+6+ 
+5+ 
+5+ Mitrailleuses Lourdes Jumelées (Inf) 
+Fusils Laser 
+Épée tronçonneuse 
+30cm 
+(15cm) 
+(contact) 
+AP5+ 
+Arme Légère 
+Arme d'Assaut 
+Commandant 
+Commandement Death Riders Inf 
+20cm 
+6+ 
+4+ 
+6+ Lances Énergétiques 
+(contact) 
+Arme d'Assaut, FeP 
+Infiltrateur, Montés, Commandant 
+Commissaire 
+Perso - 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Charismatique, Meneur, Sans Peur 
+Fantassins DKOK 
+Inf 
+15cm 
+- 
+5+ 
+5+ Fusils Laser 
+(15cm) 
+Arme Légère 
+- 
+Grenadiers DKOK 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Lance-Flammes Lourd (DKOK) 
+et 
+Fusils Radiants Laser 
+15cm 
+(15cm) 
+(15cm) 
+AP4+, IC 
+Arme Légère, IC 
+Arme Légère 
+- 
+Ingénieurs DKOK 
+Inf 
+15cm 
+5+ 
+4+ 
+5+ Mortier Taupe léger 
+Grenades à Gaz 
+30cm 
+(15cm) 
+AP5+, IC 
+Arme Légère, IC 
+Tunneliers 
+Death Riders 
+Inf 
+20cm 
+6+ 
+4+ 
+6+ Pistolets Laser 
+Lances Énergétiques 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut, FeP 
+Infiltrateur, Montés 
+Appui-feu DKOK 
+Inf 
+15cm 
+- 
+6+ 
+4+ Autocanon 
+Mitrailleuses Lourdes Jumelées (Inf) 
+45cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+- 
+Mortier Lourd DKOK 
+Inf 
+10cm 
+- 
+6+ 
+6+ Mortiers Lourds 
+30cm 
+1PB, Ind 
+- 
+Quad Launcher 
+Inf 
+10cm 
+- 
+6+ 
+6+ Quad Launcher 
+45cm 
+AP4+/AC6+, Ind 
+- 
+Canon Séisme 
+VB 
+0cm 
+6+ 
+6+ 
+6+ Canon Séisme 
+ou 
+120cm 
+120cm 
+1PB, Ind 
+AP4+/AC4+ 
+- 
+Canon Médusa 
+VB 
+0cm 
+6+ 
+6+ 
+6+ Canon Médusa 
+60cm 
+MA4+, IC 
+- 
+Canon Antiaérien Lourd 
+VB 
+0cm 
+6+ 
+6+ 
+6+ Canon Lourd AA 
+60cm 
+AP6+/AC5+/AA5+ 
+- 
+Bombarde 
+VB 
+20cm 
+6+ 
+6+ 
+5+ Mortier de Siège 
+Bolter Lourd 
+60cm 
+30cm 
+2PB, Ind, Rchg, IC 
+AP5+ 
+- 
+Centaure 
+VL 
+35cm 
+5+ 
+6+ 
+6+ Mitrailleuses Lourdes 
+30cm 
+AP6+ 
+Transport (1) : Commandant, Fantassins, Grenadiers, Quad Launcher* 
+ou Mortier lourd* (*vitesse réduite à 20cm) 
+Trojan 
+VB 
+20cm 
+6+ 
+6+ 
+6+ Bolter Lourd 
+30cm 
+AP5+ 
+Transport (1) : Canon Séisme ou Canon Médusa ou Canon AA Lourd 
+Chimère Storm 
+VB 
+25cm 
+4+ 
+6+ 
+5+ 
+Autocanon 
+Lance-Flammes Lourd (DKOK) 
+et 
+45cm 
+15cm 
+(15cm) 
+AP5+/AC6+ 
+AP4+, IC 
+Arme Légère, IC 
+Transport (2) : Infanterie 
+Hellhound 
+VB 
+30cm 
+4+ 
+6+ 
+3+ Canon Inferno 
+et 
+Bolter Lourd 
+30cm 
+(15cm) 
+30cm 
+AP3+, IC 
+Arme Légère, IC 
+AP5+ 
+- 
+Silo à missiles Deathstrike 
+EG 
+0cm 
+4+ 
+6+ 
+4+ Missile Deathstrike (DKOK) 
+∞ 
+MA2+, TT (D6), Ind, Rchg 
+Sans Peur 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm 
+subissent une touche MA4+. 
+ 
+3 - CODEX DEATH KORPS DE KRIEG - EAFR - REV 1.5.1 
+
+===== PAGE 5 =====
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Leman Russ 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Obusier 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC4+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ Vanquisher 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Canon Vanquisher 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC2+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ Thunderer 
+VB 
+20cm 
+4+ 
+6+ 
+5+ Canon Démolisseur (Thunderer) 
+et 
+30cm 
+(15cm) 
+MA4+ 
+Arme Légère, MA 
+Blindage Renforcé 
+Gorgone 
+EG 
+20cm 
+4+ 
+6+ 
+4+ 2x Lance-Flammes Lourd 
+et 
+2x Mitrailleuses lourdes jumelées 
+15cm 
+(15cm) 
+30cm 
+AP4+, IC 
+Arme Légère, +1A, IC 
+AP5+, Frt 
+Blindage Renforcé, Marcheur 
+Transport (10) : Commandant Suprême, Commandant, Fantassins, 
+Appui-feu 
+CD3 - Critique: Immobilisé, puis détruit au prochain dommage. 
+Gorgone (Mortiers) 
+EG 
+20cm 
+4+ 
+6+ 
+6+ 2x Mortiers Gorgone 
+2x Mitrailleuses lourdes jumelées 
+30cm 
+30cm 
+1PB, Ind, Uniq, FrtF 
+AP5+, Frt 
+Blindage Renforcé, Marcheur 
+Transport (10) : Commandant Suprême, Commandant, Fantassins, 
+Appui-feu 
+CD3 - Critique: Immobilisé, puis détruit au prochain dommage. 
+Char de Commandement 
+Macharius 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 2x Canon Vanquisher 
+2x Bolter Lourd 
+Mitrailleuses Lourdes Jumelées 
+75cm 
+30cm 
+30cm 
+AP4+/AC2+ 
+AP5+ 
+AP5+, Frt 
+Blindage Renforcé 
+CD2 - Critique : Détruit. 
+Macharius 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 2x Obusier 
+2x Bolter Lourd 
+Mitrailleuses Lourdes Jumelées 
+75cm 
+30cm 
+30cm 
+AP4+/AC4+ 
+AP5+ 
+AP5+, Frt 
+Blindage Renforcé 
+CD2 - Critique : Détruit. 
+Macharius Vulcain 
+EG 
+15cm 
+4+ 
+6+ 
+4+ Méga Bolter Vulcain (Macharius) 
+2x Bolter Lourd 
+Mitrailleuses Lourdes Jumelées 
+45cm 
+30cm 
+30cm 
+4xAP3+/AC5+ 
+AP5+ 
+AP5+, Frt 
+Blindage Renforcé 
+CD2 - Critique : Détruit. 
+Baneblade 
+EG 
+15cm 
+4+ 
+6+ 
+4+ Super Obusier 
+Autocanon 
+2x Canon Laser 
+Canon Démolisseur (FF) 
+et 
+Bolters Lourds Jumelés (FF) 
+2x Bolters Lourds Jumelés 
+75cm 
+45cm 
+45cm 
+30cm 
+(15cm) 
+30cm 
+30cm 
+AP3+/AC3+ 
+AP5+/AC6+ 
+AC5+ 
+MA4+, FrtF 
+Arme Légère, +1A, MA 
+AP4+, FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm 
+subissent une touche sur 6+. 
+Shadowsword 
+EG 
+15cm 
+4+ 
+6+ 
+5+ Canon Volcano (FF) 
+2x Bolters Lourds Jumelés 
+90cm 
+30cm 
+MA2+, TT (D3), FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm 
+subissent une touche sur 6+. 
+Stormsword 
+EG 
+15cm 
+4+ 
+6+ 
+4+ Canon de siège 
+Bolter Lourd (FF) 
+2x Bolters Lourds Jumelés 
+2x Lance-Flammes Lourd 
+et 
+30cm 
+30cm 
+30cm 
+15cm 
+(15cm) 
+3PB, IC, FrtF 
+AP5+, FrtF 
+AP4+ 
+AP4+, IC 
+Arme Légère, +1A, IC 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm 
+subissent une touche sur 6+. 
+ 
+4 - CODEX DEATH KORPS DE KRIEG - EAFR - REV 1.5.1 
+
+===== PAGE 6 =====
+FEUILLE DE RÉFÉRENCE DE L’AERONAUTICA IMPERIALIS 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Bombardier Marauder 
+A/EG 
+B 
+5+ 
+- 
+- 
+Bolters Lourds Jumelés (AA) 
+Bolters Lourds Jumelés (AA Arr) 
+Canons Laser Jumelés (AA Avant) 
+Bombes (Bomber) 
+30cm 
+30cm 
+45cm 
+15cm 
+AA5+ 
+AA5+, Arr 
+AC4+/AA5+, FrtF 
+3PB, FrtF 
+CD2 – Critique: le Marauder s'écrase au sol 
+Thunderbolt 
+A 
+CB 
+6+ 
+- 
+- 
+Fulgurants 
+Multi-Lasers (FF) 
+Roquettes 
+15cm 
+30cm 
+30cm 
+AP4+/AA5+, FrtF 
+AP5+/AC6+/AA5+, FrtF 
+AC4+, FrtF 
+ 
+Croiseur Classe Lunar 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (3) 
+Frappe chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+ 
+Cuirassé Emperor 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (8) 
+∞ 
+8PB, MA 
+Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le 
+scénario ne précise le contraire 
+ 
+FEUILLE DE RÉFÉRENCES DE L’ADEPTUS TITANICUS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu Notes 
+Warhound 
+EG 
+30cm 
+5+ 
+4+ 
+4+ 
+Méga Bolter Vulcain (F) 
+Canon Plasma Léger (F) 
+45cm 
+45cm 
+4x AP3+/AC5+, Frt 
+2xMA2+, Rchg, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du 
+titan et au maximum de 2cm de large 
+CD3 / BI2 – Critique : Le titan est déséquilibré et vacille Déplacez-le dans une 
+direction aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou 
+une unité qu'il ne peut pousser, il s'arrête et perd un point de dommage 
+supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 6+ 
+Reaver 
+EG 
+20cm 
+4+ 
+3+ 
+3+ 
+Lance-missiles Apocalypse 
+2x Destructeurs Turbo laser 
+60cm 
+60cm 
+4PB, FrtF 
+4xAP5+/AC3+, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du 
+titan et au maximum de 2cm de large 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de 
+chaque tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige 
+une touche sur un 5+ aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la 
+fissure est réparée 
+Warlord 
+EG 
+15cm 
+4+ 
+2+ 
+3+ 
+2x Destructeurs Turbo laser (FF) 
+Canon Gatling 
+Canon Volcano 
+60cm 
+60cm 
+90cm 
+4xAP5+/AC3+, FrtF 
+4xAP4+/AC4+, Frt 
+MA2+, TT (D3), Frt 
+Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du 
+titan et au maximum de 2cm de large 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de 
+chaque tour pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige 
+une touche sur un 4+ aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la 
+fissure est réparée 
+ 
+5 - CODEX DEATH KORPS DE KRIEG - EAFR - REV 1.5.1 
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+6 - CODEX DEATH KORPS DE KRIEG - EAFR - REV 1.5.1 

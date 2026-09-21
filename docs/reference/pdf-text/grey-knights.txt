@@ -1,0 +1,958 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+ 
+GREY KNIGHTS 
+ 
+ 
+ 
+ 
+« Nous sommes des guerriers Chevaliers Gris, dont l’armure est 
+la Foi, le bouclier la Dévotion et l’arme notre Devoir Sacré. Mais 
+plus que tout, nous portons la flamme divine de l’Empereur de 
+l’Humanité dans les ténèbres afin d’y purger le Démon. » 
+Frère-Capitaine Stern des Chevaliers Gris 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de 
+Grey Knights. 
+Les armées des Grey Knights sont organisées autour de 
+petites formations appelées détachements principaux ainsi 
+que des détachements de soutien qui leurs sont autonomes. 
+Chaque détachement peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut 
+être 
+prise 
+qu’une 
+fois 
+par 
+détachement. 
+Les 
+améliorations font partie intégrante des détachements et 
+doivent respecter les règles de cohésion. Noter que certaines 
+améliorations remplacent des unités d’un détachement tandis 
+que d’autres ajoutent des unités supplémentaires.  
+Les formations de support sont des formations autonomes 
+des détachements. Un maximum de ⅓ des points peuvent 
+être dépensés pour ces formations. 
+Concernant le transport, les unités suivantes seront jugées 
+comme équivalentes : 
+Terminators d’assaut, Paladins ↔ Terminators 
+ 
+ 
+Règle spéciale:  Némésis du Chaos 
+Quand une formation de Space Marines Grey Knights est 
+engagée dans un assaut comprenant au moins une unité 
+de démons invoqués (démon mineur ou majeur), elle 
+comptera comme Charismatique pour ce combat.  
+ 
+Règle spéciale : Psyker 
+Une formation contenant au moins 1 Psyker peut effectuer 
+un tir à 30 cm après qu’elle ait été désignée pour s’activer 
+et avant de lancer le jet d’initiative. La qualité de la touche 
+dépendra du nombre d’unités non neutralisées disposant 
+de la note Psyker dans la formation. Cette action spéciale 
+est considérée comme un tir concernant les règles mais 
+une seule unité a besoin d’une ligne de vue sur la formation 
+ciblée. 
+Si la formation fait ce tir, elle aura un malus de -1 pour 
+s'activer à ce tour. 
+Table des Psykers 
+Nombre de Psykers 
+Touche 
+1-3 
+MA5+ 
+4-5 
+MA4+ 
+6-7 
+MA3+ 
+8+ 
+MA2+ 
+ 
+Les unités contenant 1 Archiviste ou le Maître de Chapitre 
+comptent comme 3 Psykers. Les unités de Paladins 
+comptent comme 2 Psykers. 
+Si l’action entreprise ensuite par la formation comporte un 
+tir ou si l’action est un assaut, la formation ciblée doit 
+impérativement être la même que celle du tir psy. 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Judas Chaban, page 1 Paul Dainton, page 2 Tze Kun Chin.
+1 - CODEX GREY KNIGHTS - EAFR - REV 1.2 
+
+===== PAGE 3 =====
+ 
+Règles spéciales communes aux chapitres Space Marines 
+ 
+Règle spéciale : “Et ils ne connaîtront pas la peur” 
+ 
+La bravoure et la ténacité des Space Marines sont légendaires. Ces traits de caractère sont représentés par les règles 
+suivantes : 
+• Il faut deux pions d'impact pour neutraliser une unité Space Marines ou détruire une unité démoralisée (ignorez les pions 
+d'impacts en plus). 
+• Les formations Space Marines ne sont démoralisées qu’à partir du moment où elles ont deux pions d'impact ou plus par 
+unité. 
+• Les formations Space Marines comptent comme ayant la moitié de leur nombre de pions impact lors de la résolution de 
+l’assaut (arrondi à l’inférieur, à un minimum de 1 pion impact). 
+• Réduisez de moitié le nombre de touches supplémentaires subies par une formation de Space Marines perdant un assaut, 
+en arrondissant à l’entier inférieur en faveur des Space Marines. 
+• Lorsqu’une formation Space Marines démoralisée se rallie, elle reçoit un nombre de pions impact égal au nombre d’unités 
+plutôt qu’à la moitié du nombre d’unités. 
+• Les Meneurs Space Marines retirent deux pions d'impact au lieu d'habituellement un seul. 
+Attention : les formations de Servitors, la suite Inquisitoriale et les formations des Légions Titaniques ne bénéficient pas de cette 
+règle. 
+ 
+Règle spéciale : Transports 
+ 
+Les formations Space Marines disposant d'unités avec le suffixe "+ Transports" peuvent prendre assez de Rhinos pour 
+transporter l’intégralité de la formation. Si cette option est prise, le nombre de Rhinos doit être suffisant, mais la capacité 
+totale de transport ne doit pas être excédentaire par rapport au nombre d'unités à transporter.  
+Si des véhicules avec une capacité de transport ont été achetés pour la formation (comme des Razorbacks ou des Land 
+Raiders), on considère qu’ils transportent au maximum de leurs capacités et qu’il est possible de prendre assez de Rhinos 
+pour transporter ce qu'il reste de la formation (même si un Rhino se retrouve à moitié vide).  
+En outre, il est possible de remplacer gratuitement tous les Rhinos de la formation par un Dreadnought ou Dreadnought Feu 
+d’enfer ou un Dreadnought Vénérable(+25 pts). 
+ Les Grey Knights n’ont pas accès aux Modules d’assaut planétaire. 
+ 
+ 
+ 
+2 - CODEX GREY KNIGHTS - EAFR - REV 1.2 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE GREY KNIGHTS  
+Les armées des Grey Knights ont une valeur stratégique de 5.  Les Détachements Grey Knights, la Flotte Grey Knights et les 
+Soutiens des Légions Titaniques ont une initiative de 1+. Les Servitors et la Suite Inquisitoriale ont une initiative de 2+. 
+DÉTACHEMENTS PRINCIPAUX GREY KNIGHTS 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Terminators 
+4 unités de Terminators 
+Commandant, Dreadnought, Land Raider, Téléportation, Terminators 
+325 pts 
+1+ Strikes Squad 
+6 unités de Strikes Squad + transports 
+Commandant, Dreadnought, Land Raider,  Razorback, Hunter, Support 
+Spécialistes 
+300  pts 
+ 
+DÉTACHEMENTS DE SOUTIEN 
+(3 Détachements de Soutien maximum par Détachement Principal) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+0-1 Némésis DreadKnights 
+3 à 6 unités de DreadKnights 
+Commandant (Maître de Chapitre uniquement), Téléportation 
+75 pts chacun 
+0-1 Paladins 
+4 unités de Paladins 
+Commandant, Dreadnought, Land Raider, Téléportation, Terminators 
+375 pts 
+Terminators d'Assaut 
+4 unités de Terminators d'Assaut 
+Commandant, Dreadnought, Land Raider, Téléportation, Terminators 
+300 pts 
+Interceptors 
+6 unités d’Interceptors 
+Commandant 
+325  pts 
+Purgators 
+4 unités de Purgators + transports 
+Commandant, Dreadnought, Land Raider, Razorback, Hunter 
+250  pts 
+Purifiers 
+6 unités de Purifiers + transports 
+Commandant, Dreadnought, Land Raider, Razorback 
+300  pts 
+Land Raiders 
+4 Land Raiders ou Land Raiders Redeemer 
+ou Land Raiders Crusader 
+Commandant, Land Raider 
+350 pts 
+Servitors 
+6 Servitors 
+Techmarines 
+150 pts 
+0-1 Suite Inquisitoriale 
+8 Unités de Troupes de Choc Inquisitoriales 
+et 1 inquisiteur de l’Ordo Héréticus 
+Chimère, Valkyrie 
+225 pts 
+ 
+AMÉLIORATIONS GREY KNIGHTS 
+(Chaque amélioration ne peut être prise qu'une seule fois par détachement) 
+Améliorations 
+Unités 
+Coût 
+Commandant 
+Ajouter un Capitaine ou un Archiviste ou un Chapelain 
+(Remplacer un Capitaine par 0-1 Maître de Chapitre) 
+50 pts 
+(gratuit) 
+Téléportation 
+Ajouter la Note Téléportation aux unités d’infanterie de la formation 
+50 pts 
+Techmarines 
+Ajouter 1 personnage de Techmarines à la formation 
+25 pts 
+Hunter 
+Ajouter 1 Hunter à la formation 
+50 pts 
+Razorback 
+Ajouter jusqu'à autant de Razorbacks Bolters Lourds ou de Razorback Canons Laser que d’unités à transporter 
+25 pts chacun 
+Dreadnought 
+Ajouter 1 ou 2 Dreadnoughts à la formation selon n'importe quelle combinaison : Dreadnought, Dreadnought Feu d'enfer 
+Dreadnought Vénérable 
+50 pts chacun 
+75 pts chacun 
+Support Spécialistes 
+Ajouter jusqu'à 4 unités de soutien à la formation selon n'importe quelle combinaison parmi : 
+Purgators, Purifiers 
+ 
+50 pts chacun 
+Land Raider 
+Ajouter jusqu'à 4 Land Raiders ou Land Raider Redeemer ou Land Raider Crusader à la formation 
+75 pts chacun 
+Terminators 
+Ajouter jusqu’à 2 unités à la formation selon n'importe quelle combinaison parmi : 
+     Terminator 
+     Paladin 
+ 
+75 pts chacun 
+90 pts chacun / 175 les deux 
+Chimère 
+Ajoutez assez de Chimères Inquisitoriales pour transporter toute la formation 
+25 pts chacune 
+Valkyrie 
+Ajoutez 4 Valkyrie Inquisitoriales à la formation 
+150 pts 
+ 
+SUPPORTS GREY KNIGHTS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+FLOTTE GREY KNIGHTS 
+ 
+SOUTIENS DES LÉGIONS TITANIQUES 
+Formations 
+Unités 
+Coût 
+Formations 
+Unités 
+Coût 
+Thunderhawks 
+Transporteurs 
+2 Thunderhawks transporteurs 
+(Ajouter 1 Thunderhawk transporteur) 
+300 pts 
+(+150 pts) 
+Titan Warhound 
+1 Titan Warhound 
+(Ajouter 1 Titan Warhound) 
+275 pts 
+(+225 pts) 
+Thunderhawk 
+1 Thunderhawk 
+225 pts 
+Titan Reaver 
+1 Titan Reaver 
+650 pts 
+Barge de Débarquement 
+1 Barge de débarquement 
+400 pts 
+Titan Warlord 
+1 Titan Warlord 
+850 pts 
+Intercepteurs Stormtalons 2 Stormtalons Destructor ou 
+2 Stormtalons Annihilator 
+200 pts 
+250 pts 
+ 
+ 
+ 
+Intercepteurs Stormhawk 
+2 Stormhawks 
+250 pts 
+ 
+ 
+ 
+Storm Raven 
+2 Stormravens 
+(Ajouter jusqu'à 2 Stormravens) 
+275 pts 
+(+125 pts chacun) 
+ 
+0-1 Soutien Orbital 
+1 Croiseur d'attaque Grey Knights ou 
+1 Barge de bataille Grey Knights 
+150 pts 
+250 pts 
+ 
+ 
+ 
+3 - CODEX GREY KNIGHTS - EAFR - REV 1.2 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES GREY KNIGHTS 
+ 
+Nom 
+Type 
+Vit 
+Bli CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Maître de chapitre 
+Perso 
+- 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant Suprême, Sauvegarde Invulnérable 
+Capitaine 
+Perso 
+- 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable 
+Chapelain 
+Perso 
+- 
+- 
+- 
+- 
+Crozius Arcanum 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Charismatique, Meneur, Sauvegarde Invulnérable 
+Archiviste 
+Perso 
+- 
+- 
+- 
+- 
+Frappe Psychique 
+et 
+Arme de Force 
+30cm 
+(15cm) 
+(contact) 
+MA4+ 
+Arme Légère, +1A, MA 
+Arme d'Assaut, +1A, MA 
+Meneur, Sauvegarde Invulnérable 
+Inquisiteur de l’Ordo 
+Hereticus 
+Perso 
+ 
+ 
+ 
+ 
+Eviscérator 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant, Sauvegarde Invulnérable 
+Techmarines 
+Perso 
+- 
+- 
+- 
+- 
+Servo-bras 
+(contact) 
+Arme d’Assaut +1A, MA 
+Commandant, Meneur, Psyker, Sauvegarde invulnérable 
+Strikes Squad 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Gatling Psy 
+Storm Bolters 
+Épée de Force Némésis  
+30cm 
+(15cm) 
+(contact) 
+2x AP5+ 
+Arme Légère 
+Arme d'Assaut, MA 
+Psykers 
+Terminators 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ 2x Psycanons 
+Storm Bolters 
+Armes de Force 
+30cm 
+(15cm) 
+(contact 
+AP5+/AC5+ 
+Arme Légère 
+Arme d’Assaut,  +1A, MA 
+Blindage renforcé, Blindage arrière renforcé, Psykers 
+Terminators d'Assaut 
+Inf 
+15cm 
+4+ 
+3+ 
+- 
+Paire de Falchion Némésis 
+et 
+(contact) 
+(contact) 
+Arme d'Assaut, MA 
+Arme d'Assaut, +1A, MA 
+Blindage renforcé, Blindage arrière renforcé, Sauvegarde Invulnérable, Psykers 
+Paladins 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ 2x Psycanons 
+Maîtrise Psy 
+Armes de Force 
+30cm 
+(15cm) 
+(contact) 
+AP5+/AC5+ 
+Arme Légère, +1, MA 
+Arme d'Assaut, +1A, MA 
+Blindage renforcé, Blindage arrière renforcé, Sauvegarde Invulnérable, Psykers  
+Purifiers 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Épée de Force Némésis 
+Purifying Flame 
+(contact) 
+(15cm) 
+Arme d'Assaut, MA 
+Arme Légère, MA 
+Psykers 
+Interceptors 
+Inf 
+15cm 
+4+ 
+  3+ 
+5+ Épée de Force Némésis 
+Storm Bolters 
+(contact) 
+(15cm) 
+Arme d'Assaut, MA 
+Arme Légère 
+Téléportation, Infiltrateurs, Psyker 
+Purgators 
+Inf 
+15cm 
+4+ 
+5+ 
+4+ Incinerators 
+et 
+15cm 
+(15cm) 
+2xAP4+, IC 
+Arme Légère, +1A, IC 
+Psykers 
+Servitors 
+Inf 
+15cm 
+6+ 
+6+ 
+5+ Bolter Lourd 
+Multi-Fuseur de servitor 
+Servo-bras 
+30cm 
+15cm 
+(contact) 
+AP5+ 
+MA5+ 
+Arme d’Assaut, MA 
+Non Space Marines 
+Troupe de Choc 
+Inquisitoriale 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Lance Plasma 
+15cm 
+AP5+/AC5+ 
+Eclaireur, Non Space Marine 
+Dreadknight Incinerator 
+VL 
+20cm 
+4+ 
+3+ 
+3+ Heavy Incinerator 
+et 
+Heavy Psy Gatling 
+Dread Fists 
+15cm 
+(15cm) 
+30cm 
+(contact) 
+AP3+, IC 
+Arme Légère,+1A, IC 
+2x AP4+ 
+Arme d’Assaut, +1A, MA 
+Blindage renforcé, Blindage arrière renforcé, Marcheur,  Sauvegarde 
+Invulnérable, Psykers 
+Dreadknight Daemon Hunter 
+VL 
+20cm 
+4+ 
+3+ 
+3+ 2x Psycanons Lourds 
+Nemesis Daemon Greathammer 
+30cm 
+(contact) 
+AP4+/AC4+ 
+Arme d’Assaut,+1A, MA, TT(1) 
+Blindage renforcé, Blindage arrière renforcé, Marcheur,  Sauvegarde 
+Invulnérable, Psykers.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX GREY KNIGHTS - EAFR - REV 1.2 
+
+===== PAGE 6 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nom 
+Type 
+Vit 
+Bli CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Dreadnought Grey Knight 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Psycanon 
+Poing Énergétique 
+30cm 
+(contact) 
+AP5+/AC5+ 
+Arme d'Assaut, +1A, MA 
+Marcheur, Sans peur, Psyker 
+Dreadnought Feu d'Enfer 
+Grey Knight 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Psycanon Lourds 
+Heavy Incinerator 
+et 
+30cm 
+15cm 
+(15cm) 
+AP4+/AC4+ 
+AP3+, IC 
+Arme Légère,+1A, IC 
+Marcheur, Sans peur, Psyker 
+Dreadnought Vénérable 
+Grey Knight 
+VB 
+15cm 
+5+ 
+3+ 
+3+ Psycanon Lourds 
+Poing Énergétique 
+30cm 
+(contact) 
+AP4+/AC4+ 
+Arme d’Assaut, +1A, MA 
+Blindage renforcé, Meneur, Marcheur, Sans peur, Psyker 
+Land raider 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 2x Canons Laser Jumelés 
+Bolters Lourds Jumelés 
+45cm 
+30cm 
+AC4+ 
+AP4+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Transport (2) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 
+places) 
+Land Raider Redeemer 
+VB 
+25cm 
+4+ 
+6+ 
+3+ Canons inferno 
+et 
+Canons d’assaut jumelés 
+30cm 
+(15cm) 
+30cm 
+2xAP3+, IC 
+Armes Légères, +1A, IC 
+AP4+/AC4+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Transport (2) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 
+places) 
+Land Raider Crusader 
+VB 
+25cm 
+4+ 
+6+ 
+4+ Canons d’assaut Jumelés 
+Multi Fuseur 
+et 
+Storm Bolters 
+30cm 
+15cm 
+(15cm) 
+(15cm) 
+AP4+/AC4+ 
+MA5+ 
+Armes légères, MA 
+Armes légères +1A 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Transport (3) : Strikes Squads, Purifiers, Purgators, Terminators (prennent 2 
+places) 
+Rhino 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Fulgurant 
+(15cm) 
+Arme Légère 
+Transport (2) : Strikes Squads, Purifiers, Purgators, 
+Razorback bolters lourds 
+VB 
+30cm 
+5+ 
+6+ 
+4+ Bolters Lourds Jumelés 
+30cm 
+AP4+ 
+Transport (1) : Strikes Squads, Purifiers, Purgators 
+Razorback canons laser 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Canons Laser Jumelés 
+45cm 
+AC4+ 
+Transport (1) : Strikes Squads, Purifiers, Purgators 
+Hunter 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Lance-missiles Skyspear 
+60cm 
+AC4+/AA4+ 
+ 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2): Troupes de Choc Inquisitoriales 
+Valkyrie inquisitoriale 
+VB 
+35cm 
+5+ 
+6+ 
+5+ Multi-laser 
+2x Bolters Lourds 
+2x Roquettes 
+30cm 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+1PB, Uniq, Rpt  
+Antigrav, Eclaireur, Transport (2): Troupes de Choc Inquisitoriales 
+ 
+ 
+5 - CODEX GREY KNIGHTS - EAFR - REV 1.2 
+
+===== PAGE 7 =====
+ 
+FEUILLE DE RÉFÉRENCES FLOTTE GREY KNIGHTS 
+ 
+Nom 
+Type 
+Vit 
+Bli CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Stormtalon Destructor 
+A 
+C 
+5+ 
+- 
+- 
+Canons d'Assaut Jumelés (AA) 
+Bolters Lourds Jumelés (AA Avant) 
+30cm 
+30cm 
+AP4+/AC4+/AA5+ 
+AP4+/AA5+, FrtF 
+ 
+Stormtalon Annihilator 
+A 
+C 
+5+ 
+- 
+- 
+Canons d'Assaut Jumelés (AA) 
+Canons Laser Jumelés (FF+AA) 
+30cm 
+45cm 
+AP4+/AC4+/AA5+ 
+AC4+/AA5+, FrtF 
+ 
+Stormhawk 
+Interceptor 
+A 
+ 
+C 
+5+ 
+ 
+ 
+Canons d’Assaut Jumelés  (AA) 
+Bolters Lourds Jumelés (AA) 
+Canon tempête Icarus 
+30cm 
+30cm 
+45cm 
+AP4+/AC4+/AA5+, FrtF 
+AP4+/AA5+, FrtF 
+AP6+/AC6+/AA6+, FrtF 
+ 
+Stormraven 
+A/EG 
+B 
+4+ 
+6+ 
+4+ Multi fuseur Jumelés 
+et 
+Canons d’assaut jumelés 
+Missiles Bloodstrike 
+15cm 
+(15cm) 
+30cm 
+45cm 
+MA4+, FrtF 
+Arme Légère, MA, FrtF 
+AP4+/AC4+/AA5+, Frt 
+AC4+, Frt 
+CD1 – Blindage renforcé, Assaut planétaire.Transport (2) : Strikes Squads, Purifiers, 
+Purgators, Terminators  (prennent 2 places). Un Dreadnought peut toujours être 
+embarqué en plus de ces unités. 
+Thunderhawk 
+Transporteur 
+A/EG 
+B 
+4+ 
+6+ 
+5+ 2x Bolters Lourds Jumelés (AA Droite) 
+2x Bolters Lourds Jumelés (AA Gauche) 
+30cm 
+30cm 
+AP4+/AA5+, Drt 
+AP4+/AA5+, Gch 
+Assaut planétaire, Blindage renforcé, 
+Transport (2) : Land Raider (prennent deux places), Rhinos, Razorbacks, Hunters  et 
+les unités qu'ils transportent. 
+CD2 – Critique : L'appareil s'écrase au sol, tuant tous ceux à son bord 
+Thunderhawk 
+A/EG 
+B 
+4+ 
+6+ 
+4+ Obusier (Avant) 
+2x Bolters Lourds Jumelés (AA Avant) 
+Bolters Lourds Jumelés (AA Droite) 
+Bolters Lourds Jumelés (AA Gauche) 
+75cm 
+30cm 
+30cm 
+30cm 
+AP4+/AC4+, FrtF 
+AP4+/AA5+, FrtF 
+AP4+/AA5+, Drt 
+AP4+/AA5+, Gch 
+Assaut planétaire, Blindage renforcé 
+Transport (8) : Strikes Squads, Purifiers, Purgators, Terminators* , Dreadnought* ( * 
+prennent 2 places), 
+CD2 – Critique : L'appareil s'écrase au sol, tuant tous ceux à son bord. 
+Barge de 
+débarquement 
+A/EG 
+B 
+4+ 
+5+ 
+3+ 2x Canons Laser Jumelés 
+3x Bolters Lourds Jumelés (Barge) 
+45cm 
+30cm 
+AC4+ 
+AP4+/AA5+ 
+Blindage Renforcé, Blindage Arrière Renforcé, Assaut planétaire, 
+Transport (12+6/4) : Strikes Squads, Purifiers, Purgators, Terminators* , 
+Dreadnought*, ( * prennent 2 places), plus 6 véhicules parmis Rhinos, Razorbacks,  
+Hunters, ou 4 Land Raiders. 
+CD4 - Critique : La Barge de débarquement s'écrase au sol et est détruite, ainsi que 
+toutes les unités à son bord. Toute unité dans un rayon de 5cm de l'appareil subit 
+une touche si la Barge de débarquement se trouvait au sol. 
+Croiseur d'attaque 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (5) 
+∞ 
+5PB, MA 
+Transport (20+20+6) : Strikes Squads, Purifiers, Purgators, Terminators, 
+Dreadnought plus 20 véhicules parmi Rhinos, Razorbacks, Hunters et Land Raiders 
+ainsi que 6 Thunderhawks et Thunderhawks Transporteurs. De plus, le Croiseur 
+d’Attaque peut transporter le nombre nécessaire de Stormravens et Barges de 
+Débarquement pour transporter le reste des unités à son bord. 
+Barge de bataille 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (14) 
+∞ 
+14PB, MA 
+Lent, ne peut être utilisé aux tours 1 et 2. 
+Transport (60+60+6) : Strikes Squads, Purifiers, Purgators, Terminators, 
+Dreadnought plus 60 véhicules parmi Rhinos, Razorbacks, Hunters et Land Raiders 
+ainsi que 6 Thunderhawks et Thunderhawks Transporteurs. De plus, le Croiseur 
+d’Attaque peut transporter le nombre nécessaire de Stormravens et Barges de 
+Débarquement pour transporter le reste des unités à son bord. 
+ 
+ 
+6 - CODEX GREY KNIGHTS - EAFR - REV 1.2 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCES SOUTIEN TITANIQUE 
+ 
+ 
+ 
+ 
+Nom 
+Type 
+Vitesse 
+Bli 
+CC FF Arme 
+Portée Puissance de feu Notes 
+Warhound 
+EG 
+30cm 
+5+ 
+4+ 
+4+ Méga Bolter Vulcain (F) 
+Canon Plasma Léger (F) 
+45cm 
+45cm 
+4x AP3+/AC5+, Frt 
+2xMA2+, Rchg, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD3 / BI2 – Critique : Le titan est déséquilibré et vacille Déplacez-le dans une direction 
+aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne 
+peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il 
+percute subissent une touche sur un résultat de 6+ 
+Reaver 
+EG 
+20cm 
+4+ 
+3+ 
+3+ Lance-missiles Apocalypse 
+2x Destructeurs Turbo laser 
+60cm 
+60cm 
+4PB, FrtF 
+4xAP5+/AC3+, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ 
+aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée 
+Warlord 
+EG 
+15cm 
+4+ 
+2+ 
+3+ 2x Destructeurs Turbo laser (FF) 
+Canon Gatling 
+Canon Volcano 
+60cm 
+60cm 
+90cm 
+4xAP5+/AC3+, FrtF 
+4xAP4+/AC4+, Frt 
+MA2+, TT (D3), Frt 
+Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ 
+aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée 
+! 
+7 - CODEX GREY KNIGHTS - EAFR - REV 1.2 

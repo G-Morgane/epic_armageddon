@@ -4,20 +4,18 @@
 0 
 
 ===== PAGE 2 =====
-BLACK LEGION 
+WORD BEARERS 
  
-“Je suis l'archi-ennemi, le Destructeur de Mondes. C'est par ma 
-main que le faux empereur sera déchu."  
  
-Abaddon le Fléau  
+« Abattez les idoles ! Détruisez les temples ! Massacrez les 
+prêtres ! Montrez à ces imbéciles qu’ils ne font que vénérer un 
+cadavre pourrissant ! » 
+- L’Apôtre Noir Harzhan. 
+ 
 Utiliser la liste d’armée 
-La liste qui suit vous permet de mettre sur pied une armée de 
-la Black Legion basée sur les forces d’Abbadon le Fléau lors 
-de sa XIIIème Croisade Noire. Cette liste peut également être 
-utilisée pour représenter n’importe quel autre chapitre Space 
-Marine du Chaos Universel comme les Red Corsairs ou les 
-Sons of Malice. 
-Les armées de la Black Legion sont organisées en formations 
+La liste qui suit vous permet de mettre sur pied une armée 
+des Word Bearers. 
+Les armées des Word Bearers sont organisées en formations 
 appelées détachements. 
 Chaque détachement peut recevoir des améliorations. La liste 
 d’armée 
@@ -39,31 +37,6 @@ des détachements. Elles ne peuvent jamais recevoir
 d'améliorations, sauf s’il en existe d’indiquées explicitement 
 dans leur profil. Un maximum d’⅓ des points de l’armée 
 peuvent être dépensés pour ces formations. 
- 
-Règle spéciale : Invocation de démons 
-Au début de la partie, toutes les formations de Démons 
-sélectionnée lors de la composition de l’armée sont 
-placées en réserve. La note Icône Démoniaque permet, lors 
-de la phase de Téléportation, d’invoquer une de ces 
-formations. 
-L’unité possédant Icône Démoniaque est nommée unité 
-Invocatrice. 
-La formation de  
-l’unité Invocatrice et la formation 
-invoquée doivent appartenir à la même faction. La 
-formation invoquée apparaît à moins de 15 cm de l’unité 
-Invocatrice. Si l’unité Invocatrice est éliminée, les démons 
-ne peuvent plus être invoqués par cette formation. 
-On ne peut invoquer qu'une seule formation de démons par 
-Icône Démoniaque et par partie. Une formation s’étant 
-téléportée ce tour-ci ne peut pas invoquer de démons. La 
-formation invoquée ne subit pas de PI suite à sa 
-«téléportation». 
-Elle devient immédiatement une formation à part entière et 
-en suit les règles habituelles d’activation, de cohésion, etc. 
-Elle reste ensuite en jeu jusqu’à la fin de la partie ou jusqu’à 
-sa destruction. 
- 
 Règle spéciale : Sacrifiables 
  
 Les unités Sacrifiables ne génèrent pas de pion impact 
@@ -75,25 +48,60 @@ les
 unités 
 Sacrifiables comptent dans le calcul des pertes lors de la 
 résolution d'un assaut. 
+ 
+ 
+Règle spéciale : Invocation de démons 
+Au début de la partie, toutes les formations de Démons 
+sélectionnée lors de la composition de l’armée sont 
+placées en réserve. La note Icône Démoniaque permet, lors 
+de la phase de Téléportation, d’invoquer une de ces 
+formations. 
+L’unité possédant Icône Démoniaque est nommée unité 
+Invocatrice. 
+La formation de l’unité Invocatrice et la formation invoquée 
+doivent appartenir à la même faction. La formation 
+invoquée apparaît à moins de 15 cm de l’unité Invocatrice. 
+Si l’unité Invocatrice est éliminée, les démons ne peuvent 
+plus être invoqués par cette formation. 
+On ne peut invoquer qu'une seule formation de démons par 
+Icône Démoniaque et par partie. Une formation s’étant 
+téléportée ce tour-ci ne peut pas invoquer de démons. La 
+formation invoquée ne subit pas de PI suite à sa 
+«téléportation». 
+Elle devient immédiatement une formation à part entière et 
+en suit les règles habituelles d’activation, de cohésion, etc. 
+Elle reste ensuite en jeu jusqu’à la fin de la partie ou jusqu’à 
+sa destruction. 
+ 
+Règle spéciale : Concentration démoniaque (X) 
+Une fois par partie, une unité possédant la note 
+Concentration Démoniaque (X) peut invoquer des démons 
+mineurs de la manière suivante : 
+Au moment de l’activation de la formation de l’unité et 
+avant qu’elle ne fasse son jet d’activation, X démons 
+mineurs affiliés à l’unité sont ajoutés à la formation. Tous 
+les démons ainsi invoqués doivent être placés à 5cm de 
+l’unité. 
+Les démons restent attachés à la formation jusqu’à la fin 
+de la partie, ou jusqu’à leur destruction. Les démons et la 
+formation devenant ainsi une seule et même formation 
+suivant toutes les règles de cohésion, d’activation, etc. 
+Remarque :  ces démons n’ont pas à avoir été préalablement 
+sélectionnés lors de la composition de l’armée. 
 Règle spéciale : Instables 
  
 Les unités Instables démoralisées sont immédiatement 
 détruites. De plus, les unités Instables ne peuvent que 
 contester les objectifs, pas les contrôler. 
- 
- 
- 
-Icône du Maître de Guerre, Abaddon le Fléau 
- 
 Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
-copyright de Games Workshop LTD. Illustration de couverture par GW LTD 2019. 
-1 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+copyright de Games Workshop LTD. Illustration de couverture par Nicholas Kay. 
+1 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 3 =====
  
 Règle spéciale : Factions 
  
-Chaque formation dans une armée de la Black Legion appartient à une faction qui prête allégeance à l’un des Dieux du 
+Chaque formation dans une armée de Word Bearers appartient à une faction qui prête allégeance à l’un des Dieux du 
 Chaos (Khorne, Nurgle , Slaanesh ou Tzeentch) ou au Chaos Universel. Vous devez décider à quelle faction appartient 
 chaque formation de votre armée au début de la bataille et le noter sur votre liste d’armée.  
  
@@ -112,27 +120,21 @@ de Khorne, vous ne pourrez pas aligner une formation de Slaanesh).
 FACTIONS 
 DÉMONS MINEURS 
 DÉMONS MAJEURS 
-MARINES DU CULTE 
 CHAOS UNIVERSEL 
 Bêtes démoniaques 
-- 
 - 
 KHORNE 
 Sanguinaires 
 Buveur de Sang 
-Berzerkers de Khorne 
 TZEENTCH 
 Incendiaires 
 Duc du Changement 
-Rubric Marines 
 NURGLE 
 Portes-peste 
 Grand Immonde 
-Marines de la Peste 
 SLAANESH 
 Démonettes 
 Gardien des Secrets 
-Noise Marines 
  
  
 Règle spéciale : Modules d'atterrissage Dreadclaw 
@@ -165,43 +167,39 @@ le tir pour chaque attaque du vaisseau ou des modules d'atterrissage. Les pertes
 normalement. Puis débarquez toutes les formations transportées, en suivant les règles ci-dessus. 
  
  
-2 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+2 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 4 =====
-LISTE D'ARMÉE DE LA BLACK LEGION 
+LISTE D'ARMÉE DES WORD BEARERS 
  
-Les armées de la Black Legion ont une valeur stratégique de 4. Toutes les formations ont une initiative de 1+, sauf les 
-démons mineurs et la Flotte de Guerre du Chaos qui ont une valeur d’initiative de 2+. Les formations de démons mineurs 
-comprenant également un démon majeur ont une initiative de 1+. 
+Les armées des Word Bearers ont une valeur stratégique de 4. Toutes les formations ont une initiative de 1+, sauf les démons 
+mineurs, les formations de soutien des Word Bearers et la Flotte de Guerre du Chaos qui ont une valeur d’initiative de 2+.  
  
-DÉTACHEMENTS DE LA BLACK LEGION 
+DÉTACHEMENTS DES WORD BEARERS 
 Formations 
 Unités 
 Améliorations 
 Coût 
-Suite de la BL 
+1+ Suite des Word Bearers 
 8 unités de Marines du Chaos 
-Personnage du Chaos, Porte-icône, Prince Démon, Transports, Marines du Chaos, 
-Havocs, Obliterators, Dreadnoughts, Defilers, Stalker, Support Lourd, Land Raiders 
+Personnage du chaos, Apôtre Noir, Prince Démon, Porte icône, Autel du Chaos, Autel de 
+Dévotion, Enfants du Chaos, Havocs, Dreadnoughts, Defilers, Transports, Stalker, Support 
+Lourd, Land Raiders 
 250 pts 
-0-2 Suite d’Élus 
-4 à 6 unités d’Élus Terminators du Chaos 
-Personnage du Chaos, Porte-icône, Prince Démon, Transports Élus, Obliterators, 
-Dreadnoughts, Defilers, Stalker, Support Lourd, Land Raiders 
+0-2 Suite d’Élus Word Bearers 
+4 à 6 unités d’Élus Terminators 
+du Chaos 
+Personnage du chaos, Apôtre Noir, Prince Démon, Porte icône, Autel du Chaos, Autel de 
+Dévotion, Dreadnoughts, Defilers, Transports Élus, Stalker, Support Lourd, Land Raiders 
 50 pts chacune 
-0-1 Culte Raptor 
-6 unités de Raptors 
-ou 8 unités de Raptors 
-Personnage du Chaos, Porte-icône, Prince Démon 
-200 pts 
-275 pts 
-Forlorn Hope 
-0-1 par Suite de la BL 
-4 unités de Forlorn Hope et 2 Rhinos du Chaos  
-150 pts 
+Suite de possédés 
+(0-1 par suite de Word Bearers) 
+8 unités de possédés 
+Autel de Dévotion, Enfants du Chaos, Transports 
+300 pts 
 Compagnie de Motos 
 8 unités de Motos du Chaos 
-Personnage du Chaos, Porte-icône 
+Personnage du chaos, Apôtre Noir, Porte icône, Chiens du Chaos 
 250 pts 
 Compagnie Blindée 
 4 Land Raiders du Chaos 
@@ -209,125 +207,220 @@ ou 4 Predators du Chaos
 Stalker, 0-4 véhicules supplémentaires parmi : Support Lourd, Land Raiders 
 300 pts 
 200 pts 
-Compagnie d’Assaut 
-1 à 3 Decimators 
-Defilers, Stalker 
-225 pts chacun 
+ 
+FORMATION DE SOUTIEN DES WORD BEARERS 
+(Une formation de soutien par Suite  des Word Bearers) 
+ 
 POOL DÉMONIAQUE 
-(Une formation démoniaque peut être prise pour chaque amélioration de porte-icone) 
+(Une formation démoniaque par amélioration de porte-icone) 
 Formations 
 Unités 
 Améliorations 
 Coût 
-0-2 Démons Mineurs 
-8 unités de Démons Mineurs 
-Démon Majeur 
-175 pts 
-0-1 Démon Majeur 
-1 Démon Majeur 
- 
-200 pts 
- 
-AMÉLIORATIONS DE LA BLACK LEGION 
-(Chaque amélioration ne peut être prise qu'une seule fois par détachement et chaque détachement peut recevoir au plus 4 améliorations) 
-Améliorations 
-Unités 
+Formations Unités 
 Coût 
-Personnage du Chaos 
-1 des choix suivants 
-(0-1) Ajoutez un Seigneur du Chaos 
-ou ajoutez un Champion Exalté du Chaos ou un Sorcier du Chaos. 
-50 pts 
-25 pts 
-Porte-icône 
-Ajoutez un Porte-icône à l’une des unités de la formation. 
-25 pts 
-0-2 Prince Démon 
-Remplacer le Seigneur du Chaos ou le Champion Exalté du Chaos et l'unité qu'il accompagne par un Prince Démon (ou un Prince 
-Démon Ailé). S’il remplace le Seigneur du Chaos, il acquiert la capacité Commandant Suprême. 
-50 pts 
-0-1 Démon Majeur 
-Ajoutez 1 Démon Majeur. Uniquement si le Démon Majeur n’a pas été pris comme choix de Détachement 
-150 pts 
-Transports Élus 
-Ajouter un Dreadclaw pour transporter toute la formation 
-ou Donnez le mot-clé Téléportation aux Élus Terminators du Chaos 
-50 pts 
-Transports 
-Ajoutez un Dreadclaw ou suffisamment de Rhinos pour transporter une Suite de la Black Légion et ses améliorations 
-50 pts 
-Marines du Chaos 
-Ajoutez 4 unités de Space Marines du Chaos ou 4 unités de Marines du Culte associés à la faction de la Suite 
-125 pts 
-Havocs 
-Ajoutez 4 unités de Havocs à la formation 
-150 pts 
-Obliterators 
-Ajoutez jusqu'à 3 unités d'Obliterators à la formation 
-75 pts chacun 
-125 pts les 2 
-Dreadnoughts 
-Ajoutez jusqu’à 4 Dreadnoughts à la formation 
-50 pts chacun 
+Loge Stigmatus 1 Aspirant Champion Marine du Chaos 
++11 unités de cultistes et/ou de Mutants 
+Transports Renégats, Hydre, Enfants 
+du Chaos, Chiens du Chaos, Autel 
+du Chaos, Porte-icone, Appui feu, 
+Hellhounds, Cultistes. 
+175 pts 
+0-2 Démon 
+Majeur 
+1 Démon Majeur 
+(+8 unités de Démons Mineurs) 
+ou (+12 unités de Démons Mineurs) 
+200 pts 
+(+125 pts) 
+(+225 pts) 
+Loge Gigantis 
+0-1 par Stigmatus 
+6 Mutants Géants et/ou Ogryns Renégats Transports Renégats, Hydre, 
+Cultistes. 
+250 pts 
+0-2 Démons 
+Mineurs 
+8 unités de Démons Mineurs 
+(+4 unités de Démons Mineurs) 
+175 pts 
+(+100 pts) 
 Defilers 
-Ajoutez 1 Defiler à la formation 
-ou Ajoutez-en 2 
-75 pts 
-125 pts 
-Stalker 
-Ajoutez 1 Stalker à la formation 
-50 pts 
-Support Lourd 
-Ajoutez 2 Vindicators du Chaos ou 2 Predators du Chaos à la formation 
-75 pts 
-Land Raiders 
-Ajoutez jusqu'à 6 Land Raiders du Chaos à la formation 
-75 pts chacun 
-125 pts les 2 
+4 Defilers 
+Defiler 
+300 pts 
  
-SUPPORTS DE LA BLACK LEGION 
+ 
+ 
+ 
+ 
+SUPPORTS DES WORD BEARERS 
 (Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
 FLOTTE DE GUERRE DU CHAOS 
  
-LEGIONS TITANIQUES RENÉGATES 
+DEATHWHEEL ET TITANS 
 Formations 
 Unités 
 Coût 
- 
 Formations 
 Unités 
 Coût 
 Escadrille d’Intercepteurs 
 3 Hellblades 
-200 pts  
+200 pts 
 DeathWheel 
 1 DeathWheel 
 275 pts 
 Escadrille de Chasseurs-Bombardiers 
 2 Helltalons 
-225 pts  
+225 pts 
 Titan Feral 
 1 Feral 
 300 pts 
 Soutien Orbital 
 1 Croiseur Devastation 
-200 pts  
+200 pts 
 Titan Ravager 
 1 Ravager 
 650 pts 
 ou 1 Cuirassé Despoiler 
-250 pts  
+250 pts 
 Titan Banelord 
 1 Banelord 
 850 pts 
  
-3 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+ 
+ 
+ 
+ 
+AMÉLIORATIONS DES WORD BEARERS 
+(Chaque amélioration ne peut être prise qu'une seule fois par détachement et chaque détachement peut recevoir au plus 4 améliorations) 
+ 
+ 
+Améliorations 
+Unités 
+Coût 
+Personnage du 
+Chaos 
+(0-1) Ajouter un Seigneur du Chaos 
+ou ajouter un Champion Exalté du Chaos 
+ou ajouter un Sorcier du Chaos. 
+50 pts 
+25 pts 
+25 pts 
+Porte-icône 
+Ajouter un Porte-icône à l’une des unités de la 
+formation. 
+25 pts 
+Apôtre Noir 
+Ajouter 1 personnage d'apôtre noir à une unité de la 
+formation 
+50 pts 
+0-2 Prince 
+Démon 
+Remplacer le Seigneur du Chaos ou le Champion 
+Exalté du Chaos et l'unité qu'il accompagne par un 
+Prince Démon (ou un Prince Démon Ailé). S’il 
+remplace le Seigneur du Chaos, il acquiert la 
+capacité Commandant Suprême. Un Prince démon 
+peut être inclus dans l’armée pour chaque déité 
+représentée. 
+50 pts 
+Enfants du chaos Ajouter jusqu’à 3 Enfants du Chaos 
+25 pts chacun 
+Chiens du chaos 
+Ajouter jusqu’à 3 Chiens du Chaos 
+15 pts chacun 
+Cultistes 
+Ajouter jusqu’à 8 Cultistes et/ou Mutants 
+10 pts chacun 
+Transport 
+renégats 
+Ajouter assez de Transporteurs Terrestres 
+et/ou Chimères 
+pour 
+transporter 
+les 
+infanteries 
+ayant 
+un 
+mouvement inférieur ou égal à 15cm, sans laisser 
+de places vides. 
+10 pts chacun 
+25 pts chacun 
+Appuis feu 
+Ajouter jusqu’à 4 unités d’Appui feu à la formation 
+25 pts chacun 
+Hellhounds 
+Ajouter jusqu’à 3 Hellhounds à la formation 
+50 pts chacun 
+Améliorations 
+Unités 
+Coût 
+Hydre 
+Ajouter 1 Hydre à la formation 
+50 pts 
+0-1 Autel du 
+Chaos 
+Ajouter 1 Autel du Chaos à la formation 
+200 pts 
+Autel de 
+Dévotion 
+Ajouter 1 Autel de Dévotion à la formation 
+100 pts 
+Transports Élus 
+Ajouter un Dreadclaw pour transporter toute la 
+formation 
+ou Donnez le mot-clé Téléportation aux Élus 
+Terminators du Chaos 
+50 pts 
+ 
+50 pts 
+Transports 
+Ajouter un Dreadclaw ou suffisamment de Rhinos 
+pour transporter toute la formation 
+50 pts 
+Havocs 
+Ajouter 4 unités de Havocs à la formation 
+150 pts 
+Dreadnoughts 
+Ajouter jusqu’à 4 Dreadnoughts à la formation 
+50 pts chacun 
+Defilers 
+Ajouter 1 Defiler à la formation 
+ou Ajoutez-en 2 
+75 pts 
+125 pts 
+Stalker 
+Ajouter 1 Stalker à la formation 
+50 pts 
+Support Lourd 
+Ajouter 2 Vindicators du Chaos ou 2 Predators du 
+Chaos à la formation 
+75 pts 
+Land Raiders 
+Ajouter jusqu'à 6 Land Raiders du Chaos à la 
+formation 
+75 pts chacun 
+125 pts les 2 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 5 =====
-FEUILLES DE RÉFÉRENCES BLACK LEGION 
+FEUILLES DE RÉFÉRENCES WORD BEARERS 
 Nom 
-Type Vitesse Blindage CC FF Arme 
-Portée Puissance de feu 
+Type 
+Vitesse 
+Blindage 
+CC FF Arme 
+Portée 
+Puissance de feu 
 Notes 
 Seigneur du Chaos 
 Perso 
@@ -336,14 +429,16 @@ Perso
 - 
 - 
 Arme démon 
-(contact) Arme d'Assaut, +1A, MA Commandant Suprême, Sauvegarde Invulnérable 
+(contact) Arme d'Assaut, +1A, MA 
+Commandant Suprême, Sauvegarde Invulnérable 
 Champion Exalté du Chaos Perso 
 - 
 - 
 - 
 - 
 Arme Démon 
-(contact) Arme d'Assaut, +1A, MA Commandant, Meneur, Sauvegarde Invulnérable 
+(contact) Arme d'Assaut, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable 
 Sorcier du Chaos 
 Perso 
 - 
@@ -364,6 +459,31 @@ Perso
 - 
 - 
 Sauvegarde Invulnérable, Icône Démoniaque 
+Apôtre Noir 
+Perso 
+- 
+- 
+- 
+- 
+Arme Démon 
+(contact) Arme d'Assaut, +1A, MA 
+Charismatique, Meneur, Sauvegarde invulnérable 
+Aspirant Champion Space 
+Marine du Chaos 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Autocanon 
+Bolter 
+Arme Démon 
+45cm 
+(15cm) 
+(contact) 
+AP5+/AC6+ 
+Arme Légère 
+Arme d'Assaut, +1A, MA 
+Sauvegarde invulnérable, Commandant, Meneur 
 Prince Démon 
 Inf 
 15cm 
@@ -416,7 +536,16 @@ Bolter
 (15cm) 
 AP5+/AC6+ 
 Arme Légère 
- 
+- 
+Possédés 
+Inf 
+15cm 
+4+ 
+4+ 
+- 
+Armes Démoniaques 
+(contact) Arme d'Assaut, +1A 
+Infiltrateur, Sauvegarde invulnérable 
 Havocs 
 Inf 
 15cm 
@@ -428,32 +557,7 @@ Bolter
 (15cm) 
 AP5+/AC6+ 
 Arme Légère 
- 
-Forlorn Hope 
-Inf 
-15cm 
-4+ 
-4+ 
-4+ Autocanon 
-Bolter 
-45cm 
-(15cm) 
-AP5+/AC6+ 
-Arme Légère 
-Éclaireurs 
-Obliterators 
-Inf 
-15cm 
-4+ 
-4+ 
-4+ Arme Corporelle 
-45cm 
-(15cm) 
-(contact) 
-3xAP5+/AC5+ 
-Arme Légère, +1A, IC 
-Arme d'Assaut, MA 
-Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Téléportation 
+- 
 Motos du Chaos 
 Inf 
 35cm 
@@ -466,70 +570,94 @@ Inf
 Arme Légère 
 Arme d'Assaut 
 Montés 
-Raptors 
+Cultiste 
 Inf 
+15cm 
+- 
+6+ 
+5+ Mitrailleuse Lourde 
+Arme à Feu 
 30cm 
+(15cm) 
+AP6+ 
+Arme Légère 
+ 
+Mutant 
+Inf 
+15cm 
+6+ 
 4+ 
-3+ 
-5+ Pistolet Bolter 
-Épée tronçonneuse 
+6+ Arme à Feu 
+Diverses Armes 
 (15cm) 
 (contact) 
 Arme Légère 
 Arme d'Assaut 
-Réacteurs Dorsaux 
-Berzerkers de Khorne 
-Inf 
-15cm 
-4+ 
-4+ 
-5+ Pistolet Bolter 
-Hache Tronçonneuse 
-(15cm) 
-(contact) 
-Arme Légère 
-Arme d'Assaut, +1A 
-Infiltrateurs 
-Rubric Marines 
-Inf 
-15cm 
-4+ 
-5+ 
-4+ Bolt Inferno 
-(15cm) 
-Arme Légère, MA 
- 
-Marines de la Peste 
+- 
+Mutant Géant 
 Inf 
 15cm 
 3+ 
 4+ 
-4+ Lance-Plasma 
-Bolter 
-15cm 
-(15cm) 
-AP5+/AC5+ 
-Arme Légère 
- 
-Noise Marines 
+6+ Arme Lourde 
+(contact) Arme d'Assaut, +1A, MA 
+Massif (prennent 2 places dans les transports) 
+Ogryn Renégat 
 Inf 
 15cm 
+3+ 
 4+ 
-5+ 
-3+ Blastmaster 
-Eclateur Sonique 
+4+ 2x Mitrailleuse Lourde 
 30cm 
-(15cm) 
-AP5+/AC6+, Rpt 
-Arme Légère 
+AP6+ 
+Massif (prennent 2 places dans les transports) 
+Chien du Chaos 
+Inf 
+30cm 
+6+ 
+4+ 
+- 
+Crocs 
+(contact) Arme d'Assaut 
  
-4 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+Enfant du Chaos 
+Inf 
+15cm 
+3+ 
+4+ 
+- 
+Horribles Mutations 
+(contact) Arme d'Assaut, +D3A 
+Sans Peur, Sauvegarde Invulnérable 
+Les Enfants du Chaos ne peuvent que contester les objectifs, pas les contrôler. 
+Appui-feu 
+Inf 
+15cm 
+- 
+6+ 
+4+ 2x Autocanon 
+45cm 
+AP5+/AC6+ 
+- 
+Ogryn Renégat 
+Inf 
+15cm 
+3+ 
+4+ 
+4+ 2x Mitrailleuse Lourde 
+30cm 
+AP6+ 
+Massif (prennent 2 places dans les transports) 
+4 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 6 =====
-FEUILLES DE RÉFÉRENCES BLACK LEGION 
 Nom 
-Type Vitesse Blindage CC FF Arme 
-Portée Puissance de feu 
+Type 
+Vitesse 
+Blindage 
+CC FF Arme 
+Portée 
+Puissance de feu 
 Notes 
 Dreadnought du Chaos 
 VB 
@@ -596,7 +724,7 @@ VB
 6+ 
 5+ 3x Canons Tempête Icarus 45cm 
 AP6+/AC6+/AA6+ 
- 
+- 
 Defiler 
 VB 
 15cm 
@@ -617,31 +745,95 @@ Arme d'Assaut, +1A, MA
 AP4+, IC 
 Arme légère, +1A, IC 
 Blindage Renforcé, Marcheur, Sans Peur, Sauvegarde invulnérable 
-Decimator 
+Hydre 
+VB 
+30cm 
+6+ 
+6+ 
+5+ 2x Canons Hydre 
+Bolter Lourd 
+45cm 
+30cm 
+AP4+/AC5+/AA5+ 
+AP5+ 
+- 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Démagogue, Aspirant Champion Marine du Chaos, Cultistes, Mutants, 
+Acolytes, Appui Feu Renégats, Prince Démon*, Mutants Géants* et Ogryns Renégats* (* 
+prennent 2 places) 
+Transporteur Terrestre 
+VB 
+30cm 
+6+ 
+6+ 
+- 
+- 
+- 
+- 
+Transport (2) : Démagogue, Aspirant Champion Marine du Chaos, Cultistes, Mutants, 
+Acolytes, Appui Feu Renégats, Prince Démon*, Mutants Géants* et Ogryns Renégats* (* 
+prennent 2 places) 
+Hellhound 
+VB 
+30cm 
+4+ 
+6+ 
+3+ Canon Inferno 
+et 
+Bolter Lourd 
+30cm 
+(15cm) 
+30cm 
+AP3+, IC 
+Arme Légère, IC 
+AP5+ 
+- 
+Autel de Dévotion 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Arcano-technologie 
+mineure 
+45cm 
+AP4+/AC4+/AA4+ 
+Concentration démoniaque (1d3), Blindage renforcé, Sauvegarde invulnérable 
+Autel du Chaos 
 EG 
 15cm 
 4+ 
-5+ 
-3+ Canon Decimator 
-2x Faucheurs jumelés (G) 
-2x Faucheurs jumelés (D) 
+4+ 
+4+ Arcano-technologie 
 45cm 
-30cm 
-30cm 
-3PB, MA, IC, FrtF 
-AP3+/AC5+, Gch 
-AP3+/AC5+, Drt 
-Blindage Renforcé 
-CD3 – Critique : Le Decimator est détruit. Toutes les unités dans un rayon de 5cm subissent 
-une touche sur 6+ 
+D3xAP4+/AC4+/AA4+ 
+Blindage renforcé, Charismatique, Concentration démoniaque (2d3), Sans peur, 
+Sauvegarde invulnérable 
+CD3 – Critique : L’Autel est aspiré dans le Warp et est détruit. Toutes les unités dans un 
+rayon de 5 cm subissent une touche MA6+ à cause du contrecoup de pouvoir brut du Warp 
  
-5 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+ 
+5 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 7 =====
 FEUILLE DE RÉFÉRENCES POOL DÉMONIAQUE 
 Nom 
-Type Vitesse Blindage CC FF Arme 
-Portée Puissance de feu 
+Type 
+Vitesse 
+Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
 Notes 
 Buveur de Sang 
 EG 
@@ -761,14 +953,18 @@ Griffes et Crocs
 (contact) Arme d'Assaut 
 Infiltrateurs, Sauvegarde Invulnérable, Sacrifiables, Instables 
  
-6 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+6 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 8 =====
  
 FEUILLE DE RÉFÉRENCES FLOTTE DE GUERRE DU CHAOS 
 Nom 
-Type Vitesse Blindage CC FF Arme 
-Portée Puissance de feu 
+Type 
+Vitesse 
+Blindage 
+CC FF Arme 
+Portée 
+Puissance de feu 
 Notes 
 Intercepteur Hellblade 
 A 
@@ -779,7 +975,7 @@ C
 Faucheurs jumelées 
 (hellblades) 
 30cm 
-AP3+/AC5+/AA4+, FrtF  
+AP3+/AC5+/AA4+, FrtF - 
 Chasseur-Bombardier Helltalon 
 A 
 CB 
@@ -795,7 +991,7 @@ Bombes Incendiaires
 AC4+/AA5+, FrtF 
 AP5+/AC6+, FrtF 
 2PB, IC, FrtF 
- 
+- 
 Croiseur de Classe Devastation 
 VS 
 - 
@@ -805,7 +1001,7 @@ VS
 Bombardement Orbital 
 Frappe Chirurgicale 
 ∞ 
-- 
+∞ 
 3PB, MA 
 MA2+, TT (D3) 
 Transport (20) : Toute unité pouvant être déployées en Dreadclaw selon les règles 
@@ -819,7 +1015,7 @@ VS
 Bombardement Orbital 
 3x Frappe Chirurgicale 
 ∞ 
-- 
+∞ 
 3PB, MA 
 MA2+, TT (D3) 
 Transport (40) : Toute unité pouvant être déployée en Dreadclaws selon les règles 
@@ -837,19 +1033,24 @@ AP5+/AC5+
 Assaut Planétaire, Transport. Ne peut transporter que des unités d’Infanterie (sauf 
 motos) et des Dreadnoughts 
  
-7 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+7 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 9 =====
 FEUILLE DE RÉFÉRENCES DES LÉGIONS TITANIQUES RENÉGATES 
 Nom 
-Type Vitesse Blindage CC FF Arme 
-Portée Puissance de feu 
+Type 
+Vitesse 
+Blindage 
+CC FF Arme 
+Portée 
+Puissance de feu 
 Notes 
 Deathweel 
 EG 
 30cm 
 4+ 
-4+ 4+ 2x Faucheurs (G) 
+4+ 
+4+ 2x Faucheurs (G) 
 2x Faucheurs (D) 
 Obusier Léger Gauche 
 Obusier Léger Droit 
@@ -870,7 +1071,8 @@ Titan Feral
 EG 
 30cm 
 5+ 
-4+ 5+ Deathstorm 
+4+ 
+5+ Deathstorm 
 Hellmouth 
 Tête de Bataille 
 45cm 
@@ -954,9 +1156,9 @@ touche sur un résultat de 4+
  
  
  
-8 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+8 - CODEX WORD BEARERS - EAFR - REV 1.4.1 
 
 ===== PAGE 10 =====
 FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
  
-9 - CODEX BLACK LEGION - EAFR - REV 1.6.1 
+9 - CODEX WORD BEARERS - EAFR - REV 1.4.1 

@@ -2,7 +2,6 @@
  
 0 
 
-
 ===== PAGE 2 =====
 ELDARS NOIRS 
  
@@ -76,7 +75,6 @@ Ce codex est un projet fan-made communautaire non officiel. Tous droits réserv�
 copyright de Games Workshop LTD. Illustration de couverture : Igor Sid 
 1 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
 
-
 ===== PAGE 3 =====
  
 Règle spéciale : “Pas de garnison” 
@@ -125,7 +123,6 @@ d'être pris pour cible. Les Manteaux d'Ombre affectent d'un malus de -1 tout ti
  
  
 2 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
-
 
 ===== PAGE 4 =====
 LISTE D'ARMÉE CODEX – ELDARS NOIRS 
@@ -353,7 +350,6 @@ autant de Reaper
 25 pts chacun 
  
 3 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
-
 
 ===== PAGE 5 =====
 FEUILLE DE RÉFÉRENCES ELDARS NOIRS 
@@ -586,7 +582,6 @@ Frappe en premier, Infiltrateur, Manteau d'ombre, Eclaireur
  
 4 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
 
-
 ===== PAGE 6 =====
  
 Nom 
@@ -679,7 +674,6 @@ Blindage renforcé, Marcheur, Antigrav, Sans peur
  
  
 5 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
-
 
 ===== PAGE 7 =====
 FEUILLE DE RÉFÉRENCES ENGINS DE GUERRES 
@@ -820,7 +814,6 @@ manœuvrabilité.
  
 6 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
 
-
 ===== PAGE 8 =====
 FEUILLE DE RÉFÉRENCES FLOTTE ELDARS NOIRS 
  
@@ -914,7 +907,6 @@ transporter jusqu’à 10 Transporteurs Slavebringer et jusqu’à 2 Moissonneur
 cargaisons. 
  
 7 - CODEX ELDARS NOIRS - EAFR - REV-1.5 
-
 
 ===== PAGE 9 =====
 FEUILLE DE RÉFÉRENCE ABRÉVIATIONS  
