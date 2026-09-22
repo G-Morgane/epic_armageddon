@@ -1,0 +1,1001 @@
+# Empire T'au, transcrit depuis le PDF EAFR rev 1.4 (source de vérité).
+codex:
+  slug: empire-tau
+  armee_id: f2c10f18-9270-4501-a84c-49c2c1d2868d
+  nom: Empire T'au
+  version: "1.4"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  citation:
+    texte: "Nous ne prendrons pas l'ascendant sur cette galaxie hostile par la seule technologie. C'est notre cause commune et notre sens de l'honneur partagé qui nous unissent et nous confèrent le pouvoir de défaire nos ennemis."
+    auteur: "Shas'el Sa'cea Or'es, Commandeur de la caste du Feu"
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une partie de chasse basée sur le Sept de T'au. Cette liste peut également être utilisée pour représenter des parties de chasse d'autres mondes de l'empire T'au comme ceux de Vior'la, de Fi'rios ou de Yo'Vai.
+
+    Les parties de chasse du Sept de T'au sont organisées autour de grandes formations appelées cadres, elles-mêmes complétées par des formations de soutien et/ou des formations d'auxiliaires qui leurs sont autonomes.
+
+    Chaque formation (cadre, formation de soutien ou formation d'auxiliaires) peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par formation. Hormis cela, chaque formation peut prendre autant d'améliorations qu'elle le souhaite, sans limite. Les améliorations font partie intégrante des formations et doivent en respecter les règles de cohésion.
+
+    Les formations d'engins de guerre ou de la caste de l'air sont des formations autonomes. Un maximum de ⅓ des points de l'armée peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Déflecteurs"
+      texte: |
+        Certaines unités et engins de guerre T'au sont équipés d'un puissant champ déflecteur pour se protéger. Les unités ayant la règle spéciale Déflecteurs notée dans leurs profils bénéficient d'une sauvegarde de type invulnérable égale à la valeur renseignée entre parenthèses.
+    - titre: "Règle spéciale : Propulseurs"
+      texte: |
+        Les Propulseurs fonctionnent exactement comme les Réacteurs Dorsaux (voir Livre de règles). De plus, lorsqu'une formation exécute une action d'avance ou d'avance rapide, ses unités ayant la règle spéciale « Propulseurs » notée dans leur profil peuvent choisir de tirer avant ou après l'un de ses mouvements.
+    - titre: "Règle spéciale : Drones"
+      texte: |
+        Les unités ayant la règle spéciale Drones notée dans leur profil ne génèrent pas de pion d'impact lorsqu'elles sont détruites, ni lorsqu'elles sont touchées par des armes ayant la note Rupture. Toute autre règle générant des pions d'impact lorsque les touches sont allouées à ces unités sont ignorées.
+
+        Les Drones d'une formation n'empêchent pas celle-ci de débuter en garnison si elle dispose des prérequis pour le faire.
+
+        Une formation composée uniquement de Drones ne peut pas tenir d'objectifs, bien qu'elle puisse contester ceux-ci.
+
+        Remarque : Les unités de Drones comptent dans le calcul des pertes lors de la résolution d'un assaut.
+    - titre: "Règle spéciale : Armes guidées"
+      texte: |
+        Les armes guidées sont des armes disposant d'un système de localisation, et un calculateur de trajectoire. Ces armes sont capables d'atteindre une cible hors de ligne de vue, et ceci de façon autonome.
+
+        Une Arme Guidée ne peut être employée que sur une unité sur laquelle a été infligé un Marquage de Désignateur laser. Une formation ne peut tirer qu'une fois par tour avec ses Armes guidées, qu'elle ait déjà été activée ou non.
+
+        Toutes les règles relatives au tir comme l'allocation des touches et le feu croisé s'appliquent à partir de la formation d'où partent les armes guidées.
+
+        Lorsqu'elles tirent, les Armes guidées ne nécessitent pas de ligne de vue et ne sont jamais affectées par les modificateurs pour toucher, qu'ils soient dûs à un ordre (+1 du tir soutenu ou -1 d'avance rapide) ou à un couvert.
+
+        Remarque : une unité à couvert disposera toujours de sa sauvegarde de couvert, seul le modificateur pour toucher sera ignoré.
+
+        Les unités démoralisées, neutralisées ou ayant effectué un redéploiement ne peuvent pas utiliser leurs Armes Guidées.
+
+        Les Armes Guidées provenant d'un vaisseau peuvent être utilisées suite à l'activation du vaisseau et jusqu'à la fin de ce tour.
+    - titre: "Règle spéciale : Désignateur laser"
+      texte: |
+        Le Désignateur laser est un dispositif porté par des unités T'au ayant la règle spéciale Désignateur laser (x) notée dans leurs profils. Un Désignateur laser possède une portée de 30cm et est utilisé en même temps que les attaques de tir ou de fusillade, mais avant que les jets pour toucher ne soient effectués. Une unité neutralisée ne peut pas faire usage de son Désignateur laser.
+
+        Lorsqu'il est utilisé contre une formation ennemie, chaque unité T'au (à portée et en ligne de vue d'unités de cette formation ennemie) possédant cette règle lui inflige un nombre de Marquages de Désignateur laser.
+
+        Au cours de son activation, une formation T'au peut utiliser ses Désignateurs laser selon l'action qu'elle effectue :
+
+        **1. Tir** : Lors d'un tir et pour chaque Marquage de Désignateur laser infligé par une formation T'au, le joueur T'au peut décider d'appliquer l'un des effets suivants :
+
+        Faire tirer une Arme Guidée possédée par une unité à portée de tir, depuis n'importe quelle formation n'ayant pas tiré avec ses Armes Guidées ce tour ci. Ces tirs d'armes sont considérés comme étant effectués par la formation utilisant ses Désignateurs laser : ils n'infligent qu'un pion impact à la formation ennemie visée, quel que soit le nombre de formations T'au impliquées.
+
+        OU
+
+        Donner un bonus de +1 au jet pour toucher d'un tir de la formation, exception faite des tirs antiaériens.
+
+        **2. Assaut** : Au cours de sa phase d'assaut et pour chaque Marquage de Désignateur laser infligé par sa formation, le joueur T'au peut décider d'appliquer l'effet suivant :
+
+        Donner un bonus de +1 à un jet pour toucher une autre attaque de fusillade de la formation.
+
+        Chaque jet pour toucher ne peut bénéficier que d'un seul bonus de +1 au jet pour toucher grâce à un Désignateur laser.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustrations : Diego Gisbert Lorrens (cover)."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Cadres d'Exo-armures Crisis", valeur: "1+" }
+      - { portee: "Exo-armures Riptides", valeur: "1+" }
+      - { portee: "Exo-armure Supremacy", valeur: "1+" }
+      - { portee: "Destroyer Manta", valeur: "1+" }
+
+budgets:
+  - id: soutien
+    libelle: Formations de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations de soutien par cadre"
+  - id: auxiliaire
+    libelle: Formations d'auxiliaires
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 1 formation d'auxiliaires par cadre de guerriers de feu"
+  - id: transporteur
+    libelle: Transporteurs Orca
+    capacite: { source: fournitures }
+    phrase_pdf: "0-1 Transporteur par Cadre de Guerrier de feu et/ou d'Exo-armures Crisis"
+  - id: rare
+    libelle: Engins de guerre et caste de l'air
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Feuille de références Empire T'au ----
+  - id: shas_o
+    nom: Shas'O
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Ioniseur cyclique, portee: (15cm), puissance: "Armes légères, +1A" }
+    notes: [Commandant Suprême, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: shas_el
+    nom: Shas'El
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Ioniseur cyclique, portee: (15cm), puissance: "Armes légères, +1A" }
+    notes: [Commandant, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: ethere
+    nom: Éthéré
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Armes de gardes d'honneur, portee: (15cm), puissance: "Armes légères, +1A" }
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: strike_team
+    nom: Strike team
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Fusils à impulsion, portee: 30cm, puissance: "AP5+" }
+      - { nom: Carabines à impulsion, portee: (15cm), puissance: "Armes légères" }
+  - id: cibleur
+    nom: Cibleurs
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fusils rail, portee: 30cm, puissance: "AP5+/AC6+, Rpt" }
+      - { nom: Carabines à impulsion, portee: (15cm), puissance: "Armes légères" }
+    notes: [Éclaireurs, "Désignateur Laser (2)"]
+  - id: xv15_stealth
+    nom: XV15 Stealth
+    type: Inf
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canons à induction Stealth, portee: 30cm, puissance: "AP4+, Rpt" }
+    notes: [Éclaireurs, Propulseurs, Téléportation, Frappe en premier]
+  - id: xv104_riptide_cil
+    nom: XV104 Riptide (CIL)
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Canon à induction lourd, portee: 30cm, puissance: "2xAP2+/AC5+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Blindage renforcé, Marcheur, Propulseurs, Sauvegarde Invulnérable]
+  - id: xv104_riptide_ai
+    nom: XV104 Riptide (AI)
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Accélérateur à ion, portee: 45cm, puissance: "2xMA4+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, MA" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Blindage renforcé, Marcheur, Propulseurs, Sauvegarde Invulnérable]
+  - id: xv8_crisis
+    nom: XV8 Crisis
+    type: Inf
+    vitesse: 25cm
+    blindage: "3+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Éclateur à fusion, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, MA" }
+      - { nom: Nacelle de missiles, portee: 45cm, puissance: "AP4+/AC5+" }
+    notes: [Propulseurs]
+    taille_transport: 2
+  - id: xv88_broadside
+    nom: XV88 Broadside
+    type: VL
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils rail lourds jumelés, portee: 75cm, puissance: "AC3+, Lance" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Blindage Renforcé, Marcheur]
+    taille_transport: 2
+  - id: drone_attaque
+    nom: Drones d'attaque
+    type: Inf
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Carabines à impulsion, portee: (15cm), puissance: "Armes légères" }
+    notes: [Propulseurs, Drones]
+  - id: drone_lourd
+    nom: Drones lourds
+    type: Inf
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons à induction, portee: 30cm, puissance: "AP5+" }
+    notes: [Propulseurs, "Désignateur Laser (1)", Drones]
+  - id: drone_sniper
+    nom: Drones snipers
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusil de sniper à impulsion, portee: 30cm, puissance: "AP5+, Snip" }
+    notes: ["Désignateur laser (1)", Drones]
+  - id: piranha_ci
+    nom: Piranha (CI)
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à induction et drones d'attaque, portee: 30cm, puissance: "AP4+, Rpt" }
+    notes: [Antigrav]
+    taille_transport: 2
+  - id: piranha_ef
+    nom: Piranha (EF)
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Éclateur à fusion, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, MA" }
+    notes: [Antigrav]
+    taille_transport: 2
+  - id: tetra
+    nom: Tetra
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fusils à impulsion, portee: 30cm, puissance: "AP5+" }
+    notes: [Éclaireur, Antigrav, "Désignateur Laser (1)"]
+    taille_transport: 2
+  - id: devilfish
+    nom: Devilfish
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à induction et drones d'attaque, portee: 30cm, puissance: "AP4+, Rpt" }
+    notes: [Antigrav, "Transport (2) : Strike team, Cibleurs"]
+    transport: { capacite: 2, accepte: [strike_team, cibleur] }
+  - id: stingray
+    nom: Stingray
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Missiles Stingray, portee: 45cm, puissance: "2xAP5+, IC, Ind" }
+      - { nom: Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Antigrav, Blindage Renforcé, "Désignateur Laser (2)"]
+  - id: skyray
+    nom: Skyray
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Missiles Skyray, portee: 45cm, puissance: "2xAA5+" }
+      - { nom: Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Antigrav, Blindage Renforcé, "Désignateur Laser (2)"]
+  - id: hammerhead_rail
+    nom: Hammerhead (Canon rail)
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon rail, portee: 75cm, puissance: "AP5+/AC3+, Lance" }
+      - { nom: Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Antigrav, Blindage Renforcé]
+  - id: hammerhead_ion
+    nom: Hammerhead (Canon à ion)
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon à ion, portee: 60cm, puissance: "2xAP3+/AC6+" }
+      - { nom: Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+      - { nom: Lance-missiles autodirecteurs, portee: 30cm, puissance: "AP5+, IC" }
+    notes: [Antigrav, Blindage Renforcé]
+  - id: kx139_rail
+    nom: KX 139 Ta'Unar (Art. Rail)
+    type: EG
+    vitesse: 20cm
+    blindage: "3+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Artillerie rail, portee: 75cm, puissance: "MA2+, Frt, TT (D3)" }
+      - { nom: 2x Canon à ion tri-axe, portee: 60cm, puissance: "2xAP3+/AC4+, Frt" }
+      - { nom: Système de défense vigilance, portee: 30cm, puissance: "2xAP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: Grappe à sous-munition, portee: 30cm, puissance: "2xAP4+/AC6+" }
+    notes: [Marcheur, Blindage Arrière Renforcé, Sans Peur, "Déflecteurs (5+)"]
+    degats: { cd: 3, critique: "l'exo-armure KX 139 perd son Déflecteur, le critique suivant détruit l'exo-armure." }
+  - id: kx139_impulsion
+    nom: KX 139 Ta'Unar (Art. Imp.)
+    type: EG
+    vitesse: 20cm
+    blindage: "3+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Artillerie à impulsion, portee: 90cm, puissance: "3PB, Frt, IC" }
+      - { nom: 2x Canon à ion tri-axe, portee: 60cm, puissance: "2xAP3+/AC4+, Frt" }
+      - { nom: Système de défense vigilance, portee: 30cm, puissance: "2xAP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A" }
+    notes: [Marcheur, Blindage Arrière Renforcé, Sans Peur, "Déflecteurs (5+)"]
+    degats: { cd: 3, critique: "l'exo-armure KX 139 perd son Déflecteur, le critique suivant détruit l'exo-armure." }
+
+  # ---- Feuille de références auxiliaires T'au ----
+  - id: mentor_kroot
+    nom: Mentor Kroot
+    type: Perso
+    vitesse: "-"
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Armes de mercenaires, portee: (contact), puissance: "Arme d'assaut, +1A" }
+    notes: [Meneur]
+    roles: [personnage]
+  - id: carnivore_kroot
+    nom: Carnivores Kroot
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Fusils Kroot, portee: (15cm), puissance: "Armes légères" }
+    notes: [Éclaireur, Infiltrateur]
+  - id: krootox
+    nom: Krootox
+    type: VL
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Kroot, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Griffes, portee: (contact), puissance: "Arme d'assaut, +1A" }
+    notes: [Marcheur]
+  - id: grand_knarloc
+    nom: Grand Knarloc
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Griffes et crocs, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+      - { nom: Baliste Kroot, portee: (15cm), puissance: "Armes légères" }
+    notes: [Marcheur]
+  - id: kabridan_vespid
+    nom: Ka'Bri'Dan Vespid
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    notes: [Meneur]
+    roles: [personnage]
+  - id: frelon_vespid
+    nom: Frelons Vespid
+    type: Inf
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Blasters à neutron, portee: (15cm), puissance: "Armes légères" }
+    notes: [Propulseurs]
+
+  # ---- Feuille de références caste de l'air ----
+  - id: barracuda
+    nom: Barracuda
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon à ion (Aérien), portee: 30cm, puissance: "2xAP3+/AC6+, FrtF" }
+      - { nom: Nacelle de missiles (Aérien), portee: 30cm, puissance: "AP4+/AC5+/AA5+, FrtF" }
+      - { nom: Drones, portee: 15cm, puissance: "AA5+" }
+      - { nom: Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+  - id: tiger_shark
+    nom: Tiger Shark
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: 2x Canon à ion (Aérien), portee: 30cm, puissance: "2xAP3+/AC6+, FrtF" }
+      - { nom: Nacelle de missiles (Aérien), portee: 30cm, puissance: "AP4+/AC5+/AA5+, FrtF" }
+      - { nom: Drones, portee: 15cm, puissance: "AA5+" }
+      - { nom: 2x Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+    degats: { cd: 2, critique: "Le Tiger Shark s'écrase au sol et est détruit" }
+  - id: tiger_shark_ax10
+    nom: Tiger Shark AX-1-0
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon rail lourd, portee: 45cm, puissance: "MA3+, FrtF, TT (D3)" }
+      - { nom: Nacelle de missiles (Aérien), portee: 30cm, puissance: "AP4+/AC5+/AA5+, FrtF" }
+      - { nom: Drones, portee: 15cm, puissance: "AA5+" }
+      - { nom: 2x Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+    degats: { cd: 2, critique: "Le Tiger Shark AX-1-0 s'écrase au sol et est détruit" }
+  - id: transporteur_orca
+    nom: Transporteur Orca
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canons à induction jumelés, portee: 30cm, puissance: "AP4+/AA5+" }
+      - { nom: Nacelle de missiles (Aérien), portee: 30cm, puissance: "AP4+/AC5+/AA5+, FrtF" }
+      - { nom: 2x Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+    notes:
+      - Assaut planétaire
+      - "Transport (12) : Strike team, Cibleurs, XV15 Stealth, XV88 Broadsides*, XV8 Crisis*, Drones d'attaque, Drones lourds, Mentor Kroot, Carnivores Kroots (* prennent 2 places)."
+    transport:
+      capacite: 12
+      accepte: [strike_team, cibleur, xv15_stealth, xv88_broadside, xv8_crisis, drone_attaque, drone_lourd, mentor_kroot, carnivore_kroot]
+    taille_transport: 3
+    degats: { cd: 3, critique: "L'Orca s'écrase au sol et est détruit, ainsi que toutes unités à bord" }
+  - id: destroyer_manta
+    nom: Destroyer Manta
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "-"
+    ff: "3+"
+    armes:
+      - { nom: 2x Artillerie rail, portee: 75cm, puissance: "MA2+, Frt, TT (D3)" }
+      - { nom: 3x Canons à ion jumelés, portee: 60cm, puissance: "2xAP2+/AC5+, FrtF" }
+      - { nom: 4x Drones, portee: 15cm, puissance: "AA5+" }
+      - { nom: Nacelle de missiles (Aérien), portee: 30cm, puissance: "AP4+/AC5+/AA5+, FrtF" }
+      - { nom: 4x Missiles à guidage laser, portee: 75cm, puissance: "AC4+, Arme Guidée" }
+    notes:
+      - "Déflecteurs (4+)"
+      - Antigrav
+      - Sans peur
+      - Blindage Renforcé
+      - Assaut Planétaire
+      - "Transport (16) : Strike team, Cibleurs, XV15 Stealth, XV8 Crisis*, XV88 Broadside*, Drones d'attaque, Drones lourds, Mentor Kroot, Carnivores Kroots, Krootox, Tetra*, Piranha* (* prennent 2 places)."
+      - "Le Manta peut embarquer en plus 4 des unités suivantes : Devilfish, Hammerhead, Skyray, Stingray."
+    transport:
+      capacite: 16
+      accepte: [strike_team, cibleur, xv15_stealth, xv8_crisis, xv88_broadside, drone_attaque, drone_lourd, mentor_kroot, carnivore_kroot, krootox, tetra, piranha_ci, piranha_ef]
+    taille_transport: 3
+    degats: { cd: 10, critique: "le Destroyer Manta perd son Déflecteur, les critiques suivants font perdre 1 point de structure supplémentaire." }
+  - id: croiseur_emissary
+    nom: Croiseur Emissary
+    type: VS
+    armes:
+      - { nom: Frappe chirurgicale, portee: "-", puissance: "MA2+, TT (D3)" }
+      - { nom: 6x Torpilles gravitiques, portee: "∞", puissance: "MA5+, Arme Guidée" }
+    notes: ["Transport (6) : Orcas, Mantas (prennent 3 places) ainsi que les troupes qu'ils contiennent"]
+    transport: { capacite: 6, accepte: [transporteur_orca, destroyer_manta] }
+  - id: cuirasse_custodian
+    nom: Cuirassé Custodian
+    type: VS
+    armes:
+      - { nom: 2x Frappe chirurgicale, portee: "-", puissance: "MA2+, TT (D3)" }
+      - { nom: 6x Torpilles gravitiques, portee: "∞", puissance: "MA5+, Arme Guidée" }
+    notes:
+      - "Transport (18) : Orcas, Mantas (prennent 3 places) ainsi que les troupes qu'ils contiennent"
+      - "Lent, ne peut être utilisé dans les 2 premiers tours de la partie à moins que le scénario ne dise le contraire"
+    transport: { capacite: 18, accepte: [transporteur_orca, destroyer_manta] }
+
+options:
+  # ---- Améliorations communes ----
+  - id: commandeur
+    nom: Commandeur
+    effet:
+      type: choix
+      parmi:
+        - id: shas_el
+          nom: "1 Shas'El"
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: shas_el, nombre: 1 }] }
+        - id: shas_o
+          nom: "1 Shas'O"
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: shas_o, nombre: 1 }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Shas'El à une unité de la formation. 0-1 (Remplacer 1 Shas'El par 1 Shas'O)"
+    note_md: "Le remplacement du Shas'El par un Shas'O est gratuit et limité à un seul dans l'armée."
+  - id: ethere
+    nom: "0-1 Éthéré"
+    effet: { type: ajouter, cout: 50, unites: [{ unite: ethere, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "Ajouter 1 Éthéré à une unité de la formation"
+  - id: talissera
+    nom: "Ta'lissera"
+    effet: { type: mot_cle, texte: Meneur, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la Note Meneur à 1 unité de la formation"
+  - id: drones_communication
+    nom: Drones de communication
+    effet: { type: mot_cle, texte: Meneur, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la Note Meneur à 1 véhicule de la formation"
+  - id: drones_attaque
+    nom: Drones d'attaque
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: drone_attaque }], min: 2, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter de 2 à 4 unités de Drones d'attaque à la formation (25 pts chacun)"
+  - id: drones_lourds
+    nom: Drones lourds
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: deux, nom: 2 unités de Drones lourds, cout: 75, unites: [{ unite: drone_lourd, nombre: 2 }] }
+        - { id: quatre, nom: 4 unités de Drones lourds, cout: 150, unites: [{ unite: drone_lourd, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 2 ou 4 unités de Drones lourds à la formation"
+  - id: drones_snipers
+    nom: "0-1 Drones Snipers"
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: drone_sniper }], min: 1, max: 4 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "Ajouter 1 à 4 unités de Drones Snipers à la formation (50 pts chacun)"
+  - id: blindes_tau
+    nom: "Blindés T'au"
+    effet:
+      type: choix
+      parmi:
+        - id: trois_vehicules
+          nom: "3 véhicules parmi Hammerheads (tous types) et Stingray"
+          cout: 175
+          effet:
+            type: choix_multiple
+            total: 3
+            parmi:
+              - { unite: hammerhead_rail }
+              - { unite: hammerhead_ion }
+              - { unite: stingray }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 3 véhicules à la formation parmi : Hammerheads (tous types), Stingray"
+  - id: skyray
+    nom: Skyray
+    effet: { type: ajouter, cout: 75, unites: [{ unite: skyray, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Skyray à la formation"
+  - id: devilfish
+    nom: Devilfish
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: quatre, nom: 4 Devilfish, cout: 100, unites: [{ unite: devilfish, nombre: 4 }] }
+        - { id: six, nom: 6 Devilfish, cout: 150, unites: [{ unite: devilfish, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 4 ou 6 Devilfish à la formation"
+    note_md: "Vous ne pouvez pas prendre plus de Devilfish que nécessaire pour transporter la formation."
+  - id: cibleurs
+    nom: Cibleurs
+    effet:
+      type: choix
+      parmi:
+        - id: ajout
+          nom: "Ajouter 2 Cibleurs et 1 Devilfish"
+          cout: 100
+          effet: { type: ajouter, unites: [{ unite: cibleur, nombre: 2 }, { unite: devilfish, nombre: 1 }] }
+        - id: remplacement
+          nom: "Remplacer 2 Strike team par 2 Cibleurs"
+          cout: 25
+          effet: { type: remplacer, de: strike_team, par: cibleur, lot: 2, max: 1 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 2 Cibleurs et 1 Devilfish à la formation (100 pts) ou remplacer 2 Strike team par 2 Cibleurs (25 pts)"
+
+  # ---- Renforts des formations d'auxiliaires ----
+  - id: kroots_supplementaires
+    nom: Carnivores Kroots supplémentaires
+    effet: { type: ajouter, cout: 75, unites: [{ unite: carnivore_kroot, nombre: 5 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "+5 unités de Carnivores Kroots"
+  - id: krootox_supplementaires
+    nom: Krootox
+    effet: { type: ajouter, cout: 75, unites: [{ unite: krootox, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "+3 Krootox"
+  - id: knarlocs_supplementaires
+    nom: Grands Knarlocs
+    effet: { type: ajouter, cout: 50, unites: [{ unite: grand_knarloc, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "+3 Grands Knarlocs"
+  - id: vespids_supplementaires
+    nom: Frelons Vespid supplémentaires
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: trois, nom: 3 unités de Frelons Vespid, cout: 75, unites: [{ unite: frelon_vespid, nombre: 3 }] }
+        - { id: six, nom: 6 unités de Frelons Vespid, cout: 150, unites: [{ unite: frelon_vespid, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "+3 unités de Frelons Vespid ou +6 unités de Frelons Vespid"
+
+formations:
+  # ---- Cadres de T'au ----
+  - id: cadre_crisis
+    nom: Cadres d'Exo-armures Crisis
+    variantes:
+      - { id: quatre, nom: 4 unités XV8 Crisis, cout: 200, composition: [{ unite: xv8_crisis, nombre: 4 }] }
+      - { id: six, nom: 6 unités XV8 Crisis, cout: 300, composition: [{ unite: xv8_crisis, nombre: 6 }] }
+    options: [drones_lourds, drones_attaque, commandeur, talissera]
+    contraintes:
+      - { type: fournit, budget: transporteur, quantite: 1 }
+      - { type: initiative, valeur: "1+" }
+  - id: cadre_blinde
+    nom: Cadre blindé
+    variantes:
+      - id: base
+        cout: 375
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: hammerhead_rail }, { unite: hammerhead_ion }]
+              phrase_pdf: "6 Hammerheads (tous types)"
+    options: [blindes_tau, skyray, drones_communication]
+  - id: cadre_guerrier_feu
+    nom: Cadre de Guerrier de feu
+    variantes:
+      - { id: huit, nom: 8 unités de Strike team, cout: 225, composition: [{ unite: strike_team, nombre: 8 }] }
+      - { id: douze, nom: 12 unités de Strike team, cout: 325, composition: [{ unite: strike_team, nombre: 12 }] }
+    options: [ethere, cibleurs, drones_attaque, skyray, talissera, drones_snipers, devilfish]
+    contraintes:
+      - { type: fournit, budget: auxiliaire, quantite: 1 }
+      - { type: fournit, budget: transporteur, quantite: 1 }
+
+  # ---- Formations de soutien ----
+  - id: exo_stealth
+    nom: Exo-armures Stealth
+    variantes:
+      - { id: six, nom: 6 unités XV15 Stealth, cout: 250, composition: [{ unite: xv15_stealth, nombre: 6 }] }
+      - { id: neuf, nom: 9 unités XV15 Stealth, cout: 375, composition: [{ unite: xv15_stealth, nombre: 9 }] }
+    options: [talissera]
+  - id: exo_broadsides
+    nom: Exo-armures Broadsides
+    variantes:
+      - { id: quatre, nom: 4 unités XV88 Broadsides, cout: 250, composition: [{ unite: xv88_broadside, nombre: 4 }] }
+      - { id: six, nom: 6 unités XV88 Broadsides, cout: 350, composition: [{ unite: xv88_broadside, nombre: 6 }] }
+    options: []
+  - id: groupe_cibleurs
+    nom: Groupe de Cibleurs
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - { unite: cibleur, nombre: 4 }
+          - { unite: devilfish, nombre: 2 }
+    options: [cibleurs]
+  - id: groupe_reconnaissance
+    nom: Groupe de Reconnaissance
+    variantes:
+      - { id: six, nom: 6 Tétras, cout: 175, composition: [{ unite: tetra, nombre: 6 }] }
+      - { id: neuf, nom: 9 Tétras, cout: 250, composition: [{ unite: tetra, nombre: 9 }] }
+    options: []
+  - id: vague_piranhas
+    nom: Vague Piranhas
+    variantes:
+      - id: six
+        nom: 6 Piranhas (tous types)
+        cout: 175
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: piranha_ci }, { unite: piranha_ef }]
+              phrase_pdf: "6 Piranhas (tous types)"
+      - id: neuf
+        nom: 9 Piranhas (tous types)
+        cout: 250
+        composition:
+          - choix:
+              total: 9
+              parmi: [{ unite: piranha_ci }, { unite: piranha_ef }]
+              phrase_pdf: "9 Piranhas (tous types)"
+    options: []
+  - id: groupe_appui_feu
+    nom: "Groupe d'Appui-feu"
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: stingray, nombre: 3 }] }
+    options: [skyray, blindes_tau]
+  - id: groupe_interdiction_blinde
+    nom: "Groupe d'interdiction blindé"
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: hammerhead_rail }, { unite: hammerhead_ion }]
+              phrase_pdf: "4 Hammerheads (tous types)"
+    options: [skyray]
+  - id: drones_attaque_formation
+    nom: "Drones d'attaques"
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: drone_attaque, nombre: 6 }] }
+    options: []
+  - id: aile_skysweep
+    nom: Aile Skysweep
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: skyray, nombre: 3 }] }
+    options: []
+  - id: exo_riptides
+    nom: Exo-armures Riptides
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 3, max: 6 }
+              parmi: [{ unite: xv104_riptide_cil, cout: 75 }, { unite: xv104_riptide_ai, cout: 75 }]
+              phrase_pdf: "3 à 6 XV104 Riptides (tous types)"
+    options: [drones_attaque]
+    contraintes: [{ type: initiative, valeur: "1+" }]
+    phrase_pdf: "75 pts chacun"
+
+  # ---- Engins de guerre et caste de l'air ----
+  - id: exo_supremacy
+    nom: Exo-armure Supremacy
+    variantes:
+      - id: un
+        nom: "1 KX 139 Ta'Unar (Tout type)"
+        cout: 350
+        composition:
+          - choix:
+              total: 1
+              parmi: [{ unite: kx139_rail }, { unite: kx139_impulsion }]
+              phrase_pdf: "1 KX 139 Ta'Unar (Tout type)"
+      - id: deux
+        nom: "2 KX 139 Ta'Unar (Tout type)"
+        cout: 650
+        composition:
+          - choix:
+              total: 2
+              parmi: [{ unite: kx139_rail }, { unite: kx139_impulsion }]
+              phrase_pdf: "2 KX 139 Ta'Unar (Tout type)"
+    options: []
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: escadrille_interception
+    nom: "Escadrille d'Interception"
+    variantes:
+      - { id: deux, nom: 2 Barracudas, cout: 175, composition: [{ unite: barracuda, nombre: 2 }] }
+      - { id: quatre, nom: 4 Barracudas, cout: 325, composition: [{ unite: barracuda, nombre: 4 }] }
+    options: []
+  - id: escadrille_bombardiers
+    nom: Escadrille de bombardiers
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: tiger_shark, nombre: 2 }] }
+    options: []
+  - id: escadrille_attaque_sol
+    nom: "Escadrille d'attaque au sol"
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 1, max: 2 }
+              parmi: [{ unite: tiger_shark_ax10, cout: 175 }]
+              phrase_pdf: "1 ou 2 Tiger Sharks AX-1-0"
+    options: []
+    phrase_pdf: "175 pts chacun"
+  - id: destroyer_manta
+    nom: Destroyer Manta
+    variantes:
+      - { id: base, cout: 850, composition: [{ unite: destroyer_manta, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: transporteur_orca
+    nom: Transporteur Orca
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: transporteur_orca, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: consomme, budget: transporteur }]
+    phrase_pdf: "0-1 Transporteur par Cadre de Guerrier de feu et/ou d'Exo-armures Crisis"
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: emissary, nom: 1 Croiseur de classe Emissary, cout: 200, composition: [{ unite: croiseur_emissary, nombre: 1 }] }
+      - { id: custodian, nom: 1 Cuirassé de classe Custodian, cout: 300, composition: [{ unite: cuirasse_custodian, nombre: 1 }] }
+    options: []
+
+  # ---- Formations d'auxiliaires ----
+  - id: harde_kroots
+    nom: Harde de Kroots
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - { unite: mentor_kroot, nombre: 1 }
+          - { unite: carnivore_kroot, nombre: 10 }
+    options: [kroots_supplementaires, krootox_supplementaires, knarlocs_supplementaires]
+  - id: essaim_vespid
+    nom: Essaim Vespid
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: kabridan_vespid, nombre: 1 }
+          - { unite: frelon_vespid, nombre: 6 }
+    options: [vespids_supplementaires]
+
+sections:
+  - id: cadres
+    titre: "CADRES DE T'AU"
+    formations: [cadre_crisis, cadre_blinde, cadre_guerrier_feu]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 2 }]
+    colonne_options: true
+  - id: soutien
+    titre: FORMATIONS DE SOUTIEN
+    sous_titre: "Jusqu'à 2 formations de soutien par cadre"
+    formations: [exo_stealth, exo_broadsides, groupe_cibleurs, groupe_reconnaissance, vague_piranhas, groupe_appui_feu, groupe_interdiction_blinde, drones_attaque_formation, aile_skysweep, exo_riptides]
+    contraintes: [{ type: consomme, budget: soutien }]
+    colonne_options: true
+    options: [commandeur, ethere, talissera, drones_communication, drones_attaque, drones_lourds, drones_snipers, blindes_tau, skyray, devilfish, cibleurs]
+    tableau_options:
+      titre: AMÉLIORATIONS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation"
+  - id: engins_et_air
+    titre: "ENGINS DE GUERRE ET CASTE DE L'AIR"
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    formations: [exo_supremacy, escadrille_interception, escadrille_bombardiers, escadrille_attaque_sol, destroyer_manta, transporteur_orca, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: auxiliaires
+    titre: "FORMATIONS D'AUXILIAIRES"
+    sous_titre: "Jusqu'à 1 formation d'auxiliaires par cadre de guerriers de feu"
+    formations: [harde_kroots, essaim_vespid]
+    contraintes: [{ type: consomme, budget: auxiliaire }]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts valide : trois cadres, quatre soutiens, une harde de Kroots et une escadrille"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: cadre_guerrier_feu
+        variante: douze
+        options:
+          - { option: ethere }
+          - { option: devilfish, variante: six }
+          - { option: skyray }
+          - { option: talissera }
+      - formation: cadre_crisis
+        variante: six
+        options:
+          - { option: commandeur, choix: shas_o }
+          - { option: drones_lourds, variante: deux }
+      - formation: cadre_blinde
+        choix: { "0": { hammerhead_rail: 4, hammerhead_ion: 2 } }
+        options:
+          - { option: blindes_tau, repartition: { hammerhead_rail: 2, stingray: 1 } }
+          - { option: drones_communication }
+      - formation: exo_stealth
+        variante: six
+        options: [{ option: talissera }]
+      - { formation: exo_broadsides, variante: quatre }
+      - { formation: groupe_cibleurs }
+      - { formation: aile_skysweep }
+      - formation: harde_kroots
+        options: [{ option: kroots_supplementaires }]
+      - { formation: escadrille_interception, variante: deux }
+  - nom: "2000 pts valide : Riptides, Piranhas, Vespids et un Transporteur Orca"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: cadre_guerrier_feu
+        variante: huit
+        options:
+          - { option: cibleurs, choix: remplacement }
+          - { option: drones_snipers, quantite: 2 }
+      - formation: cadre_blinde
+        choix: { "0": { hammerhead_ion: 6 } }
+        options: [{ option: skyray }]
+      - formation: vague_piranhas
+        variante: six
+        choix: { "0": { piranha_ci: 4, piranha_ef: 2 } }
+      - formation: exo_riptides
+        choix: { "0": { xv104_riptide_cil: 2, xv104_riptide_ai: 1 } }
+        options: [{ option: drones_attaque, quantite: 3 }]
+      - { formation: groupe_reconnaissance, variante: six }
+      - formation: essaim_vespid
+        options: [{ option: vespids_supplementaires, variante: trois }]
+      - { formation: transporteur_orca }
+  - nom: "trois formations de soutien pour un seul cadre"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: cadre_blinde
+        choix: { "0": { hammerhead_rail: 6 } }
+      - { formation: exo_broadsides, variante: quatre }
+      - { formation: groupe_reconnaissance, variante: six }
+      - { formation: aile_skysweep }
+  - nom: "une harde de Kroots sans Cadre de Guerrier de feu"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: cadre_crisis, variante: quatre }
+      - { formation: harde_kroots }
+  - nom: "deux Éthérés dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: cadre_guerrier_feu
+        variante: huit
+        options: [{ option: ethere }]
+      - formation: cadre_guerrier_feu
+        variante: huit
+        options: [{ option: ethere }]
+  - nom: "deux Shas'O dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: cadre_crisis
+        variante: quatre
+        options: [{ option: commandeur, choix: shas_o }]
+      - formation: cadre_crisis
+        variante: quatre
+        options: [{ option: commandeur, choix: shas_o }]
+  - nom: "Destroyer Manta au-delà du tiers des points à 2000 pts"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: cadre_guerrier_feu, variante: huit }
+      - { formation: destroyer_manta }
