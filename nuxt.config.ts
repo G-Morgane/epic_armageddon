@@ -1,4 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// URL publique du site. Chaque environnement la fixe via NUXT_PUBLIC_SITE_URL
+// (prod : www.epicarmageddon.fr, staging : staging.epicarmageddon.fr). Sans la
+// variable on retombe sur la prod.
+const URL_PROD = 'https://www.epicarmageddon.fr'
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || URL_PROD
+
+// Seule la prod est indexable. Le staging et les previews Vercel servent le
+// même contenu : les laisser aux moteurs créerait du duplicate face au site
+// public. Le test porte sur les deux : un staging pointé par erreur sur l'URL
+// de prod reste bloqué par VERCEL_ENV.
+const indexable = siteUrl === URL_PROD && (process.env.VERCEL_ENV ?? 'production') === 'production'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -17,8 +30,9 @@ export default defineNuxtConfig({
     clientOptions: { auth: { flowType: 'implicit' } },
   },
   site: {
-    url: 'https://www.epicarmageddon.fr',
+    url: siteUrl,
     name: 'Epic Armageddon FR',
+    indexable,
   },
   sitemap: {
     exclude: ['/admin/**', '/compte', '/connexion/**'],
@@ -29,6 +43,9 @@ export default defineNuxtConfig({
   routeRules: {
     // la session se construit dans le navigateur au retour du lien de connexion
     '/connexion/retour': { ssr: false },
+    // Hors prod, l'en-tête couvre ce que robots.txt ne couvre pas :
+    // PDF générés, sitemap, pages déjà connues d'un moteur.
+    ...(indexable ? {} : { '/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } } }),
   },
   nitro: {
     // Codex YAML (source de vérité) embarqués dans le serveur
@@ -71,7 +88,8 @@ export default defineNuxtConfig({
       // Démo locale uniquement : contourne la connexion admin pour les écrans Codex (jamais actif en build de prod)
       codexDemoSansAuth: process.env.CODEX_DEMO_SANS_AUTH === '1',
       r2PublicUrl: process.env.R2_PUBLIC_URL,
-      siteUrl: 'https://www.epicarmageddon.fr',
+      siteUrl,
+      indexable,
     },
   },
 })
