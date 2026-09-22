@@ -8,6 +8,7 @@ codex:
   faction: chaos
   categorie: armees-chaos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/iron-warriors.jpg
   couleur: "#4A4B4D"
   citation:
     texte: "Les remords sur l'âme, comme la rouille sur le fer ; tous deux les dégradent et les consument, les rongent et s'y infiltrent, jusqu'à dévorer enfin le cœur et la substance même du métal. Si le monde entier vous déteste, et vous croit mauvais, tant que votre conscience vous absout du remords, vous ne serez pas sans amis."

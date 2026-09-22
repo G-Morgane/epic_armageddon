@@ -8,6 +8,7 @@ codex:
   faction: chaos
   categorie: armees-chaos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/death-guard.jpg
   couleur: "#5F6B2E"
   citation:
     texte: "Maladie, infection, peste et vérole, souffrance et pourriture sur pied. Tels sont les merveilleux cadeaux que Nurgle réserve à l'indigne bétail humain de l'Imperium. Nous ne sommes que les vecteurs de sa bienveillance virulente, afin qu'elle profite aux masses ingrates."
