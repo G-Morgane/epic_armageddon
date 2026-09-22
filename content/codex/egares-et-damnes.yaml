@@ -1,0 +1,1325 @@
+# Égarés et Damnés, transcrit depuis le PDF EAFR rev 1.9 (source de vérité).
+codex:
+  slug: egares-et-damnes
+  armee_id: b1b6924b-e761-474a-a9da-855d081cbbce
+  nom: Égarés et Damnés
+  version: "1.9"
+  faction: chaos
+  categorie: armees-chaos
+  statut: official
+  citation:
+    texte: "La chair et les os sont faibles et mutables, et pourtant le démon est finalement insignifiant et impuissant. Être maître à la fois de la matière et de l'énergie, et combiner cette maîtrise avec le contrôle ultime de sa conscience, c'est atteindre la véritable immortalité, ni confinée par la matière, ni séparée de celle-ci."
+    auteur: Magos Kaudge Elizah
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée d'Égarés et de Damnés composée de cultistes du Chaos, démons issus des quatres dieux du Chaos et leurs machines de guerres infernales.
+
+    Pour chaque Loge Renégate sélectionnée dans votre liste d'armée, vous pouvez également sélectionner une Formation d'Appui Renégate ET une formation parmi : Formation de Machines démoniaques OU une Formation de Démons OU une Formation du Chaos Universel.
+
+    Chaque Loge Renégate, Formation du Chaos Universel et Formation de Démons peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement pour un maximum de quatre par formation. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'une formation tandis que d'autres ajoutent des unités supplémentaires.
+  regles_md:
+    - titre: "Règle spéciale : Archi-Hérétique"
+      texte: |
+        Un Démagogue, Aspirant Champion Marine du Chaos, Champion des dieux Sombres ou Prince Démon dans l'armée doit obligatoirement être amélioré en Archi-Hérétique. Cette amélioration de personnage ne coûte aucun point supplémentaire.
+    - titre: "Règle spéciale : Instables"
+      texte: |
+        Si les démons sont démoralisés, ils sont détruits. Ils ne peuvent que contester les objectifs, pas les contrôler.
+    - titre: "Règle spéciale : Infestations"
+      texte: |
+        Le déploiement des Infestations fonctionne exactement comme la règle Téléportation, mais après avoir placé une unité lancez 2D6+6 pour savoir de combien de socles de Zombies de la Peste la formation est composée. Testez ensuite normalement les pions impact pour la Téléportation (cela représente une infestation de zombies de la peste qui a été lâchée sur l'ennemi).
+    - titre: "Règle spéciale : Invocation de démons"
+      texte: |
+        Au début de la partie, toutes les formations de Démons sélectionnée lors de la composition de l'armée sont placées en réserve. La note Icône Démoniaque permet, lors de la phase de Téléportation, d'invoquer une de ces formations. L'unité possédant Icône Démoniaque est nommée unité Invocatrice.
+
+        La formation de l'unité Invocatrice et la formation invoquée doivent appartenir à la même allégeance. La formation invoquée apparaît à moins de 15 cm de l'unité Invocatrice. Si l'unité Invocatrice est éliminée, les démons ne peuvent plus être invoqués par cette formation.
+
+        On ne peut invoquer qu'une seule formation de démons par Icône Démoniaque et par partie. Une formation s'étant téléportée ce tour-ci ne peut pas invoquer de démons. La formation invoquée ne subit pas de PI suite à sa « téléportation ».
+
+        Elle devient immédiatement une formation à part entière et en suit les règles habituelles d'activation, de cohésion, etc. Elle reste ensuite en jeu jusqu'à la fin de la partie ou jusqu'à sa destruction.
+    - titre: "Règle spéciale : Concentration démoniaque (X)"
+      texte: |
+        Une fois par partie, une unité possédant la note Concentration Démoniaque (X) peut invoquer des démons mineurs de la manière suivante :
+
+        Au moment de l'activation de la formation de l'unité et avant qu'elle ne fasse son jet d'activation, X démons mineurs correspondants à l'allégeance de l'armée sont ajoutés à la formation. Tous les démons ainsi invoqués doivent être placés à 5 cm de l'unité.
+
+        Les démons restent attachés à la formation jusqu'à la fin de la partie, ou jusqu'à leur destruction. Les démons et la formation devenant ainsi une seule et même formation suivant toutes les règles de cohésion, d'activation, etc.
+
+        Remarque : ces démons n'ont pas à avoir été préalablement sélectionnés lors de la composition de l'armée.
+    - titre: "Règle spéciale : Allégeance"
+      texte: |
+        Une armée Egarés et Damnés doit prêter allégeance à l'un des Dieux du Chaos (Khorne, Nurgle, Slaanesh ou Tzeentch). Vous devez décider à quelle allégeance appartient votre armée au début de la bataille et le noter sur votre liste d'armée. Il est impossible de lier des alliances entre les différents dieux. Vous n'aurez accès qu'aux formations de Démons et de Machines Démons du Dieu choisi, ainsi qu'à celles du Chaos Universel pour constituer votre armée.
+
+        | Factions | Démons mineurs | Démons majeurs | Machines Démons |
+        |---|---|---|---|
+        | Khorne | Sanguinaires | Buveur de Sang | Seigneurs de Batailles, Grands Scorpions d'Airain, Machines Démon de Khorne, Canons de Khorne |
+        | Tzeentch | Incendiaires | Duc du Changement | Palais du Warp, Tours d'Argent, Firelords, Doomwings |
+        | Nurgle | Portes-peste | Grand Immonde | Tours de la Peste, Drônes de la Ruine, Machines de Contagion, Zombies de la Peste |
+        | Slaanesh | Démonettes | Gardien des Secrets | Subjugators, Questors, Chevaliers Hell-Scourge, Chevaliers Hell-Striders |
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par GW LTD 2019. Couverture : Lorenzo Mastroianni ; P1 : Jason Juta."
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Engins de Guerre démoniaques (hors Firelords et Doomwings)", valeur: "1+" }
+      - { portee: "Toute formation contenant un Démon Majeur", valeur: "1+" }
+
+budgets:
+  - id: place_appui
+    libelle: Formations d'Appui Renégates
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 1 Formation d'Appui Renégate par Loge Renégate"
+  - id: place_soutien
+    libelle: Démons, Chaos Universel et Machines Démons
+    capacite: { source: fournitures }
+    phrase_pdf: "Par Loge Renégate, soit 1 Formation de Démons, soit 1 du Chaos Universel, soit 1 de Machines Démons"
+  - id: place_gigantis
+    libelle: Loges Gigantis
+    capacite: { source: fournitures }
+    phrase_pdf: "Chaque Loge Stigmatus permet de sélectionner une Loge Gigantis"
+  - id: demon_majeur_unique
+    libelle: Démon Majeur
+    capacite: { source: fixe, valeur: 1 }
+    phrase_pdf: "Un seul Démon Majeur par armée, pris comme formation ou comme amélioration"
+
+unites:
+  # ---- Personnages ----
+  - id: archi_heretique
+    nom: Archi-Hérétique
+    type: Perso
+    armes: []
+    notes: [Commandant Suprême]
+    roles: [personnage, commandant_supreme]
+  - id: champion_dieux_sombres
+    nom: Champion des Dieux Sombres
+    type: Perso
+    armes: []
+    notes: [Meneur, Sauvegarde invulnérable, "Concentration démoniaque (2d3)"]
+    roles: [personnage]
+  - id: porte_icone
+    nom: Porte-Icône
+    type: Perso
+    armes: []
+    notes: [Sauvegarde Invulnérable, Icône Démoniaque]
+    roles: [personnage]
+
+  # ---- Infanterie renégate ----
+  - id: aspirant_champion
+    nom: Aspirant Champion Space Marine du Chaos
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter, portee: (15cm), puissance: Arme Légère }
+      - { nom: Arme Démon, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Sauvegarde invulnérable, Commandant, Meneur]
+    roles: [commandant]
+  - id: demagogue
+    nom: Démagogue
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance Grenades, portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Pouvoir de l'Arcane, portee: 30cm, puissance: "MA6+, MA" }
+      - { nom: et, portee: (15cm), puissance: Arme Légère }
+      - { nom: Arme Démon, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Sauvegarde invulnérable, Meneur, Icône démoniaque]
+    roles: [commandant]
+  - id: prince_demon
+    nom: Prince Démon
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Arme Possédée, portee: (contact), puissance: "Arme d'Assaut, +2A, MA" }
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation]
+    roles: [commandant]
+    taille_transport: 2
+  - id: prince_demon_aile
+    nom: Prince Démon Ailé
+    type: Inf
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Arme Possédée, portee: (contact), puissance: "Arme d'Assaut, +2A, MA" }
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Réacteurs Dorsaux, Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation]
+    roles: [commandant]
+    taille_transport: 2
+  - id: cultiste
+    nom: Cultiste
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mitrailleuse Lourde, portee: 30cm, puissance: "AP6+" }
+      - { nom: Arme à Feu, portee: (15cm), puissance: Arme Légère }
+  - id: mutant_geant
+    nom: Mutant Géant
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Arme Lourde, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: mutant
+    nom: Mutant
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Arme à Feu, portee: (15cm), puissance: Arme Légère }
+      - { nom: Diverses Armes, portee: (contact), puissance: "Arme d'Assaut" }
+  - id: ogryn_renegat
+    nom: Ogryn Renégat
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Mitrailleuse Lourde, portee: 30cm, puissance: "AP6+" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: acolyte
+    nom: Acolyte
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-Plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+      - { nom: Arme Moderne, portee: (15cm), puissance: Arme Légère }
+  - id: cavalier_renegat
+    nom: Cavalier Renégat
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Pistolets Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Lances énergétiques, portee: (contact), puissance: "Arme d'Assaut, FeP" }
+    notes: [Montés, Eclaireurs, Infiltrateurs]
+  - id: chien_chaos
+    nom: Chien du Chaos
+    type: Inf
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Crocs, portee: (contact), puissance: "Arme d'Assaut" }
+  - id: enfant_chaos
+    nom: Enfant du Chaos
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Horribles Mutations, portee: (contact), puissance: "Arme d'Assaut, +D3A" }
+    notes:
+      - Sans Peur
+      - Sauvegarde Invulnérable
+      - "Les Enfants du Chaos ne peuvent que contester les objectifs, pas les contrôler."
+    taille_transport: 2
+  - id: appui_feu
+    nom: Appui-feu
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+
+  # ---- Véhicules renégats ----
+  - id: sentinelle
+    nom: Sentinelle
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Marcheur, Éclaireur]
+  - id: hydre
+    nom: Hydre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: basilisk
+    nom: Basilisk
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_demolisseur
+    nom: Leman Russ Démolisseur
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Lance-Plasma Lourd, portee: 30cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage Renforcé]
+  - id: defiler
+    nom: Defiler
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Faucheurs (defiler), portee: 30cm, puissance: "AP3+/AC5+" }
+      - { nom: Griffes de combat, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Lance-flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme légère, +1A, IC" }
+    notes: [Blindage Renforcé, Marcheur, Sans Peur, Sauvegarde invulnérable]
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Démagogue, Aspirant Champion Marine du Chaos, Cultistes, Mutants, Acolytes, Appui Feu Renégats, Prince Démon*, Mutants Géants* et Ogryns Renégats* (* prennent 2 places)"]
+    transport: { capacite: 2, accepte: [demagogue, aspirant_champion, cultiste, mutant, acolyte, appui_feu, prince_demon, mutant_geant, ogryn_renegat] }
+  - id: transporteur_terrestre
+    nom: Transporteur Terrestre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "-"
+    armes: []
+    notes: ["Transport (2) : Démagogue, Aspirant Champion Marine du Chaos, Cultistes, Mutants, Acolytes, Appui Feu Renégats, Prince Démon*, Mutants Géants* et Ogryns Renégats* (* prennent 2 places)"]
+    transport: { capacite: 2, accepte: [demagogue, aspirant_champion, cultiste, mutant, acolyte, appui_feu, prince_demon, mutant_geant, ogryn_renegat] }
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: griffon
+    nom: Griffon
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier Griffon, portee: 30cm, puissance: "1PB, Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: autel_chaos
+    nom: Autel du Chaos
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Arcano-technologie, portee: 45cm, puissance: "D3xAP4+/AC4+/AA4+" }
+    notes: [Blindage renforcé, Charismatique, "Concentration démoniaque (2d3)", Sans peur, Sauvegarde invulnérable]
+    degats: { cd: 3, critique: "L'Autel est aspiré dans le Warp et est détruit. Toutes les unités dans un rayon de 5 cm subissent une touche MA6+ à cause du contrecoup de pouvoir brut du Warp" }
+  - id: thunderbolt
+    nom: Thunderbolt
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Fulgurants, portee: 15cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Multi-Lasers (FF), portee: 30cm, puissance: "AP5+/AC6+/AA5+, FrtF" }
+      - { nom: Roquettes, portee: 30cm, puissance: "AC4+, FrtF" }
+  - id: bombardier_marauder
+    nom: Bombardier Marauder
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Arr), portee: 30cm, puissance: "AA5+, Arr" }
+      - { nom: Canons Laser Jumelés (FF+AA), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Bombes (Bomber), portee: 15cm, puissance: "3PB, FrtF" }
+    degats: { cd: 2, critique: "Le Bombardier Marauder s'écrase au sol et est détruit." }
+
+  # ---- Démons ----
+  - id: buveur_sang
+    nom: Buveur de Sang
+    type: EG
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Hache de Khorne, portee: (contact), puissance: "Arme d'Assaut, +2A, TT (1)" }
+      - { nom: Fouet de Khorne, portee: (contact), puissance: "Arme d'Assaut, +1A, TT (1)" }
+    notes: [Blindage Renforcé, Charismatique, Marcheur, Meneur, Réacteurs Dorsaux, Sauvegarde Invulnérable, Sacrifiable, Instable]
+    degats: { cd: 3, critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6" }
+  - id: sanguinaires
+    nom: Sanguinaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Lame d'Enfer, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: [Sauvegarde Invulnérable, Sacrifiables, Instables]
+  - id: duc_changement
+    nom: Duc du Changement
+    type: EG
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Regard Cinglant, portee: 30cm, puissance: "2xMA3+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bâton de Chari Vari, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage Renforcé, Charismatique, Marcheur, Meneur, Réacteurs Dorsaux, Sauvegarde Invulnérable, Sacrifiable, Instable]
+    degats: { cd: 3, critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6" }
+  - id: incendiaires
+    nom: Incendiaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Flammes de Tzeentch, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Sauvegarde Invulnérable, Sacrifiables, Instables]
+  - id: grand_immonde
+    nom: Grand Immonde
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Nuée de Nurglings, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Flot de Corruption, portee: (souffle), puissance: "AP4+/AC5+, Rpt, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé, Charismatique, Meneur, Marcheur, Sauvegarde Invulnérable, Sacrifiable, Instable]
+    degats: { cd: 4, critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6" }
+    taille_transport: 4
+  - id: portepestes
+    nom: Portepestes
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Epée de la Peste, portee: (contact), puissance: "Arme d'Assaut" }
+      - { nom: Nuée de Mouches, portee: (15cm), puissance: Arme Légère }
+    notes: [Sauvegarde Invulnérable, Sacrifiables, Instables]
+  - id: gardien_secrets
+    nom: Gardien des Secrets
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Regard de Slaanesh, portee: 45cm, puissance: "2xMA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA, FeP" }
+      - { nom: Fouet du Tourment, portee: (contact), puissance: "Arme d'Assaut, +1A, MA, FeP" }
+    notes: [Blindage Renforcé, Charismatique, Meneur, Marcheur, Sauvegarde Invulnérable, Sacrifiable, Instable]
+    degats: { cd: 3, critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6" }
+  - id: demonettes
+    nom: Démonettes
+    type: Inf
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes Démoniaques, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Frappe en Premier, Sauvegarde Invulnérable, Sacrifiables, Instables]
+
+  # ---- Machines démons ----
+  - id: seigneur_bataille
+    nom: Seigneur de Bataille
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Deathstorm, portee: 45cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: 2x Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Poing Tronçonneur, portee: (contact), puissance: "Arme d'Assaut, +3A, TT (1)" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Sauvegarde Invulnérable]
+    degats:
+      cd: 6
+      critique: "Une des runes canalisant l'énergie du Warp est endommagée. Lancez 1D6 durant la phase finale de chaque tour pour chaque rune endommagée : 1 : le Seigneur de Bataille est aspiré dans le Warp, et considéré comme détruit ; 2-3 : il subit 1 point de dommages supplémentaire, et bouge immédiatement de 3D6 cm dans une direction aléatoire, s'il percute un terrain difficile ou une autre unité qu'il ne peut pousser, il s'arrête et subit un point de dommages supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 4+ ; 4-6 : la rune est réparée"
+  - id: grand_scorpion_airain
+    nom: Grand Scorpion d'Airain
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Mega Canon Scorpion, portee: 30cm, puissance: "2xAP3+/AC5+" }
+      - { nom: Canon Hellmaw, portee: 15cm, puissance: "2x AP4+, IC" }
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: 2x Griffes de Combat, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes:
+      - Infiltrateur
+      - Marcheur
+      - Blindage Renforcé
+      - Sans Peur
+      - Sauvegarde Invulnérable
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins haut que les genoux du Grand Scorpion d'Airain et de 2cm de large maximum"
+    degats: { cd: 3, critique: "Le Scorpion d'Airain est détruit. Toutes les unités dans un rayon de 5cm subissent une touche sur 6+" }
+  - id: machine_demon_khorne
+    nom: Machine Démon de Khorne
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Sanguinaire, portee: 30cm, puissance: "2xAP4+/AC4+" }
+      - { nom: Lames Démoniaques, portee: (contact), puissance: "Arme d'Assaut, +D3A" }
+    notes: [Blindage Renforcé, Sans Peur, Sauvegarde Invulnérable]
+  - id: canon_khorne
+    nom: Canon de Khorne
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Feu d'Enfer, portee: 60cm, puissance: "MA4+" }
+    notes: [Sans Peur, Sauvegarde Invulnérable]
+  - id: palais_warp
+    nom: Palais du Warp
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 3x Canon des Arcanes, portee: 45cm, puissance: "AP4+/AC4+" }
+      - { nom: Rayon du Pouvoir, portee: 60cm, puissance: "MA3+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Feu du Warp de Tzeentch, portee: 30cm, puissance: "3PB, TT (D3), IC" }
+    notes: [Antigrav, Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Sauvegarde Invulnérable]
+    degats:
+      cd: 6
+      critique: "Une des runes canalisant l'énergie du Warp est endommagée. Lancez 1D6 durant la phase finale de chaque tour pour chaque rune endommagée : 1 : le Palais du Warp est aspiré dans le Warp, et considéré comme détruit ; 2-3 : il subit 1 point de dommages supplémentaire, et chaque unité dans un rayon de 5cm subit une touche Macro arme sur 6+ ; 4-6 : la rune est réparée"
+  - id: tour_argent
+    nom: Tour d'Argent
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Pouvoir de Tzeentch, portee: 45cm, puissance: "1PB, MA" }
+      - { nom: Canon des Arcanes, portee: 45cm, puissance: "AP4+/AC4+" }
+    notes: [Antigrav, Sans Peur, Sauvegarde Invulnérable]
+  - id: firelord
+    nom: Firelord
+    type: A
+    vitesse: B
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon à Flammes, portee: 15cm, puissance: "AP4+/AC4+/AA4+, IC, FrtF" }
+      - { nom: Canons Laser Jumelés AA, portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Bombes Firestorm, portee: 15cm, puissance: "D3+1PB, IC" }
+    notes: [Sauvegarde Invulnérable]
+    degats: { cd: 2, critique: "Le Firelord s'écrase et est détruit" }
+  - id: doomwing
+    nom: Doomwing
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon à Flammes, portee: 15cm, puissance: "AP4+/AC4+/AA4+, IC, FrtF" }
+    notes: [Sauvegarde Invulnérable]
+  - id: tour_peste
+    nom: Tour de la Peste
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Mortier de la Peste, portee: 60cm, puissance: "D3+3PB, Rpt, FrtF" }
+      - { nom: Canon de la Pourriture, portee: 90cm, puissance: "AP3+/AC5+, IC, FrtF" }
+      - { nom: 2x Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+    notes:
+      - Blindage Renforcé
+      - Sans Peur
+      - Sauvegarde Invulnérable
+      - "Transport (16) : Marines de la Peste, Havocs, Démagogues, Aspirants Champions, Cultistes, Mutants, Acolytes, Chiens du Chaos, Appui Feu Renégats, Portepestes, Elus Terminators*, Obliterators*, Prince Démon*, Enfant du Chaos*, Mutants Géants*, Ogryns Renégats*, Grand Immonde** (les unités avec astérisque * prennent 2 places, ** 4 places)"
+    transport:
+      capacite: 16
+      accepte: [demagogue, aspirant_champion, cultiste, mutant, acolyte, chien_chaos, appui_feu, portepestes, prince_demon, enfant_chaos, mutant_geant, ogryn_renegat, grand_immonde]
+    degats:
+      cd: 6
+      critique: "Une des Runes canalisant l'énergie du Warp est endommagée. Lancez 1D6 durant la phase finale de chaque tour pour chaque rune endommagée : 1 : la Tour de la Peste est aspirée dans le Warp, et considérée comme détruite ; 2-3 : elle subit 1 point de dommages supplémentaire, et des explosions internes tuent 1D3 passagers (sans sauvegarde autorisée) au choix de leur possesseur ; 4-6 : la rune est réparée"
+  - id: drone_ruine
+    nom: Drone de la Ruine
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Maw, portee: 30cm, puissance: "AP3+/AC5+, IC" }
+      - { nom: Autocanon Faucheur, portee: 30cm, puissance: "AP4+/AC6+" }
+      - { nom: Canon à Peste, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Antigrav, Sans Peur, Blindage Arrière Renforcé, Sauvegarde Invulnérable]
+  - id: machine_contagion
+    nom: Machine de Contagion
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Catapulte de la Peste, portee: 45cm, puissance: "1PB, Ind, Rpt" }
+      - { nom: Canon à Vomi, portee: 30cm, puissance: "AP4+/AC6+, IC" }
+    notes: [Sans Peur, Sauvegarde Invulnérable]
+  - id: zombie_peste
+    nom: Zombies de la Peste
+    type: Inf
+    vitesse: 10cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "-"
+    armes:
+      - { nom: Griffes et Crocs, portee: (contact), puissance: "Arme d'Assaut" }
+    notes:
+      - Infiltrateurs
+      - Infestation
+      - "Les Zombies de la Peste peuvent contester les objectifs mais pas les tenir."
+  - id: titan_subjugator
+    nom: Titan Subjugator
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Psy, portee: 45cm, puissance: "MA4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Lame de l'Enfer, portee: (contact), puissance: "Arme d'Assaut, +1A, TT (D3)" }
+    notes:
+      - Blindage Renforcé
+      - Marcheur
+      - Sans Peur
+      - "Peut se déplacer au-dessus de terrains dangereux ou infranchissables et d'unités qui ne sont pas plus hauts que les genoux du Titan et dont la largeur ne fait pas plus de 2 cm"
+    degats: { cd: 3, bi: 2, critique: "Le Subjugator est déséquilibré et trébuche. Déplacez-le de 1D6 cm dans une direction aléatoire. S'il percute un terrain infranchissable ou une unité qu'il ne peut pas pousser, il s'arrête et subit un point de dommage supplémentaire. Les unités qu'il percute subissent une touche sur un 6+" }
+  - id: titan_questor
+    nom: Titan Questor
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Canon Castigator, portee: 45cm, puissance: "3xAP3+/AC5+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes:
+      - Blindage Renforcé
+      - Marcheur
+      - Sans Peur
+      - "Peut se déplacer au-dessus de terrains dangereux ou infranchissables et d'unités qui ne sont pas plus hauts que les genoux du Titan et dont la largeur ne fait pas plus de 2 cm"
+    degats: { cd: 3, bi: 2, critique: "Le Questor est déséquilibré et trébuche. Déplacez-le de 1D6 cm dans une direction aléatoire. S'il percute un terrain infranchissable ou une unité qu'il ne peut pas pousser, il s'arrête et subit un point de dommage supplémentaire. Les unités qu'il percute subissent une touche sur un 6+" }
+  - id: chevalier_hell_scourge
+    nom: Chevalier Hell Scourge
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Castigator, portee: 45cm, puissance: "3xAP3+/AC5+" }
+    notes: [Eclaireur, Marcheur, Sans Peur, Sauvegarde Invulnérable]
+  - id: chevalier_hell_strider
+    nom: Chevalier Hell Strider
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Multi Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Marcheur, Sans Peur, Sauvegarde Invulnérable]
+
+options:
+  - id: archi_heretique
+    nom: Archi-Hérétique
+    effet: { type: ajouter, cout: 0, unites: [{ unite: archi_heretique }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: min_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: requiert_unite, unites: [demagogue, aspirant_champion, champion_dieux_sombres, prince_demon, prince_demon_aile] }
+    phrase_pdf: "Améliorer un Démagogue, un Aspirant Champion Marine du Chaos, un Champion des Dieux Sombres ou un Prince Démon en Archi-Hérétique"
+    note_md: "Obligatoire et gratuit : une armée compte exactement un Archi-Hérétique. Cette amélioration ne compte pas dans les quatre améliorations par formation."
+  - id: demon_majeur_ajout
+    nom: Démon Majeur
+    effet:
+      type: choix
+      parmi:
+        - id: buveur_sang
+          nom: Buveur de Sang
+          cout: 150
+          effet: { type: ajouter, unites: [{ unite: buveur_sang }] }
+          contraintes: [{ type: requiert_unite, unites: [sanguinaires] }]
+        - id: duc_changement
+          nom: Duc du Changement
+          cout: 150
+          effet: { type: ajouter, unites: [{ unite: duc_changement }] }
+          contraintes: [{ type: requiert_unite, unites: [incendiaires] }]
+        - id: grand_immonde
+          nom: Grand Immonde
+          cout: 150
+          effet: { type: ajouter, unites: [{ unite: grand_immonde }] }
+          contraintes: [{ type: requiert_unite, unites: [portepestes] }]
+        - id: gardien_secrets
+          nom: Gardien des Secrets
+          cout: 150
+          effet: { type: ajouter, unites: [{ unite: gardien_secrets }] }
+          contraintes: [{ type: requiert_unite, unites: [demonettes] }]
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: consomme, budget: demon_majeur_unique }
+    phrase_pdf: "(0-1) Ajouter un Démon Majeur à une formation de Démons Mineurs correspondant à l'allégeance de la formation"
+    note_md: "Uniquement si le Démon Majeur n'a pas déjà été pris comme formation. Une formation de Démons Mineurs comprenant un Démon Majeur a une initiative de 1+."
+  - id: autel_chaos
+    nom: Autel du Chaos
+    effet: { type: ajouter, cout: 200, unites: [{ unite: autel_chaos }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "(0-1) Ajouter un Autel du Chaos à la formation"
+  - id: prince_demon
+    nom: Prince Démon
+    effet:
+      type: choix
+      parmi:
+        - id: prince_demon
+          nom: Prince Démon
+          cout: 50
+          effet: { type: remplacer, de: [aspirant_champion, demagogue], par: prince_demon, lot: 1, max: 1, cout: 0 }
+        - id: prince_demon_aile
+          nom: Prince Démon Ailé
+          cout: 50
+          effet: { type: remplacer, de: [aspirant_champion, demagogue], par: prince_demon_aile, lot: 1, max: 1, cout: 0 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "(0-1) Remplacer l'Aspirant Champion Space Marine du Chaos ou le Démagogue par un Prince Démon ou un Prince Démon Ailé"
+  - id: champion_dieux_sombres
+    nom: Champion des Dieux Sombres
+    effet: { type: ajouter, cout: 100, unites: [{ unite: champion_dieux_sombres }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la note Concentration Démoniaque (2D3) à une unité de la formation"
+    note_md: "La feuille de références décrit le Champion des Dieux Sombres comme un personnage (Meneur, Sauvegarde invulnérable, Concentration démoniaque (2d3)) : l'amélioration est donc modélisée comme l'ajout de ce personnage à une unité de la formation."
+  - id: cardinal
+    nom: Cardinal
+    effet: { type: mot_cle, texte: Charismatique, cout: 25, cible: [demagogue] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [demagogue] }
+    phrase_pdf: "(0-1) Un Démagogue gagne la note Charismatique"
+  - id: pacte_demoniaque
+    nom: Pacte Démoniaque
+    effet: { type: ajouter, cout: 25, unites: [{ unite: porte_icone }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un personnage de Porte-icône à une unité de la formation"
+  - id: defilers
+    nom: Defilers
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: un, nom: 1 Defiler, cout: 75, unites: [{ unite: defiler, nombre: 1 }] }
+        - { id: deux, nom: 2 Defilers, cout: 125, unites: [{ unite: defiler, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Defiler (75 pts) ou deux Defilers (125 pts) à la formation"
+  - id: cultistes_mutants
+    nom: Cultistes ou Mutants
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 8 }
+      parmi:
+        - { unite: cultiste, cout: 10 }
+        - { unite: mutant, cout: 10 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 8 Cultistes et/ou Mutants (10 pts chacun)"
+  - id: transports_renegats
+    nom: Transports Renégats
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: besoin_transport }
+      parmi:
+        - { unite: transporteur_terrestre, cout: 10 }
+        - { unite: chimere, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter suffisamment de Transporteurs Terrestres (10 pts chacun) et/ou de Chimères (25 pts chacune) pour véhiculer toutes les infanteries ayant un mouvement inférieur ou égal à 15cm"
+    note_md: "Les unités transportables sont celles listées dans la note Transport du Transporteur Terrestre et de la Chimère. On ne peut pas prendre plus de véhicules que nécessaire."
+  - id: enfants_chaos
+    nom: Enfants du Chaos
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: enfant_chaos }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 unités d'Enfants du Chaos (25 pts chacune)"
+  - id: chiens_chaos
+    nom: Chiens du Chaos
+    effet: { type: ajouter, cout_par_unite: 10, unites: [{ unite: chien_chaos }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 unités de Chiens du Chaos (10 pts chacune)"
+  - id: appuis_feu
+    nom: Appuis-feux Renégats
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: appui_feu }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 4 unités d'Appuis-feux (25 pts chacune)"
+  - id: griffons
+    nom: Griffons Renégats
+    effet: { type: ajouter, cout_par_unite: 35, unites: [{ unite: griffon }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 Griffons (35 pts chacun)"
+  - id: hellhounds
+    nom: Hellhounds Renégats
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: hellhound }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 Hellhounds (50 pts chacun)"
+  - id: chars_renegats
+    nom: Chars Renégats
+    effet:
+      type: choix
+      parmi:
+        - id: leman_russ
+          nom: Leman Russ
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: leman_russ }], cout_par_unite: 75, min: 1, max: 3 }
+        - id: demolisseurs
+          nom: Leman Russ Démolisseurs
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: leman_russ_demolisseur }], cout_par_unite: 85, min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 Leman Russ (75 pts chacun) ou jusqu'à 3 Leman Russ Démolisseurs (85 pts chacun)"
+  - id: dca_renegate
+    nom: DCA Renégate
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hydre }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter une Hydre à la formation"
+    note_md: "Le tableau de la Loge Primatus nomme cette amélioration « Flak Renégate » ; il s'agit de la même ligne du tableau des améliorations."
+
+formations:
+  # ---- Loges Renégates ----
+  - id: loge_stigmatus
+    nom: Loge Stigmatus
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - choix:
+              total: 1
+              parmi: [{ unite: aspirant_champion }, { unite: demagogue }]
+              phrase_pdf: "1 Aspirant Champion Marine du Chaos ou 1 Démagogue"
+          - choix:
+              total: 11
+              parmi: [{ unite: cultiste }, { unite: mutant }]
+              phrase_pdf: "11 unités de cultistes et/ou de Mutants"
+    contraintes:
+      - { type: fournit, budget: place_appui, quantite: 1 }
+      - { type: fournit, budget: place_soutien, quantite: 1 }
+      - { type: fournit, budget: place_gigantis, quantite: 1 }
+  - id: loge_gigantis
+    nom: Loge Gigantis
+    description: "Une Loge Gigantis par Loge Stigmatus"
+    variantes:
+      - id: avec_chef
+        nom: "1 Aspirant Champion Marine du Chaos ou 1 Démagogue + 5 Mutants Géants et/ou Ogryns Renégats"
+        cout: 275
+        composition:
+          - choix:
+              total: 1
+              parmi: [{ unite: aspirant_champion }, { unite: demagogue }]
+              phrase_pdf: "1 Aspirant Champion Marine du Chaos ou 1 Démagogue"
+          - choix:
+              total: 5
+              parmi: [{ unite: mutant_geant }, { unite: ogryn_renegat }]
+              phrase_pdf: "5 Mutants Géants et/ou Ogryns Renégats"
+      - id: sans_chef
+        nom: "6 Mutants Géants et/ou Ogryns Renégats"
+        cout: 250
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: mutant_geant }, { unite: ogryn_renegat }]
+              phrase_pdf: "6 Mutants Géants et/ou Ogryns Renégats"
+    contraintes:
+      - { type: consomme, budget: place_gigantis }
+      - { type: fournit, budget: place_appui, quantite: 1 }
+      - { type: fournit, budget: place_soutien, quantite: 1 }
+
+  # ---- Formations d'Appui Renégates ----
+  - id: peloton_cavaliers
+    nom: Peloton de Cavaliers
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: cavalier_renegat, nombre: 6 }] }
+  - id: escadron_sentinelles
+    nom: Escadron de Sentinelles
+    variantes:
+      - { id: base, cout: 100, composition: [{ unite: sentinelle, nombre: 4 }] }
+  - id: batterie_antiaerienne
+    nom: Batterie Antiaérienne
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: hydre, nombre: 3 }] }
+  - id: batterie_artillerie
+    nom: Batterie d'Artillerie
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: basilisk, nombre: 3 }] }
+  - id: compagnie_blindee
+    nom: Compagnie Blindée
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: leman_russ, nombre: 6 }] }
+  - id: escadrille_chasseurs
+    nom: Escadrilles de Chasseurs
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: thunderbolt, nombre: 2 }] }
+  - id: escadrille_bombardiers
+    nom: Escadrille de Bombardiers
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: bombardier_marauder, nombre: 2 }] }
+
+  # ---- Formations du Chaos Universel ----
+  - id: loge_primatus
+    nom: Loge Primatus
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - choix:
+              total: 1
+              parmi: [{ unite: demagogue }, { unite: aspirant_champion }]
+              phrase_pdf: "1 Démagogue ou Aspirant Champion du Chaos"
+          - { unite: acolyte, nombre: 7 }
+          - { unite: chimere, nombre: 4 }
+    options: [archi_heretique, prince_demon, champion_dieux_sombres, pacte_demoniaque, dca_renegate]
+  - id: detachement_defilers
+    nom: Defilers
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: defiler, nombre: 4 }] }
+    options: [defilers]
+  - id: meute_sauvage
+    nom: Meute Sauvage
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: chien_chaos, nombre: 8 }] }
+    options: [chiens_chaos]
+  - id: horde_mutante
+    nom: Horde Mutante
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: enfant_chaos, nombre: 6 }] }
+    options: [enfants_chaos]
+
+  # ---- Formations de Démons ----
+  - id: demon_majeur
+    nom: Démon Majeur
+    description: "0-1 par armée"
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - choix:
+              total: 1
+              parmi: [{ unite: buveur_sang }, { unite: duc_changement }, { unite: grand_immonde }, { unite: gardien_secrets }]
+              phrase_pdf: "1 Démon Majeur"
+    options: []
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: consomme, budget: demon_majeur_unique }
+      - { type: initiative, valeur: "1+" }
+  - id: demons_mineurs
+    nom: Démons Mineurs
+    description: "0-2 par armée"
+    variantes:
+      - id: huit
+        nom: 8 unités de Démons Mineurs
+        cout: 175
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: sanguinaires }, { unite: incendiaires }, { unite: portepestes }, { unite: demonettes }]
+              phrase_pdf: "8 unités de Démons Mineurs"
+      - id: douze
+        nom: 12 unités de Démons Mineurs
+        cout: 275
+        composition:
+          - choix:
+              total: 12
+              parmi: [{ unite: sanguinaires }, { unite: incendiaires }, { unite: portepestes }, { unite: demonettes }]
+              phrase_pdf: "12 unités de Démons Mineurs"
+    options: [demon_majeur_ajout]
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+
+  # ---- Formations de Machines Démons ----
+  - id: seigneurs_batailles
+    nom: Seigneurs de Batailles
+    variantes:
+      - { id: un, nom: 1 Seigneur de Batailles, cout: 400, composition: [{ unite: seigneur_bataille, nombre: 1 }] }
+      - { id: deux, nom: 2 Seigneurs de Batailles, cout: 800, composition: [{ unite: seigneur_bataille, nombre: 2 }] }
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: scorpions_airain
+    nom: Scorpions d'Airain
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 1, max: 3 }
+              parmi: [{ unite: grand_scorpion_airain, cout: 225 }]
+              phrase_pdf: "1 à 3 Grands Scorpions d'Airain (225 pts chacun)"
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: meute_carnage
+    nom: Meute du Carnage
+    variantes:
+      - { id: quatre, nom: 4 Machines Démon de Khorne, cout: 275, composition: [{ unite: machine_demon_khorne, nombre: 4 }] }
+      - { id: six, nom: 6 Machines Démon de Khorne, cout: 400, composition: [{ unite: machine_demon_khorne, nombre: 6 }] }
+  - id: batterie_feu_enfer
+    nom: Batterie Feu d'Enfer
+    variantes:
+      - { id: quatre, nom: 4 Canons de Khorne, cout: 225, composition: [{ unite: canon_khorne, nombre: 4 }] }
+      - { id: six, nom: 6 Canons de Khorne, cout: 325, composition: [{ unite: canon_khorne, nombre: 6 }] }
+  - id: palais_warp
+    nom: Palais du Warp
+    variantes:
+      - { id: un, nom: 1 Palais du Warp, cout: 375, composition: [{ unite: palais_warp, nombre: 1 }] }
+      - { id: deux, nom: 2 Palais du Warp, cout: 750, composition: [{ unite: palais_warp, nombre: 2 }] }
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: fleche_arcanes
+    nom: Flèche des Arcanes
+    variantes:
+      - { id: quatre, nom: 4 Tours d'Argent, cout: 250, composition: [{ unite: tour_argent, nombre: 4 }] }
+      - { id: six, nom: 6 Tours d'Argent, cout: 375, composition: [{ unite: tour_argent, nombre: 6 }] }
+  - id: vol_firelords
+    nom: Vol de Bombardiers Firelords
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 2, max: 3 }
+              parmi: [{ unite: firelord, cout: 150 }]
+              phrase_pdf: "2 à 3 Firelords (150 pts chacun)"
+  - id: vol_doomwings
+    nom: Vol de Chasseurs Doomwings
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: doomwing, nombre: 3 }] }
+  - id: tours_peste
+    nom: Tours de la Peste
+    variantes:
+      - { id: un, nom: 1 Tour de la Peste, cout: 375, composition: [{ unite: tour_peste, nombre: 1 }] }
+      - { id: deux, nom: 2 Tours de la Peste, cout: 750, composition: [{ unite: tour_peste, nombre: 2 }] }
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: avant_garde_ruine
+    nom: Avant-garde de la Ruine
+    variantes:
+      - { id: quatre, nom: 4 Drônes de la Ruine, cout: 225, composition: [{ unite: drone_ruine, nombre: 4 }] }
+      - { id: six, nom: 6 Drônes de la Ruine, cout: 325, composition: [{ unite: drone_ruine, nombre: 6 }] }
+  - id: artillerie_peste
+    nom: Artillerie de la Peste
+    variantes:
+      - { id: quatre, nom: 4 Machines de Contagion, cout: 300, composition: [{ unite: machine_contagion, nombre: 4 }] }
+      - { id: six, nom: 6 Machines de Contagion, cout: 450, composition: [{ unite: machine_contagion, nombre: 6 }] }
+  - id: infestation_zombies
+    nom: Infestation de Zombies
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - choix:
+              total: { min: 8, max: 18 }
+              parmi: [{ unite: zombie_peste, cout: 0 }]
+              phrase_pdf: "2D6+6 Zombies de la Peste"
+    phrase_pdf: "2D6+6 Zombies de la Peste"
+  - id: titan_leger_demoniaque
+    nom: Titan Léger Démoniaque
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 1, max: 2 }
+              parmi: [{ unite: titan_subjugator, cout: 250 }, { unite: titan_questor, cout: 275 }]
+              phrase_pdf: "1 ou 2 Titans Légers parmi : Subjugator (250 pts chacun), Questor (275 pts chacun)"
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: phalange_infernale
+    nom: Phalange Infernale
+    variantes:
+      - { id: quatre, nom: 4 Chevaliers Hell-Scourge, cout: 275, composition: [{ unite: chevalier_hell_scourge, nombre: 4 }] }
+      - { id: six, nom: 6 Chevaliers Hell-Scourge, cout: 400, composition: [{ unite: chevalier_hell_scourge, nombre: 6 }] }
+  - id: cohorte_infernale
+    nom: Cohorte Infernale
+    variantes:
+      - { id: quatre, nom: 4 Chevaliers Hell-Striders, cout: 225, composition: [{ unite: chevalier_hell_strider, nombre: 4 }] }
+      - { id: six, nom: 6 Chevaliers Hell-Striders, cout: 325, composition: [{ unite: chevalier_hell_strider, nombre: 6 }] }
+
+sections:
+  - id: loges_renegates
+    titre: LOGES RENÉGATES
+    sous_titre: "Chaque Loge Stigmatus permet de sélectionner une Loge Gigantis"
+    formations: [loge_stigmatus, loge_gigantis]
+    contraintes: [{ type: max_options, valeur: 4 }]
+    options:
+      - archi_heretique
+      - autel_chaos
+      - prince_demon
+      - champion_dieux_sombres
+      - cardinal
+      - pacte_demoniaque
+      - defilers
+      - cultistes_mutants
+      - transports_renegats
+      - enfants_chaos
+      - chiens_chaos
+      - appuis_feu
+      - griffons
+      - hellhounds
+      - chars_renegats
+      - dca_renegate
+    tableau_options:
+      titre: AMÉLIORATIONS
+      sous_titre: "Jusqu'à 4 améliorations différentes par Loge Renégate ou Formation de Soutien, chacune une seule fois par formation"
+  - id: appuis_renegats
+    titre: FORMATIONS D'APPUI RENÉGATES
+    sous_titre: "FORMATIONS DE SOUTIEN : jusqu'à 1 Formation d'Appui par Loge Renégate"
+    formations: [peloton_cavaliers, escadron_sentinelles, batterie_antiaerienne, batterie_artillerie, compagnie_blindee, escadrille_chasseurs, escadrille_bombardiers]
+    contraintes: [{ type: consomme, budget: place_appui }]
+  - id: chaos_universel
+    titre: FORMATIONS DU CHAOS UNIVERSEL
+    sous_titre: "FORMATIONS DE SOUTIEN : par Loge Renégate, soit 1 Formation de Démons, soit 1 du Chaos Universel, soit 1 de Machines Démons"
+    formations: [loge_primatus, detachement_defilers, meute_sauvage, horde_mutante]
+    contraintes:
+      - { type: consomme, budget: place_soutien }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: formations_demons
+    titre: FORMATIONS DE DÉMONS
+    sous_titre: "FORMATIONS DE SOUTIEN : par Loge Renégate, soit 1 Formation de Démons, soit 1 du Chaos Universel, soit 1 de Machines Démons"
+    formations: [demon_majeur, demons_mineurs]
+    contraintes:
+      - { type: consomme, budget: place_soutien }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: machines_demons
+    titre: FORMATIONS DE MACHINES DÉMONS
+    sous_titre: "FORMATIONS DE SOUTIEN : par Loge Renégate, soit 1 Formation de Démons, soit 1 du Chaos Universel, soit 1 de Machines Démons"
+    formations:
+      - seigneurs_batailles
+      - scorpions_airain
+      - meute_carnage
+      - batterie_feu_enfer
+      - palais_warp
+      - fleche_arcanes
+      - vol_firelords
+      - vol_doomwings
+      - tours_peste
+      - avant_garde_ruine
+      - artillerie_peste
+      - infestation_zombies
+      - titan_leger_demoniaque
+      - phalange_infernale
+      - cohorte_infernale
+    contraintes: [{ type: consomme, budget: place_soutien }]
+
+listes_test:
+  - nom: "2000 pts valide : Loge Stigmatus en Transporteurs, Loge Gigantis, Compagnie Blindée, Démon Majeur et Meute du Carnage"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+        options:
+          - { option: archi_heretique }
+          - { option: cardinal }
+          - { option: pacte_demoniaque }
+          - { option: transports_renegats, repartition: { transporteur_terrestre: 6 } }
+      - formation: loge_gigantis
+        variante: sans_chef
+        choix: { "0": { mutant_geant: 4, ogryn_renegat: 2 } }
+      - { formation: compagnie_blindee }
+      - { formation: demon_majeur, choix: { "0": { buveur_sang: 1 } } }
+      - { formation: meute_carnage, variante: quatre }
+  - nom: "3000 pts valide : deux Loges Stigmatus, Prince Démon Ailé, Démons Mineurs avec Grand Immonde et Loge Primatus"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { aspirant_champion: 1 }, "1": { cultiste: 6, mutant: 5 } }
+        options:
+          - { option: archi_heretique }
+          - { option: prince_demon, choix: prince_demon_aile }
+          - { option: chars_renegats, choix: demolisseurs, quantite: 2 }
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { mutant: 11 } }
+        options:
+          - { option: champion_dieux_sombres }
+          - { option: appuis_feu, quantite: 4 }
+      - { formation: batterie_artillerie }
+      - { formation: escadron_sentinelles }
+      - formation: demons_mineurs
+        variante: douze
+        choix: { "0": { portepestes: 12 } }
+        options: [{ option: demon_majeur_ajout, choix: grand_immonde }]
+      - formation: loge_primatus
+        choix: { "0": { demagogue: 1 } }
+        options: [{ option: dca_renegate }]
+  - nom: "Loge Gigantis sans Loge Stigmatus"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: loge_gigantis
+        variante: avec_chef
+        choix: { "0": { aspirant_champion: 1 }, "1": { mutant_geant: 5 } }
+        options: [{ option: archi_heretique }]
+  - nom: "deux formations de soutien pour une seule Loge Renégate"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+        options: [{ option: archi_heretique }]
+      - { formation: vol_doomwings }
+      - { formation: batterie_feu_enfer, variante: quatre }
+  - nom: "trois formations de Démons Mineurs"
+    limite: 4000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+        options: [{ option: archi_heretique }]
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+      - { formation: demons_mineurs, variante: huit, choix: { "0": { sanguinaires: 8 } } }
+      - { formation: demons_mineurs, variante: huit, choix: { "0": { sanguinaires: 8 } } }
+      - { formation: demons_mineurs, variante: huit, choix: { "0": { sanguinaires: 8 } } }
+  - nom: "cinq améliorations sur une Loge Stigmatus"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+        options:
+          - { option: archi_heretique }
+          - { option: cardinal }
+          - { option: pacte_demoniaque }
+          - { option: defilers, variante: un }
+          - { option: chiens_chaos, quantite: 3 }
+          - { option: griffons, quantite: 3 }
+  - nom: "Cardinal dans une Loge Stigmatus sans Démagogue"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { aspirant_champion: 1 }, "1": { cultiste: 11 } }
+        options:
+          - { option: archi_heretique }
+          - { option: cardinal }
+  - nom: "armée sans Archi-Hérétique"
+    limite: 3000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+  - nom: "Démon Majeur pris en formation et en amélioration"
+    limite: 4000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+        options: [{ option: archi_heretique }]
+      - formation: loge_stigmatus
+        choix: { "0": { demagogue: 1 }, "1": { cultiste: 11 } }
+      - { formation: demon_majeur, choix: { "0": { buveur_sang: 1 } } }
+      - formation: demons_mineurs
+        variante: huit
+        choix: { "0": { sanguinaires: 8 } }
+        options: [{ option: demon_majeur_ajout, choix: buveur_sang }]
