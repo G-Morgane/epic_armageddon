@@ -1,0 +1,974 @@
+# Gargants d'Orkimedes, transcrit depuis le PDF EAFR rev 1.1.1 (source de vérité).
+codex:
+  slug: gargants-d-orkimedes
+  armee_id: 9f2cef62-b74a-4fb2-aa35-b6c43aa3cc83
+  nom: Gargants d'Orkimedes
+  version: "1.1.1"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  citation:
+    texte: "ÇA VA TIRER À MORT, AVEC DÉ TAS D'FLINGUES DE PARTOU."
+    auteur: Big Mek Badlug Na Kune Jamb'
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied une force d'Orks basée sur celle d'ORKIMEDES, Gros Mek en chef de la WAAAGH! de GHAZGHKULL THRAKA, dont la téléportation de Gargants a dévasté les forces de la Légion d'Acier lors de la IIIème Guerre pour Armageddon.
+
+    Les armées d'Orkimedes sont organisées en formations appelées bandes d'Orkimedes et bandes en rab'.
+
+    Chaque bande d'Orkimedes permet de prendre jusqu'à trois bandes en rab', qui peuvent pour certaines s'acheter selon 3 tailles, la bande normale, la mastok (doubler l'effectif de départ) ou la tré mastok (tripler l'effectif de départ).
+
+    Chaque bande peut recevoir des kust'oms. La liste d'armée indique pour chaque catégorie de bande quels kust'oms sont autorisés. Chaque kust'om autorisé peut être pris un nombre illimité de fois par bande, sauf s'il est fait état d'une limitation de kust'om. Les limitations de kust'om sont multipliées de la même façon que l'effectif de départ, ainsi si une Bande de Guerre de Pillards normale ne peut accueillir qu'un Nobz supplémentaire, une Bande de Guerre de Pillards Tré Mastok peut en inclure jusqu'à 3. Les kust'oms font partie intégrante des bandes et doivent de ce fait en respecter la cohésion.
+
+    Les armées de Gargants d'Orkimedes ont une valeur stratégique de 2. Toutes les formations ont une initiative de 3+ mais reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la WAAAGH!) ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande).
+  regles_md:
+    - titre: "Règle spéciale : DA BIG MEK"
+      texte: |
+        Chaque armée Orkimedes peut inclure un personnage de commandant suprême appelé Big Mek. Ce personnage est gratuit et doit obligatoirement rejoindre un Grand Gargant Tré Tré Kustom' ou un Gargant Tré Kustom'.
+    - titre: "Règle spéciale : POUVOIR DE LA WAAAGH!"
+      texte: |
+        Les Orks ne sont pas de fins stratèges mais la perspective d'une bonne bagarre les galvanise toujours.
+
+        Une formation tentant une action d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son test d'action. Les formations aériennes ont +2 de bonus pour les tests d'actions lorsqu'elles tentent une Interception ou une Attaque au sol.
+    - titre: "Règle spéciale : R'MISE EN BANDE"
+      texte: |
+        Lorsque les bandes Orks tentent un test de ralliement, ils reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et un bonus de +2 lorsqu'ils sont plus de 10. Les engins de guerre faisant partie de ces bandes comptent pour autant d'unités que leur capacité de dommage de départ. Ne sont comptabilisables dans le calcul ni les Gretchins ni les Grokalibr'.
+    - titre: "Règle spéciale : CHAMP ÉNERGÉTIQUE"
+      texte: |
+        Certains engins de guerre Orks possèdent des champs énergétiques. Le nombre dont en dispose chaque engin est indiqué sur sa fiche d'unité. Les champs énergétiques fonctionnent de la même manière que les boucliers du vide de l'Imperium, à la différence qu'une fois abattus ils ne sont pas réparables et restent donc inactifs jusqu'à la fin de la bataille.
+    - titre: "Règle spéciale : TÉLA TÉPULA"
+      texte: |
+        Le Téla Tépula permet aux unités se trouvant dans un vaisseau spatial d'être téléportées directement sur le champ de bataille.
+
+        Cette technologie, reste (pour les orks) encore mal maîtrisée et plusieurs règles s'appliquent :
+
+        - Le Téla Tépula ne peut être utilisé que si le joueur orkimedes a sélectionné un vaisseau spatial.
+        - Le Téla Tépula ne peut être utilisé que sur une bande d'Orkimedes.
+        - La règle Assaut Planétaire sera utilisée plutôt que la règle Téléportation (coordonnées secrètement choisies, activation du vaisseau, déviation des unités, etc.).
+        - Lors de l'arrivée sur le champ de bataille, lancez 1D6 par unité de la formation. Les engins de guerre comptent pour autant d'unités que leur capacité de dommage de départ. Sur un résultat de 1 la formation de l'unité reçoit un pion impact.
+        - Un Kroiseur Kitu peut transporter l'équivalent de 10 unités. Un Kroiseur d'la Mort peut en transporter l'équivalent de 20.
+    - titre: "Règle spéciale : Forteresse de Bataille Unik' & Forteresse à Kanons Surmezur'"
+      texte: |
+        Dans les parties de tournois, ces unités peuvent seulement transporter les unités de leur propre formation.
+    - titre: "Règle spéciale : TUNING"
+      texte: |
+        Orkimedes est un génie dont les merveilles technologiques éblouissent toute la galaxie. Les Titans Impériaux semblent chétifs et archaïques en comparaison de ses fabuleux Gargants. Chacun de ces monuments est une orfèvrerie unique et originale.
+
+        Chaque unité de Gargant (Gargant Tré Kustom et Grand Gargant Tré Tré Kustom) et chaque Super Krabouillator Personalizé sélectionne ses armes comme indiqué dans son profil. Les Super Krabouillators Personalizés choisissent leurs armes dans la liste des Dakka Kust'om. Les Gargants choisissent leurs armes dans la liste des Dakka Kust'om et Dakka Kust'om de Gargant. Chaque arme à un coût qui s'ajoute à celui de l'Engin de Guerre. La même arme peut être sélectionnée plusieurs fois par le même Engin de Guerre. Tous les emplacements d'armes doivent être utilisés.
+
+        Les Engins de guerre Orkimedes (sauf Drop Rok) peuvent sélectionner des améliorations appelées Ekip'ment kustom. Chaque amélioration ne peut être sélectionnée qu'une fois par Engin de Guerre.
+
+        Chaque Forteresse de Bataille Unik' et Forteresse à Kanons Surmezur' ayant sélectionné de l'Ekip'ment kustom, ainsi que chaque Super Krabouillator Personalizé, Gargant Tré Kustom' et Grand Gargant Tré Tré Kustom' doit être unique au sein de l'armée.
+    - titre: "DAKKA KUST'OM"
+      texte: |
+        Armes disponibles pour les Super Krabouillators Personalizés et pour les Gargants.
+
+        - **Mega-Kikoup'**, gratuit, (contact) et 45cm, Arme d'assaut, +1A, MA, TT (D3) / AP5+/AC6+, FrtF
+        - **Poing Tronçonneur**, gratuit, (contact) et 45cm, Arme d'assaut, +D3A, MA, TT (1) / AP5+/AC6+, FrtF
+        - **Kanon Gatling**, +25 pts, 45cm, 6x AP4+/AC5+, FrtF
+        - **Super Kanon**, +25 pts, 60cm, 2 PB, MA, FrtF
+        - **Super Leva-Lacha**, +25 pts, 45cm, MA4+, TT (D6), FrtF
+        - **Super Zap**, +25 pts, 60cm, MA3+, TT (D3), FrtF
+    - titre: "DAKKA KUST'OM DE GARGANT"
+      texte: |
+        Armes réservées aux Gargants, en plus de la liste des Dakka Kust'om.
+
+        - **Kanon d'la Mort**, +50 pts, 90cm, MA3+, TT (D3), FrtF
+        - **Mega-Zap**, +50 pts, 60cm et (contact), MA3+, TT (D3), FrtF / Arme d'assaut, +1A, MA, TT (D3)
+        - **2x Missiles Grots**, +50 pts, illimité, MA3+, TT (D3), Uniq, Aucune ligne de vue requise, emplacement de bras uniquement
+        - **Mega-Lobba**, +50 pts, 60cm, D3+3 PB, FrtF
+        - **Mega-Kanon**, +50 pts, 75cm, 4PB, MA, FrtF
+        - **Snapper**, +25 pts, (contact) ou (15cm), Arme d'assaut, +1A, MA, TT (1), FeP / Arme légère, +2A, FeP
+    - titre: "EKIP'MENT KUST'OM"
+      texte: |
+        - **Boucliers en rab'** (+25 pts) : ajoute D3 Champs Énergétiques à l'Engin de Guerre.
+        - **Chaudière Renforcée** (+50 pts) : ajoute +5cm à la caractéristique de vitesse de l'Engin de Guerre.
+        - **Blindage Supplémentaire** (+50 pts) : ajoute +1 CD à l'Engin de Guerre (pas d'impact sur Téla Tépula ou la place de transport en Kroiseur).
+        - **Cibleurs Grots** (+50 pts) : ajoute une attaque AA5+ à tous les Gros Kanons de l'Engin de Guerre.
+        - **Grot Bidouilleur** (+25 pts) : l'Engin de Guerre peut relancer un jet d'incendie par tour.
+        - **Kaptain** (+25 pts) : ajoute la note Meneur à l'Engin de Guerre.
+        - **Tête de Gork** (+50 pts) : ajoute la note Charismatique à l'Engin de Guerre. Gargant uniquement.
+        - **TAKATAKATAKA** (+50 pts) : l'Engin de Guerre gagne +3 attaques supplémentaires d'armes légères. Gargant uniquement.
+        - **Transport** (+25 pts) : ajoute la note Transport (peut transporter dix unités parmi Boyz, Nobz, Kopter, Boit'Kitu, Dreadnought ; les Kopters prennent deux places ; peut transporter quatre unités de Gretchins en plus des autres unités) à l'Engin de Guerre. Gargant uniquement.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture rasmusillustration."
+  valeur_strategique: 2
+  initiative:
+    defaut: "3+"
+    exceptions: []
+
+budgets:
+  - id: slot_rab
+    libelle: Bandes en rab'
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 bandes en rab' par bande d'Orkimedes"
+
+unites:
+  # ---- Personnages ----
+  - id: big_mek
+    nom: Big Mek
+    type: Perso
+    armes:
+      - { nom: Big Gros Marto, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme, personnage]
+
+  # ---- Infanterie ----
+  - id: nobz
+    nom: Nobz
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Arme légère }
+      - { nom: Gros Kikoup', portee: (contact), puissance: "Arme d'assaut, +1A" }
+    notes: [Meneur]
+  - id: boyz
+    nom: Boyz
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Arme légère }
+      - { nom: Kikoup', portee: (contact), puissance: Arme d'assaut }
+  - id: gretchins
+    nom: Gretchins
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Arme légère }
+    notes: ["Les formations incluant au moins une unité d'Ork ne reçoivent pas de pions d'impact pour les unités de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d'un assaut"]
+  - id: grokalibr
+    nom: Grokalibr'
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Grokalibr', portee: 45cm, puissance: "AP5+/AC5+" }
+
+  # ---- Véhicules légers ----
+  - id: kopter
+    nom: Kopter
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Antigrav]
+    taille_transport: 2
+
+  # ---- Véhicules blindés ----
+  - id: boit_kitu
+    nom: Boit'Kitu
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Pince de kombat, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+    notes: [Marcheur]
+  - id: dreadnought
+    nom: Dreadnought
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: Pince de kombat, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+    notes: [Marcheur]
+  - id: krabouillator
+    nom: Krabouillator
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: 2-3 Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: 0-1 Marto de kombat, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: et, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+    notes: [Blindage renforcé, Marcheur, "Peut être équipé de 3 Gros kanons ou de 2 Gros kanons et 1 Marto de kombat"]
+  - id: chariot_guerre
+    nom: Chariot de Guerre
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: ["Transport (2) : Boyz, Nobz, Grokalibrs' (peut remplacer une des deux unités transportées). Peut embarquer une unité de Gretchins en plus des autres unités"]
+    transport: { capacite: 2, accepte: [boyz, nobz, grokalibr] }
+  - id: chariot_kanon
+    nom: Chariot Kanon
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: ["Transport (1) : Boyz, Gretchins, Nobz, Grokalibr'"]
+    transport: { capacite: 1, accepte: [boyz, gretchins, nobz, grokalibr] }
+  - id: chariot_flak
+    nom: Chariot Flak
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Kanon flak, portee: 30cm, puissance: "AP5+/AC6+/AA5+" }
+    notes: ["Transport (1) : Boyz, Gretchins, Nobz, Grokalibr'"]
+    transport: { capacite: 1, accepte: [boyz, gretchins, nobz, grokalibr] }
+
+  # ---- Aéronefs ----
+  - id: chassa_bomba
+    nom: Chassa-Bomba
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Aéro Fling', portee: 15cm, puissance: "AP5+/AA5+, FrtF" }
+      - { nom: Rokettes Kass'Tank, portee: 30cm, puissance: "AC4+, FrtF" }
+
+  # ---- Engins de guerre ----
+  - id: drop_rok
+    nom: Drop Rok
+    type: EG
+    vitesse: Immobile
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Gros Fling' jumelés, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: 2x Gros kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes:
+      - Transport
+      - Assaut planétaire
+      - Sans Peur
+      - Blindage Renforcé
+      - "Peut embarquer vingt des unités suivantes : Boyz, Nobz, Kopters (prennent 2 places), Boit'Kitus, Dreadnoughts. Quatre unités de Gretchins peuvent embarquer en plus du reste."
+    transport: { capacite: 20, accepte: [boyz, nobz, kopter, boit_kitu, dreadnought] }
+    degats: { cd: 3, bi: "Champs Énergétiques : 1D3", critique: "Détruit. Toutes les unités dans les 5cm sur une touche MA sur 5+." }
+  - id: forteresse_bataille_unik
+    nom: Forteresse de Bataille Unik'
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 4x Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé, "Transport (8) : Boyz, Nobz, Grokalibr'. Peut embarquer quatre unités de Gretchins en plus des autres unités."]
+    transport: { capacite: 8, accepte: [boyz, nobz, grokalibr] }
+    degats: { cd: 3, critique: "Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+." }
+  - id: forteresse_kanons_surmezur
+    nom: Forteresse à Kanons Surmezur'
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 5x Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 3x Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé, "Transport (4) : Boyz, Nobz, Grokalibr'. Peut embarquer quatre unités de Gretchins en plus des autres unités."]
+    transport: { capacite: 4, accepte: [boyz, nobz, grokalibr] }
+    degats: { cd: 3, critique: "Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+." }
+  - id: super_krabouillator_perso
+    nom: Super Krabouillator Personalizé
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: "3x Armes de 25 pts maximum" }
+    notes: [Blindage renforcé, Sans Peur, Marcheur, "Les armes sont choisies dans la liste des Dakka Kust'om"]
+    degats: { cd: 4, bi: "Champs Énergétiques : 1D3", critique: "La tête du Super Krabouillator explose, tuant le Kaptaine. Il subit une pénalité de -1 pour toucher sur ses tirs. Les critiques suivants causeront 1 point de dommage supplémentaire." }
+  - id: gargant_tre_kustom
+    nom: Gargant Tré Kustom'
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: "2x Armes de bras de 25 pts maximum" }
+      - { nom: "1x Arme de 50 pts maximum" }
+    notes: [Blindage renforcé, Sans peur, Marcheur, "Les armes sont choisies dans les listes des Dakka Kust'om et Dakka Kust'om de Gargant"]
+    degats: { cd: 8, bi: "Champs Énergétiques : 1D3+3", critique: "Le Gargant subit un incendie. Jetez 1D6 pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur un résultat de 5 / 6, l'incendie s'éteint. Tout incendie non éteint cause 1 point de dommage à la fin de la phase d'action." }
+  - id: grand_gargant_tre_tre_kustom
+    nom: Grand Gargant Tré Tré Kustom'
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: 2x Gros kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: "2x Armes de bras de 50 pts maximum" }
+      - { nom: "1x Arme de 50 pts maximum" }
+    notes: [Blindage renforcé, Sans peur, Marcheur, "Les armes sont choisies dans les listes des Dakka Kust'om et Dakka Kust'om de Gargant"]
+    degats: { cd: 12, bi: "Champs Énergétiques : 1D6+6", critique: "Le Gargant subit un incendie. Jetez 1D6 pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur un résultat de 5 / 6, l'incendie s'éteint. Tout incendie non éteint cause 1 point de dommage à la fin de la phase d'action." }
+
+  # ---- Vaisseaux ----
+  - id: kroiseur_kitu
+    nom: Kroiseur Kitu
+    type: VS
+    armes:
+      - { nom: Missiles Pulsors (Kitu), portee: "∞", puissance: "D6+1PB MA" }
+    notes: ["Transport : Téla Tépula : 10 unités.", "Peut transporter 3 Drop Rok plus les troupes qu'il transporte."]
+    transport: { capacite: 3, accepte: [drop_rok] }
+  - id: kroiseur_la_mort
+    nom: Kroiseur d'la Mort
+    type: VS
+    armes:
+      - { nom: Missiles Pulsors (d'la Mort), portee: "∞", puissance: "D6+3PB MA" }
+    notes:
+      - "Transport : Téla Tépula : 20 unités."
+      - "Peut transporter 6 Drop Rok plus les troupes qu'il transporte."
+      - "Lent, ne peut être utilisé lors du premier ou deuxième tour de la partie."
+    transport: { capacite: 6, accepte: [drop_rok] }
+
+options:
+  # ---------- Da Big Mek ----------
+  - id: big_mek
+    nom: Big Mek
+    effet: { type: ajouter, cout: 0, unites: [{ unite: big_mek }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom] }
+    note_md: "Chaque armée Orkimedes peut inclure un personnage de commandant suprême appelé Big Mek. Ce personnage est gratuit et doit obligatoirement rejoindre un Grand Gargant Tré Tré Kustom' ou un Gargant Tré Kustom'."
+    phrase_pdf: "Big Mek (gratuit, 1 par armée)"
+
+  # ---------- Kust'oms à +25 pts chacun ----------
+  - id: grokalibr
+    nom: Grokalibr'
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: grokalibr }] }
+  - id: boit_kitu
+    nom: Boit'kitu
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boit_kitu }] }
+  - id: chariot_guerre
+    nom: Chariot de Guerre
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chariot_guerre }] }
+  - id: boyz_gretchin
+    nom: Boyz (plus une unité de gretchins gratuite)
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boyz }, { unite: gretchins }], max: 2, par_taille: true }
+    phrase_pdf: "0-2 Boyz (plus une unité de gretchins gratuite)"
+
+  # ---------- Kust'oms à +50 pts les deux ----------
+  - id: kopter
+    nom: Kopter
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: kopter, nombre: 2 }] }
+    phrase_pdf: "Kopter (+50 pts les deux)"
+  - id: dreadnought
+    nom: Dreadnought
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: dreadnought, nombre: 2 }] }
+    phrase_pdf: "Dreadnought (+50 pts les deux)"
+  - id: chariot_kanon
+    nom: Chariot Kanon
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chariot_kanon, nombre: 2 }] }
+    phrase_pdf: "Chariot Kanon (+50 pts les deux)"
+  - id: chariot_flak
+    nom: Chariot Flak
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chariot_flak, nombre: 2 }] }
+    phrase_pdf: "Chariot Flak (+50 pts les deux)"
+  - id: nobz
+    nom: Nobz
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: nobz, nombre: 2 }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Nobz (+50 pts les deux)"
+
+  # ---------- Kust'oms à +50 pts chacun ----------
+  - id: krabouillators
+    nom: Krabouillators
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: krabouillator }] }
+
+  # ---------- Kust'oms coûteux ----------
+  - id: forteresse
+    nom: Forteresse de Bataille Unik' ou Forteresse à Kanons Surmezur'
+    effet:
+      type: choix
+      parmi:
+        - { id: forteresse_bataille_unik, nom: Forteresse de Bataille Unik', cout: 125, effet: { type: ajouter, unites: [{ unite: forteresse_bataille_unik }] } }
+        - { id: forteresse_kanons_surmezur, nom: Forteresse à Kanons Surmezur', cout: 125, effet: { type: ajouter, unites: [{ unite: forteresse_kanons_surmezur }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1, par_taille: true }]
+    phrase_pdf: "0-1 Forteresse de Bataille Unik' ou Forteresse à Kanons Surmezur' (+125 pts)"
+  - id: super_krabouillator_sup
+    nom: Super Krabouillator Personalizé
+    effet: { type: ajouter, cout: 225, unites: [{ unite: super_krabouillator_perso }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-1 Super Krabouillator Personalizé (+225 pts)"
+  - id: chassa_bomba_sup
+    nom: Chassa-Bombas supplémentaires
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chassa_bomba }], max: 5 }
+    phrase_pdf: "Ajouter jusqu'à 5 Chassa-Bombas supplémentaires (+50 pts chacun)"
+  - id: kroiseur_la_mort
+    nom: Remplacer un Kroiseur Kitu par un Kroiseur d'la Mort
+    effet: { type: remplacer, de: kroiseur_kitu, par: kroiseur_la_mort, lot: 1, max: 1, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+  # ---------- Armement des Gargants et Super Krabouillators (TUNING) ----------
+  # Les armes ne sont pas des unités : une ligne de `choix` par arme, avec son coût.
+  - id: armes_super_krabou
+    nom: Armes du Super Krabouillator Personalizé
+    effet:
+      type: choix
+      parmi:
+        - { id: mega_kikoup, nom: "Mega-Kikoup' ((contact) et 45cm)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing Tronçonneur ((contact) et 45cm)", cout: 0 }
+        - { id: kanon_gatling, nom: "Kanon Gatling (45cm, 6x AP4+/AC5+, FrtF)", cout: 25 }
+        - { id: super_kanon, nom: "Super Kanon (60cm, 2 PB, MA, FrtF)", cout: 25 }
+        - { id: super_leva_lacha, nom: "Super Leva-Lacha (45cm, MA4+, TT (D6), FrtF)", cout: 25 }
+        - { id: super_zap, nom: "Super Zap (60cm, MA3+, TT (D3), FrtF)", cout: 25 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 3 }
+      - { type: requiert_unite, unites: [super_krabouillator_perso] }
+    note_md: "Un Super Krabouillator Personalizé est équipé de 3 armes de 25 pts maximum, choisies dans la liste des Dakka Kust'om. La même arme peut être choisie plusieurs fois. Tous les emplacements d'armes doivent être utilisés."
+  - id: armes_super_krabous_bande
+    nom: Armes des Super Krabouillators Personalizés
+    effet:
+      type: choix
+      parmi:
+        - { id: mega_kikoup, nom: "Mega-Kikoup' ((contact) et 45cm)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing Tronçonneur ((contact) et 45cm)", cout: 0 }
+        - { id: kanon_gatling, nom: "Kanon Gatling (45cm, 6x AP4+/AC5+, FrtF)", cout: 25 }
+        - { id: super_kanon, nom: "Super Kanon (60cm, 2 PB, MA, FrtF)", cout: 25 }
+        - { id: super_leva_lacha, nom: "Super Leva-Lacha (45cm, MA4+, TT (D6), FrtF)", cout: 25 }
+        - { id: super_zap, nom: "Super Zap (60cm, MA3+, TT (D3), FrtF)", cout: 25 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 9 }
+      - { type: requiert_unite, unites: [super_krabouillator_perso] }
+    note_md: "Trois armes de 25 pts maximum par Super Krabouillator Personalizé présent dans la bande, choisies dans la liste des Dakka Kust'om : six armes pour la bande de base, neuf si le Super Krabouillator Personalizé supplémentaire a été acheté."
+  - id: armes_bras_gargant
+    nom: Armes de bras du Gargant Tré Kustom'
+    effet:
+      type: choix
+      parmi:
+        - { id: mega_kikoup, nom: "Mega-Kikoup' ((contact) et 45cm)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing Tronçonneur ((contact) et 45cm)", cout: 0 }
+        - { id: kanon_gatling, nom: "Kanon Gatling (45cm, 6x AP4+/AC5+, FrtF)", cout: 25 }
+        - { id: super_kanon, nom: "Super Kanon (60cm, 2 PB, MA, FrtF)", cout: 25 }
+        - { id: super_leva_lacha, nom: "Super Leva-Lacha (45cm, MA4+, TT (D6), FrtF)", cout: 25 }
+        - { id: super_zap, nom: "Super Zap (60cm, MA3+, TT (D3), FrtF)", cout: 25 }
+        - { id: snapper, nom: "Snapper ((contact) ou (15cm))", cout: 25 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 2 }
+      - { type: requiert_unite, unites: [gargant_tre_kustom] }
+    note_md: "Un Gargant Tré Kustom' est équipé de 2 armes de bras de 25 pts maximum, choisies dans les listes des Dakka Kust'om et Dakka Kust'om de Gargant. Les 2x Missiles Grots (50 pts) n'entrent pas dans un emplacement de bras à 25 pts."
+  - id: armes_bras_grand_gargant
+    nom: Armes de bras du Grand Gargant Tré Tré Kustom'
+    effet:
+      type: choix
+      parmi:
+        - { id: mega_kikoup, nom: "Mega-Kikoup' ((contact) et 45cm)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing Tronçonneur ((contact) et 45cm)", cout: 0 }
+        - { id: kanon_gatling, nom: "Kanon Gatling (45cm, 6x AP4+/AC5+, FrtF)", cout: 25 }
+        - { id: super_kanon, nom: "Super Kanon (60cm, 2 PB, MA, FrtF)", cout: 25 }
+        - { id: super_leva_lacha, nom: "Super Leva-Lacha (45cm, MA4+, TT (D6), FrtF)", cout: 25 }
+        - { id: super_zap, nom: "Super Zap (60cm, MA3+, TT (D3), FrtF)", cout: 25 }
+        - { id: snapper, nom: "Snapper ((contact) ou (15cm))", cout: 25 }
+        - { id: kanon_la_mort, nom: "Kanon d'la Mort (90cm, MA3+, TT (D3), FrtF)", cout: 50 }
+        - { id: mega_zap, nom: "Mega-Zap (60cm et (contact))", cout: 50 }
+        - { id: missiles_grots, nom: "2x Missiles Grots (illimité, emplacement de bras uniquement)", cout: 50 }
+        - { id: mega_lobba, nom: "Mega-Lobba (60cm, D3+3 PB, FrtF)", cout: 50 }
+        - { id: mega_kanon, nom: "Mega-Kanon (75cm, 4PB, MA, FrtF)", cout: 50 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 2 }
+      - { type: requiert_unite, unites: [grand_gargant_tre_tre_kustom] }
+    note_md: "Un Grand Gargant Tré Tré Kustom' est équipé de 2 armes de bras de 50 pts maximum, choisies dans les listes des Dakka Kust'om et Dakka Kust'om de Gargant."
+  - id: arme_lourde_gargant
+    nom: Arme de 50 pts maximum du Gargant
+    effet:
+      type: choix
+      parmi:
+        - { id: mega_kikoup, nom: "Mega-Kikoup' ((contact) et 45cm)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing Tronçonneur ((contact) et 45cm)", cout: 0 }
+        - { id: kanon_gatling, nom: "Kanon Gatling (45cm, 6x AP4+/AC5+, FrtF)", cout: 25 }
+        - { id: super_kanon, nom: "Super Kanon (60cm, 2 PB, MA, FrtF)", cout: 25 }
+        - { id: super_leva_lacha, nom: "Super Leva-Lacha (45cm, MA4+, TT (D6), FrtF)", cout: 25 }
+        - { id: super_zap, nom: "Super Zap (60cm, MA3+, TT (D3), FrtF)", cout: 25 }
+        - { id: snapper, nom: "Snapper ((contact) ou (15cm))", cout: 25 }
+        - { id: kanon_la_mort, nom: "Kanon d'la Mort (90cm, MA3+, TT (D3), FrtF)", cout: 50 }
+        - { id: mega_zap, nom: "Mega-Zap (60cm et (contact))", cout: 50 }
+        - { id: mega_lobba, nom: "Mega-Lobba (60cm, D3+3 PB, FrtF)", cout: 50 }
+        - { id: mega_kanon, nom: "Mega-Kanon (75cm, 4PB, MA, FrtF)", cout: 50 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom] }
+    note_md: "Chaque Gargant dispose en plus d'un emplacement d'arme de 50 pts maximum. Les 2x Missiles Grots ne sont pas proposés : le PDF les réserve à un emplacement de bras."
+
+  # ---------- Ekip'ment kustom : bandes à un seul engin de guerre ----------
+  - id: boucliers_en_rab
+    nom: Boucliers en rab'
+    effet: { type: mot_cle, texte: "Boucliers en rab' (ajoute D3 Champs Énergétiques à l'Engin de Guerre)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom, super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+  - id: chaudiere_renforcee
+    nom: Chaudière Renforcée
+    effet: { type: mot_cle, texte: "Chaudière Renforcée (+5cm à la vitesse de l'Engin de Guerre)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom, super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+  - id: blindage_supplementaire
+    nom: Blindage Supplémentaire
+    effet: { type: mot_cle, texte: "Blindage Supplémentaire (+1 CD, pas d'impact sur Téla Tépula ou la place de transport en Kroiseur)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom, super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+  - id: cibleurs_grots
+    nom: Cibleurs Grots
+    effet: { type: mot_cle, texte: "Cibleurs Grots (attaque AA5+ à tous les Gros Kanons de l'Engin de Guerre)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom, super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+  - id: grot_bidouilleur
+    nom: Grot Bidouilleur
+    effet: { type: mot_cle, texte: "Grot Bidouilleur (relance d'un jet d'incendie par tour)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom, super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+  - id: kaptain
+    nom: Kaptain
+    effet: { type: mot_cle, texte: "Kaptain (note Meneur)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom, super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+  - id: tete_de_gork
+    nom: Tête de Gork
+    effet: { type: mot_cle, texte: "Tête de Gork (note Charismatique)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom] }
+    note_md: "Gargant uniquement."
+  - id: takatakataka
+    nom: TAKATAKATAKA
+    effet: { type: mot_cle, texte: "TAKATAKATAKA (+3 attaques supplémentaires d'armes légères)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom] }
+    note_md: "Gargant uniquement."
+  - id: transport_gargant
+    nom: Transport
+    effet: { type: mot_cle, texte: "Transport (dix unités parmi Boyz, Nobz, Kopter, Boit'Kitu, Dreadnought ; les Kopters prennent deux places ; quatre unités de Gretchins en plus des autres unités)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [gargant_tre_kustom, grand_gargant_tre_tre_kustom] }
+    note_md: "Gargant uniquement."
+
+  # ---------- Ekip'ment kustom : bandes à plusieurs engins de guerre ----------
+  - id: boucliers_en_rab_multi
+    nom: Boucliers en rab'
+    effet: { type: mot_cle, texte: "Boucliers en rab' (ajoute D3 Champs Énergétiques à l'Engin de Guerre)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 3, par_taille: true }
+      - { type: requiert_unite, unites: [super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+    note_md: "Une fois par Engin de Guerre de la bande."
+  - id: chaudiere_renforcee_multi
+    nom: Chaudière Renforcée
+    effet: { type: mot_cle, texte: "Chaudière Renforcée (+5cm à la vitesse de l'Engin de Guerre)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 3, par_taille: true }
+      - { type: requiert_unite, unites: [super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+    note_md: "Une fois par Engin de Guerre de la bande."
+  - id: blindage_supplementaire_multi
+    nom: Blindage Supplémentaire
+    effet: { type: mot_cle, texte: "Blindage Supplémentaire (+1 CD, pas d'impact sur Téla Tépula ou la place de transport en Kroiseur)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 3, par_taille: true }
+      - { type: requiert_unite, unites: [super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+    note_md: "Une fois par Engin de Guerre de la bande."
+  - id: cibleurs_grots_multi
+    nom: Cibleurs Grots
+    effet: { type: mot_cle, texte: "Cibleurs Grots (attaque AA5+ à tous les Gros Kanons de l'Engin de Guerre)", cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 3, par_taille: true }
+      - { type: requiert_unite, unites: [super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+    note_md: "Une fois par Engin de Guerre de la bande."
+  - id: grot_bidouilleur_multi
+    nom: Grot Bidouilleur
+    effet: { type: mot_cle, texte: "Grot Bidouilleur (relance d'un jet d'incendie par tour)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 3, par_taille: true }
+      - { type: requiert_unite, unites: [super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+    note_md: "Une fois par Engin de Guerre de la bande."
+  - id: kaptain_multi
+    nom: Kaptain
+    effet: { type: mot_cle, texte: "Kaptain (note Meneur)", cout: 25 }
+    contraintes:
+      - { type: max_par_formation, valeur: 3, par_taille: true }
+      - { type: requiert_unite, unites: [super_krabouillator_perso, forteresse_bataille_unik, forteresse_kanons_surmezur] }
+    note_md: "Une fois par Engin de Guerre de la bande."
+
+formations:
+  # ---------- Bandes d'Orkimedes ----------
+  - id: bande_gargant
+    nom: Bande de Gargant
+    variantes:
+      - { id: gargant, nom: "1 Gargant Tré Kustom'", cout: 550, composition: [{ unite: gargant_tre_kustom, nombre: 1 }] }
+      - { id: grand_gargant, nom: "1 Grand Gargant Tré Tré Kustom'", cout: 700, composition: [{ unite: grand_gargant_tre_tre_kustom, nombre: 1 }] }
+    options:
+      [
+        big_mek,
+        armes_bras_gargant,
+        armes_bras_grand_gargant,
+        arme_lourde_gargant,
+        grokalibr,
+        boit_kitu,
+        kopter,
+        dreadnought,
+        chariot_flak,
+        krabouillators,
+        boucliers_en_rab,
+        chaudiere_renforcee,
+        blindage_supplementaire,
+        cibleurs_grots,
+        grot_bidouilleur,
+        kaptain,
+        tete_de_gork,
+        takatakataka,
+        transport_gargant,
+      ]
+  - id: bande_super_krabous
+    nom: Bande de Super Krabous
+    variantes:
+      - { id: base, cout: 425, composition: [{ unite: super_krabouillator_perso, nombre: 2 }] }
+    options:
+      [
+        armes_super_krabous_bande,
+        grokalibr,
+        boit_kitu,
+        kopter,
+        dreadnought,
+        chariot_flak,
+        krabouillators,
+        super_krabouillator_sup,
+        boucliers_en_rab_multi,
+        chaudiere_renforcee_multi,
+        blindage_supplementaire_multi,
+        cibleurs_grots_multi,
+        grot_bidouilleur_multi,
+        kaptain_multi,
+      ]
+
+  # ---------- Bandes en rab' ----------
+  - id: super_krabou
+    nom: Super Krabou
+    variantes:
+      - { id: normale, nom: Normale, cout: 225, taille: 1, composition: [{ unite: super_krabouillator_perso, nombre: 1 }] }
+    options:
+      [
+        armes_super_krabou,
+        boit_kitu,
+        kopter,
+        dreadnought,
+        chariot_flak,
+        krabouillators,
+        boucliers_en_rab,
+        chaudiere_renforcee,
+        blindage_supplementaire,
+        cibleurs_grots,
+        grot_bidouilleur,
+        kaptain,
+      ]
+  - id: batterie_grokalibr
+    nom: Batterie de Grokalibr'
+    variantes:
+      - { id: normale, nom: Normale, cout: 125, taille: 1, composition: [{ unite: grokalibr, nombre: 5 }] }
+      - { id: mastok, nom: Mastok', cout: 225, taille: 2, composition: [{ unite: grokalibr, nombre: 10 }] }
+      - { id: tre_mastok, nom: Tré Mastok', cout: 325, taille: 3, composition: [{ unite: grokalibr, nombre: 15 }] }
+    options: [grokalibr, chariot_guerre, chariot_flak]
+  - id: bande_guerre_pillards
+    nom: Bande de Guerre de Pillards
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 150
+        taille: 1
+        composition:
+          - { unite: boyz, nombre: 6 }
+          - { unite: gretchins, nombre: 2 }
+      - id: mastok
+        nom: Mastok'
+        cout: 250
+        taille: 2
+        composition:
+          - { unite: boyz, nombre: 12 }
+          - { unite: gretchins, nombre: 4 }
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 350
+        taille: 3
+        composition:
+          - { unite: boyz, nombre: 18 }
+          - { unite: gretchins, nombre: 6 }
+    options:
+      [
+        boyz_gretchin,
+        grokalibr,
+        boit_kitu,
+        chariot_guerre,
+        kopter,
+        dreadnought,
+        chariot_kanon,
+        chariot_flak,
+        nobz,
+        forteresse,
+        boucliers_en_rab,
+        chaudiere_renforcee,
+        blindage_supplementaire,
+        cibleurs_grots,
+        grot_bidouilleur,
+        kaptain,
+      ]
+  - id: bande_krabous
+    nom: Bande de Krabous
+    variantes:
+      - { id: normale, nom: Normale, cout: 200, taille: 1, composition: [{ unite: krabouillator, nombre: 4 }] }
+      - { id: mastok, nom: Mastok', cout: 400, taille: 2, composition: [{ unite: krabouillator, nombre: 8 }] }
+      - { id: tre_mastok, nom: Tré Mastok', cout: 550, taille: 3, composition: [{ unite: krabouillator, nombre: 12 }] }
+    options: [boit_kitu, kopter, dreadnought, chariot_flak, krabouillators]
+  - id: bande_koupkoup
+    nom: Bande de Koupkoup'
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 125
+        taille: 1
+        composition:
+          - { unite: dreadnought, nombre: 2 }
+          - { unite: boit_kitu, nombre: 2 }
+      - id: mastok
+        nom: Mastok'
+        cout: 225
+        taille: 2
+        composition:
+          - { unite: dreadnought, nombre: 4 }
+          - { unite: boit_kitu, nombre: 4 }
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 325
+        taille: 3
+        composition:
+          - { unite: dreadnought, nombre: 6 }
+          - { unite: boit_kitu, nombre: 6 }
+    options: [boit_kitu, kopter, dreadnought, chariot_flak]
+  - id: bande_forteresses
+    nom: Bande de Forteresses
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 250
+        taille: 1
+        composition:
+          - choix:
+              total: 2
+              parmi: [{ unite: forteresse_bataille_unik }, { unite: forteresse_kanons_surmezur }]
+              phrase_pdf: "2 unités parmi : Forteresse de Bataille Unik', Forteresse à Kanons Surmezur'"
+      - id: mastok
+        nom: Mastok'
+        cout: 475
+        taille: 2
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: forteresse_bataille_unik }, { unite: forteresse_kanons_surmezur }]
+              phrase_pdf: "4 unités parmi : Forteresse de Bataille Unik', Forteresse à Kanons Surmezur'"
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 675
+        taille: 3
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: forteresse_bataille_unik }, { unite: forteresse_kanons_surmezur }]
+              phrase_pdf: "6 unités parmi : Forteresse de Bataille Unik', Forteresse à Kanons Surmezur'"
+    options:
+      [
+        kopter,
+        chariot_kanon,
+        chariot_flak,
+        nobz,
+        forteresse,
+        boucliers_en_rab_multi,
+        chaudiere_renforcee_multi,
+        blindage_supplementaire_multi,
+        cibleurs_grots_multi,
+        grot_bidouilleur_multi,
+        kaptain_multi,
+      ]
+  - id: chassa_bombas
+    nom: Chassa bomba
+    variantes:
+      - { id: normale, nom: Normale, cout: 200, taille: 1, composition: [{ unite: chassa_bomba, nombre: 4 }] }
+    options: [chassa_bomba_sup]
+  - id: drop_rok
+    nom: Drop Rok
+    description: "Les Drop Rok sont transportés par un Kroiseur : 3 par Kroiseur Kitu, 6 par Kroiseur d'la Mort."
+    variantes:
+      - { id: normale, nom: Normale, cout: 225, taille: 1, composition: [{ unite: drop_rok, nombre: 1 }] }
+    options: []
+  - id: kroiseur_kitu
+    nom: Kroiseur Kitu
+    variantes:
+      - { id: normale, nom: Normale, cout: 200, taille: 1, composition: [{ unite: kroiseur_kitu, nombre: 1 }] }
+    options: [kroiseur_la_mort]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+
+sections:
+  - id: bandes_orkimedes
+    titre: BANDES D'ORKIMEDES
+    sous_titre: "Chaque bande d'Orkimedes permet de prendre jusqu'à trois bandes en rab'"
+    formations: [bande_gargant, bande_super_krabous]
+    contraintes: [{ type: fournit, budget: slot_rab, quantite: 3 }]
+    colonne_options: true
+  - id: bandes_en_rab
+    titre: BANDES EN RAB'
+    sous_titre: "Jusqu'à 3 bandes par bande d'Orkimedes"
+    formations: [super_krabou, batterie_grokalibr, bande_guerre_pillards, bande_krabous, bande_koupkoup, bande_forteresses, chassa_bombas, drop_rok, kroiseur_kitu]
+    contraintes: [{ type: consomme, budget: slot_rab }]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts : un Grand Gargant Tré Tré Kustom' et ses trois bandes en rab'"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: bande_gargant
+        variante: grand_gargant
+        options:
+          - { option: big_mek }
+          - { option: armes_bras_grand_gargant, choix: kanon_la_mort }
+          - { option: armes_bras_grand_gargant, choix: missiles_grots }
+          - { option: arme_lourde_gargant, choix: mega_lobba }
+          - { option: tete_de_gork }
+          - { option: boucliers_en_rab }
+      - formation: batterie_grokalibr
+        variante: normale
+        options: [{ option: grokalibr, quantite: 2 }]
+      - formation: bande_guerre_pillards
+        variante: normale
+        options:
+          - { option: boyz_gretchin, quantite: 2 }
+          - { option: nobz, quantite: 1 }
+          - { option: forteresse, choix: forteresse_bataille_unik }
+          - { option: boucliers_en_rab }
+      - formation: bande_koupkoup
+        variante: normale
+        options: [{ option: kopter, quantite: 1 }]
+  - nom: "4000 pts : deux bandes d'Orkimedes et six bandes en rab'"
+    limite: 4000
+    attendu: valide
+    formations:
+      - formation: bande_super_krabous
+        options:
+          - { option: armes_super_krabous_bande, choix: kanon_gatling }
+          - { option: armes_super_krabous_bande, choix: kanon_gatling }
+          - { option: armes_super_krabous_bande, choix: super_zap }
+          - { option: armes_super_krabous_bande, choix: mega_kikoup }
+          - { option: armes_super_krabous_bande, choix: super_kanon }
+          - { option: armes_super_krabous_bande, choix: super_kanon }
+          - { option: blindage_supplementaire_multi }
+      - formation: bande_gargant
+        variante: gargant
+        options:
+          - { option: armes_bras_gargant, choix: super_zap }
+          - { option: armes_bras_gargant, choix: kanon_gatling }
+          - { option: arme_lourde_gargant, choix: kanon_la_mort }
+          - { option: kaptain }
+      - formation: super_krabou
+        variante: normale
+        options:
+          - { option: armes_super_krabou, choix: mega_kikoup }
+          - { option: armes_super_krabou, choix: poing_tronconneur }
+          - { option: armes_super_krabou, choix: super_kanon }
+      - formation: chassa_bombas
+        variante: normale
+        options: [{ option: chassa_bomba_sup, quantite: 5 }]
+      - formation: kroiseur_kitu
+        variante: normale
+        options: [{ option: kroiseur_la_mort }]
+      - { formation: drop_rok, variante: normale }
+      - formation: bande_forteresses
+        variante: normale
+        choix: { "0": { forteresse_bataille_unik: 1, forteresse_kanons_surmezur: 1 } }
+        options: [{ option: boucliers_en_rab_multi, quantite: 1 }, { option: kaptain_multi }]
+      - formation: bande_krabous
+        variante: normale
+        options: [{ option: krabouillators, quantite: 2 }]
+  - nom: "quatre bandes en rab' pour une seule bande d'Orkimedes"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: bande_gargant, variante: gargant }
+      - { formation: batterie_grokalibr, variante: normale }
+      - { formation: bande_koupkoup, variante: normale }
+      - { formation: bande_krabous, variante: normale }
+      - { formation: chassa_bombas, variante: normale }
+  - nom: "deux Kroiseurs Kitu"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: bande_gargant, variante: gargant }
+      - { formation: kroiseur_kitu, variante: normale }
+      - { formation: kroiseur_kitu, variante: normale }
+  - nom: "trois armes de bras sur un Gargant Tré Kustom'"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: bande_gargant
+        variante: gargant
+        options:
+          - { option: armes_bras_gargant, choix: kanon_gatling }
+          - { option: armes_bras_gargant, choix: super_zap }
+          - { option: armes_bras_gargant, choix: snapper }
+  - nom: "arme de bras de 50 pts sur un Gargant Tré Kustom'"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: bande_gargant
+        variante: gargant
+        options: [{ option: armes_bras_grand_gargant, choix: mega_kanon }]
+  - nom: "Ekip'ment kustom sur une bande de Pillards sans engin de guerre"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - { formation: bande_gargant, variante: gargant }
+      - formation: bande_guerre_pillards
+        variante: normale
+        options: [{ option: boucliers_en_rab }]
