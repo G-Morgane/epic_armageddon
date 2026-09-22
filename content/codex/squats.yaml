@@ -1,0 +1,805 @@
+# Squats, transcrit depuis le PDF EAFR rev 1.3 (source de vérité).
+codex:
+  slug: squats
+  armee_id: 6eba8947-c08a-4265-b3bd-c94e47077c27
+  nom: Squats
+  version: "1.3"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  citation:
+    texte: "Ne sous-estimez pas les Squats. Ils ont survécu des millénaires coupés de l'Impérium et assaillis de tous les côtés. Leur détermination et leur résistance est un exemple pour tout le monde."
+    auteur: "Leman Russ, Méditations sur le commandement Impérial, Livre XVI"
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de Squats.
+
+    Les armées Squats sont organisées en formations séparées en trois catégories : Confréries, Formations de soutien, et Engins de Guerre.
+
+    Chaque formation de Confréries et formation de soutien peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par formation pour un maximum de quatre par formation. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion. Notez que certaines améliorations remplacent des unités d'une formation tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les armées Squats ont une valeur stratégique de 3. Les Gardes du Foyer, le Colossus, le Cyclope et le Train Blindé ont une valeur d'initiative de 1+. Les autres formations Squat ont une valeur d'initiative de 2+.
+  regles_md:
+    - titre: "Règle spéciale : Disrupteur (Drpt)"
+      texte: |
+        Les Squats utilisent des canons de vaisseau spatial appelés « Canon Furie », montés sur forteresse mobile.
+
+        Ce canon projette un rayon continu très puissant faisant rapidement surchauffer les systèmes de protection. Chaque Touche avec ces armes détruit deux Boucliers du vide (ou autre appareil de protection ayant les mêmes effets) au lieu d'un.
+    - titre: "Règle spéciale : Obstiné"
+      texte: |
+        Les Squats sont un peuple obstiné et difficile à vaincre en assaut. Leur nature bornée les pousse également à se rallier plus vite que les autres races pour retourner au combat !
+
+        - Une formation Squat est démoralisée dès qu'elle a accumulé un nombre de pions Impact égal au nombre d'unités + 1.
+        - Lorsqu'une formation Squat perd un assaut, elle subit une perte de moins lors de la résolution des touches supplémentaires. Ceci peut réduire à zéro les pertes encourues en résolution.
+    - titre: "Règle spéciale : Esprit des Ancêtres"
+      texte: |
+        Les Ancêtres vivants sont vénérés en tant qu'incarnations de l'Esprit des Ancêtres qui veille sur la forteresse. Ceux-ci développent de puissants pouvoirs psychiques, souvent de nature prémonitoire et protectrice.
+
+        Tant qu'il se trouve dans la formation, un Ancêtre Vivant confère à l'ensemble des unités qui la compose la règle Sauvegarde Invulnérable.
+    - titre: "Règle spéciale : Boucliers du Vide"
+      texte: |
+        Certains engins de guerre comme les Léviathans sont protégés par des boucliers énergétiques. Le nombre de boucliers de chaque engin de guerre est noté sur sa fiche d'unité.
+
+        Chaque bouclier annule automatiquement un point de dommage avant de se désactiver. Ne faites pas de sauvegarde contre les attaques stoppées par des boucliers, n'ajoutez pas non plus de pion d'impact pour chaque bouclier désactivé.
+
+        Une fois que tous les boucliers sont désactivés, l'engin de guerre peut être endommagé normalement. Faites les jets de sauvegarde habituels contre les touches subies.
+
+        Les touches de corps-à-corps lors d'un assaut ignorent les boucliers mais pas les touches des unités utilisant leur valeur de fusillade.
+
+        Les boucliers désactivés peuvent être réparés. Un engin de guerre peut réparer un bouclier désactivé à la fin de chaque tour.
+
+        De plus, si un engin de guerre se regroupe, il peut utiliser le résultat de son dé pour retirer des pions d'impact et/ou pour réparer des boucliers (par exemple, si le résultat est 2, vous pouvez retirer 2 pions d'impact ou réparer 2 boucliers, ou retirer 1 pion d'impact et réparer 1 bouclier).
+    - titre: "Règle spéciale : Tunneliers"
+      texte: |
+        Les formations où toutes les unités sont tunneliers (ou sont transportées dans des unités qui sont tunneliers) peuvent être gardées hors de la table et peuvent apparaître au début du deuxième tour ou après. Mettez en place les unités au contact du bord de la table de leur propre camp avant le début de la bataille en même temps que les vaisseaux spatiaux sont installés (voir 4.3.1). Toutes les unités transportées dans le tunnelier doivent également être placées de côté à ce moment.
+
+        Notez secrètement l'emplacement où le tunnelier fera surface en même temps et de la même manière que vous enregistrez les coordonnées d'une zone de largage (voir 4.3.1). Vous devez également enregistrer secrètement quand le tunnelier fera surface. S'il doit faire surface dans votre moitié de table, il peut arriver à partir du deuxième tour. S'il doit faire surface dans la moitié opposée de la table, il peut arriver à partir du troisième tour.
+
+        Placez le tunnelier au début du tour indiqué, avant de placer les unités avec téléportation, à l'endroit que vous avez noté. Toutes les unités transportées sont autorisées à débarquer immédiatement après leur remontée à la surface. La remontée ne compte pas comme un mouvement pour ce qui est du déclenchement des tirs d'état d'alerte. Le débarquement déclenche normalement les tirs d'état d'alerte.
+
+        Si le tunnelier fait surface sur un terrain qui lui est infranchissable, sous une unité amie ou dans une zone de contrôle ennemie, on suppose que l'équipement de détection embarqué le détournera vers un autre point d'entrée. L'unité doit être déplacée par le joueur adverse vers la zone la plus proche où elle peut faire surface. Les formations de plusieurs tunneliers n'ont besoin d'enregistrer qu'un seul emplacement où elles feront surface.
+
+        Placez une unité à cet emplacement, ou à moins de 5 cm d'une autre unité qui a déjà été placée, à condition que toutes les unités soient placées à moins de 15 cm de l'emplacement et sur la moitié appropriée de la table.
+
+        Le tunnelier, et toutes les unités qui y sont transportées, peuvent effectuer une action le tour où ils apparaissent.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Alexey Kruglov."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Confrérie de Gardes du Foyer", valeur: "1+" }
+      - { portee: "Colossus", valeur: "1+" }
+      - { portee: "Cyclope", valeur: "1+" }
+      - { portee: "Train Blindé", valeur: "1+" }
+
+budgets:
+  - id: soutien
+    libelle: Formations de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Deux formations de soutien par Confrérie"
+  - id: rare
+    libelle: Engins de Guerre
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 de la valeur totale de l'armée"
+
+unites:
+  # ---- Personnages ----
+  - id: seigneur_de_guerre
+    nom: Seigneur de Guerre
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Commandant Suprême]
+    roles: [personnage, commandant_supreme]
+  - id: ancetre_vivant
+    nom: Ancêtre Vivant
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable, Esprit des Ancêtres]
+    roles: [personnage]
+  - id: maitre_guilde
+    nom: Maître de la Guilde
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Doom Lance, portee: (contact), puissance: "Armes d'assaut, MA, FeP" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Commandant, Meneur]
+    roles: [personnage, commandant]
+
+  # ---- Infanterie ----
+  - id: seigneur
+    nom: Seigneur
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Hache énergétique, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Lance-missiles, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Meneur, "Le seigneur est équipé d'une hache énergétique s'il accompagne des Berserkers et d'un lance-missiles s'il accompagne des Guerriers"]
+  - id: guerriers
+    nom: Guerriers
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-missiles, portee: 45cm, puissance: "AP5+/AC6+" }
+  - id: berserkers
+    nom: Berserkers
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Hache tronçonneuse, portee: (contact), puissance: Armes d'assaut }
+      - { nom: Pistolet bolter, portee: (15cm), puissance: Armes légères }
+  - id: motards_guilde
+    nom: Motards de la Guilde
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet bolter, portee: (15cm), puissance: Armes légères }
+    notes: [Monté]
+  - id: guerriers_tonnerre
+    nom: Guerriers Tonnerre
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Armes lourdes, portee: 45cm, puissance: "AP5+/AC5+" }
+  - id: gardes_foyer
+    nom: Gardes du Foyer
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Artefact Squat, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Arme énergétique, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé]
+    taille_transport: 2
+  - id: mortier_taupe
+    nom: Mortier Taupe
+    type: Inf
+    vitesse: 10cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Torpille souterraine, portee: 30cm, puissance: "AP5+/AC5+, IC, Ind" }
+  - id: thudd_gun
+    nom: Thudd Gun
+    type: Inf
+    vitesse: 10cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obus, portee: 45cm, puissance: "AP4+/AC6+, Ind" }
+  - id: tarentule
+    nom: Tarentule
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Laser Tarentule, portee: 45cm, puissance: "2xAP6+/AC5+" }
+
+  # ---- Véhicules légers ----
+  - id: trikes_guilde
+    nom: Trikes de la Guilde
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+  - id: exotrikes
+    nom: ExoTrikes
+    type: VL
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Doom Lance, portee: (contact), puissance: "Armes d'assaut, MA, FeP" }
+      - { nom: Pistolet bolter, portee: (15cm), puissance: Armes légères }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé]
+  - id: robots_guilde
+    nom: Robots de la Guilde
+    type: VL
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Arme cybernétique, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Marcheur, Éclaireur, Sans Peur, Sauvegarde Invulnérable, "Ne peut pas contrôler les objectifs, seulement les contester."]
+
+  # ---- Véhicules blindés ----
+  - id: canon_foudre
+    nom: Canon Foudre
+    type: VB
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fût à accélérateur gravitique, portee: 60cm, puissance: "2xAP6+/AC5+/AA5+" }
+  - id: rhino
+    nom: Rhino
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fulgurant, portee: (15cm), puissance: Armes légères }
+    notes: ["Transport (2) : Berserkers, Guerriers Tonnerre"]
+    transport: { capacite: 2, accepte: [berserkers, guerriers_tonnerre] }
+  - id: land_raider
+    nom: Land Raider
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons lasers jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Bolters lourds jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (2) : Guerriers Tonnerre, Gardes du Foyer (prennent deux places)."]
+    transport: { capacite: 2, accepte: [guerriers_tonnerre, gardes_foyer] }
+  - id: gyrocoptere
+    nom: Gyrocoptère
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon jumelé, portee: 45cm, puissance: "AP4+/AC5+" }
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Antigrav, Éclaireur]
+  - id: termite
+    nom: Termite
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "-"
+    armes:
+      - { nom: Tête de Foreuse, portee: (contact), puissance: Armes d'assaut }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, "Transport (2) : Berserkers, Guerriers Tonnerre"]
+    transport: { capacite: 2, accepte: [berserkers, guerriers_tonnerre] }
+
+  # ---- Engins de guerre ----
+  - id: taupe
+    nom: Taupe
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: Tête de Foreuse, portee: (contact), puissance: Armes d'assaut }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, "Transport (8) : Berserkers, Guerriers Tonnerre."]
+    transport: { capacite: 8, accepte: [berserkers, guerriers_tonnerre] }
+    degats: { cd: 2, critique: "la Taupe est détruite suite à l'explosion du moteur." }
+  - id: fouisseuse
+    nom: Fouisseuse
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: Tête de Foreuse, portee: (contact), puissance: Armes d'assaut }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, "Transport (16) : Berserkers, Guerriers Tonnerre, Gardes du Foyer (prennent deux places)."]
+    transport: { capacite: 16, accepte: [berserkers, guerriers_tonnerre, gardes_foyer] }
+    degats: { cd: 4, critique: "la Fouisseuse est détruite suite à l'explosion du moteur." }
+  - id: mega_canon_goliath
+    nom: Mega-Canon Goliath
+    type: EG
+    vitesse: 10cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Goliath, portee: 90cm, puissance: "3PB, MA, Ind" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "le Méga-Canon est détruit." }
+  - id: dirigeable_overlord
+    nom: Dirigeable Overlord
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 3x Autocanon (g), portee: 45cm, puissance: "AP5+/AC6+, Gch" }
+      - { nom: 3x Autocanon (d), portee: 45cm, puissance: "AP5+/AC6+, Drt" }
+      - { nom: Bombe, portee: 15cm, puissance: "3PB" }
+      - { nom: Canon Céleste, portee: 30cm, puissance: "AP6+/AC5+/AA5+" }
+    notes: [Antigrav, Blindage Renforcé]
+    degats: { cd: 3, critique: "La nacelle est détruite, l'Overlord s'écrase au sol et est retiré du jeu." }
+  - id: leviathan
+    nom: Léviathan
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Apocalypse, portee: 90cm, puissance: "3PB MA, FrtF" }
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: 3x Canons lasers jumelés (d), portee: 45cm, puissance: "AC4+, Drt" }
+      - { nom: 3x Canons lasers jumelés (g), portee: 45cm, puissance: "AC4+, Gch" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, "Transport (16) : Guerriers, Berserkers, Guerriers Tonnerre, Gardes du Foyer (prennent deux places)."]
+    transport: { capacite: 16, accepte: [guerriers, berserkers, guerriers_tonnerre, gardes_foyer] }
+    degats:
+      cd: 4
+      bi: 2
+      critique: "Lancer 1D6 à la fin de chaque tour pour chaque coup critique reçu : 1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les unités dans un rayon de 5 cm. 2-3 : Le système de propulsion est endommagé. Le Léviathan est immobilisé. Si le Léviathan est déjà immobilisé, le Léviathan perd un point de structure supplémentaire. 4-6 : La fissure est réparée."
+  - id: colossus
+    nom: Colossus
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Apocalypse, portee: 90cm, puissance: "3PB MA, FrtF" }
+      - { nom: Canon Tonnerre, portee: 30cm, puissance: "2xAP3+/AC4+, IC" }
+      - { nom: 2x Obusier (d), portee: 75cm, puissance: "AP4+/AC4+, Drt" }
+      - { nom: 2x Obusier (g), portee: 75cm, puissance: "AP4+/AC4+, Gch" }
+      - { nom: 4x Missile à Plasma, portee: 45cm, puissance: "1PB, MA, Uniq" }
+    notes:
+      - Blindage Renforcé
+      - Blindage Arrière Renforcé
+      - Sans Peur
+      - "Un gyrocoptère (non représenté en jeu) accompagne le Colossus : il confère à son Canon Apocalypse et à ses Missile à Plasma la note Tir Indirect."
+    degats:
+      cd: 4
+      bi: 3
+      critique: "Lancer 1D6 à la fin de chaque tour pour chaque coup critique reçu : 1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les unités dans un rayon de 5 cm. 2-3 : Le Gyrocoptère qui accompagne le Colossus est détruit. Les armes du Colossus perdent la capacité Tir Indirect. Si cette capacité a déjà été perdue, le Colossus perd un point de structure supplémentaire. 4-6 : La fissure est réparée."
+  - id: cyclope
+    nom: Cyclope
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Furie, portee: 90cm, puissance: "MA2+, FrtF, Drpt, TT (2D3)" }
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: 6x Missiles vortex, portee: 60cm, puissance: "MA4+, Uniq" }
+      - { nom: Canon Fuseur (d), portee: 30cm, puissance: "MA4+, Drt" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+      - { nom: Canon Fuseur (g), portee: 30cm, puissance: "MA4+, Gch" }
+      - { nom: et (g), portee: (15cm), puissance: "Armes légères, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur]
+    degats:
+      cd: 4
+      bi: 3
+      critique: "Lancer 1D6 à la fin de chaque tour pour chaque coup critique reçu : 1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les unités dans un rayon de 5 cm. 2-3 : Le système de visée est endommagé. Le Cyclope perd la capacité Disrupteur. Si cette capacité a déjà été perdue, le Cyclope perd un point de structure supplémentaire. 4-6 : La fissure est réparée."
+  - id: locomotive
+    nom: Train Blindé (Locomotive)
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Apocalypse, portee: 90cm, puissance: "3PB MA, FrtF" }
+      - { nom: 2x Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, "CD 1 (+1 par Wagon) / BV 1 (+1 par Wagon)"]
+    degats:
+      cd: 1
+      bi: "1 (+1 par Wagon)"
+      critique: "Lancer 1D6 à la fin de chaque tour pour chaque coup critique reçu : 1 : Le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 4+ à toutes les unités dans un rayon de 5 cm. 2-3 : Le système de protection est endommagé. Il n'est plus possible de réparer les boucliers. Si les boucliers sont déjà détruits, le Train Blindé perd un point de structure supplémentaire. 4-6 : La fissure est réparée."
+  - id: wagon_canon
+    nom: Wagon Canon
+    type: EG
+    vitesse: 20cm
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+  - id: wagon_berserker
+    nom: Wagon Berserker
+    type: EG
+    vitesse: 20cm
+    armes:
+      - { nom: Armes Secondaires (berserker), portee: 45cm, puissance: "2xAP3+/AC5+" }
+    notes: ["Transport (8) : Guerriers, Berserkers, Guerriers Tonnerre, Gardes du Foyer (prennent deux places), Motos, Trikes."]
+    transport: { capacite: 8, accepte: [guerriers, berserkers, guerriers_tonnerre, gardes_foyer, motards_guilde, trikes_guilde] }
+  - id: wagon_dragon
+    nom: Wagon Dragon
+    type: EG
+    vitesse: 20cm
+    armes:
+      - { nom: Armes Secondaires (Dragon), portee: 30cm, puissance: "2xAP3+/AC5+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, IC" }
+  - id: wagon_marteau_celeste
+    nom: Wagon Marteau Céleste
+    type: EG
+    vitesse: 20cm
+    armes:
+      - { nom: Canon Marteau Céleste, portee: 45cm, puissance: "2xAP6+/AC5+/AA5+" }
+  - id: wagon_mortier
+    nom: Wagon Mortier
+    type: EG
+    vitesse: 20cm
+    armes:
+      - { nom: Mortier de Siège, portee: 90cm, puissance: "1PB, MA" }
+  - id: wagon_bombe_h
+    nom: Wagon Bombe H
+    type: EG
+    vitesse: 20cm
+    armes:
+      - { nom: Bombe atomique, portee: "∞", puissance: "AP3+/AC4+, IC, Rpt, Ind, Uniq, Gabarit Orbital" }
+
+options:
+  - id: seigneur_de_guerre
+    nom: Seigneur de Guerre
+    effet: { type: ajouter, cout: 50, unites: [{ unite: seigneur_de_guerre, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Ajouter un personnage de Seigneur de Guerre à une unité de la formation"
+    phrase_pdf: "Ajouter un personnage de Seigneur de Guerre à une unité de la formation"
+  - id: ancetre_vivant
+    nom: Ancêtre Vivant
+    effet: { type: ajouter, cout: 50, unites: [{ unite: ancetre_vivant, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Ajouter un personnage d'Ancêtre Vivant à une unité de la formation"
+    phrase_pdf: "Ajouter un personnage d'Ancêtre Vivant à une unité de la formation"
+  - id: maitre_guilde
+    nom: Maître de la Guilde
+    effet: { type: ajouter, cout: 50, unites: [{ unite: maitre_guilde, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [motards_guilde] }
+    phrase_pdf: "Ajouter un personnage de Maître de la Guilde à une unité de Motard de la Guilde"
+  - id: exo_armure
+    nom: Exo-armure
+    effet: { type: mot_cle, texte: "Exo-armure : le Seigneur gagne la compétence Blindage Renforcé", cout: 25, cible: [seigneur] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [seigneur] }
+    phrase_pdf: "Le seigneur gagne la compétence Blindage Renforcé"
+  - id: exotrikes
+    nom: Exotrikes
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: exotrikes }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 ou 2 unités d'Exotrikes à la formation"
+  - id: canon_foudre
+    nom: Canon Foudre
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: canon_foudre }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 ou 2 unités de Canons Foudre à la formation"
+  - id: leviathan
+    nom: Léviathan
+    effet: { type: ajouter, cout: 350, unites: [{ unite: leviathan, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Léviathan à la formation"
+  - id: trikes
+    nom: Trikes
+    effet: { type: remplacer, de: motards_guilde, par: trikes_guilde, lot: 1, max: 10, cout: 5 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer des unités de Motards de la Guilde par autant de Trikes"
+  - id: tunneliers
+    nom: Tunneliers
+    effet:
+      type: choix
+      parmi:
+        - id: fouisseuse
+          nom: Une Fouisseuse
+          cout: 0
+          effet: { type: ajouter, cout: 75, unites: [{ unite: fouisseuse, nombre: 1 }] }
+        - id: taupes_termites
+          nom: Taupes et/ou Termites
+          cout: 0
+          effet:
+            type: choix_multiple
+            total: { min: 1, max: besoin_transport }
+            parmi:
+              - { unite: termite, cout: 25 }
+              - { unite: taupe, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter une Fouisseuse à la formation (75 pts) ou ajouter suffisamment de Taupe (50 pts) et/ou Termite (25 pts) pour transporter toute la formation sans qu'il ne reste de place disponible."
+    phrase_pdf: "Ajouter une Fouisseuse à la formation ou ajouter suffisamment de Taupe et/ou Termite pour transporter toute la formation sans qu'il ne reste de place disponible"
+  - id: rhinos
+    nom: Rhinos
+    effet: { type: ajouter, cout_par_unite: 15, unites: [{ unite: rhino }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter suffisamment de Rhinos pour transporter la formation"
+  - id: land_raiders
+    nom: Land Raiders
+    effet:
+      type: choix
+      parmi:
+        - id: chacun
+          nom: 75 pts chacun
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 75, unites: [{ unite: land_raider }], min: 1, max: besoin_transport }
+        - id: par_deux
+          nom: 125 pts les 2
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 125, unites: [{ unite: land_raider, nombre: 2 }], lot: 2, min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter suffisamment de Land Raiders pour transporter la formation"
+  # ---- Wagons du Train Blindé (partie intégrante de la formation) ----
+  - id: wagons
+    nom: Wagons
+    effet:
+      type: choix_multiple
+      total: { min: 4, max: 7 }
+      parmi:
+        - { unite: wagon_canon, cout: 100, max: 7 }
+        - { unite: wagon_berserker, cout: 75, max: 7 }
+        - { unite: wagon_mortier, cout: 125, max: 7 }
+        - { unite: wagon_marteau_celeste, cout: 125, max: 7 }
+        - { unite: wagon_dragon, cout: 100, max: 7 }
+        - { unite: wagon_bombe_h, cout: 150, max: 1 }
+    contraintes:
+      - { type: obligatoire }
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "0-7 Wagon Canon, 0-7 Wagon Berserker, 0-7 Wagon Mortier, 0-7 Wagon Marteau Céleste, 0-7 Wagon Dragon, 0-1 Wagon Bombe H"
+
+formations:
+  # ---- Confréries ----
+  - id: confrerie_guerriers
+    nom: Confrérie de Guerriers
+    variantes:
+      - id: sept
+        nom: 1 unité de Seigneur + 7 unités de Guerriers
+        cout: 200
+        composition:
+          - { unite: seigneur, nombre: 1 }
+          - { unite: guerriers, nombre: 7 }
+      - id: onze
+        nom: 1 unité de Seigneur + 11 unités de Guerriers
+        cout: 300
+        composition:
+          - { unite: seigneur, nombre: 1 }
+          - { unite: guerriers, nombre: 11 }
+    options: [seigneur_de_guerre, ancetre_vivant, exo_armure, leviathan]
+  - id: confrerie_berserkers
+    nom: Confrérie de Berserkers
+    variantes:
+      - id: sept
+        nom: 1 unité de Seigneur + 7 unités de Berserkers
+        cout: 175
+        composition:
+          - { unite: seigneur, nombre: 1 }
+          - { unite: berserkers, nombre: 7 }
+      - id: onze
+        nom: 1 unité de Seigneur + 11 unités de Berserkers
+        cout: 250
+        composition:
+          - { unite: seigneur, nombre: 1 }
+          - { unite: berserkers, nombre: 11 }
+    options: [seigneur_de_guerre, exo_armure, leviathan, tunneliers, rhinos]
+  - id: confrerie_motards
+    nom: Confrérie de Motards de la Guilde
+    variantes:
+      - { id: huit, nom: 8 unités de Motards de la Guilde, cout: 200, composition: [{ unite: motards_guilde, nombre: 8 }] }
+      - { id: dix, nom: 10 unités de Motards de la Guilde, cout: 250, composition: [{ unite: motards_guilde, nombre: 10 }] }
+    options: [seigneur_de_guerre, maitre_guilde, trikes, exotrikes]
+
+  # ---- Formations de soutien ----
+  - id: confrerie_gardes_foyer
+    nom: Confrérie de Gardes du Foyer
+    variantes:
+      - { id: six, nom: 6 unités de Gardes du Foyer, cout: 275, composition: [{ unite: gardes_foyer, nombre: 6 }] }
+      - { id: huit, nom: 8 unités de Gardes du Foyer, cout: 375, composition: [{ unite: gardes_foyer, nombre: 8 }] }
+    options: [seigneur_de_guerre, ancetre_vivant, leviathan, tunneliers, land_raiders]
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: confrerie_guerriers_tonnerre
+    nom: Confrérie de Guerriers Tonnerre
+    variantes:
+      - { id: six, nom: 6 unités de Guerriers Tonnerre, cout: 225, composition: [{ unite: guerriers_tonnerre, nombre: 6 }] }
+      - { id: huit, nom: 8 unités de Guerriers Tonnerre, cout: 300, composition: [{ unite: guerriers_tonnerre, nombre: 8 }] }
+    options: [seigneur_de_guerre, ancetre_vivant, leviathan, rhinos, tunneliers, land_raiders]
+  - id: formation_robots
+    nom: Formation de Robots de la Guilde
+    variantes:
+      - { id: base, nom: 5 unités de Robots, cout: 200, composition: [{ unite: robots_guilde, nombre: 5 }] }
+    options: []
+  - id: formation_overlord
+    nom: Dirigeable Overlord
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 1, max: 2 }
+              parmi: [{ unite: dirigeable_overlord, cout: 200 }]
+              phrase_pdf: "1 ou 2 Dirigeable Overlord"
+    options: []
+    phrase_pdf: "200 pts chacun"
+  - id: formation_gyrocopteres
+    nom: Formation de Gyrocoptères
+    variantes:
+      - { id: base, nom: 5 unités de Gyrocoptères, cout: 275, composition: [{ unite: gyrocoptere, nombre: 5 }] }
+    options: []
+  - id: batterie_foudre
+    nom: Batterie Foudre
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 3, max: 5 }
+              parmi: [{ unite: canon_foudre, cout: 50 }]
+              phrase_pdf: "3 à 5 unités de Canons Foudre"
+    options: []
+    phrase_pdf: "50 pts chacun"
+  - id: batterie_artillerie
+    nom: Batterie d'artillerie
+    variantes:
+      - { id: thudd_guns, nom: 6 unités de Thudd Guns, cout: 225, composition: [{ unite: thudd_gun, nombre: 6 }] }
+      - { id: mortiers_taupe, nom: 6 unités de Mortiers-Taupe, cout: 200, composition: [{ unite: mortier_taupe, nombre: 6 }] }
+      - { id: tarentules, nom: 6 unités de Tarentules, cout: 175, composition: [{ unite: tarentule, nombre: 6 }] }
+    options: [canon_foudre]
+  - id: batterie_artillerie_lourde
+    nom: Batterie d'artillerie lourde
+    variantes:
+      - { id: un, nom: 1 Méga-Canon Goliath, cout: 250, composition: [{ unite: mega_canon_goliath, nombre: 1 }] }
+      - { id: deux, nom: 2 Méga-Canon Goliath, cout: 400, composition: [{ unite: mega_canon_goliath, nombre: 2 }] }
+    options: [canon_foudre]
+
+  # ---- Engins de guerre ----
+  - id: leviathan
+    nom: Léviathan
+    variantes:
+      - { id: base, nom: 1 Léviathan, cout: 350, composition: [{ unite: leviathan, nombre: 1 }] }
+    options: []
+  - id: train_blinde
+    nom: Train Blindé
+    description: "1 Locomotive et de 4 à 7 Wagons"
+    variantes:
+      - { id: base, nom: 1 Locomotive, cout: 200, composition: [{ unite: locomotive, nombre: 1 }] }
+    options: [wagons]
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: colossus
+    nom: Colossus
+    variantes:
+      - { id: base, nom: 1 Colossus, cout: 500, composition: [{ unite: colossus, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: cyclope
+    nom: Cyclope
+    variantes:
+      - { id: base, nom: 1 Cyclope, cout: 500, composition: [{ unite: cyclope, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: initiative, valeur: "1+" }]
+
+sections:
+  - id: confreries
+    titre: CONFRÉRIES
+    formations: [confrerie_guerriers, confrerie_berserkers, confrerie_motards]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: fournit, budget: soutien, quantite: 2 }
+    options: []
+    colonne_options: true
+  - id: formations_soutien
+    titre: FORMATIONS DE SOUTIEN
+    sous_titre: "Deux formations de soutien par Confrérie"
+    formations: [confrerie_gardes_foyer, confrerie_guerriers_tonnerre, formation_robots, formation_overlord, formation_gyrocopteres, batterie_foudre, batterie_artillerie, batterie_artillerie_lourde]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: consomme, budget: soutien }
+    options: [seigneur_de_guerre, ancetre_vivant, maitre_guilde, exo_armure, exotrikes, canon_foudre, leviathan, trikes, tunneliers, rhinos, land_raiders]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une fois par formation"
+  - id: engins_guerre
+    titre: ENGINS DE GUERRE
+    sous_titre: "Jusqu'à 1/3 de la valeur totale de l'armée"
+    formations: [leviathan, train_blinde, colossus, cyclope]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    options: []
+
+listes_test:
+  - nom: "3000 pts valide : deux Confréries, deux soutiens et un Léviathan"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: confrerie_guerriers
+        variante: onze
+        options: [{ option: seigneur_de_guerre }, { option: exo_armure }]
+      - formation: confrerie_berserkers
+        variante: sept
+        options: [{ option: rhinos, quantite: 4 }]
+      - formation: confrerie_gardes_foyer
+        variante: six
+        options: [{ option: ancetre_vivant }]
+      - formation: batterie_artillerie
+        variante: thudd_guns
+        options: [{ option: canon_foudre, quantite: 2 }]
+      - { formation: leviathan }
+  - nom: "2000 pts valide : Confrérie de Motards et Train Blindé"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: confrerie_motards
+        variante: huit
+        options:
+          - { option: maitre_guilde }
+          - { option: exotrikes, quantite: 2 }
+          - { option: trikes, quantite: 3 }
+      - formation: train_blinde
+        options:
+          - option: wagons
+            repartition: { wagon_canon: 2, wagon_berserker: 1, wagon_bombe_h: 1 }
+  - nom: "trois formations de soutien pour une seule Confrérie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: confrerie_guerriers, variante: sept }
+      - { formation: formation_robots }
+      - { formation: formation_gyrocopteres }
+      - formation: batterie_foudre
+        choix: { "0": { canon_foudre: 3 } }
+  - nom: "deux Seigneurs de Guerre dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: confrerie_guerriers
+        variante: sept
+        options: [{ option: seigneur_de_guerre }]
+      - formation: confrerie_berserkers
+        variante: sept
+        options: [{ option: seigneur_de_guerre }]
+  - nom: "cinq améliorations sur une Confrérie de Guerriers Tonnerre"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - { formation: confrerie_guerriers, variante: sept }
+      - formation: confrerie_guerriers_tonnerre
+        variante: huit
+        options:
+          - { option: rhinos, quantite: 4 }
+          - { option: leviathan }
+          - { option: tunneliers, choix: fouisseuse }
+          - { option: seigneur_de_guerre }
+          - { option: ancetre_vivant }
+  - nom: "Colossus et Cyclope au-delà du tiers à 2000 pts"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: confrerie_guerriers, variante: sept }
+      - { formation: colossus }
+      - { formation: cyclope }
