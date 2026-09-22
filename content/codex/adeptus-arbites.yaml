@@ -1,0 +1,621 @@
+# Adeptus Arbites, transcrit depuis le PDF EAFR rev 1.3 (source de vérité).
+codex:
+  slug: adeptus-arbites
+  armee_id: f40025a7-e0db-4305-ae71-37e48a91b55f
+  nom: Adeptus Arbites
+  version: "1.3"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  citation:
+    texte: "Aucun serviteur de l'Empereur ne meurt sans vengeance, nul ennemi de l'Empereur n'échappe au châtiment !"
+    auteur: Promesse de la Pax Imperialis
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de l'Adeptus Arbites.
+
+    Les armées de l'Adeptus Arbites sont organisées autour de petites formations appelées détachements principaux ainsi que des détachements de soutien qui leur sont autonomes.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations de support sont des formations autonomes des détachements. Un maximum du tiers des points peut être dépensé pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Auxiliaires de l'Imperium"
+      texte: |
+        Les troupes de l'Adeptus Arbites sont des troupes d'élites chargées du maintien de l'ordre dans les mondes ruches de l'Imperium. Aussi, elles combattent rarement seules lorsqu'un conflit d'ampleur éclate sur un monde sous leur juridiction.
+
+        Un tiers des points d'une liste de l'Adeptus Arbites peut être sélectionné dans les codex Adeptus Astartes, Astra Militarum et Adepta Sororitas. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux choix de soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême.
+    - titre: "Règle spéciale : Initiative des détachements"
+      texte: |
+        Les Détachements incluant un personnage ont une initiative de 1+. Les autres détachements ont une initiative de 2+.
+    - titre: "Règle spéciale : Capacité de transport du Mastodon"
+      texte: |
+        Le Mastodon a une capacité de Transport (10). Il ne peut pas transporter d'Ogryns et ne peut transporter que jusqu'à 2 Plateformes Sabres.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture deviantart.com/thefirstangel."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Détachements incluant un personnage", valeur: "1+" }
+
+budgets:
+  - id: slot_soutien
+    libelle: Détachements de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 détachements de soutien par détachement principal"
+  - id: rare
+    libelle: Supports de l'Adeptus Arbites
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: juge_supreme
+    nom: Juge Suprême
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême, Sauvegarde Invulnérable, Charismatique, Sans peur]
+    roles: [personnage, commandant_supreme]
+  - id: marshall
+    nom: Marshall
+    type: Perso
+    armes:
+      - { nom: Matraque Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: [Commandant, Meneur]
+    roles: [personnage]
+  - id: sheriff
+    nom: Sheriff
+    type: Perso
+    armes:
+      - { nom: Frappe Psionique, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Meneur]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: arbitrator_choc
+    nom: Arbitrators de Choc
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Fusils de Justice, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: 2x Lance-Grenades (Arbites), portee: 15cm, puissance: "AP5+/AC6+" }
+  - id: arbitrator_assaut
+    nom: Arbitrators d'Assaut
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Matraques, portee: (contact), puissance: "Arme d'Assaut" }
+  - id: arbitrator_soutien
+    nom: Arbitrators de Soutien
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: Fusils de Justice, portee: (15cm), puissance: "Arme Légère, IC" }
+  - id: moto_arbites
+    nom: Motos Arbites
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Matraques, portee: (contact), puissance: "Arme d'Assaut" }
+      - { nom: Fusils à Pompe, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Montés]
+  - id: k9_team
+    nom: K9 Team
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Cybermastif, portee: (contact), puissance: "Arme d'Assaut" }
+      - { nom: Fusils à Pompe, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Infiltrateurs, Éclaireurs]
+  - id: sniper_team
+    nom: Sniper Team
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils de Justice Amélioré, portee: 30cm, puissance: "AP5+, Sniper" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, Snp, IC" }
+    notes: [Éclaireurs]
+  - id: plateforme_sabre
+    nom: Plateforme Sabre
+    type: Inf
+    vitesse: 10cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+  - id: ogryns
+    nom: Ogryns
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Ripper guns, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Arme de Corps-à-corps, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: [Massifs (prennent 2 places dans les transports)]
+    taille_transport: 2
+
+  # ---- Véhicules ----
+  - id: sentinelle_arbites
+    nom: Sentinelle Arbites
+    type: VL
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Marcheurs]
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [arbitrator_choc, arbitrator_assaut, arbitrator_soutien, k9_team, sniper_team, plateforme_sabre, ogryns]
+  - id: repressor
+    nom: Repressor
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-Flammes MkI, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Marcheur, "Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [arbitrator_choc, arbitrator_assaut, arbitrator_soutien, k9_team, sniper_team, plateforme_sabre, ogryns]
+  - id: rhino
+    nom: Rhino
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fulgurant, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [arbitrator_choc, arbitrator_assaut, arbitrator_soutien, k9_team, sniper_team, plateforme_sabre, ogryns]
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_punisher
+    nom: Leman Russ Punisher
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canons Punisher jumelés, portee: 15cm, puissance: "2xAP3+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: black_maria
+    nom: Black Maria
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-Missiles Pacificator, portee: 45cm, puissance: "1PB, Rpt, IC, Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: valkyrie
+    nom: Valkyrie
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: 2x Nacelles de roquettes, portee: 30cm, puissance: "1PB, Uniq, Rpt" }
+    notes: [Antigrav, Éclaireur, "Transport (2)"]
+    transport:
+      capacite: 2
+      accepte: [arbitrator_choc, arbitrator_assaut]
+  - id: mastodon
+    nom: Mastodon
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Fuseur de Siège, portee: 15cm, puissance: "2xMA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA, FrtF" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Batterie Skyreaper, portee: 30cm, puissance: "2xAP4+/AC5+/AA5+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes:
+      - Blindage Renforcé
+      - Blindage Arrière Renforcé
+      - Marcheur
+      - "Transport (10). Ne peut pas transporter d'Ogryns. Peut transporter jusqu'à 2 Plateformes Sabres."
+    transport:
+      capacite: 10
+      accepte: [arbitrator_choc, arbitrator_assaut, arbitrator_soutien, k9_team, sniper_team, plateforme_sabre]
+    degats: { cd: 2, bi: 2, critique: "Le Mastodon est détruit." }
+
+  # ---- Auxiliaires du Departmento Munitorum ----
+  - id: magister
+    nom: Magister
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Eviscerator, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Charismatique, Sans Peur]
+  - id: devots
+    nom: Dévots
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Armes de Poing, portee: (15cm), puissance: "Armes Légères" }
+    notes: [Sans Peur]
+  - id: legionnaires
+    nom: Légionnaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils Laser, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Mitrailleuse Lourde, portee: 30cm, puissance: "AP6+" }
+    notes: [Sacrifiable]
+
+  # ---- Flotte de l'Aeronautica Imperialis ----
+  - id: avenger
+    nom: Avenger
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon Avenger, portee: 30cm, puissance: "AP3+/AC5+, FrtF" }
+      - { nom: Canon Laser (AA), portee: 30cm, puissance: "AC5+/AA6+, FrtF" }
+      - { nom: Mitrailleuse Lourde (AA), portee: 30cm, puissance: "AA6+, Arr" }
+  - id: croiseur_attaque
+    nom: Croiseur d'Attaque (Arbites)
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe Chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+
+options:
+  - id: juge_supreme
+    nom: Juge Suprême
+    effet: { type: ajouter, cout: 50, unites: [{ unite: juge_supreme, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+    phrase_pdf: "Ajouter un Juge Suprême à la formation"
+  - id: officier
+    nom: Officier
+    effet:
+      type: choix
+      parmi:
+        - { id: marshall, nom: Marshall, cout: 25, effet: { type: ajouter, unites: [{ unite: marshall, nombre: 1 }] } }
+        - { id: sheriff, nom: Sheriff, cout: 25, effet: { type: ajouter, unites: [{ unite: sheriff, nombre: 1 }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Marshall ou un Sheriff à la formation"
+  - id: transports
+    nom: Transports
+    effet:
+      type: choix
+      parmi:
+        - id: rhino
+          nom: Rhino
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: rhino }], cout_par_unite: 10, min: 1, max: besoin_transport }
+        - id: repressor
+          nom: Repressor
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: repressor }], cout_par_unite: 15, min: 1, max: besoin_transport }
+        - id: chimere
+          nom: Chimère
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: chimere }], cout_par_unite: 25, min: 1, max: besoin_transport }
+        - id: mastodon
+          nom: Mastodon
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: mastodon }], cout_par_unite: 225, min: 1, max: besoin_transport }
+          contraintes: [{ type: requiert_unite, unites: [juge_supreme] }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter suffisamment de véhicules pour transporter toutes les unités de la formation parmi : Rhino (10 pts) ou Repressor (15 pts) ou Chimère (25 pts) ou Mastodon (225 pts, uniquement si la formation contient un Juge Suprême)"
+    note_md: "Le coût indiqué est celui d'un véhicule. Vous ne pouvez pas prendre plus de véhicules que nécessaire pour embarquer la formation."
+  - id: k9_team
+    nom: K9 team
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: k9_team }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 2 unités à la formation"
+  - id: sniper_team
+    nom: Sniper Team
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: sniper_team }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 2 unités à la formation"
+  - id: plateformes_sabre
+    nom: Plateformes Sabre
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: plateforme_sabre }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 unités à la formation"
+
+  # ---- Améliorations propres à certains détachements de soutien ----
+  - id: punisher
+    nom: Leman Russ Punisher
+    effet: { type: remplacer, de: leman_russ, par: leman_russ_punisher, lot: 1, max: 3, cout: 0 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer jusqu'à 3 Leman Russ par des Leman Russ Punisher (gratuit)"
+  - id: ogryns_supplementaires
+    nom: Ogryns supplémentaires
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: ogryns }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 0-2 unités d'Ogryns pour 25 pts chacune"
+  - id: transport_chimere
+    nom: Transport
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter suffisamment de Chimères pour transporter toutes les unités de la formation (25 pts chacune)"
+    note_md: "Chimères uniquement. Vous ne pouvez pas prendre plus de Chimères que nécessaire pour embarquer la formation."
+
+formations:
+  # ---- Détachements principaux ----
+  - id: patrouille_repressor
+    nom: Patrouille Repressor
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: arbitrator_choc }, { unite: arbitrator_assaut }]
+              phrase_pdf: "8 unités parmi Arbitrators de Choc / Assaut"
+    contraintes: [{ type: min_par_armee, valeur: 1 }]
+    options: [juge_supreme, officier, k9_team, sniper_team, plateformes_sabre, transports]
+  - id: patrouille_interceptor
+    nom: Patrouille Interceptor
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: moto_arbites, nombre: 8 }] }
+    options: [juge_supreme, officier]
+  - id: patrouille_purgator
+    nom: Patrouille Purgator
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: arbitrator_soutien, nombre: 8 }] }
+    options: [juge_supreme, officier, k9_team, sniper_team, plateformes_sabre, transports]
+
+  # ---- Détachements de soutien ----
+  - id: patrouille_tormentor
+    nom: Patrouille Tormentor
+    variantes:
+      - id: base
+        cout: 350
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: arbitrator_choc }, { unite: arbitrator_assaut }]
+              phrase_pdf: "8 unités d'Arbitrators de Choc / Assaut"
+          - { unite: valkyrie, nombre: 4 }
+    options: [officier]
+  - id: patrouille_lupus
+    nom: Patrouille Lupus
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: k9_team, nombre: 6 }] }
+    options: [officier, sniper_team]
+  - id: patrouille_fortitude
+    nom: Patrouille Fortitude
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: leman_russ, nombre: 6 }] }
+    options: [officier, punisher]
+  - id: patrouille_punition
+    nom: Patrouille Punition
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: black_maria, nombre: 3 }] }
+    options: []
+  - id: patrouille_interception
+    nom: Patrouille Interception
+    variantes:
+      - { id: base, cout: 125, composition: [{ unite: sentinelle_arbites, nombre: 6 }] }
+    options: [officier]
+  - id: patrouille_soumission
+    nom: Patrouille Soumission
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: marshall, nombre: 1 }
+          - { unite: ogryns, nombre: 4 }
+    contraintes: [{ type: initiative, valeur: "1+" }]
+    options: [ogryns_supplementaires, transport_chimere]
+
+  # ---- Supports : Flotte de l'Aeronautica Imperialis ----
+  - id: escadron_interception
+    nom: Escadron d'interception
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: avenger, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: croiseur_attaque, nombre: 1 }] }
+    contraintes: [{ type: pas_une_activation }]
+
+  # ---- Supports : Auxiliaires du Departmento Munitorum ----
+  - id: redemptionistes
+    nom: Rédemptionistes
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: magister, nombre: 1 }
+          - { unite: devots, nombre: 9 }
+  - id: legions_penales
+    nom: Légions Pénales
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: arbitrator_choc, nombre: 1 }
+          - { unite: legionnaires, nombre: 12 }
+    options: [officier]
+
+sections:
+  - id: detachements_principaux
+    titre: DÉTACHEMENTS PRINCIPAUX DE L'ADEPTUS ARBITES
+    sous_titre: "Au moins une Patrouille Repressor obligatoire"
+    formations: [patrouille_repressor, patrouille_interceptor, patrouille_purgator]
+    contraintes: [{ type: fournit, budget: slot_soutien, quantite: 2 }]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS DE L'ADEPTUS ARBITES
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement"
+  - id: detachements_soutien
+    titre: DÉTACHEMENTS DE SOUTIEN DE L'ADEPTUS ARBITES
+    sous_titre: "Jusqu'à 2 détachements de soutien par détachement principal"
+    formations: [patrouille_tormentor, patrouille_lupus, patrouille_fortitude, patrouille_punition, patrouille_interception, patrouille_soumission]
+    contraintes: [{ type: consomme, budget: slot_soutien }]
+    colonne_options: true
+  - id: aeronautica
+    titre: FLOTTE DE L'AERONAUTICA IMPERIALIS
+    sous_titre: "SUPPORTS DE L'ADEPTUS ARBITES"
+    formations: [escadron_interception, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: munitorum
+    titre: AUXILIAIRES DU DEPARTMENTO MUNITORUM
+    sous_titre: "SUPPORTS DE L'ADEPTUS ARBITES"
+    formations: [redemptionistes, legions_penales]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts valide, deux détachements principaux et quatre soutiens"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: patrouille_repressor
+        choix: { "0": { arbitrator_choc: 6, arbitrator_assaut: 2 } }
+        options:
+          - { option: juge_supreme }
+          - { option: officier, choix: marshall }
+          - { option: k9_team, quantite: 2 }
+          - { option: transports, choix: chimere, quantite: 5 }
+      - formation: patrouille_purgator
+        options: [{ option: sniper_team, quantite: 2 }]
+      - formation: patrouille_fortitude
+        options: [{ option: punisher, quantite: 3 }]
+      - { formation: patrouille_punition }
+      - formation: patrouille_lupus
+        options: [{ option: officier, choix: sheriff }]
+      - { formation: patrouille_interception }
+      - { formation: escadron_interception }
+  - nom: "2000 pts valide, Mastodon, Ogryns embarqués et auxiliaires du Munitorum"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: patrouille_repressor
+        choix: { "0": { arbitrator_choc: 8 } }
+        options:
+          - { option: juge_supreme }
+          - { option: transports, choix: mastodon, quantite: 1 }
+      - formation: patrouille_soumission
+        options:
+          - { option: ogryns_supplementaires, quantite: 2 }
+          - { option: transport_chimere, quantite: 6 }
+      - { formation: redemptionistes }
+      - formation: legions_penales
+        options: [{ option: officier, choix: marshall }]
+  - nom: "aucune Patrouille Repressor"
+    limite: 3000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - formation: patrouille_interceptor
+        options: [{ option: juge_supreme }]
+      - { formation: patrouille_purgator }
+  - nom: "trois détachements de soutien pour un seul détachement principal"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: patrouille_repressor
+        choix: { "0": { arbitrator_choc: 8 } }
+      - { formation: patrouille_lupus }
+      - { formation: patrouille_interception }
+      - { formation: patrouille_punition }
+  - nom: "Mastodon sans Juge Suprême"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: patrouille_repressor
+        choix: { "0": { arbitrator_choc: 8 } }
+      - formation: patrouille_purgator
+        options: [{ option: transports, choix: mastodon, quantite: 1 }]
+  - nom: "quatre Plateformes Sabre sur un détachement"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: patrouille_repressor
+        choix: { "0": { arbitrator_choc: 8 } }
+        options: [{ option: plateformes_sabre, quantite: 4 }]
+  - nom: "supports au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: patrouille_repressor
+        choix: { "0": { arbitrator_choc: 8 } }
+      - { formation: legions_penales }
+      - { formation: legions_penales }
+      - { formation: legions_penales }
