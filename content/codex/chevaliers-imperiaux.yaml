@@ -1,0 +1,616 @@
+# Chevaliers Impériaux, transcrit depuis le PDF EAFR REV 1.1 (source de vérité).
+codex:
+  slug: chevaliers-imperiaux
+  armee_id: a66a54e4-7630-4ed8-97b9-27b182eee006
+  nom: Chevaliers Impériaux
+  version: "1.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  citation:
+    texte: "Que la puissance du Chevalier s'écoule dans vos veines. Que les fantômes de votre Trône murmurent dans votre esprit. Que vos tendons soient d'acier, et vos poings de feu. Devenez votre Chevalier, et par la symbiose, élevez-vous. Ainsi vous serez adoubé. Ainsi vous protégerez votre peuple et massacrerez vos ennemis."
+    auteur: Sixième Cantique du Rituel d'Adoubement
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de Chevaliers Impériaux.
+
+    Les armées des Chevaliers Impériaux sont organisées en formations appelées Lance du Ban, Lance de soutien et Lance d'appui lourd.
+
+    Chaque Lance peut recevoir des améliorations. La liste d'armée indique pour chaque lance quelles améliorations sont autorisées. Chaque amélioration autorisée ne peut être prise qu'une fois par lance sans autre contrainte. Les améliorations font partie intégrante des Lance et doivent respecter les règles de cohésion. Certaines améliorations ajoutent des chevaliers supplémentaires alors que d'autres ajoutent des personnages. Ces personnages sont des pilotes de ce fait, chaque véhicule ne peut recevoir qu'un seul personnage.
+  regles_md:
+    - titre: "Règle spéciale : Bouclier à Ions"
+      texte: |
+        Les Chevaliers sont protégés par un Bouclier à Ions.
+
+        Un Chevalier peut décider d'utiliser la sauvegarde de son Bouclier à Ions à la place de sa sauvegarde de blindage, y compris contre les armes n'autorisant habituellement pas les sauvegardes (MA et TT). Dans ce cas, chaque touche en TT doit être sauvegardée séparément.
+
+        Si la sauvegarde du Bouclier à Ions échoue, le Chevalier peut utiliser son Blindage Renforcé si l'arme l'y autorise (les attaques TT, MA et Lance annulent donc cette possibilité). Il utilisera alors sa valeur de blindage et non la valeur de son Bouclier à Ions.
+
+        Par contre, cette règle ne s'applique pas contre les attaques de corps à corps et les tirs en cas de feu croisé.
+
+        Le Pavois à Ions fonctionne de la même manière qu'un Bouclier mais il offre une bien meilleure protection à courte distance. Il peut donc également être utilisé contre des touches de corps à corps.
+    - titre: "Règle spéciale : Courage Chevaleresque"
+      texte: "Les formations de Chevaliers bénéficient d'un bonus de +1 lors des tests d'actions d'Assaut et des tests de ralliement."
+    - titre: "Règle spéciale : Porte-Bannière de la Baronnie"
+      texte: |
+        La formation du Banneret gagne un +1 à son initiative tant que le Banneret est vivant.
+
+        Il ne peut pas y avoir de Sans Fief dans la formation du Banneret.
+    - titre: "Règle spéciale : Armement des Chevaliers"
+      texte: |
+        Les Chevaliers Questoris, Cerastus et Dominus sont des engins de guerres mobiles et leurs armes ont toutes un angle de tir frontal, à l'exception de l'Autocanon Icarus jumelé qui a un angle de 360° pour les attaques anti-aériennes uniquement.
+
+        Les Chevalier Acastus sont des engins de guerres d'appui feu et leurs armes ont toutes un angle de tir frontal fixe, à l'exception du Lance-Missiles Acastus qui a un angle de 360° pour les attaques anti-aériennes uniquement.
+    - titre: "Alliance : Mechanicum"
+      texte: "Un tiers des points d'une liste de Chevalier peut être sélectionné dans l'un des deux codex Légions Titaniques ou Adeptus Mechanicus. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux choix de soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême."
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Tze Kun Chin."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+
+budgets:
+  - id: slot_soutien
+    libelle: Lances de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Deux formations par Lance du Ban"
+  - id: slot_appui_lourd
+    libelle: Lances d'appui lourd
+    capacite: { source: fournitures }
+    phrase_pdf: "Une formation par Lance du Ban"
+
+unites:
+  # ---- Personnages (pilotes) ----
+  - id: senechal
+    nom: Sénéchal
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Pilote expérimenté, portee: "(contact)", puissance: "Arme d'Assaut, +1A" }
+    notes: [Commandant Suprême, Svg Invu, Charismatique, Sans Peur]
+    roles: [personnage, commandant_supreme]
+  - id: lord_scion
+    nom: Lord Scion
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Pilote expérimenté, portee: "(contact)", puissance: "Arme d'Assaut, +1A" }
+    notes: [Meneur]
+    roles: [personnage]
+  - id: banneret
+    nom: Banneret
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Pilote expérimenté, portee: "(contact)", puissance: "Arme d'Assaut, +1A" }
+    notes: [Meneur, Sans peur, Porte Bannière de la Baronnie]
+    roles: [personnage]
+  - id: sans_fief
+    nom: Sans-Fief
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Pilote légendaire, portee: "(contact)", puissance: "Arme d'assaut, +1A" }
+      - { nom: "", portee: "(15cm)", puissance: "Arme légère, +1A" }
+    notes: [Sans peur]
+    roles: [personnage]
+
+  # ---- Armigères ----
+  - id: armigere_hastaire
+    nom: Armigère Hastaire
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lance Thermique, portee: "30 cm", puissance: "MA5+" }
+      - { nom: "", portee: "(15cm)", puissance: "Arme légère, MA" }
+      - { nom: Couperet Tronçonneur, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Bouclier à Ion (5+)", Éclaireur, Marcheur, Blindage Renforcé]
+  - id: armigere_helverien
+    nom: Armigère Helvérien
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Autocanon Armiger, portee: 45cm, puissance: "AP4+/AC5+" }
+    notes: ["Bouclier à Ion (5+)", Éclaireur, Marcheur, Blindage Renforcé]
+
+  # ---- Chevaliers Questoris ----
+  - id: precepteur
+    nom: Précepteur
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Impulseur Laser, portee: 30cm, puissance: "MA4+" }
+      - { nom: Tronçonneuse reaper, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur, Commandant, Meneur, Charismatique]
+    degats: { cd: 2, critique: Détruit }
+  - id: paladin
+    nom: Paladin
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier à tir rapide, portee: 75cm, puissance: "2xAP4+/AC4+" }
+      - { nom: Tronçonneuse reaper, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Lance-Missiles Ironstorm, portee: 45cm, puissance: "1PB, Ind" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: errant
+    nom: Errant
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Thermique, portee: "30 cm", puissance: "MA4+" }
+      - { nom: et, portee: "(15cm)", puissance: "Arme Légère, MA" }
+      - { nom: Tronçonneuse reaper, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: croise
+    nom: Croisé
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier à tir rapide, portee: 75cm, puissance: "2xAP4+/AC4+" }
+      - { nom: Canon gatling Avenger, portee: 30cm, puissance: "2xAP3+/AC5+" }
+      - { nom: Autocanon Icarus jumelé, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: galant
+    nom: Galant
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Gantelet Thunderstrike, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1)" }
+      - { nom: Tronçonneuse reaper, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Fuseur, portee: "(15cm)", puissance: "Arme Légère, +1A, MA" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: warden
+    nom: Warden
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon gatling Avenger, portee: 30cm, puissance: "2xAP3+/AC5+" }
+      - { nom: Tronçonneuse reaper, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Lance-Flammes, portee: "(15cm)", puissance: "Arme Légère, IC" }
+    notes: ["Bouclier à Ion (4+/-)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: warden_aggressor
+    nom: Warden Aggressor
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon gatling Avenger, portee: 30cm, puissance: "2xAP3+/AC5+" }
+      - { nom: Gantelet Thunderstrike, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1)" }
+      - { nom: Lance-Flammes, portee: "(15cm)", puissance: "Arme Légère, IC" }
+      - { nom: Lance-Missiles Stormspear, portee: 45cm, puissance: "2xAC5+" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: styrix
+    nom: Styrix
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Chiérovile Volkite, portee: 45cm, puissance: "2xAP3+/AC5+, Lance" }
+      - { nom: Pince de siège Hekaton, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1)" }
+      - { nom: Irradieur, portee: "(15cm)", puissance: "Arme Légère, +1A" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: magaera
+    nom: Magæra
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon à foudre, portee: 45cm, puissance: "2xAP3+/AC5+, IC" }
+      - { nom: Pince de siège Hekaton, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1)" }
+      - { nom: Irradieur, portee: "(15cm)", puissance: "Arme Légère, +1A" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+
+  # ---- Chevaliers Cerastus ----
+  - id: atrapos
+    nom: Atrapos
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Découpeur de phase Atrapos, portee: "(contact)", puissance: "Arme d'assaut, +1A, MA" }
+      - { nom: ou, portee: "(15cm)", puissance: "Arme légère, +1A, MA" }
+      - { nom: Canon à singularité, portee: 30cm, puissance: "2xAP5+/AC4+, Lance" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: castigator
+    nom: Castigator
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon à bolt Castigator, portee: 30cm, puissance: "3xAP3+/AC5+, Rpt" }
+      - { nom: Lame de guerre Tempest, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: acheron
+    nom: Acheron
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Flamestorm Acheron, portee: "15 cm", puissance: "2xAP3+/AC6+, IC" }
+      - { nom: "", portee: "(15cm)", puissance: "Arme légère, IC" }
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: Poing tronçonneur Destroyer, portee: "(contact)", puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: lancer
+    nom: Lancer
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-choc, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1), FeP" }
+      - { nom: Shock Blast, portee: "(15cm)", puissance: "Arme Légère, +1A" }
+    notes: ["Pavois à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+
+  # ---- Chevaliers Dominus ----
+  - id: vaillant
+    nom: Vaillant
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Conflagration, portee: "15 cm", puissance: "3xAP3+/AC6, IC" }
+      - { nom: "", portee: "(15cm)", puissance: "Arme Légère, +1A, IC" }
+      - { nom: Harpon Thundercoil, portee: "15 cm", puissance: "MA3+, TT (1)" }
+      - { nom: ou, portee: "(15cm)", puissance: "Arme légère, +1A, TT (1)" }
+      - { nom: ou, portee: "(contact)", puissance: "Arme d'assaut, +1A, TT (1)" }
+      - { nom: Canon Siegebreaker, portee: 45cm, puissance: "AP4+/AC5+, FrtF" }
+      - { nom: 2x Missiles Shieldbreaker, portee: 45cm, puissance: "AC4+, Uniq" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+  - id: castellan
+    nom: Castellan
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Décimateur à plasma, portee: 45cm, puissance: "2xMA2+" }
+      - { nom: Lance Volcano, portee: 75cm, puissance: "MA2+, TT (1)" }
+      - { nom: 2x Canon Siegebreaker, portee: 45cm, puissance: "AP4+/AC5+, FrtF" }
+      - { nom: Missiles Shieldbreaker, portee: 45cm, puissance: "AC4+, Uniq" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur]
+    degats: { cd: 2, critique: Détruit }
+
+  # ---- Chevaliers Acastus ----
+  - id: porphyrion
+    nom: Porphyrion
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons Lasers Magna jumélés, portee: 60cm, puissance: "3xAP5+/AC3+" }
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Lance-Missiles Acastus, portee: 45cm, puissance: "2xAC5+/AA5+" }
+    notes: ["Bouclier à Ion (4+)", Blindage renforcé, Marcheur, Sans peur]
+    degats:
+      cd: 3
+      critique: "Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant l'Acastus et infligeant une touche sur un 6+ à toute unité dans un rayon de 5cm, Sur 2-3, l'Acastus subit un point de dommage supplémentaire, Et sur 4-6 la fissure est réparée"
+  - id: asterius
+    nom: Asterius
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons à conversion lourds jumelés, portee: 60cm, puissance: "2xMA3+" }
+      - { nom: Batterie de Mortiers Karacnos, portee: 60cm, puissance: "2xAP3+/AC6+" }
+      - { nom: 2x Couleuvrine Volkite, portee: 45cm, puissance: "AP4+/AC6+, Rpt" }
+    notes: ["Bouclier à Ion (4+/-)", Blindage Renforcé, Marcheur, Sans Peur]
+    degats:
+      cd: 3
+      critique: "Le réacteur à plasma se fissure, Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant l'Acastus et infligeant une touche sur un 6+ à toute unité dans un rayon de 5cm, Sur 2-3, l'Acastus subit un point de dommage supplémentaire, Et sur 4-6 la fissure est réparée"
+
+options:
+  - id: porte_banniere
+    nom: Porte-Bannière
+    effet: { type: ajouter, cout: 75, unites: [{ unite: banneret, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+      - { type: exclut, options: [sans_fief] }
+    note_md: "Ajouter un personnage de Banneret à la formation. Il ne peut pas y avoir de Sans-Fief dans la formation du Banneret."
+  - id: senechal
+    nom: Sénéchal
+    effet: { type: ajouter, cout: 75, unites: [{ unite: senechal, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+    note_md: "Ajouter un personnage de Sénéchal à la formation."
+  - id: sans_fief
+    nom: Sans fief
+    effet: { type: ajouter, cout: 50, unites: [{ unite: sans_fief, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+      - { type: exclut, options: [porte_banniere] }
+    note_md: "Ajouter un personnage de Sans-Fief à la formation."
+  - id: noble
+    nom: Noble
+    effet: { type: ajouter, cout: 25, unites: [{ unite: lord_scion, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter un personnage de Lord Scion à la formation."
+  - id: precepteur
+    nom: Précepteur
+    effet: { type: ajouter, cout: 150, unites: [{ unite: precepteur, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter un chevalier Précepteur à la formation."
+  - id: chevaliers
+    nom: Chevaliers
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi:
+        - { unite: paladin, cout: 125 }
+        - { unite: errant, cout: 125 }
+        - { unite: croise, cout: 150 }
+        - { unite: galant, cout: 100 }
+        - { unite: warden, cout: 100 }
+        - { unite: warden_aggressor, cout: 125 }
+        - { unite: precepteur, cout: 150, max: 1 }
+        - { unite: vaillant, cout: 175, max: 1 }
+        - { unite: castellan, cout: 200, max: 1 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter 1 à 2 chevaliers à la formation parmi : Paladin (125), Errant (125), Croisé (150), Galant (100), Warden (100), Warden Aggressor (125), 0-1 Précepteur (150), 0-1 Vaillant (175) ou Castellan (200)."
+
+formations:
+  # ---- Lance du Ban ----
+  - id: questoris_paladin
+    nom: Questoris Paladin
+    variantes:
+      - { id: base, cout: 375, composition: [{ unite: paladin, nombre: 3 }] }
+    contraintes:
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+      - { type: fournit, budget: slot_appui_lourd, quantite: 1 }
+  - id: questoris_errant
+    nom: Questoris Errant
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: errant, nombre: 3 }] }
+    contraintes:
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+      - { type: fournit, budget: slot_appui_lourd, quantite: 1 }
+  - id: questoris_warden
+    nom: Questoris Warden
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: warden, nombre: 3 }] }
+    contraintes:
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+      - { type: fournit, budget: slot_appui_lourd, quantite: 1 }
+  - id: questoris_warden_aggressor
+    nom: Questoris Warden Aggressor
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: warden_aggressor, nombre: 3 }] }
+    contraintes:
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+      - { type: fournit, budget: slot_appui_lourd, quantite: 1 }
+  - id: questoris_gallant
+    nom: Questoris Gallant
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: galant, nombre: 3 }] }
+    contraintes:
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+      - { type: fournit, budget: slot_appui_lourd, quantite: 1 }
+
+  # ---- Lance de soutien ----
+  - id: armigeres
+    nom: Armigères
+    variantes:
+      - id: quatre
+        nom: 4 Armigères
+        cout: 200
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: armigere_hastaire }, { unite: armigere_helverien }]
+              phrase_pdf: "4 Armigères (tous types)"
+      - id: six
+        nom: 6 Armigères
+        cout: 300
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: armigere_hastaire }, { unite: armigere_helverien }]
+              phrase_pdf: "6 Armigères (tous types)"
+    options: [noble, sans_fief, precepteur]
+  - id: questoris_magaera
+    nom: Questoris Magæra
+    variantes:
+      - { id: trois, nom: 3 Magæra, cout: 350, composition: [{ unite: magaera, nombre: 3 }] }
+      - { id: quatre, nom: 4 Magæra, cout: 475, composition: [{ unite: magaera, nombre: 4 }] }
+  - id: questoris_styrix
+    nom: Questoris Styrix
+    variantes:
+      - { id: trois, nom: 3 Styrix, cout: 350, composition: [{ unite: styrix, nombre: 3 }] }
+      - { id: quatre, nom: 4 Styrix, cout: 475, composition: [{ unite: styrix, nombre: 4 }] }
+  - id: cerastus_acheron
+    nom: Cerastus Acheron
+    variantes:
+      - { id: trois, nom: 3 Acherons, cout: 325, composition: [{ unite: acheron, nombre: 3 }] }
+      - { id: quatre, nom: 4 Acherons, cout: 450, composition: [{ unite: acheron, nombre: 4 }] }
+  - id: cerastus_castigator
+    nom: Cerastus Castigator
+    variantes:
+      - { id: trois, nom: 3 Castigators, cout: 375, composition: [{ unite: castigator, nombre: 3 }] }
+      - { id: quatre, nom: 4 Castigators, cout: 525, composition: [{ unite: castigator, nombre: 4 }] }
+  - id: cerastus_lancer
+    nom: Cerastus Lancer
+    variantes:
+      - { id: trois, nom: 3 Lancers, cout: 325, composition: [{ unite: lancer, nombre: 3 }] }
+      - { id: quatre, nom: 4 Lancers, cout: 475, composition: [{ unite: lancer, nombre: 4 }] }
+  - id: cerastus_atrapos
+    nom: Cerastus Atrapos
+    variantes:
+      - { id: trois, nom: 3 Atrapos, cout: 375, composition: [{ unite: atrapos, nombre: 3 }] }
+      - { id: quatre, nom: 4 Atrapos, cout: 500, composition: [{ unite: atrapos, nombre: 4 }] }
+
+  # ---- Lance d'appui lourd ----
+  - id: acastus_porphyrion
+    nom: Acastus Porphyrion
+    variantes:
+      - { id: un, nom: 1 Porphyrion, cout: 300, composition: [{ unite: porphyrion, nombre: 1 }] }
+      - { id: deux, nom: 2 Porphyrion, cout: 550, composition: [{ unite: porphyrion, nombre: 2 }] }
+  - id: acastus_asterius
+    nom: Acastus Asterius
+    variantes:
+      - { id: un, nom: 1 Asterius, cout: 300, composition: [{ unite: asterius, nombre: 1 }] }
+      - { id: deux, nom: 2 Asterius, cout: 550, composition: [{ unite: asterius, nombre: 2 }] }
+  - id: dominus_valiant
+    nom: Dominus Valiant
+    variantes:
+      - { id: un, nom: 1 Vaillant, cout: 175, composition: [{ unite: vaillant, nombre: 1 }] }
+      - { id: deux, nom: 2 Vaillant, cout: 300, composition: [{ unite: vaillant, nombre: 2 }] }
+  - id: dominus_castellan
+    nom: Dominus Castellan
+    variantes:
+      - { id: un, nom: 1 Castellan, cout: 200, composition: [{ unite: castellan, nombre: 1 }] }
+      - { id: deux, nom: 2 Castellan, cout: 350, composition: [{ unite: castellan, nombre: 2 }] }
+
+sections:
+  - id: lance_du_ban
+    titre: LANCE DU BAN DES CHEVALIERS IMPÉRIAUX
+    formations: [questoris_paladin, questoris_errant, questoris_warden, questoris_warden_aggressor, questoris_gallant]
+    options: [chevaliers, noble, sans_fief, senechal, porte_banniere]
+    colonne_options: true
+  - id: lance_de_soutien
+    titre: LANCE DE SOUTIEN DES CHEVALIERS IMPÉRIAUX
+    sous_titre: "(Deux formations par Lance du Ban)"
+    formations: [armigeres, questoris_magaera, questoris_styrix, cerastus_acheron, cerastus_castigator, cerastus_lancer, cerastus_atrapos]
+    contraintes: [{ type: consomme, budget: slot_soutien }]
+    options: [chevaliers, noble, sans_fief, senechal, porte_banniere]
+    colonne_options: true
+  - id: lance_appui_lourd
+    titre: LANCE D'APPUI LOURD DES CHEVALIERS IMPÉRIAUX
+    sous_titre: "(Une formation par Lance du Ban)"
+    formations: [acastus_porphyrion, acastus_asterius, dominus_valiant, dominus_castellan]
+    contraintes: [{ type: consomme, budget: slot_appui_lourd }]
+    tableau_options:
+      titre: AMÉLIORATIONS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation."
+
+listes_test:
+  - nom: "3000 pts : deux Lances du Ban et leurs soutiens"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: questoris_paladin
+        options: [{ option: porte_banniere }]
+      - formation: questoris_warden
+        options:
+          - { option: chevaliers, repartition: { croise: 1, galant: 1 } }
+          - { option: noble }
+      - formation: armigeres
+        variante: quatre
+        choix: { "0": { armigere_hastaire: 2, armigere_helverien: 2 } }
+        options: [{ option: precepteur }]
+      - { formation: questoris_magaera, variante: trois }
+      - { formation: dominus_castellan, variante: un }
+  - nom: "1500 pts : une Lance du Ban, un soutien, un appui lourd"
+    limite: 1500
+    attendu: valide
+    formations:
+      - formation: questoris_errant
+        options: [{ option: senechal }, { option: sans_fief }]
+      - { formation: cerastus_lancer, variante: quatre }
+      - { formation: acastus_porphyrion, variante: un }
+  - nom: "trois soutiens pour une seule Lance du Ban"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: questoris_gallant }
+      - { formation: armigeres, variante: quatre, choix: { "0": { armigere_hastaire: 4 } } }
+      - { formation: questoris_styrix, variante: trois }
+      - { formation: cerastus_acheron, variante: trois }
+  - nom: "appui lourd sans Lance du Ban"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: dominus_valiant, variante: un }
+  - nom: "deux Porte-Bannières dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: questoris_paladin, options: [{ option: porte_banniere }] }
+      - { formation: questoris_errant, options: [{ option: porte_banniere }] }
+  - nom: "un Sans-Fief dans la formation du Banneret"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: questoris_warden
+        options: [{ option: porte_banniere }, { option: sans_fief }]
+  - nom: "trois chevaliers ajoutés par l'amélioration Chevaliers"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: questoris_paladin
+        options: [{ option: chevaliers, repartition: { paladin: 2, galant: 1 } }]
