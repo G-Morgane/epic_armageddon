@@ -1,0 +1,922 @@
+# Premiers-Nés Vostroyens, transcrit depuis le PDF EAFR rev 1.5.1 (source de vérité).
+codex:
+  slug: premiers-nes-vostroyens
+  armee_id: ee903380-b2c5-4cc9-be8b-29932f9fee10
+  nom: Premiers-Nés Vostroyens
+  version: "1.5.1"
+  faction: imperium
+  categorie: armees-imperiales
+  citation:
+    texte: "Nous nous battrons avec une foi et un courage imperturbables. Nous ne reculerons jamais. Ce monde appartient à l'Empereur et nous ne l'abandonnerons pas."
+    auteur: Seigneur Maréchal Toshenko s'adressant au 16ème Vostroyen lors de la défense de Nimbosa
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied un régiment blindé de l'Astra Militarum basée sur ceux des Premiers-Nés Vostroyens. Cette liste peut également être utilisée pour représenter des régiments blindés de la Garde Impériale d'autres origines comme ceux de Cadia ou de Mordia.
+
+    Les armées des Premiers-Nés Vostroyens sont organisées autour de grandes formations appelées compagnies, elles-mêmes complétées par des formations d'appui qui leurs sont autonomes.
+
+    Chaque compagnie peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par compagnie. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Chaque compagnie peut prendre jusqu'à trois améliorations.
+
+    Les formations de support sont des formations autonomes des compagnies. Elles ne peuvent pas recevoir d'améliorations. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Commissaires"
+      texte: |
+        Pour chaque Compagnie qu'inclut votre armée, un commissaire y est automatiquement intégré.
+
+        De plus, vous pouvez ajouter gratuitement un commissaire dans une Formation d'Appui pour chaque tranche (même incomplète) de 1 000 points dans votre armée hors formations de support.
+
+        Une compagnie ou une formation ne peut avoir qu'un seul commissaire.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Games Workshop LTD."
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Soutiens de l'Adeptus Titanicus", valeur: "1+" }
+
+budgets:
+  - id: slot_appui
+    libelle: Formations d'appui
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations d'appui par compagnie"
+  - id: rare
+    libelle: Supports
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: commissaires_gratuits
+    libelle: Commissaires gratuits
+    capacite: { source: par_tranche, points: 1000, perimetre: "section:compagnies" }
+    phrase_pdf: "1 commissaire gratuit par tranche (même incomplète) de 1 000 pts, hors formations de support"
+
+unites:
+  # ---- Infanterie et personnages ----
+  - id: leviathan
+    nom: Léviathan
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Apocalypse, portee: 90cm, puissance: "3PB, MA, FrtF" }
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: 3x Canons Laser Jumelés (Droite), portee: 45cm, puissance: "AC4+, Drt" }
+      - { nom: 3x Canons Laser Jumelés (Gauche), portee: 45cm, puissance: "AC4+, Gch" }
+    notes: [Commandant Suprême, Blindage Renforcé, Blindage arrière Renforcé, Sans peur, "Transport (16)"]
+    roles: [commandant_supreme]
+    transport: { capacite: 16, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+    degats:
+      cd: 4
+      bi: 2
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le Léviathan explose et inflige une touche sur un 5+ aux unités à 5cm, sur 2-3 le Léviathan est immobilisé, si il l'est déjà, il perd 1 CD, sur 4+ la fissure est réparée"
+  - id: commandement
+    nom: Commandement
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Commandant]
+  - id: commissaire
+    nom: Commissaire
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sans Peur]
+    roles: [personnage]
+  - id: gardes_imperiaux
+    nom: Gardes Impériaux
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: "½ Autocanon", portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+    notes: ["Une unité sur deux, arrondi au supérieur, peut tirer à l'autocanon"]
+  - id: tempestus_scions
+    nom: Tempestus Scions
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+      - { nom: Fusils Radiants Laser, portee: (15cm), puissance: Arme Légère }
+    notes: [Éclaireur]
+
+  # ---- Véhicules légers et transports ----
+  - id: salamandre_commandement
+    nom: Salamandre de Commandement
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Éclaireur, Commandant]
+  - id: salamandre
+    nom: Salamandre
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Éclaireur]
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+  - id: taurox
+    nom: Taurox
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Autocanons Jumelés, portee: 45cm, puissance: "AP4+/AC5+" }
+    notes: [Marcheur, "Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+  - id: taurox_prime
+    nom: Taurox Prime
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obusier Taurox, portee: 30cm, puissance: "AP4+/AC4+" }
+    notes: [Marcheur, "Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+  - id: crassus
+    nom: Crassus
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: Bolter Lourd (Gauche), portee: 30cm, puissance: "AP5+, Gch" }
+      - { nom: Bolter Lourd (Droit), portee: 30cm, puissance: "AP5+, Drt" }
+    notes: [Blindage Renforcé, "Transport (6)"]
+    transport: { capacite: 6, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+    degats: { cd: 2, critique: "Détruit et touche sur 6+ dans les 5cm" }
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: hydre
+    nom: Hydre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: griffon
+    nom: Griffon
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier Griffon, portee: 30cm, puissance: "1PB, Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+
+  # ---- Leman Russ ----
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_conqueror
+    nom: Leman Russ Conqueror
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obusier Conqueror, portee: 45cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_vanquisher
+    nom: Leman Russ Vanquisher
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Vanquisher, portee: 75cm, puissance: "AP4+/AC2+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_vanquisher_allege
+    nom: Leman Russ Vanquisher Allégé
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Vanquisher, portee: 75cm, puissance: "AP4+/AC2+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_executioner
+    nom: Leman Russ Executioner
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Executioner, portee: 60cm, puissance: "MA4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_demolisseur
+    nom: Leman Russ Démolisseur
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Lance-Plasma Lourds, portee: 30cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_destroyer
+    nom: Leman Russ Destroyer
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Destroyer, portee: 75cm, puissance: "AC3+, Lance" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_thunderer
+    nom: Leman Russ Thunderer
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Démolisseur (Thunderer), portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_exterminator
+    nom: Leman Russ Exterminator
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+
+  # ---- Artillerie ----
+  - id: basilisk
+    nom: Basilisk
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: manticore
+    nom: Manticore
+    type: VB
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-roquettes (Manticore), portee: 150cm, puissance: "2PB, Ind, Rpt, Rchg" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: bombarde
+    nom: Bombarde
+    type: VB
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier de Siège, portee: 60cm, puissance: "2PB, Ind, Rchg, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: wyvern
+    nom: Wyvern
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Mortiers Stormshard jumelés, portee: 45cm, puissance: "1PB, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: dominus
+    nom: Dominus
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: 3x Mortier de Siège, portee: 60cm, puissance: "2PB, Ind, Rchg, IC" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: minotaur
+    nom: Minotaur
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: 2x Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: praetor
+    nom: Prætor
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-missiles Prætor, portee: 120cm, puissance: "2PB, Ind, Rchg" }
+      - { nom: 2x Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: deathstrike
+    nom: Deathstrike
+    type: VB
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Missile Deathstrike, portee: "∞", puissance: "MA2+, Uniq, TT (D6), Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+
+  # ---- Chars super lourds ----
+  - id: baneblade
+    nom: Baneblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Super Obusier, portee: 75cm, puissance: "AP3+/AC3+" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Canon Démolisseur (FF), portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormsword
+    nom: Stormsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon de siège, portee: 30cm, puissance: "3PB, IC, FrtF" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: banehammer
+    nom: Banehammer
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Tremor, portee: 60cm, puissance: "2PB, Rupt, FrtF" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, "Transport (6) : Infanterie"]
+    transport: { capacite: 6, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: doomhammer
+    nom: Doomhammer
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Magma, portee: 60cm, puissance: "MA4+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, "Transport (6) : Infanterie"]
+    transport: { capacite: 6, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormblade
+    nom: Stormblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Plasma Léger (FF), portee: 45cm, puissance: "2xMA2+, Rchg, FrtF" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormlord
+    nom: Stormlord
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Méga Bolter Vulcain léger, portee: 45cm, puissance: "4xAP3+/AC5+, FrtF" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé, "Transport (6) : Infanterie"]
+    transport: { capacite: 6, accepte: [commandement, gardes_imperiaux, tempestus_scions] }
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: shadowsword
+    nom: Shadowsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Volcano (FF), portee: 90cm, puissance: "MA2+, TT (D3), FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+
+  # ---- Aeronautica Imperialis ----
+  - id: thunderbolt
+    nom: Thunderbolt
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Fulgurants, portee: 15cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Multi-Lasers (FF), portee: 30cm, puissance: "AP5+/AC6+/AA5+, FrtF" }
+      - { nom: Roquettes, portee: 30cm, puissance: "AC4+, FrtF" }
+  - id: marauder
+    nom: Bombardier Marauder
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Arr), portee: 30cm, puissance: "AA5+, Arr" }
+      - { nom: Canons Laser Jumelés (AA Avant), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Bombes (Bomber), portee: 15cm, puissance: "3PB, FrtF" }
+    degats: { cd: 2, critique: "le Bombardier Marauder s'écrase au sol et est détruit." }
+  - id: croiseur_lunar
+    nom: Croiseur Classe Lunar
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+  - id: cuirasse_emperor
+    nom: Cuirassé Emperor
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (8), portee: "∞", puissance: "8PB, MA" }
+    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
+
+  # ---- Adeptus Titanicus ----
+  - id: reaver
+    nom: Reaver
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Lance-missiles Apocalypse, portee: 60cm, puissance: "4PB, FrtF" }
+      - { nom: 2x Destructeurs Turbo laser, portee: 60cm, puissance: "4xAP5+/AC3+, Frt" }
+    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats:
+      cd: 6
+      bi: 4
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée"
+  - id: warlord
+    nom: Warlord
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "2+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Destructeurs Turbo laser (FF), portee: 60cm, puissance: "4xAP5+/AC3+, FrtF" }
+      - { nom: Canon Gatling, portee: 60cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: Canon Volcano, portee: 90cm, puissance: "MA2+, TT (D3), Frt" }
+    notes: [Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats:
+      cd: 8
+      bi: 6
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée"
+
+options:
+  - id: commandant_supreme
+    nom: Commandant Suprême
+    effet: { type: mot_cle, texte: Commandant Suprême, cout: 50 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "Ajoutez la Note Commandant Suprême à une unité"
+    note_md: "Non disponible si vous disposez d'une Compagnie de Commandement."
+  - id: transports_speciaux
+    nom: Transports spéciaux
+    effet:
+      type: choix
+      parmi:
+        - id: taurox
+          nom: "Remplacez les chimères de la formation par des Taurox (pour 1 Chimère chaque)"
+          cout: 0
+          effet: { type: remplacer, de: chimere, par: taurox, lot: 1, max: tout, cout: 0 }
+        - id: taurox_prime
+          nom: "Remplacez les chimères de la formation par des Taurox Prime (pour 1 Chimère chaque)"
+          cout: 0
+          effet: { type: remplacer, de: chimere, par: taurox_prime, lot: 1, max: tout, cout: 5 }
+        - id: crassus
+          nom: "Remplacez les chimères de la formation par des Crassus (pour 3 Chimères chaque)"
+          cout: 0
+          effet: { type: remplacer, de: chimere, par: crassus, lot: 3, max: tout, cout: 25, par_nombre: 2 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Amélioration réservée aux formations qui comptent des Chimères. Un Crassus remplace 3 Chimères : la seule compagnie qui embarque des Chimères en compte 7, soit 2 Crassus."
+  - id: escadron_hellhounds
+    nom: Escadron de Hellhounds
+    effet: { type: ajouter, cout: 150, unites: [{ unite: hellhound, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: dca
+    nom: DCA
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hydre, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: escadron_chars
+    nom: Escadron de chars
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: conqueror, nom: 3 Leman Russ Conqueror, cout: 150, unites: [{ unite: leman_russ_conqueror, nombre: 3 }] }
+        - { id: leman_russ, nom: 3 Leman Russ, cout: 175, unites: [{ unite: leman_russ, nombre: 3 }] }
+        - { id: executioner, nom: 3 Leman Russ Executioner, cout: 175, unites: [{ unite: leman_russ_executioner, nombre: 3 }] }
+        - { id: demolisseur, nom: 3 Leman Russ Démolisseur, cout: 225, unites: [{ unite: leman_russ_demolisseur, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: commissaire_appui
+    nom: Commissaire
+    effet: { type: ajouter, cout: 0, unites: [{ unite: commissaire, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: consomme, budget: commissaires_gratuits }
+
+formations:
+  # ---- Compagnies ----
+  - id: compagnie_commandement
+    nom: Compagnie de Commandement
+    variantes:
+      - id: base
+        cout: 600
+        composition:
+          - { unite: leviathan, nombre: 1 }
+          - { unite: gardes_imperiaux, nombre: 12 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: compagnie_infanterie_mecanisee
+    nom: Compagnie d'infanterie mécanisée
+    variantes:
+      - id: base
+        cout: 400
+        composition:
+          - { unite: commandement, nombre: 1 }
+          - { unite: gardes_imperiaux, nombre: 12 }
+          - { unite: chimere, nombre: 7 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_blindee_legere
+    nom: Compagnie Blindée légère
+    variantes:
+      - id: base
+        cout: 475
+        composition:
+          - { unite: leman_russ_vanquisher_allege, nombre: 1 }
+          - { unite: leman_russ_conqueror, nombre: 9 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_blindee
+    nom: Compagnie Blindée
+    variantes:
+      - id: base
+        cout: 600
+        composition:
+          - { unite: leman_russ_vanquisher, nombre: 1 }
+          - { unite: leman_russ, nombre: 9 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_chasseurs_titans
+    nom: Compagnie de Chasseurs de Titans
+    variantes:
+      - id: base
+        cout: 500
+        composition:
+          - choix:
+              total: 3
+              parmi: [{ unite: shadowsword }, { unite: stormblade }]
+              phrase_pdf: "3 Shadowswords et/ou Stormblades, selon n'importe quelle combinaison"
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_mur_de_feu
+    nom: Compagnie Mur de Feu
+    variantes:
+      - id: base
+        cout: 500
+        composition:
+          - choix:
+              total: 3
+              parmi: [{ unite: baneblade }, { unite: stormsword }]
+              phrase_pdf: "3 Baneblades et/ou Stormswords, selon n'importe quelle combinaison"
+          - { unite: commissaire, nombre: 1, implicite: true }
+
+  # ---- Formations d'appui ----
+  - id: batterie_deathstrike
+    nom: Batterie de Missiles Deathstrike
+    phrase_pdf: "2 Lance-Missiles Deathstrike"
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: deathstrike, nombre: 2 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: peloton_infanterie_mecanisee
+    nom: Peloton d'infanterie mécanisée
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: gardes_imperiaux, nombre: 6 }, { unite: chimere, nombre: 3 }] }
+  - id: militarum_tempestus
+    nom: Militarum Tempestus
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: tempestus_scions, nombre: 8 }, { unite: chimere, nombre: 4 }] }
+  - id: batterie_aa
+    nom: Batterie anti aérienne
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: hydre, nombre: 3 }] }
+  - id: batterie_artillerie
+    nom: Batterie d'artillerie
+    variantes:
+      - { id: basilisks, nom: 3 Basilisks, cout: 225, composition: [{ unite: basilisk, nombre: 3 }] }
+      - { id: manticores, nom: 3 Manticores, cout: 250, composition: [{ unite: manticore, nombre: 3 }] }
+      - { id: bombardes, nom: 3 Bombardes, cout: 250, composition: [{ unite: bombarde, nombre: 3 }] }
+      - { id: wyverns, nom: 3 Wyverns, cout: 250, composition: [{ unite: wyvern, nombre: 3 }] }
+  - id: batterie_artillerie_lourde
+    nom: Batterie d'artillerie lourde
+    variantes:
+      - { id: dominus, nom: 1 Dominus, cout: 275, composition: [{ unite: dominus, nombre: 1 }] }
+      - { id: minotaurs, nom: 2 Minotaurs, cout: 350, composition: [{ unite: minotaur, nombre: 2 }] }
+      - { id: praetors, nom: 2 Praetors, cout: 350, composition: [{ unite: praetor, nombre: 2 }] }
+  - id: batterie_griffons
+    nom: Batterie de Griffons
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: griffon, nombre: 6 }] }
+  - id: peloton_reconnaissance
+    nom: Peloton de Reconnaissance
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: salamandre_commandement, nombre: 1 }, { unite: salamandre, nombre: 3 }] }
+  - id: peloton_nettoyage
+    nom: Peloton de Nettoyage
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: hellhound, nombre: 6 }] }
+  - id: escadron_leman_russ_conqueror
+    nom: Escadron de Leman Russ Conqueror
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: leman_russ_vanquisher_allege, nombre: 1 }
+          - { unite: leman_russ_conqueror, nombre: 5 }
+  - id: escadron_leman_russ
+    nom: Escadron de Leman Russ
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: leman_russ, nombre: 6 }] }
+  - id: escadron_leman_russ_speciaux
+    nom: Escadron de Leman Russ Spéciaux
+    variantes:
+      - { id: destroyers, nom: 6 Leman Russ Destroyers, cout: 300, composition: [{ unite: leman_russ_destroyer, nombre: 6 }] }
+      - { id: exterminators, nom: 6 Leman Russ Exterminators, cout: 350, composition: [{ unite: leman_russ_exterminator, nombre: 6 }] }
+      - { id: thunderers, nom: 6 Leman Russ Thunderers, cout: 350, composition: [{ unite: leman_russ_thunderer, nombre: 6 }] }
+      - { id: executioners, nom: 6 Leman Russ Executioners, cout: 400, composition: [{ unite: leman_russ_executioner, nombre: 6 }] }
+      - { id: demolisseurs, nom: 6 Leman Russ Démolisseurs, cout: 450, composition: [{ unite: leman_russ_demolisseur, nombre: 6 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: peloton_appui_lourd
+    nom: Peloton d'appui lourd
+    variantes:
+      - id: doomhammer
+        nom: 6 unités de Gardes Impériaux et 1 Doomhammer
+        cout: 300
+        composition: [{ unite: gardes_imperiaux, nombre: 6 }, { unite: doomhammer, nombre: 1 }]
+      - id: stormlord
+        nom: 6 unités de Gardes Impériaux et 1 Stormlord
+        cout: 325
+        composition: [{ unite: gardes_imperiaux, nombre: 6 }, { unite: stormlord, nombre: 1 }]
+      - id: banehammer
+        nom: 6 unités de Gardes Impériaux et 1 Banehammer
+        cout: 325
+        composition: [{ unite: gardes_imperiaux, nombre: 6 }, { unite: banehammer, nombre: 1 }]
+  - id: peloton_char_super_lourd
+    nom: Peloton de Char Super Lourd
+    variantes:
+      - { id: shadowsword, nom: 1 Shadowsword, cout: 200, composition: [{ unite: shadowsword, nombre: 1 }] }
+      - { id: baneblade, nom: 1 Baneblade, cout: 200, composition: [{ unite: baneblade, nombre: 1 }] }
+      - { id: stormblade, nom: 1 Stormblade, cout: 200, composition: [{ unite: stormblade, nombre: 1 }] }
+      - { id: stormsword, nom: 1 Stormsword, cout: 200, composition: [{ unite: stormsword, nombre: 1 }] }
+
+  # ---- Supports : Aeronautica Imperialis ----
+  - id: escadrille_intercepteurs
+    nom: Escadrille d'Intercepteurs
+    variantes:
+      - { id: deux, nom: 2 Chasseurs Thunderbolts, cout: 150, composition: [{ unite: thunderbolt, nombre: 2 }] }
+      - { id: quatre, nom: 4 Chasseurs Thunderbolts, cout: 300, composition: [{ unite: thunderbolt, nombre: 4 }] }
+  - id: escadrille_bombardiers
+    nom: Escadrille de Bombardiers
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: marauder, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: lunar, nom: 1 Croiseur Lunar, cout: 150, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
+      - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+
+  # ---- Supports : Adeptus Titanicus ----
+  - id: titan_reaver
+    nom: Titan Reaver
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: reaver, nombre: 1 }] }
+  - id: titan_warlord
+    nom: Titan Warlord
+    variantes:
+      - { id: base, cout: 850, composition: [{ unite: warlord, nombre: 1 }] }
+
+sections:
+  - id: compagnies
+    titre: COMPAGNIE DES PREMIERS-NÉS VOSTROYENS
+    formations: [compagnie_commandement, compagnie_infanterie_mecanisee, compagnie_blindee_legere, compagnie_blindee, compagnie_chasseurs_titans, compagnie_mur_de_feu]
+    contraintes:
+      - { type: max_options, valeur: 3 }
+      - { type: fournit, budget: slot_appui, quantite: 2 }
+    options: [commandant_supreme, transports_speciaux, escadron_hellhounds, dca, escadron_chars]
+    tableau_options:
+      titre: AMÉLIORATIONS DE COMPAGNIES DES PREMIERS-NÉS VOSTROYENS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation et jusqu'à un maximum de 3"
+  - id: appui
+    titre: FORMATIONS D'APPUI DES PREMIERS-NÉS VOSTROYENS
+    sous_titre: "Jusqu'à 2 formations d'appui par compagnie"
+    contraintes: [{ type: consomme, budget: slot_appui }]
+    options: [commissaire_appui]
+    formations: [batterie_deathstrike, peloton_infanterie_mecanisee, militarum_tempestus, batterie_aa, batterie_artillerie, batterie_artillerie_lourde, batterie_griffons, peloton_reconnaissance, peloton_nettoyage, escadron_leman_russ_conqueror, escadron_leman_russ, escadron_leman_russ_speciaux, peloton_appui_lourd, peloton_char_super_lourd]
+  - id: aeronautica
+    titre: FLOTTES DE L'AERONAUTICA IMPERIALIS
+    sous_titre: "SUPPORTS DES PREMIERS-NÉS VOSTROYENS"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: [escadrille_intercepteurs, escadrille_bombardiers, soutien_orbital]
+  - id: titanicus
+    titre: SOUTIENS DE L'ADEPTUS TITANICUS
+    sous_titre: "SUPPORTS DES PREMIERS-NÉS VOSTROYENS"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "1+" }]
+    formations: [titan_reaver, titan_warlord]
+
+listes_test:
+  - nom: "3000 pts valide, compagnie mécanisée, compagnie blindée, appuis et un Reaver"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: compagnie_infanterie_mecanisee
+        options:
+          - { option: escadron_chars, variante: leman_russ }
+          - { option: dca }
+          - { option: transports_speciaux, choix: taurox }
+      - { formation: compagnie_blindee }
+      - { formation: peloton_reconnaissance }
+      - formation: batterie_aa
+        options: [{ option: commissaire_appui }]
+      - { formation: titan_reaver }
+  - nom: "2000 pts valide, compagnie de commandement, mur de feu et bombardiers"
+    limite: 2000
+    attendu: valide
+    formations:
+      - { formation: compagnie_commandement }
+      - formation: compagnie_mur_de_feu
+        choix: { "0": { baneblade: 2, stormsword: 1 } }
+        options: [{ option: escadron_hellhounds }]
+      - { formation: peloton_char_super_lourd, variante: shadowsword }
+      - { formation: escadron_leman_russ_speciaux, variante: destroyers }
+      - { formation: escadrille_bombardiers }
+  - nom: "trois formations d'appui pour une seule compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_blindee }
+      - { formation: batterie_aa }
+      - { formation: batterie_griffons }
+      - { formation: peloton_nettoyage }
+  - nom: "quatre améliorations sur une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: compagnie_infanterie_mecanisee
+        options:
+          - { option: escadron_chars, variante: conqueror }
+          - { option: escadron_hellhounds }
+          - { option: dca }
+          - { option: transports_speciaux, choix: crassus }
+  - nom: "deux Escadrons de Leman Russ Spéciaux"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: compagnie_blindee }
+      - { formation: escadron_leman_russ_speciaux, variante: destroyers }
+      - { formation: escadron_leman_russ_speciaux, variante: executioners }
+  - nom: "Transports spéciaux sur une compagnie sans Chimère"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: compagnie_blindee
+        options: [{ option: transports_speciaux, choix: taurox }]
+  - nom: "quota de commissaires gratuits dépassé"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_blindee }
+      - { formation: batterie_aa, options: [{ option: commissaire_appui }] }
+      - { formation: batterie_griffons, options: [{ option: commissaire_appui }] }
+  - nom: "supports au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_blindee }
+      - { formation: titan_warlord }
