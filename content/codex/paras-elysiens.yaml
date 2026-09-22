@@ -1,0 +1,686 @@
+# Paras Élysiens, transcrit depuis le PDF EAFR rev 1.1.2 (source de vérité).
+codex:
+  slug: paras-elysiens
+  armee_id: 1e85b8e6-a422-4eaf-ae34-99f6d832d24b
+  nom: Paras Élysiens
+  version: "1.1.2"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  citation:
+    texte: "Les commandants ennemis se croient à l'abri de la colère de l'Empereur derrière des kilomètres de fortifications et de légions de guerriers. Ils n'ont pas tenu compte de nous. Faites la paix avec l'Empereur, messieurs, on arrive dans deux minutes."
+    auteur: Colonelle Johanna van Meer, 13ème Élysien
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied un régiment aéroporté de l'Astra Militarum basée sur le 23ème Para Élysien lors de la campagne de Taros. Cette liste peut également être utilisée pour représenter d'autres compagnies des Paras Élysiens ou des régiments aéroportés de la Garde Impériale d'autres origines comme ceux de Vanaheim.
+
+    Les armées de l'Astra Militarum sont organisées autour de grandes formations appelées compagnies, elles-mêmes complétées par des formations d'appui et des formations de support qui leurs sont autonomes.
+
+    Chaque compagnie peut choisir des améliorations. Chaque amélioration ne peut être prise qu'une fois par compagnie. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion. Chaque compagnie peut prendre jusqu'à trois améliorations.
+
+    Les formations d'appui ne peuvent en principe pas recevoir d'améliorations, sauf celles indiquées en italique pour chacune de leurs formations.
+
+    Les formations de support sont des formations autonomes des compagnies. Elles ne peuvent pas recevoir d'améliorations. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Commissaires"
+      texte: |
+        Pour chaque Compagnie qu'inclut votre armée, un commissaire y est automatiquement intégré.
+
+        De plus, vous pouvez ajouter gratuitement un commissaire dans une Formation d'Appui pour chaque tranche (même incomplète) de 1 000 points dans votre armée.
+
+        Une compagnie ou une formation ne peut avoir qu'un seul commissaire.
+    - titre: "Règle spéciale : Insertion par Grav-Chute"
+      texte: |
+        Les Paras Élysiens ont pour spécialité une utilisation intensive et exclusive de Valkyries pour transporter leurs fantassins. Le combat débarqué depuis les airs par grav-chute est une seconde nature pour ce régiment.
+
+        Toutes les unités des Paras Élysiens peuvent être placées jusqu'à 15cm de leur transport lorsqu'elles débarquent.
+
+        Les Paras Élysiens sont des troupes d'élite généralement conservées en réserve jusqu'au moment opportun. Aucun commandant impérial ne se risquerait à gaspiller leur potentiel en les assignant à des missions statiques ou d'importance secondaire.
+
+        Seules les formations de Tarentules, Tauros, Vétérans et Vultures peuvent être déployées en garnison.
+    - titre: "Règle spéciale : Assaut Planétaire"
+      texte: |
+        Si l'armée comprend une Frégate Claymore, toutes les Valkyries (tous types) et tous les Vultures (tous types) d'une formation peuvent gagner la note « Assaut Planétaire » pour 25 pts. Ceci permet à la formation d'être transporté par la Frégate Claymore (dans la limite des places disponibles) et de réaliser un assaut planétaire selon la règle spéciale suivante :
+
+        Placez une première Valkyrie/Vulture en utilisant les règles d'Assaut Planétaire (4.3 et 4.4 du Livre de Règles).
+
+        Ensuite, placez les autres Valkyries et Vultures (ceci peut déclencher un tir d'État d'Alerte normalement) complètement à moins de 15 cm de la première, en cohésion et en dehors de toute zone de contrôle ennemie.
+
+        Si les unités ne peuvent pas se déployer en totalité en respectant les règles ci-dessus, les unités restantes seront détruites sans attribution de pion impact.
+
+        Si plusieurs formations font un Assaut Planétaire, placez une Valkyrie/Vulture pour chaque formation concernée aux coordonnées prédéterminées en utilisant les règles d'Assaut Planétaire (y compris la résolution de dispersion). Puis déployez toutes les formations transportées, en suivant les règles ci-dessus.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustrations : Fantasy Flight Games, Marcin Jakubowski https://www.mjakubowski.art (couverture) et GW LTD (corps)."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+
+budgets:
+  - id: slot_appui
+    libelle: Formations d'appui
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations d'appui par Compagnie"
+  - id: rare
+    libelle: Supports
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: commissaires_gratuits
+    libelle: Commissaires gratuits
+    capacite: { source: par_tranche, points: 1000 }
+    phrase_pdf: "1 commissaire gratuit par tranche (même incomplète) de 1 000 pts dans votre armée"
+
+unites:
+  # ---- Personnages ----
+  - id: commissaire
+    nom: Commissaire
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sans Peur]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: quartier_general
+    nom: Quartier Général Élysien
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Eviscerator, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme]
+  - id: commandement
+    nom: Commandement Élysien
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-Plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Commandant]
+  - id: paras_elysiens
+    nom: Paras Élysiens
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: "½ Lance-Plasma", portee: 15cm, puissance: "AP5+/AC5+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+    notes: ["Une unité sur deux, arrondie au supérieur, peut tirer au lance-plasma"]
+  - id: mortiers
+    nom: Mortiers
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Mortiers, portee: 30cm, puissance: "AP5+, Ind" }
+  - id: appui_feu
+    nom: Appui-feu Élysiens
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Lance-missiles, portee: 45cm, puissance: "AP5+/AC6+" }
+  - id: veterans_snipers
+    nom: Vétérans (snipers)
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils de sniper, portee: 30cm, puissance: "AP5+, Snp" }
+    notes: [Éclaireurs, Infiltrateurs]
+  - id: veterans_saboteurs
+    nom: Vétérans (saboteurs)
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Charges de démolition, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Éclaireurs, Infiltrateurs]
+  - id: tempestus_scions
+    nom: Tempestus Scions
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+      - { nom: Fusils Radiants Laser, portee: (15cm), puissance: Arme Légère }
+    notes: [Éclaireur]
+
+  # ---- Véhicules légers ----
+  - id: sentinelle_aeroportee
+    nom: Sentinelle aéroportée
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Marcheur, Éclaireur]
+  - id: sentinelle_soutien
+    nom: Sentinelle de soutien
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-roquettes multiple, portee: 45cm, puissance: "2xAP5+/AC6+, Ind" }
+    notes: ["Marcheur, Éclaireur. La portée des armes ne change pas lors d'un tir indirect."]
+  - id: tarentule
+    nom: Tarentule aéroportée
+    type: VL
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "-"
+    ff: "5+"
+    armes:
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: ["Éclaireur, ne peut que contester un objectif"]
+  - id: tauros
+    nom: Tauros
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-Flammes MkI, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Marcheur, Éclaireur]
+  - id: tauros_venator
+    nom: Tauros Venator
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+    notes: [Marcheur, Éclaireur]
+
+  # ---- Véhicules blindés ----
+  - id: valkyrie
+    nom: Valkyrie
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: 2x Nacelles de roquettes, portee: 30cm, puissance: "1PB, Uniq, Rpt" }
+    notes: [Antigrav, Éclaireur, "Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [quartier_general, commandement, paras_elysiens, mortiers, appui_feu, veterans_snipers, veterans_saboteurs, tempestus_scions]
+  - id: valkyrie_vendetta
+    nom: Valkyrie Vendetta
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 3x Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+    notes: [Antigrav, Éclaireur, "Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [quartier_general, commandement, paras_elysiens, mortiers, appui_feu, veterans_snipers, veterans_saboteurs, tempestus_scions]
+  - id: valkyrie_sky_talon
+    nom: Valkyrie Sky Talon
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, Éclaireur, "Transport (2 Sentinelles de tous types)"]
+    transport: { capacite: 2, accepte: [sentinelle_aeroportee, sentinelle_soutien] }
+  - id: vulture
+    nom: Vulture
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Hellstrikes, portee: 90cm, puissance: "AC3+, Uniq" }
+      - { nom: Autocanons Jumelés, portee: 45cm, puissance: "AP4+/AC5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, Éclaireur]
+  - id: vulture_punisher
+    nom: Vulture Punisher
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canons Punisher jumelés, portee: 15cm, puissance: "2xAP3+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav]
+
+  # ---- Aeronautica Imperialis ----
+  - id: lightning
+    nom: Lightning Strike Fighter
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons Laser Jumelés (FF+AA), portee: 30cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Skystrikes, portee: 30cm, puissance: "AA4+, FrtF" }
+  - id: marauder
+    nom: Bombardier Marauder
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Arr), portee: 30cm, puissance: "AA5+, Arr" }
+      - { nom: Canons Laser Jumelés (AA Avant), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Bombes (Bomber), portee: 15cm, puissance: "3PB, FrtF" }
+    degats: { cd: 2, critique: "le Bombardier Marauder s'écrase au sol et est détruit" }
+  - id: marauder_destroyer
+    nom: Marauder Destroyer
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: 3x Autocanons Jumelés (AA Avant), portee: 45cm, puissance: "AP4+/AC5+/AA5+, FrtF" }
+      - { nom: 2x Racks de Hellstrikes, portee: 30cm, puissance: "AC4+, FrtF" }
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
+      - { nom: Canons d'Assaut Jumelés (AA Arrière), portee: 30cm, puissance: "AA5+, ArrF" }
+    degats: { cd: 2, critique: "le Marauder Destroyer s'écrase au sol et est détruit" }
+  - id: fregate_claymore
+    nom: Frégate Claymore
+    type: VS
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+    notes: ["Transport (24/-) : La Frégate Claymore peut transporter jusqu'à 24 Valkyries et/ou Vultures de tous types. De plus, elle peut également embarquer toutes les unités transportées par ces Valkyries/Vultures."]
+    transport: { capacite: 24, accepte: [valkyrie, valkyrie_vendetta, valkyrie_sky_talon, vulture, vulture_punisher] }
+  - id: cuirasse_emperor
+    nom: Cuirassé Emperor
+    type: VS
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bombardement Orbital (8), portee: "∞", puissance: "8PB, MA" }
+    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
+
+options:
+  # ---- Améliorations de compagnie ----
+  - id: amelioration_infanterie
+    nom: Infanterie
+    effet: { type: ajouter, cout: 200, unites: [{ unite: paras_elysiens, nombre: 6 }, { unite: valkyrie, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 6 unités de Paras Élysiens et 3 Valkyries à la formation"
+  - id: amelioration_appui_feu
+    nom: Appui-feu
+    effet: { type: ajouter, cout: 75, unites: [{ unite: appui_feu, nombre: 2 }, { unite: valkyrie, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 2 unités d'Appui-Feu et 1 Valkyrie à la formation"
+  - id: vendetta
+    nom: Vendetta
+    effet: { type: remplacer, de: valkyrie, par: valkyrie_vendetta, lot: 2, max: 1, cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [valkyrie] }
+    phrase_pdf: "Remplacer 2 Valkyries par autant de Valkyries Vendetta"
+  - id: amelioration_vultures
+    nom: Vultures
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: punisher, nom: 2 Vultures Punisher, cout: 75, unites: [{ unite: vulture_punisher, nombre: 2 }] }
+        - { id: vultures, nom: 2 Vultures, cout: 100, unites: [{ unite: vulture, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+  # ---- Améliorations propres à certaines formations d'appui ----
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: exclusif, groupe: mobilite }
+    phrase_pdf: "Ajouter la note « Téléportation » à toutes les unités"
+  - id: renfort_sentinelles
+    nom: Sentinelles supplémentaires
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: aeroportees, nom: 2 Sentinelles Aéroportées, cout: 50, unites: [{ unite: sentinelle_aeroportee, nombre: 2 }] }
+        - { id: soutien, nom: 2 Sentinelles de Soutien, cout: 75, unites: [{ unite: sentinelle_soutien, nombre: 2 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+    phrase_pdf: "Ajouter 2 Sentinelles Aéroportées ou de Soutien"
+  - id: sky_talons_sentinelles
+    nom: Valkyries Sky Talon
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: valkyrie_sky_talon }], min: 1, max: besoin_transport }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: exclusif, groupe: mobilite }
+    phrase_pdf: "Ajouter autant de Valkyrie Sky Talons que nécessaire pour transporter toutes les unités de la formation"
+  - id: valkyries_tempestus
+    nom: Valkyries
+    effet: { type: ajouter, cout: 150, unites: [{ unite: valkyrie, nombre: 4 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: exclusif, groupe: mobilite }
+    phrase_pdf: "Ajouter autant de Valkyries que nécessaire pour transporter toutes les unités de la formation"
+    note_md: "8 Tempestus Scions nécessitent 4 Valkyries."
+  - id: valkyries_appui_feu
+    nom: Valkyries
+    effet: { type: ajouter, cout: 100, unites: [{ unite: valkyrie, nombre: 3 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+    phrase_pdf: "Ajouter autant de Valkyries que nécessaire pour transporter toutes les unités de la formation"
+    note_md: "6 unités d'Appui-Feu ou de Mortiers nécessitent 3 Valkyries."
+  - id: renfort_vultures
+    nom: Vultures supplémentaires
+    effet:
+      type: ajouter
+      unites: []
+      variantes:
+        - { id: vultures, nom: 2 Vultures, cout: 100, unites: [{ unite: vulture, nombre: 2 }] }
+        - { id: punisher, nom: 2 Vultures Punisher, cout: 75, unites: [{ unite: vulture_punisher, nombre: 2 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+
+  # ---- Assaut planétaire ----
+  - id: assaut_planetaire
+    nom: Assaut Planétaire
+    effet:
+      type: mot_cle
+      texte: Assaut Planétaire
+      cout: 25
+      cible: [valkyrie, valkyrie_vendetta, valkyrie_sky_talon, vulture, vulture_punisher]
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: requiert_unite, unites: [valkyrie, valkyrie_vendetta, valkyrie_sky_talon, vulture, vulture_punisher] }
+    note_md: "Uniquement si l'armée comprend une Frégate Claymore. Toutes les Valkyries (tous types) et tous les Vultures (tous types) de la formation gagnent la note « Assaut Planétaire »."
+
+  # ---- Commissaire gratuit ----
+  - id: commissaire_appui
+    nom: Commissaire
+    effet: { type: ajouter, cout: 0, unites: [{ unite: commissaire, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: consomme, budget: commissaires_gratuits }
+
+formations:
+  # ---- Compagnies ----
+  - id: qg_regimentaire
+    nom: QG Régimentaire
+    variantes:
+      - id: base
+        cout: 350
+        composition:
+          - { unite: quartier_general, nombre: 1 }
+          - { unite: paras_elysiens, nombre: 7 }
+          - { unite: valkyrie, nombre: 4 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    options_plus: [assaut_planetaire]
+  - id: compagnie_infanterie
+    nom: Compagnie d'Infanterie
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: commandement, nombre: 1 }
+          - { unite: paras_elysiens, nombre: 7 }
+          - { unite: valkyrie, nombre: 4 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    options_plus: [assaut_planetaire]
+
+  # ---- Formations d'appui ----
+  - id: tarentules
+    nom: Tarentules
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: tarentule, nombre: 6 }] }
+    options_plus: [teleportation]
+  - id: escadron_sentinelles
+    nom: Escadron de Sentinelles
+    variantes:
+      - { id: aeroportees, nom: 4 Sentinelles Aéroportées, cout: 125, composition: [{ unite: sentinelle_aeroportee, nombre: 4 }] }
+      - { id: soutien, nom: 4 Sentinelles de Soutien, cout: 150, composition: [{ unite: sentinelle_soutien, nombre: 4 }] }
+    options_plus: [renfort_sentinelles, teleportation, sky_talons_sentinelles, assaut_planetaire]
+  - id: peloton_veterans
+    nom: Peloton de Vétérans
+    variantes:
+      - { id: saboteurs, nom: 6 Vétérans (Saboteurs), cout: 200, composition: [{ unite: veterans_saboteurs, nombre: 6 }] }
+      - { id: snipers, nom: 6 Vétérans (Snipers), cout: 200, composition: [{ unite: veterans_snipers, nombre: 6 }] }
+    options_plus: [teleportation]
+  - id: militarum_tempestus
+    nom: Militarum Tempestus
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: tempestus_scions, nombre: 8 }] }
+    options_plus: [teleportation, valkyries_tempestus, vendetta, assaut_planetaire]
+  - id: peloton_appui_feu
+    nom: Peloton d'Appui-Feu
+    variantes:
+      - { id: appui_feu, nom: 6 unités d'Appui-Feu, cout: 175, composition: [{ unite: appui_feu, nombre: 6 }] }
+      - { id: mortiers, nom: 6 unités de Mortiers, cout: 175, composition: [{ unite: mortiers, nombre: 6 }] }
+    options_plus: [valkyries_appui_feu, vendetta, assaut_planetaire]
+  - id: escadron_tauros
+    nom: Escadron de Tauros
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: tauros }, { unite: tauros_venator }]
+              phrase_pdf: "6 unités parmi : Tauros, Tauros Venator"
+  - id: escadrille_vultures
+    nom: Escadrille de Vultures
+    variantes:
+      - { id: base, nom: 4 Vultures, cout: 300, composition: [{ unite: vulture, nombre: 4 }] }
+    options_plus: [renfort_vultures, assaut_planetaire]
+  - id: escadrille_vultures_punisher
+    nom: Escadrille de Vultures Punisher
+    variantes:
+      - { id: base, nom: 4 Vultures Punisher, cout: 225, composition: [{ unite: vulture_punisher, nombre: 4 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    options_plus: [renfort_vultures, assaut_planetaire]
+
+  # ---- Supports ----
+  - id: escadrille_lightning
+    nom: Escadrille Lightning
+    variantes:
+      - { id: deux, nom: 2 Lightning Strike Fighters, cout: 175, composition: [{ unite: lightning, nombre: 2 }] }
+      - { id: trois, nom: 3 Lightning Strike Fighters, cout: 250, composition: [{ unite: lightning, nombre: 3 }] }
+  - id: escadrille_bomber
+    nom: Escadrille Bomber
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: marauder, nombre: 2 }] }
+  - id: escadrille_destroyer
+    nom: Escadrille Destroyer
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: marauder_destroyer, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: claymore, nom: 1 Frégate Claymore, cout: 200, composition: [{ unite: fregate_claymore, nombre: 1 }] }
+      - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+
+sections:
+  - id: compagnies
+    titre: COMPAGNIES DES PARAS ÉLYSIENS
+    formations: [qg_regimentaire, compagnie_infanterie]
+    contraintes:
+      - { type: max_options, valeur: 3 }
+      - { type: fournit, budget: slot_appui, quantite: 2 }
+    options: [amelioration_infanterie, amelioration_appui_feu, vendetta, amelioration_vultures]
+    tableau_options:
+      titre: AMÉLIORATIONS DES PARAS ÉLYSIENS
+      sous_titre: "Jusqu'à 3 améliorations différentes par Compagnie"
+  - id: appui
+    titre: FORMATIONS D'APPUI DES PARAS ÉLYSIENS
+    sous_titre: "Jusqu'à 2 formations d'appui par Compagnie"
+    contraintes: [{ type: consomme, budget: slot_appui }]
+    options: [commissaire_appui]
+    formations: [tarentules, escadron_sentinelles, peloton_veterans, militarum_tempestus, peloton_appui_feu, escadron_tauros, escadrille_vultures, escadrille_vultures_punisher]
+  - id: supports
+    titre: SUPPORTS DES PARAS ÉLYSIENS
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: [escadrille_lightning, escadrille_bomber, escadrille_destroyer, soutien_orbital]
+
+listes_test:
+  - nom: "3000 pts valide : QG, compagnie, quatre appuis et un soutien orbital"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: qg_regimentaire
+        options:
+          - { option: amelioration_infanterie }
+          - { option: amelioration_vultures, variante: punisher }
+      - formation: compagnie_infanterie
+        options: [{ option: vendetta }]
+      - formation: escadron_sentinelles
+        variante: aeroportees
+        options:
+          - { option: renfort_sentinelles, variante: aeroportees }
+          - { option: sky_talons_sentinelles, quantite: 3 }
+      - formation: militarum_tempestus
+        options:
+          - { option: valkyries_tempestus }
+          - { option: vendetta }
+          - { option: commissaire_appui }
+      - formation: escadrille_vultures
+        options: [{ option: assaut_planetaire }]
+      - formation: escadron_tauros
+        choix: { "0": { tauros: 3, tauros_venator: 3 } }
+      - { formation: soutien_orbital, variante: claymore }
+  - nom: "2000 pts valide : compagnie améliorée, deux appuis téléportés et une escadrille"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: compagnie_infanterie
+        options:
+          - { option: amelioration_infanterie }
+          - { option: amelioration_appui_feu }
+          - { option: vendetta }
+      - formation: tarentules
+        options: [{ option: teleportation }]
+      - formation: peloton_veterans
+        variante: snipers
+        options: [{ option: teleportation }]
+      - { formation: escadrille_lightning, variante: deux }
+  - nom: "quatre améliorations sur une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: compagnie_infanterie
+        options:
+          - { option: amelioration_infanterie }
+          - { option: amelioration_appui_feu }
+          - { option: vendetta }
+          - { option: amelioration_vultures, variante: vultures }
+  - nom: "trois formations d'appui pour une seule compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: tarentules }
+      - { formation: escadron_tauros, choix: { "0": { tauros: 6 } } }
+      - { formation: peloton_veterans, variante: saboteurs }
+  - nom: "deux Escadrilles de Vultures Punisher"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: qg_regimentaire }
+      - { formation: compagnie_infanterie }
+      - { formation: escadrille_vultures_punisher }
+      - { formation: escadrille_vultures_punisher }
+  - nom: "supports au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: escadrille_destroyer }
+      - { formation: escadrille_bomber }
+      - { formation: soutien_orbital, variante: emperor }
+  - nom: "quota de commissaires gratuits dépassé"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: tarentules, options: [{ option: commissaire_appui }] }
+      - { formation: peloton_veterans, variante: snipers, options: [{ option: commissaire_appui }] }
+  - nom: "Téléportation et Sky Talons sur le même Escadron de Sentinelles"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - { formation: compagnie_infanterie }
+      - formation: escadron_sentinelles
+        variante: aeroportees
+        options:
+          - { option: teleportation }
+          - { option: sky_talons_sentinelles, quantite: 2 }
+  - nom: "plus de Sky Talons que nécessaire"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - { formation: compagnie_infanterie }
+      - formation: escadron_sentinelles
+        variante: aeroportees
+        options: [{ option: sky_talons_sentinelles, quantite: 3 }]
