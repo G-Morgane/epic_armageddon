@@ -1,0 +1,722 @@
+# Adepta Sororitas, transcrit depuis le PDF EAFR rev 1.2 (source de vérité).
+codex:
+  slug: adepta-sororitas
+  armee_id: 557ea78f-2ded-475e-bf4c-117910a42387
+  nom: Adepta Sororitas
+  version: "1..2"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  citation:
+    texte: "Certains prétendent que nous devrions pardonner aux ignorants, aux timorés et aux dévoyés. Ces faibles qui prônent la clémence et la compréhension sont aussi coupables que ceux qu'ils cherchent à excuser. Qu'ils brûlent tous sur le même bûcher !"
+    auteur: Chanoinesse Ismelda Caritados
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de l'Adepta Sororitas.
+
+    Les armées de l'Adepta Sororitas sont organisées autour de formations appelées formations de l'Ordre Militant. Chacune d'entre elles permet de recruter jusqu'à une formation de l'ecclésiarchie.
+
+    Chaque formation peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelles améliorations sont autorisées. Chaque amélioration autorisée ne peut être prise qu'une fois par formation. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'une formation tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations de la Navy Impériale et Support Lourd sont des formations autonomes. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Acte de Foi"
+      texte: |
+        Une seule formation de l'Ordre Militant de l'Adepta Sororitas peut choisir de faire un acte de foi par tour quand elle fait son test d'action.
+
+        La formation reçoit alors une pénalité de -1 à son test d'action (qui est cumulatif avec les autres modificateurs).
+
+        Si le test d'action est réussi, la formation résout son action normalement. De plus, toutes les unités de la formation gagnent « Sans Peur » et « Sauvegarde invulnérable » jusqu'au début de la séquence de jeu « fin du tour » (§1.14 du livre de règle).
+
+        Si le test d'action est raté, la formation doit effectuer l'action Tenir comme indiqué dans le §1.6.2 du livre de règle.
+    - titre: "Règle spéciale : Sainte"
+      texte: |
+        Si une formation ou une unité de la formation possède la règle spéciale Sainte alors la formation ignore la pénalité « -1 » à son test d'action dû à la règle Acte de foi. Elle subit par contre toutes les autres pénalités à son test d'action comme indiqué dans le §1.6.2 du livre de règle.
+    - titre: "Règle spéciale : Transport"
+      texte: |
+        Si une formation possède des véhicules de transport (amélioration Transport et/ou Repressor), vous devez prendre assez de véhicules pour transporter l'intégralité de la formation (amélioration comprise). Toutes les places des transports doivent être occupées.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de Juan Martinez."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations de l'Ordre Militant", valeur: "1+" }
+      - { portee: "Incinérator et Cathédrale", valeur: "1+" }
+
+budgets:
+  - id: slot_ecclesiarchie
+    libelle: Formations de l'Ecclésiarchie
+    capacite: { source: fournitures }
+    phrase_pdf: "Vous pouvez prendre une formation de support par formation d'ordre militant prise"
+  - id: rare
+    libelle: Navy Impériale et Support Lourd
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages de l'Adepta Sororitas ----
+  - id: chanoinesse
+    nom: Chanoinesse
+    type: Perso
+    armes:
+      - { nom: Arme bénie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Commandant suprême, Sauvegarde Invulnérable, Sainte]
+    roles: [personnage, commandant_supreme]
+  - id: maitresse
+    nom: Maitresse
+    type: Perso
+    armes:
+      - { nom: Fouets neuraux, portee: (contact), puissance: "Arme d'Assaut, +1A, FeP" }
+    notes: [Frappe en Premier, Meneur]
+    roles: [personnage]
+  - id: palatine
+    nom: Palatine
+    type: Perso
+    armes:
+      - { nom: Bolter Condemnor, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+
+  # ---- Infanterie de l'Adepta Sororitas ----
+  - id: celeste
+    nom: Céleste
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Multi-Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+  - id: soeur_bataille
+    nom: Soeur de Bataille
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-Flammes, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+  - id: retributor
+    nom: Retributor
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Bolter lourd, portee: 30cm, puissance: "AP5+" }
+  - id: seraphine
+    nom: Séraphine
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Pistolets bolter Jumelés, portee: (15cm), puissance: "Arme Légère" }
+    notes: [Réacteurs dorsaux, Sainte]
+  - id: dominion
+    nom: Dominion
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Cadre de Fuseurs, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Éclaireur]
+  - id: repentia
+    nom: Repentia
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Eviscerator, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Sans peur, Infiltrateur, Sauvegarde Invulnérable]
+
+  # ---- Véhicules de l'Adepta Sororitas ----
+  - id: exorciste
+    nom: Exorciste
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-missiles Exorcist, portee: 45cm, puissance: "2xAP6+/AC4+" }
+    notes: [Blindage Renforcé]
+  - id: immolator_immolation
+    nom: Immolator (Immolation)
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Lance-flammes Immolation, portee: 15cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: ["Transport (1) : Infanterie"]
+    transport: { capacite: 1, accepte: [celeste, soeur_bataille, retributor, seraphine, dominion, repentia] }
+  - id: immolator_justice
+    nom: Immolator (Justice)
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Fuseurs Jumelés, portee: 15cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: ["Transport (1) : Infanterie"]
+    transport: { capacite: 1, accepte: [celeste, soeur_bataille, retributor, seraphine, dominion, repentia] }
+  - id: rhino
+    nom: Rhino
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fulgurant, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [celeste, soeur_bataille, retributor, seraphine, dominion, repentia] }
+  - id: repressor
+    nom: Repressor
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-Flammes, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Marcheur, "Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [celeste, soeur_bataille, retributor, seraphine, dominion, repentia] }
+  - id: hunter
+    nom: Hunter
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Lance-Missile Hunter, portee: 60cm, puissance: "AC4+/AA4+" }
+  - id: incinerator
+    nom: Incinérator
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon infernus, portee: 30cm, puissance: "4PB, IC, Frt" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: Canon Inferno (Gauche), portee: 30cm, puissance: "AP3+, IC, Gch" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+      - { nom: Canon Inferno (Droite), portee: 30cm, puissance: "AP3+, IC, Drt" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, Touche à 5cm sur 6" }
+  - id: cathedrale
+    nom: Cathédrale
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon prométhéum, portee: 60cm, puissance: "4PB, IC, MA, Frt" }
+      - { nom: Coupole de la foi, portee: 30cm, puissance: "2xAC3+/AA4+" }
+      - { nom: 2x Bolters Lourds Jumelés (G), portee: 30cm, puissance: "AP4+, Gch" }
+      - { nom: 2x Bolters Lourds Jumelés (D), portee: 30cm, puissance: "AP4+, Drt" }
+      - { nom: Coupole Multi-Fuseur, portee: 15cm, puissance: "2xMA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Blindage Renforcé, Charismatique, Sans peur]
+    degats: { cd: 6, bi: 2, critique: "Fissure du prométhéum, l'Engin perd 1 Point de Structure supplémentaire" }
+
+  # ---- Ecclésiarchie ----
+  - id: inquisiteur
+    nom: Inquisiteur de l'Ordo Hereticus
+    type: Perso
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: precheur
+    nom: Prêcheur
+    type: Perso
+    armes:
+      - { nom: Eviscerator, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Meneur, Sans Peur]
+    roles: [personnage]
+  - id: redemptionniste
+    nom: Rédemptionniste
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    notes: [Obstiné]
+  - id: troupe_choc
+    nom: Troupe de choc inquisitoriale
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Éclaireurs]
+  - id: cultiste_parque
+    nom: Cultiste de Parque
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Infiltrateur, Sauvegarde Invulnérable]
+  - id: arco_flagellant
+    nom: Arco-flagellant
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Chaines de combat, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Infiltrateur, Sans Peur, Sauvegarde Invulnérable]
+  - id: machine_penitence
+    nom: Machine de pénitence
+    type: VL
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Lance-Flammes, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Scie de combat, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes:
+      - Infiltrateur
+      - Marcheur
+      - Sans Peur
+      - Sauvegarde Invulnérable
+      - "Ne peut pas contrôler les objectifs, seulement les contester."
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [redemptionniste, troupe_choc, cultiste_parque, arco_flagellant] }
+  - id: valkyrie
+    nom: Valkyrie
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: 2x Nacelles de roquettes, portee: 30cm, puissance: "1PB, Uniq, Rpt" }
+    notes: [Antigrav, Éclaireur, "Transport (2)"]
+    transport: { capacite: 2, accepte: [redemptionniste, troupe_choc, cultiste_parque, arco_flagellant] }
+
+  # ---- Navy Impériale ----
+  - id: avenger
+    nom: Avenger
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon Avenger, portee: 30cm, puissance: "AP3+/AC5+, FrtF" }
+      - { nom: Canon Laser (AA), portee: 30cm, puissance: "AC5+/AA6+, FrtF" }
+      - { nom: Mitrailleuse Lourde (AA), portee: 30cm, puissance: "AA6+, Arr" }
+  - id: croiseur_lunar
+    nom: Croiseur Classe Lunar
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+
+options:
+  - id: superieure
+    nom: Supérieure
+    effet:
+      type: choix
+      parmi:
+        - id: palatine
+          nom: Palatine
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: palatine, nombre: 1 }] }
+        - id: chanoinesse
+          nom: Chanoinesse
+          cout: 75
+          effet: { type: ajouter, unites: [{ unite: chanoinesse, nombre: 1 }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un personnage de Palatine à la formation (50 pts) ou ajouter un personnage de Chanoinesse à la formation (75 pts, 1 maximum par armée)"
+  - id: celeste
+    nom: Céleste
+    effet: { type: remplacer, de: soeur_bataille, par: celeste, lot: 2, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer deux unités de la formation par deux unités de Céleste"
+  - id: exorciste
+    nom: Exorciste
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: exorciste }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter de 1 à 2 Exorciste(s) à la formation (50 pts chacun)"
+  - id: hunter
+    nom: Hunter
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hunter, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Hunter à la formation"
+  - id: transport
+    nom: Transport
+    effet:
+      type: choix
+      parmi:
+        - id: rhinos_3
+          nom: 3 Rhinos
+          cout: 25
+          effet: { type: ajouter, unites: [{ unite: rhino, nombre: 3 }] }
+        - id: rhinos_4
+          nom: 4 Rhinos
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: rhino, nombre: 4 }] }
+        - id: immolators
+          nom: Immolators
+          cout: 0
+          effet:
+            type: choix_multiple
+            total: { min: 1, max: besoin_transport }
+            parmi:
+              - { unite: immolator_immolation, cout: 25 }
+              - { unite: immolator_justice, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter des Rhinos à la formation (25 pts par 3 / 50 pts par 4) ou ajouter des Immolators à la formation (25 pts chacun)"
+    note_ref: transport
+  - id: repressor
+    nom: Repressor
+    effet:
+      type: choix
+      parmi:
+        - id: repressors_3
+          nom: 3 Repressors
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: repressor, nombre: 3 }] }
+        - id: repressors_4
+          nom: 4 Repressors
+          cout: 75
+          effet: { type: ajouter, unites: [{ unite: repressor, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter des Repressors à la formation (50 pts par 3 / 75 pts par 4)"
+    note_ref: transport
+  - id: machine_penitence
+    nom: Machine de Pénitence
+    effet: { type: ajouter, cout: 75, unites: [{ unite: machine_penitence, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 2 machines de pénitences"
+  - id: transport_inquisition
+    nom: Transport Inquisition
+    effet:
+      type: choix
+      parmi:
+        - id: chimeres
+          nom: Chimères
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere }], min: 1, max: besoin_transport }
+        - id: valkyries
+          nom: 4 Valkyries
+          cout: 150
+          effet: { type: ajouter, unites: [{ unite: valkyrie, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter assez de Chimères pour transporter toute la formation (25 pts chacune) ou ajouter 4 Valkyries à la formation (150 pts)"
+  - id: assassins
+    nom: Assassins
+    effet: { type: remplacer, de: troupe_choc, par: cultiste_parque, lot: 2, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer 2 unités de troupe de choc par 2 unités de Cultiste de Parque"
+
+formations:
+  # ---- Formations de l'Ordre Militant ----
+  - id: couvent_sororita
+    nom: Couvent Sororita
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: soeur_bataille, nombre: 8 }
+    options: [celeste, exorciste, hunter, superieure, repressor, transport]
+    phrase_pdf: "8 unités de Soeurs de Bataille"
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+  - id: couvent_retributor
+    nom: Couvent Retributor
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: retributor, nombre: 6 }
+    options: [hunter, superieure, transport]
+    phrase_pdf: "6 unités de Retributors"
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+  - id: couvent_seraphin
+    nom: Couvent Séraphin
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: seraphine, nombre: 6 }
+    options: [superieure]
+    phrase_pdf: "6 unités de Séraphines"
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+  - id: couvent_dominus
+    nom: Couvent Dominus
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: dominion, nombre: 4 }
+          - choix:
+              total: 4
+              parmi: [{ unite: immolator_immolation }, { unite: immolator_justice }]
+              phrase_pdf: "4 Immolators (tous types)"
+    options: [superieure]
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+  - id: couvent_purification
+    nom: Couvent Purification
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: immolator_immolation }, { unite: immolator_justice }]
+              phrase_pdf: "6 Immolators (tous types)"
+    options: [exorciste, hunter]
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+  - id: couvent_exorcisme
+    nom: Couvent d'Exorcisme
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: exorciste, nombre: 6 }
+    options: [exorciste, hunter]
+    phrase_pdf: "6 Exorcistes"
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+  - id: couvent_repentance
+    nom: Couvent de Repentance
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: repentia, nombre: 6 }
+          - { unite: maitresse, nombre: 1 }
+    options: [machine_penitence, repressor, transport]
+    phrase_pdf: "6 unités de Repentias + 1 personnage de Maîtresse"
+    contraintes: [{ type: fournit, budget: slot_ecclesiarchie, quantite: 1 }]
+
+  # ---- Formations de l'Ecclésiarchie ----
+  - id: croisade
+    nom: Croisade
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: redemptionniste, nombre: 10 }
+          - { unite: precheur, nombre: 1 }
+    options: [machine_penitence]
+    phrase_pdf: "10 unités de Rédemptionnistes + 1 personnage de Prêcheur"
+  - id: suite_inquisitoriale
+    nom: Suite inquisitoriale
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: troupe_choc, nombre: 8 }
+          - { unite: inquisiteur, nombre: 1 }
+    options: [transport_inquisition, assassins]
+    phrase_pdf: "8 unités de Troupes de Choc Inquisitoriales + 1 personnage d'Inquisiteur de l'Ordo Hereticus"
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: conclave
+    nom: Conclave
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: arco_flagellant, nombre: 8 }
+    options: [machine_penitence]
+    phrase_pdf: "8 unités d'Arco-flagellant"
+  - id: penitence
+    nom: Pénitence
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: machine_penitence, nombre: 6 }
+    options: []
+    phrase_pdf: "6 Machines de pénitence"
+
+  # ---- Navy Impériale et Support Lourd ----
+  - id: incinerator
+    nom: Incinérator
+    variantes:
+      - { id: un, nom: 1 Incinérator, cout: 200, composition: [{ unite: incinerator, nombre: 1 }] }
+      - { id: deux, nom: 2 Incinérators, cout: 400, composition: [{ unite: incinerator, nombre: 2 }] }
+    phrase_pdf: "1 Incinérator (Ajouter 1 Incinérator : +200 pts)"
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: cathedrale
+    nom: Cathédrale
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: cathedrale, nombre: 1 }] }
+    phrase_pdf: "1 Cathédrale"
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: escadrille_avenger
+    nom: Escadrille Avenger
+    variantes:
+      - { id: deux, nom: 2 Avengers, cout: 150, composition: [{ unite: avenger, nombre: 2 }] }
+      - { id: trois, nom: 3 Avengers, cout: 225, composition: [{ unite: avenger, nombre: 3 }] }
+      - { id: quatre, nom: 4 Avengers, cout: 300, composition: [{ unite: avenger, nombre: 4 }] }
+    phrase_pdf: "2 Avengers (Ajouter 1 ou 2 Avengers : +75 pts chacun)"
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: lunar, nom: 1 Croiseur de classe Lunar, cout: 150, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
+    phrase_pdf: "0-1 Soutien Orbital : 1 Croiseur de classe Lunar"
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+
+sections:
+  - id: ordre_militant
+    titre: FORMATION DE L'ORDRE MILITANT
+    formations: [couvent_sororita, couvent_retributor, couvent_seraphin, couvent_dominus, couvent_purification, couvent_exorcisme, couvent_repentance]
+    colonne_options: true
+    contraintes: [{ type: initiative, valeur: "1+" }]
+  - id: ecclesiarchie
+    titre: FORMATION DE L'ECCLÉSIARCHIE
+    sous_titre: "Vous pouvez prendre une formation de support par formation d'ordre militant prise"
+    formations: [croisade, suite_inquisitoriale, conclave, penitence]
+    colonne_options: true
+    contraintes: [{ type: consomme, budget: slot_ecclesiarchie }]
+    options: [superieure, celeste, exorciste, hunter, transport, repressor, machine_penitence, transport_inquisition, assassins]
+    tableau_options:
+      titre: AMÉLIORATIONS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation"
+    notes:
+      transport: "Vous devez prendre assez de véhicules pour transporter l'intégralité de la formation (amélioration comprise). Toutes les places des transports doivent être occupées."
+  - id: navy_support
+    titre: FORMATIONS DE LA NAVY IMPÉRIALE ET SUPPORT LOURD
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    formations: [incinerator, cathedrale, escadrille_avenger, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+
+listes_test:
+  - nom: "3000 pts valide, trois couvents, deux formations de l'Ecclésiarchie et des supports"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: couvent_sororita
+        options:
+          - { option: superieure, choix: palatine }
+          - { option: transport, choix: rhinos_4 }
+          - { option: exorciste, quantite: 2 }
+          - { option: celeste }
+      - formation: couvent_exorcisme
+        options: [{ option: hunter }]
+      - formation: couvent_repentance
+        options:
+          - { option: repressor, choix: repressors_3 }
+          - { option: machine_penitence }
+      - formation: croisade
+        options: [{ option: machine_penitence }]
+      - formation: suite_inquisitoriale
+        options:
+          - { option: transport_inquisition, choix: chimeres, quantite: 4 }
+          - { option: assassins }
+      - { formation: incinerator, variante: un }
+      - { formation: escadrille_avenger, variante: deux }
+  - nom: "2000 pts valide, Immolators au choix et Chanoinesse"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: couvent_dominus
+        choix: { "1": { immolator_immolation: 2, immolator_justice: 2 } }
+        options: [{ option: superieure, choix: chanoinesse }]
+      - formation: couvent_purification
+        choix: { "0": { immolator_justice: 6 } }
+        options: [{ option: exorciste, quantite: 1 }]
+      - formation: couvent_seraphin
+        options: [{ option: superieure, choix: palatine }]
+      - formation: conclave
+        options: [{ option: machine_penitence }]
+      - { formation: penitence }
+      - { formation: soutien_orbital }
+  - nom: "deux formations de l'Ecclésiarchie pour un seul Ordre Militant"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: couvent_seraphin }
+      - { formation: croisade }
+      - { formation: conclave }
+  - nom: "deux Chanoinesses dans l'armée"
+    limite: 2000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: couvent_sororita
+        options: [{ option: superieure, choix: chanoinesse }]
+      - formation: couvent_retributor
+        options: [{ option: superieure, choix: chanoinesse }]
+  - nom: "deux Suites inquisitoriales"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: couvent_sororita }
+      - { formation: couvent_seraphin }
+      - { formation: suite_inquisitoriale }
+      - { formation: suite_inquisitoriale }
+  - nom: "Navy et Support Lourd au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: couvent_sororita }
+      - { formation: cathedrale }
+      - { formation: incinerator, variante: un }
+  - nom: "amélioration non autorisée sur un Couvent Séraphin"
+    limite: 2000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: couvent_seraphin
+        options: [{ option: hunter }]
+  - nom: "trois Exorcistes en amélioration"
+    limite: 2000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: couvent_exorcisme
+        options: [{ option: exorciste, quantite: 3 }]
+  - nom: "plus de Chimères que nécessaire"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - { formation: couvent_sororita }
+      - formation: suite_inquisitoriale
+        options: [{ option: transport_inquisition, choix: chimeres, quantite: 5 }]
