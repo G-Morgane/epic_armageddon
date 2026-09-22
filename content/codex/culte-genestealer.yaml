@@ -1,0 +1,619 @@
+# Culte Genestealer, transcrit depuis le PDF EAFR rev 1.1 (source de vérité).
+codex:
+  slug: culte-genestealer
+  armee_id: a6d2a923-53eb-4e41-9d7d-99fa36f38330
+  nom: Culte Genestealer
+  version: "1.1"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  citation:
+    texte: "Camarades !! L'Empereur à quatre bras est notre véritable sauveur, brisons les chaînes de l'oppression du faux Empereur qui ne nous protège plus !! Seul les Anges Stellaires nous sauveront de l'oubli ! Respectez les anciens, suivons le père de tous et gagnons le droit de vivre éternellement au firmament !"
+    auteur: Fiodor Ramazanov, Primus de la secte des Sauveurs Stellaire
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de culte Genestealer.
+
+    Les armées du culte sont organisées autour de formations appelées détachements principaux ainsi que des détachements de soutien qui leurs sont autonomes.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+  regles_md:
+    - titre: "Règle spéciale : « Au nom du Père ! »"
+      texte: |
+        Tant que le Patriarche est en vie, la formation qui le contient devient Sans Peur. Si le socle de ce dernier est détruit, la formation est automatiquement démoralisée et toutes les formations de l'armée reçoivent un pion impact.
+
+        Si la formation qui contient le Patriarche ou le Magus est motorisée, elle reçoit gratuitement une limousine blindée afin de transporter ceux-ci.
+
+        Une formation qui contient le Patriarche, le Magus ou le Primus s'active sur 1+.
+    - titre: "Règle spéciale : « Il en arrive de partout ! »"
+      texte: |
+        Une formation d'infanterie non montée par tranche complète de 750 points peut gagner la règle Embuscade. Lors de la phase de déploiement des vaisseaux, pour chaque formation en Embuscade, vous devez indiquer à votre adversaire son tour d'arrivée et noter secrètement ses coordonnées d'atterrissage.
+
+        Au tour indiqué, lors de la phase d'action, vous activez la formation en suivant cette procédure :
+
+        1. Déployez un marqueur Embuscade dans les 15 cm du lieu noté secrètement.
+        2. Effectuez un jet de déviation de 2D6 cm pour ce marqueur, la première unité pourra se déployer dans les 5 cm du marqueur puis toutes les autres unités pourront se déployer en cohésion dans les 15 cm du marqueur Embuscade (en dehors des zones de contrôle ennemies).
+        3. Puis lancez le jet d'activation de la formation normalement (LdR 1.6) : déclarez l'action qu'elle compte accomplir, puis effectuez un test d'action pour déterminer si elle accomplit l'action avec succès.
+
+        Remarque : les unités entrant en jeu par une Embuscade sont détruites si elles arrivent en dehors de la table. Si les unités arrivent dans un terrain qui leur est normalement infranchissable ou dangereux, sur une autre unité (amie ou ennemie) ou dans une zone de contrôle ennemie, l'unité est placée par l'adversaire dans la zone dégagée la plus proche pouvant la recevoir.
+    - titre: "Règle spéciale : « Ils sortent de terre ! »"
+      texte: |
+        Une formation entièrement transportée qui contient au moins un Goliath Brise-Roche gagne la règle spéciale Tunnelier.
+    - titre: "Règle spéciale : Tunnelier"
+      texte: |
+        Une formation Tunnelier peut se déployer en utilisant la règle suivante :
+
+        « Un tunnelier est déployé au même moment et de la même manière qu'un vaisseau spatial (voir section 4.3.1 du livre de règle). Les unités transportées dans un tunnelier sont gardées en réserve. Définissez ensuite une « zone de largage », selon la procédure décrite en section 4.3.1. Un tunnelier peut apparaître dans votre moitié de table dès le deuxième tour et dans la moitié de table adverse dès le troisième tour. Il est déployé avant le jet de stratégie au début du tour indiqué, aux coordonnées prédéfinies. Un tunnelier et toutes les unités qu'il transporte peuvent agir normalement dès leur tour d'arrivée. »
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Andrey Nyarl, illustration page 1 Vladimir Krisetskiy."
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations comptant un Patriarche, un Magus ou un Primus", valeur: "1+" }
+
+budgets:
+  - id: soutien
+    libelle: Détachements de Soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Les formations du Couvain du Patriarche et du Magus donnent le droit de recruter jusqu'à 2 détachements de Soutien chacune"
+  - id: soutien_genovore
+    libelle: Détachements de Soutien Genovores supplémentaires
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 Détachements de Soutien Genovores par Escouade d'Hybrides Acolytes"
+  - id: soutien_infecte
+    libelle: Détachements de Soutien Infectés supplémentaires
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 Détachements de Soutien Infectés par Escouade d'Hybrides Néophytes"
+
+unites:
+  # ---- Personnages et infanterie ----
+  - id: patriarche
+    nom: Patriarche
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Bio-arme Tyranide, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Frappe psychique, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Commandant Suprême, Charismatique, Sans Peur, Blindage Renforcé]
+    roles: [commandant_supreme]
+  - id: magus
+    nom: Magus
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Frappe psychique, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Commandant, Meneur, Sans Peur]
+    roles: [commandant]
+  - id: primus
+    nom: Primus
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bio-arme Tyranide, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Pistolet à aiguilles, portee: (15cm), puissance: Arme légère }
+    notes: [Commandant, Charismatique, Meneur]
+    roles: [personnage, commandant]
+  - id: hybride_acolyte
+    nom: Hybride acolyte
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Armes de Poing, portee: (15cm), puissance: Armes Légères }
+      - { nom: Griffes, portee: (contact), puissance: "Arme d'Assaut" }
+  - id: hybride_neophyte
+    nom: Hybride néophyte
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Laser Minier, portee: 30cm, puissance: "AC6+" }
+      - { nom: Mitrailleuse Lourde, portee: 30cm, puissance: "AP6+" }
+      - { nom: Fusils laser, portee: (15cm), puissance: Arme Légère }
+  - id: genestealer
+    nom: Genestealers
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Griffes tranchantes, portee: (contact), puissance: "Armes d'Assaut, +1A" }
+    notes: [Frappe en premier, Infiltrateurs, Éclaireurs]
+  - id: assassin_metamorphe
+    nom: Assassins métamorphes
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Bio-armes, portee: (contact), puissance: "Armes d'Assaut" }
+      - { nom: Armes de Poing, portee: (15cm), puissance: Armes Légères }
+    notes: [Frappent en Premier, Infiltrateurs]
+  - id: hybride_metamorphe
+    nom: Hybrides métamorphes
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Bio-armes, portee: (contact), puissance: "Armes d'Assaut" }
+      - { nom: Armes de Poing, portee: (15cm), puissance: Armes Légères }
+    notes: [Frappent en Premier, Infiltrateurs, Éclaireurs]
+  - id: aberrant
+    nom: Aberrants
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Pique Énergétique, portee: (contact), puissance: "Armes d'Assaut, MA" }
+    notes: [Sacrifiable]
+  - id: infanterie_neophyte
+    nom: Infanterie néophyte
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: ½ Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils laser, portee: (15cm), puissance: Arme Légère }
+    notes: ["Une unité sur deux possède un autocanon. Comptez le nombre d'unités d'infanterie dans la formation qui peuvent faire feu sur l'ennemi puis divisez le résultat par deux (en arrondissant à l'unité supérieure) pour savoir combien d'autocanons peuvent tirer."]
+  - id: appui_feu_neophyte
+    nom: Appui feu néophyte
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+  - id: atalan_jackal
+    nom: Atalan Jackal
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Fusils à canons sciés, portee: (15cm), puissance: Armes légères }
+    notes: [Montés, Éclaireurs]
+
+  # ---- Véhicules légers ----
+  - id: atalan_wolfsquad
+    nom: Atalan Wolfsquad
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Mitrailleuse lourde, portee: 30cm, puissance: "AP6+" }
+    notes: [Montés, Éclaireurs]
+  - id: achille_ridgerunner
+    nom: Achille Ridgerunner
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mitrailleuses Lourdes Jumelées (Inf), portee: 30cm, puissance: "AP5+" }
+      - { nom: Laser minier, portee: 30cm, puissance: "AC6+" }
+    notes: [Éclaireurs]
+
+  # ---- Véhicules blindés ----
+  - id: goliath
+    nom: Goliath
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanons jumelés, portee: 45cm, puissance: "AP4+/AC5+" }
+      - { nom: Mitrailleuse lourde, portee: 30cm, puissance: "AP6+" }
+    notes: ["Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [hybride_acolyte, hybride_neophyte, genestealer, assassin_metamorphe, hybride_metamorphe, aberrant, infanterie_neophyte, appui_feu_neophyte]
+  - id: goliath_brise_roche
+    nom: Goliath Brise-Roche
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Laser minier, portee: 30cm, puissance: "AC6+" }
+      - { nom: Mitrailleuse lourde, portee: 30cm, puissance: "AP6+" }
+    notes: ["Transport (1) : Infanterie, les socles embarqués dans le Goliath Brise-Roche peuvent utiliser leur valeur de fusillade en assaut tant que celui-ci n'est pas engagé au corps à corps."]
+    transport:
+      capacite: 1
+      accepte: [hybride_acolyte, hybride_neophyte, genestealer, assassin_metamorphe, hybride_metamorphe, aberrant, infanterie_neophyte, appui_feu_neophyte]
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Infanterie"]
+    transport:
+      capacite: 2
+      accepte: [hybride_acolyte, hybride_neophyte, genestealer, assassin_metamorphe, hybride_metamorphe, aberrant, infanterie_neophyte, appui_feu_neophyte]
+  - id: hydre
+    nom: Hydre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: basilisk
+    nom: Basilisk
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: griffon
+    nom: Griffon
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier Griffon, portee: 30cm, puissance: "1PB, Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: limousine_blindee
+    nom: Limousine blindée
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: ["Blindage renforcé", "Transport (1 socle de patriarche ou un socle de magus, ou un socle d'infanterie)"]
+    transport:
+      capacite: 1
+      accepte: [patriarche, magus, hybride_acolyte, hybride_neophyte, infanterie_neophyte, appui_feu_neophyte]
+
+  # ---- Engin de guerre ----
+  - id: baneblade
+    nom: Baneblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Super Obusier, portee: 75cm, puissance: "AP3+/AC3+" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Canon Démolisseur (FF), portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+
+options:
+  - id: primus
+    nom: Primus
+    effet: { type: ajouter, cout: 50, unites: [{ unite: primus, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "(0-1) Un personnage Primus pour toute l'armée"
+    note_md: "Une formation qui contient le Primus s'active sur 1+ (règle « Au nom du Père ! »)."
+  - id: genestealers
+    nom: Genestealers
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: genestealer }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 3 unités de Genestealers à la formation (25 pts chacun)"
+  - id: hybrides_metamorphes
+    nom: Hybrides métamorphes
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: hybride_metamorphe }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 4 unités d'Hybrides Métamorphes à la formation (25 pts chacun)"
+  - id: aberrants
+    nom: Aberrants
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: aberrant }], min: 1, max: 5 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 5 unités d'Aberrants à la formation (25 pts chacun)"
+  - id: hydre
+    nom: Hydre
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hydre, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Hydre à la formation (50 pts)"
+  - id: soldats_neophytes
+    nom: Soldats néophytes
+    effet: { type: ajouter, cout: 100, unites: [{ unite: infanterie_neophyte, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 6 unités d'Infanterie Néophyte à la formation (100 pts)"
+  - id: appui_feu_neophytes
+    nom: Appui feu néophytes
+    effet: { type: ajouter, cout: 100, unites: [{ unite: appui_feu_neophyte, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 4 unités d'Appui-feu Néophytes à la formation (100 pts)"
+  - id: transports
+    nom: Transports
+    effet:
+      type: choix
+      parmi:
+        - id: chimeres
+          nom: Chimères
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: chimere }], cout_par_unite: 25, min: 1, max: besoin_transport }
+        - id: goliaths
+          nom: Goliath
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: goliath }], cout_par_unite: 25, min: 1, max: besoin_transport }
+        - id: goliaths_brise_roche
+          nom: Goliath Brise-Roche
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: goliath_brise_roche, nombre: 2 }], cout_par_unite: 75, min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter assez de transports pour embarquer toute la formation : Chimères (25 pts chacune) ou Goliath (25 pts chacun) ou Goliath Brise-Roche (75 pts les deux)"
+    note_md: "Vous ne pouvez pas prendre plus de véhicules que vous en avez besoin pour embarquer ces troupes. Le Goliath Brise-Roche se prend par paire (75 pts les deux). Le format ne sait pas mélanger plusieurs modèles de transport dans une même amélioration : choisissez un modèle."
+  - id: transports_chimeres
+    nom: Transports
+    effet: { type: ajouter, unites: [{ unite: chimere }], cout_par_unite: 25, min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter assez de Chimères pour embarquer toute la formation (25 pts chacune)"
+    note_md: "Chimères uniquement. Vous ne pouvez pas prendre plus de véhicules que vous en avez besoin pour embarquer ces troupes."
+  - id: ridgerunners_supplementaires
+    nom: Achille Ridgerunner supplémentaires
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: achille_ridgerunner }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "1 ou 2 Achille Ridgerunner supplémentaires pour 25 pts chaque"
+
+formations:
+  # ---- Détachements principaux ----
+  - id: couvain_patriarche
+    nom: Couvain du Patriarche
+    variantes:
+      - id: base
+        cout: 325
+        composition:
+          - { unite: patriarche, nombre: 1 }
+          - choix:
+              total: 12
+              parmi: [{ unite: hybride_acolyte }, { unite: hybride_neophyte }]
+              phrase_pdf: "12 unités parmi : Hybrides Acolytes ; Hybrides Néophytes"
+    options: [transports, appui_feu_neophytes, soldats_neophytes, genestealers, hybrides_metamorphes, aberrants, hydre]
+    contraintes:
+      - { type: min_par_armee, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+      - { type: fournit, budget: soutien, quantite: 2 }
+      - { type: initiative, valeur: "1+" }
+  - id: couvain_magus
+    nom: Couvain du Magus
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: magus, nombre: 1 }
+          - choix:
+              total: 12
+              parmi: [{ unite: hybride_acolyte }, { unite: hybride_neophyte }]
+              phrase_pdf: "12 unités parmi : Hybrides Acolytes ; Hybrides Néophytes"
+    options: [transports, appui_feu_neophytes, soldats_neophytes, genestealers, hybrides_metamorphes, aberrants, hydre]
+    contraintes:
+      - { type: min_par_armee, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+      - { type: fournit, budget: soutien, quantite: 2 }
+      - { type: initiative, valeur: "1+" }
+  - id: escouade_hybrides_acolytes
+    nom: Escouade d'Hybrides Acolytes
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: hybride_acolyte, nombre: 12 }] }
+    options: [transports, appui_feu_neophytes, soldats_neophytes, genestealers, hybrides_metamorphes, aberrants, hydre]
+    contraintes:
+      - { type: fournit, budget: soutien_genovore, quantite: 2 }
+  - id: escouade_hybrides_neophytes
+    nom: Escouade d'Hybrides Néophytes
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: hybride_neophyte, nombre: 12 }] }
+    options: [transports, appui_feu_neophytes, soldats_neophytes, genestealers, hybrides_metamorphes, aberrants, hydre]
+    contraintes:
+      - { type: fournit, budget: soutien_infecte, quantite: 2 }
+
+  # ---- Détachements de soutien Genovores ----
+  - id: couvain_peres
+    nom: Couvain des Pères
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: genestealer, nombre: 6 }] }
+    options: [primus]
+  - id: couvain_incursion
+    nom: Couvain d'Incursion
+    variantes:
+      - { id: base, cout: 125, composition: [{ unite: achille_ridgerunner, nombre: 4 }] }
+    options: [ridgerunners_supplementaires]
+  - id: couvain_metamorphes
+    nom: Couvain Métamorphes
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: assassin_metamorphe, nombre: 6 }] }
+    options: [transports, appui_feu_neophytes, soldats_neophytes, genestealers, hybrides_metamorphes, aberrants, hydre]
+  - id: couvain_exploration
+    nom: Couvain d'Exploration
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: atalan_jackal }, { unite: atalan_wolfsquad }]
+              phrase_pdf: "6 unités parmi : Atalan Jackal ; Atalan Wolfsquad"
+    options: []
+
+  # ---- Détachements de soutien Infectés ----
+  - id: infanterie
+    nom: Infanterie
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: infanterie_neophyte, nombre: 12 }] }
+    options: [transports_chimeres, appui_feu_neophytes, soldats_neophytes, genestealers, hybrides_metamorphes, aberrants, primus, hydre]
+  - id: blindes
+    nom: Blindés
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: leman_russ, nombre: 6 }] }
+    options: [hydre, primus]
+  - id: blindes_lourds
+    nom: Blindés Lourds
+    variantes:
+      - { id: un_baneblade, nom: 1 Baneblade, cout: 200, composition: [{ unite: baneblade, nombre: 1 }] }
+      - { id: trois_baneblades, nom: 3 Baneblades, cout: 500, composition: [{ unite: baneblade, nombre: 3 }] }
+    options: [hydre, primus]
+  - id: artillerie_legere
+    nom: Artillerie légère
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: griffon, nombre: 6 }] }
+    options: []
+  - id: artillerie
+    nom: Artillerie
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: basilisk, nombre: 3 }] }
+    options: []
+
+sections:
+  - id: detachements_principaux
+    titre: DÉTACHEMENTS PRINCIPAUX CULTE GENESTEALER
+    formations: [couvain_patriarche, couvain_magus, escouade_hybrides_acolytes, escouade_hybrides_neophytes]
+    contraintes: [{ type: max_options, valeur: 4 }]
+    colonne_options: true
+    options: [primus, genestealers, hybrides_metamorphes, aberrants, hydre, soldats_neophytes, appui_feu_neophytes, transports, transports_chimeres, ridgerunners_supplementaires]
+    tableau_options:
+      titre: AMÉLIORATIONS CULTE GENESTEALER
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement, vous pouvez en prendre jusqu'à 4 par détachement"
+  - id: soutien_genovores
+    titre: DÉTACHEMENTS DE SOUTIEN GENOVORES
+    sous_titre: "Les formations du Couvain du Patriarche et du Magus donnent le droit de recruter jusqu'à 2 détachements de Soutien chacune, + jusqu'à 2 Détachements de Soutien Genovores par Escouade d'Hybrides Acolytes"
+    formations: [couvain_peres, couvain_incursion, couvain_metamorphes, couvain_exploration]
+    contraintes:
+      - { type: consomme, budget: [soutien_genovore, soutien] }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: soutien_infectes
+    titre: DÉTACHEMENTS DE SOUTIEN INFECTÉS
+    sous_titre: "Les formations du Couvain du Patriarche et du Magus donnent le droit de recruter jusqu'à 2 détachements de Soutien chacune, + jusqu'à 2 Détachements de Soutien Infectés par Escouade d'Hybrides Néophytes"
+    formations: [infanterie, blindes, blindes_lourds, artillerie_legere, artillerie]
+    contraintes:
+      - { type: consomme, budget: [soutien_infecte, soutien] }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts valide : les deux couvains, deux escouades et quatre soutiens"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: couvain_patriarche
+        choix: { "1": { hybride_acolyte: 12 } }
+        options: [{ option: genestealers, quantite: 3 }]
+      - formation: couvain_magus
+        choix: { "1": { hybride_neophyte: 12 } }
+      - { formation: escouade_hybrides_acolytes }
+      - { formation: escouade_hybrides_neophytes }
+      - { formation: couvain_peres }
+      - { formation: couvain_incursion, options: [{ option: ridgerunners_supplementaires, quantite: 2 }] }
+      - { formation: infanterie, options: [{ option: transports_chimeres, quantite: 6 }] }
+      - { formation: blindes }
+  - nom: "1500 pts valide : deux soutiens sur les places des couvains"
+    limite: 1500
+    attendu: valide
+    formations:
+      - formation: couvain_patriarche
+        choix: { "1": { hybride_acolyte: 6, hybride_neophyte: 6 } }
+      - formation: couvain_magus
+        choix: { "1": { hybride_neophyte: 12 } }
+      - { formation: couvain_peres, options: [{ option: primus }] }
+      - { formation: artillerie }
+  - nom: "cinq détachements de soutien pour quatre places"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: couvain_patriarche
+        choix: { "1": { hybride_acolyte: 12 } }
+      - formation: couvain_magus
+        choix: { "1": { hybride_neophyte: 12 } }
+      - { formation: couvain_peres }
+      - { formation: couvain_peres }
+      - { formation: couvain_peres }
+      - { formation: artillerie }
+      - { formation: artillerie_legere }
+  - nom: "cinq améliorations sur un Couvain du Patriarche"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: couvain_patriarche
+        choix: { "1": { hybride_acolyte: 12 } }
+        options:
+          - { option: genestealers, quantite: 3 }
+          - { option: hybrides_metamorphes, quantite: 4 }
+          - { option: aberrants, quantite: 5 }
+          - { option: hydre }
+          - { option: soldats_neophytes }
+      - formation: couvain_magus
+        choix: { "1": { hybride_neophyte: 12 } }
+  - nom: "armée sans Couvain du Magus"
+    limite: 3000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - formation: couvain_patriarche
+        choix: { "1": { hybride_acolyte: 12 } }
+      - { formation: escouade_hybrides_acolytes }
+  - nom: "deux Primus dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: couvain_patriarche
+        choix: { "1": { hybride_acolyte: 12 } }
+      - formation: couvain_magus
+        choix: { "1": { hybride_neophyte: 12 } }
+      - { formation: couvain_peres, options: [{ option: primus }] }
+      - { formation: blindes, options: [{ option: primus }] }
