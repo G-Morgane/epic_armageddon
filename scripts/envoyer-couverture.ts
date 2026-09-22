@@ -64,9 +64,14 @@ function dimensions(f: string): { l: number, h: number } | null {
   } catch { return null }
 }
 
+/** Type réel du fichier, l'extension pouvant mentir (un .jpg qui contient du PNG). */
+function typeReel(f: string): string {
+  try { return execFileSync('file', ['-b', '--mime-type', f], { encoding: 'utf8' }).trim() } catch { return '' }
+}
+
 /** Convertit en JPEG dans un fichier temporaire, pour garder une extension unique sur R2. */
 function enJpeg(f: string): string {
-  if (/\.jpe?g$/i.test(f)) return f
+  if (typeReel(f) === 'image/jpeg') return f
   const cible = join(process.env.TMPDIR ?? '/tmp', `couverture-${slug}-${Date.now()}.jpg`)
   execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '90', f, '--out', cible], { stdio: 'ignore' })
   return cible
@@ -129,7 +134,8 @@ async function main() {
     Key: cle,
     Body: readFileSync(jpeg),
     ContentType: 'image/jpeg',
-    CacheControl: 'public, max-age=31536000, immutable',
+    // pas d'`immutable` : la clé est réécrite quand une couverture est remplacée
+    CacheControl: 'public, max-age=86400',
   }))
   console.log(`Envoyée : ${url}`)
   console.log(`YAML    : ${majYaml(url)}`)
