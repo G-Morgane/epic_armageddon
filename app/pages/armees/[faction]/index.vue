@@ -36,12 +36,14 @@ const factionConfig: Record<string, { label: string; subtitle: string; gradient:
 const config = computed(() => factionConfig[faction.value] ?? factionConfig.imperium)
 
 
+const urlSite = useUrlSite()
+
 useSeoMeta({
   title: () => config.value.label,
   description: () => `${config.value.label} — ${config.value.subtitle}. Téléchargez les codex Epic Armageddon en PDF.`,
   ogTitle: () => `${config.value.label} — Epic Armageddon FR`,
   ogDescription: () => config.value.subtitle,
-  ogUrl: () => `https://www.epicarmageddon.fr/armees/${faction.value}`,
+  ogUrl: () => urlSite(`/armees/${faction.value}`),
 })
 
 /**
