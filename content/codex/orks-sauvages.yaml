@@ -1,0 +1,447 @@
+# Orks Sauvages, transcrit depuis le PDF EAFR rev 1.1 (source de vérité).
+codex:
+  slug: orks-sauvages
+  armee_id: 3ae3ccc4-587a-4a33-98ee-4ec7cc5cd76b
+  nom: Orks Sauvages
+  version: "1.1"
+  faction: xenos
+  categorie: armees-xenos
+  logo: ork.png
+  citation:
+    texte: "Suivr' Gork et Mork. Allé trouvé la guerre. Tué tout s'ki pass' à porté. Lé vieilles méthod' cé lé meilleur'."
+    auteur: Sacerdoce des Orques Sauvages (traduction approximative)
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied une armée d'Orks Sauvages.
+
+    Les armées des Orks sont organisées autour de grandes formations appelées bandes, qui peuvent s'acheter selon 3 tailles, la bande normale, la mastok (doubler l'effectif de départ) ou la tré mastok (tripler l'effectif de départ).
+
+    Chaque bande peut recevoir des kust'oms. La liste d'armée indique pour chaque catégorie de bande quels kust'oms sont autorisés. Chaque kust'om autorisé peut être pris un nombre illimité de fois par bande, sauf s'il est fait état d'une limitation de kust'om. Les limitations de kust'om sont multipliées de la même façon que l'effectif de départ, ainsi une bande de guerre tré mastok peut inclure jusqu'à 3 nobz supplémentaire, et 3 Bizarboyz. Les kust'oms font partie intégrante des bandes et doivent en respecter la cohésion. Les kust'oms qui sont des personnages doivent rejoindre une unité initialement dans la bande, pas un autre kust'oms.
+
+    Les armées Orks sauvages ont une valeur stratégique de 2. Toutes les formations Orks sauvages ont une initiative de 3+ mais reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la Waaagh!) ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande).
+  regles_md:
+    - titre: "Règle spéciale : Seigneur de Guerre"
+      texte: |
+        Chaque armée d'Orks Sauvages doit inclure une unité Commandement Suprême appelée Seigneur de Guerre. Cette unité est gratuite et doit être ajoutée à la formation de votre armée comportant le plus d'unités. Les Engins de Guerre comptent un nombre d'unités égal à leur Capacité de dommages de départ. En cas d'égalité, choisissez quelle formation doit rejoindre le Seigneur de Guerre.
+    - titre: "Règle spéciale : Pouvoir de la Waaagh!"
+      texte: |
+        Les Orks ne sont pas de fins stratèges mais la perspective d'une bonne bagarre les galvanise toujours. Afin de représenter ceci, une formation tentant une action d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son test d'action.
+
+        Les formations aériennes ont +2 de bonus pour les tests d'actions lorsqu'elles tentent une Interception ou une Attaque au sol.
+    - titre: "Règle spéciale : R'mise en bande"
+      texte: |
+        Lorsque les bandes Orks tentent un test de ralliement, ils reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 lorsqu'ils sont plus de 10. Les engins de guerre faisant partie de ces bandes comptent pour autant d'unités que leur capacité de dommage de départ. Les Gretchins ne sont pas comptabilisables dans le calcul.
+    - titre: "Règle spéciale : Orkeosaurus"
+      texte: |
+        Dans les parties de tournois, ces unités peuvent seulement transporter les unités de leur propre formation.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Samuel Bourguignon, page 1 Chase Toole."
+  valeur_strategique: 2
+  initiative:
+    defaut: "3+"
+    exceptions: []
+
+budgets: []
+
+unites:
+  # ---- Personnages ----
+  - id: seigneur_de_guerre
+    nom: Seigneur de Guerre
+    type: Perso
+    armes:
+      - { nom: Big Gros Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme, personnage]
+  - id: bizarboyz
+    nom: Bizarboyz
+    type: Perso
+    armes:
+      - { nom: Poing de Gork, portee: 45cm, puissance: "MA5+/AA5+, MA" }
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: nobz
+    nom: Nobz
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Gros Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Meneur]
+  - id: boyz
+    nom: Boyz
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+  - id: gretchins
+    nom: Gretchins
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+    notes: ["Les formations incluant au moins une unité d'Ork ne reçoivent pas de pions d'impact pour les unités de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d'un assaut"]
+  - id: wildgrots
+    nom: WildGrots
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "-"
+    armes:
+      - { nom: Ch'ti Kikoup', portee: (contact), puissance: Armes d'assaut }
+    notes: ["Les formations incluant au moins une unité d'Ork ne reçoivent pas de pions d'impact pour les unités de WildGrots détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d'un assaut"]
+  - id: dingueboyz
+    nom: Dingueboyz
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+    notes: [Sans peur]
+  - id: wildboyz
+    nom: Wildboyz
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+  - id: goretboyz
+    nom: Goretboyz
+    type: Inf
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+    notes: [Montés, Infiltrateurs]
+  - id: katapulte_squig
+    nom: Katapulte à squigg
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Katapulte à squigg, portee: 45cm, puissance: "1PB, Rpt" }
+
+  # ---- Véhicules légers ----
+  - id: tas_dboue
+    nom: Tas d'Boue
+    type: VL
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "6+"
+    notes: ["Transport (1) : Boyz, Nobz, Wildboyz. Peut embarquer une unité de Gretchins / WildGrots en plus des autres unités"]
+    transport: { capacite: 1, accepte: [boyz, nobz, wildboyz] }
+  - id: squiggoth
+    nom: Squiggoth
+    type: VL
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Cornes et crocs, portee: (contact), puissance: "Arme d'assaut, +D3A, MA" }
+      - { nom: 2x Ch'ti Kanon jumelés, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (4) : Boyz, Nobz, Wildboyz. Peut embarquer deux unités de Gretchins / WildGrots en plus des autres unités"]
+    transport: { capacite: 4, accepte: [boyz, nobz, wildboyz] }
+
+  # ---- Engins de guerre ----
+  - id: orkeosaurus
+    nom: Orkeosaurus
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Défense frontal, portee: (contact), puissance: "Arme d'assaut, +D3A, MA" }
+      - { nom: ou, portee: (contact), puissance: "Arme d'assaut, +1A, TT(D3)" }
+      - { nom: 4x Chti' Kanon Jumelés, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage Renforcé, "Transport (12) : Boyz, Nobz, Wildboyz. Peut embarquer six unités de Gretchins / WildGrots en plus des autres unités"]
+    transport: { capacite: 12, accepte: [boyz, nobz, wildboyz] }
+    degats:
+      cd: 6
+      critique: "Le tir enrage l'Orkeosaurus. Il se déplace immédiatement en furie sur une distance de 3D6 cm dans une direction aléatoire (ignorez les zones de contrôle et les unités amies ou ennemies pendant ce déplacement, à la fin du mouvement, les unités sous le socle de l'Orkeosaurus sont placées au contact de celui-ci) et subit un point de dégât supplémentaire. Si ce mouvement l'amène sur un terrain infranchissable, il s'arrête immédiatement et est détruit. S'il l'amène au contact d'une Machine de Guerre, il s'arrête immédiatement. Toute unité survolée ou contactée subit un tir d'arme de type Macro-arme sur un résultat de 6+ au dé (D6)."
+  - id: gargant_vapeur
+    nom: Gargant à Vapeur
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Point de Gork, portee: 45cm, puissance: "MA5+/AA5+, MA" }
+      - { nom: 0-2 Méga Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A, TT(D3)" }
+      - { nom: 0-2 Superkanons, portee: 60cm, puissance: "2PB MA" }
+    notes: [Blindage renforcé, Marcheur, Sans Peur, "Peut être équipé de 2 armes au choix parmi Méga Kikoup' et Superkanon"]
+    degats:
+      cd: 4
+      critique: "Le Gargant à Vapeur explose. Toutes les unités dans un rayon de 2D6cm subissent une touche."
+
+options:
+  # ---- Seigneur de Guerre ----
+  - id: seigneur_de_guerre
+    nom: Seigneur de Guerre
+    effet: { type: ajouter, cout: 0, unites: [{ unite: seigneur_de_guerre }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: min_par_armee, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Cette unité est gratuite et doit être ajoutée à la formation de votre armée comportant le plus d'unités. Les Engins de Guerre comptent un nombre d'unités égal à leur Capacité de dommages de départ. En cas d'égalité, choisissez quelle formation doit rejoindre le Seigneur de Guerre."
+    phrase_pdf: "Seigneur de Guerre (gratuit, obligatoire, 1 par armée)"
+
+  # ---- Kust'oms à +25 pts chacun ----
+  - id: boyz_gretchin
+    nom: Boyz (plus une unité de Gretchins gratuite)
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boyz }, { unite: gretchins }] }
+    phrase_pdf: "Boyz (plus une unité de gretchins gratuite)"
+  - id: goretboyz
+    nom: Goretboyz
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: goretboyz }] }
+  - id: katapulte_squig
+    nom: Katapultes à Squigs
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: katapulte_squig }], max: 3, par_taille: true }
+    phrase_pdf: "0-3 Katapultes à Squigs"
+  - id: boyz_tas_dboue
+    nom: Boyz (plus un Tas d'Boue gratuit)
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boyz }, { unite: tas_dboue }] }
+    phrase_pdf: "Boyz (+ 1 Tas d'Boue gratuit)"
+
+  # ---- Kust'oms à +25 pts la paire ----
+  - id: wildboyz_paire
+    nom: Paire de Wildboyz
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: wildboyz, nombre: 2 }] }
+    phrase_pdf: "Paire de Wildboyz (+25 pts la paire)"
+  - id: dingueboyz_paire
+    nom: Paire de Dingueboyz
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: dingueboyz, nombre: 2 }], max: 3, par_taille: true }
+    phrase_pdf: "0-3 Paire de Dingueboyz (+25 pts la paire)"
+
+  # ---- Kust'oms à +50 pts la paire ----
+  - id: nobz
+    nom: Paire de Nobz
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: nobz, nombre: 2 }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Paire de Nobz (+50 pts la paire)"
+
+  # ---- Kust'oms à +50 pts chacun ----
+  - id: squiggoth
+    nom: Squiggoths
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: squiggoth }] }
+  - id: bizarboyz
+    nom: Bizarboyz
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: bizarboyz }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Bizarboyz"
+  - id: bizarboyz_x3
+    nom: Bizarboyz
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: bizarboyz }], max: 3, par_taille: true }
+    phrase_pdf: "0-3 Bizarboyz"
+  - id: nobz_tas_dboue
+    nom: Nobz (plus un Tas d'Boue gratuit)
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: nobz }, { unite: tas_dboue }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Nobz (+1 Tas d'Boue gratuit) (+50 pts)"
+
+  # ---- Kust'oms à +200 pts chacun ----
+  - id: orkeosaurus
+    nom: Orkeosaurus
+    effet: { type: ajouter, cout_par_unite: 200, unites: [{ unite: orkeosaurus }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Orkeosaurus"
+
+formations:
+  - id: bande_wildboyz
+    nom: Bande de Wildboyz
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 175
+        taille: 1
+        composition:
+          - { unite: nobz, nombre: 2 }
+          - { unite: wildboyz, nombre: 6 }
+          - { unite: wildgrots, nombre: 2 }
+      - id: mastok
+        nom: Mastok'
+        cout: 300
+        taille: 2
+        composition:
+          - { unite: nobz, nombre: 4 }
+          - { unite: wildboyz, nombre: 12 }
+          - { unite: wildgrots, nombre: 4 }
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 425
+        taille: 3
+        composition:
+          - { unite: nobz, nombre: 6 }
+          - { unite: wildboyz, nombre: 18 }
+          - { unite: wildgrots, nombre: 6 }
+    options: [seigneur_de_guerre, boyz_gretchin, goretboyz, wildboyz_paire, nobz, squiggoth, katapulte_squig, bizarboyz, orkeosaurus]
+
+  - id: horde_goretboyz
+    nom: Horde de Goretboyz
+    variantes:
+      - { id: normale, nom: Normale, cout: 125, taille: 1, composition: [{ unite: goretboyz, nombre: 6 }] }
+      - { id: mastok, nom: Mastok', cout: 225, taille: 2, composition: [{ unite: goretboyz, nombre: 12 }] }
+      - { id: tre_mastok, nom: Tré Mastok', cout: 300, taille: 3, composition: [{ unite: goretboyz, nombre: 18 }] }
+    options: [seigneur_de_guerre, goretboyz, bizarboyz]
+
+  - id: trappeurz
+    nom: Trappeurz
+    description: "Toutes les unités de la formation gagnent Éclaireur gratuitement."
+    variantes:
+      - { id: normale, nom: Normale, cout: 150, taille: 1, composition: [{ unite: wildboyz, nombre: 6 }] }
+    options: [seigneur_de_guerre, nobz]
+
+  - id: brigade_tas_dboue
+    nom: Brigade Tas d'Boue
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 175
+        taille: 1
+        composition:
+          - { unite: tas_dboue, nombre: 6 }
+          - { unite: boyz, nombre: 6 }
+      - id: mastok
+        nom: Mastok'
+        cout: 300
+        taille: 2
+        composition:
+          - { unite: tas_dboue, nombre: 12 }
+          - { unite: boyz, nombre: 12 }
+    options: [seigneur_de_guerre, boyz_tas_dboue, nobz_tas_dboue, bizarboyz]
+
+  - id: horde_dingueboyz
+    nom: Horde de Dingueboyz
+    variantes:
+      - { id: normale, nom: Normale, cout: 100, taille: 1, composition: [{ unite: dingueboyz, nombre: 5 }] }
+    options: [seigneur_de_guerre, dingueboyz_paire, bizarboyz_x3]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+
+  - id: gargant_vapeur
+    nom: Gargant à Vapeur
+    variantes:
+      - { id: normale, nom: Normale, cout: 200, taille: 1, composition: [{ unite: gargant_vapeur, nombre: 1 }] }
+      - { id: mastok, nom: Mastok', cout: 350, taille: 2, composition: [{ unite: gargant_vapeur, nombre: 2 }] }
+      - { id: tre_mastok, nom: Tré Mastok', cout: 500, taille: 3, composition: [{ unite: gargant_vapeur, nombre: 3 }] }
+    options: [seigneur_de_guerre]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+
+sections:
+  - id: bandes
+    titre: BANDES ORKS
+    sous_titre: "Chaque formation peut être prise dans l'une des tailles autorisées"
+    formations: [bande_wildboyz, horde_goretboyz, trappeurz, brigade_tas_dboue, horde_dingueboyz, gargant_vapeur]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts, toutes les bandes et leurs kust'oms limités au maximum"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: bande_wildboyz
+        variante: mastok
+        options:
+          - { option: seigneur_de_guerre }
+          - { option: boyz_gretchin, quantite: 3 }
+          - { option: nobz, quantite: 2 }
+          - { option: katapulte_squig, quantite: 6 }
+          - { option: bizarboyz, quantite: 2 }
+          - { option: orkeosaurus, quantite: 2 }
+      - formation: horde_goretboyz
+        variante: tre_mastok
+        options:
+          - { option: goretboyz, quantite: 2 }
+          - { option: bizarboyz, quantite: 3 }
+      - formation: trappeurz
+        variante: normale
+        options: [{ option: nobz, quantite: 1 }]
+      - formation: brigade_tas_dboue
+        variante: mastok
+        options:
+          - { option: boyz_tas_dboue, quantite: 4 }
+          - { option: nobz_tas_dboue, quantite: 2 }
+      - formation: horde_dingueboyz
+        variante: normale
+        options:
+          - { option: dingueboyz_paire, quantite: 3 }
+          - { option: bizarboyz_x3, quantite: 3 }
+      - { formation: gargant_vapeur, variante: normale }
+
+  - nom: "1500 pts, bande de Wildboyz montée sur Squiggoths"
+    limite: 1500
+    attendu: valide
+    formations:
+      - formation: bande_wildboyz
+        variante: normale
+        options:
+          - { option: seigneur_de_guerre }
+          - { option: squiggoth, quantite: 2 }
+          - { option: wildboyz_paire, quantite: 2 }
+      - { formation: horde_goretboyz, variante: normale }
+      - { formation: trappeurz, variante: normale }
+      - { formation: gargant_vapeur, variante: tre_mastok }
+
+  - nom: "sans Seigneur de Guerre"
+    limite: 1500
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: bande_wildboyz, variante: normale }
+      - { formation: horde_goretboyz, variante: normale }
+
+  - nom: "deux Gargants à Vapeur"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: bande_wildboyz
+        variante: normale
+        options: [{ option: seigneur_de_guerre }]
+      - { formation: gargant_vapeur, variante: normale }
+      - { formation: gargant_vapeur, variante: mastok }
+
+  - nom: "quatre Katapultes à Squigs sur une bande normale"
+    limite: 1500
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: bande_wildboyz
+        variante: normale
+        options:
+          - { option: seigneur_de_guerre }
+          - { option: katapulte_squig, quantite: 4 }
+
+  - nom: "Orkeosaurus sur une Horde de Goretboyz"
+    limite: 1500
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: bande_wildboyz
+        variante: normale
+        options: [{ option: seigneur_de_guerre }]
+      - formation: horde_goretboyz
+        variante: normale
+        options: [{ option: orkeosaurus, quantite: 1 }]
