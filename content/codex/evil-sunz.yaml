@@ -1,0 +1,737 @@
+# Evil Sunz, transcrit depuis le PDF EAFR rev 1.0.1 (source de vérité).
+codex:
+  slug: evil-sunz
+  armee_id: ed1d8015-f59c-44ed-9299-21cc30abf6f3
+  nom: Evil Sunz
+  version: "1.0.1"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  citation:
+    texte: "LES ROUJ' VON PLU VITE !"
+    auteur: Sagesse Evil Sunz
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied une WAAAGH! d'Orks basée sur le Klan Evil Sunz.
+
+    Les armées des Orks sont organisées autour de grandes formations appelées bandes, qui peuvent s'acheter selon 3 tailles, la bande normale, la mastok (doubler l'effectif de départ) ou la tré mastok (tripler l'effectif de départ). Pour chaque bande de guerre vous pouvez prendre jusqu'à deux formations issues des truk'en'plus.
+
+    Chaque bande et truk'en'plus peut recevoir des kust'oms. La liste d'armée indique pour chaque catégorie de bande et truk'en'plus quels kust'oms sont autorisés. Chaque kust'om autorisé peut être pris un nombre illimité de fois, sauf s'il est fait état d'une limitation de kust'om. Pour les bandes, les limitations de kust'om sont multipliées de la même façon que l'effectif de départ, ainsi si un Kulte d'la Vitesse normal ne peut accueillir qu'un Brikolo supplémentaire, un Kulte d'la Vitesse tré mastok peut en inclure jusqu'à 3. Les kust'oms font partie intégrante des bandes et doivent en respecter la cohésion.
+
+    Les truk'eud'meks sont des formations autonomes des bandes. Un maximum de ⅓ des points de l'armée peuvent être dépensés pour ces formations.
+
+    Les armées du Klan Evil Sunz ont une valeur stratégique de 4 au premier tour, et de 3 aux tours suivants. Toutes les formations Evil Sunz ont une initiative de 3+ mais reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un test d'action (Pouvoir de la Waaagh!) ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande).
+  regles_md:
+    - titre: "Règle spéciale : R'mise en bande"
+      texte: |
+        Lorsque les bandes Orks tentent un test de ralliement, ils reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 lorsqu'ils sont plus de 10. Les engins de guerre faisant partie de ces bandes comptent pour autant d'unités que leur capacité de dommage de départ. Les Gretchins ne sont pas comptabilisables dans le calcul.
+    - titre: "Règle spéciale : Speedwaaagh!"
+      texte: |
+        Chaque armée Evil Sunz doit inclure une unité de commandant suprême appelée Big Bad Biker Boss. Cette unité coûte 50pts et peut rejoindre n'importe quelle formation.
+
+        Le Big Bad Biker Boss donne à sa formation l'amélioration Speedwaaagh!. Cette formation bénéficie d'un bonus de +2 à l'initiative pour les redéploiements, et les unités de la formation (hors infanterie non montée) gagnent un bonus de +5cm à leur caractéristique de mouvement.
+    - titre: "Règle spéciale : Pouvoir de la Waaagh!"
+      texte: |
+        Les Orks ne sont pas de fins stratèges mais la perspective d'une bonne bagarre les galvanise toujours. Afin de représenter ceci, une formation tentant une action d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son test d'action.
+
+        Les formations aériennes ont +2 de bonus pour les tests d'actions lorsqu'elles tentent une Interception ou une Attaque au sol.
+    - titre: "Règle spéciale : Champ énergétique"
+      texte: |
+        Certains engins de guerre Orks possèdent des champs énergétiques. Le nombre dont en dispose chaque engin est indiqué sur sa fiche d'unité. Les champs énergétiques fonctionnent de la même manière que ceux des impériaux, à la différence qu'une fois abattus, ils ne sont pas réparables et restent donc inactifs jusqu'à la fin de la bataille.
+    - titre: "Règle spéciale : Le Rouj' va plus vite !"
+      texte: |
+        Le Klan Evil Sunz conçoit la guerre comme une course de buggys. L'important est d'aller vite, et de taper fort.
+
+        Toutes les unités Evil Sunz doivent avoir soit un mouvement de 30cm minimum, soit être intégralement transportées par des transports de leur formation.
+    - titre: "Règle spéciale : Atelier Mekboy"
+      texte: |
+        Le Klan Evil Sunz est le terrain de jeu rêvé pour les Mekboyz Orks. Les Kults de la Vitesse sont toujours prêts à expérimenter les dernières inventions des Brikolos, y compris jusqu'à la dernière minute.
+
+        Jusqu'à deux formations de MotoKross peuvent être déployées en garnison, selon les règles normales de garnison (elles ne gagnent PAS la règle éclaireur).
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Alex Boyd."
+  valeur_strategique: "4 au premier tour, 3 aux tours suivants"
+  initiative:
+    defaut: "3+"
+    exceptions: []
+
+budgets:
+  - id: truk_en_plus
+    libelle: Truk'en'pluss
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations de truk'en'pluss par Bande de Guerre"
+  - id: slot_motokross
+    libelle: MotoKross
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 1 formation de MotoKross par Kulte d'la Vitesse"
+  - id: rare
+    libelle: Truk'eud'mek
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: big_bad_biker_boss
+    nom: Big Bad Biker Boss
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Blasta Kustom Gatling, portee: 15cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+      - { nom: Gros Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Commandant Suprême, Montés, "Speedwaaagh!"]
+    roles: [commandant_supreme, personnage]
+  - id: super_mekboy
+    nom: Super Mekboy
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Kanon Kustom', portee: 45cm, puissance: "MA4+" }
+    notes: [Meneur, Charismatique, "Le Super Mekboy peut être ajouté à un socle de Moto, Buggy, ou Karbonisator"]
+    roles: [personnage]
+  - id: brikolo_super_zap
+    nom: Brikolo Super Zap
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Super Zap, portee: 60cm, puissance: "MA3+, TT (D3)" }
+    notes: ["Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un de ses Gros Kanons ou Grokalibr' en Super Zap"]
+    roles: [personnage]
+  - id: brikolo_superkanon
+    nom: Brikolo Superkanon
+    type: Perso
+    vitesse: "-"
+    blindage: "-"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Superkanon, portee: 60cm, puissance: "2PB MA, FrtF" }
+    notes: ["Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un de ses Gros Kanons ou Grokalibr' en Superkanon"]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: nobz
+    nom: Nobz Evil Sunz
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Gros Kikoup', portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Meneur, "Les Nobz Evil Sunz peuvent avoir une moto, auquel cas leur mouvement passe à 35cm, leur blindage passe à 5+, ils gagnent la note Montés et ne peuvent plus embarquer dans les transports"]
+  - id: boyz
+    nom: Boyz
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+  - id: gretchins
+    nom: Gretchins
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+    notes: ["Les formations incluant au moins une unité d'Ork ne reçoivent pas de pions d'impact pour les unités de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d'un assaut"]
+  - id: chokboyz
+    nom: Chokboyz
+    type: Inf
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+      - { nom: Kikoup', portee: (contact), puissance: Armes d'assaut }
+    notes: [Éclaireurs, Réacteurs dorsaux]
+  - id: tankbustas
+    nom: Tankbustas
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Rokkit Launcha, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: Bomb', portee: (contact), puissance: "MA" }
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+  - id: motos
+    nom: Motos
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Fling' jumelés, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Montés]
+  - id: motokross
+    nom: MotoKross
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Fling' jumelés, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Montés, Marcheurs]
+
+  # ---- Véhicules légers ----
+  - id: meka_fissa
+    nom: Meka Fissa
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Kanon Kustom, portee: 45cm, puissance: "MA4+" }
+    notes: ["Champs Énergétiques (D3)", "Ces boucliers peuvent être abattus par n'importe quel tir pouvant cibler un VL (AP, AC, MA ou TT)"]
+    taille_transport: 2
+  - id: buggy
+    nom: Buggy / Trak
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Fling' jumelés, portee: 30cm, puissance: "AP5+/AC5+" }
+    taille_transport: 2
+  - id: karbonisator
+    nom: Karbonisator
+    type: VL
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Karbonisator, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, IC" }
+    taille_transport: 2
+  - id: kopter
+    nom: Kopter
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Antigrav]
+    taille_transport: 2
+
+  # ---- Véhicules blindés ----
+  - id: chariot_guerre
+    nom: Chariot de Guerre
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: ["Transport (2) : Boyz, Nobz Evil Sunz, TankBusta, Grokalibrs' (1 max. par chariot). Peut embarquer une unité de Gretchins en plus des autres unités"]
+    transport: { capacite: 2, accepte: [boyz, nobz, tankbustas] }
+  - id: chariot_kanon
+    nom: Chariot Kanon
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: ["Transport (1) : Boyz, Nobz Evil Sunz, TankBusta, Gretchins, Grokalibr'"]
+    transport: { capacite: 1, accepte: [boyz, nobz, tankbustas, gretchins] }
+  - id: chariot_flak
+    nom: Chariot Flak
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Kanon flak, portee: 30cm, puissance: "AP5+/AC6+/AA5+" }
+    notes: ["Transport (1) : Boyz, Nobz Evil Sunz, TankBusta, Gretchins, Grokalibr'"]
+    transport: { capacite: 1, accepte: [boyz, nobz, tankbustas, gretchins] }
+
+  # ---- Engins de guerre ----
+  - id: forteresse_bataille
+    nom: Forteresse de Bataille
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 4x Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé, "Transport (8) : Boyz, Nobz Evil Sunz, TankBusta. Peut embarquer quatre unités de Gretchins en plus des autres unités."]
+    transport: { capacite: 8, accepte: [boyz, nobz, tankbustas] }
+    degats: { cd: 3, critique: "Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+." }
+  - id: forteresse_kanons
+    nom: Forteresse à Kanons
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 5x Ch'ti Kanon, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 3x Gros Kanon, portee: 45cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé, "Transport (4) : Boyz, Nobz Evil Sunz, TankBusta. Peut embarquer quatre unités de Gretchins en plus des autres unités."]
+    transport: { capacite: 4, accepte: [boyz, nobz, tankbustas] }
+    degats: { cd: 3, critique: "Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 6+." }
+
+  # ---- Aéronefs ----
+  - id: chassa_bomba
+    nom: Chassa-Bomba
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Aéro Fling', portee: 15cm, puissance: "AP5+/AA5+, FrtF" }
+      - { nom: Rokettes Kass'Tank, portee: 30cm, puissance: "AC4+, FrtF" }
+  - id: dakka_jets
+    nom: Dakka-Jets
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Aéro Fling', portee: 15cm, puissance: "AP5+/AA5+, FrtF" }
+  - id: krama_bomba
+    nom: Krama-Bomba
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Aéro Fling', portee: 15cm, puissance: "AP5+/AA5+, FrtF" }
+      - { nom: Krama Bomb', portee: 15cm, puissance: "1PB, IC, FrtF" }
+
+options:
+  # ---- Kust'oms à +25 pts chacun ----
+  - id: boyz_gretchin
+    nom: Boyz (plus une unité de Gretchins gratuite)
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: boyz }, { unite: gretchins }], max: 2, par_taille: true }
+    phrase_pdf: "0-2 Boyz (plus une unité de gretchins gratuite)"
+  - id: tankbusta
+    nom: TankBusta
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: tankbustas }] }
+  - id: chokboyz
+    nom: Chokboyz
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chokboyz }] }
+  - id: motos
+    nom: Moto
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: motos }] }
+  - id: buggy
+    nom: Buggy
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: buggy }] }
+  - id: karbonisator
+    nom: Karbonisator
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: karbonisator }] }
+  - id: chariot_guerre
+    nom: Chariot de Guerre
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chariot_guerre }] }
+
+  # ---- Kust'oms à +50 pts les 2 ----
+  - id: kopter
+    nom: Kopter
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: kopter, nombre: 2 }] }
+    phrase_pdf: "Kopter (+50 pts les 2)"
+  - id: chariot_kanon
+    nom: Chariot Kanon
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chariot_kanon, nombre: 2 }] }
+    phrase_pdf: "Chariot Kanon (+50 pts les 2)"
+  - id: chariot_flak
+    nom: Chariot Flak
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chariot_flak, nombre: 2 }] }
+    phrase_pdf: "Chariot Flak (+50 pts les 2)"
+  - id: nobz
+    nom: Nobz Evil Sunz
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: nobz, nombre: 2 }], max: 1, par_taille: true }
+    phrase_pdf: "0-1 Nobz Evil Sunz (+50 pts les 2)"
+  - id: motokross
+    nom: MotoKross
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: motokross, nombre: 2 }] }
+    phrase_pdf: "MotoKross (+50 pts les 2)"
+
+  # ---- Kust'oms à +50 pts chacun ----
+  - id: brikolo
+    nom: Brikolo
+    effet:
+      type: choix
+      parmi:
+        - { id: super_zap, nom: Brikolo Super Zap, cout: 50, effet: { type: ajouter, unites: [{ unite: brikolo_super_zap }] } }
+        - { id: superkanon, nom: Brikolo Superkanon, cout: 50, effet: { type: ajouter, unites: [{ unite: brikolo_superkanon }] } }
+    contraintes:
+      - { type: max_par_formation, valeur: 1, par_taille: true }
+      - { type: requiert_unite, unites: [forteresse_kanons, chariot_kanon] }
+    note_md: "Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et transformer l'un de ses Gros Kanons ou Grokalibr' en Super Zap ou Superkanon."
+    phrase_pdf: "0-1 Brikolo (+50 pts chacun)"
+  - id: meka_fissa
+    nom: Meka Fissa
+    effet: { type: ajouter, cout: 50, unites: [{ unite: meka_fissa }] }
+    contraintes: [{ type: max_par_formation, valeur: 1, par_taille: true }]
+    phrase_pdf: "0-1 Meka Fissa (+50 pts chacun)"
+  - id: super_mekboy
+    nom: Super Mekboy
+    effet: { type: ajouter, cout: 50, unites: [{ unite: super_mekboy }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [motos, buggy, karbonisator] }
+    note_md: "Le Super Mekboy peut être ajouté à un socle de Moto, Buggy, ou Karbonisator."
+    phrase_pdf: "0-1 (par armée) Super Mekboy (+50 pts)"
+
+  # ---- Kust'oms à +125 pts chacun ----
+  - id: forteresse
+    nom: Forteresse de bataille ou à Kanon
+    effet:
+      type: choix
+      parmi:
+        - { id: forteresse_bataille, nom: Forteresse de Bataille, cout: 125, effet: { type: ajouter, unites: [{ unite: forteresse_bataille }] } }
+        - { id: forteresse_kanons, nom: Forteresse à Kanons, cout: 125, effet: { type: ajouter, unites: [{ unite: forteresse_kanons }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1, par_taille: true }]
+    phrase_pdf: "Forteresse de bataille ou à Kanon (+125 pts chacun)"
+  - id: forteresse_kanons_seule
+    nom: Forteresse à Kanon
+    effet: { type: ajouter, cout: 125, unites: [{ unite: forteresse_kanons }] }
+    contraintes: [{ type: max_par_formation, valeur: 1, par_taille: true }]
+    phrase_pdf: "0-1 Forteresse à Kanon (+125 pts chacun)"
+
+  # ---- Speedwaaagh! ----
+  - id: big_bad_biker_boss
+    nom: Big Bad Biker Boss
+    effet: { type: ajouter, cout: 50, unites: [{ unite: big_bad_biker_boss }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: min_par_armee, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Chaque armée Evil Sunz doit inclure une unité de commandant suprême appelée Big Bad Biker Boss. Cette unité coûte 50 pts et peut rejoindre n'importe quelle formation."
+    phrase_pdf: "Big Bad Biker Boss (50 pts, obligatoire, 1 par armée)"
+
+formations:
+  # ---- Bandes Orks ----
+  - id: bande_guerre
+    nom: Bande de Guerre
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 200
+        taille: 1
+        composition:
+          - { unite: nobz, nombre: 2 }
+          - { unite: boyz, nombre: 6 }
+          - { unite: gretchins, nombre: 2 }
+      - id: mastok
+        nom: Mastok'
+        cout: 350
+        taille: 2
+        composition:
+          - { unite: nobz, nombre: 4 }
+          - { unite: boyz, nombre: 12 }
+          - { unite: gretchins, nombre: 4 }
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 500
+        taille: 3
+        composition:
+          - { unite: nobz, nombre: 6 }
+          - { unite: boyz, nombre: 18 }
+          - { unite: gretchins, nombre: 6 }
+    options: [big_bad_biker_boss, boyz_gretchin, tankbusta, chokboyz, motos, buggy, karbonisator, chariot_guerre, kopter, chariot_kanon, chariot_flak, nobz, brikolo, forteresse]
+    contraintes: [{ type: fournit, budget: truk_en_plus, quantite: 2 }]
+  - id: kulte_vitesse
+    nom: Kulte d'la Vitesse
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 200
+        taille: 1
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: buggy }, { unite: motos }, { unite: karbonisator }]
+              phrase_pdf: "8 unités parmi : Buggy, Motos, Karbonisators"
+      - id: mastok
+        nom: Mastok'
+        cout: 350
+        taille: 2
+        composition:
+          - choix:
+              total: 16
+              parmi: [{ unite: buggy }, { unite: motos }, { unite: karbonisator }]
+              phrase_pdf: "16 unités parmi : Buggy, Motos, Karbonisators"
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 500
+        taille: 3
+        composition:
+          - choix:
+              total: 24
+              parmi: [{ unite: buggy }, { unite: motos }, { unite: karbonisator }]
+              phrase_pdf: "24 unités parmi : Buggy, Motos, Karbonisators"
+    options: [big_bad_biker_boss, motos, buggy, karbonisator, kopter, chariot_kanon, chariot_flak, nobz, meka_fissa, brikolo, super_mekboy]
+    contraintes: [{ type: fournit, budget: slot_motokross, quantite: 1 }]
+  - id: brigade_blitz
+    nom: Brigade Blitz
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 150
+        taille: 1
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: chariot_kanon }, { unite: chariot_flak }, { unite: kopter }]
+              phrase_pdf: "4 unités parmi : Chariots Kanons, Chariots Flak, Kopters"
+      - id: mastok
+        nom: Mastok'
+        cout: 250
+        taille: 2
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: chariot_kanon }, { unite: chariot_flak }, { unite: kopter }]
+              phrase_pdf: "8 unités parmi : Chariots Kanons, Chariots Flak, Kopters"
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 350
+        taille: 3
+        composition:
+          - choix:
+              total: 12
+              parmi: [{ unite: chariot_kanon }, { unite: chariot_flak }, { unite: kopter }]
+              phrase_pdf: "12 unités parmi : Chariots Kanons, Chariots Flak, Kopters"
+    options: [big_bad_biker_boss, motos, buggy, karbonisator, kopter, chariot_kanon, chariot_flak, nobz, brikolo, meka_fissa, forteresse_kanons_seule]
+  - id: bande_forteresses
+    nom: Bande de Forteresses
+    variantes:
+      - id: normale
+        nom: Normale
+        cout: 250
+        taille: 1
+        composition:
+          - choix:
+              total: 2
+              parmi: [{ unite: forteresse_bataille }, { unite: forteresse_kanons }]
+              phrase_pdf: "2 unités parmi : Forteresse de bataille, Forteresse à Kanon"
+      - id: mastok
+        nom: Mastok'
+        cout: 450
+        taille: 2
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: forteresse_bataille }, { unite: forteresse_kanons }]
+              phrase_pdf: "4 unités parmi : Forteresse de bataille, Forteresse à Kanon"
+      - id: tre_mastok
+        nom: Tré Mastok'
+        cout: 625
+        taille: 3
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: forteresse_bataille }, { unite: forteresse_kanons }]
+              phrase_pdf: "6 unités parmi : Forteresse de bataille, Forteresse à Kanon"
+    options: [big_bad_biker_boss, boyz_gretchin, tankbusta, chokboyz, motos, buggy, karbonisator, kopter, chariot_kanon, chariot_flak, nobz, brikolo]
+
+  # ---- Les truk en pluss ----
+  - id: chokboyz_formation
+    nom: Chokboyz
+    variantes:
+      - { id: normale, nom: Normale, cout: 150, taille: 1, composition: [{ unite: chokboyz, nombre: 6 }] }
+    options: [big_bad_biker_boss, chokboyz, buggy, motos, karbonisator, kopter]
+  - id: tankbustas
+    nom: TankBustas
+    variantes:
+      - { id: normale, nom: Normale, cout: 200, taille: 1, composition: [{ unite: tankbustas, nombre: 8 }] }
+    options: [big_bad_biker_boss, chariot_guerre, kopter, chariot_kanon, chariot_flak, brikolo, forteresse]
+  - id: motokross
+    nom: MotoKross
+    description: "0-1 par Kulte d'la Vitesse"
+    variantes:
+      - { id: normale, nom: Normale, cout: 175, taille: 1, composition: [{ unite: motokross, nombre: 6 }] }
+    options: [big_bad_biker_boss, motokross, kopter]
+    contraintes: [{ type: consomme, budget: slot_motokross }]
+
+  # ---- Truk'eud'mek ----
+  - id: chassa_bombas
+    nom: Chassa-Bombas
+    variantes:
+      - id: base
+        cout: 0
+        composition:
+          - choix:
+              total: { min: 4, max: 9 }
+              parmi: [{ unite: chassa_bomba, cout: 50 }]
+              phrase_pdf: "4 à 9 Chassa-Bombas"
+    options: [big_bad_biker_boss]
+    phrase_pdf: "50 pts chacun"
+  - id: dakka_jets
+    nom: Dakka-Jets
+    variantes:
+      - { id: six, nom: 6 Dakka-Jets, cout: 225, composition: [{ unite: dakka_jets, nombre: 6 }] }
+      - { id: neuf, nom: 9 Dakka-Jets, cout: 300, composition: [{ unite: dakka_jets, nombre: 9 }] }
+    options: [big_bad_biker_boss]
+  - id: krama_bombas
+    nom: Krama-Bombas
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: krama_bomba, nombre: 4 }] }
+    options: [big_bad_biker_boss]
+
+sections:
+  - id: bandes
+    titre: BANDES ORKS
+    sous_titre: "Chaque formation peut être prise dans l'une des tailles autorisées"
+    formations: [bande_guerre, kulte_vitesse, brigade_blitz, bande_forteresses]
+    colonne_options: true
+  - id: truk_en_pluss
+    titre: LES TRUK EN PLUSS
+    sous_titre: "(0-2 par Bande de Guerre)"
+    contraintes: [{ type: consomme, budget: truk_en_plus }]
+    formations: [chokboyz_formation, tankbustas, motokross]
+    colonne_options: true
+  - id: truk_eudmek
+    titre: TRUK'EUD'MEK
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: [chassa_bombas, dakka_jets, krama_bombas]
+
+listes_test:
+  - nom: "3000 pts valide, Bande de Guerre mastok et deux truk'en'pluss"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: bande_guerre
+        variante: mastok
+        options:
+          - { option: big_bad_biker_boss }
+          - { option: boyz_gretchin, quantite: 4 }
+          - { option: tankbusta, quantite: 2 }
+      - formation: kulte_vitesse
+        variante: normale
+        choix: { "0": { buggy: 5, motos: 3 } }
+        options: [{ option: meka_fissa }]
+      - { formation: chokboyz_formation }
+      - { formation: tankbustas }
+      - formation: chassa_bombas
+        choix: { "0": { chassa_bomba: 4 } }
+  - nom: "3000 pts valide, MotoKross sur un Kulte tré mastok"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_bad_biker_boss }]
+      - formation: kulte_vitesse
+        variante: tre_mastok
+        choix: { "0": { buggy: 12, motos: 12 } }
+        options:
+          - { option: super_mekboy }
+          - { option: chariot_kanon, quantite: 1 }
+          - { option: brikolo, choix: super_zap }
+      - formation: motokross
+        options: [{ option: motokross, quantite: 1 }]
+      - { formation: dakka_jets, variante: six }
+  - nom: "sans Big Bad Biker Boss"
+    limite: 3000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: bande_guerre, variante: normale }
+      - formation: kulte_vitesse
+        variante: normale
+        choix: { "0": { buggy: 8 } }
+  - nom: "deux Big Bad Biker Boss"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_bad_biker_boss }]
+      - formation: kulte_vitesse
+        variante: normale
+        choix: { "0": { buggy: 8 } }
+        options: [{ option: big_bad_biker_boss }]
+  - nom: "trois truk'en'pluss pour une seule Bande de Guerre"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_bad_biker_boss }]
+      - { formation: chokboyz_formation }
+      - { formation: tankbustas }
+      - formation: chokboyz_formation
+        options: [{ option: chokboyz, quantite: 1 }]
+  - nom: "MotoKross sans Kulte d'la Vitesse"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_bad_biker_boss }]
+      - { formation: motokross }
+  - nom: "Meka Fissa sur une Bande de Guerre"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options:
+          - { option: big_bad_biker_boss }
+          - { option: meka_fissa }
+  - nom: "MotoKross prend aussi une place de truk'en'pluss"
+    limite: 5000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_bad_biker_boss }]
+      - { formation: chokboyz_formation }
+      - { formation: tankbustas }
+      - formation: kulte_vitesse
+        variante: normale
+        choix: { "0": { buggy: 8 } }
+      - { formation: motokross }
+  - nom: "Truk'eud'mek au-delà du tiers"
+    limite: 1000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: bande_guerre
+        variante: normale
+        options: [{ option: big_bad_biker_boss }]
+      - formation: chassa_bombas
+        choix: { "0": { chassa_bomba: 9 } }
