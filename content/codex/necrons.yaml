@@ -1,0 +1,799 @@
+# Nécrons, transcrit depuis le PDF EAFR rev 1.4 (source de vérité).
+codex:
+  slug: necrons
+  armee_id: f51928d4-5c83-4552-bd78-a06a9f4eb239
+  nom: Necrons
+  version: "1.4"
+  faction: xenos
+  categorie: armees-xenos
+  statut: official
+  couleur: "#2f7d3a"
+  citation:
+    texte: "La mort vient flotter au-dessus de moi, et elle murmure au creux de mon oreille, avec des mots que je ne comprends pas, la promesse de douleurs sans pareilles."
+    auteur: Inscription relevée sur les murs de Cthelmax
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une légion nécron basée sur celles de Szarekh, le Roi Silencieux.
+
+    Les légions des nécrons sont organisées autour de grandes formations appelées phalanges, elles-mêmes complétées par des formations d'appui qui leurs sont autonomes.
+
+    Chaque phalange peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par phalange. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion.
+
+    Les formations de support sont des formations autonomes des phalanges. Elles ne peuvent pas recevoir d'améliorations. Un maximum de ⅓ des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Conduits Extra-dimensionnels"
+      texte: |
+        Les formations de l'armée peuvent relancer leurs jets de téléportation.
+    - titre: "Règle spéciale : Avance Inexorable"
+      texte: |
+        Les formations de l'armée ne peuvent pas accomplir l'action « Redéploiement » mais ont un bonus de +1 sur les jets d'initiative pour accomplir l'action « Regroupement ».
+    - titre: "Règle spéciale : Machine-Esprit"
+      texte: |
+        Les formations ne comportant que des unités bénéficiant de la règle Machine Esprit ne peuvent que contester les objectifs, pas les capturer.
+    - titre: "Règle spéciale : Métal Organique"
+      texte: |
+        Les unités faites de Métal Organique peuvent effectuer une sauvegarde de Blindage Renforcé contre les armes normales, Macro-armes et les Lances : elles peuvent donc effectuer deux sauvegardes lorsqu'elles sont touchées par ces armes. De plus, leur sauvegarde ne peut être réduite par la capacité Sniper. Les attaques Tueur de Titans sont automatiquement réduites à Tueur de Titans (1) lorsqu'elles touchent une unité en Métal Organique, et l'unité en Métal Organique peut effectuer une unique sauvegarde même contre ces attaques.
+    - titre: "Règle spéciale : Réanimation Améliorée"
+      texte: |
+        Les unités bénéficiant de la règle Réanimation Améliorée permettent à toutes les unités de la formation de réussir leurs Sauvegarde Invulnérable sur 5+ plutôt que 6+.
+    - titre: "Règle spéciale : Portails Nécrons"
+      texte: |
+        Seules les unités d'Infanterie et les Araignées Canoptek peuvent utiliser les portails. Ces formations peuvent entrer en jeu depuis la réserve après avoir réussi un test d'activation pour une action autorisant au minimum un mouvement. Mesurez la distance de déplacement depuis l'unité équipée du portail utilisé ou l'objectif.
+
+        Chaque portail ne peut être utilisé qu'une seule fois par tour et ne doit être ni en réserve ni embarqué pour être utilisé. Une formation peut également « entrer » dans un portail et retourner ainsi se placer hors table et ne pourra alors revenir en jeu qu'au travers d'un Portail Nécron.
+
+        Une formation disposant de deux mouvements peut quitter la table depuis un portail pour immédiatement entrer en jeu par un autre portail. Ceci compte comme une utilisation des deux portails pour le tour. Le premier mouvement utilisé pour entrer dans un portail est entièrement consommé.
+
+        Le mouvement de retraite et le mouvement de consolidation sont des mouvements valides pour entrer ou sortir d'un Portail.
+
+        Une formation utilisant le portail d'une formation démoralisée reçoit un pion impact lors de son arrivée en jeu ou de son retour en réserve.
+
+        Le joueur Nécron peut remplacer un marqueur d'objectif dans sa moitié de table par un Portail Nécron Objectif s'il en a fait l'acquisition. Il compte alors à la fois comme un objectif et un Portail Nécron. Il ne peut être ni attaqué, ni détruit.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture : Ashkan Ghanbari."
+  valeur_strategique: 1
+  initiative:
+    defaut: "1+"
+    exceptions:
+      - { portee: "Vaisseau orbital", valeur: "2+" }
+
+budgets:
+  - id: soutien
+    libelle: Formations de soutien Nécrons
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations de soutien Nécrons par phalange Nécron"
+  - id: ancres
+    libelle: Ancres Nécrons
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 1 formation d'Ancres Nécrons par Phalange de Guerriers"
+  - id: rare
+    libelle: Formations de support de l'armée Nécron
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Feuille de références Nécrons ----
+  - id: seigneur_guerre_necron
+    nom: Seigneur de Guerre Nécron
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Bâton de Radiance, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bâton de Radiance, portee: (contact), puissance: "Arme d'Assaut +1A, TT(1)" }
+    notes: [Commandant Suprême, Sans Peur, Charismatique, Réanimation Améliorée]
+    roles: [commandant_supreme]
+  - id: seigneur_guerre_destroyer
+    nom: Seigneur de Guerre Destroyer
+    type: Inf
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Bâton de Radiance, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bâton de Radiance, portee: (contact), puissance: "Arme d'Assaut +1A, TT(1)" }
+    notes: [Commandant Suprême, Sans Peur, Charismatique, Réanimation Améliorée, Monté, Antigrav]
+    roles: [commandant_supreme]
+  - id: seigneur_necron
+    nom: Seigneur Nécron
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Bâton de Lumière, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Bâton de Lumière, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Commandant, Meneur, Réanimation Améliorée]
+    roles: [commandant]
+  - id: seigneur_destroyer
+    nom: Seigneur Destroyer
+    type: Inf
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Bâton des Rois, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+      - { nom: Bâton des Rois, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Commandant, Meneur, Réanimation Améliorée, Monté, Antigrav]
+    roles: [commandant]
+  - id: guerriers_necrons
+    nom: Guerriers Nécrons
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Écorcheurs Gauss, portee: (15cm), puissance: Arme Légère }
+    notes: [Sauvegarde Invulnérable, Machine Esprit]
+  - id: scarabees_canopteks
+    nom: Scarabées Canopteks
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: Attaque en nuée, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: [Sauvegarde Invulnérable, Machine Esprit, Infiltrateurs, Sacrifiables]
+  - id: immortels
+    nom: Immortels
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Éclateurs Gauss, portee: (15cm), puissance: Arme Légère }
+    notes: [Sauvegarde Invulnérable, Machine Esprit]
+  - id: factionnaires
+    nom: Factionnaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Fauchards, portee: (contact), puissance: "Arme d'Assaut +1, MA" }
+    notes: [Sauvegarde Invulnérable, Machine Esprit]
+  - id: pretoriens
+    nom: Prétoriens
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Crosses d'Alliance, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+    notes: [Sauvegarde Invulnérable, Infiltrateurs, Réacteurs Dorsaux]
+  - id: spectres_canoptek
+    nom: Spectres Canoptek
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes et câbles, portee: (contact), puissance: "Arme d'Assaut, +1A, FeP" }
+    notes: [Sauvegarde Invulnérable, Machine Esprit, Infiltrateurs, Réacteurs Dorsaux]
+  - id: depeceurs
+    nom: Dépeceurs
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes, portee: (contact), puissance: "Armes d'Assaut" }
+    notes: [Sauvegarde Invulnérable, Infiltrateur, Téléportation]
+  - id: traqueurs
+    nom: Traqueurs
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Désintégrateurs synaptiques, portee: 30cm, puissance: "AP4+, Snp" }
+    notes: [Sauvegarde Invulnérable, Téléportation]
+  - id: destroyers
+    nom: Destroyers
+    type: Inf
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canons Gauss, portee: 30cm, puissance: "2x AP5+/AC6+" }
+    notes: [Sauvegarde Invulnérable, Machine Esprit, Montés, Antigrav]
+  - id: destroyers_lourds
+    nom: Destroyers Lourds
+    type: Inf
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Destructeurs Gauss, portee: 30cm, puissance: "2x AP4+/AC5+" }
+    notes: [Sauvegarde Invulnérable, Machine Esprit, Montés, Antigrav]
+  - id: mecanopteres
+    nom: Mécanoptères
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Carabines Tesla Jumelées, portee: (15cm), puissance: Armes Légères }
+    notes: [Sauvegarde Invulnérable, Antigrav, Montés]
+  - id: console_annihilation
+    nom: Console d'Annihilation
+    type: VL
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Tesla, portee: 30cm, puissance: "AP3+, Lance" }
+      - { nom: Destructeurs Tesla Jumelés, portee: 30cm, puissance: "AP4+/AC5+" }
+    notes: [Antigrav, Blindage Renforcé]
+  - id: araignee_canoptek
+    nom: Araignée Canoptek
+    type: VL
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Pinces, portee: (contact), puissance: "Arme d'Assaut +1, MA" }
+    notes: [Réanimation améliorée, Meneur, Infiltrateur, Sans peur, Marcheur]
+  - id: arche_fantome
+    nom: Arche Fantôme
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Bordées de fusils à fission, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Réanimation Améliorée, Antigrav, Blindage Renforcé, "Transport (2) : infanterie non montée"]
+    transport:
+      capacite: 2
+      accepte: [seigneur_guerre_necron, seigneur_necron, guerriers_necrons, scarabees_canopteks, immortels, factionnaires, pretoriens, spectres_canoptek, depeceurs, traqueurs]
+  - id: arche_jugement_dernier
+    nom: Arche du Jugement Dernier
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon du Jugement Dernier, portee: 60cm, puissance: 1PB }
+      - { nom: Bordées de fusils à fission, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: Bordées de fusils à fission, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Antigrav, Blindage Renforcé]
+  - id: rodeur_triarcat
+    nom: Rôdeur du Triarcat
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Rayon Incendiaire, portee: 30cm, puissance: "MA4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA, IC" }
+    notes: [Blindage renforcé, Marcheur, Éclaireur]
+  - id: pylone_sentinelle
+    nom: Pylône Sentinelle
+    type: VB
+    vitesse: 10cm
+    blindage: "5+"
+    cc: "-"
+    ff: "4+"
+    armes:
+      - { nom: Exterminateur Gauss, portee: 30cm, puissance: "MA4+ ou AA4+, MA" }
+    notes: [Machine Esprit, Métal Organique, Sans Peur, Téléportation]
+
+  # ---- Feuille de références des engins de guerre ----
+  - id: pylone
+    nom: Pylône
+    type: EG
+    vitesse: 0cm
+    blindage: "4+"
+    cc: "-"
+    ff: "4+"
+    armes:
+      - { nom: Accélérateur à particules, portee: 60cm, puissance: "MA4+, AA4+, TT(D3)" }
+      - { nom: Gauss Flux Arc, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Machine Esprit, Métal Organique, Sans peur, Téléportation]
+    degats: { cd: 3, critique: "Détruit, chaque unité dans les 5cm subit une touche sur 4+." }
+  - id: monolithe
+    nom: Monolithe
+    type: EG
+    vitesse: 10cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Fouet à particules, portee: 30cm, puissance: "AP3+/AC4+" }
+      - { nom: Abraseurs Gauss, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Métal Organique, Portail Nécron, Antigrav, Téléportation, Sans Peur]
+    degats: { cd: 2, critique: Détruit. }
+  - id: obelisque
+    nom: Obélisque
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fléau à Particule, portee: 60cm, puissance: "AP3+/AC4+" }
+      - { nom: Impulsion gravitique, portee: 45cm, puissance: "AA5+" }
+    notes: [Métal Organique, Antigrav, Téléportation, Sans Peur]
+    degats: { cd: 2, critique: Détruit. }
+  - id: megalithe
+    nom: Mégalithe
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Fouet à particules, portee: 30cm, puissance: "AP3+/AC4+" }
+      - { nom: 2x Gauss Flux Arc, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Métal Organique, Antigrav, Portail Nécron, Sans peur, Téléportation, "Transport (2) : peut transporter jusqu'à 2 Monolithes ou Obélisques."]
+    transport: { capacite: 2, accepte: [monolithe, obelisque] }
+    degats: { cd: 4, critique: "Le Portail du Mégalithe est détruit. Chaque critique suivant inflige un dégât supplémentaire." }
+  - id: abattoir
+    nom: Abattoir
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "2+"
+    ff: "5+"
+    armes:
+      - { nom: Gauss Flux array, portee: (15cm), puissance: "Arme Légère, +2A" }
+      - { nom: Harvester Tendrils, portee: (contact), puissance: "Arme d'Assaut, +2A, TT(1)" }
+    notes: [Infiltrateur, Métal Organique, Portail, Antigrav, Sans Peur]
+    degats: { cd: 6, critique: "Le portail de l'Abattoir est détruit. Chaque critique suivant inflige un dégât supplémentaire." }
+  - id: orbe_aeons
+    nom: Orbe des Æons
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "-"
+    ff: "5+"
+    armes:
+      - { nom: Star Cage, portee: 90cm, puissance: "MA2+, TT(D6+1), FrtF" }
+      - { nom: ou, portee: 60cm, puissance: "4PB, Rupture, IC, FrtF" }
+      - { nom: ou, portee: 30cm, puissance: "3PB, MA, IC, FrtF" }
+      - { nom: ou, portee: 15cm, puissance: "12PB, IC, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Métal Organique, Antigrav, Sans Peur, Téléportation]
+    degats: { cd: 6, critique: "L'Orbe des Æons est détruite. Chaque unité dans les 15cm subit une touche TT1 sur un 4+." }
+  - id: ctan_deceiver
+    nom: C'Tan Deceiver
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Épouvante, portee: 45cm, puissance: "6PB Rupture, pas de dégâts" }
+      - { nom: Regard de la Mort, portee: (contact), puissance: "Arme d'Assaut, +2A, MA" }
+    notes: [Charismatique, Métal Organique, Blindage Arrière Renforcé, Antigrav, Sans Peur, Téléportation]
+    degats: { cd: 3, critique: "Le C'Tan est détruit, chaque unité dans les 5cm subit une touche MA sur 4+." }
+  - id: ctan_nightbringer
+    nom: C'Tan Nightbringer
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Projections d'éclairs, portee: 30cm, puissance: "2x MA4+" }
+      - { nom: Faux, portee: (contact), puissance: "Armes d'Assaut, +2A TT(D3)" }
+    notes: [Charismatique, Métal Organique, Blindage Arrière Renforcé, Antigrav, Sans Peur, Téléportation]
+    degats: { cd: 3, critique: "Le C'Tan est détruit, chaque unité dans les 5cm subit une touche MA sur 4+." }
+
+  # ---- Feuille de références Flotte Nécrons ----
+  - id: doom_scythe
+    nom: Doom Scythe
+    type: A
+    vitesse: CB
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: 2x Destructeurs Tesla, portee: 30cm, puissance: "AP5+/AC5+/AA5+, FrtF" }
+      - { nom: Rayon de la Mort, portee: 15cm, puissance: "MA4+, FrtF" }
+    notes: [Métal Organique]
+  - id: nightshroud
+    nom: Nightshroud Bomber
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: 2x Destructeurs Tesla, portee: 30cm, puissance: "AP5+/AC5+/AA5+, FrtF" }
+      - { nom: Death Spheres, portee: 15cm, puissance: "3PB, Rupture, IC, FrtF" }
+    notes: [Métal Organique]
+    degats: { cd: 2, critique: Détruit }
+  - id: vaisseau_scythe
+    nom: Vaisseau de Classe Scythe
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: 1x Frappe Chirurgicale, portee: "∞", puissance: "MA2+, TT(D3)" }
+  - id: vaisseau_cairn
+    nom: Vaisseau de Classe Cairn
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (8), portee: "∞", puissance: "8PB, MA" }
+      - { nom: 3x Frappe Chirurgicale, portee: "∞", puissance: "MA2+, TT(D3)" }
+    notes: [Lent]
+
+options:
+  - id: commandant_supreme
+    nom: Commandant Suprême
+    effet:
+      type: choix
+      parmi:
+        - id: seigneur_guerre_necron
+          nom: Seigneur de Guerre Nécron
+          cout: 75
+          effet: { type: remplacer, de: seigneur_necron, par: seigneur_guerre_necron, lot: 1, max: 1, cout: 0 }
+        - id: seigneur_guerre_destroyer
+          nom: Seigneur de Guerre Destroyer
+          cout: 75
+          effet: { type: remplacer, de: seigneur_destroyer, par: seigneur_guerre_destroyer, lot: 1, max: 1, cout: 0 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+    phrase_pdf: "Remplacer une unité de Seigneur Nécron par une unité de Seigneur de Guerre Nécron ou remplacer une unité de Seigneur Destroyer par une unité de Seigneur de Guerre Destroyer"
+    note_md: "Un seul Commandant Suprême par armée."
+  - id: guerriers
+    nom: Guerriers
+    effet: { type: ajouter, cout: 125, unites: [{ unite: guerriers_necrons, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 4 unités de Guerriers Nécrons à la formation"
+  - id: gardes
+    nom: Gardes
+    effet:
+      type: choix
+      parmi:
+        - id: immortels
+          nom: Immortels
+          cout: 0
+          effet: { type: remplacer, de: guerriers_necrons, par: immortels, lot: 1, max: 3, cout: 25 }
+        - id: factionnaires
+          nom: Factionnaires
+          cout: 0
+          effet: { type: remplacer, de: guerriers_necrons, par: factionnaires, lot: 1, max: 3, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacez jusqu'à 3 unités de Guerriers Nécrons par des unités d'Immortels ou de Factionnaires (25 pts chacun)"
+  - id: transports
+    nom: Transports
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: arche_fantome }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter autant d'Arches Fantômes que nécessaire pour transporter toutes les unités de la formation (25 pts chacune)"
+  - id: intendance
+    nom: Intendance
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: araignee_canoptek }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 à 3 unités d'Araignée Canoptek à la formation (50 pts chacune)"
+  - id: barge_commandement
+    nom: Barge de commandement
+    effet:
+      type: mot_cle
+      texte: "Blindage Renforcé, Sauvegarde Invulnérable"
+      cout: 50
+      cible: [seigneur_necron, seigneur_destroyer, seigneur_guerre_necron, seigneur_guerre_destroyer]
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [seigneur_necron, seigneur_destroyer, seigneur_guerre_necron, seigneur_guerre_destroyer] }
+    phrase_pdf: "Les unités de Seigneur (Nécron, Destroyer, Seigneur de Guerre Nécron et Destroyer) de la formation gagnent : Blindage Renforcé, Sauvegarde Invulnérable"
+  - id: spectres
+    nom: Spectre
+    effet: { type: remplacer, de: scarabees_canopteks, par: spectres_canoptek, lot: 2, max: 3, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer n'importe quel nombre d'unités de Scarabées par des unités de Spectres (25 pts par paire)"
+
+formations:
+  # ---- Options Nécrons ----
+  - id: portail_objectif
+    nom: Portail Objectif Nécron
+    description: "Remplacez un objectif de votre moitié de table par un Portail Objectif Nécron immédiatement à la fin du placement des objectifs."
+    variantes:
+      - { id: base, cout: 75, composition: [] }
+    options: []
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: pas_une_activation }
+    phrase_pdf: "Remplacez un objectif de votre moitié de table par un Portail Objectif Nécron immédiatement à la fin du placement des objectifs."
+
+  # ---- Phalanges Nécrons ----
+  - id: phalange_guerriers
+    nom: Phalange de Guerriers
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: seigneur_necron, nombre: 1 }
+          - { unite: guerriers_necrons, nombre: 7 }
+    options: [commandant_supreme, guerriers, gardes, transports, intendance, barge_commandement]
+    contraintes:
+      - { type: min_par_armee, valeur: 1 }
+      - { type: fournit, budget: soutien, quantite: 2 }
+      - { type: fournit, budget: ancres, quantite: 1 }
+  - id: nuees_canoptek
+    nom: Nuées Canoptek
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: araignee_canoptek, nombre: 1 }
+          - { unite: scarabees_canopteks, nombre: 6 }
+    options: [intendance, spectres]
+    contraintes:
+      - { type: fournit, budget: soutien, quantite: 2 }
+
+  # ---- Formations de soutien Nécrons ----
+  - id: phalange_immortels
+    nom: Phalange d'Immortels
+    variantes:
+      - id: base
+        cout: 325
+        composition:
+          - { unite: seigneur_necron, nombre: 1 }
+          - { unite: immortels, nombre: 7 }
+    options: [commandant_supreme, transports, intendance, barge_commandement]
+  - id: depeceurs
+    nom: Dépeceurs
+    variantes:
+      - { id: quatre, nom: 4 unités de Dépeceurs, cout: 125, composition: [{ unite: depeceurs, nombre: 4 }] }
+      - { id: huit, nom: 8 unités de Dépeceurs, cout: 250, composition: [{ unite: depeceurs, nombre: 8 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: rodeurs_triarcat
+    nom: Rôdeurs du triarcat
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: rodeur_triarcat, nombre: 4 }] }
+    options: []
+  - id: arches_jugement
+    nom: Arches du Jugement Dernier
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: arche_jugement_dernier, nombre: 6 }] }
+    options: []
+  - id: pylones_sentinelles
+    nom: Pylônes sentinels
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: pylone_sentinelle, nombre: 4 }] }
+    options: []
+  - id: consoles_annihilation
+    nom: Consoles d'annihilation
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: console_annihilation, nombre: 5 }] }
+    options: []
+  - id: destroyers
+    nom: Destroyers
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: seigneur_destroyer, nombre: 1 }
+          - choix:
+              total: 5
+              parmi: [{ unite: destroyers }, { unite: destroyers_lourds }]
+              phrase_pdf: "5 unités parmi : Destroyers, Destroyers Lourds"
+    options: [commandant_supreme]
+  - id: garde_pretorienne
+    nom: Garde Prétorienne
+    variantes:
+      - { id: six, nom: 6 unités de Prétoriens, cout: 300, composition: [{ unite: pretoriens, nombre: 6 }] }
+      - { id: huit, nom: 8 unités de Prétoriens, cout: 400, composition: [{ unite: pretoriens, nombre: 8 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: mecanopteres
+    nom: Mécanoptères
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: mecanopteres, nombre: 6 }] }
+    options: []
+  - id: traqueurs
+    nom: Traqueurs
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: traqueurs, nombre: 6 }] }
+    options: []
+  - id: ancres_necrons
+    nom: Ancres Nécrons
+    variantes:
+      - id: base
+        nom: 1 Monolithe et 1 Obélisque
+        cout: 250
+        composition:
+          - { unite: monolithe, nombre: 1 }
+          - { unite: obelisque, nombre: 1 }
+      - id: deux_monolithes
+        nom: 2 Monolithes (remplacer 1 Obélisque par 1 Monolithe)
+        cout: 300
+        composition:
+          - { unite: monolithe, nombre: 2 }
+    options: []
+    contraintes: [{ type: consomme, budget: ancres }]
+
+  # ---- Flotte Nécrons ----
+  - id: moisson
+    nom: Moisson
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: doom_scythe, nombre: 2 }
+          - choix:
+              total: { min: 0, max: 1 }
+              parmi: [{ unite: doom_scythe, cout: 100 }]
+              phrase_pdf: "0-1 Doom Scythe supplémentaire (100 pts chacun)"
+    options: []
+  - id: linceul
+    nom: Linceul
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: nightshroud, nombre: 1 }] }
+    options: []
+  - id: vaisseau_orbital
+    nom: Vaisseau Orbital
+    variantes:
+      - { id: scythe, nom: 1 Vaisseau de classe Scythe, cout: 150, composition: [{ unite: vaisseau_scythe, nombre: 1 }] }
+      - { id: cairn, nom: 1 Vaisseau de classe Cairn, cout: 250, composition: [{ unite: vaisseau_cairn, nombre: 1 }] }
+    options: []
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: initiative, valeur: "2+" }
+      - { type: pas_une_activation }
+
+  # ---- Soutiens rares ----
+  - id: pylone
+    nom: Pylône
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: pylone, nombre: 1 }] }
+    options: []
+  - id: megalithe
+    nom: Mégalithe
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: megalithe, nombre: 1 }] }
+    options: []
+  - id: echarde_ctan
+    nom: Écharde C'tan
+    variantes:
+      - { id: deceiver, nom: 1 C'tan Deceiver, cout: 325, composition: [{ unite: ctan_deceiver, nombre: 1 }] }
+      - { id: nightbringer, nom: 1 C'tan Nightbringer, cout: 325, composition: [{ unite: ctan_nightbringer, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: titans_aeons
+    nom: Titans des Æons
+    variantes:
+      - { id: abattoir, nom: 1 Abattoir, cout: 500, composition: [{ unite: abattoir, nombre: 1 }] }
+      - { id: orbe, nom: 1 Orbe des Æons, cout: 500, composition: [{ unite: orbe_aeons, nombre: 1 }] }
+    options: []
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+
+sections:
+  - id: options_necrons
+    titre: OPTIONS NÉCRONS
+    sous_titre: "Options d'armée achetées en dehors des phalanges"
+    formations: [portail_objectif]
+  - id: phalanges
+    titre: PHALANGES NÉCRONS
+    formations: [phalange_guerriers, nuees_canoptek]
+    colonne_options: true
+    options: [commandant_supreme, guerriers, gardes, transports, intendance, barge_commandement, spectres]
+    tableau_options:
+      titre: AMÉLIORATIONS NÉCRONS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation"
+  - id: soutien
+    titre: FORMATIONS DE SOUTIEN NÉCRONS
+    sous_titre: "Jusqu'à 2 formations de soutien Nécrons par phalange Nécron"
+    formations: [phalange_immortels, depeceurs, rodeurs_triarcat, arches_jugement, pylones_sentinelles, consoles_annihilation, destroyers, garde_pretorienne, mecanopteres, traqueurs, ancres_necrons]
+    colonne_options: true
+    options: [commandant_supreme, transports, intendance, barge_commandement]
+    contraintes: [{ type: consomme, budget: soutien }]
+  - id: flotte
+    titre: FLOTTE NÉCRONS
+    sous_titre: "FORMATIONS DE SUPPORT DE L'ARMÉE NÉCRON"
+    formations: [moisson, linceul, vaisseau_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: soutiens_rares
+    titre: SOUTIENS RARES
+    sous_titre: "FORMATIONS DE SUPPORT DE L'ARMÉE NÉCRON"
+    formations: [pylone, megalithe, echarde_ctan, titans_aeons]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+
+listes_test:
+  - nom: "3000 pts valide, deux phalanges et leurs soutiens"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: phalange_guerriers
+        options:
+          - { option: guerriers }
+          - { option: intendance, quantite: 2 }
+          - { option: transports, quantite: 6 }
+          - { option: commandant_supreme, choix: seigneur_guerre_necron }
+          - { option: gardes, choix: immortels, quantite: 3 }
+          - { option: barge_commandement }
+      - formation: nuees_canoptek
+        options:
+          - { option: intendance, quantite: 1 }
+          - { option: spectres, quantite: 2 }
+      - formation: phalange_immortels
+        options:
+          - { option: transports, quantite: 4 }
+      - formation: destroyers
+        choix: { "1": { destroyers: 3, destroyers_lourds: 2 } }
+      - { formation: traqueurs }
+      - { formation: ancres_necrons }
+      - formation: moisson
+        choix: { "1": { doom_scythe: 1 } }
+      - { formation: pylone }
+  - nom: "2000 pts valide, quatre soutiens et une Écharde C'tan"
+    limite: 2000
+    attendu: valide
+    formations:
+      - { formation: phalange_guerriers }
+      - { formation: nuees_canoptek }
+      - { formation: depeceurs, variante: huit }
+      - { formation: garde_pretorienne, variante: six }
+      - { formation: mecanopteres }
+      - { formation: consoles_annihilation }
+      - { formation: echarde_ctan, variante: nightbringer }
+      - { formation: portail_objectif }
+  - nom: "aucune Phalange de Guerriers"
+    limite: 1000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: nuees_canoptek }
+      - { formation: phalange_immortels }
+  - nom: "trois formations de soutien pour une seule phalange"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: phalange_guerriers }
+      - { formation: traqueurs }
+      - { formation: mecanopteres }
+      - { formation: rodeurs_triarcat }
+  - nom: "deux Ancres Nécrons pour une seule Phalange de Guerriers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: phalange_guerriers }
+      - { formation: ancres_necrons }
+      - { formation: ancres_necrons }
+  - nom: "support au-delà du tiers"
+    limite: 1000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: phalange_guerriers }
+      - { formation: titans_aeons, variante: abattoir }
+  - nom: "deux Échardes C'tan"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: phalange_guerriers }
+      - { formation: echarde_ctan, variante: deceiver }
+      - { formation: echarde_ctan, variante: nightbringer }
+  - nom: "plus d'Arches Fantômes que nécessaire"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: phalange_guerriers
+        options:
+          - { option: transports, quantite: 6 }

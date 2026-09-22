@@ -7,7 +7,6 @@ codex:
   faction: imperium
   categorie: armees-astartes
   statut: official
-  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/imperial-fists.jpg
   couleur: "#e0a80d"
   citation:
     texte: "Frères ! Il nous incombe de rebâtir ce qui a été détruit. De reconstruire le glorieux Bastion Imperialis dont rêvait le Primarque, et pour lequel il œuvrait. La chair et les os de l'Humanité seront son rempart ; le sang des traîtres et des hérétiques le mortier qui en consolide l'édifice. Nous apporterons la lumière aux ténèbres de l'Imperium Nihilus, et la gloire de l'Empereur !"

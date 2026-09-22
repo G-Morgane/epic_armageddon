@@ -7,7 +7,6 @@ codex:
   faction: imperium
   categorie: armees-astartes
   statut: official
-  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/raven-guard.jpg
   couleur: "#262b30"
   citation:
     texte: "Savoir exactement où frapper, afin d'infliger un maximum de dégâts avec un minimum de forces, telle est la clef de la victoire."
