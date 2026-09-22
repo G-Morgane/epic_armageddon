@@ -2,6 +2,7 @@
 codex:
   slug: adeptus-astartes
   armee_id: 2ccaacb8-9b82-4ff6-9e31-0dac78d430fa
+  logo: /icons/adeptus_astartes.svg
   nom: Adeptus Astartes
   version: "1.5"
   faction: imperium

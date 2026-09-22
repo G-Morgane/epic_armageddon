@@ -2,11 +2,13 @@
 codex:
   slug: gargants-d-orkimedes
   armee_id: 9f2cef62-b74a-4fb2-aa35-b6c43aa3cc83
+  logo: /icons/gargants_ork.svg
   nom: Gargants d'Orkimedes
   version: "1.1.1"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/gargants-d-orkimedes.jpg
   citation:
     texte: "ÇA VA TIRER À MORT, AVEC DÉ TAS D'FLINGUES DE PARTOU."
     auteur: Big Mek Badlug Na Kune Jamb'

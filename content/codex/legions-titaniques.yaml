@@ -2,11 +2,13 @@
 codex:
   slug: legions-titaniques
   armee_id: b344fee5-9202-4ec3-8231-6d2bdf1664cf
+  logo: /icons/legions_titaniques.svg
   nom: Légions Titaniques
   version: "1.4.1"
   faction: imperium
   categorie: armees-imperiales
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/legions-titaniques.jpg
   citation:
     texte: "En vérité, un Titan n'a que trois ennemis contre lesquels il doit se protéger : la folie, l'orgueil et un de ses semblables."
     auteur: Grand Maître Volkus, Ordo Sinister

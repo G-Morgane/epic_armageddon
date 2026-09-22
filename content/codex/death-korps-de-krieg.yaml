@@ -2,6 +2,7 @@
 codex:
   slug: death-korps-de-krieg
   armee_id: da66e374-161f-4951-b366-44cb34ed4348
+  logo: /icons/death_korps_krieg.svg
   nom: Death Korps de Krieg
   version: "1.5.1"
   faction: imperium

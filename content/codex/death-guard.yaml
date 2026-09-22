@@ -2,6 +2,7 @@
 codex:
   slug: death-guard
   armee_id: 87801b9c-a9f8-4d91-997b-88464e372df9
+  logo: /icons/death_guards.svg
   nom: Death Guard
   version: "1.2.1"
   faction: chaos

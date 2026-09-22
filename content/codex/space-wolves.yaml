@@ -2,6 +2,7 @@
 codex:
   slug: space-wolves
   armee_id: bddd312b-b314-4ccf-becd-efc83b9493a7
+  logo: /icons/space_wolves.svg
   nom: Space Wolves
   version: "1.2"
   faction: imperium

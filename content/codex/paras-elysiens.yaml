@@ -2,11 +2,13 @@
 codex:
   slug: paras-elysiens
   armee_id: 1e85b8e6-a422-4eaf-ae34-99f6d832d24b
+  logo: /icons/paras_elysiens.svg
   nom: Paras Élysiens
   version: "1.1.2"
   faction: imperium
   categorie: armees-imperiales
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/paras-elysiens.jpg
   citation:
     texte: "Les commandants ennemis se croient à l'abri de la colère de l'Empereur derrière des kilomètres de fortifications et de légions de guerriers. Ils n'ont pas tenu compte de nous. Faites la paix avec l'Empereur, messieurs, on arrive dans deux minutes."
     auteur: Colonelle Johanna van Meer, 13ème Élysien

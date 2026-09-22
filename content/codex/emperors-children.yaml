@@ -2,11 +2,13 @@
 codex:
   slug: emperors-children
   armee_id: b1579390-7a47-4711-b058-31913976501e
+  logo: /icons/emperors_childrens.svg
   nom: Emperor's Children
   version: "1.2"
   faction: chaos
   categorie: armees-chaos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/emperors-children.jpg
   citation:
     texte: "Je m'élève vers le Chaos. Je suis un prince des jamais-nés, un seigneur des Puissances de la Ruine, l'élu de la débauche et champion bien-aimé de Slaanesh !"
     auteur: Fulgrim lors de son ascension comme Prince Démon

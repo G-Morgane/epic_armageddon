@@ -2,6 +2,7 @@
 codex:
   slug: white-scars
   armee_id: 954cb043-a144-47be-9ff1-e03fd210f4fc
+  logo: /icons/white_scars.svg
   nom: White Scars
   version: "1.2"
   faction: imperium

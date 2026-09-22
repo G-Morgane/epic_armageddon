@@ -2,6 +2,7 @@
 codex:
   slug: grey-knights
   armee_id: 297c4bc5-675a-458c-9da2-520a60c8b537
+  logo: /icons/grey_knights.svg
   nom: Grey Knights
   version: "1.2"
   faction: imperium

@@ -2,11 +2,13 @@
 codex:
   slug: word-bearers
   armee_id: 9c105d0d-ffbf-4f16-93be-f0b8f491c399
+  logo: /icons/world_bearer.svg
   nom: Word Bearers
   version: "1.4.1"
   faction: chaos
   categorie: armees-chaos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/word-bearers.jpg
   couleur: "#7A1F1F"
   citation:
     texte: "Abattez les idoles ! Détruisez les temples ! Massacrez les prêtres ! Montrez à ces imbéciles qu'ils ne font que vénérer un cadavre pourrissant !"

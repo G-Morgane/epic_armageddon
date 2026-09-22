@@ -2,11 +2,13 @@
 codex:
   slug: salamanders
   armee_id: ecf80e74-3bb1-4177-9f2d-9cb1a376e9bf
+  logo: /icons/salamanders.svg
   nom: Salamanders
   version: "1.3"
   faction: imperium
   categorie: armees-astartes
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/salamanders.jpg
   couleur: "#0f5132"
   citation:
     texte: "J'ai gravé sur mes gantelets le nom de chaque bataille au cours desquelles ils ont combattu avec moi, afin d'honorer leur fidélité. Sur chaque monde, lors de chaque croisade, leur esprit s'est avéré aussi endurant que celui de mes frères."

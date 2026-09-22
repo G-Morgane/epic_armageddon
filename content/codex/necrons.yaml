@@ -2,11 +2,13 @@
 codex:
   slug: necrons
   armee_id: f51928d4-5c83-4552-bd78-a06a9f4eb239
+  logo: /icons/necrons.svg
   nom: Necrons
   version: "1.4"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/necrons.jpg
   couleur: "#2f7d3a"
   citation:
     texte: "La mort vient flotter au-dessus de moi, et elle murmure au creux de mon oreille, avec des mots que je ne comprends pas, la promesse de douleurs sans pareilles."

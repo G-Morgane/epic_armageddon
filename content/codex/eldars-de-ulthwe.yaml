@@ -2,11 +2,13 @@
 codex:
   slug: eldars-de-ulthwe
   armee_id: d7bfd045-87ad-4ed2-8eda-108980650564
+  logo: /icons/ulthwe.svg
   nom: Eldars d'Ulthwé
   version: "1.5"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/eldars-de-ulthwe.jpg
   citation:
     texte: "C'est une triste vérité que pour protéger la vie nous devions devenir des serviteurs de la mort. Telles sont les extrémités auxquelles notre espèce a été poussée. Mais grâce à cela nous serons tel le phénix, et renaîtrons de nos propres cendres."
     auteur: Eldrad Ulthran, Grand Prophète d'Ulthwé

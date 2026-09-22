@@ -2,11 +2,13 @@
 codex:
   slug: culte-genestealer
   armee_id: a6d2a923-53eb-4e41-9d7d-99fa36f38330
+  logo: https://nomrnaobradtiddfewxm.supabase.co/storage/v1/object/public/army-pdfs/icons/culte-genestealer.svg
   nom: Culte Genestealer
   version: "1.1"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/culte-genestealer.jpg
   citation:
     texte: "Camarades !! L'Empereur à quatre bras est notre véritable sauveur, brisons les chaînes de l'oppression du faux Empereur qui ne nous protège plus !! Seul les Anges Stellaires nous sauveront de l'oubli ! Respectez les anciens, suivons le père de tous et gagnons le droit de vivre éternellement au firmament !"
     auteur: Fiodor Ramazanov, Primus de la secte des Sauveurs Stellaire

@@ -2,6 +2,7 @@
 codex:
   slug: tyranides
   armee_id: 5553f3a9-bed5-49ce-9eec-a71ff9c6c015
+  logo: /icons/tyrannids.svg
   nom: Tyranides
   version: "1.4"
   faction: xenos

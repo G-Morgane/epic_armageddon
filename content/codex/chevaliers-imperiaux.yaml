@@ -2,11 +2,13 @@
 codex:
   slug: chevaliers-imperiaux
   armee_id: a66a54e4-7630-4ed8-97b9-27b182eee006
+  logo: /icons/chevaliers_imperiaux.svg
   nom: Chevaliers Impériaux
   version: "1.1"
   faction: imperium
   categorie: armees-imperiales
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/chevaliers-imperiaux.jpg
   citation:
     texte: "Que la puissance du Chevalier s'écoule dans vos veines. Que les fantômes de votre Trône murmurent dans votre esprit. Que vos tendons soient d'acier, et vos poings de feu. Devenez votre Chevalier, et par la symbiose, élevez-vous. Ainsi vous serez adoubé. Ainsi vous protégerez votre peuple et massacrerez vos ennemis."
     auteur: Sixième Cantique du Rituel d'Adoubement

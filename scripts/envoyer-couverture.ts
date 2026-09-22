@@ -77,8 +77,9 @@ function majYaml(url: string): 'modifie' | 'inchange' | 'absent' {
   if (!existsSync(f)) return 'absent'
   const avant = readFileSync(f, 'utf8')
   let apres: string
+  const ancre = [/^ {2}statut:.*$/m, /^ {2}categorie:.*$/m, /^ {2}faction:.*$/m].find((r) => r.test(avant))
   if (/^ {2}illustration:.*$/m.test(avant)) apres = avant.replace(/^ {2}illustration:.*$/m, `  illustration: ${url}`)
-  else if (/^ {2}statut:.*$/m.test(avant)) apres = avant.replace(/^( {2}statut:.*)$/m, `$1\n  illustration: ${url}`)
+  else if (ancre) apres = avant.replace(ancre, (l) => `${l}\n  illustration: ${url}`)
   else return 'absent'
   if (apres === avant) return 'inchange'
   if (ecrire) writeFileSync(f, apres)

@@ -2,11 +2,13 @@
 codex:
   slug: squats
   armee_id: 6eba8947-c08a-4265-b3bd-c94e47077c27
+  logo: /icons/squats.svg
   nom: Squats
   version: "1.3"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/squats.jpg
   citation:
     texte: "Ne sous-estimez pas les Squats. Ils ont survécu des millénaires coupés de l'Impérium et assaillis de tous les côtés. Leur détermination et leur résistance est un exemple pour tout le monde."
     auteur: "Leman Russ, Méditations sur le commandement Impérial, Livre XVI"

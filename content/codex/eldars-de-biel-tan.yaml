@@ -2,11 +2,13 @@
 codex:
   slug: eldars-de-biel-tan
   armee_id: a9c7b6a2-a792-4be1-adc3-a625d6c3c8b2
+  logo: /icons/biel_tan.svg
   nom: Eldars de Biel-Tan
   version: "1.7"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/eldars-de-biel-tan.jpg
   citation:
     texte: "Jadis, les étoiles vivaient et mouraient selon notre désir, et vous osez encore vous opposer à notre volonté."
     auteur: Grand Prophète Mirehn Bielann

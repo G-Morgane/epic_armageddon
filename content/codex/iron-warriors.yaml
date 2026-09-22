@@ -2,6 +2,7 @@
 codex:
   slug: iron-warriors
   armee_id: bcf87fcf-c529-4a37-9751-18bf8d8d487c
+  logo: /icons/iron_warriors.svg
   nom: Iron Warriors
   version: "1.5"
   faction: chaos

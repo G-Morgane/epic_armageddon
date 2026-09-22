@@ -2,11 +2,13 @@
 codex:
   slug: evil-sunz
   armee_id: ed1d8015-f59c-44ed-9299-21cc30abf6f3
+  logo: https://nomrnaobradtiddfewxm.supabase.co/storage/v1/object/public/army-pdfs/icons/evil-sunz-1779864164450.svg
   nom: Evil Sunz
   version: "1.0.1"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/evil-sunz.jpg
   citation:
     texte: "LES ROUJ' VON PLU VITE !"
     auteur: Sagesse Evil Sunz

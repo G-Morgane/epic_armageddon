@@ -2,11 +2,13 @@
 codex:
   slug: eldars-d-iyanden
   armee_id: 831586c4-af84-4196-93a0-b6ba7d0f93de
+  logo: /icons/uyanden.svg
   nom: Eldars d'Iyanden
   version: "1.3"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/eldars-d-iyanden.jpg
   citation:
     texte: "Les morts doivent rejoindre nos rangs, de crainte que nous rejoignions les leurs."
     auteur: Prince Yriel, Autarque d'Iyanden

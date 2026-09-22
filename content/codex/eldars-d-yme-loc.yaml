@@ -2,11 +2,13 @@
 codex:
   slug: eldars-d-yme-loc
   armee_id: 1854ca15-7c09-49c5-9a81-8363dade11bf
+  logo: /icons/ymeloc.svg
   nom: Eldars d'Yme-Loc
   version: "1.5"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/eldars-d-yme-loc.jpg
   citation:
     texte: "Vous ne pouvez comprendre l'Aigle qu'après avoir plané dans le ciel matinal sur des ailes de feu. Vous ne pouvez comprendre la Banshee qu'après vous être jeté sur vos ennemis terrifiés en hurlant. Vous ne pouvez comprendre la puissance du Dragon qu'après avoir consumé vos ennemis. Et vous ne pouvez comprendre l'Autarque qu'après avoir suivi toutes ces voies et vous être détourné d'elles."
     auteur: Anthrillien Morningchild, Autarque d'Yme-Loc

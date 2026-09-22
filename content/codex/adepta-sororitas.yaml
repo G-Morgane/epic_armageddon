@@ -2,11 +2,13 @@
 codex:
   slug: adepta-sororitas
   armee_id: 557ea78f-2ded-475e-bf4c-117910a42387
+  logo: https://nomrnaobradtiddfewxm.supabase.co/storage/v1/object/public/army-pdfs/icons/adepta-sororitas-1774338739840.svg
   nom: Adepta Sororitas
   version: "1..2"
   faction: imperium
   categorie: armees-imperiales
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/adepta-sororitas.jpg
   citation:
     texte: "Certains prétendent que nous devrions pardonner aux ignorants, aux timorés et aux dévoyés. Ces faibles qui prônent la clémence et la compréhension sont aussi coupables que ceux qu'ils cherchent à excuser. Qu'ils brûlent tous sur le même bûcher !"
     auteur: Chanoinesse Ismelda Caritados

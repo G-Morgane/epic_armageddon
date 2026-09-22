@@ -2,11 +2,13 @@
 codex:
   slug: empire-tau
   armee_id: f2c10f18-9270-4501-a84c-49c2c1d2868d
+  logo: /icons/tau.svg
   nom: Empire T'au
   version: "1.4"
   faction: xenos
   categorie: armees-xenos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/empire-tau.jpg
   citation:
     texte: "Nous ne prendrons pas l'ascendant sur cette galaxie hostile par la seule technologie. C'est notre cause commune et notre sens de l'honneur partagé qui nous unissent et nous confèrent le pouvoir de défaire nos ennemis."
     auteur: "Shas'el Sa'cea Or'es, Commandeur de la caste du Feu"

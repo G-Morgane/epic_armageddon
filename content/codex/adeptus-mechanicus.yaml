@@ -2,6 +2,7 @@
 codex:
   slug: adeptus-mechanicus
   armee_id: 39f3778c-babf-4b09-88bd-b79c866f0085
+  logo: /icons/adeptus_mechanicus.svg
   nom: Adeptus Mechanicus
   version: "1.5"
   faction: imperium

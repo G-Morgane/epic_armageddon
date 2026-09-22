@@ -2,6 +2,7 @@
 codex:
   slug: eldars-noirs
   armee_id: b84a978f-90d5-4b39-831d-23faeff41874
+  logo: /icons/eldars_noirs.svg
   nom: Eldars Noirs
   version: "1.5"
   faction: xenos

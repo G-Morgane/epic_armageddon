@@ -2,6 +2,7 @@
 codex:
   slug: blood-angels
   armee_id: 475ed4ba-452e-4433-b455-aee36ed57152
+  logo: /icons/blood_angels.svg
   nom: Blood Angels
   version: "1.2"
   faction: imperium

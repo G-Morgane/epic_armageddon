@@ -2,6 +2,7 @@
 codex:
   slug: black-legion
   armee_id: 380647ca-2dc4-438c-b25f-93076fa1d930
+  logo: /icons/black_legion.svg
   nom: Black Legion
   version: "1.6.1"
   faction: chaos

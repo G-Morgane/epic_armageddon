@@ -2,11 +2,13 @@
 codex:
   slug: egares-et-damnes
   armee_id: b1b6924b-e761-474a-a9da-855d081cbbce
+  logo: /icons/egares_damnes.svg
   nom: Égarés et Damnés
   version: "1.9"
   faction: chaos
   categorie: armees-chaos
   statut: official
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/egares-et-damnes.jpg
   citation:
     texte: "La chair et les os sont faibles et mutables, et pourtant le démon est finalement insignifiant et impuissant. Être maître à la fois de la matière et de l'énergie, et combiner cette maîtrise avec le contrôle ultime de sa conscience, c'est atteindre la véritable immortalité, ni confinée par la matière, ni séparée de celle-ci."
     auteur: Magos Kaudge Elizah
