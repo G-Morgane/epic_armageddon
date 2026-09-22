@@ -1,6 +1,7 @@
 # Légion d'Acier, transcrit depuis le PDF v1.3.1 (source de vérité).
 codex:
   slug: legion-dacier
+  armee_id: da77b59c-9371-4387-9f06-d502c8419882
   nom: Légion d'Acier
   version: "1.3.1"
   faction: imperium

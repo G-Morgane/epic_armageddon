@@ -95,6 +95,7 @@ Un codex = un document JSON (validé par un schéma zod) en trois couches.
 ```yaml
 codex:
   slug: legion-dacier
+  armee_id: da77b59c-…           # uuid de la fiche /armees (lie le codex à la page d'armée)
   nom: Légion d'Acier
   faction: imperium            # imperium | chaos | xenos (site)
   categorie: armees-imperiales # rubrique du builder
