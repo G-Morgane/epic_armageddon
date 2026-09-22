@@ -1,0 +1,692 @@
+# Légions Titaniques, transcrit depuis le PDF v1.4.1 (source de vérité).
+codex:
+  slug: legions-titaniques
+  armee_id: b344fee5-9202-4ec3-8231-6d2bdf1664cf
+  nom: Légions Titaniques
+  version: "1.4.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: official
+  citation:
+    texte: "En vérité, un Titan n'a que trois ennemis contre lesquels il doit se protéger : la folie, l'orgueil et un de ses semblables."
+    auteur: Grand Maître Volkus, Ordo Sinister
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une Légion Titanique. Les Titans sont d'immenses machines de combat, des guerriers humanoïdes mécaniques pouvant atteindre jusqu'à 30 mètres de haut. Ils instillent la terreur par leur simple présence, et peu de choses peuvent égaler leur armement. Peu d'ennemis, à part un autre Titan, peuvent s'opposer à eux.
+
+    Les Légions Titaniques sont organisées en formations appelées formations de bases, formations de soutien et formations de soutien rare.
+
+    Pour chaque formation de base vous pouvez prendre jusqu'à deux formations de soutien et/ou une formation de soutien rare (jusqu'à un maximum d'un tiers des points de l'armée).
+
+    Chaque formation peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par formation pour un maximum de quatre par détachement. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion.
+  regles_md:
+    - titre: "Règle spéciale : Boucliers du vide"
+      texte: |
+        Certains engins de guerre comme les Titans impériaux, les Léviathans de la Garde Impériale et des Squats ou encore les Deathwheels de la Black Legion sont protégés par des boucliers énergétiques. Le nombre de boucliers de chaque engin de guerre est noté sur sa fiche d'unité.
+
+        Chaque bouclier stoppe automatiquement un point de dommages avant de se désactiver. Ne faites pas de sauvegarde contre les attaques stoppées par des boucliers, n'ajoutez pas non plus de pion d'impact pour chaque bouclier désactivé. Une fois que tous les boucliers sont désactivés, l'engin de guerre peut être endommagé normalement. Faites les jets de sauvegarde habituels contre les touches subies.
+
+        Les touches de corps à corps lors d'un assaut ignorent les boucliers, mais pas celles de fusillade.
+
+        Les boucliers désactivés peuvent être réparés. Un engin de guerre répare un bouclier désactivé à la fin de chaque tour. De plus, si un engin de guerre se regroupe, il peut utiliser le résultat de son dé pour retirer des pions d'impact ou pour réparer des boucliers (par exemple, si le résultat est 2, vous pouvez soit retirer 2 pions d'impact, soit réparer 2 boucliers, soit retirer 1 pion d'impact et réparer 1 bouclier).
+    - titre: "Règle spéciale : Tunneliers"
+      texte: |
+        Le Mechanicum utilise des Tunneliers pour mener sans danger par voie souterraine les troupes à des lieux clés du champ de bataille :
+
+        - Les tunneliers sont déployés sur leur bord de table avant la bataille, au même moment que les vaisseaux spatiaux, ils n'interviennent pas directement dans le jeu tant qu'ils n'émergent pas.
+        - Noter secrètement au début de quel tour ils feront surface ainsi que les coordonnées (à partir de la pointe de la ou d'une des foreuses) où vous voulez qu'ils émergent, de la même façon que vous notez celles de vos zones de largage.
+        - Si les tunneliers apparaissent dans votre moitié de table, ils ne peuvent le faire qu'à partir du second tour et s'ils comptent émerger dans la moitié de table ennemie, ils ne peuvent le faire qu'à partir du troisième tour.
+        - Les tunneliers émergeant sont placés en début de tour, avant le jet de stratégie. Une fois les tunneliers placés vous pouvez faire débarquer vos troupes de suite.
+        - Il n'y a pas de déviation mais si toutefois, ils émergent sous les pieds de n'importe quel type d'unité (amie ou ennemie) ou dans une zone de contrôle ennemie, l'unité est placée par l'adversaire dans la zone dégagée la plus proche pouvant la recevoir.
+        - S'il y a plus d'une unité de Tunnelier qui émerge, après le placement de la première, les autres sont toutes placées à 15cm maximum de celle-ci tout en restant en formation.
+    - titre: "Alliance : Mechanicum"
+      texte: |
+        Un tiers des points d'une liste de Légions Titaniques peut être sélectionné dans l'un des deux codex Chevaliers Impériaux ou Adeptus Mechanicus. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux choix de soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême.
+    - titre: "Armement des Titans"
+      texte: |
+        Les Titans choisissent leur armement avec les restrictions suivantes :
+
+        - Un Titan Warhound est équipé de deux armes légères.
+        - Un Titan Reaver doit être équipé de 3 armes aux choix parmi les armes d'assaut, tactiques et de support.
+        - Un Titan Warbringer Nemesis doit être équipé de 2 Armes de bras à choisir parmi Canon Gatling, Turbo Laser, Canon Fuseur et Canon Volcano.
+        - Un Titan Warlord doit être équipé de 4 armes aux choix parmi les armes d'assaut, tactiques et de support.
+
+        Les armes des catégories Légères et Assaut sont gratuites, les armes Tactiques coûtent 25 points pièce et les armes de support coûtent 50 points pièce. Ces points s'ajoutent à ceux du Titan sélectionné.
+
+        Le Titan Warlord a la possibilité de prendre une deuxième arme tactique de carapace identique gratuitement, parmi : Lance-roquettes Apocalypse, Destructeur Turbo Laser, Méga Bolter Vulcain, Canon Gatling.
+
+        Les emplacements (bras ou carapace) sont indiqués dans les tableaux d'armes ci-dessous et doivent être respectés lors du choix de l'armement.
+    - titre: "Armes légères (gratuites)"
+      texte: |
+        - **Griffe d'Ursus**, (contact), Arme d'assaut, +1A, TT (1D3)
+        - **Natrix Shock Lance**, 30cm et (15cm), 2xAC3+, Lance, Ignore les boucliers du Vide / Arme Légère, +1A, Lance, Ignore les boucliers du Vide
+        - **Canon à Plasma Léger**, 45cm, 2xMA2+, Rchg
+        - **Canon Inferno Léger**, 30cm et (15cm), 2PB, IC / Arme Légère, +1A, IC
+        - **Destructeur Turbo Laser Léger**, 45cm, 4xAP5+/AC3+
+        - **Méga Bolter Vulcain Léger**, 45cm, 4x AP3+/AC5+
+    - titre: "Armes d'assaut (gratuites)"
+      texte: |
+        - **Module d'assaut Corvus**, (15cm), Arme Légère, +4A, Transport (8). Emplacement de Bras uniquement, Titan Warlord uniquement, Transport d'Infanterie exclusif
+        - **Poing de Combat**, (contact), Arme d'Assaut, +3A, TT (D3). Emplacement de Bras uniquement
+        - **Poing tronçonneur**, (contact), Arme d'Assaut, +6A, MA. Emplacement de Bras uniquement
+        - **Démolisseur**, (contact), Arme d'Assaut, +1A, TT (D6), FeP. Emplacement de Bras uniquement
+    - titre: "Armes tactiques (25 pts pièce)"
+      texte: |
+        - **Canon à Plasma**, 60cm, 3xMA2+, Rchg. Emplacement de Bras uniquement
+        - **Canon Inferno (PB)**, 30cm et (15cm), 4PB, IC / Arme Légère, +2A, IC. Emplacement de Bras uniquement
+        - **Destructeur Turbo Laser**, 60cm, 4xAP5+/AC3+
+        - **Méga Bolter Vulcain**, 45cm, 6x AP3+/AC5+
+        - **Lance-roquettes Apocalypse**, 60cm, 4PB. Emplacement de carapace uniquement
+        - **Canon Gatling (Titan)**, 60cm, 4xAP4+/AC4+
+        - **Thermo Fuseur**, (15cm), Arme Légère, +3A, MA. Emplacement de Bras uniquement
+        - **Canon Fuseur**, 30cm et (15cm), 2xMA3+, TT (1) / Arme Légère, +1A, TT (D3). Emplacement de Bras uniquement
+        - **Poing de Combat Arioch**, 30cm et (contact), 2x AP3+/AC5+ / Arme d'Assaut, +3A, TT (D3). Emplacement de Bras uniquement, Titan Warlord uniquement
+    - titre: "Armes de support (50 pts pièce)"
+      texte: |
+        - **Annihilateur à plasma**, 90cm, 4xMA2+, Rchg. Emplacement de Bras uniquement
+        - **Sismo Canon (Titan)**, 90cm, 3PB, MA. Emplacement de Bras uniquement
+        - **Canon Volcano (Titan)**, 90cm, MA2+, TT (D3). Emplacement de Bras uniquement
+        - **0-1 Missile Warp**, Illimité, MA2+, Uniq, TT (D3), Ind. Cette arme ignore les boucliers du Vide. Emplacement de carapace uniquement
+        - **Missile de barrage**, Illimité, 8PB, Uniq, Rpt, Ind. Emplacement de carapace uniquement
+    - titre: "Améliorations des Titans"
+      texte: |
+        - **Multi-Laser de Carapace**, 30cm, AP5+/AC6+/AA5+
+        - **Icône Sacrée** : ajouter la Note Charismatique au Titan.
+        - **Cloche de Dévotion** : Mouvement Titan +5cm, ajouter la Note Charismatique, Meneur et Sauvegarde Invulnérable au Titan.
+        - **Auspex Amélioré** : ajouter la Note Tir Indirect à toutes les Armes ayant une valeur de Barrage.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture GW LTD."
+  valeur_strategique: 3
+  initiative:
+    defaut: "1+"
+
+budgets:
+  - id: slot_soutien
+    libelle: Formations de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Deux formations de soutien par formation de base"
+  - id: slot_rare
+    libelle: Formations de soutien rare
+    capacite: { source: fournitures }
+    phrase_pdf: "Une formation de soutien rare par formation de base"
+  - id: rare
+    libelle: Soutien rare
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: missile_warp
+    libelle: Missile Warp
+    capacite: { source: fixe, valeur: 1 }
+    phrase_pdf: "Un seul Missile Warp dans l'armée"
+
+unites:
+  - id: titan_warhound
+    nom: Titan Warhound
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Armes de Bras, puissance: Frt }
+    notes:
+      - Blindage renforcé
+      - Marcheur
+      - Sans peur
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et au maximum de 2cm de large."
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warhound et infligeant une touche sur un 6+ à toute unité dans un rayon de 5cm, sur 2-3 le Warhound subit un point de dommage supplémentaire, et sur 4-6 la fissure est réparée."
+  - id: titan_reaver
+    nom: Titan Reaver
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Armes de Carapace, puissance: FrtF }
+      - { nom: 2x Armes de Bras, puissance: Frt }
+    notes:
+      - Blindage renforcé
+      - Marcheur
+      - Sans peur
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et au maximum de 2cm de large."
+    degats:
+      cd: 6
+      bi: 4
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Reaver et infligeant une touche sur un 5+ à toute unité dans un rayon de 5cm, sur 2-3 le Reaver subit un point de dommage supplémentaire, et sur 4-6 la fissure est réparée."
+  - id: titan_warbringer
+    nom: Titan Warbringer Nemesis
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Nemesis Quake Canon, portee: 90cm, puissance: "3PB, MA, Ind, FrtF" }
+      - { nom: 2x Batterie de Défense modèle Anvillus, portee: 45cm, puissance: "2x AP3+/AC4+/AA5+" }
+      - { nom: 2x Arme de bras Warbringer Nemesis, puissance: Frt }
+    notes:
+      - Blindage renforcé
+      - Blindage arrière renforcé
+      - Marcheur
+      - Sans peur
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et au maximum de 2cm de large."
+    degats:
+      cd: 7
+      bi: 5
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warbringer et infligeant une touche sur un 4+ à toute unité dans un rayon de 5cm, sur 2-3 le Warbringer subit un point de dommage supplémentaire, et sur 4-6 la fissure est réparée."
+  - id: titan_warlord
+    nom: Titan Warlord
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "2+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Armes de carapace, puissance: FrtF }
+      - { nom: 2x Armes de Bras, puissance: Frt }
+    notes:
+      - Blindage renforcé
+      - Blindage arrière renforcé
+      - Marcheur
+      - Sans peur
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et au maximum de 2cm de large."
+    degats:
+      cd: 8
+      bi: 6
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warlord et infligeant une touche sur un 4+ à toute unité dans un rayon de 5cm, sur 2-3 le Warlord subit un point de dommage supplémentaire, et sur 4-6 la fissure est réparée."
+  - id: titan_imperator
+    nom: Titan Imperator
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Fournaise, portee: 60cm, puissance: "10PB, FrtF" }
+      - { nom: 4x Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Sismo Canon, portee: 90cm, puissance: "3PB, MA, FrtF" }
+      - { nom: Laser de défense, portee: 90cm, puissance: "MA2+/AA4+, TT (D3)" }
+      - { nom: Annihilateur à Plasma Suzerain, portee: 90cm, puissance: "4xMA2+, FrtF, Rchg, TT (D3)" }
+      - { nom: Armement Tertiaire, portee: "(15cm)", puissance: "Arme Légère, +2A" }
+      - { nom: Bastions, portee: "(15cm)", puissance: "Arme Légère, +4A" }
+    notes:
+      - Charismatique
+      - Blindage renforcé
+      - Marcheur
+      - Sans peur
+      - "Transport (8) : Secutarii"
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et au maximum de 2cm de large."
+    transport: { capacite: 8, accepte: [secutarii_hoplites, secutarii_peltastes] }
+    degats:
+      cd: 12
+      bi: 8
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant l'Imperator et infligeant une touche sur un 5+ à toute unité dans un rayon de 5cm, sur 2-3 l'Imperator subit un point de dommage supplémentaire, et sur 4-6 la fissure est réparée."
+  - id: titan_imperator_warmonger
+    nom: Titan Imperator Warmonger
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Missiles Doomstrikes, portee: "(illimité)", puissance: "2xMA3+" }
+      - { nom: Canon Vengeance, portee: 90cm, puissance: "2xMA2+" }
+      - { nom: 4x Autocanon Hydre, portee: 45cm, puissance: "2xAP4+/AC5+/AA5+" }
+      - { nom: Arme de tête, portee: 45cm, puissance: "AP4+/AC4+, FrtF" }
+      - { nom: Armement Tertiaire, portee: "(15cm)", puissance: "Arme Légère, +2A" }
+      - { nom: Bastions, portee: "(15cm)", puissance: "Arme Légère, +4A" }
+    notes:
+      - Charismatique
+      - Blindage renforcé
+      - Marcheur
+      - Sans peur
+      - "Centre de contrôle (permet 1 fois par tour de relancer un jet pour toucher d'une arme ou d'un système d'arme)"
+      - "Transport (8) : Secutarii"
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et au maximum de 2cm de large."
+    transport: { capacite: 8, accepte: [secutarii_hoplites, secutarii_peltastes] }
+    degats:
+      cd: 12
+      bi: 8
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose détruisant le Warmonger et infligeant une touche sur un 5+ à toute unité dans un rayon de 5cm, sur 2-3 le Warmonger subit un point de dommage supplémentaire, et sur 4-6 la fissure est réparée."
+  - id: legat
+    nom: Légat
+    type: Perso
+    roles: [personnage, commandant_supreme]
+    notes:
+      - Commandant Suprême
+      - "Le Légat doit obligatoirement rejoindre le titan avec la plus grande Capacité de Dommages de l'armée."
+  - id: princeps_veteran
+    nom: Princeps Vétéran
+    type: Perso
+    roles: [personnage]
+    notes: [Commandant, Meneur]
+  - id: secutarii_hoplites
+    nom: Secutarii Hoplites
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Arc Lance, portee: "(contact)", puissance: "Arme d'Assaut" }
+    notes: [Sauvegarde invulnérable]
+  - id: secutarii_peltastes
+    nom: Secutarii Peltastes
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Galvanic Caster, portee: "(15cm)", puissance: "Arme Légère" }
+    notes: [Sauvegarde invulnérable]
+  - id: termite
+    nom: Termite (AMTL)
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    armes:
+      - { nom: Tête de Foreuse, portee: "(contact)", puissance: "Arme d'Assaut" }
+    notes:
+      - Blindage Renforcé
+      - Blindage Arrière Renforcé
+      - Tunnelier
+      - "Transport (2) : Secutarii"
+    transport: { capacite: 2, accepte: [secutarii_hoplites, secutarii_peltastes] }
+  - id: taupe
+    nom: Taupe (AMTL)
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    armes:
+      - { nom: Tête de Foreuse, portee: "(contact)", puissance: "Arme d'Assaut" }
+    notes:
+      - Blindage Renforcé
+      - Blindage Arrière Renforcé
+      - Tunnelier
+      - "Transport (8) : Secutarii"
+    transport: { capacite: 8, accepte: [secutarii_hoplites, secutarii_peltastes] }
+    degats: { cd: 2, critique: Détruit }
+  - id: fouisseuse
+    nom: Fouisseuse (AMTL)
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    armes:
+      - { nom: Tête de Foreuse, portee: "(contact)", puissance: "Arme d'Assaut" }
+    notes:
+      - Blindage Renforcé
+      - Blindage Arrière Renforcé
+      - Tunnelier
+      - "Transport (16) : Secutarii"
+    transport: { capacite: 16, accepte: [secutarii_hoplites, secutarii_peltastes] }
+    degats: { cd: 4, critique: Détruit }
+
+options:
+  # ---------- Améliorations ----------
+  - id: legat
+    nom: Légat
+    effet: { type: ajouter, unites: [{ unite: legat, nombre: 1 }], cout: 50 }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+    note_md: "Ajouter un Légat au Titan. Un seul Légat par armée. Le Légat doit obligatoirement rejoindre le titan avec la plus grande Capacité de Dommages de l'armée."
+  - id: princeps_veteran
+    nom: Princeps Vétéran
+    effet: { type: ajouter, unites: [{ unite: princeps_veteran, nombre: 1 }], cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter un Princeps Vétéran au Titan (Warhound, Reaver, Warbringer)."
+  - id: princeps_veteran_warlord
+    nom: Princeps Vétéran
+    effet: { type: ajouter, unites: [{ unite: princeps_veteran, nombre: 1 }], cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter un Princeps Vétéran au Titan Warlord."
+  - id: multi_lasers_carapace
+    nom: Multi-lasers de Carapace
+    effet: { type: mot_cle, texte: "Multi-Laser de Carapace (30cm, AP5+/AC6+/AA5+)", cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter des Multi-lasers de carapace au Titan."
+  - id: icone_sacree
+    nom: Icône Sacrée
+    effet:
+      type: choix
+      parmi:
+        - id: equiper
+          nom: "Équiper le Titan d'une Icône Sacrée"
+          cout: 50
+          effet: { type: mot_cle, texte: "Icône Sacrée (Charismatique)" }
+        - id: remplacer_carapace
+          nom: "Remplacer un système d'arme de carapace par une Icône Sacrée"
+          cout: 0
+          effet: { type: mot_cle, texte: "Icône Sacrée (Charismatique)" }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "L'Icône Sacrée ajoute la note Charismatique au Titan. En remplacement, elle prend la place d'un système d'arme de carapace : retirez une arme de carapace du Titan."
+  - id: cloche_devotion
+    nom: Cloche de Dévotion
+    effet:
+      type: choix
+      parmi:
+        - id: equiper
+          nom: "Équiper le Titan d'une Cloche de Dévotion"
+          cout: 100
+          effet: { type: mot_cle, texte: "Cloche de Dévotion (Mouvement +5cm, Charismatique, Meneur, Sauvegarde Invulnérable)" }
+        - id: remplacer_carapace
+          nom: "Remplacer deux systèmes d'arme de carapace par une Cloche de Dévotion"
+          cout: 0
+          effet: { type: mot_cle, texte: "Cloche de Dévotion (Mouvement +5cm, Charismatique, Meneur, Sauvegarde Invulnérable)" }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "La Cloche de Dévotion donne Mouvement Titan +5cm, Charismatique, Meneur et Sauvegarde Invulnérable. En remplacement, elle prend la place de deux systèmes d'arme de carapace : retirez deux armes de carapace du Titan."
+  - id: auspex_ameliore
+    nom: Auspex amélioré
+    effet: { type: mot_cle, texte: "Auspex Amélioré (Tir Indirect sur toutes les armes ayant une valeur de Barrage)", cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Équiper le Titan d'un Auspex amélioré."
+  - id: tunneliers
+    nom: Tunneliers
+    effet:
+      type: choix
+      parmi:
+        - id: termites
+          nom: Ajouter 4 Termites à la formation
+          cout: 100
+          effet: { type: ajouter, unites: [{ unite: termite, nombre: 4 }] }
+        - id: taupe
+          nom: Ajouter 1 Taupe à la formation
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: taupe, nombre: 1 }] }
+        - id: fouisseuse
+          nom: Ajouter 1 Fouisseuse à la formation
+          cout: 75
+          effet: { type: ajouter, unites: [{ unite: fouisseuse, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+  # ---------- Armement des Titans ----------
+  # Les armes ne sont pas des unités : une ligne de `choix` par arme, avec son coût.
+  # Elles ne comptent pas dans le quota de quatre améliorations par formation.
+  - id: armement_warhound
+    nom: Armes légères
+    effet:
+      type: choix
+      parmi:
+        - { id: griffe_ursus, nom: Griffe d'Ursus, cout: 0 }
+        - { id: natrix_shock_lance, nom: Natrix Shock Lance, cout: 0 }
+        - { id: canon_plasma_leger, nom: Canon à Plasma Léger, cout: 0 }
+        - { id: canon_inferno_leger, nom: Canon Inferno Léger, cout: 0 }
+        - { id: destructeur_turbo_laser_leger, nom: Destructeur Turbo Laser Léger, cout: 0 }
+        - { id: mega_bolter_vulcain_leger, nom: Méga Bolter Vulcain Léger, cout: 0 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 2 }
+    note_md: "Un Titan Warhound est équipé de deux armes légères. Les armes légères sont gratuites."
+  - id: armement_meute_warhounds
+    nom: Armes légères
+    effet:
+      type: choix
+      parmi:
+        - { id: griffe_ursus, nom: Griffe d'Ursus, cout: 0 }
+        - { id: natrix_shock_lance, nom: Natrix Shock Lance, cout: 0 }
+        - { id: canon_plasma_leger, nom: Canon à Plasma Léger, cout: 0 }
+        - { id: canon_inferno_leger, nom: Canon Inferno Léger, cout: 0 }
+        - { id: destructeur_turbo_laser_leger, nom: Destructeur Turbo Laser Léger, cout: 0 }
+        - { id: mega_bolter_vulcain_leger, nom: Méga Bolter Vulcain Léger, cout: 0 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 4 }
+    note_md: "Chacun des deux Titans Warhounds de la meute est équipé de deux armes légères, soit quatre armes au total. Les armes légères sont gratuites."
+  - id: armement_warbringer
+    nom: Armes de bras du Warbringer Nemesis
+    effet:
+      type: choix
+      parmi:
+        - { id: canon_gatling, nom: Canon Gatling (Titan), cout: 25 }
+        - { id: destructeur_turbo_laser, nom: Destructeur Turbo Laser, cout: 25 }
+        - { id: canon_fuseur, nom: Canon Fuseur, cout: 25 }
+        - { id: canon_volcano, nom: Canon Volcano (Titan), cout: 50 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 2 }
+    note_md: "Un Titan Warbringer Nemesis doit être équipé de 2 Armes de bras à choisir parmi Canon Gatling, Turbo Laser, Canon Fuseur et Canon Volcano."
+  - id: armement_reaver
+    nom: Armement du Reaver
+    effet:
+      type: choix
+      parmi:
+        - { id: poing_combat, nom: "Poing de Combat (assaut, bras)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing tronçonneur (assaut, bras)", cout: 0 }
+        - { id: demolisseur, nom: "Démolisseur (assaut, bras)", cout: 0 }
+        - { id: canon_plasma, nom: "Canon à Plasma (tactique, bras)", cout: 25 }
+        - { id: canon_inferno, nom: "Canon Inferno (tactique, bras)", cout: 25 }
+        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser (tactique)", cout: 25 }
+        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain (tactique)", cout: 25 }
+        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse (tactique, carapace)", cout: 25 }
+        - { id: canon_gatling, nom: "Canon Gatling (tactique)", cout: 25 }
+        - { id: thermo_fuseur, nom: "Thermo Fuseur (tactique, bras)", cout: 25 }
+        - { id: canon_fuseur, nom: "Canon Fuseur (tactique, bras)", cout: 25 }
+        - { id: annihilateur_plasma, nom: "Annihilateur à plasma (support, bras)", cout: 50 }
+        - { id: sismo_canon, nom: "Sismo Canon (support, bras)", cout: 50 }
+        - { id: canon_volcano, nom: "Canon Volcano (support, bras)", cout: 50 }
+        - { id: missile_warp, nom: "Missile Warp (support, carapace)", cout: 50, contraintes: [{ type: consomme, budget: missile_warp }] }
+        - { id: missile_barrage, nom: "Missile de barrage (support, carapace)", cout: 50 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 3 }
+    note_md: "Un Titan Reaver doit être équipé de 3 armes au choix parmi les armes d'assaut, tactiques et de support : une arme de carapace et deux armes de bras. Le Module d'assaut Corvus et le Poing de Combat Arioch sont réservés au Titan Warlord."
+  - id: armement_warlord
+    nom: Armement du Warlord
+    effet:
+      type: choix
+      parmi:
+        - { id: module_assaut_corvus, nom: "Module d'assaut Corvus (assaut, bras)", cout: 0 }
+        - { id: poing_combat, nom: "Poing de Combat (assaut, bras)", cout: 0 }
+        - { id: poing_tronconneur, nom: "Poing tronçonneur (assaut, bras)", cout: 0 }
+        - { id: demolisseur, nom: "Démolisseur (assaut, bras)", cout: 0 }
+        - { id: canon_plasma, nom: "Canon à Plasma (tactique, bras)", cout: 25 }
+        - { id: canon_inferno, nom: "Canon Inferno (tactique, bras)", cout: 25 }
+        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser (tactique)", cout: 25 }
+        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain (tactique)", cout: 25 }
+        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse (tactique, carapace)", cout: 25 }
+        - { id: canon_gatling, nom: "Canon Gatling (tactique)", cout: 25 }
+        - { id: thermo_fuseur, nom: "Thermo Fuseur (tactique, bras)", cout: 25 }
+        - { id: canon_fuseur, nom: "Canon Fuseur (tactique, bras)", cout: 25 }
+        - { id: poing_combat_arioch, nom: "Poing de Combat Arioch (tactique, bras)", cout: 25 }
+        - { id: annihilateur_plasma, nom: "Annihilateur à plasma (support, bras)", cout: 50 }
+        - { id: sismo_canon, nom: "Sismo Canon (support, bras)", cout: 50 }
+        - { id: canon_volcano, nom: "Canon Volcano (support, bras)", cout: 50 }
+        - { id: missile_warp, nom: "Missile Warp (support, carapace)", cout: 50, contraintes: [{ type: consomme, budget: missile_warp }] }
+        - { id: missile_barrage, nom: "Missile de barrage (support, carapace)", cout: 50 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 4 }
+    note_md: "Un Titan Warlord doit être équipé de 4 armes au choix parmi les armes d'assaut, tactiques et de support : deux armes de carapace et deux armes de bras."
+  - id: seconde_arme_carapace
+    nom: Deuxième arme tactique de carapace identique
+    effet:
+      type: choix
+      parmi:
+        - { id: lance_roquettes_apocalypse, nom: Lance-roquettes Apocalypse, cout: 0 }
+        - { id: destructeur_turbo_laser, nom: Destructeur Turbo Laser, cout: 0 }
+        - { id: mega_bolter_vulcain, nom: Méga Bolter Vulcain, cout: 0 }
+        - { id: canon_gatling, nom: Canon Gatling, cout: 0 }
+    contraintes:
+      - { type: hors_quota_options }
+      - { type: max_par_formation, valeur: 1 }
+    note_md: "Le Titan Warlord a la possibilité de prendre une deuxième arme tactique de carapace identique gratuitement, parmi : Lance-roquettes Apocalypse, Destructeur Turbo Laser, Méga Bolter Vulcain, Canon Gatling. L'arme choisie ici doit être identique à une arme de carapace déjà prise dans l'armement du Warlord."
+
+formations:
+  # ---------- Formations de bases ----------
+  - id: titan_warlord
+    nom: Titan Warlord
+    variantes:
+      - { id: base, cout: 725, composition: [{ unite: titan_warlord, nombre: 1 }] }
+    options: [legat, princeps_veteran_warlord, multi_lasers_carapace, icone_sacree, auspex_ameliore, cloche_devotion, armement_warlord, seconde_arme_carapace]
+  - id: titan_warbringer
+    nom: Titan Warbringer Nemesis
+    variantes:
+      - { id: base, cout: 700, composition: [{ unite: titan_warbringer, nombre: 1 }] }
+    options: [legat, princeps_veteran, icone_sacree, auspex_ameliore, armement_warbringer]
+  - id: titan_reaver
+    nom: Titan Reaver
+    variantes:
+      - { id: base, cout: 575, composition: [{ unite: titan_reaver, nombre: 1 }] }
+    options: [legat, princeps_veteran, multi_lasers_carapace, icone_sacree, auspex_ameliore, armement_reaver]
+  - id: meute_warhounds
+    nom: Meute de Warhounds
+    variantes:
+      - { id: base, cout: 500, composition: [{ unite: titan_warhound, nombre: 2 }] }
+    options: [princeps_veteran, armement_meute_warhounds]
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+
+  # ---------- Formations de soutien ----------
+  - id: titan_warhound
+    nom: Titan Warhound
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: titan_warhound, nombre: 1 }] }
+    options: [princeps_veteran, armement_warhound]
+  - id: cohorte_secutarii_peltastes
+    nom: Cohorte de Secutarii Peltastes
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: secutarii_peltastes, nombre: 8 }] }
+    options: [tunneliers]
+  - id: cohorte_secutarii_hoplites
+    nom: Cohorte de Secutarii Hoplites
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: secutarii_hoplites, nombre: 8 }] }
+    options: [tunneliers]
+
+  # ---------- Formations de soutien rare ----------
+  - id: titan_imperator
+    nom: Titan Imperator
+    variantes:
+      - { id: base, cout: 1250, composition: [{ unite: titan_imperator, nombre: 1 }] }
+    options: [legat]
+  - id: titan_imperator_warmonger
+    nom: Titan Imperator Warmonger
+    variantes:
+      - { id: base, cout: 1250, composition: [{ unite: titan_imperator_warmonger, nombre: 1 }] }
+    options: [legat]
+
+sections:
+  - id: bases
+    titre: FORMATIONS DE BASES
+    formations: [titan_warlord, titan_warbringer, titan_reaver, meute_warhounds]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+      - { type: fournit, budget: slot_rare, quantite: 1 }
+  - id: soutien
+    titre: FORMATIONS DE SOUTIEN
+    sous_titre: "Deux formations de soutien par formation de base"
+    formations: [titan_warhound, cohorte_secutarii_peltastes, cohorte_secutarii_hoplites]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: consomme, budget: slot_soutien }
+  - id: soutien_rare
+    titre: FORMATIONS DE SOUTIEN RARE
+    sous_titre: "Une formation de soutien rare par formation de base, jusqu'à 1/3 des points maximum"
+    formations: [titan_imperator, titan_imperator_warmonger]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: consomme, budget: slot_rare }
+      - { type: consomme, budget: rare, quoi: points }
+
+listes_test:
+  - nom: "4000 pts : deux bases, deux soutiens et un soutien rare"
+    limite: 4000
+    attendu: valide
+    formations:
+      - formation: titan_warlord
+        options:
+          - { option: armement_warlord, choix: poing_combat }
+          - { option: armement_warlord, choix: canon_gatling }
+          - { option: armement_warlord, choix: lance_roquettes_apocalypse }
+          - { option: armement_warlord, choix: canon_volcano }
+          - { option: seconde_arme_carapace, choix: canon_gatling }
+          - { option: princeps_veteran_warlord }
+      - formation: meute_warhounds
+        options:
+          - { option: armement_meute_warhounds, choix: canon_plasma_leger }
+          - { option: armement_meute_warhounds, choix: canon_plasma_leger }
+          - { option: armement_meute_warhounds, choix: mega_bolter_vulcain_leger }
+          - { option: armement_meute_warhounds, choix: mega_bolter_vulcain_leger }
+      - formation: titan_warhound
+        options:
+          - { option: armement_warhound, choix: destructeur_turbo_laser_leger }
+          - { option: armement_warhound, choix: mega_bolter_vulcain_leger }
+      - formation: cohorte_secutarii_hoplites
+        options: [{ option: tunneliers, choix: taupe }]
+      - formation: titan_imperator
+        options: [{ option: legat }]
+  - nom: "1500 pts : un Reaver complet et deux soutiens"
+    limite: 1500
+    attendu: valide
+    formations:
+      - formation: titan_reaver
+        options:
+          - { option: armement_reaver, choix: poing_tronconneur }
+          - { option: armement_reaver, choix: destructeur_turbo_laser }
+          - { option: armement_reaver, choix: annihilateur_plasma }
+          - { option: icone_sacree, choix: remplacer_carapace }
+          - { option: auspex_ameliore }
+          - { option: multi_lasers_carapace }
+          - { option: princeps_veteran }
+      - formation: cohorte_secutarii_peltastes
+        options: [{ option: tunneliers, choix: termites }]
+      - formation: titan_warhound
+        options:
+          - { option: armement_warhound, choix: griffe_ursus }
+          - { option: armement_warhound, choix: canon_inferno_leger }
+  - nom: "trois soutiens pour une seule formation de base"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: titan_warlord }
+      - { formation: titan_warhound }
+      - { formation: cohorte_secutarii_hoplites }
+      - { formation: cohorte_secutarii_peltastes }
+  - nom: "cinq améliorations sur un Warlord"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: titan_warlord
+        options:
+          - { option: legat }
+          - { option: princeps_veteran_warlord }
+          - { option: multi_lasers_carapace }
+          - { option: icone_sacree, choix: equiper }
+          - { option: cloche_devotion, choix: equiper }
+          - { option: auspex_ameliore }
+  - nom: "deux Missiles Warp dans l'armée"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: titan_warlord
+        options: [{ option: armement_warlord, choix: missile_warp }]
+      - formation: titan_reaver
+        options: [{ option: armement_reaver, choix: missile_warp }]
+  - nom: "trois Meutes de Warhounds"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: meute_warhounds }
+      - { formation: meute_warhounds }
+      - { formation: meute_warhounds }
+  - nom: "cinq armes sur un Reaver"
+    limite: 3000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: titan_reaver
+        options:
+          - { option: armement_reaver, choix: poing_combat }
+          - { option: armement_reaver, choix: poing_combat }
+          - { option: armement_reaver, choix: canon_gatling }
+          - { option: armement_reaver, choix: canon_gatling }
+          - { option: armement_reaver, choix: sismo_canon }
