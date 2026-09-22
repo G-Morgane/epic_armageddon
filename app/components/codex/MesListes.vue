@@ -4,7 +4,7 @@
  * Sans session, le tiroir explique que les listes restent dans le navigateur.
  */
 import type { Liste } from '~~/shared/codex/liste'
-import type { ListeEnregistree } from '~~/app/composables/useListes'
+import type { ResumeListe } from '~~/app/composables/useListes'
 
 const props = defineProps<{
   /** codex courant, pour filtrer et pour enregistrer */
@@ -25,8 +25,11 @@ const emit = defineEmits<{
 const ouvert = defineModel<boolean>({ default: false })
 
 const api = useListes()
+const route = useRoute()
+/** revenir sur le builder, liste en cours intacte, une fois la connexion faite */
+const lienConnexion = computed(() => `/connexion?suivant=${encodeURIComponent(route.fullPath)}`)
 const connecte = ref(false)
-const listes = ref<ListeEnregistree[]>([])
+const listes = ref<ResumeListe[]>([])
 const chargement = ref(false)
 const erreur = ref('')
 const occupe = ref('')
@@ -89,17 +92,28 @@ async function enregistrerCopie() {
   }
 }
 
-function charger(l: ListeEnregistree) {
-  emit('charger', l.data, l.id)
-  ouvert.value = false
+/** Le tiroir ne reçoit que les en-têtes : l'armée elle-même est lue à l'ouverture. */
+async function charger(l: ResumeListe) {
+  occupe.value = l.id
+  erreur.value = ''
+  try {
+    const complete = await api.lire(l.id)
+    emit('charger', complete.data, l.id)
+    ouvert.value = false
+  } catch (e) {
+    erreur.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
+  } finally {
+    occupe.value = ''
+  }
 }
 
-async function supprimer(l: ListeEnregistree) {
+async function supprimer(l: ResumeListe) {
   if (!confirm(`Supprimer « ${l.nom} » ? Cette action est définitive.`)) return
   occupe.value = l.id
   try {
     await api.supprimer(l.id)
-    await rafraichir()
+    // une ligne en moins ne justifie pas de relire toute la liste
+    listes.value = listes.value.filter((x) => x.id !== l.id)
   } catch (e) {
     erreur.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
   } finally {
@@ -111,13 +125,13 @@ function lienDe(code: string) {
   return `${window.location.origin}/builder/${props.slug}?liste=${code}`
 }
 
-async function basculerPartage(l: ListeEnregistree) {
+async function basculerPartage(l: ResumeListe) {
   occupe.value = l.id
   erreur.value = ''
   try {
-    if (l.code_partage) await api.retirerPartage(l.id)
-    else await api.partager(l.id)
-    await rafraichir()
+    // le code est la seule chose qui change : la relecture complète n'apprend rien de plus
+    if (l.code_partage) { await api.retirerPartage(l.id); l.code_partage = null }
+    else l.code_partage = await api.partager(l.id)
   } catch (e) {
     erreur.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
   } finally {
@@ -125,7 +139,7 @@ async function basculerPartage(l: ListeEnregistree) {
   }
 }
 
-async function copierLien(l: ListeEnregistree) {
+async function copierLien(l: ResumeListe) {
   if (!l.code_partage) return
   try {
     await navigator.clipboard.writeText(lienDe(l.code_partage))
@@ -156,7 +170,7 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
       <aside v-if="ouvert" class="fixed inset-y-0 right-0 z-[61] flex w-full max-w-2xl flex-col border-l border-gold/20 bg-surface shadow-2xl" role="dialog" aria-label="Mes listes">
         <header class="flex items-center justify-between gap-3 border-b border-gold/10 bg-surface-light px-5 py-3">
           <div class="min-w-0">
-            <p class="text-xs uppercase tracking-widest text-gold">Builder</p>
+            <p class="text-xs uppercase tracking-widest text-gold">Construction d'armée</p>
             <h2 class="truncate font-heading text-lg font-bold text-white">Mes listes</h2>
           </div>
           <button type="button" class="rounded-md p-2 text-gray-400 hover:bg-white/10 hover:text-white" title="Fermer (Échap)" @click="fermer">✕</button>
@@ -178,10 +192,21 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
           <div v-if="!connecte" class="rounded-lg border border-dashed border-white/15 p-6 text-center text-sm text-stone-400">
             <p class="text-stone-200">Tes listes restent dans ce navigateur.</p>
             <p class="mt-2">Connecte-toi pour les enregistrer sur ton compte, les retrouver sur un autre appareil et partager un lien.</p>
-            <NuxtLink to="/admin/login" class="mt-4 inline-block rounded-md bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light">Se connecter</NuxtLink>
+            <NuxtLink :to="lienConnexion" class="mt-4 inline-block rounded-md bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light">Se connecter</NuxtLink>
           </div>
 
-          <div v-else-if="chargement" class="py-12 text-center text-sm text-stone-500">Chargement…</div>
+          <ul v-else-if="chargement" class="space-y-2" aria-label="Chargement des listes" aria-busy="true">
+            <li v-for="n in 3" :key="n" class="animate-pulse rounded-lg border border-white/10 bg-surface-light p-3">
+              <div class="flex items-center gap-3">
+                <div class="h-4 w-40 rounded bg-white/10" />
+                <div class="ml-auto h-3 w-24 rounded bg-white/5" />
+              </div>
+              <div class="mt-3 flex gap-2">
+                <div class="h-6 w-16 rounded bg-white/5" />
+                <div class="h-6 w-28 rounded bg-white/5" />
+              </div>
+            </li>
+          </ul>
 
           <p v-else-if="!listes.length" class="rounded-lg border border-dashed border-white/15 p-6 text-center text-sm text-stone-400">
             Aucune liste enregistrée. Le bouton ci-dessus enregistre celle que tu construis.

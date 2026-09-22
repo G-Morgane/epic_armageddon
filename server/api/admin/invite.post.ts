@@ -2,29 +2,7 @@ export default defineEventHandler(async (event) => {
   const supabase = useSupabaseServer()
   const body = await readBody(event)
 
-  // Verify the request comes from an authenticated super_admin
-  const authHeader = getHeader(event, 'authorization')
-  if (!authHeader) {
-    throw createError({ statusCode: 401, message: 'Non authentifié' })
-  }
-
-  const token = authHeader.replace('Bearer ', '')
-  const { data: { user }, error: authError } = await supabase.auth.getUser(token)
-
-  if (authError || !user) {
-    throw createError({ statusCode: 401, message: 'Non authentifié' })
-  }
-
-  // Check role
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single()
-
-  if (profile?.role !== 'super_admin') {
-    throw createError({ statusCode: 403, message: 'Accès refusé' })
-  }
+  await exigerAdmin(event, ['super_admin'])
 
   const { email, role } = body
 

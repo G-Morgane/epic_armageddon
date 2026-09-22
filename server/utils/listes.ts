@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { H3Event } from 'h3'
+import { serverSupabaseUser } from '#supabase/server'
 import type { Liste } from '~~/shared/codex/liste'
 
 /**
@@ -9,6 +10,9 @@ import type { Liste } from '~~/shared/codex/liste'
 
 /** Client non typé : la table n'est pas dans les types générés du projet. */
 const sb = () => useSupabaseServer() as unknown as SupabaseClient
+
+/** Une liste sans son contenu : ce que le tiroir « Mes listes » affiche. */
+export type ResumeListe = Omit<ListeEnregistree, 'data'>
 
 export interface ListeEnregistree {
   id: string
@@ -32,21 +36,21 @@ function erreurSql(e: { message?: string; code?: string } | null, action: string
   })
 }
 
-/** Utilisateur du jeton Supabase ; erreur 401 s'il n'y en a pas. */
+/** Utilisateur de la session Supabase (cookie) ; erreur 401 s'il n'y en a pas. */
 export async function exigerUtilisateur(event: H3Event): Promise<{ id: string }> {
-  const entete = getHeader(event, 'authorization')
-  if (!entete) throw createError({ statusCode: 401, message: 'Connexion requise pour enregistrer une liste' })
-  const { data, error } = await useSupabaseServer().auth.getUser(entete.replace('Bearer ', ''))
-  if (error || !data.user) throw createError({ statusCode: 401, message: 'Session expirée, reconnecte-toi' })
-  return { id: data.user.id }
+  const claims = await serverSupabaseUser(event).catch(() => null)
+  if (!claims?.sub) throw createError({ statusCode: 401, message: 'Connexion requise pour enregistrer une liste' })
+  return { id: claims.sub }
 }
 
 const CHAMPS = 'id, codex, nom, limite, data, code_partage, total, valide, updated_at'
+/** Le tiroir n'affiche que l'en-tête des listes : inutile de descendre l'armée complète de chacune. */
+const CHAMPS_RESUME = 'id, codex, nom, limite, code_partage, total, valide, updated_at'
 
-export async function listerListes(userId: string): Promise<ListeEnregistree[]> {
-  const { data, error } = await sb().from('listes_armee').select(CHAMPS).eq('user_id', userId).order('updated_at', { ascending: false })
+export async function listerListes(userId: string): Promise<ResumeListe[]> {
+  const { data, error } = await sb().from('listes_armee').select(CHAMPS_RESUME).eq('user_id', userId).order('updated_at', { ascending: false })
   if (error) erreurSql(error, 'lecture des listes')
-  return (data ?? []) as unknown as ListeEnregistree[]
+  return (data ?? []) as unknown as ResumeListe[]
 }
 
 export async function lireListe(id: string, userId: string): Promise<ListeEnregistree | null> {
@@ -55,11 +59,23 @@ export async function lireListe(id: string, userId: string): Promise<ListeEnregi
   return (data as unknown as ListeEnregistree) ?? null
 }
 
-/** Liste partagée : lecture publique par son code, sans jeton. */
-export async function lireListePartagee(code: string): Promise<ListeEnregistree | null> {
-  const { data, error } = await sb().from('listes_armee').select(CHAMPS).eq('code_partage', code).maybeSingle()
+/**
+ * Liste partagée : lecture publique par son code, sans session.
+ * Le pseudo de l'auteur accompagne la liste ; son email, jamais.
+ * `profiles` n'est pas joignable par PostgREST ici (la clé étrangère vise
+ * auth.users), d'où la seconde requête.
+ */
+export async function lireListePartagee(code: string): Promise<(ListeEnregistree & { pseudo: string | null }) | null> {
+  const { data, error } = await sb().from('listes_armee').select(`${CHAMPS}, user_id`).eq('code_partage', code).maybeSingle()
   if (error) erreurSql(error, 'lecture de la liste partagée')
-  return (data as unknown as ListeEnregistree) ?? null
+  if (!data) return null
+  const { user_id: userId, ...liste } = data as unknown as ListeEnregistree & { user_id: string | null }
+  let pseudo: string | null = null
+  if (userId) {
+    const { data: profil } = await sb().from('profiles').select('display_name').eq('id', userId).maybeSingle()
+    pseudo = (profil as { display_name?: string } | null)?.display_name ?? null
+  }
+  return { ...(liste as ListeEnregistree), pseudo }
 }
 
 interface Entree {
@@ -97,9 +113,11 @@ const nouveauCode = () => Array.from({ length: 10 }, () => ALPHABET[Math.floor(M
 
 /** Crée le code de partage s'il n'existe pas encore, et le renvoie. */
 export async function partagerListe(id: string, userId: string): Promise<string> {
-  const actuelle = await lireListe(id, userId)
+  // seul le code existant nous intéresse ici, pas le contenu de la liste
+  const { data: actuelle, error } = await sb().from('listes_armee').select('code_partage').eq('id', id).eq('user_id', userId).maybeSingle()
+  if (error) erreurSql(error, 'lecture de la liste')
   if (!actuelle) throw createError({ statusCode: 404, message: 'Liste introuvable' })
-  if (actuelle.code_partage) return actuelle.code_partage
+  if (actuelle.code_partage) return actuelle.code_partage as string
   for (let essai = 0; essai < 5; essai++) {
     const code = nouveauCode()
     const { error } = await sb().from('listes_armee').update({ code_partage: code }).eq('id', id).eq('user_id', userId)

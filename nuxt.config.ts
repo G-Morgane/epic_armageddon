@@ -2,16 +2,33 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/sitemap', '@nuxtjs/supabase'],
+  supabase: {
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_ANON_KEY,
+    // Aucune redirection globale : par défaut le module renvoie TOUT le site
+    // vers /login. Les accès protégés passent par app/middleware.
+    redirect: false,
+    // nos types sont écrits à la main dans app/types/database.ts, pas générés
+    types: false,
+    // Sans ça le client demande le lien en PKCE : le jeton n'est alors
+    // vérifiable que dans le navigateur qui l'a demandé, et un lien ouvert
+    // depuis le téléphone échoue.
+    clientOptions: { auth: { flowType: 'implicit' } },
+  },
   site: {
     url: 'https://www.epicarmageddon.fr',
     name: 'Epic Armageddon FR',
   },
   sitemap: {
-    exclude: ['/admin/**'],
+    exclude: ['/admin/**', '/compte', '/connexion/**'],
   },
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
+  },
+  routeRules: {
+    // la session se construit dans le navigateur au retour du lien de connexion
+    '/connexion/retour': { ssr: false },
   },
   nitro: {
     // Codex YAML (source de vérité) embarqués dans le serveur
@@ -53,8 +70,6 @@ export default defineNuxtConfig({
     public: {
       // Démo locale uniquement : contourne la connexion admin pour les écrans Codex (jamais actif en build de prod)
       codexDemoSansAuth: process.env.CODEX_DEMO_SANS_AUTH === '1',
-      supabaseUrl: process.env.SUPABASE_URL,
-      supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
       r2PublicUrl: process.env.R2_PUBLIC_URL,
       siteUrl: 'https://www.epicarmageddon.fr',
     },

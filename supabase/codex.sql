@@ -13,6 +13,8 @@ create table public.codex_versions (
   version text not null,
   changelog text,
   data jsonb not null,
+  -- PDF figé au moment de la publication (composition par défaut). Vide : le PDF est composé à la volée.
+  pdf_url text,
   published_at timestamptz default now() not null
 );
 
@@ -24,3 +26,6 @@ alter table public.codex_versions enable row level security;
 -- Lecture publique des versions publiées (le builder et le PDF côté client pourront s'en servir)
 create policy "Public read codex_versions" on public.codex_versions
   for select using (true);
+
+-- Sur une base déjà créée avant l'ajout du PDF figé :
+--   alter table public.codex_versions add column if not exists pdf_url text;

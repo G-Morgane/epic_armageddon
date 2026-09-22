@@ -9,8 +9,10 @@ definePageMeta({ layout: false })
 
 const route = useRoute()
 const slug = route.params.slug as string
-const brouillon = route.query.brouillon ? '?brouillon=1' : ''
-const { data: codex, error } = await useFetch<Codex>(`/api/codex/${slug}${brouillon}`)
+const source = new URLSearchParams()
+if (route.query.brouillon) source.set('brouillon', '1')
+if (typeof route.query.version === 'string' && route.query.version) source.set('version', route.query.version)
+const { data: codex, error } = await useFetch<Codex>(`/api/codex/${slug}${source.size ? `?${source}` : ''}`)
 if (error.value || !codex.value) throw createError({ statusCode: 404, statusMessage: 'Codex introuvable' })
 
 const c = codex.value
@@ -103,6 +105,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
     <section v-if="opts.couverture" class="page couverture" :class="{ illustree: !!c.codex.illustration }">
       <div v-if="c.codex.illustration" class="couverture-fond" :style="{ backgroundImage: `url(${c.codex.illustration})` }" />
       <div class="couverture-bloc">
+        <img v-if="c.codex.logo" class="couverture-logo" :src="c.codex.logo" alt="">
         <div class="couverture-bande" />
         <p class="couverture-sur">Epic Armageddon</p>
         <h1 class="couverture-titre">{{ c.codex.nom }}</h1>
@@ -118,7 +121,10 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 
     <!-- Présentation et règles spéciales -->
     <section class="page">
-      <h1 class="titre">{{ c.codex.nom }}</h1>
+      <div class="titre-bloc">
+        <img v-if="c.codex.logo" class="titre-logo" :src="c.codex.logo" alt="">
+        <h1 class="titre">{{ c.codex.nom }}</h1>
+      </div>
       <!-- texte au fil de deux colonnes : la seconde ne démarre qu'une fois la première remplie -->
       <div class="colonnes">
         <blockquote v-if="c.codex.citation && !opts.couverture" class="citation">
@@ -286,6 +292,10 @@ html.print, html.print body { background: #fff; color: #111; }
 .page { position: relative; break-after: page; padding-bottom: 8mm; }
 .page:last-child { break-after: auto; }
 .titre { font-size: 24pt; letter-spacing: 1pt; text-transform: uppercase; margin: 0 0 8pt; color: #222; text-shadow: none; }
+/* Icône de l'armée : silhouette noire sur le papier, blanche sur une couverture illustrée. */
+.titre-bloc { display: flex; align-items: center; gap: 5mm; }
+.titre-bloc .titre { margin: 0 0 8pt; }
+.titre-logo { width: 14mm; height: 14mm; object-fit: contain; filter: brightness(0); }
 .titre-liste { font-size: 13pt; text-transform: uppercase; text-align: center; margin: 0 0 4pt; letter-spacing: .5pt; }
 .chapeau { text-align: center; font-size: 8pt; margin: 0 0 8pt; }
 .colonnes { column-count: 2; column-gap: 10pt; }
@@ -333,8 +343,12 @@ tr { break-inside: avoid; }
 /* l'illustration déborde des marges pour couvrir la feuille entière
    (div et non img : un élément remplacé en position absolue ignore les décalages) */
 .couverture-fond { position: absolute; inset: 0; background-position: center; background-size: cover; background-repeat: no-repeat; }
+/* en paysage l'illustration (portrait à l'origine) est rognée par le bas : on garde le haut,
+   là où se trouve le sujet, plutôt que de couper les têtes */
+.doc.paysage .couverture-fond { background-position: center top; }
 .couverture-bloc { position: relative; display: flex; flex-direction: column; align-items: center; }
 .couverture-bande { width: 90mm; height: 3pt; background: var(--accent); }
+.couverture-logo { width: 30mm; height: 30mm; object-fit: contain; filter: brightness(0); margin-bottom: 8pt; }
 .couverture-bande.bas { margin-top: 18pt; }
 .couverture-sur { font-size: 10pt; letter-spacing: 3pt; text-transform: uppercase; color: #555; margin: 14pt 0 0; }
 .couverture-titre { font-size: 40pt; line-height: 1.1; text-transform: uppercase; letter-spacing: 2pt; margin: 6pt 0; color: #222; }
@@ -368,6 +382,7 @@ tr { break-inside: avoid; }
 }
 .couverture.illustree .couverture-bloc { z-index: 1; padding: 0 14mm 16mm; color: #fff; }
 .couverture.illustree .couverture-bande { width: 110mm; }
+.couverture.illustree .couverture-logo { filter: brightness(0) invert(1); }
 .couverture.illustree .couverture-sur { color: #e2e2e2; }
 .couverture.illustree .couverture-titre { color: #fff; text-shadow: 0 1mm 3mm rgba(0, 0, 0, .8); }
 .couverture.illustree .couverture-citation { color: #eee; max-width: 130mm; }

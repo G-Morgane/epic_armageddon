@@ -1,71 +1,95 @@
-import type { User } from '@supabase/supabase-js'
-
-interface Profile {
+export interface Profile {
   id: string
   email: string
   display_name: string | null
-  role: 'admin' | 'super_admin'
+  role: 'membre' | 'admin' | 'super_admin'
   created_at: string
 }
 
-const user = ref<User | null>(null)
-const profile = ref<Profile | null>(null)
-const loading = ref(true)
-
+/**
+ * Session et profil de l'utilisateur courant.
+ *
+ * `user` vient de @nuxtjs/supabase : ce sont les claims du jeton (donc `sub`,
+ * pas `id`), disponibles dès le rendu serveur. Le profil, lui, porte le rôle
+ * applicatif et le pseudo, et se lit dans la table `profiles`.
+ *
+ * `useState` et non un `ref` de module : au rendu serveur, un ref de module
+ * serait partagé entre deux visiteurs.
+ */
 export const useAuth = () => {
   const supabase = useSupabase()
+  const user = useSupabaseUser()
+  const profile = useState<Profile | null>('auth:profil', () => null)
+  const chargePour = useState<string | null>('auth:profil-pour', () => null)
 
+  const userId = computed(() => (user.value?.sub as string | undefined) ?? null)
   const isAuthenticated = computed(() => !!user.value)
-  const isAdmin = computed(() => !!profile.value && ['admin', 'super_admin'].includes(profile.value.role))
+  const loading = computed(() => isAuthenticated.value && chargePour.value !== userId.value)
+  const isAdmin = computed(() => ['admin', 'super_admin'].includes(profile.value?.role ?? ''))
   const isSuperAdmin = computed(() => profile.value?.role === 'super_admin')
+  /** Pseudo public ; null tant que le membre n'en a pas choisi un. */
+  const pseudo = computed(() => profile.value?.display_name ?? null)
 
   async function fetchProfile() {
-    if (!user.value) {
+    if (!userId.value) {
       profile.value = null
+      chargePour.value = null
       return
     }
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', user.value.id)
-      .single()
-    profile.value = data
+    const { data } = await supabase.from('profiles').select('*').eq('id', userId.value).single()
+    profile.value = (data as unknown as Profile) ?? null
+    chargePour.value = userId.value
   }
 
+  /** Charge le profil si ce n'est pas déjà fait pour cet utilisateur. */
   async function init() {
-    loading.value = true
-    const { data: { session } } = await supabase.auth.getSession()
-    user.value = session?.user ?? null
-    await fetchProfile()
-    loading.value = false
-
-    supabase.auth.onAuthStateChange(async (_event, session) => {
-      user.value = session?.user ?? null
-      await fetchProfile()
-    })
+    if (chargePour.value !== userId.value) await fetchProfile()
   }
 
+  /** Connexion par mot de passe : réservée aux comptes admin. */
   async function login(email: string, password: string) {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) throw error
+    await fetchProfile()
   }
 
-  async function logout() {
+  /**
+   * Connexion des membres : un lien reçu par email, pas de mot de passe.
+   * `suivant` est la page à rouvrir une fois le lien cliqué.
+   */
+  async function envoyerLienMagique(email: string, suivant = '/') {
+    // La page de retour lit ce cookie : le gabarit d'email de Supabase ne sait
+    // pas d'où l'on vient, il ne peut pas transporter la destination.
+    useCookie('ea_suivant', { maxAge: 3600, path: '/', sameSite: 'lax' }).value = suivant
+    // en local, le lien doit revenir sur localhost, pas sur le site public
+    const base = import.meta.client ? location.origin : useRuntimeConfig().public.siteUrl
+    const retour = new URL('/connexion/retour', base)
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email.trim(),
+      options: { emailRedirectTo: retour.toString() },
+    })
+    if (error) throw error
+  }
+
+  async function logout(destination = '/') {
     await supabase.auth.signOut()
-    user.value = null
     profile.value = null
-    navigateTo('/admin/login')
+    chargePour.value = null
+    await navigateTo(destination)
   }
 
   return {
     user,
+    userId,
     profile,
+    pseudo,
     loading,
     isAuthenticated,
     isAdmin,
     isSuperAdmin,
     init,
     login,
+    envoyerLienMagique,
     logout,
     fetchProfile,
   }

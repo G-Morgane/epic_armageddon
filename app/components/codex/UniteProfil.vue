@@ -8,6 +8,8 @@ const u = computed(() => props.unite)
 const degats = computed(() => u.value.degats ? `CD ${u.value.degats.cd}${u.value.degats.bi !== undefined ? ` · BI ${u.value.degats.bi}` : ''}` : '')
 /** la capacité de transport est souvent déjà écrite dans les notes : ne pas la répéter */
 const transportRedondant = computed(() => u.value.notes.some((n) => /transport/i.test(n)))
+/** convention des livres : une arme à deux profils note le second « et ». C'est une suite de la ligne du dessus, pas une arme. */
+const estSuite = (nom: string) => nom.trim().toLowerCase() === 'et'
 </script>
 
 <template>
@@ -26,8 +28,8 @@ const transportRedondant = computed(() => u.value.notes.some((n) => /transport/i
     </div>
     <table v-if="u.armes.length" class="w-full text-[11px]">
       <tbody>
-        <tr v-for="(a, ai) in u.armes" :key="ai" class="border-t border-white/5 align-top">
-          <td class="py-1 text-stone-100" :class="compact ? 'px-3' : 'px-4'">{{ a.nom }}</td>
+        <tr v-for="(a, ai) in u.armes" :key="ai" class="align-top" :class="estSuite(a.nom) ? '' : 'border-t border-white/5'">
+          <td class="py-1" :class="[compact ? 'px-3' : 'px-4', estSuite(a.nom) ? 'pl-8 italic text-stone-500' : 'text-stone-100']">{{ a.nom }}</td>
           <td class="py-1 pr-2 whitespace-nowrap text-stone-400">{{ a.portee ?? '-' }}</td>
           <td class="py-1 text-stone-300" :class="compact ? 'pr-3' : 'pr-4'">{{ a.puissance ?? '-' }}</td>
         </tr>

@@ -1,26 +1,5 @@
 export default defineEventHandler(async (event) => {
-  // Vérifier l'authentification via le token Supabase
-  const authHeader = getHeader(event, 'authorization')
-  if (!authHeader?.startsWith('Bearer ')) {
-    throw createError({ statusCode: 401, message: 'Non autorisé' })
-  }
-
-  const supabase = useSupabaseServer()
-  const { data: { user }, error: authError } = await supabase.auth.getUser(authHeader.replace('Bearer ', ''))
-  if (authError || !user) {
-    throw createError({ statusCode: 401, message: 'Non autorisé' })
-  }
-
-  // Vérifier le rôle admin
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single()
-
-  if (!profile || !['admin', 'super_admin'].includes(profile.role)) {
-    throw createError({ statusCode: 403, message: 'Accès interdit' })
-  }
+  await exigerAdmin(event)
 
   // Lire le formulaire multipart
   const formData = await readMultipartFormData(event)

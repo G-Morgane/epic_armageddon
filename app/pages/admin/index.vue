@@ -9,24 +9,13 @@ const supabase = useSupabase()
 const { isAdmin, isSuperAdmin } = useAuth()
 const { uploadPdf } = useUploadPdf()
 
-// Fetch all armies for admin
-const { data: officialArmies, refresh: refreshOfficial } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'official' } })
-const { data: betaArmiesData, refresh: refreshBeta } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'beta' } })
-const { data: experimentalArmiesData, refresh: refreshExperimental } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'experimental' } })
-const { data: thirtyKArmiesData, refresh: refresh30k } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: '30k' } })
-const { data: archivedArmiesData, refresh: refreshArchived } = await useFetch<ArmyWithVersion[]>('/api/armies', { query: { status: 'archived' } })
+// Toutes les armées de l'admin, tous statuts : la route les prend séparés par des
+// virgules. Les cinq appels d'avant s'enchaînaient, donc cinq allers-retours en file.
+const { data: toutesArmees, refresh } = await useFetch<ArmyWithVersion[]>('/api/armies', {
+  query: { status: 'official,beta,experimental,30k,archived' },
+})
 
-const armies = computed(() => [
-  ...(officialArmies.value ?? []),
-  ...(betaArmiesData.value ?? []),
-  ...(experimentalArmiesData.value ?? []),
-  ...(thirtyKArmiesData.value ?? []),
-  ...(archivedArmiesData.value ?? []),
-])
-
-async function refresh() {
-  await Promise.all([refreshOfficial(), refreshBeta(), refreshExperimental(), refresh30k(), refreshArchived()])
-}
+const armies = computed(() => toutesArmees.value ?? [])
 
 const factionLabels: Record<string, string> = {
   imperium: 'Imperium',
@@ -280,6 +269,12 @@ async function submitUpload() {
     uploadError.value = 'Veuillez remplir tous les champs et sélectionner un PDF.'
     return
   }
+  // Le texte suit la version dans l'historique public : publier une mise à jour
+  // sans dire ce qui change laisse le joueur devant un numéro de version seul.
+  if (!uploadChangelog.value.trim()) {
+    uploadError.value = 'Expliquez ce que change cette version : ce texte est affiché aux joueurs.'
+    return
+  }
 
   uploadingPdf.value = versionsArmy.value.id
   uploadError.value = ''
@@ -314,7 +309,7 @@ async function submitUpload() {
     army_id: army.id,
     version: uploadVersion.value,
     pdf_url: publicUrl,
-    changelog: uploadChangelog.value || null,
+    changelog: uploadChangelog.value.trim(),
     is_current: uploadIsCurrent.value,
     published_at: publishedAt,
   })
@@ -779,7 +774,7 @@ const editFactionTags = computed(() =>
       <div v-if="versionsArmy" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
         <div class="mx-4 w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-6 sm:mx-0">
           <div class="flex items-center justify-between">
-            <h2 class="font-heading text-xl font-bold text-gold">Versions — {{ versionsArmy.name }}</h2>
+            <h2 class="font-heading text-xl font-bold text-gold">Versions ({{ versionsArmy.name }})</h2>
             <button class="text-gray-400 hover:text-gray-200" @click="versionsArmy = null">
               <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -842,11 +837,12 @@ const editFactionTags = computed(() =>
 
               <div>
                 <label class="block text-xs font-medium text-gray-400">Explications de la mise à jour</label>
+                <p class="mt-0.5 text-xs text-gray-500">Affiché aux joueurs dans l'historique des versions.</p>
                 <textarea
                   v-model="uploadChangelog"
                   rows="2"
                   class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-3 py-2 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
-                  placeholder="Corrections de points, ajout d'unités..."
+                  placeholder="Ce qui change pour le joueur : corrections de points, ajout d'unités..."
                 />
               </div>
 
@@ -869,7 +865,7 @@ const editFactionTags = computed(() =>
                 </button>
                 <button
                   type="submit"
-                  :disabled="!!uploadingPdf"
+                  :disabled="!!uploadingPdf || !uploadChangelog.trim()"
                   class="rounded-lg bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50"
                 >
                   {{ uploadingPdf ? 'Upload en cours...' : 'Publier' }}

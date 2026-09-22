@@ -1,0 +1,71 @@
+<!--
+  Gabarit Supabase : Authentication > Emails > Magic link or OTP > Body.
+  À coller tel quel. Les seules variables utilisées sont {{ .SiteURL }} et
+  {{ .TokenHash }}.
+
+  Contraintes de l'email, différentes de celles du site :
+  - tout en style inline, les feuilles de style sont retirées par Gmail
+  - mise en page en <table>, les clients Outlook ne gèrent pas flex/grid
+  - polices Google indisponibles : Oswald et Black Ops One retombent sur des
+    polices système, d'où les piles de secours
+-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#1a1210;margin:0;padding:32px 12px;">
+  <tr>
+    <td align="center">
+      <table role="presentation" width="480" cellpadding="0" cellspacing="0" border="0" style="width:480px;max-width:100%;background-color:#241c18;border:1px solid rgba(200,160,82,0.25);border-radius:12px;">
+
+        <tr>
+          <td align="center" style="padding:28px 32px 20px;border-bottom:1px solid rgba(200,160,82,0.15);">
+            <div style="font-family:'Black Ops One','Impact','Arial Black',sans-serif;font-size:22px;letter-spacing:2px;color:#c8a052;">
+              EPIC ARMAGEDDON
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:32px;">
+            <h1 style="margin:0 0 16px;font-family:'Oswald','Arial Narrow',Arial,sans-serif;font-size:24px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#c8a052;">
+              Ta connexion
+            </h1>
+
+            <p style="margin:0 0 28px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:15px;line-height:24px;color:#d6d3d1;">
+              Clique sur le bouton pour ouvrir ta session et retrouver tes listes d'armée.
+            </p>
+
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 28px;">
+              <tr>
+                <!-- rembourrage porté par la cellule : Outlook ignore le padding d'un <a> -->
+                <td align="center" bgcolor="#c8a052" style="background-color:#c8a052;border-radius:8px;padding:14px 34px;">
+                  <a href="{{ .SiteURL }}/connexion/retour?token_hash={{ .TokenHash }}&amp;type=magiclink" target="_blank"
+                     style="font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#1a1210;text-decoration:none;white-space:nowrap;">
+                    Me connecter
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0 0 8px;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:13px;line-height:20px;color:#a8a29e;">
+              Le bouton ne fonctionne pas ? Copie cette adresse dans ton navigateur :
+            </p>
+            <p style="margin:0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;line-height:18px;word-break:break-all;color:#c8a052;">
+              {{ .SiteURL }}/connexion/retour?token_hash={{ .TokenHash }}&amp;type=magiclink
+            </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:18px 32px 24px;border-top:1px solid rgba(200,160,82,0.15);">
+            <p style="margin:0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:12px;line-height:19px;color:#78716c;">
+              Ce lien est valable une heure et ne sert qu'une fois. Si tu n'as pas demandé à te connecter, ignore cet email : personne n'a accès à ton compte sans ce lien.
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+      <p style="margin:20px 0 0;font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:1px;color:#57534e;">
+        EPIC ARMAGEDDON FR
+      </p>
+    </td>
+  </tr>
+</table>

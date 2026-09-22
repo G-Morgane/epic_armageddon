@@ -12,11 +12,39 @@ const { data: codex, error } = await useFetch<Codex>(`/api/codex/${slug}${brouil
 if (error.value || !codex.value) throw createError({ statusCode: 404, statusMessage: 'Codex introuvable' })
 const c = codex.value
 const idx = indexerCodex(c)
-useHead({ title: `Builder ${c.codex.nom}` })
+useHead({ title: `Construction d'armée · ${c.codex.nom}` })
+
+/**
+ * Retour : là d'où l'on vient, pas une destination fixe.
+ *
+ * Le lien renvoyait toujours vers /codex-test, alors qu'on arrive ici depuis la
+ * fiche d'armée, depuis l'admin ou depuis un lien de partage. `history.state.back`
+ * est nul quand l'onglet s'ouvre directement sur cette page : il n'y a alors
+ * rien derrière, et on retombe sur la fiche de l'armée, qui est le contexte de
+ * cette liste.
+ */
+const router = useRouter()
+function revenir() {
+  // `history` n'existe pas au rendu serveur : une fonction, pas un `computed`,
+  // pour qu'il n'y ait aucun acces possible en dehors du clic.
+  if (import.meta.client && history.state?.back) return router.back()
+  // La fiche d'armee est indexee par l'UUID, pas par le slug : sans `armee_id`
+  // on ne peut pas la viser, et la liste de la faction est le plus proche.
+  const id = c.codex.armee_id
+  return navigateTo(id ? `/armees/${c.codex.faction}/${id}` : `/armees/${c.codex.faction}`)
+}
 
 const cle = `builder:${slug}`
 const liste = ref<Liste>({ id: genererId('l'), nom: `Ma liste ${c.codex.nom}`, codex: slug, limite: 3000, formations: [] })
 const pret = ref(false)
+
+/**
+ * Une liste enregistrée ou partagée se lit sur le serveur, après le montage :
+ * la colonne centrale le dit, au lieu d'afficher « ajoutez des formations »
+ * pendant l'aller-retour puis de se remplir d'un coup. Un builder ouvert sans
+ * liste à lire n'a rien à attendre et ne montre pas ce squelette.
+ */
+const listeDistante = computed(() => !pret.value && !!(route.query.ouvrir || route.query.liste))
 
 /** identifiant de la liste côté serveur, quand elle y est enregistrée */
 const idServeur = ref<string | null>(null)
@@ -32,11 +60,26 @@ onMounted(async () => {
     try {
       const partagee = await listesApi.lirePartage(code)
       liste.value = partagee.data
-      messagePartage.value = `Liste partagée « ${partagee.nom} » ouverte en lecture. Enregistre-la pour en garder ta propre copie.`
+      const auteur = partagee.pseudo ? ` de ${partagee.pseudo}` : ''
+      messagePartage.value = `Liste partagée « ${partagee.nom} »${auteur} ouverte en lecture. Enregistre-la pour en garder ta propre copie.`
       pret.value = true
       return
     } catch {
       messagePartage.value = "Ce lien de partage n'est plus valable."
+    }
+  }
+  // « Mes listes » de la page compte ouvre directement une liste enregistrée
+  const enregistree = route.query.ouvrir
+  if (typeof enregistree === 'string' && enregistree) {
+    try {
+      const mienne = await listesApi.lire(enregistree)
+      liste.value = mienne.data
+      idServeur.value = mienne.id
+      try { localStorage.setItem(cleServeur, mienne.id) } catch { /* stockage indisponible */ }
+      pret.value = true
+      return
+    } catch {
+      messagePartage.value = "Cette liste enregistrée est introuvable."
     }
   }
   try {
@@ -60,15 +103,46 @@ function listeEnregistree(id: string) {
 watch(liste, (l) => { if (pret.value) try { localStorage.setItem(cle, JSON.stringify(l)) } catch { /* ignore */ } }, { deep: true })
 
 const resultat = computed<ResultatListe>(() => calculerListe(idx, liste.value))
-const resolueDe = (id: string) => resultat.value.formations.find((f) => f.instance.id === id)
-const compteArmee = (optionId: string) => {
-  let n = 0
-  const parcourir = (f: FormationInstance) => { n += f.options.filter((o) => o.option === optionId).length; f.sous_formations.forEach(parcourir) }
+
+/**
+ * Un seul parcours de l'armée par changement, au lieu d'un par question posée.
+ * Le catalogue interroge les plafonds à chaque ligne et chaque carte interroge
+ * les limites par armée à chaque amélioration proposée : compter à la demande
+ * relisait toute la liste des dizaines de fois par frappe.
+ */
+const comptes = computed(() => {
+  const formations = new Map<string, number>()
+  const options = new Map<string, number>()
+  const parcourir = (f: FormationInstance) => {
+    formations.set(f.formation, (formations.get(f.formation) ?? 0) + 1)
+    for (const o of f.options) options.set(o.option, (options.get(o.option) ?? 0) + 1)
+    f.sous_formations.forEach(parcourir)
+  }
   liste.value.formations.forEach(parcourir)
-  return n
-}
+  return { formations, options }
+})
+const compteArmee = (optionId: string) => comptes.value.options.get(optionId) ?? 0
+
+const resolueParId = computed(() => new Map(resultat.value.formations.map((f) => [f.instance.id, f])))
+const resolueDe = (id: string) => resolueParId.value.get(id)
 
 const sectionsCatalogue = computed(() => c.sections.filter((s) => !s.contraintes.some((k) => k.type === 'non_autonome')))
+/** Lignes du catalogue préparées une fois : le gabarit relisait l'index quatre fois par ligne. */
+const catalogue = computed(() => sectionsCatalogue.value.map((s) => ({
+  id: s.id,
+  titre: s.titre,
+  total: s.formations.length,
+  lignes: s.formations.flatMap((fid) => {
+    const def = idx.formations.get(fid)
+    if (!def) return []
+    return [{
+      fid,
+      def,
+      nom: `${prefixeFormation(idx, def)}${def.nom}`,
+      couts: [...new Set(def.variantes.map((v) => v.cout))].join(' / '),
+    }]
+  }),
+})))
 /** accordéon du catalogue : sections dépliées (la première par défaut), mémorisé par codex */
 const cleAccordeon = `builder:${slug}:sections`
 const ouvertes = ref<string[]>([sectionsCatalogue.value[0]?.id ?? ''])
@@ -77,19 +151,23 @@ function basculer(id: string) {
   ouvertes.value = ouvertes.value.includes(id) ? ouvertes.value.filter((x) => x !== id) : [...ouvertes.value, id]
   try { localStorage.setItem(cleAccordeon, JSON.stringify(ouvertes.value)) } catch { /* ignore */ }
 }
-const nbDansListe = (sectionId: string) => resultat.value.formations.filter((f) => f.section.id === sectionId).length
+const nbParSection = computed(() => {
+  const m = new Map<string, number>()
+  for (const f of resultat.value.formations) m.set(f.section.id, (m.get(f.section.id) ?? 0) + 1)
+  return m
+})
+const nbDansListe = (sectionId: string) => nbParSection.value.get(sectionId) ?? 0
 
-/** nombre de fois qu'une formation figure déjà dans l'armée (sous-formations comprises) */
-function compteFormation(fid: string) {
-  let n = 0
-  const parcourir = (f: FormationInstance) => { if (f.formation === fid) n += 1; f.sous_formations.forEach(parcourir) }
-  liste.value.formations.forEach(parcourir)
-  return n
+/** plafonds par armée : ils ne dépendent que du codex, ils se calculent une fois */
+const plafonds = new Map<string, number | null>()
+function plafondDe(fid: string) {
+  if (!plafonds.has(fid)) plafonds.set(fid, plafondFormation(idx, fid))
+  return plafonds.get(fid)!
 }
 /** limite atteinte : le bouton d'ajout du catalogue est désactivé */
 function plafondAtteint(fid: string) {
-  const max = plafondFormation(idx, fid)
-  return max !== null && compteFormation(fid) >= max
+  const max = plafondDe(fid)
+  return max !== null && (comptes.value.formations.get(fid) ?? 0) >= max
 }
 /** formation dépliée dans le catalogue : sa composition (les profils sont sur les cartes de la liste) */
 const detail = ref<string | null>(null)
@@ -125,8 +203,8 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
   <div class="mx-auto max-w-7xl px-4 py-8">
     <div class="flex flex-wrap items-end justify-between gap-4 impression-cacher">
       <div>
-        <NuxtLink to="/codex-test" class="text-xs uppercase tracking-widest text-gold hover:underline">← Codex</NuxtLink>
-        <h1 class="mt-1 font-heading text-3xl font-bold text-white">Builder · {{ c.codex.nom }} <span class="text-base font-normal text-stone-400">v{{ c.codex.version }}</span></h1>
+        <button type="button" class="text-xs uppercase tracking-widest text-gold hover:underline" @click="revenir">← Retour</button>
+        <h1 class="mt-1 font-heading text-3xl font-bold text-white">Construction d'armée · {{ c.codex.nom }} <span class="text-base font-normal text-stone-400">v{{ c.codex.version }}</span></h1>
       </div>
       <div class="flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
@@ -153,33 +231,33 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
     <div class="mt-6 grid gap-6 lg:grid-cols-[280px_1fr_260px]">
       <!-- Catalogue -->
       <aside class="space-y-2 impression-cacher">
-        <div v-for="s in sectionsCatalogue" :key="s.id" class="rounded border border-white/10 bg-surface-light">
+        <div v-for="s in catalogue" :key="s.id" class="rounded border border-white/10 bg-surface-light">
           <button type="button" class="flex w-full items-center justify-between gap-2 px-3 py-2 text-left" @click="basculer(s.id)">
             <span class="font-heading text-xs uppercase tracking-wider text-gold">{{ s.titre }}</span>
             <span class="flex shrink-0 items-center gap-2 text-xs text-stone-500">
               <span v-if="nbDansListe(s.id)" class="rounded-full bg-gold/15 px-1.5 py-0.5 text-gold">{{ nbDansListe(s.id) }}</span>
-              <span>{{ s.formations.length }}</span>
+              <span>{{ s.total }}</span>
               <span class="text-stone-400">{{ ouvertes.includes(s.id) ? '▴' : '▾' }}</span>
             </span>
           </button>
           <ul v-show="ouvertes.includes(s.id)" class="divide-y divide-white/5 border-t border-white/10">
-            <li v-for="fid in s.formations" :key="fid" class="text-sm">
+            <li v-for="ligne in s.lignes" :key="ligne.fid" class="text-sm">
               <div class="flex items-center justify-between gap-2 px-3 py-2">
-                <button type="button" class="min-w-0 flex-1 text-left" :title="detail === fid ? 'Replier' : 'Voir la composition'" @click="detail = detail === fid ? null : fid">
-                  <p class="flex items-center gap-1 text-stone-100"><span class="truncate">{{ prefixeFormation(idx, idx.formations.get(fid)!) }}{{ idx.formations.get(fid)!.nom }}</span><span class="shrink-0 text-[10px] text-stone-500">{{ detail === fid ? '▴' : '▾' }}</span></p>
-                  <p class="text-xs text-stone-500">{{ idx.formations.get(fid)!.variantes.map((v) => v.cout).filter((x, i, a) => a.indexOf(x) === i).join(' / ') }} pts</p>
+                <button type="button" class="min-w-0 flex-1 text-left" :title="detail === ligne.fid ? 'Replier' : 'Voir la composition'" @click="detail = detail === ligne.fid ? null : ligne.fid">
+                  <p class="flex items-center gap-1 text-stone-100"><span class="truncate">{{ ligne.nom }}</span><span class="shrink-0 text-[10px] text-stone-500">{{ detail === ligne.fid ? '▴' : '▾' }}</span></p>
+                  <p class="text-xs text-stone-500">{{ ligne.couts }} pts</p>
                 </button>
                 <button
                   type="button"
                   class="shrink-0 rounded px-2 py-0.5 font-bold"
-                  :class="plafondAtteint(fid) ? 'cursor-not-allowed bg-white/5 text-stone-600' : 'bg-gold/90 text-surface hover:bg-gold-light'"
-                  :disabled="plafondAtteint(fid)"
-                  :title="plafondAtteint(fid) ? `Limite atteinte : au plus ${plafondFormation(idx, fid)} dans l'armée` : 'Ajouter à la liste'"
-                  @click="ajouter(fid)"
+                  :class="plafondAtteint(ligne.fid) ? 'cursor-not-allowed bg-white/5 text-stone-600' : 'bg-gold/90 text-surface hover:bg-gold-light'"
+                  :disabled="plafondAtteint(ligne.fid)"
+                  :title="plafondAtteint(ligne.fid) ? `Limite atteinte : au plus ${plafondDe(ligne.fid)} dans l'armée` : 'Ajouter à la liste'"
+                  @click="ajouter(ligne.fid)"
                 >+</button>
               </div>
-              <div v-if="detail === fid" class="space-y-1 border-t border-white/5 bg-black/10 px-3 py-2">
-                <p v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="text-xs text-stone-300"><span v-if="l.nom" class="text-gold">{{ l.nom }} : </span>{{ l.composition }} <span class="text-stone-500">· {{ l.cout }}</span></p>
+              <div v-if="detail === ligne.fid" class="space-y-1 border-t border-white/5 bg-black/10 px-3 py-2">
+                <p v-for="(l, li) in lignesFormation(idx, ligne.def)" :key="li" class="text-xs text-stone-300"><span v-if="l.nom" class="text-gold">{{ l.nom }} : </span>{{ l.composition }} <span class="text-stone-500">· {{ l.cout }}</span></p>
                 <p class="text-[11px] text-stone-500">Les profils s'affichent sur la carte, une fois la formation ajoutée.</p>
               </div>
             </li>
@@ -193,7 +271,19 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
           <h1 class="font-heading text-2xl font-bold">{{ liste.nom }}</h1>
           <p>{{ c.codex.nom }} v{{ c.codex.version }} · {{ resultat.total }} / {{ liste.limite }} pts</p>
         </div>
-        <p v-if="!liste.formations.length" class="rounded border border-dashed border-white/15 p-8 text-center text-stone-400">
+        <div v-if="listeDistante" class="space-y-3" aria-label="Chargement de la liste" aria-busy="true">
+          <div v-for="n in 3" :key="n" class="animate-pulse rounded border border-white/10 bg-surface-light p-4">
+            <div class="flex items-center gap-3">
+              <div class="h-5 w-48 rounded bg-white/10" />
+              <div class="ml-auto h-4 w-16 rounded bg-white/5" />
+            </div>
+            <div class="mt-4 space-y-2">
+              <div class="h-3 w-full rounded bg-white/5" />
+              <div class="h-3 w-4/5 rounded bg-white/5" />
+            </div>
+          </div>
+        </div>
+        <p v-else-if="!liste.formations.length" class="rounded border border-dashed border-white/15 p-8 text-center text-stone-400">
           Ajoutez des formations depuis le catalogue à gauche.
         </p>
         <ClientOnly>

@@ -4,7 +4,7 @@ codex:
   armee_id: 557ea78f-2ded-475e-bf4c-117910a42387
   logo: https://nomrnaobradtiddfewxm.supabase.co/storage/v1/object/public/army-pdfs/icons/adepta-sororitas-1774338739840.svg
   nom: Adepta Sororitas
-  version: "1..2"
+  version: "1.2"
   faction: imperium
   categorie: armees-imperiales
   statut: official

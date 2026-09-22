@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'admin', middleware: 'admin' })
 
-interface Etat { slug: string; nom: string; faction: string; version: string; statut: string; couleur?: string; source: 'yaml' | 'publie'; brouillon: boolean; brouillon_modifie?: string; versions: number; type: 'armee' | 'soutien' }
+interface Etat { slug: string; nom: string; faction: string; version: string; statut: string; couleur?: string; source: 'yaml' | 'publie' | 'brouillon'; brouillon: boolean; brouillon_modifie?: string; versions: number; stockage: string; type: 'armee' | 'soutien' }
 
 const api = useAdminApi()
 const etats = ref<Etat[]>([])
@@ -9,10 +9,12 @@ const chargement = ref(true)
 const modale = ref(false)
 const creation = ref({ nom: '', faction: 'imperium' as 'imperium' | 'chaos' | 'xenos', type: 'armee' as 'armee' | 'soutien', encours: false, erreur: '' })
 
-const apercu = ref<{ slug: string; nom: string } | null>(null)
+const apercu = ref<{ slug: string; nom: string; brouillon: boolean } | null>(null)
 const apercuOuvert = computed({ get: () => !!apercu.value, set: (v: boolean) => { if (!v) apercu.value = null } })
 
 const factions: Record<string, string> = { imperium: 'Imperium', chaos: 'Chaos', xenos: 'Xenos' }
+/** Même dépôt pour tous : le dire une fois en tête plutôt que par ligne. */
+const stockage = computed(() => etats.value[0]?.stockage)
 const statuts: Record<string, string> = { official: 'Officiel', beta: 'Bêta', experimental: 'Expérimental', '30k': '30k' }
 
 async function charger() {
@@ -40,7 +42,8 @@ async function creer() {
     <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
       <div>
         <h1 class="font-heading text-3xl font-bold text-white">Codex</h1>
-        <p class="mt-1 max-w-2xl text-sm text-gray-400">Une fiche par armée : unités, formations, améliorations et règles. Le PDF et le builder en découlent. <span class="text-gold">Démo</span> : les brouillons sont stockés côté serveur, la base de données viendra ensuite.</p>
+        <p class="mt-1 max-w-2xl text-sm text-gray-400">Une fiche par armée : unités, formations, améliorations et règles. Le PDF et la construction d'armée en découlent.</p>
+        <p v-if="stockage" class="mt-1 text-xs text-gray-500">Brouillons et versions publiées stockés dans : {{ stockage }}.</p>
       </div>
       <div class="flex items-center gap-2">
         <AdminCodexGuide libelle="Comment créer une armée" />
@@ -64,9 +67,9 @@ async function creer() {
             </td>
             <td class="py-3 text-gray-300">{{ factions[e.faction] ?? e.faction }}</td>
             <td class="py-3"><span class="rounded bg-white/5 px-2 py-0.5 text-xs text-gray-300">{{ statuts[e.statut] ?? e.statut }}</span></td>
-            <td class="py-3 text-gray-300">
-              v{{ e.version }}
-              <span class="ml-1 text-xs text-gray-500">{{ e.source === 'publie' ? `· ${e.versions} publication(s)` : '· fichier de départ' }}</span>
+            <td class="py-3" :class="e.source === 'brouillon' ? 'text-gray-500' : 'text-gray-300'">
+              {{ e.source === 'brouillon' ? 'jamais publié' : `v${e.version}` }}
+              <span class="ml-1 text-xs text-gray-500">{{ e.source === 'publie' ? `· ${e.versions} version(s)` : e.source === 'yaml' ? '· fichier de départ' : '' }}</span>
             </td>
             <td class="py-3">
               <span v-if="e.brouillon" class="rounded bg-amber-500/15 px-2 py-0.5 text-xs text-amber-300">modifié {{ e.brouillon_modifie ? new Date(e.brouillon_modifie).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) : '' }}</span>
@@ -74,15 +77,16 @@ async function creer() {
             </td>
             <td class="py-3 pr-5 text-right whitespace-nowrap">
               <NuxtLink :to="`/admin/codex/${e.slug}`" class="rounded-md bg-gold/90 px-3 py-1 text-xs font-semibold text-surface hover:bg-gold-light">Modifier</NuxtLink>
-              <button type="button" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5" @click="apercu = { slug: e.slug, nom: e.nom }">Aperçu PDF</button>
-              <a :href="`/builder/${e.slug}`" target="_blank" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5">Builder</a>
+              <button type="button" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5" @click="apercu = { slug: e.slug, nom: e.nom, brouillon: e.source === 'brouillon' }">Aperçu PDF</button>
+              <a :href="`/builder/${e.slug}`" target="_blank" class="ml-1 rounded-md border border-white/10 px-3 py-1 text-xs text-gray-300 hover:bg-white/5">Construction d'armée</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <CodexVisionneusePdf v-if="apercu" v-model="apercuOuvert" :slug="apercu.slug" :nom="apercu.nom" />
+    <!-- rien de publié ni de fichier de départ : c'est le brouillon qu'il faut imprimer, sinon l'aperçu tombe en 404 -->
+    <CodexVisionneusePdf v-if="apercu" v-model="apercuOuvert" :slug="apercu.slug" :nom="apercu.nom" :brouillon="apercu.brouillon" />
 
     <div v-if="modale" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" @click.self="modale = false">
       <div class="w-full max-w-md rounded-lg border border-gold/20 bg-surface-light p-6">

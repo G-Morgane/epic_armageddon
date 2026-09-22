@@ -3,7 +3,7 @@ import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
 import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
-import { phraseOption, coutOption, pluriel } from '~~/shared/codex/phrases'
+import { phraseOption, coutOption, pluriel, lignesFormation } from '~~/shared/codex/phrases'
 
 const props = defineProps<{
   idx: IndexCodex
@@ -22,6 +22,71 @@ const dispo = computed(() => (def.value ? optionsDisponibles(props.idx, def.valu
 const ajoutables = computed(() => (props.resolue ? optionsAjoutables(props.idx, props.resolue, props.compteArmee) : dispo.value))
 const specSous = computed(() => variante.value?.sous_formations ?? def.value?.sous_formations)
 const erreursIci = computed(() => props.resolue?.erreurs.filter((e) => e.formation === props.instance.id) ?? [])
+
+/* Listes déroulantes : le composant Selecteur attend des options plates, chaque
+   liste est donc traduite ici plutôt que dans le gabarit. La seconde ligne d'une
+   option dit ce qu'elle apporte : les stats de l'unité, ou la composition pour
+   une formation. */
+/** stats condensées d'une unité, dans l'ordre de la fiche de profil */
+function statsUnite(id: string) {
+  const u = props.idx.unites.get(id)
+  if (!u) return undefined
+  const stats = [
+    u.vitesse && `Vit ${u.vitesse}`,
+    u.blindage && `Bl ${u.blindage}`,
+    u.cc && `CC ${u.cc}`,
+    u.ff && `FF ${u.ff}`,
+  ].filter(Boolean)
+  // un personnage n'a pas de profil propre : ce sont ses notes qui disent ce qu'il apporte
+  return [u.type, ...(stats.length ? stats : u.notes)].join(' · ')
+}
+/** le nom n'est repris devant les stats que si l'effet apporte plusieurs unités différentes */
+function statsUnites(ids: string[]) {
+  const uniques = [...new Set(ids)]
+  const lignes = uniques.flatMap((id) => {
+    const s = statsUnite(id)
+    return s ? [uniques.length > 1 ? `${nomU(id)} : ${s}` : s] : []
+  })
+  return lignes.length ? lignes.join(' / ') : undefined
+}
+function statsEffet(e: any) {
+  if (!e) return undefined
+  if (e.type === 'ajouter') return statsUnites((e.unites ?? []).map((u: any) => u.unite))
+  if (e.type === 'remplacer') return statsUnites([e.par])
+  if (e.type === 'choix_multiple') return statsUnites((e.parmi ?? []).map((p: any) => p.unite))
+  // une option à choix ouvre un second menu : annoncer les branches, pas leurs stats
+  if (e.type === 'choix') return (e.parmi ?? []).map((p: any) => p.nom).join(' ou ')
+  if (e.type === 'mot_cle') return e.texte
+  return undefined
+}
+/** composition d'une formation, variante par variante */
+function compositions(fid: string) {
+  const f = props.idx.formations.get(fid)
+  return f ? lignesFormation(props.idx, f) : []
+}
+const optionsVariante = computed(() => {
+  const lignes = def.value ? lignesFormation(props.idx, def.value) : []
+  return (def.value?.variantes ?? []).map((v, i) => ({ valeur: v.id, libelle: v.nom ?? v.id, detail: `${v.cout} pts`, stats: lignes[i]?.composition }))
+})
+const optionsAjout = computed(() => ajoutables.value.map((o) => ({
+  valeur: o.id,
+  libelle: o.nom,
+  detail: coutOption(o),
+  titre: phraseOption(props.idx, o),
+  stats: statsEffet(o.effet),
+})))
+const optionsSous = computed(() => (specSous.value?.parmi ?? []).map((fid) => {
+  const f = props.idx.formations.get(fid)
+  return { valeur: fid, libelle: f?.nom ?? fid, detail: f ? `${f.variantes[0]?.cout} pts` : undefined, stats: compositions(fid)[0]?.composition }
+}))
+function optionsChoix(oi: FormationInstance['options'][number]) {
+  const parmi = (props.idx.options.get(oi.option)?.effet as any)?.parmi ?? []
+  return parmi.map((p: any) => ({ valeur: p.id, libelle: p.nom, detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
+}
+function optionsVarianteOption(oi: FormationInstance['options'][number]) {
+  const variantes = (effetDe(oi) as any)?.variantes ?? []
+  return variantes.map((v: any) => ({ valeur: v.id ?? v.nom, libelle: v.nom, detail: `${v.cout} pts`, stats: statsUnites((v.unites ?? []).map((u: any) => u.unite)) }))
+}
 
 function changerVariante(id: string) {
   props.instance.variante = id
@@ -99,6 +164,39 @@ function ajouterSous(fid: string) {
 function retirerSous(id: string) {
   props.instance.sous_formations = props.instance.sous_formations.filter((s) => s.id !== id)
 }
+/**
+ * Lignes d'améliorations préparées en une passe.
+ * Le gabarit rappelait `effetDe` treize fois et `bornes` quatre fois par ligne,
+ * à chaque re-rendu de la carte, donc à chaque frappe dans la liste.
+ */
+const lignesOptions = computed(() => props.instance.options.map((oi) => {
+  const def = props.idx.options.get(oi.option)
+  const effet = effetDe(oi) as any
+  const cout = props.resolue?.options.find((o) => o.instance.id === oi.id)?.cout ?? 0
+  const estChoix = def?.effet.type === 'choix'
+  const aVariantes = effet?.type === 'ajouter' && !!effet.variantes?.length
+  const quantifiable = (effet?.type === 'ajouter' && effet.cout_par_unite !== undefined)
+    || (effet?.type === 'remplacer' && !effet.tout && effet.max !== 'tout')
+  const repartition = effet?.type === 'choix_multiple' ? (effet.parmi as any[]) : null
+  return {
+    oi,
+    nom: def?.nom,
+    cout,
+    estChoix,
+    aVariantes,
+    quantifiable,
+    repartition,
+    // avec deux menus sur la ligne, le coût ne s'affiche que dans le premier
+    detail: `${cout} pts`,
+    detailVariante: estChoix ? undefined : `${cout} pts`,
+    /** vrai quand la ligne porte un menu : le coût s'y loge, la colonne de droite disparaît */
+    aSelecteur: estChoix || aVariantes,
+    bornes: quantifiable ? bornes(oi) : { min: 1, max: null as number | null },
+    choix: estChoix ? optionsChoix(oi) : [],
+    variantes: aVariantes ? optionsVarianteOption(oi) : [],
+  }
+}))
+
 const unitesVisibles = computed(() => props.resolue?.unites.filter((u) => !u.implicite) ?? [])
 
 /** profils dépliés sous la composition : les unités réellement présentes, avec leur nombre */
@@ -116,9 +214,6 @@ const profils = computed(() => {
       <div class="min-w-0">
         <p class="text-[11px] uppercase tracking-wider text-stone-500">{{ resolue?.section.titre }}</p>
         <h3 class="font-heading text-lg font-semibold text-white">{{ def.nom }}</h3>
-        <select v-if="def.variantes.length > 1" :value="instance.variante" class="champ mt-1" @change="changerVariante(($event.target as HTMLSelectElement).value)">
-          <option v-for="v in def.variantes" :key="v.id" :value="v.id">{{ v.nom ?? v.id }} · {{ v.cout }} pts</option>
-        </select>
       </div>
       <div class="flex shrink-0 items-center gap-2">
         <span class="font-heading text-xl text-gold">{{ resolue?.cout ?? variante.cout }} <span class="text-xs text-stone-400">pts</span></span>
@@ -128,6 +223,9 @@ const profils = computed(() => {
     </div>
 
     <div class="space-y-3 px-4 py-3 text-sm">
+      <!-- variante de la formation : pleine largeur, au-dessus de la composition -->
+      <Selecteur v-if="def.variantes.length > 1" bloc :model-value="instance.variante" :options="optionsVariante" @choisir="changerVariante" />
+
       <!-- choix de composition -->
       <template v-for="(l, li) in variante.composition" :key="li">
         <div v-if="'choix' in l" class="rounded border border-white/10 bg-black/20 p-3">
@@ -152,7 +250,7 @@ const profils = computed(() => {
             <span v-if="resolue?.mots_cles.length" class="text-stone-400"> · {{ resolue.mots_cles.join(', ') }}</span>
           </span>
           <button v-if="profils.length" type="button" class="shrink-0 text-xs text-gold hover:underline" @click="profilsOuverts = !profilsOuverts">
-            {{ profilsOuverts ? 'Masquer les profils' : 'Profils' }} {{ profilsOuverts ? '▴' : '▾' }}
+            {{ profilsOuverts ? 'Cacher les caractéristiques' : 'Afficher les caractéristiques' }} {{ profilsOuverts ? '▴' : '▾' }}
           </button>
         </p>
         <div v-if="profilsOuverts" class="mt-2 space-y-2">
@@ -162,34 +260,32 @@ const profils = computed(() => {
 
       <!-- options -->
       <div v-if="dispo.length" class="space-y-2">
-        <div v-for="oi in instance.options" :key="oi.id" class="flex flex-wrap items-center gap-2 rounded border border-white/10 bg-black/20 px-3 py-2">
-          <span class="font-medium text-stone-100">{{ idx.options.get(oi.option)?.nom }}</span>
-          <template v-if="idx.options.get(oi.option)?.effet.type === 'choix'">
-            <select v-model="oi.choix" class="champ">
-              <option v-for="p in (idx.options.get(oi.option)!.effet as any).parmi" :key="p.id" :value="p.id">{{ p.nom }}{{ p.cout ? ` · ${p.cout} pts` : '' }}</option>
-            </select>
-          </template>
-          <template v-if="effetDe(oi)?.type === 'ajouter' && (effetDe(oi) as any).variantes?.length">
-            <select v-model="oi.variante" class="champ">
-              <option v-for="v in (effetDe(oi) as any).variantes" :key="v.id ?? v.nom" :value="v.id ?? v.nom">{{ v.nom }} · {{ v.cout }} pts</option>
-            </select>
-          </template>
-          <template v-if="(effetDe(oi)?.type === 'ajouter' && (effetDe(oi) as any).cout_par_unite !== undefined) || (effetDe(oi)?.type === 'remplacer' && !(effetDe(oi) as any).tout && (effetDe(oi) as any).max !== 'tout')">
-            <label class="flex items-center gap-1 text-xs text-stone-400">×<input type="number" class="champ w-16" :value="oi.quantite" :min="bornes(oi).min" :max="bornes(oi).max ?? undefined" @input="setQuantite(oi, $event.target as HTMLInputElement)"><span v-if="bornes(oi).max !== null" class="text-stone-500">/ {{ bornes(oi).max }}</span></label>
-          </template>
-          <template v-if="effetDe(oi)?.type === 'choix_multiple'">
-            <label v-for="p in (effetDe(oi) as any).parmi" :key="p.unite" class="flex items-center gap-1 text-xs text-stone-300">
-              <input type="number" min="0" :max="plafond(oi, p.unite) ?? undefined" class="champ w-14" :value="oi.repartition?.[p.unite] ?? 0" @input="setRepartition(oi, p.unite, $event.target as HTMLInputElement)">
-              {{ nomU(p.unite) }}<span v-if="p.cout" class="text-stone-500"> {{ p.cout }}</span>
+        <div v-for="l in lignesOptions" :key="l.oi.id" class="rounded border border-white/10 bg-black/20 px-3 py-2">
+          <!-- ligne de tête : nom, menu, coût, retrait -->
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-medium text-stone-100">{{ l.nom }}</span>
+            <Selecteur v-if="l.estChoix" v-model="l.oi.choix" class="flex-1" :options="l.choix" :detail-actuel="l.detail" />
+            <Selecteur v-if="l.aVariantes" v-model="l.oi.variante" class="flex-1" :options="l.variantes" :detail-actuel="l.detailVariante" />
+            <span v-if="!l.aSelecteur" class="ml-auto text-gold">{{ l.cout }} pts</span>
+            <button type="button" class="bouton-ghost shrink-0 text-red-300" title="Retirer" @click="retirerOption(l.oi.id)">✕</button>
+          </div>
+
+          <!-- quantités : sur leur propre ligne, elles débordaient de la ligne de tête -->
+          <div
+            v-if="l.quantifiable || l.repartition"
+            class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-2"
+          >
+            <label v-if="l.quantifiable" class="flex items-center gap-2 text-xs text-stone-400">
+              ×<input type="number" class="champ w-16" :value="l.oi.quantite" :min="l.bornes.min" :max="l.bornes.max ?? undefined" @input="setQuantite(l.oi, $event.target as HTMLInputElement)">
+              <span v-if="l.bornes.max !== null" class="text-stone-500">sur {{ l.bornes.max }}</span>
             </label>
-          </template>
-          <span class="ml-auto text-gold">{{ resolue?.options.find((o) => o.instance.id === oi.id)?.cout ?? 0 }} pts</span>
-          <button type="button" class="bouton-ghost text-red-300" @click="retirerOption(oi.id)">✕</button>
+            <label v-for="p in l.repartition" :key="p.unite" class="flex items-center gap-2 text-xs text-stone-300">
+              <input type="number" min="0" :max="plafond(l.oi, p.unite) ?? undefined" class="champ w-14" :value="l.oi.repartition?.[p.unite] ?? 0" @input="setRepartition(l.oi, p.unite, $event.target as HTMLInputElement)">
+              <span>{{ nomU(p.unite) }}<span v-if="p.cout" class="text-stone-500"> · {{ p.cout }} pts</span></span>
+            </label>
+          </div>
         </div>
-        <select v-if="ajoutables.length" class="champ w-full" :value="''" @change="ajouterOption(($event.target as HTMLSelectElement).value); ($event.target as HTMLSelectElement).value = ''">
-          <option value="">+ Ajouter une amélioration…</option>
-          <option v-for="o in ajoutables" :key="o.id" :value="o.id" :title="phraseOption(idx, o)">{{ o.nom }} · {{ coutOption(o) }}</option>
-        </select>
+        <Selecteur v-if="ajoutables.length" action bloc placeholder="+ Ajouter une amélioration…" :options="optionsAjout" @choisir="ajouterOption" />
         <p v-else-if="instance.options.length" class="text-xs text-stone-500">Plus d'amélioration disponible pour cette formation.</p>
       </div>
 
@@ -207,10 +303,7 @@ const profils = computed(() => {
           sous
           @supprimer="retirerSous(s.id)"
         />
-        <select class="champ w-full" :value="''" @change="ajouterSous(($event.target as HTMLSelectElement).value); ($event.target as HTMLSelectElement).value = ''">
-          <option value="">+ Ajouter…</option>
-          <option v-for="fid in specSous.parmi" :key="fid" :value="fid">{{ idx.formations.get(fid)?.nom }} · {{ idx.formations.get(fid)?.variantes[0]?.cout }} pts</option>
-        </select>
+        <Selecteur action bloc placeholder="+ Ajouter…" :options="optionsSous" @choisir="ajouterSous" />
       </div>
 
       <ul v-if="erreursIci.length" class="space-y-1 text-xs text-red-300">

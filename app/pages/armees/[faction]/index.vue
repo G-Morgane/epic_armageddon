@@ -44,13 +44,19 @@ useSeoMeta({
   ogUrl: () => `https://www.epicarmageddon.fr/armees/${faction.value}`,
 })
 
-const { data: armies, status } = await useFetch<ArmyWithVersion[]>('/api/armies', {
-  query: { faction },
-})
+/**
+ * Les deux appels ne dépendent que de la faction : lancés ensemble, et surtout
+ * sans bloquer le rendu. Le cadre de la page (fond, titre, fil d'Ariane) part
+ * tout de suite et la grille se dessine en gris le temps que les données
+ * arrivent, au lieu de laisser une page vide pendant l'aller-retour.
+ */
+// `server: false` : sans lui, le rendu serveur attend quand même la réponse et
+// le squelette n'apparaît jamais. Les données sont donc lues par le navigateur.
+const { data: armies, status } = useLazyFetch<ArmyWithVersion[]>('/api/armies', { query: { faction }, server: false })
+const { data: availableTags, status: statutTags } = useLazyFetch<ArmyTag[]>('/api/army-tags', { query: { faction }, server: false })
 
-const { data: availableTags } = await useFetch<ArmyTag[]>('/api/army-tags', {
-  query: { faction },
-})
+const chargement = computed(() => status.value === 'pending' || status.value === 'idle')
+const chargementTags = computed(() => statutTags.value === 'pending' || statutTags.value === 'idle')
 
 const search = ref('')
 const activeTag = ref<string | null>(null)
@@ -112,7 +118,12 @@ const filteredArmies = computed(() => {
         <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <!-- Tag filters -->
-        <div v-if="availableTags?.length" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+        <div v-if="chargementTags" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0" aria-hidden="true">
+          <div class="inline-flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <div v-for="n in 4" :key="n" class="h-[34px] w-24 animate-pulse rounded-lg bg-white/5 sm:h-9 sm:w-28" />
+          </div>
+        </div>
+        <div v-else-if="availableTags?.length" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0">
           <div class="inline-flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
             <button
               :class="[
@@ -151,9 +162,23 @@ const filteredArmies = computed(() => {
 
       <!-- Army grid -->
       <section class="mx-auto max-w-6xl px-4 pb-20">
-      <!-- Loading -->
-      <div v-if="status === 'pending'" class="py-20 text-center text-gray-400">
-        Chargement...
+      <!-- Chargement : des cartes fantômes à la place de la grille, pour que la
+           page garde sa forme au lieu de sauter quand les armées arrivent. -->
+      <div
+        v-if="chargement"
+        class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5"
+        role="status"
+        aria-label="Chargement des armées"
+      >
+        <div
+          v-for="n in 10"
+          :key="n"
+          class="flex animate-pulse flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.06] p-3 backdrop-blur-md sm:gap-4 sm:p-5"
+        >
+          <div class="h-16 w-16 rounded-full bg-white/10 sm:h-24 sm:w-24" />
+          <div class="h-4 w-20 rounded bg-white/10 sm:w-24" />
+          <div class="h-3 w-12 rounded bg-white/[0.06]" />
+        </div>
       </div>
 
       <!-- Empty -->

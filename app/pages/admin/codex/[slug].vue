@@ -10,7 +10,7 @@ const slug = route.params.slug as string
 const api = useAdminApi()
 
 const brouillon = ref<CodexInput | null>(null)
-const versions = ref<Array<{ version?: string; changelog?: string; publie?: string }>>([])
+const versions = ref<Array<{ version?: string; changelog?: string; publie?: string; pdf_url?: string }>>([])
 const existe = ref(false)
 const chargement = ref(true)
 const pret = ref(false)
@@ -25,10 +25,14 @@ const modalePublier = ref(false)
 const publication = ref({ version: '', changelog: '', encours: false, erreur: '' })
 const apercuCle = ref(0)
 const visionneuse = ref(false)
+/** Publier recharge la page : le compte rendu doit survivre au rechargement pour être lu. */
+const CLE_AVIS = 'codex:avis-publication'
+const avis = ref('')
 
 provide(CLE_BROUILLON, brouillon as Ref<CodexInput>)
 
 onMounted(async () => {
+  try { const a = sessionStorage.getItem(CLE_AVIS); if (a) { avis.value = a; sessionStorage.removeItem(CLE_AVIS) } } catch { /* stockage indisponible */ }
   try {
     const r = await api.get<{ data: CodexInput; existe: boolean; versions: typeof versions.value }>(`/api/admin/codex/${slug}/brouillon`)
     brouillon.value = r.data
@@ -96,7 +100,14 @@ async function publier() {
   try {
     clearTimeout(minuteur)
     await enregistrer()
-    await api.post(`/api/admin/codex/${slug}/publier`, { version: publication.value.version, changelog: publication.value.changelog })
+    // `pdf` vaut null quand le PDF de la version n'a pas pu être déposé : la publication
+    // tient quand même, mais personne ne le saurait sans le dire ici.
+    const r = await api.post<{ version: string; pdf: string | null }>(`/api/admin/codex/${slug}/publier`, { version: publication.value.version, changelog: publication.value.changelog })
+    try {
+      sessionStorage.setItem(CLE_AVIS, r.pdf
+        ? `Publié en v${r.version}. Le PDF de cette version est figé.`
+        : `Publié en v${r.version}, mais son PDF n'a pas pu être figé : il sera composé à la demande, à chaque téléchargement.`)
+    } catch { /* stockage indisponible */ }
     modalePublier.value = false
     location.reload()
   } catch (e) {
@@ -129,7 +140,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
           <h1 class="mt-1 flex items-center gap-3 font-heading text-3xl font-bold text-white">
             <span class="inline-block h-4 w-4 rounded-full border border-white/20" :style="{ background: brouillon.codex.couleur ?? '#8a6d3b' }" />
             {{ brouillon.codex.nom }}
-            <span class="text-base font-normal text-gray-500">brouillon · publié en v{{ versions[versions.length - 1]?.version ?? brouillon.codex.version }}</span>
+            <span class="text-base font-normal text-gray-500">brouillon · {{ versions.length ? `publié en v${versions[versions.length - 1]?.version}` : 'jamais publié' }}</span>
           </h1>
         </div>
         <div class="flex flex-wrap items-center gap-2">
@@ -144,6 +155,11 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
           <button v-if="existe" type="button" class="rounded-md border border-white/10 px-3 py-1.5 text-sm text-gray-300 hover:bg-white/5" @click="abandonner">Abandonner le brouillon</button>
           <button type="button" class="rounded-md bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-40" :disabled="problemes.length > 0" :title="problemes.length ? 'Corrige les problèmes avant de publier' : ''" @click="ouvrirPublier">Publier…</button>
         </div>
+      </div>
+
+      <div v-if="avis" class="mb-5 flex items-start justify-between gap-4 rounded-lg border border-emerald-400/30 bg-emerald-500/10 p-4 text-sm text-emerald-200">
+        <p>{{ avis }}</p>
+        <button type="button" class="text-emerald-300/70 hover:text-emerald-200" @click="avis = ''">✕</button>
       </div>
 
       <div v-if="afficherProblemes && problemes.length" class="mb-5 rounded-lg border border-red-400/30 bg-red-500/10 p-4 text-sm text-red-200">
@@ -170,7 +186,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
           <p class="text-gray-400">Aperçu du brouillon, régénéré à chaque enregistrement.</p>
           <button type="button" class="rounded-md border border-gold/40 px-3 py-1.5 text-gold hover:bg-gold/10" @click="visionneuse = true">Ouvrir en grand</button>
           <a :href="`/api/codex/${slug}/pdf?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Télécharger le PDF du brouillon</a>
-          <a :href="`/builder/${slug}?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Tester dans le builder</a>
+          <a :href="`/builder/${slug}?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Tester dans la construction d'armée</a>
         </div>
         <iframe :key="apercuCle" :src="apercuUrl" class="h-[80vh] w-full rounded-lg border border-gold/10 bg-white" />
       </div>
@@ -181,7 +197,13 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
       <div v-if="versions.length && onglet === 'armee'" class="mt-6 rounded-lg border border-gold/10 bg-surface-light p-5">
         <h3 class="mb-2 font-heading text-base font-semibold text-gold">Versions publiées</h3>
         <ul class="divide-y divide-white/5 text-sm">
-          <li v-for="v in [...versions].reverse()" :key="v.publie" class="flex gap-4 py-1.5"><span class="w-16 font-semibold text-gray-200">v{{ v.version }}</span><span class="w-40 text-gray-500">{{ v.publie ? new Date(v.publie).toLocaleString('fr-FR') : '' }}</span><span class="text-gray-300">{{ v.changelog }}</span></li>
+          <li v-for="v in [...versions].reverse()" :key="v.publie" class="flex gap-4 py-1.5">
+            <span class="w-16 font-semibold text-gray-200">v{{ v.version }}</span>
+            <span class="w-40 shrink-0 text-gray-500">{{ v.publie ? new Date(v.publie).toLocaleString('fr-FR') : '' }}</span>
+            <span class="flex-1 text-gray-300">{{ v.changelog }}</span>
+            <!-- figé au moment de la publication, sinon composé à la demande -->
+            <a :href="v.pdf_url ?? `/api/codex/${slug}/pdf?version=${encodeURIComponent(v.version ?? '')}`" target="_blank" class="shrink-0 text-xs text-gold hover:underline">{{ v.pdf_url ? 'PDF' : 'PDF (à la demande)' }}</a>
+          </li>
         </ul>
       </div>
 
@@ -189,13 +211,15 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
       <div v-if="modalePublier" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4" @click.self="modalePublier = false">
         <div class="w-full max-w-md rounded-lg border border-gold/20 bg-surface-light p-6">
           <h2 class="font-heading text-xl font-bold text-white">Publier {{ brouillon.codex.nom }}</h2>
-          <p class="mt-1 text-sm text-gray-400">Le brouillon est validé, ses listes de test sont rejouées, puis il devient la version publique. Le PDF est régénéré.</p>
+          <p class="mt-1 text-sm text-gray-400">Le brouillon est validé, ses listes de test sont rejouées, puis il devient la version publique. Le PDF de cette version est composé et conservé tel quel dans l'historique.</p>
           <label class="mt-4 flex flex-col gap-1 text-xs text-gray-400">Numéro de version<input v-model="publication.version" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100"></label>
-          <label class="mt-3 flex flex-col gap-1 text-xs text-gray-400">Explications de la mise à jour<textarea v-model="publication.changelog" rows="3" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100" placeholder="Corrections de points, ajout d'unités…" /></label>
+          <!-- Obligatoire : ce texte suit la version dans l'historique public, et il
+               est ce que les joueurs lisent pour savoir ce qui change chez eux. -->
+          <label class="mt-3 flex flex-col gap-1 text-xs text-gray-400">Explications de la mise à jour<textarea v-model="publication.changelog" rows="3" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100" placeholder="Ce qui change pour le joueur : corrections de points, ajout d'unités…" /><span class="text-gray-500">Affiché aux joueurs dans l'historique des versions.</span></label>
           <pre v-if="publication.erreur" class="mt-3 whitespace-pre-wrap rounded border border-red-400/30 bg-red-500/10 p-3 text-xs text-red-200">{{ publication.erreur }}</pre>
           <div class="mt-5 flex justify-end gap-2">
             <button type="button" class="rounded-md border border-white/10 px-3 py-1.5 text-sm text-gray-300" @click="modalePublier = false">Annuler</button>
-            <button type="button" class="rounded-md bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50" :disabled="publication.encours || !publication.version" @click="publier">{{ publication.encours ? 'Publication…' : 'Publier' }}</button>
+            <button type="button" class="rounded-md bg-gold px-4 py-1.5 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50" :disabled="publication.encours || !publication.version.trim() || !publication.changelog.trim()" @click="publier">{{ publication.encours ? 'Publication…' : 'Publier' }}</button>
           </div>
         </div>
       </div>

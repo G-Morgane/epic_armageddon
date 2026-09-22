@@ -8,7 +8,7 @@ const sidebarOpen = ref(false)
 const navItems = computed(() => {
   const items = [
     { label: 'Armées', to: '/admin', icon: 'shield' },
-    { label: 'Codex (démo)', to: '/admin/codex', icon: 'codex' },
+    { label: 'Codex', to: '/admin/codex', icon: 'codex' },
     { label: 'Outils', to: '/admin/tools', icon: 'wrench' },
     { label: 'Documents', to: '/admin/documents', icon: 'document' },
     { label: 'Événements', to: '/admin/events', icon: 'calendar' },
@@ -125,7 +125,7 @@ function isActive(to: string) {
           </NuxtLink>
           <button
             class="flex-1 rounded-lg border border-red-500/10 px-3 py-1.5 text-xs text-red-400 transition-colors hover:bg-red-500/10"
-            @click="logout"
+            @click="logout('/admin/login')"
           >
             Déconnexion
           </button>

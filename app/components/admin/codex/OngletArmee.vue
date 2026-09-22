@@ -4,24 +4,37 @@ const codex = useBrouillonCodex()
 const meta = computed(() => codex.value.codex)
 
 const { uploadImage } = useUploadPdf()
-const envoi = ref(false)
-const erreurIllustration = ref('')
-async function envoyerIllustration(e: Event) {
+/* Couverture et icône s'envoient pareil : même dépôt, seul le champ visé change. */
+const envoi = ref<'illustration' | 'logo' | null>(null)
+const erreurImage = ref('')
+async function envoyerImage(e: Event, champ: 'illustration' | 'logo', suffixe: string) {
   const input = e.target as HTMLInputElement
   const fichier = input.files?.[0]
   if (!fichier) return
-  envoi.value = true
-  erreurIllustration.value = ''
+  envoi.value = champ
+  erreurImage.value = ''
   try {
     const ext = fichier.name.split('.').pop()?.toLowerCase() || 'jpg'
-    meta.value.illustration = await uploadImage(fichier, `codex/${meta.value.slug}-couverture.${ext}`)
+    meta.value[champ] = await uploadImage(fichier, `codex/${meta.value.slug}-${suffixe}.${ext}`)
   } catch (err) {
-    erreurIllustration.value = (err as Error).message
+    erreurImage.value = (err as Error).message
   } finally {
-    envoi.value = false
+    envoi.value = null
     input.value = ''
   }
 }
+
+/* Rattachement à la fiche d'armée publique : la page /armees cherche d'abord par
+   `armee_id`, et seulement à défaut par le nom. Sans ce champ, un codex créé ici
+   n'avait aucun moyen d'être relié autrement que par une coïncidence de nom. */
+const { data: armees } = await useFetch<{ id: string; name: string }[]>('/api/armies', {
+  query: { status: 'official,beta,experimental,30k,archived' },
+  default: () => [],
+})
+const armeeInconnue = computed(() => {
+  const id = meta.value.armee_id
+  return id && !(armees.value ?? []).some((a) => a.id === id) ? id : ''
+})
 
 function ajouterRegle() {
   ;(meta.value.regles_md ??= []).push({ titre: 'Règle spéciale : ', texte: '' })
@@ -68,6 +81,14 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
         <label class="champ-label">Couleur<input v-model="meta.couleur" type="color" class="champ h-9 p-1"></label>
         <label class="champ-label">Valeur stratégique<input v-model="meta.valeur_strategique" class="champ"></label>
         <label class="champ-label">Initiative par défaut<input v-model="meta.initiative.defaut" class="champ"></label>
+        <label class="champ-label sm:col-span-2">Fiche d'armée du site
+          <select v-model="meta.armee_id" class="champ">
+            <option :value="undefined">Aucune (rattachement par le nom)</option>
+            <option v-if="armeeInconnue" :value="armeeInconnue">Armée inconnue ({{ armeeInconnue }})</option>
+            <option v-for="a in armees" :key="a.id" :value="a.id">{{ a.name }}</option>
+          </select>
+          <span class="text-[11px] text-gray-500">Relie ce codex à sa page publique. Sans rattachement, le site s'en remet au nom exact.</span>
+        </label>
       </div>
       <div class="mt-3">
         <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Exceptions d'initiative</p>
@@ -81,25 +102,44 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
     </section>
 
     <section class="carte">
-      <h3 class="titre-carte">Couverture du PDF <span class="text-xs font-normal text-gray-500">(illustration pleine page, optionnelle)</span></h3>
+      <h3 class="titre-carte">Images du PDF <span class="text-xs font-normal text-gray-500">(optionnelles)</span></h3>
       <div class="flex items-start gap-3">
         <div class="flex h-24 w-[68px] shrink-0 items-center justify-center overflow-hidden rounded border border-white/10 bg-black/30 text-[10px] text-gray-600">
           <img v-if="meta.illustration" :src="meta.illustration" alt="" class="h-full w-full object-cover">
           <span v-else>Aucune</span>
         </div>
         <div class="min-w-0 flex-1">
+          <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Couverture</p>
           <input v-model="meta.illustration" class="champ w-full" placeholder="https://…/imperium/black-templars.jpg">
           <div class="mt-2 flex flex-wrap items-center gap-2">
             <label class="lien cursor-pointer">
-              {{ envoi ? 'Envoi…' : 'Choisir une image…' }}
-              <input type="file" accept="image/*" class="hidden" :disabled="envoi" @change="envoyerIllustration">
+              {{ envoi === 'illustration' ? 'Envoi…' : 'Choisir une image…' }}
+              <input type="file" accept="image/*" class="hidden" :disabled="!!envoi" @change="envoyerImage($event, 'illustration', 'couverture')">
             </label>
             <button v-if="meta.illustration" type="button" class="text-xs text-gray-500 hover:text-red-300" @click="meta.illustration = undefined">Retirer</button>
           </div>
-          <p v-if="erreurIllustration" class="mt-1 text-xs text-red-300">{{ erreurIllustration }}</p>
           <p class="mt-1 text-[11px] text-gray-500">Format portrait conseillé (environ 1450 × 2050). L'image occupe toute la page, le titre du codex se pose dessus. Sans illustration, la couverture garde son fond blanc.</p>
         </div>
       </div>
+      <div class="mt-4 flex items-start gap-3 border-t border-white/5 pt-4">
+        <div class="flex h-[68px] w-[68px] shrink-0 items-center justify-center overflow-hidden rounded border border-white/10 bg-black/30 text-[10px] text-gray-600">
+          <img v-if="meta.logo" :src="meta.logo" alt="" class="h-full w-full object-contain p-1">
+          <span v-else>Aucune</span>
+        </div>
+        <div class="min-w-0 flex-1">
+          <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Icône de l'armée</p>
+          <input v-model="meta.logo" class="champ w-full" placeholder="https://…/imperium/black-templars-icone.png">
+          <div class="mt-2 flex flex-wrap items-center gap-2">
+            <label class="lien cursor-pointer">
+              {{ envoi === 'logo' ? 'Envoi…' : 'Choisir une image…' }}
+              <input type="file" accept="image/*" class="hidden" :disabled="!!envoi" @change="envoyerImage($event, 'logo', 'icone')">
+            </label>
+            <button v-if="meta.logo" type="button" class="text-xs text-gray-500 hover:text-red-300" @click="meta.logo = undefined">Retirer</button>
+          </div>
+          <p class="mt-1 text-[11px] text-gray-500">Posée sur la couverture et à côté du titre de la page de présentation. Elle est aplatie en silhouette : une image nette sur fond transparent rend le mieux.</p>
+        </div>
+      </div>
+      <p v-if="erreurImage" class="mt-2 text-xs text-red-300">{{ erreurImage }}</p>
     </section>
 
     <section class="carte">

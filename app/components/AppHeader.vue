@@ -1,6 +1,10 @@
 <script setup lang="ts">
 const mobileMenuOpen = ref(false)
 const route = useRoute()
+const { isAuthenticated, pseudo, init } = useAuth()
+
+// le rôle et le pseudo ne servent qu'à l'affichage du menu : chargement sans blocage
+onMounted(() => { init() })
 
 watch(() => route.fullPath, () => {
   mobileMenuOpen.value = false
@@ -107,6 +111,13 @@ function toggleDropdown(label: string) {
             </Transition>
           </div>
         </template>
+        <NuxtLink
+          :to="isAuthenticated ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
+          class="ml-2 rounded-md border border-gold/25 px-4 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
+          active-class="bg-gold/10"
+        >
+          {{ isAuthenticated ? (pseudo ?? 'Mon compte') : 'Connexion' }}
+        </NuxtLink>
       </nav>
 
       <!-- Mobile menu button -->
@@ -203,6 +214,16 @@ function toggleDropdown(label: string) {
               </Transition>
             </div>
           </template>
+        </div>
+
+        <!-- Compte -->
+        <div class="border-t border-gold/10 px-3 py-3">
+          <NuxtLink
+            :to="isAuthenticated ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
+            class="flex items-center rounded-lg px-4 py-3 text-[15px] font-medium text-gold transition-colors hover:bg-gold/10"
+          >
+            {{ isAuthenticated ? (pseudo ?? 'Mon compte') : 'Connexion' }}
+          </NuxtLink>
         </div>
 
         <!-- Bottom brand -->

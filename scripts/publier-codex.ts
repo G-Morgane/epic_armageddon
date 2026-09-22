@@ -2,9 +2,14 @@
  * Publie les codex des fichiers YAML dans Supabase, pour que la base devienne la source.
  *
  *   npx tsx scripts/publier-codex.ts                     # essai à blanc : valide tout, n'écrit rien
- *   npx tsx scripts/publier-codex.ts --ecrire            # publie ceux qui n'ont aucune version
- *   npx tsx scripts/publier-codex.ts --ecrire --republier  # publie aussi ceux déjà publiés
- *   npx tsx scripts/publier-codex.ts --ecrire tyranides  # limite à un ou plusieurs slugs
+ *   npx tsx scripts/publier-codex.ts --ecrire --texte "…"  # publie ceux qui n'ont aucune version
+ *   npx tsx scripts/publier-codex.ts --ecrire --texte "…" --republier  # publie aussi ceux déjà publiés
+ *   npx tsx scripts/publier-codex.ts --ecrire --texte "…" tyranides    # limite à un ou plusieurs slugs
+ *
+ * `--texte` est obligatoire dès qu'on écrit : il devient le changelog de chaque
+ * version publiée, et c'est ce que les joueurs lisent dans l'historique. Il
+ * était écrit en dur, ce qui faisait partir la même phrase sur tout, vraie la
+ * première fois et fausse ensuite.
  *
  * Applique les mêmes contrôles que le bouton Publier de l'admin : schéma strict,
  * références croisées, puis rejeu des listes de test. Un codex en échec est signalé
@@ -24,9 +29,26 @@ import { normaliserFormation } from '../shared/codex/liste'
 import { fusionnerAllies, alliesReferences } from '../shared/codex/allies'
 
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..')
-const ecrire = process.argv.includes('--ecrire')
-const republier = process.argv.includes('--republier')
-const cibles = process.argv.slice(2).filter((a) => !a.startsWith('--'))
+const args = process.argv.slice(2)
+const ecrire = args.includes('--ecrire')
+const republier = args.includes('--republier')
+
+/** `--texte "..."` ou `--texte=...`. Les deux, parce que les deux se tapent. */
+function lireTexte(): { valeur: string; consomme: number } {
+  const i = args.findIndex((a) => a === '--texte' || a.startsWith('--texte='))
+  if (i === -1) return { valeur: '', consomme: -1 }
+  const a = args[i]!
+  if (a.startsWith('--texte=')) return { valeur: a.slice('--texte='.length), consomme: -1 }
+  return { valeur: args[i + 1] ?? '', consomme: i + 1 }
+}
+const { valeur: texte, consomme } = lireTexte()
+const cibles = args.filter((a, i) => !a.startsWith('--') && i !== consomme)
+
+if (ecrire && !texte.trim()) {
+  console.error('--texte "ce que change cette publication" est requis avec --ecrire.')
+  console.error('Il est affiché aux joueurs dans l\'historique des versions.')
+  process.exit(1)
+}
 
 function chargerEnv() {
   const f = join(RACINE, '.env')
@@ -127,7 +149,11 @@ async function main() {
     const { error } = await sb.from('codex_versions').insert({
       slug,
       version,
-      changelog: 'Reprise du fichier de départ, la base devient la source.',
+      // Lu par les joueurs, pas par nous : il dit ce qui change POUR EUX, pas
+      // d'où vient le fichier. La première vague est partie avec « Changement du
+      // fonctionnement des PDF et du constructeur d'armée. Aucune modification
+      // de la liste effective. »
+      changelog: texte.trim(),
       data: brut,
       published_at: new Date().toISOString(),
     })

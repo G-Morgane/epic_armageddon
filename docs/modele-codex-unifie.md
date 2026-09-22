@@ -101,7 +101,7 @@ codex:
   categorie: armees-imperiales # rubrique du builder
   statut: official             # official | beta | experimental | 30k
   couleur: "#686000"
-  logo: steel.png
+  logo: https://…/icons/legion-dacier.svg   # icône de l'armée (PDF : couverture + titre)
   citation: { texte: "Héros d'Armageddon ! …", auteur: "Commissaire Yarrick…" }
   intro_md: |                  # « Utiliser la liste d'armée » (PDF uniquement)
     La liste qui suit vous permet de mettre sur pied…
