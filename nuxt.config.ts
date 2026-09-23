@@ -12,6 +12,39 @@ const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || URL_PROD
 // de prod reste bloqué par VERCEL_ENV.
 const indexable = siteUrl === URL_PROD && (process.env.VERCEL_ENV ?? 'production') === 'production'
 
+// Pages publiques servies depuis le cache de l'edge Vercel (ISR) : la fonction
+// serveur n'est plus invoquée, donc plus de démarrage à froid de 3 s sur un
+// site à faible trafic. Le contenu vient de Supabase et peut donc avoir jusqu'à
+// 10 min de retard ; passé ce délai Vercel sert quand même la version en cache
+// et régénère en arrière-plan, personne n'attend.
+// Exclus : /admin, /compte, /connexion, /builder et /codex/{slug}/imprimer (la
+// page que Chromium imprime doit refléter l'état demandé, brouillon ou version
+// précise, pas un rendu mis en cache).
+const PAGES_EN_CACHE = [
+  '/',
+  '/armees',
+  '/armees/**',
+  '/codex',
+  '/codex-beta',
+  '/epic-30k',
+  '/regles',
+  '/outils',
+  '/evenements',
+  '/communaute',
+  '/conditions',
+  '/confidentialite',
+]
+
+// L'ISR n'existe que sur Vercel. Ailleurs (dev, build local) Nitro le traduit
+// en cache disque dont les clés se chevauchent : `/` écrit le fichier
+// .nuxt/cache/nuxt/payload, `/codex` veut ensuite écrire dans un dossier du
+// même nom, et toutes les pages concernées répondent 500. On ne pose donc les
+// règles que pour la plateforme qui les implémente vraiment.
+const surVercel = !!process.env.VERCEL || process.env.NITRO_PRESET === 'vercel'
+const reglesCache = surVercel
+  ? Object.fromEntries(PAGES_EN_CACHE.map(route => [route, { isr: 600 }]))
+  : {}
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -47,29 +80,26 @@ export default defineNuxtConfig({
     // pointent encore dessus, la redirection permanente les rattrape.
     '/codex-test': { redirect: { to: '/codex', statusCode: 301 } },
     '/codex-test/**': { redirect: { to: '/codex/**', statusCode: 301 } },
-    // Pages publiques servies depuis le cache de l'edge Vercel (ISR) : la
-    // fonction serveur n'est plus invoquée, donc plus de démarrage à froid de
-    // 3 s sur un site à faible trafic. Le contenu vient de Supabase et peut
-    // donc avoir jusqu'à 10 min de retard ; passé ce délai Vercel sert quand
-    // même la version en cache et régénère en arrière-plan, personne n'attend.
-    // Exclus : /admin, /compte, /connexion, /builder et /codex/{slug}/imprimer
-    // (la page que Chromium imprime doit refléter l'état demandé, brouillon
-    // ou version précise, pas un rendu mis en cache).
-    '/': { isr: 600 },
-    '/armees': { isr: 600 },
-    '/armees/**': { isr: 600 },
-    '/codex': { isr: 600 },
-    '/codex-beta': { isr: 600 },
-    '/epic-30k': { isr: 600 },
-    '/regles': { isr: 600 },
-    '/outils': { isr: 600 },
-    '/evenements': { isr: 600 },
-    '/communaute': { isr: 600 },
-    '/conditions': { isr: 600 },
-    '/confidentialite': { isr: 600 },
+    ...reglesCache,
     // Hors prod, l'en-tête couvre ce que robots.txt ne couvre pas :
     // PDF générés, sitemap, pages déjà connues d'un moteur.
     ...(indexable ? {} : { '/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } } }),
+  },
+  hooks: {
+    'nitro:init'(nitro) {
+      // Pour chaque route en ISR, Nuxt ajoute une règle sur sa charge utile,
+      // `{route}/_payload.json`. À la racine cela donne `//_payload.json`, que
+      // le préréglage Vercel résout ensuite en chemin absolu : le build meurt
+      // sur « EROFS: read-only file system, symlink … -> /_payload.json-isr ».
+      // On renomme la règle une fois que Nuxt a fini de les poser.
+      nitro.hooks.hook('rollup:before', () => {
+        const regles = nitro.options.routeRules
+        if (regles['//_payload.json']) {
+          regles['/_payload.json'] = regles['//_payload.json']!
+          delete regles['//_payload.json']
+        }
+      })
+    },
   },
   nitro: {
     // Codex YAML (source de vérité) embarqués dans le serveur
