@@ -295,7 +295,7 @@ table.stats td { padding: 1.5pt 3pt; vertical-align: top; }
 table.stats tr.premiere td { border-top: 1px solid #bbb; }
 table.stats tr.derniere td { border-bottom: 1px solid #bbb; padding-bottom: 2.5pt; }
 table.stats td.nom { font-weight: 600; }
-table.stats tr.sous-ligne td { font-size: 6.6pt; font-style: italic; color: #333; padding-left: 6pt; }
+table.stats tr.sous-ligne td { font-size: 6.6pt; font-style: italic; color: #333; padding-left: 24pt; }
 table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
 table.stats tr.vide td { padding: 0; }
 
