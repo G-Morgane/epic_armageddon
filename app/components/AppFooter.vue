@@ -76,7 +76,18 @@ const socialLinks = [
       </div>
 
       <!-- Bottom bar -->
-      <div class="mt-12 border-t border-gold/10 pt-6 text-center text-sm text-gray-500">
+      <div class="mt-12 border-t border-gold/10 pt-6">
+        <div class="flex justify-center gap-6 text-sm">
+          <NuxtLink to="/confidentialite" class="text-gray-400 transition-colors hover:text-gold">
+            Confidentialité
+          </NuxtLink>
+          <NuxtLink to="/conditions" class="text-gray-400 transition-colors hover:text-gold">
+            Conditions d'utilisation
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div class="mt-6 text-center text-sm text-gray-500">
         Copyright &copy; {{ currentYear }} Epic Armageddon.fr | Le site "Epic Armageddon.fr" est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD.
       </div>
     </div>

@@ -17,7 +17,7 @@ useHead({ title: `Construction d'armée · ${c.codex.nom}` })
 /**
  * Retour : là d'où l'on vient, pas une destination fixe.
  *
- * Le lien renvoyait toujours vers /codex-test, alors qu'on arrive ici depuis la
+ * Le lien renvoyait toujours vers /codex, alors qu'on arrive ici depuis la
  * fiche d'armée, depuis l'admin ou depuis un lien de partage. `history.state.back`
  * est nul quand l'onglet s'ouvre directement sur cette page : il n'y a alors
  * rien derrière, et on retombe sur la fiche de l'armée, qui est le contexte de
@@ -172,14 +172,64 @@ function plafondAtteint(fid: string) {
 /** formation dépliée dans le catalogue : sa composition (les profils sont sur les cartes de la liste) */
 const detail = ref<string | null>(null)
 
+/**
+ * La liste est un tableau plat, l'affichage est groupé par catégorie : la section
+ * d'une instance se lit toujours par sa formation, jamais par sa position.
+ */
+const sectionIdDe = (fid: string) => idx.sectionDe.get(fid)?.id ?? '?'
+const sectionInstance = (id: string) => {
+  const f = liste.value.formations.find((x) => x.id === id)
+  return f ? sectionIdDe(f.formation) : null
+}
+/**
+ * Colonne centrale rangée dans les mêmes catégories que le catalogue, et dans le
+ * même ordre : une liste d'une vingtaine de cartes à plat ne se relit pas. Les
+ * formations dont la section est inconnue (liste partagée d'un codex plus vieux)
+ * finissent dans un groupe de fin plutôt que de disparaître.
+ */
+const groupes = computed(() => {
+  const parSection = new Map<string, FormationInstance[]>()
+  for (const f of liste.value.formations) {
+    const sid = sectionIdDe(f.formation)
+    const g = parSection.get(sid)
+    if (g) g.push(f)
+    else parSection.set(sid, [f])
+  }
+  const ordre = c.sections.map((s) => ({ id: s.id, titre: s.titre }))
+  if (parSection.has('?')) ordre.push({ id: '?', titre: 'Autres' })
+  return ordre.flatMap((s) => {
+    const formations = parSection.get(s.id)
+    return formations?.length ? [{ ...s, formations }] : []
+  })
+})
+
+/**
+ * Accordéon de la liste. Plusieurs cartes peuvent rester dépliées en même temps :
+ * on compare deux formations, on ne les règle pas l'une après l'autre. Seul un
+ * ajout repart d'une seule carte ouverte, pour poser sous les yeux celle qu'on
+ * vient de prendre.
+ */
+const cartesOuvertes = ref<string[]>([])
+function basculerCarte(id: string) {
+  cartesOuvertes.value = cartesOuvertes.value.includes(id)
+    ? cartesOuvertes.value.filter((x) => x !== id)
+    : [...cartesOuvertes.value, id]
+}
+
 function ajouter(fid: string, variante?: string) {
   const f = idx.formations.get(fid)
   if (!f) return
   const options = optionsObligatoires(idx, fid).map((option) => ({ id: genererId('o'), option }))
-  liste.value.formations.push({ id: genererId('f'), formation: fid, variante: variante ?? f.variantes[0]!.id, choix: {}, options, sous_formations: [] })
+  const instance: FormationInstance = { id: genererId('f'), formation: fid, variante: variante ?? f.variantes[0]!.id, choix: {}, options, sous_formations: [] }
+  // en tête de sa catégorie : le dernier ajout est celui qu'on règle, il doit être sous les yeux
+  const i = liste.value.formations.findIndex((x) => sectionIdDe(x.formation) === sectionIdDe(fid))
+  if (i < 0) liste.value.formations.push(instance)
+  else liste.value.formations.splice(i, 0, instance)
+  cartesOuvertes.value = [instance.id]
 }
 function supprimer(id: string) {
   liste.value.formations = liste.value.formations.filter((f) => f.id !== id)
+  cartesOuvertes.value = cartesOuvertes.value.filter((x) => x !== id)
 }
 function dupliquer(id: string) {
   const src = liste.value.formations.find((f) => f.id === id)
@@ -189,33 +239,263 @@ function dupliquer(id: string) {
   renommer(copie)
   const i = liste.value.formations.findIndex((f) => f.id === id)
   liste.value.formations.splice(i + 1, 0, copie)
+  cartesOuvertes.value = [copie.id]
 }
-function vider() {
-  if (confirm('Vider la liste ?')) liste.value.formations = []
-}
-function imprimer() { window.print() }
 
-const erreursGlobales = computed(() => resultat.value.erreurs.filter((e) => !e.formation))
+/**
+ * Réorganisation à l'intérieur d'une catégorie.
+ * L'ordre affiché d'un groupe est celui du tableau plat filtré : déplacer une
+ * carte devant ou derrière une autre de la même section suffit, et les autres
+ * sections ne bougent pas puisque leurs éléments ne changent pas d'ordre relatif.
+ */
+function deplacer(sourceId: string, cibleId: string, avant: boolean) {
+  const arr = [...liste.value.formations]
+  const i = arr.findIndex((f) => f.id === sourceId)
+  if (i < 0) return
+  const [item] = arr.splice(i, 1)
+  const j = arr.findIndex((f) => f.id === cibleId)
+  if (j < 0) return
+  arr.splice(avant ? j : j + 1, 0, item!)
+  liste.value.formations = arr
+}
+/** poignée pressée : la carte ne devient déplaçable qu'à ce moment, sinon les champs du corps ne seraient plus sélectionnables */
+const glissable = ref<string | null>(null)
+const glissee = ref<string | null>(null)
+const cible = ref<{ id: string; avant: boolean } | null>(null)
+function finGlisse() {
+  glissable.value = null
+  glissee.value = null
+  cible.value = null
+}
+function debutGlisse(id: string, e: DragEvent) {
+  glissee.value = id
+  if (e.dataTransfer) {
+    e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/plain', id)
+  }
+}
+function survol(f: FormationInstance, e: DragEvent) {
+  const src = glissee.value
+  // sans `preventDefault`, le dépôt est refusé : c'est ce qui interdit de sortir de sa catégorie
+  if (!src || src === f.id || sectionInstance(src) !== sectionIdDe(f.formation)) return
+  e.preventDefault()
+  const r = (e.currentTarget as HTMLElement).getBoundingClientRect()
+  cible.value = { id: f.id, avant: e.clientY < r.top + r.height / 2 }
+}
+function deposer(id: string, e: DragEvent) {
+  e.preventDefault()
+  const src = glissee.value
+  const pos = cible.value
+  finGlisse()
+  if (src && pos && pos.id === id) deplacer(src, pos.id, pos.avant)
+}
+/** même déplacement au clavier et au doigt : le glisser-déposer natif ne répond pas au tactile */
+function decaler(id: string, delta: -1 | 1) {
+  const g = groupes.value.find((x) => x.formations.some((f) => f.id === id))
+  if (!g) return
+  const voisin = g.formations[g.formations.findIndex((f) => f.id === id) + delta]
+  if (voisin) deplacer(id, voisin.id, delta < 0)
+}
+/**
+ * Vider demande confirmation sur le bouton lui-même, pas dans une boîte du
+ * navigateur, et laisse une porte de sortie : le contenu est gardé de côté le
+ * temps d'un « Annuler ». Perdre une liste de vingt formations sur un clic de
+ * travers n'a aucune raison d'être définitif.
+ */
+const confirmationVider = ref(false)
+const vidage = ref<FormationInstance[] | null>(null)
+let minuterieVider: ReturnType<typeof setTimeout> | null = null
+let minuterieAnnuler: ReturnType<typeof setTimeout> | null = null
+function vider() {
+  if (!confirmationVider.value) {
+    confirmationVider.value = true
+    if (minuterieVider) clearTimeout(minuterieVider)
+    minuterieVider = setTimeout(() => { confirmationVider.value = false }, 4000)
+    return
+  }
+  confirmationVider.value = false
+  if (!liste.value.formations.length) return
+  vidage.value = liste.value.formations
+  liste.value.formations = []
+  cartesOuvertes.value = []
+  if (minuterieAnnuler) clearTimeout(minuterieAnnuler)
+  minuterieAnnuler = setTimeout(() => { vidage.value = null }, 15000)
+}
+function annulerVidage() {
+  if (!vidage.value) return
+  liste.value.formations = vidage.value
+  vidage.value = null
+}
+onBeforeUnmount(() => {
+  if (minuterieVider) clearTimeout(minuterieVider)
+  if (minuterieAnnuler) clearTimeout(minuterieAnnuler)
+})
+
+/** Règles de l'armée, en tiroir : elles ne vivaient que dans le document imprimable. */
+const reglesOuvert = ref(false)
+/**
+ * Le document s'ouvre en tiroir, sur la liste en cours : il la relit dans le
+ * navigateur, donc enregistrée sur le compte ou non. Il est recomposé à part
+ * et non caché en `@media print`, la colonne d'édition n'étant faite que de
+ * menus et de compteurs.
+ */
+const documentOuvert = ref(false)
+const codePartage = computed(() => (typeof route.query.liste === 'string' ? route.query.liste : undefined))
+
+/**
+ * Enregistrement direct depuis la barre d'outils.
+ *
+ * Sauver imposait d'ouvrir le tiroir « Mes listes », donc un aller-retour pour
+ * le geste le plus courant. Le tiroir reste la seule porte d'entrée sans
+ * session : c'est lui qui explique le stockage local et propose la connexion.
+ */
+const etatSauvegarde = ref<'' | 'en_cours' | 'fait'>('')
+const erreurSauvegarde = ref('')
+async function sauvegarder() {
+  if (!listesApi.connecte()) { listesOuvert.value = true; return }
+  etatSauvegarde.value = 'en_cours'
+  erreurSauvegarde.value = ''
+  try {
+    const corps = {
+      codex: slug,
+      nom: liste.value.nom,
+      limite: liste.value.limite,
+      data: liste.value,
+      total: resultat.value.total,
+      valide: resultat.value.valide,
+    }
+    if (idServeur.value) await listesApi.enregistrer(idServeur.value, corps)
+    else listeEnregistree(await listesApi.creer(corps))
+    etatSauvegarde.value = 'fait'
+    setTimeout(() => { if (etatSauvegarde.value === 'fait') etatSauvegarde.value = '' }, 2000)
+  } catch (e) {
+    etatSauvegarde.value = ''
+    erreurSauvegarde.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
+  }
+}
+
+/**
+ * Partage direct depuis la barre d'outils.
+ *
+ * Le lien n'existe que pour une liste enregistrée sur le compte : on
+ * l'enregistre d'abord si besoin, puis on demande son code (l'API rend le même
+ * s'il existe déjà) et on met le lien dans le presse-papiers. Sans session, le
+ * tiroir prend le relais, c'est lui qui propose la connexion.
+ */
+const etatPartage = ref<'' | 'en_cours' | 'copie'>('')
+const lienPartage = ref('')
+async function partager() {
+  if (!listesApi.connecte()) { listesOuvert.value = true; return }
+  etatPartage.value = 'en_cours'
+  erreurSauvegarde.value = ''
+  try {
+    if (!idServeur.value) await sauvegarder()
+    if (!idServeur.value) throw new Error("la liste n'a pas pu être enregistrée")
+    const code = await listesApi.partager(idServeur.value)
+    const lien = `${window.location.origin}/builder/${slug}?liste=${code}`
+    lienPartage.value = lien
+    try {
+      await navigator.clipboard.writeText(lien)
+      etatPartage.value = 'copie'
+      setTimeout(() => { if (etatPartage.value === 'copie') etatPartage.value = '' }, 3000)
+    } catch {
+      // presse-papiers refusé (navigateur, page non sécurisée) : le lien s'affiche, à copier à la main
+      etatPartage.value = ''
+    }
+  } catch (e) {
+    etatPartage.value = ''
+    erreurSauvegarde.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
+  }
+}
+
+/**
+ * Bilan : toutes les erreurs, pas seulement celles qui ne visent aucune
+ * formation. Une erreur de formation ne s'affichait que sur sa carte, donc
+ * invisible dès que la carte était repliée ou hors de l'écran, et le compteur
+ * « n problème(s) » ne disait pas où chercher. Ici chaque erreur mène à sa carte.
+ */
+const racineParInstance = computed(() => {
+  const m = new Map<string, string>()
+  const parcourir = (f: FormationInstance, racine: string) => {
+    m.set(f.id, racine)
+    f.sous_formations.forEach((s) => parcourir(s, racine))
+  }
+  liste.value.formations.forEach((f) => parcourir(f, f.id))
+  return m
+})
+const erreursBilan = computed(() => resultat.value.erreurs.map((e) => ({
+  message: e.message,
+  // une erreur peut viser une sous-formation : c'est la carte racine qui se déplie
+  carte: e.formation ? racineParInstance.value.get(e.formation) : undefined,
+})))
+
+/** carte montrée du doigt après un clic sur une erreur, le temps qu'on la repère */
+const carteSignalee = ref<string | null>(null)
+async function allerVersCarte(id: string) {
+  if (!cartesOuvertes.value.includes(id)) cartesOuvertes.value = [...cartesOuvertes.value, id]
+  await nextTick()
+  document.getElementById(`carte-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  carteSignalee.value = id
+  setTimeout(() => { if (carteSignalee.value === id) carteSignalee.value = null }, 1800)
+}
 const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? Math.min(100, Math.round((b.utilise / b.capacite) * 100)) : b.utilise ? 100 : 0)
 </script>
 
 <template>
-  <div class="mx-auto max-w-7xl px-4 py-8">
-    <div class="flex flex-wrap items-end justify-between gap-4 impression-cacher">
-      <div>
-        <button type="button" class="text-xs uppercase tracking-widest text-gold hover:underline" @click="revenir">← Retour</button>
-        <h1 class="mt-1 font-heading text-3xl font-bold text-white">Construction d'armée · {{ c.codex.nom }} <span class="text-base font-normal text-stone-400">v{{ c.codex.version }}</span></h1>
-      </div>
-      <div class="flex flex-wrap items-center gap-3">
+  <div class="mx-auto max-w-7xl px-4 pb-24 pt-8 lg:pb-8">
+    <div class="impression-cacher">
+      <button type="button" class="inline-flex min-h-[32px] items-center text-xs uppercase tracking-widest text-gold hover:underline" @click="revenir">← Retour</button>
+      <h1 class="mt-1 font-heading text-3xl font-bold text-white">Construction d'armée · {{ c.codex.nom }} <span class="text-base font-normal text-stone-400">v{{ c.codex.version }}</span></h1>
+      <!--
+        Barre d'outils sur sa propre ligne, pleine largeur : partagée avec le titre,
+        elle passait à la ligne dès que le nom du codex était long, et les actions
+        retombaient alors n'importe où. Ici le réglage de la liste reste à gauche,
+        les actions sont toujours à droite.
+      -->
+      <div class="mt-4 flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
         <label class="flex items-center gap-2 text-sm text-stone-300">Limite <input v-model.number="liste.limite" type="number" step="250" min="250" class="champ w-24"> pts</label>
-        <button type="button" class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10" @click="listesOuvert = true">Mes listes</button>
-        <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="imprimer">Imprimer</button>
-        <button type="button" class="rounded border border-red-400/40 px-3 py-1.5 text-sm text-red-300 hover:bg-red-500/10" @click="vider">Vider</button>
+        <div class="ml-auto flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10 disabled:opacity-60"
+            :disabled="etatSauvegarde === 'en_cours'"
+            @click="sauvegarder"
+          >
+            {{ etatSauvegarde === 'en_cours' ? 'Sauvegarde…' : etatSauvegarde === 'fait' ? '✓ Sauvegardée' : 'Sauvegarder' }}
+          </button>
+          <button
+            type="button"
+            class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10 disabled:opacity-60"
+            :disabled="etatPartage === 'en_cours'"
+            title="Enregistre la liste si besoin, puis copie son lien de partage"
+            @click="partager"
+          >
+            {{ etatPartage === 'en_cours' ? 'Partage…' : etatPartage === 'copie' ? '✓ Lien copié' : 'Partager' }}
+          </button>
+          <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="documentOuvert = true">Voir le PDF</button>
+          <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="reglesOuvert = true">Règles de l'armée</button>
+          <button
+            type="button"
+            class="rounded border px-3 py-1.5 text-sm"
+            :class="confirmationVider ? 'border-red-400 bg-red-500/20 text-red-200' : 'border-red-400/40 text-red-300 hover:bg-red-500/10'"
+            @click="vider"
+          >
+            {{ confirmationVider ? 'Confirmer ?' : 'Vider' }}
+          </button>
+          <button type="button" class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10" @click="listesOuvert = true">Mes listes</button>
+        </div>
       </div>
     </div>
 
     <p v-if="messagePartage" class="mt-4 rounded border border-gold/30 bg-gold/10 px-4 py-2 text-sm text-gold-light impression-cacher">{{ messagePartage }}</p>
+    <p v-if="erreurSauvegarde" class="mt-4 rounded border border-red-400/40 bg-red-500/10 px-4 py-2 text-sm text-red-300 impression-cacher">Sauvegarde impossible : {{ erreurSauvegarde }}</p>
+    <!-- Presse-papiers refusé : le lien reste sous les yeux, à copier à la main -->
+    <p v-if="lienPartage && etatPartage !== 'copie'" class="mt-4 break-all rounded border border-gold/30 bg-gold/10 px-4 py-2 font-mono text-xs text-gold-light impression-cacher">{{ lienPartage }}</p>
+    <p v-if="vidage" class="mt-4 flex flex-wrap items-center gap-3 rounded border border-white/15 bg-surface-light px-4 py-2 text-sm text-stone-300 impression-cacher">
+      Liste vidée.
+      <button type="button" class="rounded border border-gold/40 px-2 py-1 text-xs text-gold hover:bg-gold/10" @click="annulerVidage">Annuler</button>
+    </p>
 
     <CodexMesListes
       v-model="listesOuvert"
@@ -227,6 +507,10 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       @charger="chargerListe"
       @enregistree="listeEnregistree"
     />
+
+    <CodexVisionneuseListe v-model="documentOuvert" :slug="slug" :nom="liste.nom" :partage="codePartage" />
+
+    <CodexReglesArmee v-model="reglesOuvert" :meta="c.codex" />
 
     <div class="mt-6 grid gap-6 lg:grid-cols-[280px_1fr_260px]">
       <!-- Catalogue -->
@@ -249,7 +533,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
                 </button>
                 <button
                   type="button"
-                  class="shrink-0 rounded px-2 py-0.5 font-bold"
+                  class="inline-flex min-h-[32px] min-w-[32px] shrink-0 items-center justify-center rounded font-bold"
                   :class="plafondAtteint(ligne.fid) ? 'cursor-not-allowed bg-white/5 text-stone-600' : 'bg-gold/90 text-surface hover:bg-gold-light'"
                   :disabled="plafondAtteint(ligne.fid)"
                   :title="plafondAtteint(ligne.fid) ? `Limite atteinte : au plus ${plafondDe(ligne.fid)} dans l'armée` : 'Ajouter à la liste'"
@@ -287,21 +571,59 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
           Ajoutez des formations depuis le catalogue à gauche.
         </p>
         <ClientOnly>
-          <CodexFormationCarte
-            v-for="f in liste.formations"
-            :key="f.id"
-            :idx="idx"
-            :instance="f"
-            :resolue="resolueDe(f.id)"
-            :compte-armee="compteArmee"
-            @supprimer="supprimer(f.id)"
-            @dupliquer="dupliquer(f.id)"
-          />
+          <section v-for="g in groupes" :key="g.id" class="space-y-3">
+            <h2 class="flex items-center gap-2 border-b border-white/10 pb-1 font-heading text-xs uppercase tracking-widest text-gold">
+              {{ g.titre }}
+              <span class="rounded-full bg-gold/15 px-1.5 py-0.5 text-[10px]">{{ g.formations.length }}</span>
+            </h2>
+            <div
+              v-for="(f, i) in g.formations"
+              :key="f.id"
+              :id="`carte-${f.id}`"
+              class="relative rounded-lg transition"
+              :class="[glissee === f.id ? 'opacity-40' : '', carteSignalee === f.id ? 'ring-2 ring-red-400/80' : '']"
+              :draggable="glissable === f.id"
+              @dragstart="debutGlisse(f.id, $event)"
+              @dragover="survol(f, $event)"
+              @drop="deposer(f.id, $event)"
+              @dragend="finGlisse"
+            >
+              <span
+                v-if="cible?.id === f.id"
+                class="pointer-events-none absolute inset-x-0 h-0.5 rounded-full bg-gold"
+                :class="cible.avant ? '-top-1.5' : '-bottom-1.5'"
+              />
+              <CodexFormationCarte
+                :idx="idx"
+                :instance="f"
+                :resolue="resolueDe(f.id)"
+                :compte-armee="compteArmee"
+                pliable
+                :ouvert="cartesOuvertes.includes(f.id)"
+                @basculer="basculerCarte(f.id)"
+                @supprimer="supprimer(f.id)"
+                @dupliquer="dupliquer(f.id)"
+              >
+                <template #poignee>
+                  <span class="impression-cacher flex shrink-0 items-center text-stone-500">
+                    <span
+                      class="hidden min-h-[32px] min-w-[26px] cursor-grab select-none items-center justify-center leading-none hover:text-gold active:cursor-grabbing sm:inline-flex"
+                      title="Glisser pour réorganiser dans la catégorie"
+                      @pointerdown="glissable = f.id"
+                      @pointerup="glissable = null"
+                    >⠿</span>
+                    <button type="button" class="fleche" :disabled="i === 0" title="Monter" @click="decaler(f.id, -1)">▲</button>
+                    <button type="button" class="fleche" :disabled="i === g.formations.length - 1" title="Descendre" @click="decaler(f.id, 1)">▼</button>
+                  </span>
+                </template>
+              </CodexFormationCarte>
+            </div>
+          </section>
         </ClientOnly>
       </main>
 
       <!-- Bilan -->
-      <aside class="min-w-0 space-y-4 lg:sticky lg:top-24 lg:self-start">
+      <aside id="bilan" class="min-w-0 space-y-4 scroll-mt-24 lg:sticky lg:top-24 lg:self-start">
         <div class="rounded-lg border border-white/15 bg-surface-light p-4">
           <p class="text-xs uppercase tracking-wider text-stone-400">Total</p>
           <p class="font-heading text-3xl font-bold" :class="resultat.total > liste.limite ? 'text-red-300' : 'text-white'">
@@ -326,19 +648,46 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
           </div>
         </div>
 
-        <div v-if="erreursGlobales.length" class="rounded-lg border border-red-400/40 bg-red-500/10 p-4 text-sm text-red-200">
+        <div v-if="erreursBilan.length" class="rounded-lg border border-red-400/40 bg-red-500/10 p-4 text-sm text-red-200">
           <p class="mb-2 text-xs uppercase tracking-wider">À corriger</p>
           <ul class="space-y-1">
-            <li v-for="(e, i) in erreursGlobales" :key="i">⚠ {{ e.message }}</li>
+            <li v-for="(e, i) in erreursBilan" :key="i">
+              <button
+                v-if="e.carte"
+                type="button"
+                class="text-left hover:underline"
+                title="Aller à la formation concernée"
+                @click="allerVersCarte(e.carte)"
+              >⚠ {{ e.message }}</button>
+              <template v-else>⚠ {{ e.message }}</template>
+            </li>
           </ul>
         </div>
       </aside>
     </div>
+
+    <!--
+      Récapitulatif collé en bas sur téléphone : la colonne « Bilan » y passe
+      sous toute la liste, donc le total et les erreurs sortent de l'écran dès
+      la troisième formation. Le clic ramène au bilan complet.
+    -->
+    <a
+      href="#bilan"
+      class="impression-cacher fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-white/10 bg-surface/95 px-4 py-3 backdrop-blur lg:hidden"
+    >
+      <span class="font-heading text-lg font-bold" :class="resultat.total > liste.limite ? 'text-red-300' : 'text-white'">
+        {{ resultat.total }} <span class="text-sm font-normal text-stone-400">/ {{ liste.limite }} pts</span>
+      </span>
+      <span class="text-sm" :class="resultat.valide ? 'text-emerald-300' : 'text-red-300'">
+        {{ resultat.valide ? '✓ Liste valide' : `${resultat.erreurs.length} problème(s)` }}
+      </span>
+    </a>
   </div>
 </template>
 
 <style scoped>
 .champ { @apply rounded border border-white/15 bg-surface px-2 py-1 text-sm text-stone-100 focus:border-gold focus:outline-none; }
+.fleche { @apply inline-flex min-h-[32px] min-w-[26px] items-center justify-center text-[9px] leading-none hover:text-gold disabled:cursor-not-allowed disabled:text-stone-700 disabled:hover:text-stone-700; }
 .impression-seulement { display: none; }
 @media print {
   .impression-cacher, aside { display: none !important; }

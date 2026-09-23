@@ -3,17 +3,23 @@ import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
 import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
-import { phraseOption, coutOption, pluriel, lignesFormation } from '~~/shared/codex/phrases'
+import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante } from '~~/shared/codex/phrases'
 
 const props = defineProps<{
   idx: IndexCodex
   instance: FormationInstance
   resolue?: FormationResolue
   sous?: boolean
+  /** carte repliable : l'entête devient le bouton d'un accordéon */
+  pliable?: boolean
+  ouvert?: boolean
   /** nombre d'occurrences d'une option dans toute l'armée (pour les limites par armée) */
   compteArmee?: (optionId: string) => number
 }>()
-const emit = defineEmits<{ supprimer: []; dupliquer: [] }>()
+const emit = defineEmits<{ supprimer: []; dupliquer: []; basculer: [] }>()
+
+/** une carte pliable ne montre que son entête tant qu'elle n'est pas la carte ouverte */
+const replie = computed(() => !!props.pliable && !props.ouvert)
 
 const def = computed(() => props.idx.formations.get(props.instance.formation))
 const variante = computed(() => def.value?.variantes.find((v) => v.id === props.instance.variante) ?? def.value?.variantes[0])
@@ -36,6 +42,8 @@ function statsUnite(id: string) {
     u.blindage && `Bl ${u.blindage}`,
     u.cc && `CC ${u.cc}`,
     u.ff && `FF ${u.ff}`,
+    // sans la capacité, le menu propose un transport sans dire combien il embarque
+    u.transport && `transporte ${u.transport.capacite}`,
   ].filter(Boolean)
   // un personnage n'a pas de profil propre : ce sont ses notes qui disent ce qu'il apporte
   return [u.type, ...(stats.length ? stats : u.notes)].join(' · ')
@@ -64,9 +72,18 @@ function compositions(fid: string) {
   const f = props.idx.formations.get(fid)
   return f ? lignesFormation(props.idx, f) : []
 }
+/** « transporte N », à accrocher à une composition : c'est au moment de choisir que la capacité manque */
+function mentionPlaces(places: number) {
+  return places ? `transporte ${places}` : ''
+}
 const optionsVariante = computed(() => {
   const lignes = def.value ? lignesFormation(props.idx, def.value) : []
-  return (def.value?.variantes ?? []).map((v, i) => ({ valeur: v.id, libelle: v.nom ?? v.id, detail: `${v.cout} pts`, stats: lignes[i]?.composition }))
+  return (def.value?.variantes ?? []).map((v, i) => ({
+    valeur: v.id,
+    libelle: v.nom ?? v.id,
+    detail: `${v.cout} pts`,
+    stats: [lignes[i]?.composition, mentionPlaces(placesVariante(props.idx, v))].filter(Boolean).join(' · ') || undefined,
+  }))
 })
 const optionsAjout = computed(() => ajoutables.value.map((o) => ({
   valeur: o.id,
@@ -77,7 +94,13 @@ const optionsAjout = computed(() => ajoutables.value.map((o) => ({
 })))
 const optionsSous = computed(() => (specSous.value?.parmi ?? []).map((fid) => {
   const f = props.idx.formations.get(fid)
-  return { valeur: fid, libelle: f?.nom ?? fid, detail: f ? `${f.variantes[0]?.cout} pts` : undefined, stats: compositions(fid)[0]?.composition }
+  const places = f?.variantes[0] ? placesVariante(props.idx, f.variantes[0]) : 0
+  return {
+    valeur: fid,
+    libelle: f?.nom ?? fid,
+    detail: f ? `${f.variantes[0]?.cout} pts` : undefined,
+    stats: [compositions(fid)[0]?.composition, mentionPlaces(places)].filter(Boolean).join(' · ') || undefined,
+  }
 }))
 function optionsChoix(oi: FormationInstance['options'][number]) {
   const parmi = (props.idx.options.get(oi.option)?.effet as any)?.parmi ?? []
@@ -92,24 +115,25 @@ function changerVariante(id: string) {
   props.instance.variante = id
   props.instance.choix = {}
 }
-function setChoix(ligne: number, unite: string, el: HTMLInputElement) {
-  let n = Math.max(0, parseInt(el.value || '0', 10) || 0)
+function setChoix(ligne: number, unite: string, valeur: number) {
   if (!props.instance.choix[String(ligne)]) props.instance.choix[String(ligne)] = {}
-  const l = variante.value?.composition[ligne]
-  if (l && 'choix' in l) {
-    const max = typeof l.choix.total === 'number' ? l.choix.total : l.choix.total.max
-    const autres = Object.entries(props.instance.choix[String(ligne)]!).filter(([u]) => u !== unite).reduce((s, [, q]) => s + q, 0)
-    n = Math.min(n, Math.max(0, max - autres))
-  }
-  props.instance.choix[String(ligne)]![unite] = n
-  el.value = String(n)
+  props.instance.choix[String(ligne)]![unite] = Math.min(Math.max(0, valeur), maxChoix(ligne, unite) ?? Infinity)
 }
 function maxChoix(ligne: number, unite: string) {
   const l = variante.value?.composition[ligne]
-  if (!l || !('choix' in l)) return undefined
+  if (!l || !('choix' in l)) return null
   const max = typeof l.choix.total === 'number' ? l.choix.total : l.choix.total.max
   const autres = Object.entries(props.instance.choix[String(ligne)] ?? {}).filter(([u]) => u !== unite).reduce((s, [, q]) => s + q, 0)
   return Math.max(0, max - autres)
+}
+/** ce qui est déjà placé sur une ligne de composition à choix, et s'il en faut encore */
+function placesChoix(ligne: number) {
+  return Object.values(props.instance.choix[String(ligne)] ?? {}).reduce((s, q) => s + q, 0)
+}
+function choixComplet(ligne: number) {
+  const l = variante.value?.composition[ligne]
+  if (!l || !('choix' in l)) return false
+  return placesChoix(ligne) >= (typeof l.choix.total === 'number' ? l.choix.total : l.choix.total.min)
 }
 function ajouterOption(id: string) {
   if (!id) return
@@ -132,24 +156,17 @@ function effetDe(oi: FormationInstance['options'][number]) {
   if (o.effet.type === 'choix') return o.effet.parmi.find((p) => p.id === oi.choix)?.effet
   return o.effet
 }
-function setRepartition(oi: FormationInstance['options'][number], unite: string, el: HTMLInputElement) {
+function setRepartition(oi: FormationInstance['options'][number], unite: string, valeur: number) {
   if (!oi.repartition) oi.repartition = {}
-  let n = Math.max(0, parseInt(el.value || '0', 10) || 0)
   const plafond = props.resolue ? plafondRepartition(props.idx, props.resolue, oi, unite) : null
-  if (plafond !== null) n = Math.min(n, plafond)
-  oi.repartition[unite] = n
-  el.value = String(n)
+  oi.repartition[unite] = Math.min(Math.max(0, valeur), plafond ?? Infinity)
 }
 function bornes(oi: FormationInstance['options'][number]) {
   return props.resolue ? bornesOption(props.idx, props.resolue, oi) : { min: 1, max: null }
 }
-function setQuantite(oi: FormationInstance['options'][number], el: HTMLInputElement) {
+function setQuantite(oi: FormationInstance['options'][number], valeur: number) {
   const b = bornes(oi)
-  let n = parseInt(el.value || '0', 10) || b.min
-  n = Math.max(b.min, n)
-  if (b.max !== null) n = Math.min(b.max, n)
-  oi.quantite = n
-  el.value = String(n)
+  oi.quantite = Math.min(Math.max(b.min, valeur), b.max ?? Infinity)
 }
 function plafond(oi: FormationInstance['options'][number], unite: string) {
   return props.resolue ? plafondRepartition(props.idx, props.resolue, oi, unite) : null
@@ -199,6 +216,27 @@ const lignesOptions = computed(() => props.instance.options.map((oi) => {
 
 const unitesVisibles = computed(() => props.resolue?.unites.filter((u) => !u.implicite) ?? [])
 
+/**
+ * Places apportées par une ligne d'unités, quand ce sont des transports.
+ * La composition dit « + transports » et la carte se contentait du nombre de
+ * véhicules résolus : rien ne disait combien de figurines ils embarquent.
+ */
+function places(unite: string, nombre: number) {
+  const capacite = props.idx.unites.get(unite)?.transport?.capacite
+  return capacite ? capacite * nombre : 0
+}
+
+/**
+ * Ligne de résumé d'une carte repliée : sans elle, l'entête ne dit que le nom et
+ * le coût, et rien ne distingue deux formations identiques réglées différemment.
+ */
+const resume = computed(() => {
+  if (!replie.value) return ''
+  const unites = unitesVisibles.value.map((u) => `${u.nombre} ${u.nombre > 1 ? pluriel(u.nom) : u.nom}`).join(', ')
+  const n = props.instance.options.length
+  return [unites, n ? `${n} amélioration${n > 1 ? 's' : ''}` : ''].filter(Boolean).join(' · ')
+})
+
 /** profils dépliés sous la composition : les unités réellement présentes, avec leur nombre */
 const profilsOuverts = ref(false)
 const profils = computed(() => {
@@ -210,10 +248,22 @@ const profils = computed(() => {
 
 <template>
   <div v-if="def && variante" class="rounded-lg border bg-surface-light" :class="[sous ? 'border-white/10' : 'border-white/15', erreursIci.length ? 'ring-1 ring-red-500/60' : '']">
-    <div class="flex items-start justify-between gap-3 border-b border-white/10 px-4 py-3">
-      <div class="min-w-0">
-        <p class="text-[11px] uppercase tracking-wider text-stone-500">{{ resolue?.section.titre }}</p>
-        <h3 class="font-heading text-lg font-semibold text-white">{{ def.nom }}</h3>
+    <div class="flex items-start justify-between gap-3 px-4 py-3" :class="replie ? '' : 'border-b border-white/10'">
+      <div class="flex min-w-0 flex-1 items-start gap-2">
+        <slot name="poignee" />
+        <component
+          :is="pliable ? 'button' : 'div'"
+          :type="pliable ? 'button' : undefined"
+          class="min-w-0 flex-1 text-left"
+          :title="pliable ? (ouvert ? 'Replier' : 'Déplier') : undefined"
+          @click="pliable && emit('basculer')"
+        >
+          <p class="text-[11px] uppercase tracking-wider text-stone-500">{{ resolue?.section.titre }}</p>
+          <h3 class="font-heading text-lg font-semibold text-white">
+            {{ def.nom }}<span v-if="pliable" class="ml-1 text-xs font-normal text-stone-500">{{ ouvert ? '▴' : '▾' }}</span>
+          </h3>
+          <p v-if="resume" class="truncate text-xs text-stone-400">{{ resume }}</p>
+        </component>
       </div>
       <div class="flex shrink-0 items-center gap-2">
         <span class="font-heading text-xl text-gold">{{ resolue?.cout ?? variante.cout }} <span class="text-xs text-stone-400">pts</span></span>
@@ -222,23 +272,34 @@ const profils = computed(() => {
       </div>
     </div>
 
-    <div class="space-y-3 px-4 py-3 text-sm">
+    <div v-show="!replie" class="carte-corps space-y-3 px-4 py-3 text-sm">
       <!-- variante de la formation : pleine largeur, au-dessus de la composition -->
       <Selecteur v-if="def.variantes.length > 1" bloc :model-value="instance.variante" :options="optionsVariante" @choisir="changerVariante" />
 
       <!-- choix de composition -->
       <template v-for="(l, li) in variante.composition" :key="li">
         <div v-if="'choix' in l" class="rounded border border-white/10 bg-black/20 p-3">
-          <p class="mb-2 text-xs text-stone-400">
-            Choisir {{ typeof l.choix.total === 'number' ? l.choix.total : `${l.choix.total.min} à ${l.choix.total.max}` }}
-            <template v-if="l.choix.parmi.some((p) => p.par_pioche > 1)"> (par lot)</template> :
+          <p class="mb-2 flex flex-wrap items-baseline justify-between gap-x-3 text-xs">
+            <span class="text-stone-400">
+              Choisir {{ typeof l.choix.total === 'number' ? l.choix.total : `${l.choix.total.min} à ${l.choix.total.max}` }}
+              <template v-if="l.choix.parmi.some((p) => p.par_pioche > 1)"> (par lot)</template> :
+            </span>
+            <span :class="choixComplet(li) ? 'text-emerald-300' : 'text-gold'">{{ placesChoix(li) }} placé(s)</span>
           </p>
-          <div class="flex flex-wrap gap-3">
-            <label v-for="p in l.choix.parmi" :key="p.unite" class="flex items-center gap-2">
-              <input type="number" min="0" :max="maxChoix(li, p.unite)" class="champ w-16" :value="instance.choix[String(li)]?.[p.unite] ?? 0" @input="setChoix(li, p.unite, $event.target as HTMLInputElement)">
-              <span>{{ p.par_pioche > 1 ? `${p.par_pioche} ` : '' }}{{ nomU(p.unite) }}<span v-if="p.cout" class="text-stone-400"> · {{ p.cout }} pts</span></span>
-            </label>
-          </div>
+          <!-- une ligne par unité possible : côte à côte, on ne voyait plus que les champs, pas les noms -->
+          <ul class="space-y-1.5">
+            <li v-for="(p, pi) in l.choix.parmi" :key="p.unite" class="flex items-center gap-2">
+              <span class="w-5 shrink-0 text-right text-[11px] italic text-stone-600">{{ pi ? 'ou' : '' }}</span>
+              <Compteur
+                :model-value="instance.choix[String(li)]?.[p.unite] ?? 0"
+                :max="maxChoix(li, p.unite)"
+                :libelle="nomU(p.unite)"
+                @update:model-value="setChoix(li, p.unite, $event)"
+              />
+              <span class="min-w-0 flex-1 text-stone-200">{{ p.par_pioche > 1 ? `${p.par_pioche} ` : '' }}{{ nomU(p.unite) }}</span>
+              <span v-if="p.cout" class="shrink-0 text-xs text-stone-400">{{ p.cout }} pts</span>
+            </li>
+          </ul>
         </div>
       </template>
 
@@ -246,7 +307,7 @@ const profils = computed(() => {
       <div v-if="unitesVisibles.length">
         <p class="flex flex-wrap items-baseline gap-x-2 text-stone-300">
           <span>
-            <span v-for="(u, ui) in unitesVisibles" :key="ui">{{ ui ? ', ' : '' }}<span :class="u.origine === 'base' || u.origine === 'choix' ? '' : 'text-gold-light'">{{ u.nombre }} {{ u.nombre > 1 ? pluriel(u.nom) : u.nom }}</span></span>
+            <span v-for="(u, ui) in unitesVisibles" :key="ui">{{ ui ? ', ' : '' }}<span :class="u.origine === 'base' || u.origine === 'choix' ? '' : 'text-gold-light'">{{ u.nombre }} {{ u.nombre > 1 ? pluriel(u.nom) : u.nom }}</span><span v-if="places(u.unite, u.nombre)" class="text-stone-500"> ({{ places(u.unite, u.nombre) }} place{{ places(u.unite, u.nombre) > 1 ? 's' : '' }})</span></span>
             <span v-if="resolue?.mots_cles.length" class="text-stone-400"> · {{ resolue.mots_cles.join(', ') }}</span>
           </span>
           <button v-if="profils.length" type="button" class="shrink-0 text-xs text-gold hover:underline" @click="profilsOuverts = !profilsOuverts">
@@ -275,14 +336,25 @@ const profils = computed(() => {
             v-if="l.quantifiable || l.repartition"
             class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/5 pt-2"
           >
-            <label v-if="l.quantifiable" class="flex items-center gap-2 text-xs text-stone-400">
-              ×<input type="number" class="champ w-16" :value="l.oi.quantite" :min="l.bornes.min" :max="l.bornes.max ?? undefined" @input="setQuantite(l.oi, $event.target as HTMLInputElement)">
+            <span v-if="l.quantifiable" class="flex items-center gap-2 text-xs text-stone-400">
+              ×<Compteur
+                :model-value="l.oi.quantite ?? l.bornes.min"
+                :min="l.bornes.min"
+                :max="l.bornes.max"
+                :libelle="l.nom"
+                @update:model-value="setQuantite(l.oi, $event)"
+              />
               <span v-if="l.bornes.max !== null" class="text-stone-500">sur {{ l.bornes.max }}</span>
-            </label>
-            <label v-for="p in l.repartition" :key="p.unite" class="flex items-center gap-2 text-xs text-stone-300">
-              <input type="number" min="0" :max="plafond(l.oi, p.unite) ?? undefined" class="champ w-14" :value="l.oi.repartition?.[p.unite] ?? 0" @input="setRepartition(l.oi, p.unite, $event.target as HTMLInputElement)">
+            </span>
+            <span v-for="p in l.repartition" :key="p.unite" class="flex items-center gap-2 text-xs text-stone-300">
+              <Compteur
+                :model-value="l.oi.repartition?.[p.unite] ?? 0"
+                :max="plafond(l.oi, p.unite)"
+                :libelle="nomU(p.unite)"
+                @update:model-value="setRepartition(l.oi, p.unite, $event)"
+              />
               <span>{{ nomU(p.unite) }}<span v-if="p.cout" class="text-stone-500"> · {{ p.cout }} pts</span></span>
-            </label>
+            </span>
           </div>
         </div>
         <Selecteur v-if="ajoutables.length" action bloc placeholder="+ Ajouter une amélioration…" :options="optionsAjout" @choisir="ajouterOption" />
@@ -314,6 +386,9 @@ const profils = computed(() => {
 </template>
 
 <style scoped>
-.champ { @apply rounded border border-white/15 bg-surface px-2 py-1 text-sm text-stone-100 focus:border-gold focus:outline-none; }
 .bouton-ghost { @apply rounded px-2 py-1 text-stone-400 hover:bg-white/10 hover:text-white; }
+/* une carte repliée doit quand même s'imprimer : la feuille l'emporte sur le `display` en ligne de `v-show` */
+@media print {
+  .carte-corps { display: block !important; }
+}
 </style>

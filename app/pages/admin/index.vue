@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
+import { codexDeArmee } from '~/utils/codex-armee'
 
 definePageMeta({ layout: 'admin', middleware: 'admin' })
 
@@ -18,6 +19,68 @@ const { data: toutesArmees, refresh } = await useFetch<ArmyWithVersion[]>('/api/
 })
 
 const armies = computed(() => toutesArmees.value ?? [])
+
+/**
+ * État des codex, tel que `/admin/codex` l'affichait avant la fusion des deux
+ * écrans. Chargé dans le navigateur : la route s'authentifie par le cookie
+ * Supabase, que le rendu serveur ne relaie pas.
+ */
+interface EtatCodex {
+  slug: string
+  nom: string
+  armee_id?: string
+  faction: string
+  version: string
+  statut: string
+  couleur?: string
+  source: 'yaml' | 'publie' | 'brouillon'
+  brouillon: boolean
+  brouillon_modifie?: string
+  versions: number
+  stockage: string
+  type: 'armee' | 'soutien'
+}
+
+const etatsCodex = ref<EtatCodex[]>([])
+const codexCharges = ref(false)
+
+async function chargerCodex() {
+  try {
+    etatsCodex.value = await $fetch<EtatCodex[]>('/api/admin/codex')
+  } finally {
+    codexCharges.value = true
+  }
+}
+onMounted(chargerCodex)
+
+/**
+ * Une ligne par armée : la fiche publique et son codex côte à côte. Un codex sans
+ * fiche (liste de soutien, codex tout juste créé) garde sa propre ligne, sinon il
+ * n'aurait plus d'écran depuis la disparition de `/admin/codex`.
+ */
+interface Ligne {
+  cle: string
+  nom: string
+  faction: string
+  statut: string
+  armee?: ArmyWithVersion
+  codex?: EtatCodex
+}
+
+const lignes = computed<Ligne[]>(() => {
+  const orphelins = new Set(etatsCodex.value.map(c => c.slug))
+  const out: Ligne[] = armies.value.map((a) => {
+    const c = codexDeArmee(etatsCodex.value, a.id, a.name)
+    if (c) orphelins.delete(c.slug)
+    // Le codex fait foi sur le nom et le statut : la fiche n'est recopiée qu'à la
+    // publication, donc elle retarde d'un brouillon.
+    return { cle: a.id, nom: c?.nom ?? a.name, faction: c?.faction ?? a.faction, statut: a.status ?? 'official', armee: a, codex: c }
+  })
+  for (const c of etatsCodex.value) {
+    if (orphelins.has(c.slug)) out.push({ cle: `codex:${c.slug}`, nom: c.nom, faction: c.faction, statut: c.statut, codex: c })
+  }
+  return out.sort((a, b) => a.nom.localeCompare(b.nom, 'fr'))
+})
 
 const factionLabels: Record<string, string> = {
   imperium: 'Imperium',
@@ -53,15 +116,12 @@ const uploadIsCurrent = ref(true)
 const uploadFile = ref<File | null>(null)
 const uploadError = ref('')
 
-const filteredArmies = computed(() => {
-  if (!armies.value) return []
-  return armies.value.filter(a => {
-    if (factionFilter.value && a.faction !== factionFilter.value) return false
-    if (statusFilter.value && a.status !== statusFilter.value) return false
-    if (search.value && !a.name.toLowerCase().includes(search.value.toLowerCase())) return false
-    return true
-  })
-})
+const lignesFiltrees = computed(() => lignes.value.filter((l) => {
+  if (factionFilter.value && l.faction !== factionFilter.value) return false
+  if (statusFilter.value && l.statut !== statusFilter.value) return false
+  if (search.value && !l.nom.toLowerCase().includes(search.value.toLowerCase())) return false
+  return true
+}))
 
 const editName = ref('')
 const editFaction = ref<string>('')
@@ -71,8 +131,12 @@ const editQuoteAuthor = ref('')
 const editIcon = ref<File | null>(null)
 const editIconUploading = ref(false)
 
-async function startEdit(army: Army) {
+/** Codex de l'armée en cours d'édition : il décide des champs que la fiche laisse encore saisir. */
+const editingCodex = ref<EtatCodex | null>(null)
+
+async function startEdit(army: Army, codex?: EtatCodex) {
   editingArmy.value = army
+  editingCodex.value = codex ?? null
   editName.value = army.name
   editFaction.value = army.faction
   editStatus.value = army.status ?? 'official'
@@ -89,7 +153,7 @@ async function saveArmy() {
 
   // Upload new icon if provided
   let coverImage: string | null | undefined = undefined
-  if (editIcon.value) {
+  if (editIcon.value && !editingCodex.value) {
     editIconUploading.value = true
     const slug = editName.value.toLowerCase().replace(/[^a-z0-9]/g, '-')
     const iconName = `${slug}-${Date.now()}.svg`
@@ -110,15 +174,16 @@ async function saveArmy() {
     editIconUploading.value = false
   }
 
-  const updateData: Record<string, unknown> = {
-    name: editName.value,
-    faction: editFaction.value,
-    status: editStatus.value,
-    quote: editQuote.value || null,
-    quote_author: editQuoteAuthor.value || null,
-  }
-  if (coverImage !== undefined) {
-    updateData.cover_image = coverImage
+  // Avec un codex rattaché, nom, faction, citation et icône n'existent plus qu'une
+  // fois : le codex les écrit ici à chaque publication. Les renvoyer depuis la fiche
+  // écraserait la publication par ce que l'écran affichait.
+  const updateData: Record<string, unknown> = { status: editStatus.value }
+  if (!editingCodex.value) {
+    updateData.name = editName.value
+    updateData.faction = editFaction.value
+    updateData.quote = editQuote.value || null
+    updateData.quote_author = editQuoteAuthor.value || null
+    if (coverImage !== undefined) updateData.cover_image = coverImage
   }
 
   const { error } = await supabase
@@ -132,6 +197,7 @@ async function saveArmy() {
       body: { tagIds: editArmyTags.value },
     })
     editingArmy.value = null
+    editingCodex.value = null
     await refresh()
   }
   saving.value = false
@@ -149,98 +215,62 @@ async function archiveArmy(army: Army) {
   await refresh()
 }
 
-// Create new army
+// ── Création d'un codex ──
+// Une nouvelle armée naît désormais de son codex : c'est lui qui porte le nom, la
+// faction, le statut, la citation et l'icône, et qui produit le PDF. La fiche
+// `armies` n'est conservée que pour les armées historiques, dont le PDF a été
+// téléversé à la main.
 const showCreateModal = ref(false)
 const createName = ref('')
-const createFaction = ref<string>('imperium')
-const createVersion = ref('1.0')
-const createIcon = ref<File | null>(null)
-const createPdf = ref<File | null>(null)
+const createFaction = ref<'imperium' | 'chaos' | 'xenos'>('imperium')
+const createType = ref<'armee' | 'soutien'>('armee')
 const creating = ref(false)
 const createError = ref('')
 
 function resetCreateModal() {
   createName.value = ''
   createFaction.value = 'imperium'
-  createVersion.value = '1.0'
-  createIcon.value = null
-  createPdf.value = null
+  createType.value = 'armee'
   createError.value = ''
 }
 
 async function createArmy() {
-  if (!createName.value || !createPdf.value) {
-    createError.value = 'Le nom et le PDF sont obligatoires.'
+  if (!createName.value.trim()) {
+    createError.value = 'Le nom est obligatoire.'
     return
   }
-
   creating.value = true
   createError.value = ''
-
-  const slug = createName.value.toLowerCase().replace(/[^a-z0-9]/g, '-')
-
-  // Upload icon if provided
-  let coverImage: string | null = null
-  if (createIcon.value) {
-    const iconName = `${slug}.svg`
-    const { error: iconErr } = await supabase.storage
-      .from('army-pdfs')
-      .upload(`icons/${iconName}`, createIcon.value)
-
-    if (iconErr) {
-      createError.value = 'Erreur upload icône : ' + iconErr.message
-      creating.value = false
-      return
-    }
-
-    const { data: { publicUrl } } = supabase.storage
-      .from('army-pdfs')
-      .getPublicUrl(`icons/${iconName}`)
-    coverImage = publicUrl
-  }
-
-  // Upload PDF to R2
-  const pdfPath = `${createFaction.value}/${slug}-v${createVersion.value}.pdf`
-  let pdfUrl: string
   try {
-    pdfUrl = await uploadPdf(createPdf.value, pdfPath)
-  } catch (e: any) {
-    createError.value = 'Erreur upload PDF : ' + (e.message || e)
-    creating.value = false
-    return
-  }
-
-  // Insert army
-  const { data: armyData, error: armyErr } = await supabase
-    .from('armies')
-    .insert({
-      name: createName.value,
-      faction: createFaction.value,
-      cover_image: coverImage,
+    const r = await $fetch<{ slug: string }>('/api/admin/codex', {
+      method: 'POST',
+      body: { nom: createName.value.trim(), faction: createFaction.value, type: createType.value },
     })
-    .select()
-    .single()
-
-  if (armyErr) {
-    createError.value = 'Erreur création : ' + armyErr.message
+    await navigateTo(`/admin/codex/${r.slug}`)
+  } catch (e) {
+    createError.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
+  } finally {
     creating.value = false
-    return
   }
+}
 
-  // Insert first version
-  await supabase.from('army_versions').insert({
-    army_id: armyData.id,
-    version: createVersion.value,
-    pdf_url: pdfUrl,
-    changelog: 'Version initiale',
-    is_current: true,
-    published_at: new Date().toISOString(),
-  })
-
-  creating.value = false
-  showCreateModal.value = false
-  resetCreateModal()
-  await refresh()
+/** Transcrit une armée historique : le codex part de son nom et garde le lien vers sa fiche. */
+const creationPour = ref<string | null>(null)
+async function creerCodexPour(army: ArmyWithVersion) {
+  creationPour.value = army.id
+  try {
+    const r = await $fetch<{ slug: string }>('/api/admin/codex', {
+      method: 'POST',
+      body: { nom: army.name, faction: army.faction, armee_id: army.id },
+    })
+    await navigateTo(`/admin/codex/${r.slug}`)
+  } catch (e) {
+    createError.value = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
+    showCreateModal.value = false
+    alert(createError.value)
+  } finally {
+    creationPour.value = null
+  }
 }
 
 function openAddVersion() {
@@ -482,9 +512,15 @@ const editFactionTags = computed(() =>
 
 <template>
   <div>
-    <div class="flex items-center justify-between">
-      <h1 class="font-heading text-2xl font-bold text-gold">Gestion des armées</h1>
-      <div class="flex gap-3">
+    <div class="flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="font-heading text-2xl font-bold text-gold">Armées</h1>
+        <p class="mt-1 max-w-2xl text-sm text-gray-400">
+          Une ligne par armée : son codex (unités, formations, règles) et sa fiche publique. Le codex fait foi sur le nom, la faction, le statut, la citation et l'icône ; la fiche ne garde que les tags et les PDF téléversés à la main.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <AdminCodexGuide libelle="Comment créer une armée" />
         <button
           class="inline-flex items-center gap-2 rounded-lg border border-gold/20 px-4 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold/10"
           @click="openTagsModal"
@@ -504,17 +540,12 @@ const editFactionTags = computed(() =>
 
     <!-- Search + Filters -->
     <div class="mt-4 flex flex-wrap items-center gap-6">
-      <div class="relative">
-        <svg class="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-        <input
-          v-model="search"
-          type="text"
-          placeholder="Rechercher..."
-          class="w-52 rounded-lg border border-white/10 bg-surface py-1.5 pl-9 pr-3 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none"
-        >
-      </div>
+      <BarreRecherche
+        v-model="search"
+        class="w-52"
+        placeholder="Rechercher..."
+        label="Rechercher une armée"
+      />
 
       <div class="h-5 w-px bg-gold/10" />
       <!-- Status filter -->
@@ -568,102 +599,161 @@ const editFactionTags = computed(() =>
       </div>
     </div>
 
-    <!-- Army table -->
+    <!-- Liste unique : la fiche publique et le codex d'une armée sur la même ligne -->
     <div class="mt-8 overflow-x-auto rounded-xl border border-gold/10 bg-surface-light/30">
-      <table class="w-full min-w-[640px]">
+      <table class="w-full min-w-[820px]">
         <thead class="border-b border-gold/10 bg-surface-light text-left text-sm text-gray-400">
           <tr>
-            <th class="px-6 py-4 font-medium">Armée</th>
+            <th class="w-full px-6 py-4 font-medium">Armée</th>
             <th class="px-6 py-4 font-medium">Faction</th>
             <th class="px-6 py-4 font-medium">Statut</th>
-            <th class="px-6 py-4 font-medium">Version</th>
-            <th class="px-6 py-4 font-medium text-right">Actions</th>
+            <th class="whitespace-nowrap px-6 py-4 font-medium">Codex</th>
+            <th class="whitespace-nowrap px-6 py-4 font-medium">PDF téléversé</th>
+            <th class="px-6 py-4 font-medium text-right" colspan="4">Actions</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gold/5">
           <tr
-            v-for="army in filteredArmies"
-            :key="army.id"
+            v-for="ligne in lignesFiltrees"
+            :key="ligne.cle"
             class="transition-colors hover:bg-surface-light/50"
           >
-            <td class="px-6 py-4 text-base font-medium text-gray-200">{{ army.name }}</td>
+            <td class="px-6 py-4 text-base font-medium text-gray-200">
+              <!-- Le genre de la liste se lit avant son nom : la pastille passe au-dessus plutôt qu'à la suite. -->
+              <span
+                v-if="ligne.codex?.type === 'soutien'"
+                class="mb-1 inline-block rounded bg-gold/10 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-gold"
+              >soutien partagé</span>
+              <span class="flex items-center gap-3 whitespace-nowrap">
+                <span
+                  v-if="ligne.codex"
+                  class="inline-block h-3 w-3 shrink-0 rounded-full border border-white/20"
+                  :style="{ background: ligne.codex.couleur ?? '#8a6d3b' }"
+                />
+                {{ ligne.nom }}
+              </span>
+            </td>
             <td class="px-6 py-4">
               <span class="rounded-full border border-white/10 bg-surface-lighter px-3 py-1 text-xs capitalize text-gray-400">
-                {{ army.faction }}
+                {{ ligne.faction }}
               </span>
             </td>
             <td class="px-6 py-4">
               <span
                 :class="[
                   'rounded-full px-3 py-1 text-xs font-semibold',
-                  army.status === 'official' && 'bg-emerald-500/10 text-emerald-400',
-                  army.status === 'beta' && 'bg-amber-500/10 text-amber-400',
-                  army.status === 'experimental' && 'bg-purple-500/10 text-purple-400',
-                  army.status === '30k' && 'bg-red-500/10 text-red-400',
-                  army.status === 'archived' && 'bg-gray-500/10 text-gray-400',
+                  ligne.statut === 'official' && 'bg-emerald-500/10 text-emerald-400',
+                  ligne.statut === 'beta' && 'bg-amber-500/10 text-amber-400',
+                  ligne.statut === 'experimental' && 'bg-purple-500/10 text-purple-400',
+                  ligne.statut === '30k' && 'bg-red-500/10 text-red-400',
+                  ligne.statut === 'archived' && 'bg-gray-500/10 text-gray-400',
                 ]"
               >
-                {{ statusLabels[army.status] ?? army.status }}
+                {{ statusLabels[ligne.statut] ?? ligne.statut }}
               </span>
+            </td>
+            <td class="whitespace-nowrap px-6 py-4 text-sm">
+              <template v-if="ligne.codex">
+                <span :class="ligne.codex.source === 'brouillon' ? 'text-gray-500' : 'text-gray-300'">
+                  {{ ligne.codex.source === 'brouillon' ? 'jamais publié' : 'REV ' + ligne.codex.version }}
+                </span>
+                <span
+                  v-if="ligne.codex.brouillon"
+                  class="ml-2 rounded bg-amber-500/15 px-2 py-0.5 text-xs text-amber-300"
+                  :title="ligne.codex.brouillon_modifie ? 'Modifié le ' + new Date(ligne.codex.brouillon_modifie).toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'short' }) : ''"
+                >brouillon</span>
+              </template>
+              <span v-else-if="!codexCharges" class="text-gray-600">…</span>
+              <span v-else class="text-gray-600">aucun</span>
             </td>
             <td class="px-6 py-4">
               <span class="text-sm text-gray-400">
-                {{ army.army_versions?.[0]?.version ? 'REV ' + army.army_versions[0].version : '-' }}
+                {{ ligne.armee?.army_versions?.[0]?.version ? 'REV ' + ligne.armee.army_versions[0].version : '-' }}
               </span>
             </td>
-            <td class="px-6 py-4">
-              <div class="flex justify-end gap-3">
+            <!-- Une cellule par action : c'est le tableau qui les aligne, sinon le bouton
+                 Codex glisse d'une ligne à l'autre selon le nombre de boutons qui suivent. -->
+            <td class="whitespace-nowrap py-4 pl-6 pr-1 text-right">
+              <NuxtLink
+                v-if="ligne.codex"
+                :to="`/admin/codex/${ligne.codex.slug}`"
+                class="inline-flex items-center gap-1.5 rounded-lg bg-gold/90 px-3 py-1.5 text-xs font-semibold text-surface transition-colors hover:bg-gold-light"
+              >
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                Codex
+              </NuxtLink>
+              <button
+                v-else-if="ligne.armee && codexCharges"
+                :disabled="creationPour === ligne.armee.id"
+                class="inline-flex items-center gap-1.5 rounded-lg border border-gold/20 px-3 py-1.5 text-xs text-gold transition-colors hover:bg-gold/10 disabled:opacity-50"
+                @click="creerCodexPour(ligne.armee)"
+              >
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                {{ creationPour === ligne.armee.id ? 'Création…' : 'Créer le codex' }}
+              </button>
+            </td>
+
+            <template v-if="ligne.armee">
+              <td class="whitespace-nowrap py-4 px-1 text-right">
                 <button
-                  class="inline-flex items-center gap-2 rounded-lg border border-gold/20 px-4 py-2 text-sm text-gold transition-colors hover:bg-gold/10"
-                  @click="startEdit(army)"
+                  class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-gray-400 transition-colors hover:bg-white/5"
+                  @click="startEdit(ligne.armee, ligne.codex)"
                 >
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" /></svg>
-                  Modifier
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" /></svg>
+                  Fiche
                 </button>
+              </td>
+              <td class="whitespace-nowrap py-4 px-1 text-right">
                 <button
-                  class="inline-flex items-center gap-2 rounded-lg border border-emerald-500/20 px-4 py-2 text-sm text-emerald-400 transition-colors hover:bg-emerald-500/10"
-                  @click="quickNewVersion(army)"
+                  class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-gray-400 transition-colors hover:bg-white/5"
+                  @click="openVersions(ligne.armee)"
                 >
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                  Nouveau PDF
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  PDF
                 </button>
-                <button
-                  class="inline-flex items-center gap-2 rounded-lg border border-white/10 px-4 py-2 text-sm text-gray-400 transition-colors hover:bg-white/5"
-                  @click="openVersions(army)"
-                >
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  Versions
-                </button>
+              </td>
+              <td class="whitespace-nowrap py-4 pl-1 pr-6 text-right">
                 <button
                   :class="[
-                    'inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm transition-colors',
-                    army.status === 'archived'
+                    'inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs transition-colors',
+                    ligne.armee.status === 'archived'
                       ? 'border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/10'
                       : 'border-red-500/20 text-red-400 hover:bg-red-500/10',
                   ]"
-                  @click="archiveArmy(army)"
+                  @click="archiveArmy(ligne.armee)"
                 >
-                  <svg v-if="army.status === 'archived'" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
-                  <svg v-else class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
-                  {{ army.status === 'archived' ? 'Restaurer' : 'Archiver' }}
+                  <svg v-if="ligne.armee.status === 'archived'" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
+                  <svg v-else class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+                  {{ ligne.armee.status === 'archived' ? 'Restaurer' : 'Archiver' }}
                 </button>
-              </div>
-            </td>
+              </td>
+            </template>
+            <td v-else colspan="3" class="whitespace-nowrap py-4 pl-3 pr-6 text-xs text-gray-600">pas de fiche publique</td>
           </tr>
         </tbody>
       </table>
     </div>
-
     <!-- Edit army modal -->
     <Teleport to="body">
       <div v-if="editingArmy" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
         <div class="flex w-full max-w-2xl max-h-[90vh] flex-col rounded-xl border border-gold/20 bg-surface-light">
           <div class="shrink-0 px-4 pt-4 sm:px-8 sm:pt-8">
-            <h2 class="font-heading text-2xl font-bold text-gold">Modifier l'armée</h2>
+            <h2 class="font-heading text-2xl font-bold text-gold">Fiche publique</h2>
           </div>
 
           <div class="flex-1 overflow-y-auto px-4 py-4 sm:px-8 space-y-4">
-            <div>
+            <!-- Avec un codex, la fiche n'a plus rien à saisir en double : tout ce qui suit se règle là-bas. -->
+            <NuxtLink
+              v-if="editingCodex"
+              :to="`/admin/codex/${editingCodex.slug}`"
+              class="block rounded-lg border border-gold/20 bg-gold/5 px-4 py-3 text-sm text-gray-300 transition-colors hover:bg-gold/10"
+            >
+              Nom, faction, statut, citation et icône viennent du codex
+              <span class="font-semibold text-gold">{{ editingCodex.nom }}</span>, et la fiche les reçoit à chaque publication.
+              <span class="mt-1 block text-xs text-gold">Ouvrir le codex pour les modifier</span>
+            </NuxtLink>
+
+            <div v-if="!editingCodex">
               <label class="block text-sm font-medium text-gray-300">Nom</label>
               <input
                 v-model="editName"
@@ -672,7 +762,7 @@ const editFactionTags = computed(() =>
               >
             </div>
 
-            <div>
+            <div v-if="!editingCodex">
               <label class="block text-sm font-medium text-gray-300">Faction</label>
               <select
                 v-model="editFaction"
@@ -684,7 +774,7 @@ const editFactionTags = computed(() =>
               </select>
             </div>
 
-            <div>
+            <div v-if="!editingCodex">
               <label class="block text-sm font-medium text-gray-300">Statut</label>
               <select
                 v-model="editStatus"
@@ -698,7 +788,7 @@ const editFactionTags = computed(() =>
               </select>
             </div>
 
-            <div>
+            <div v-if="!editingCodex">
               <label class="block text-sm font-medium text-gray-300">Citation</label>
               <textarea
                 v-model="editQuote"
@@ -708,7 +798,7 @@ const editFactionTags = computed(() =>
               />
             </div>
 
-            <div>
+            <div v-if="!editingCodex">
               <label class="block text-sm font-medium text-gray-300">Auteur de la citation</label>
               <input
                 v-model="editQuoteAuthor"
@@ -718,7 +808,7 @@ const editFactionTags = computed(() =>
               >
             </div>
 
-            <div>
+            <div v-if="!editingCodex">
               <label class="block text-sm font-medium text-gray-300">Icône (SVG)</label>
               <div v-if="editingArmy?.cover_image" class="mt-1 mb-2 flex items-center gap-3">
                 <img :src="editingArmy.cover_image" alt="Icône actuelle" class="h-10 w-10 rounded object-contain">
@@ -755,7 +845,7 @@ const editFactionTags = computed(() =>
           <div class="shrink-0 flex justify-end gap-3 border-t border-gold/10 px-4 py-4 sm:px-8">
             <button
               class="rounded-lg px-4 py-2 text-sm text-gray-400 hover:text-gray-200"
-              @click="editingArmy = null"
+              @click="editingArmy = null; editingCodex = null"
             >
               Annuler
             </button>
@@ -969,72 +1059,69 @@ const editFactionTags = computed(() =>
       </div>
     </Teleport>
 
-    <!-- Create army modal -->
+    <!-- Nouvelle armée : on crée son codex, c'est lui qui porte tout le reste -->
     <Teleport to="body">
-      <div v-if="showCreateModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-        <div class="mx-4 w-full max-w-2xl rounded-xl border border-gold/20 bg-surface-light p-4 sm:mx-0 sm:p-8">
+      <div v-if="showCreateModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" @click.self="showCreateModal = false">
+        <div class="w-full max-w-md rounded-xl border border-gold/20 bg-surface-light p-6">
           <h2 class="font-heading text-2xl font-bold text-gold">Nouvelle armée</h2>
+          <p class="mt-1 text-sm text-gray-400">
+            Une armée naît de son codex : unités, formations et règles. Le PDF et la construction d'armée en découlent.
+          </p>
 
-          <form class="mt-6 space-y-4" @submit.prevent="createArmy">
-            <div v-if="createError" class="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
-              {{ createError }}
-            </div>
-
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div>
-                <label class="block text-sm font-medium text-gray-300">Nom de l'armée</label>
-                <input
-                  v-model="createName"
-                  type="text"
-                  required
-                  placeholder="ex: Blood Ravens"
-                  class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
-                >
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-gray-300">Faction</label>
-                <select
-                  v-model="createFaction"
-                  class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
-                >
-                  <option value="imperium">Imperium</option>
-                  <option value="chaos">Chaos</option>
-                  <option value="xenos">Xenos</option>
-                </select>
-              </div>
+          <form class="mt-5 space-y-4" @submit.prevent="createArmy">
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <button
+                type="button"
+                :class="[
+                  'rounded-md border px-3 py-2 text-left transition-colors',
+                  createType === 'armee' ? 'border-gold bg-gold/10 text-gray-100' : 'border-white/10 text-gray-400 hover:border-white/30',
+                ]"
+                @click="createType = 'armee'"
+              >
+                <span class="block font-semibold">Armée jouable</span>
+                <span class="block text-xs">Codex complet : deux sections de départ et le budget « 1/3 des points ».</span>
+              </button>
+              <button
+                type="button"
+                :class="[
+                  'rounded-md border px-3 py-2 text-left transition-colors',
+                  createType === 'soutien' ? 'border-gold bg-gold/10 text-gray-100' : 'border-white/10 text-gray-400 hover:border-white/30',
+                ]"
+                @click="createType = 'soutien'"
+              >
+                <span class="block font-semibold">Liste de soutien partagée</span>
+                <span class="block text-xs">Titans, aviation… proposée en alliance par d'autres codex, pas jouable seule.</span>
+              </button>
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-300">Version initiale</label>
+              <label class="block text-sm font-medium text-gray-300">Nom</label>
               <input
-                v-model="createVersion"
+                v-model="createName"
                 type="text"
                 required
-                placeholder="1.0"
-                class="mt-1 w-32 rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                placeholder="ex: Eldars d'Yme-Loc"
+                class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
               >
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-300">Icône (SVG, optionnel)</label>
-              <label class="mt-1 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-surface px-4 py-4 text-sm text-gray-400 transition-colors hover:border-gold/30 hover:text-gray-300">
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
-                {{ createIcon ? createIcon.name : 'Sélectionner une icône SVG' }}
-                <input type="file" accept=".svg" class="hidden" @change="createIcon = ($event.target as HTMLInputElement).files?.[0] ?? null">
-              </label>
+              <label class="block text-sm font-medium text-gray-300">Faction</label>
+              <select
+                v-model="createFaction"
+                class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+              >
+                <option value="imperium">Imperium</option>
+                <option value="chaos">Chaos</option>
+                <option value="xenos">Xenos</option>
+              </select>
             </div>
 
-            <div>
-              <label class="block text-sm font-medium text-gray-300">PDF du codex</label>
-              <label class="mt-1 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-surface px-4 py-4 text-sm text-gray-400 transition-colors hover:border-gold/30 hover:text-gray-300">
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
-                {{ createPdf ? createPdf.name : 'Sélectionner le fichier PDF' }}
-                <input type="file" accept=".pdf" class="hidden" @change="createPdf = ($event.target as HTMLInputElement).files?.[0] ?? null">
-              </label>
+            <div v-if="createError" class="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+              {{ createError }}
             </div>
 
-            <div class="flex justify-end gap-3 pt-2">
+            <div class="flex justify-end gap-3 pt-1">
               <button
                 type="button"
                 class="rounded-lg px-4 py-2 text-sm text-gray-400 hover:text-gray-200"
@@ -1044,10 +1131,10 @@ const editFactionTags = computed(() =>
               </button>
               <button
                 type="submit"
-                :disabled="creating"
+                :disabled="creating || !createName.trim()"
                 class="rounded-lg bg-gold px-5 py-2 text-sm font-semibold text-surface hover:bg-gold-light disabled:opacity-50"
               >
-                {{ creating ? 'Création...' : 'Créer l\'armée' }}
+                {{ creating ? 'Création...' : 'Créer' }}
               </button>
             </div>
           </form>

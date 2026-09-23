@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs'
 import { requeteOptionsPdf, lireOptionsPdf } from '~~/shared/codex/pdf'
 
 /**
- * Génère le PDF d'un codex en imprimant la page /codex-test/{slug}/imprimer
+ * Génère le PDF d'un codex en imprimant la page /codex/{slug}/imprimer
  * avec un Chromium sans écran. Sur Vercel (ou tout serverless), Chromium vient
  * de @sparticuz/chromium ; en local, du Chrome installé ou de CHROMIUM_PATH.
  */
@@ -36,7 +36,7 @@ export async function genererPdfCodex(origine: string, slug: string, requete: Re
   const navigateur = await chromium.launch({ executablePath: exe.path, args: exe.args, headless: true })
   try {
     const page = await navigateur.newPage()
-    const reponse = await page.goto(`${origine}/codex-test/${slug}/imprimer${query}`, { waitUntil: 'networkidle', timeout: 45000 })
+    const reponse = await page.goto(`${origine}/codex/${slug}/imprimer${query}`, { waitUntil: 'networkidle', timeout: 45000 })
     if (reponse && reponse.status() >= 400) {
       throw createError({ statusCode: 502, statusMessage: `La page à imprimer répond ${reponse.status()} (protection de déploiement Vercel active ?)` })
     }

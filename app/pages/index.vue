@@ -267,7 +267,7 @@ const startSteps = [
 
 <style scoped>
 .recent-icon {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--c-blanc) / 0.8);
   mask-image: var(--icon-url);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -279,10 +279,10 @@ const startSteps = [
 }
 
 .group:hover .recent-icon {
-  background-color: #c8a052;
+  background-color: rgb(var(--c-gold));
 }
 
-.hero-title {
+.dark .hero-title {
   text-shadow:
     0 0 20px rgba(200, 160, 82, 0.5),
     0 0 60px rgba(200, 160, 82, 0.2),

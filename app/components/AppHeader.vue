@@ -10,6 +10,12 @@ watch(() => route.fullPath, () => {
   mobileMenuOpen.value = false
 })
 
+/* tiroir mobile ouvert : la page derrière ne doit pas défiler sous le doigt */
+watch(mobileMenuOpen, (ouvert) => {
+  document.body.style.overflow = ouvert ? 'hidden' : ''
+})
+onBeforeUnmount(() => { document.body.style.overflow = '' })
+
 const navLinks = [
   { label: 'Accueil', to: '/' },
   {
@@ -22,6 +28,7 @@ const navLinks = [
       { label: 'Armées Xenos', to: '/armees/xenos' },
       { label: 'Bêta & Expérimentaux', to: '/codex-beta' },
       { label: 'Epic 30k — Horus Hérésie', to: '/epic-30k' },
+      { label: 'Construire mon armée', to: '/codex' },
     ],
   },
   { label: 'Règles & FAQ', to: '/regles' },
@@ -111,6 +118,7 @@ function toggleDropdown(label: string) {
             </Transition>
           </div>
         </template>
+        <BoutonTheme class="ml-1 rounded-md p-2.5 text-gray-300 transition-colors hover:bg-surface-lighter hover:text-gold" />
         <NuxtLink
           :to="isAuthenticated ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
           class="ml-2 rounded-md border border-gold/25 px-4 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
@@ -121,17 +129,20 @@ function toggleDropdown(label: string) {
       </nav>
 
       <!-- Mobile menu button -->
-      <button
-        class="rounded-md p-2.5 text-gray-300 hover:text-gold lg:hidden"
-        @click="mobileMenuOpen = !mobileMenuOpen"
-      >
-        <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-1 lg:hidden">
+        <BoutonTheme class="rounded-md p-2.5 text-gray-300 hover:text-gold" />
+        <button
+          class="rounded-md p-2.5 text-gray-300 hover:text-gold"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
 
   </header>

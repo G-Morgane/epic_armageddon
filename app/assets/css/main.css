@@ -12,6 +12,283 @@
 @tailwind utilities;
 
 @layer base {
+  /* Thème clair / thème sombre.
+     Toute la palette du site passe par ces variables (voir tailwind.config.ts) :
+     les composants gardent leurs classes d'origine, seules les valeurs changent.
+     Le site a été dessiné en sombre, où l'échelle des neutres se lit « texte
+     clair sur fond foncé » ; en clair elle est simplement retournée (un
+     gray-300, texte doux sur fond foncé, devient le gray-700 d'origine, texte
+     doux sur fond clair). Un écran non relu bascule donc correctement tout
+     seul, au lieu de rester illisible.
+     La classe `dark` est posée sur <html> avant le premier rendu par le script
+     inline de nuxt.config.ts ; sans elle (PDF, JS coupé) on tombe sur le thème
+     clair, d'où le thème sombre porté par `.dark` et non par `:root`. */
+  :root {
+    color-scheme: light;
+
+    /* fonds crème : page, carte, survol. La carte reste plus claire que la
+       page, comme le sombre pose ses cartes plus claires que son fond. */
+    --c-surface: 246 240 226;
+    --c-surface-light: 252 248 239;
+    --c-surface-lighter: 237 228 208;
+
+    /* doré : assombri pour rester lisible sur fond clair (et sous le texte
+       `text-surface` des boutons pleins, qui devient clair de ce côté-ci) */
+    --c-gold: 138 101 34;
+    --c-gold-light: 107 77 22;
+    --c-gold-dark: 168 129 60;
+
+    /* `white` de Tailwind : les voiles et bordures écrits `white/10` sont des
+       éclaircissements sur fond sombre, donc des assombrissements ici. */
+    --c-blanc: 26 18 16;
+
+    --c-gray-50: 3 7 18;
+    --c-gray-100: 17 24 39;
+    --c-gray-200: 31 41 55;
+    --c-gray-300: 55 65 81;
+    --c-gray-400: 75 85 99;
+    --c-gray-500: 107 114 128;
+    --c-gray-600: 156 163 175;
+    --c-gray-700: 209 213 219;
+    --c-gray-800: 229 231 235;
+    --c-gray-900: 243 244 246;
+    --c-gray-950: 249 250 251;
+    --c-stone-50: 12 10 9;
+    --c-stone-100: 28 25 23;
+    --c-stone-200: 41 37 36;
+    --c-stone-300: 68 64 60;
+    --c-stone-400: 87 83 78;
+    --c-stone-500: 120 113 108;
+    --c-stone-600: 168 162 158;
+    --c-stone-700: 214 211 209;
+    --c-stone-800: 231 229 228;
+    --c-stone-900: 245 245 244;
+    --c-stone-950: 250 250 249;
+    --c-red-50: 69 10 10;
+    --c-red-100: 127 29 29;
+    --c-red-200: 153 27 27;
+    --c-red-300: 185 28 28;
+    --c-red-400: 220 38 38;
+    --c-red-500: 239 68 68;
+    --c-red-600: 248 113 113;
+    --c-red-700: 252 165 165;
+    --c-red-800: 254 202 202;
+    --c-red-900: 254 226 226;
+    --c-red-950: 254 242 242;
+    --c-emerald-50: 2 44 34;
+    --c-emerald-100: 6 78 59;
+    --c-emerald-200: 6 95 70;
+    --c-emerald-300: 4 120 87;
+    --c-emerald-400: 5 150 105;
+    --c-emerald-500: 16 185 129;
+    --c-emerald-600: 52 211 153;
+    --c-emerald-700: 110 231 183;
+    --c-emerald-800: 167 243 208;
+    --c-emerald-900: 209 250 229;
+    --c-emerald-950: 236 253 245;
+    --c-amber-50: 69 26 3;
+    --c-amber-100: 120 53 15;
+    --c-amber-200: 146 64 14;
+    --c-amber-300: 180 83 9;
+    --c-amber-400: 217 119 6;
+    --c-amber-500: 245 158 11;
+    --c-amber-600: 251 191 36;
+    --c-amber-700: 252 211 77;
+    --c-amber-800: 253 230 138;
+    --c-amber-900: 254 243 199;
+    --c-amber-950: 255 251 235;
+    --c-yellow-50: 66 32 6;
+    --c-yellow-100: 113 63 18;
+    --c-yellow-200: 133 77 14;
+    --c-yellow-300: 161 98 7;
+    --c-yellow-400: 202 138 4;
+    --c-yellow-500: 234 179 8;
+    --c-yellow-600: 250 204 21;
+    --c-yellow-700: 253 224 71;
+    --c-yellow-800: 254 240 138;
+    --c-yellow-900: 254 249 195;
+    --c-yellow-950: 254 252 232;
+    --c-purple-50: 59 7 100;
+    --c-purple-100: 88 28 135;
+    --c-purple-200: 107 33 168;
+    --c-purple-300: 126 34 206;
+    --c-purple-400: 147 51 234;
+    --c-purple-500: 168 85 247;
+    --c-purple-600: 192 132 252;
+    --c-purple-700: 216 180 254;
+    --c-purple-800: 233 213 255;
+    --c-purple-900: 243 232 255;
+    --c-purple-950: 250 245 255;
+    --c-blue-50: 23 37 84;
+    --c-blue-100: 30 58 138;
+    --c-blue-200: 30 64 175;
+    --c-blue-300: 29 78 216;
+    --c-blue-400: 37 99 235;
+    --c-blue-500: 59 130 246;
+    --c-blue-600: 96 165 250;
+    --c-blue-700: 147 197 253;
+    --c-blue-800: 191 219 254;
+    --c-blue-900: 219 234 254;
+    --c-blue-950: 239 246 255;
+    --c-indigo-50: 30 27 75;
+    --c-indigo-100: 49 46 129;
+    --c-indigo-200: 55 48 163;
+    --c-indigo-300: 67 56 202;
+    --c-indigo-400: 79 70 229;
+    --c-indigo-500: 99 102 241;
+    --c-indigo-600: 129 140 248;
+    --c-indigo-700: 165 180 252;
+    --c-indigo-800: 199 210 254;
+    --c-indigo-900: 224 231 255;
+    --c-indigo-950: 238 242 255;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --c-surface: 26 18 16;
+    --c-surface-light: 36 28 24;
+    --c-surface-lighter: 46 36 32;
+
+    --c-gold: 200 160 82;
+    --c-gold-light: 219 184 110;
+    --c-gold-dark: 160 120 48;
+
+    --c-blanc: 255 255 255;
+
+    --c-gray-50: 249 250 251;
+    --c-gray-100: 243 244 246;
+    --c-gray-200: 229 231 235;
+    --c-gray-300: 209 213 219;
+    --c-gray-400: 156 163 175;
+    --c-gray-500: 107 114 128;
+    --c-gray-600: 75 85 99;
+    --c-gray-700: 55 65 81;
+    --c-gray-800: 31 41 55;
+    --c-gray-900: 17 24 39;
+    --c-gray-950: 3 7 18;
+    --c-stone-50: 250 250 249;
+    --c-stone-100: 245 245 244;
+    --c-stone-200: 231 229 228;
+    --c-stone-300: 214 211 209;
+    --c-stone-400: 168 162 158;
+    --c-stone-500: 120 113 108;
+    --c-stone-600: 87 83 78;
+    --c-stone-700: 68 64 60;
+    --c-stone-800: 41 37 36;
+    --c-stone-900: 28 25 23;
+    --c-stone-950: 12 10 9;
+    --c-red-50: 254 242 242;
+    --c-red-100: 254 226 226;
+    --c-red-200: 254 202 202;
+    --c-red-300: 252 165 165;
+    --c-red-400: 248 113 113;
+    --c-red-500: 239 68 68;
+    --c-red-600: 220 38 38;
+    --c-red-700: 185 28 28;
+    --c-red-800: 153 27 27;
+    --c-red-900: 127 29 29;
+    --c-red-950: 69 10 10;
+    --c-emerald-50: 236 253 245;
+    --c-emerald-100: 209 250 229;
+    --c-emerald-200: 167 243 208;
+    --c-emerald-300: 110 231 183;
+    --c-emerald-400: 52 211 153;
+    --c-emerald-500: 16 185 129;
+    --c-emerald-600: 5 150 105;
+    --c-emerald-700: 4 120 87;
+    --c-emerald-800: 6 95 70;
+    --c-emerald-900: 6 78 59;
+    --c-emerald-950: 2 44 34;
+    --c-amber-50: 255 251 235;
+    --c-amber-100: 254 243 199;
+    --c-amber-200: 253 230 138;
+    --c-amber-300: 252 211 77;
+    --c-amber-400: 251 191 36;
+    --c-amber-500: 245 158 11;
+    --c-amber-600: 217 119 6;
+    --c-amber-700: 180 83 9;
+    --c-amber-800: 146 64 14;
+    --c-amber-900: 120 53 15;
+    --c-amber-950: 69 26 3;
+    --c-yellow-50: 254 252 232;
+    --c-yellow-100: 254 249 195;
+    --c-yellow-200: 254 240 138;
+    --c-yellow-300: 253 224 71;
+    --c-yellow-400: 250 204 21;
+    --c-yellow-500: 234 179 8;
+    --c-yellow-600: 202 138 4;
+    --c-yellow-700: 161 98 7;
+    --c-yellow-800: 133 77 14;
+    --c-yellow-900: 113 63 18;
+    --c-yellow-950: 66 32 6;
+    --c-purple-50: 250 245 255;
+    --c-purple-100: 243 232 255;
+    --c-purple-200: 233 213 255;
+    --c-purple-300: 216 180 254;
+    --c-purple-400: 192 132 252;
+    --c-purple-500: 168 85 247;
+    --c-purple-600: 147 51 234;
+    --c-purple-700: 126 34 206;
+    --c-purple-800: 107 33 168;
+    --c-purple-900: 88 28 135;
+    --c-purple-950: 59 7 100;
+    --c-blue-50: 239 246 255;
+    --c-blue-100: 219 234 254;
+    --c-blue-200: 191 219 254;
+    --c-blue-300: 147 197 253;
+    --c-blue-400: 96 165 250;
+    --c-blue-500: 59 130 246;
+    --c-blue-600: 37 99 235;
+    --c-blue-700: 29 78 216;
+    --c-blue-800: 30 64 175;
+    --c-blue-900: 30 58 138;
+    --c-blue-950: 23 37 84;
+    --c-indigo-50: 238 242 255;
+    --c-indigo-100: 224 231 255;
+    --c-indigo-200: 199 210 254;
+    --c-indigo-300: 165 180 252;
+    --c-indigo-400: 129 140 248;
+    --c-indigo-500: 99 102 241;
+    --c-indigo-600: 79 70 229;
+    --c-indigo-700: 67 56 202;
+    --c-indigo-800: 55 48 163;
+    --c-indigo-900: 49 46 129;
+    --c-indigo-950: 30 27 75;
+  }
+
+  /* Ascenseurs : rail transparent pour qu'il prenne le fond de ce qu'il
+     longe (page, panneau, tiroir), pouce doré comme le reste des accents.
+     `scrollbar-color` s'hérite, la règle sur :root suffit donc pour Firefox ;
+     les pseudo-éléments WebKit ne s'héritant pas, ils valent pour tout
+     élément. Le pouce se dessine en content-box pour garder son air de
+     pastille plutôt que de barre collée au bord. */
+  :root {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--c-gold) / 0.45) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--c-gold) / 0.45);
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(var(--c-gold) / 0.7);
+  }
+
   body {
     @apply bg-surface text-gray-200 font-body antialiased;
   }
@@ -20,7 +297,9 @@
     @apply font-heading uppercase tracking-wide text-gold;
   }
 
-  h1 {
+  /* Le halo n'existe que sur fond sombre : sur fond clair il ne se voit pas et
+     bave sur le texte. */
+  .dark h1 {
     text-shadow:
       0 0 20px rgba(200, 160, 82, 0.4),
       0 0 60px rgba(200, 160, 82, 0.15),

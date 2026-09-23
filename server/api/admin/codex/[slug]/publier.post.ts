@@ -1,5 +1,6 @@
 import { indexerCodex, calculerListe, varianteParDefaut } from '~~/shared/codex/engine'
 import { normaliserFormation } from '~~/shared/codex/liste'
+import type { Codex } from '~~/shared/codex/schema'
 
 /** Publie le brouillon : validation stricte + listes de test, puis snapshot versionné. */
 export default defineEventHandler(async (event) => {
@@ -36,7 +37,13 @@ export default defineEventHandler(async (event) => {
     // 4. le public lit des réponses gardées une minute : les oublier, sinon la fiche
     //    et l'aperçu PDF montrent encore l'ancienne version après un Publier réussi
     await oublierCacheCodex(slug)
-    // 5. PDF figé pour l'historique : si ça échoue, la publication reste valide et le PDF sera composé à la volée
+    // 5. la fiche publique suit le codex : nom, faction, statut, citation et icône
+    //    ne s'écrivent plus qu'ici, l'admin des armées ne fait que les afficher.
+    //    Le statut ne suit que s'il a été saisi : le schéma le met à « official »
+    //    par défaut, et publier un codex qui n'en porte pas ferait passer une
+    //    armée bêta ou expérimentale en officielle sans que personne le demande.
+    await synchroniserFicheArmee(codex.codex, b.data.codex.statut !== undefined)
+    // 6. PDF figé pour l'historique : si ça échoue, la publication reste valide et le PDF sera composé à la volée
     let pdf: string | null = null
     try {
       pdf = await figerPdfVersion(getRequestURL(event).origin, slug, version)
@@ -49,3 +56,32 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 422, message: (e as Error).message })
   }
 })
+
+/**
+ * Recopie dans la ligne `armies` les champs dont le codex est désormais la seule
+ * source : l'admin ne les saisit qu'une fois. Sans `armee_id`, rien à faire.
+ * Le statut `archived` n'existe pas côté codex : on ne le remplace pas, sinon
+ * publier une correction ferait réapparaître une armée retirée du site.
+ * `statutSaisi` : faux quand le codex ne porte pas de statut, auquel cas la
+ * fiche garde le sien plutôt que d'hériter du « official » par défaut du schéma.
+ */
+async function synchroniserFicheArmee(meta: Codex['codex'], statutSaisi: boolean) {
+  const id = meta.armee_id
+  if (!id) return
+  const sb = useSupabaseServer()
+  const { data: fiche } = await sb.from('armies').select('status').eq('id', id).maybeSingle()
+  if (!fiche) return
+  const statutActuel = (fiche as { status?: string }).status
+  const champs: Record<string, unknown> = {
+    name: meta.nom,
+    faction: meta.faction,
+    quote: meta.citation?.texte ?? null,
+    quote_author: meta.citation?.auteur ?? null,
+  }
+  if (statutSaisi && statutActuel !== 'archived') champs.status = meta.statut
+  if (meta.logo) champs.cover_image = meta.logo
+  const { error } = await sb.from('armies').update(champs as never).eq('id', id)
+  // La publication est faite : une fiche non mise à jour se rattrape, la perdre non.
+  if (error) console.warn(`[codex] fiche d'armée ${id} non synchronisée : ${error.message}`)
+  else await oublierCacheArmees()
+}

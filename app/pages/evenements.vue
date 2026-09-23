@@ -14,13 +14,27 @@ useSeoMeta({
 const { data: events, status } = await useFetch<GameEvent[]>('/api/events')
 const { data: allEvents } = await useFetch<GameEvent[]>('/api/events/all')
 
-const upcomingEvents = computed(() => events.value?.slice(0, 3) ?? [])
+const recherche = ref('')
+const requete = computed(() => recherche.value.trim().toLowerCase())
+
+/** Ce qui identifie un evenement pour un joueur : son nom, son texte, son lieu, son organisateur. */
+function correspond(event: GameEvent) {
+  return [event.title, event.description, event.address, event.contact]
+    .some((champ) => champ?.toLowerCase().includes(requete.value))
+}
+
+// Sans recherche, la page annonce les trois prochains ; une recherche les montre tous.
+const upcomingEvents = computed(() => {
+  const liste = events.value ?? []
+  return requete.value ? liste.filter(correspond) : liste.slice(0, 3)
+})
 
 // Group all events by year for timeline
 const eventsByYear = computed(() => {
   if (!allEvents.value) return []
   const groups: Record<string, GameEvent[]> = {}
   for (const event of allEvents.value) {
+    if (requete.value && !correspond(event)) continue
     const year = new Date(event.event_date).getFullYear().toString()
     if (!groups[year]) groups[year] = []
     groups[year].push(event)
@@ -83,6 +97,13 @@ function formatShortDate(date: string) {
         <p class="mt-6 max-w-3xl text-base leading-relaxed text-gray-400">
           La communauté EA-FR est particulièrement active en France et à l'international avec l'organisation de nombreux tournois et événements. Vous trouverez ici toutes les rencontres Epic Armageddon. Pour plus de détails, rendez-vous sur notre <a href="https://discord.com/invite/3ukn8Cumc5" target="_blank" rel="noopener" class="text-gold underline underline-offset-2 hover:text-gold-light">Discord</a>.
         </p>
+        <!-- Recherche : un seul champ, qui filtre les deux listes de la page. -->
+        <BarreRecherche
+          v-model="recherche"
+          class="mt-8 max-w-md"
+          placeholder="Rechercher un tournoi, une ville, un organisateur..."
+          label="Rechercher un événement"
+        />
       </div>
 
       <div class="mx-auto max-w-6xl px-4 pb-20">
@@ -263,7 +284,7 @@ function formatShortDate(date: string) {
 
           <!-- Empty state -->
           <div v-if="!upcomingEvents.length && !eventsByYear.length" class="py-20 text-center text-gray-500">
-            Aucun événement pour le moment.
+            {{ requete ? 'Aucun événement ne correspond à cette recherche.' : 'Aucun événement pour le moment.' }}
           </div>
         </template>
       </div>

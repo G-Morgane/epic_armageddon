@@ -7,6 +7,7 @@ codex:
   version: "1.5.1"
   faction: imperium
   categorie: armees-imperiales
+  statut: official
   illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/premiers-nes-vostroyens.jpg
   citation:
     texte: "Nous nous battrons avec une foi et un courage imperturbables. Nous ne reculerons jamais. Ce monde appartient à l'Empereur et nous ne l'abandonnerons pas."

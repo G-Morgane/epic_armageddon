@@ -17,7 +17,7 @@ const pret = ref(false)
 /** dernier état enregistré (ou chargé), pour ne pas créer de brouillon sans changement réel */
 let dernierEtat = ''
 const erreurChargement = ref('')
-const onglet = ref<'armee' | 'unites' | 'liste' | 'options' | 'apercu'>('liste')
+const onglet = ref<'armee' | 'unites' | 'liste' | 'options' | 'texte' | 'apercu'>('liste')
 const sauvegarde = ref<'propre' | 'modifie' | 'encours' | 'ok'>('propre')
 const problemes = ref<string[]>([])
 const afficherProblemes = ref(false)
@@ -122,9 +122,10 @@ const onglets = [
   { id: 'unites', label: 'Unités' },
   { id: 'liste', label: "Liste d'armée" },
   { id: 'options', label: 'Améliorations' },
+  { id: 'texte', label: 'Texte du PDF' },
   { id: 'apercu', label: 'Aperçu' },
 ] as const
-const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${apercuCle.value}`)
+const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercuCle.value}`)
 </script>
 
 <template>
@@ -136,7 +137,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
       <!-- En-tête -->
       <div class="mb-5 flex flex-wrap items-start justify-between gap-4">
         <div>
-          <NuxtLink to="/admin/codex" class="text-xs uppercase tracking-widest text-gold hover:underline">← Codex</NuxtLink>
+          <NuxtLink to="/admin" class="text-xs uppercase tracking-widest text-gold hover:underline">← Armées</NuxtLink>
           <h1 class="mt-1 flex items-center gap-3 font-heading text-3xl font-bold text-white">
             <span class="inline-block h-4 w-4 rounded-full border border-white/20" :style="{ background: brouillon.codex.couleur ?? '#8a6d3b' }" />
             {{ brouillon.codex.nom }}
@@ -181,6 +182,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
       <AdminCodexOngletUnites v-else-if="onglet === 'unites'" />
       <AdminCodexOngletListe v-else-if="onglet === 'liste'" />
       <AdminCodexOngletOptions v-else-if="onglet === 'options'" />
+      <AdminCodexOngletTextePdf v-else-if="onglet === 'texte'" />
       <div v-else class="space-y-4">
         <div class="flex flex-wrap items-center gap-3 text-sm">
           <p class="text-gray-400">Aperçu du brouillon, régénéré à chaque enregistrement.</p>
@@ -188,7 +190,7 @@ const apercuUrl = computed(() => `/codex-test/${slug}/imprimer?brouillon=1&v=${a
           <a :href="`/api/codex/${slug}/pdf?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Télécharger le PDF du brouillon</a>
           <a :href="`/builder/${slug}?brouillon=1`" target="_blank" class="rounded-md border border-white/10 px-3 py-1.5 text-gray-200 hover:bg-white/5">Tester dans la construction d'armée</a>
         </div>
-        <iframe :key="apercuCle" :src="apercuUrl" class="h-[80vh] w-full rounded-lg border border-gold/10 bg-white" />
+        <iframe :key="apercuCle" :src="apercuUrl" class="h-[80vh] w-full rounded-lg border border-gold/10 bg-[#fff]" />
       </div>
 
       <CodexVisionneusePdf v-model="visionneuse" :slug="slug" :nom="brouillon.codex.nom" brouillon :version="apercuCle" />

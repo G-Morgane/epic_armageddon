@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
+import { codexDeArmee, type CodexMeta } from '~/utils/codex-armee'
 
 const urlSite = useUrlSite()
 
@@ -22,6 +23,10 @@ const { data: betaArmies } = await useFetch<ArmyWithVersion[]>('/api/armies', {
 const { data: experimentalArmies } = await useFetch<ArmyWithVersion[]>('/api/armies', {
   query: { status: 'experimental' },
 })
+// Presque tous les codex transcrits récemment sont expérimentaux : c'est ici
+// qu'ils atterrissent. Sans cet appel la page ne propose que l'ancien PDF déposé
+// à la main, parfois absent, alors que le codex dynamique et son builder existent.
+const { data: tousCodex } = await useFetch<CodexMeta[]>('/api/codex')
 
 const factionLabels: Record<string, string> = {
   imperium: 'Imperium',
@@ -52,6 +57,29 @@ const currentGroups = computed(() => groupByFaction(currentArmies.value))
 const tabColor = computed(() =>
   activeTab.value === 'beta' ? 'amber' : 'purple',
 )
+
+/**
+ * Où mène une carte, et ce qu'elle annonce.
+ *
+ * Trois cas, dans cet ordre : un codex dynamique existe et la carte mène à la
+ * fiche de l'armée (PDF composé, historique, builder) ; sinon un PDF déposé à
+ * la main, et la carte le télécharge ; sinon rien, la carte reste inerte et dit
+ * « Bientôt ». Le lien principal est posé en surimpression plutôt qu'autour de
+ * la carte : le bouton « Construire » ne peut pas vivre dans un lien.
+ */
+const cartes = computed(() => {
+  const m = new Map<string, { balise: 'NuxtLink' | 'a' | 'div'; to?: string; href?: string; rev?: string; builder?: string }>()
+  for (const army of [...(betaArmies.value ?? []), ...(experimentalArmies.value ?? [])]) {
+    const codex = codexDeArmee(tousCodex.value, army.id, army.name)
+    const version = army.army_versions?.[0]
+    const pdf = version?.pdf_url && version.pdf_url !== '#' ? version.pdf_url : undefined
+    if (codex) m.set(army.id, { balise: 'NuxtLink', to: `/armees/${army.faction}/${army.id}`, rev: codex.version, builder: `/builder/${codex.slug}` })
+    else if (pdf) m.set(army.id, { balise: 'a', href: pdf, rev: version?.version })
+    else m.set(army.id, { balise: 'div', rev: version?.version })
+  }
+  return m
+})
+const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const, to: undefined, href: undefined, rev: undefined, builder: undefined }
 </script>
 
 <template>
@@ -164,21 +192,29 @@ const tabColor = computed(() =>
         <div v-for="group in currentGroups" :key="group.faction" class="mb-10">
           <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">{{ group.label }}</h3>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <component
-              :is="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? 'a' : 'div'"
+            <div
               v-for="army in group.armies"
               :key="army.id"
-              :href="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? army.army_versions[0].pdf_url : undefined"
-              :target="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? '_blank' : undefined"
-              :rel="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? 'noopener' : undefined"
               :class="[
-                'group flex items-center gap-4 rounded-xl border p-4 backdrop-blur-sm transition-all',
+                'group relative flex items-center gap-4 rounded-xl border p-4 backdrop-blur-sm transition-all',
                 army.status === 'beta'
                   ? 'border-amber-500/10 bg-white/[0.04] hover:border-amber-500/25 hover:bg-white/[0.07]'
                   : 'border-purple-500/10 bg-white/[0.03] hover:border-purple-500/25 hover:bg-white/[0.06]',
-                !(army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#') && 'opacity-50 cursor-not-allowed',
+                carteDe(army.id).balise === 'div' && 'opacity-50',
               ]"
             >
+              <!-- Lien principal en surimpression : la carte entière est cliquable
+                   sans enfermer le bouton « Construire » dans un autre lien. -->
+              <component
+                :is="carteDe(army.id).balise"
+                v-if="carteDe(army.id).balise !== 'div'"
+                :to="carteDe(army.id).to"
+                :href="carteDe(army.id).href"
+                :target="carteDe(army.id).href ? '_blank' : undefined"
+                :rel="carteDe(army.id).href ? 'noopener' : undefined"
+                class="absolute inset-0 rounded-xl"
+                :aria-label="carteDe(army.id).to ? `Codex ${army.name}` : `Télécharger le codex ${army.name}`"
+              />
               <div
                 :class="[
                   'flex h-12 w-12 shrink-0 items-center justify-center rounded-full border',
@@ -196,7 +232,7 @@ const tabColor = computed(() =>
                   {{ army.name[0] }}
                 </span>
               </div>
-              <div>
+              <div class="min-w-0">
                 <p
                   :class="[
                     'font-semibold text-gray-200 transition-colors',
@@ -205,15 +241,23 @@ const tabColor = computed(() =>
                 >
                   {{ army.name }}
                 </p>
-                <p class="text-xs text-gray-500">
-                  REV {{ army.army_versions?.[0]?.version }}
+                <p class="flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                  <span v-if="carteDe(army.id).rev">REV {{ carteDe(army.id).rev }}</span>
+                  <span v-if="carteDe(army.id).builder" class="rounded bg-gold/10 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-gold">Codex dynamique</span>
                 </p>
               </div>
-              <svg v-if="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#'" class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <NuxtLink
+                v-if="carteDe(army.id).builder"
+                :to="carteDe(army.id).builder"
+                class="relative z-10 ml-auto shrink-0 rounded-lg border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+              >
+                Construire
+              </NuxtLink>
+              <svg v-else-if="carteDe(army.id).href" class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>
               <span v-else class="ml-auto text-[10px] uppercase tracking-wider text-gray-600">Bientôt</span>
-            </component>
+            </div>
           </div>
         </div>
       </div>

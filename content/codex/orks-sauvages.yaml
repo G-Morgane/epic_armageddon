@@ -6,6 +6,7 @@ codex:
   version: "1.1"
   faction: xenos
   categorie: armees-xenos
+  statut: official
   illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/orks-sauvages.jpg
   logo: https://nomrnaobradtiddfewxm.supabase.co/storage/v1/object/public/army-pdfs/icons/orks-sauvages-1783501273053.svg
   citation:

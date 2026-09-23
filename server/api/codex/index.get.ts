@@ -23,6 +23,7 @@ export default defineCachedEventHandler(async () => {
       type: c.codex.type,
       statut: c.codex.statut,
       couleur: c.codex.couleur,
+      logo: c.codex.logo,
       illustration: c.codex.illustration,
       unites: c.unites.length,
       formations: c.formations.length,

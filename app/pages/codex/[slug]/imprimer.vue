@@ -22,6 +22,7 @@ const couleur = c.codex.couleur ?? '#8a6d3b'
 /** Composition du document, pilotée par la query string (voir shared/codex/pdf.ts). */
 const opts = lireOptionsPdf(route.query as Record<string, unknown>)
 const paysage = opts.orientation === 'paysage'
+const echelle = useEchellePapier(paysage)
 useHead({
   title: `Codex ${c.codex.nom}`,
   htmlAttrs: { class: 'print' },
@@ -100,7 +101,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 </script>
 
 <template>
-  <div class="doc" :class="{ paysage }" data-pret :style="{ '--accent': couleur }">
+  <div class="doc" :class="{ paysage }" data-pret :style="{ '--accent': couleur, zoom: echelle }">
     <!-- Couverture (optionnelle) : même mise en page, avec l'illustration en fond si le codex en a une -->
     <section v-if="opts.couverture" class="page couverture" :class="{ illustree: !!c.codex.illustration }">
       <div v-if="c.codex.illustration" class="couverture-fond" :style="{ backgroundImage: `url(${c.codex.illustration})` }" />
@@ -407,12 +408,17 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
 .fiche-comp strong { font-style: normal; }
 /* Aperçu écran : feuilles séparées, au format réel, pour juger de la mise en page. */
 @media screen {
-  .doc, .doc.paysage { max-width: none; background: transparent; display: flex; flex-direction: column; align-items: center; gap: 6mm; padding: 6mm 4mm; }
+  .doc, .doc.paysage { max-width: none; background: transparent; display: flex; flex-direction: column; align-items: safe center; gap: 6mm; padding: 6mm 4mm; }
   /* box-sizing: border-box, donc la feuille mesure bien un A4 marges comprises */
   .doc .page { width: 210mm; min-height: 297mm; background: #fff; padding: 12mm 12mm 14mm; box-shadow: 0 1mm 4mm rgba(0, 0, 0, .45); }
   .doc.paysage .page { width: 297mm; min-height: 210mm; }
   /* la couverture illustrée est une page sans marges : à l'écran elle garde la largeur des autres feuilles */
   .doc .couverture.illustree { width: 210mm; min-height: 297mm; margin-left: 0; padding: 0; overflow: hidden; }
   .doc.paysage .couverture.illustree { width: 297mm; min-height: 210mm; }
+}
+
+/* L'échelle d'écran ne vaut que pour l'aperçu : sur le papier la feuille reprend sa taille. */
+@media print {
+  .doc { zoom: 1 !important; }
 }
 </style>

@@ -11,7 +11,7 @@ Branche `feat/codex-unifie`. Prouve qu'une seule fiche par armée produit le PDF
 | Phrases PDF | `shared/codex/phrases.ts` | génère « 0-1 », « ou », « Jusqu'à 2 formations… » depuis les données |
 | 7 codex + 2 listes de soutien | `content/codex/*.yaml` | Légion d'Acier, Adeptus Astartes, Dark Angels, Black Legion, Tyranides, Orks de Ghazghkull, Eldars Noirs ; Adeptus Titanicus et Aeronautica Imperialis en alliance |
 | API | `server/api/codex/` | liste, JSON d'un codex, PDF généré (`/api/codex/{slug}/pdf`, Chromium sans écran) |
-| Page imprimable | `app/pages/codex-test/[slug]/imprimer.vue` | la maquette du PDF (page de garde, liste d'armée, feuille de références) |
+| Page imprimable | `app/pages/codex/[slug]/imprimer.vue` | la maquette du PDF (page de garde, liste d'armée, feuille de références) |
 | Builder | `app/pages/builder/[slug].vue` + `app/components/codex/FormationCarte.vue` | construction de liste, budgets, erreurs, sauvegarde locale, impression |
 | Tests | `tests/*.spec.ts` | schéma + références de chaque YAML, et les listes fixtures rejouées dans le moteur (51 tests) |
 
@@ -44,7 +44,7 @@ CODEX_DEMO_SANS_AUTH=1 npx nuxi dev
 
 ```bash
 npm run test          # 27 tests : schéma, références, listes fixtures
-npx nuxi dev          # puis /codex-test, /builder/legion-dacier, /codex-test/legion-dacier/imprimer
+npx nuxi dev          # puis /codex, /builder/legion-dacier, /codex/legion-dacier/imprimer
 ```
 
 Le PDF serveur cherche Chromium dans `CHROMIUM_PATH`, sinon Google Chrome (macOS) ou `/usr/bin/chromium`.

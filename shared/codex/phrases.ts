@@ -33,6 +33,26 @@ function plageTexte(total: number | { min: number; max: number | 'besoin_transpo
 
 // ---------- Formations ----------
 
+/**
+ * Places de transport apportées par une variante.
+ *
+ * On choisit entre « 2 Thunderhawks transporteurs » et « 3 » sans savoir ce
+ * qu'ils embarquent : la composition nomme les véhicules, jamais leur capacité.
+ * Seules les lignes à effectif fixe comptent. Une ligne `transports` est
+ * dimensionnée par le moteur d'après ce qu'il reste à embarquer, et une ligne
+ * `choix` dépend de ce que le joueur y met : ni l'une ni l'autre n'a de total
+ * connu avant l'ajout.
+ */
+export function placesVariante(idx: IndexCodex, v: Variante): number {
+  let total = 0
+  for (const l of v.composition) {
+    if (!('unite' in l)) continue
+    const capacite = idx.unites.get(l.unite)?.transport?.capacite
+    if (capacite) total += capacite * l.nombre
+  }
+  return total
+}
+
 export function phraseComposition(idx: IndexCodex, v: Variante): string {
   const parts: string[] = []
   for (const l of v.composition) {

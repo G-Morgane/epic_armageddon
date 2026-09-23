@@ -14,7 +14,7 @@ import { fusionnerAllies, alliesReferences } from '~~/shared/codex/allies'
 
 interface Brouillon { data: CodexInput; modifie: string }
 interface Version { data: CodexInput; version: string; changelog: string; publie: string; pdf_url?: string }
-interface Publication { slug: string; version: string; publie: string }
+interface Publication { slug: string; version: string; publie: string; changelog: string }
 
 /** Métadonnées d'un codex telles que l'index admin en a besoin : jamais son contenu complet. */
 interface Resume {
@@ -80,7 +80,7 @@ const depotFichiers: Depot = {
     for (const k of (await d.getKeys('codex:versions')).sort()) {
       const v = await d.getItem<Version>(k)
       // `codex:versions:<slug>:<n>`
-      if (v) out.push({ slug: k.split(':')[2]!, version: v.version, publie: v.publie })
+      if (v) out.push({ slug: k.split(':')[2]!, version: v.version, publie: v.publie, changelog: v.changelog })
     }
     return out
   },
@@ -188,9 +188,9 @@ const depotSupabase: Depot = {
     return ((data ?? []) as unknown as LigneVersion[]).map((r) => ({ version: r.version, changelog: r.changelog ?? '', publie: r.published_at, pdf_url: r.pdf_url ?? undefined }))
   },
   async publications() {
-    const { data, error } = await sbCodex().from('codex_versions').select('slug, version, published_at').order('published_at', { ascending: true })
+    const { data, error } = await sbCodex().from('codex_versions').select('slug, version, changelog, published_at').order('published_at', { ascending: true })
     if (error) erreurSql(error, 'lecture des publications')
-    return ((data ?? []) as unknown as { slug: string; version: string; published_at: string }[]).map((r) => ({ slug: r.slug, version: r.version, publie: r.published_at }))
+    return ((data ?? []) as unknown as { slug: string; version: string; changelog: string | null; published_at: string }[]).map((r) => ({ slug: r.slug, version: r.version, publie: r.published_at, changelog: r.changelog ?? '' }))
   },
   async resumes() {
     // `data->codex` ne descend que l'en-tête du codex ; une base qui ne sait pas
@@ -256,6 +256,8 @@ const assets = () => useStorage('assets:codex')
 export interface EtatCodex {
   slug: string
   nom: string
+  /** Fiche `armies` rattachée, quand le codex en désigne une. */
+  armee_id?: string
   faction: string
   version: string
   statut: string
@@ -373,6 +375,10 @@ export interface ResumePublications {
   slug: string
   /** Date de la publication la plus récente. */
   publie: string
+  /** Numéro de la REV la plus récemment publiée. */
+  version: string
+  /** Texte qui accompagne cette REV, tel que les joueurs le lisent dans l'historique. */
+  changelog: string
   /** Combien de REV distinctes ont été publiées, pas leur numéro : republier la même REV ne compte pas deux fois. */
   revs: number
 }
@@ -383,18 +389,19 @@ export interface ResumePublications {
  * mais aussi du nombre de REV, parce que la première est une transcription et pas une nouveauté.
  */
 export async function resumerPublications(): Promise<ResumePublications[]> {
-  const parSlug = new Map<string, Map<string, string>>()
+  const parSlug = new Map<string, Map<string, { publie: string; changelog: string }>>()
   for (const p of await depot().publications()) {
-    const versions = parSlug.get(p.slug) ?? new Map<string, string>()
+    const versions = parSlug.get(p.slug) ?? new Map<string, { publie: string; changelog: string }>()
     const connue = versions.get(p.version)
-    if (!connue || +new Date(connue) < +new Date(p.publie)) versions.set(p.version, p.publie)
+    // republier une REV écrase la précédente : c'est la dernière parution qui compte
+    if (!connue || +new Date(connue.publie) < +new Date(p.publie)) versions.set(p.version, { publie: p.publie, changelog: p.changelog })
     parSlug.set(p.slug, versions)
   }
-  return [...parSlug].map(([slug, versions]) => ({
-    slug,
-    publie: [...versions.values()].sort((a, b) => +new Date(b) - +new Date(a))[0]!,
-    revs: versions.size,
-  }))
+  return [...parSlug].map(([slug, versions]) => {
+    const parDate = [...versions].sort((a, b) => +new Date(b[1].publie) - +new Date(a[1].publie))
+    const [version, derniere] = parDate[0]!
+    return { slug, publie: derniere.publie, version, changelog: derniere.changelog, revs: versions.size }
+  })
 }
 
 /**
@@ -434,6 +441,24 @@ export async function oublierCacheCodex(slug: string): Promise<void> {
   await Promise.all(cles.map((k) => cache.removeItem(k).catch(() => { /* pas de cache monté */ })))
 }
 
+/**
+ * Oublie les listes d'armées gardées en cache. Publier un codex réécrit la fiche
+ * `armies` liée : sans ça, `/armees` garde l'ancien nom ou l'ancien statut jusqu'à
+ * cinq minutes. La clé dépend de la faction, du statut et du tag demandés, donc on
+ * balaie tout le préfixe plutôt que d'énumérer les combinaisons.
+ */
+export async function oublierCacheArmees(): Promise<void> {
+  const cache = useStorage('cache')
+  try {
+    // `getKeys` ne fait que du préfixe suivi de « : » : demander « armies » rate
+    // « armies-recentes » (l'accueil) et « armie » (une fiche). On balaie donc
+    // les handlers et on filtre nous-mêmes.
+    const cles = (await cache.getKeys('nitro:handlers')).filter((k) => k.startsWith('nitro:handlers:armie'))
+    await Promise.all(cles.map((k) => cache.removeItem(k).catch(() => {})))
+  } catch { /* pas de cache monté */ }
+}
+
+
 export async function etatsCodex(): Promise<EtatCodex[]> {
   const d = depot()
   // Les résumés arrivent en une passe : avant, chaque slug coûtait trois requêtes,
@@ -446,10 +471,11 @@ export async function etatsCodex(): Promise<EtatCodex[]> {
     const yaml = r?.publie ? null : (await lireYaml(slug)) as CodexInput | null
     const src = r?.publie?.codex ?? yaml?.codex ?? r?.brouillon?.codex
     const c = CodexSchema.shape.codex.safeParse(src)
-    const meta = c.success ? c.data : { nom: slug, faction: '?', version: '?', statut: 'experimental', couleur: undefined, type: 'armee' as const }
+    const meta = c.success ? c.data : { nom: slug, armee_id: undefined, faction: '?', version: '?', statut: 'experimental', couleur: undefined, type: 'armee' as const }
     return {
       slug,
       nom: (r?.brouillon?.codex as { nom?: string } | undefined)?.nom ?? meta.nom,
+      armee_id: meta.armee_id,
       faction: meta.faction,
       version: r?.publie?.version ?? meta.version,
       statut: meta.statut,

@@ -5,6 +5,7 @@
  */
 import type { Liste } from '~~/shared/codex/liste'
 import type { ResumeListe } from '~~/app/composables/useListes'
+import type { CodexMeta } from '~/utils/codex-armee'
 
 const props = defineProps<{
   /** codex courant, pour filtrer et pour enregistrer */
@@ -26,6 +27,9 @@ const ouvert = defineModel<boolean>({ default: false })
 
 const api = useListes()
 const route = useRoute()
+/** Une liste d'un autre codex ne portait que son slug : on affiche le nom de l'armée. */
+const { data: tousCodex } = useFetch<CodexMeta[]>('/api/codex', { lazy: true, server: false })
+const nomCodex = (slug: string) => (tousCodex.value ?? []).find((c) => c.slug === slug)?.nom ?? slug
 /** revenir sur le builder, liste en cours intacte, une fois la connexion faite */
 const lienConnexion = computed(() => `/connexion?suivant=${encodeURIComponent(route.fullPath)}`)
 const connecte = ref(false)
@@ -121,8 +125,9 @@ async function supprimer(l: ResumeListe) {
   }
 }
 
-function lienDe(code: string) {
-  return `${window.location.origin}/builder/${props.slug}?liste=${code}`
+/** Le lien pointe sur le codex de la liste, pas sur celui ouvert dans le builder. */
+function lienDe(l: ResumeListe) {
+  return `${window.location.origin}/builder/${l.codex}?liste=${l.code_partage}`
 }
 
 async function basculerPartage(l: ResumeListe) {
@@ -142,7 +147,7 @@ async function basculerPartage(l: ResumeListe) {
 async function copierLien(l: ResumeListe) {
   if (!l.code_partage) return
   try {
-    await navigator.clipboard.writeText(lienDe(l.code_partage))
+    await navigator.clipboard.writeText(lienDe(l))
     copie.value = l.id
     setTimeout(() => { if (copie.value === l.id) copie.value = '' }, 2000)
   } catch {
@@ -217,7 +222,7 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
               <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <button type="button" class="font-heading text-base font-semibold text-white hover:text-gold" @click="charger(l)">{{ l.nom }}</button>
                 <span v-if="l.id === idServeur" class="rounded bg-gold/15 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-gold">ouverte</span>
-                <span v-if="l.codex !== slug" class="rounded bg-white/5 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-stone-400">{{ l.codex }}</span>
+                <span v-if="l.codex !== slug" class="rounded bg-white/5 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-stone-400">{{ nomCodex(l.codex) }}</span>
                 <span class="ml-auto text-xs text-stone-500">
                   <template v-if="l.total !== null">{{ l.total }} / {{ l.limite }} pts · </template>{{ dateCourte(l.updated_at) }}
                 </span>

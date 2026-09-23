@@ -148,7 +148,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', auClicDehors))
   @apply flex cursor-pointer items-start gap-2 px-3 py-1.5 text-sm leading-snug;
 }
 .menu::-webkit-scrollbar { width: 6px; }
-.menu::-webkit-scrollbar-thumb { background: rgba(200, 160, 82, 0.35); border-radius: 3px; }
+.menu::-webkit-scrollbar-thumb { background: rgb(var(--c-gold) / 0.35); border-radius: 3px; }
 .menu-enter-active, .menu-leave-active { transition: opacity 120ms ease, transform 120ms ease; }
 .menu-enter-from, .menu-leave-to { opacity: 0; transform: translateY(-4px); }
 </style>

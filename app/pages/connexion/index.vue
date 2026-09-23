@@ -4,7 +4,7 @@
  * Le même formulaire crée le compte : il n'y a pas d'inscription séparée.
  */
 const route = useRoute()
-const { isAuthenticated, envoyerLienMagique } = useAuth()
+const { isAuthenticated, envoyerLienMagique, connexionGoogle } = useAuth()
 
 useHead({ title: 'Connexion' })
 
@@ -17,6 +17,7 @@ const suivant = computed(() => {
 const email = ref('')
 const envoye = ref(false)
 const envoi = ref(false)
+const google = ref(false)
 const erreur = ref('')
 
 onMounted(() => {
@@ -37,6 +38,18 @@ async function envoyer() {
     envoi.value = false
   }
 }
+
+async function allerChezGoogle() {
+  erreur.value = ''
+  google.value = true
+  try {
+    // succès = le navigateur quitte la page, on ne repasse pas ici
+    await connexionGoogle(suivant.value)
+  } catch {
+    erreur.value = 'Impossible de joindre Google. Réessaie, ou utilise le lien par email.'
+    google.value = false
+  }
+}
 </script>
 
 <template>
@@ -49,11 +62,11 @@ async function envoyer() {
         Si tu n'as pas encore de compte, il se crée tout seul.
       </p>
 
-      <form class="mt-8 space-y-5" @submit.prevent="envoyer">
-        <div v-if="erreur" class="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
-          {{ erreur }}
-        </div>
+      <div v-if="erreur" class="mt-8 rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
+        {{ erreur }}
+      </div>
 
+      <form class="mt-8 space-y-5" @submit.prevent="envoyer">
         <div>
           <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
           <input
@@ -75,6 +88,27 @@ async function envoyer() {
           {{ envoi ? 'Envoi...' : 'Recevoir mon lien de connexion' }}
         </button>
       </form>
+
+      <div class="my-6 flex items-center gap-4">
+        <span class="h-px flex-1 bg-white/10" />
+        <span class="text-xs uppercase tracking-wide text-gray-500">ou</span>
+        <span class="h-px flex-1 bg-white/10" />
+      </div>
+
+      <button
+        type="button"
+        :disabled="google"
+        class="flex w-full items-center justify-center gap-3 rounded-lg border border-white/10 bg-surface-light py-2.5 text-sm font-semibold text-gray-200 transition-colors hover:border-white/20 disabled:opacity-50"
+        @click="allerChezGoogle"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.2-.4-4.7H24v8.9h11.8a10.1 10.1 0 0 1-4.4 6.6v5.5h7.1c4.1-3.8 6.6-9.4 6.6-16.3z" />
+          <path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5a13 13 0 0 1-19.4-6.8H4.7v5.7A22 22 0 0 0 24 46z" />
+          <path fill="#FBBC05" d="M11.9 28.4a13.2 13.2 0 0 1 0-8.4v-5.7H4.7a22 22 0 0 0 0 19.8l7.2-5.7z" />
+          <path fill="#EA4335" d="M24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3A21.9 21.9 0 0 0 4.7 14.3l7.2 5.7A13 13 0 0 1 24 10.8z" />
+        </svg>
+        {{ google ? 'Redirection...' : 'Continuer avec Google' }}
+      </button>
 
       <p class="mt-6 text-xs text-gray-500">
         Ton email sert uniquement à te reconnecter et à retrouver tes listes. Rien d'autre.

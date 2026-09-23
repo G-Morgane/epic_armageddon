@@ -54,19 +54,39 @@ export const useAuth = () => {
   }
 
   /**
+   * URL de retour du lien magique ou du détour par Google, et mémorisation de
+   * la page à rouvrir : ni le gabarit d'email de Supabase ni le retour OAuth
+   * ne savent d'où l'on vient, ils ne peuvent pas transporter la destination.
+   */
+  function preparerRetour(suivant: string) {
+    useCookie('ea_suivant', { maxAge: 3600, path: '/', sameSite: 'lax' }).value = suivant
+    // en local, le retour doit revenir sur localhost, pas sur le site public
+    const base = import.meta.client ? location.origin : useRuntimeConfig().public.siteUrl
+    return new URL('/connexion/retour', base).toString()
+  }
+
+  /**
    * Connexion des membres : un lien reçu par email, pas de mot de passe.
    * `suivant` est la page à rouvrir une fois le lien cliqué.
    */
   async function envoyerLienMagique(email: string, suivant = '/') {
-    // La page de retour lit ce cookie : le gabarit d'email de Supabase ne sait
-    // pas d'où l'on vient, il ne peut pas transporter la destination.
-    useCookie('ea_suivant', { maxAge: 3600, path: '/', sameSite: 'lax' }).value = suivant
-    // en local, le lien doit revenir sur localhost, pas sur le site public
-    const base = import.meta.client ? location.origin : useRuntimeConfig().public.siteUrl
-    const retour = new URL('/connexion/retour', base)
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: retour.toString() },
+      options: { emailRedirectTo: preparerRetour(suivant) },
+    })
+    if (error) throw error
+  }
+
+  /**
+   * Connexion par compte Google. Le navigateur part chez Google et revient sur
+   * /connexion/retour : le reste (création du profil, pseudo) est identique au
+   * lien magique. Une même adresse utilisée des deux façons reste un seul
+   * compte, Supabase rattache l'identité Google à l'email déjà vérifié.
+   */
+  async function connexionGoogle(suivant = '/') {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: preparerRetour(suivant) },
     })
     if (error) throw error
   }
@@ -90,6 +110,7 @@ export const useAuth = () => {
     init,
     login,
     envoyerLienMagique,
+    connexionGoogle,
     logout,
     fetchProfile,
   }

@@ -33,7 +33,7 @@ const extra = computed(() => {
   if (props.brouillon) e.brouillon = '1'
   return e
 })
-const src = computed(() => `/codex-test/${props.slug}/imprimer${requeteOptionsPdf(opts.value, { ...extra.value, v: String(props.version ?? 0) })}`)
+const src = computed(() => `/codex/${props.slug}/imprimer${requeteOptionsPdf(opts.value, { ...extra.value, v: String(props.version ?? 0) })}`)
 const pdf = computed(() => `/api/codex/${props.slug}/pdf${requeteOptionsPdf(opts.value, extra.value)}`)
 const chargement = ref(true)
 
@@ -78,10 +78,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
             </div>
           </div>
 
-          <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="grid grid-cols-2 gap-2 lg:grid-cols-4">
             <div class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 opacity-70">
               <p class="flex items-center gap-2 text-sm font-medium text-stone-200"><span class="text-gold">✓</span> Règles et liste d'armée</p>
-              <p class="mt-0.5 pl-6 text-[11px] text-stone-500">Toujours incluses</p>
+              <p class="mt-0.5 hidden pl-6 text-[11px] text-stone-500 sm:block">Toujours incluses</p>
             </div>
             <button
               v-for="p in parties"
@@ -96,7 +96,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
                 <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded border text-[10px]" :class="opts[p.cle] ? 'border-gold bg-gold text-surface' : 'border-white/30'">{{ opts[p.cle] ? '✓' : '' }}</span>
                 {{ p.nom }}
               </p>
-              <p class="mt-0.5 pl-6 text-[11px]" :class="opts[p.cle] ? 'text-stone-400' : 'text-stone-500'">{{ p.detail }}</p>
+              <p class="mt-0.5 hidden pl-6 text-[11px] sm:block" :class="opts[p.cle] ? 'text-stone-400' : 'text-stone-500'">{{ p.detail }}</p>
             </button>
           </div>
         </div>

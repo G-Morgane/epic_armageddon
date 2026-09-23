@@ -43,6 +43,10 @@ export default defineNuxtConfig({
   routeRules: {
     // la session se construit dans le navigateur au retour du lien de connexion
     '/connexion/retour': { ssr: false },
+    // /codex-test était l'URL de la maquette : des liens et des aperçus PDF
+    // pointent encore dessus, la redirection permanente les rattrape.
+    '/codex-test': { redirect: { to: '/codex', statusCode: 301 } },
+    '/codex-test/**': { redirect: { to: '/codex/**', statusCode: 301 } },
     // Hors prod, l'en-tête couvre ce que robots.txt ne couvre pas :
     // PDF générés, sitemap, pages déjà connues d'un moteur.
     ...(indexable ? {} : { '/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } } }),
@@ -55,7 +59,15 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      htmlAttrs: { class: 'dark', lang: 'fr' },
+      htmlAttrs: { lang: 'fr' },
+      script: [
+        // Pose le thème avant le premier rendu : sans ça la page s'affiche
+        // d'abord dans le thème par défaut puis saute. Le choix est dans le
+        // navigateur (localStorage) et non dans un cookie, pour que la réponse
+        // du serveur reste la même pour tout le monde. Sans choix enregistré,
+        // sans JS, ou dans le Chromium qui imprime les PDF : thème sombre.
+        { innerHTML: "try{if(localStorage.theme!=='clair')document.documentElement.classList.add('dark')}catch(e){document.documentElement.classList.add('dark')}", tagPosition: 'head' },
+      ],
       titleTemplate: '%s — Epic Armageddon FR',
       meta: [
         { charset: 'utf-8' },

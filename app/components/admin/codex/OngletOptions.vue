@@ -78,11 +78,17 @@ function appliquerJson(o: OptionInput, txt: string) {
     </div>
 
     <div v-for="o in options" :key="o.id" class="border-t border-white/5">
-      <div class="flex cursor-pointer items-center gap-3 px-5 py-2 hover:bg-white/[.02]" @click="ouverte = ouverte === o.id ? null : o.id">
-        <span class="w-56 shrink-0 truncate font-medium text-gray-100">{{ o.nom }}</span>
-        <span class="flex-1 truncate text-sm text-gray-400">{{ apercu(o) }}</span>
-        <span class="rounded bg-white/5 px-2 py-0.5 text-[11px] uppercase tracking-wider text-gray-500">{{ TYPES.find((t) => t.v === (o.effet as any).type)?.l ?? (o.effet as any).type }}</span>
-        <button type="button" class="icone hover:text-red-300" @click.stop="supprimer(o)">✕</button>
+      <!-- Empilé, pas en colonnes : le libellé de type et le résumé sont de longueur
+           libre, et en colonnes ils poussaient la page à défiler de côté. -->
+      <div class="flex cursor-pointer items-start gap-3 px-5 py-2 hover:bg-white/[.02]" @click="ouverte = ouverte === o.id ? null : o.id">
+        <div class="min-w-0 flex-1">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-medium text-gray-100">{{ o.nom }}</span>
+            <span class="rounded bg-white/5 px-2 py-0.5 text-[11px] uppercase tracking-wider text-gray-500">{{ TYPES.find((t) => t.v === (o.effet as any).type)?.l ?? (o.effet as any).type }}</span>
+          </div>
+          <p class="mt-0.5 text-sm text-gray-400">{{ apercu(o) }}</p>
+        </div>
+        <button type="button" class="icone shrink-0 hover:text-red-300" @click.stop="supprimer(o)">✕</button>
       </div>
       <div v-if="ouverte === o.id" class="grid gap-4 bg-gold/5 px-5 pb-5 pt-2 lg:grid-cols-2">
         <div class="space-y-3">

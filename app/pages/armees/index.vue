@@ -58,6 +58,21 @@ const armeesFavorites = computed(() => (favoris.value ?? []).map(f => armeesParI
   tags: [],
 } as unknown as ArmyWithVersion)))
 
+/**
+ * REV affichée sur une carte : celle du codex dynamique dès qu'il en existe un,
+ * sinon celle du dernier PDF déposé à la main. Les deux numéros vivent leur vie,
+ * et la carte annonçait l'ancien pendant que la fiche et le builder servaient déjà
+ * la REV suivante.
+ */
+const revParArmee = computed(() => {
+  const m = new Map<string, string>()
+  for (const a of [...(toutesArmees.value ?? []), ...armeesFavorites.value]) {
+    const rev = codexDeArmee(tousCodex.value, a.id, a.name)?.version ?? a.army_versions?.[0]?.version
+    if (rev) m.set(a.id, rev)
+  }
+  return m
+})
+
 const sections = computed(() => [
   ...(armeesFavorites.value.length
     ? [{
@@ -101,11 +116,21 @@ function tagsForFaction(faction: string) {
   return (allTags.value ?? []).filter(t => t.faction === faction)
 }
 
+const recherche = ref('')
+
+/** Recherche insensible aux accents : « eldar » doit trouver « Eldars ». */
+const sansAccent = (s: string) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+
 function filteredArmies(armies: ArmyWithVersion[], faction: string) {
   const tag = activeTagByFaction.value[faction]
-  if (!tag) return armies
-  return armies.filter(a => a.tags?.some(t => t.id === tag))
+  const q = sansAccent(recherche.value.trim())
+  if (!tag && !q) return armies
+  return armies.filter(a => (!tag || a.tags?.some(t => t.id === tag)) && (!q || sansAccent(a.name).includes(q)))
 }
+
+/** Une recherche sans réponse doit le dire : sinon la page ne montre que ses titres. */
+const aucunResultat = computed(() => !!recherche.value.trim() && !chargement.value
+  && sections.value.every(s => !filteredArmies(s.armies, s.faction).length))
 
 const threeMonthsAgo = new Date()
 threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
@@ -154,11 +179,22 @@ function isNew(army: ArmyWithVersion) {
         <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Livres d'Armées</h1>
         <p class="mt-2 text-base text-gray-400 sm:mt-3 sm:text-lg">Tous les codex officiels de la communauté EA-FR</p>
         <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
+
+        <BarreRecherche
+          v-model="recherche"
+          class="mt-8 sm:w-80"
+          placeholder="Rechercher une armée…"
+          label="Rechercher une armée"
+        />
       </div>
 
       <!-- Sections par faction -->
       <div class="mx-auto max-w-6xl space-y-16 px-4 pb-32">
-        <section v-for="section in sections" :key="section.faction">
+        <section
+          v-for="section in sections"
+          v-show="!recherche.trim() || filteredArmies(section.armies, section.faction).length"
+          :key="section.faction"
+        >
           <!-- Faction header -->
           <div>
             <h2 class="flex items-center gap-2 text-2xl font-bold text-gray-100 md:text-3xl">
@@ -257,13 +293,17 @@ function isNew(army: ArmyWithVersion) {
                 <p class="text-sm font-semibold text-gray-200 transition-colors group-hover:text-gold sm:text-base">
                   {{ army.name }}
                 </p>
-                <p v-if="army.army_versions?.length" class="mt-1 text-xs text-gray-500">
-                  (REV {{ army.army_versions[0].version }})
+                <p v-if="revParArmee.get(army.id)" class="mt-1 text-xs text-gray-500">
+                  (REV {{ revParArmee.get(army.id) }})
                 </p>
               </div>
             </NuxtLink>
           </div>
         </section>
+
+        <p v-if="aucunResultat" class="rounded-xl border border-white/10 bg-white/[0.03] p-6 text-center text-sm text-gray-400">
+          Aucune armée ne correspond à cette recherche.
+        </p>
       </div>
     </div>
 
@@ -276,7 +316,7 @@ function isNew(army: ArmyWithVersion) {
 
 <style scoped>
 .army-icon {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--c-blanc) / 0.8);
   mask-image: var(--icon-url);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -289,7 +329,7 @@ function isNew(army: ArmyWithVersion) {
 }
 
 .group:hover .army-icon {
-  background-color: #c8a052;
+  background-color: rgb(var(--c-gold));
 }
 
 .battle-img {

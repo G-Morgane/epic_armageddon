@@ -119,7 +119,7 @@ const factionBadgeColors: Record<string, string> = {
         <img
           :src="codex.illustration"
           alt=""
-          class="h-[500px] w-[400px] object-contain opacity-35 [-webkit-mask-image:radial-gradient(ellipse_closest-side_at_center,#000_15%,transparent_82%)] [mask-image:radial-gradient(ellipse_closest-side_at_center,#000_15%,transparent_82%)] sm:h-[880px] sm:w-[700px]"
+          class="toile h-[500px] w-auto max-w-[400px] object-contain [-webkit-mask-image:radial-gradient(ellipse_closest-side_at_center,#000_15%,transparent_82%)] [mask-image:radial-gradient(ellipse_closest-side_at_center,#000_15%,transparent_82%)] sm:h-[880px] sm:max-w-[700px]"
         >
       </div>
 
@@ -138,12 +138,13 @@ const factionBadgeColors: Record<string, string> = {
       <div class="flex flex-col gap-6 md:flex-row md:items-start">
         <!-- Icon -->
         <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-surface-light/50 sm:h-32 sm:w-32">
-          <img
+          <div
             v-if="army.cover_image"
-            :src="army.cover_image"
-            :alt="army.name"
-            class="h-12 w-12 object-contain brightness-0 invert sm:h-20 sm:w-20"
-          >
+            class="icone-armee h-12 w-12 sm:h-20 sm:w-20"
+            :style="{ '--icon-url': `url(${army.cover_image})` }"
+            role="img"
+            :aria-label="army.name"
+          />
           <span v-else class="font-heading text-3xl text-gold/30 sm:text-5xl">{{ army.name[0] }}</span>
         </div>
 
@@ -291,3 +292,31 @@ const factionBadgeColors: Record<string, string> = {
     </template>
   </div>
 </template>
+
+<style scoped>
+/* L'icône de l'armée est teintée par un masque plutôt que par un filtre :
+   `brightness-0 invert` ne sait faire que du blanc, invisible sur le crème. */
+.icone-armee {
+  background-color: rgb(var(--c-gold));
+  mask-image: var(--icon-url);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.toile { opacity: 0.35; }
+
+/* Thème clair : l'illustration reste une peinture très sombre. Posée telle
+   quelle sur le crème elle fait une tache au lieu d'une toile de fond ; on
+   l'éclaircit et on la passe en multiply pour qu'elle s'imprime dans le papier
+   au lieu de flotter dessus. */
+html:not(.dark) .toile {
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  filter: grayscale(0.5) brightness(1.7) contrast(0.6);
+}
+</style>

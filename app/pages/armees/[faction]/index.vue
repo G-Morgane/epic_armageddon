@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
+import { codexDeArmee, type CodexMeta, type PublicationCodex } from '~/utils/codex-armee'
 
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[]; tags: ArmyTag[] }
 
@@ -56,6 +57,12 @@ useSeoMeta({
 // le squelette n'apparaît jamais. Les données sont donc lues par le navigateur.
 const { data: armies, status } = useLazyFetch<ArmyWithVersion[]>('/api/armies', { query: { faction }, server: false })
 const { data: availableTags, status: statutTags } = useLazyFetch<ArmyTag[]>('/api/army-tags', { query: { faction }, server: false })
+// Le codex dynamique porte sa propre REV et ses propres dates de publication :
+// sans ces deux appels, la grille d'une faction reste sur les numéros et les
+// dates des PDF déposés à la main, alors que la page « Livres d'Armées » et les
+// fiches montrent déjà les REV dynamiques.
+const { data: tousCodex } = useLazyFetch<CodexMeta[]>('/api/codex', { server: false })
+const { data: publications } = useLazyFetch<PublicationCodex[]>('/api/codex/publications', { server: false })
 
 const chargement = computed(() => status.value === 'pending' || status.value === 'idle')
 const chargementTags = computed(() => statutTags.value === 'pending' || statutTags.value === 'idle')
@@ -66,10 +73,30 @@ const activeTag = ref<string | null>(null)
 const threeMonthsAgo = new Date()
 threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
 
+const publicationParSlug = computed(() => new Map((publications.value ?? []).map(p => [p.slug, p])))
+
+/** REV du codex dynamique quand il existe, sinon celle du dernier PDF déposé. */
+const revParArmee = computed(() => {
+  const m = new Map<string, string>()
+  for (const a of armies.value ?? []) {
+    const rev = codexDeArmee(tousCodex.value, a.id, a.name)?.version ?? a.army_versions?.[0]?.version
+    if (rev) m.set(a.id, rev)
+  }
+  return m
+})
+
+/**
+ * Nouveauté : PDF déposé à la main ou REV du codex dynamique, comme sur
+ * « Livres d'Armées ». La première REV d'un codex est une transcription de ce
+ * qui était déjà publié, elle ne compte pas comme une nouveauté.
+ */
 function isNew(army: ArmyWithVersion) {
-  const version = army.army_versions?.[0]
-  if (!version) return false
-  return new Date(version.published_at) > threeMonthsAgo
+  const dates = (army.army_versions ?? []).map(v => v.published_at).filter(Boolean)
+  const codex = codexDeArmee(tousCodex.value, army.id, army.name)
+  const publication = codex ? publicationParSlug.value.get(codex.slug) : undefined
+  if (publication && publication.revs > 1) dates.push(publication.publie)
+  const derniere = dates.sort((a, b) => +new Date(b) - +new Date(a))[0]
+  return !!derniere && new Date(derniere) > threeMonthsAgo
 }
 
 const filteredArmies = computed(() => {
@@ -223,8 +250,8 @@ const filteredArmies = computed(() => {
             <p class="text-sm font-semibold text-gray-200 transition-colors group-hover:text-gold sm:text-base">
               {{ army.name }}
             </p>
-            <p v-if="army.army_versions?.length" class="mt-1 text-xs text-gray-500">
-              (REV {{ army.army_versions[0].version }})
+            <p v-if="revParArmee.get(army.id)" class="mt-1 text-xs text-gray-500">
+              (REV {{ revParArmee.get(army.id) }})
             </p>
           </div>
         </NuxtLink>
@@ -237,7 +264,7 @@ const filteredArmies = computed(() => {
 
 <style scoped>
 .army-icon {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--c-blanc) / 0.8);
   mask-image: var(--icon-url);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -250,6 +277,6 @@ const filteredArmies = computed(() => {
 }
 
 .group:hover .army-icon {
-  background-color: #c8a052;
+  background-color: rgb(var(--c-gold));
 }
 </style>
