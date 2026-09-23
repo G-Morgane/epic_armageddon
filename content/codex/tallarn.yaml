@@ -7,6 +7,7 @@ codex:
   faction: imperium
   categorie: armees-imperiales
   statut: experimental
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/tallarn.png
   citation:
     texte: "Soyez prestes et silencieux, tels le simoun qui traverse le désert sans faire frémir le moindre grain de sable."
     auteur: Capitaine Al'Rahem

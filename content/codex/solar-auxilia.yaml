@@ -7,6 +7,7 @@ codex:
   faction: imperium
   categorie: armees-imperiales
   statut: experimental
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/solar-auxilia.png
   citation:
     texte: "Les batailles se gagnent par le courage, en restant ferme face à une adversité écrasante, en avançant vers une mort certaine alors que votre instinct vous hurle de faire demi-tour. Tout le monde est un héros quand il n'y a plus d'endroit où fuir."
     auteur: Auxiliaire Skarn, 2333e cohorte
