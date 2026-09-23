@@ -394,12 +394,12 @@ unites:
   # ---- Communs ----
   - id: faille_demoniaque
     nom: Faille Démoniaque
-    type: "-"
+    type: Bat
     armes: []
     notes: ["Assaut planétaire indépendant", "Transport (2 formations de démons du chaos)"]
   - id: portail_demoniaque
     nom: Portail Démoniaque
-    type: "-"
+    type: Bat
     armes: []
     notes: ["Un portail ne peut être ni attaqué, ni détruit", "Permet de mettre jusqu'à 3 formations de démons en réserve", "Invoque une formation de démons par tour"]
 

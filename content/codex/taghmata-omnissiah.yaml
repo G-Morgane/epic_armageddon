@@ -136,7 +136,7 @@ unites:
     roles: [commandant_supreme]
   - id: magos_auxiliaire
     nom: Magos Auxiliaire
-    type: Pers
+    type: Perso
     armes:
       - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
     notes: ["Commandant", "Meneur", "Sauvegarde Invulnérable", "Prêtre ordonné"]
@@ -339,7 +339,7 @@ unites:
   # ---- Ordo Reductor & Questor Mechanicus ----
   - id: technopretre_reductor
     nom: Technoprêtre de l'Ordo Reductor
-    type: Pers
+    type: Perso
     vitesse: 15cm
     armes:
       - { nom: Faisceau de conversion, portee: 45cm, puissance: "MA4+" }
@@ -460,7 +460,7 @@ unites:
       critique: "Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de chaque tour. Sur un 1, l'Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est réparée."
   - id: lord_scion
     nom: Lord Scion
-    type: Pers
+    type: Perso
     armes:
       - { nom: Arme de corps à corps, portee: (contact), puissance: "Arme d'assaut, +1A" }
     notes: ["Meneur"]

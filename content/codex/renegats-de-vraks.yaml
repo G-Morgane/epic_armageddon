@@ -327,11 +327,12 @@ unites:
     nom: Hellhound
     type: VB
     vitesse: 30cm
-    blindage: "5+"
+    blindage: "4+"
     cc: "6+"
-    ff: "4+"
+    ff: "3+"
     armes:
-      - { nom: Lance-flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
       - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
   - id: leman_russ
     nom: Leman Russ
@@ -496,22 +497,22 @@ unites:
   # ---- Fortifications ----
   - id: bunker
     nom: Bunker
-    type: Fort
+    type: Bat
     armes: []
     notes: ["Couvert 3+ pour l'infanterie, Infranchissable pour les véhicules et les engins de guerre", "2 unités par tronçon de 4 cm"]
   - id: tranchees
     nom: Tranchées
-    type: Fort
+    type: Bat
     armes: []
     notes: ["Couvert 4+ pour l'infanterie, Dangereux pour les véhicules, sans effet sur les engins de guerre", "2 unités par tronçon de 4 cm"]
   - id: barbeles
     nom: Barbelés
-    type: Fort
+    type: Bat
     armes: []
     notes: ["Dangereux pour l'infanterie, sans effet sur les véhicules et les engins de guerre"]
   - id: emplacement_artillerie
     nom: Emplacement d'artillerie
-    type: Fort
+    type: Bat
     armes: []
     notes: ["Couvert 4+ pour l'infanterie, Couvert 5+ pour les véhicules, sans effet sur les engins de guerre", "1 unité par tronçon de 4 cm"]
 

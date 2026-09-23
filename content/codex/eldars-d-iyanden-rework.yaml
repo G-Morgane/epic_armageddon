@@ -557,14 +557,14 @@ unites:
     degats: { cd: 2, critique: "Le Vampire est détruit." }
   - id: vaisseau_fantome
     nom: Vaisseau Fantôme
-    type: V
+    type: VS
     armes:
       - { nom: Bombardement orbital I, portee: "-", puissance: "4PB MA" }
       - { nom: ou 1x Frappes chirurgicales, portee: "-", puissance: "MA2+, TT (D3)" }
     notes: ["Vous devez décider et noter le système d'armement ainsi que le tour où il entrera en jeu avant la bataille."]
   - id: vaisseau_dragon
     nom: Vaisseau Dragon
-    type: V
+    type: VS
     armes:
       - { nom: Bombardement orbital II, portee: "-", puissance: "8PB MA" }
       - { nom: ou 2x Frappes chirurgicales, portee: "-", puissance: "MA2+, TT (D3)" }
@@ -573,7 +573,7 @@ unites:
       - "Peut transporter 12 Vampires ainsi que les troupes se trouvant à l'intérieur."
   - id: portail_fantome
     nom: Portail Fantôme
-    type: "-"
+    type: Bat
     armes: []
     notes: ["Compte à la fois comme un objectif et un Portail", "Ne peut ni être attaqué ni détruit", "Permet de conserver jusqu'à trois formations en réserve"]
 
