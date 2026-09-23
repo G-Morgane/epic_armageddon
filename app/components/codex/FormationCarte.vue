@@ -156,10 +156,24 @@ function effetDe(oi: FormationInstance['options'][number]) {
   if (o.effet.type === 'choix') return o.effet.parmi.find((p) => p.id === oi.choix)?.effet
   return o.effet
 }
+/** Quantités autorisées pour une unité qui se prend par lot indivisible (0 compris), sinon `null`. */
+function paliersDe(oi: FormationInstance['options'][number], unite: string): number[] | null {
+  const effet = effetDe(oi) as any
+  const p = effet?.type === 'choix_multiple' ? effet.parmi.find((x: any) => x.unite === unite) : undefined
+  if (!p?.paliers?.length) return null
+  return [0, ...p.paliers.map((x: any) => x.nombre as number)].sort((a, b) => a - b)
+}
 function setRepartition(oi: FormationInstance['options'][number], unite: string, valeur: number) {
   if (!oi.repartition) oi.repartition = {}
   const plafond = props.resolue ? plafondRepartition(props.idx, props.resolue, oi, unite) : null
-  oi.repartition[unite] = Math.min(Math.max(0, valeur), plafond ?? Infinity)
+  let v = Math.min(Math.max(0, valeur), plafond ?? Infinity)
+  // le compteur avance d'un cran : sur une unité par lot, ce cran saute au palier suivant
+  const permis = paliersDe(oi, unite)
+  if (permis && !permis.includes(v)) {
+    const actuel = oi.repartition[unite] ?? 0
+    v = v > actuel ? (permis.find((n) => n > actuel) ?? actuel) : ([...permis].reverse().find((n) => n < actuel) ?? actuel)
+  }
+  oi.repartition[unite] = v
 }
 function bornes(oi: FormationInstance['options'][number]) {
   return props.resolue ? bornesOption(props.idx, props.resolue, oi) : { min: 1, max: null }
@@ -194,7 +208,14 @@ const lignesOptions = computed(() => props.instance.options.map((oi) => {
   const aVariantes = effet?.type === 'ajouter' && !!effet.variantes?.length
   const quantifiable = (effet?.type === 'ajouter' && effet.cout_par_unite !== undefined)
     || (effet?.type === 'remplacer' && !effet.tout && effet.max !== 'tout')
-  const repartition = effet?.type === 'choix_multiple' ? (effet.parmi as any[]) : null
+  const repartition = effet?.type === 'choix_multiple'
+    ? (effet.parmi as any[]).map((p) => ({
+        ...p,
+        detail: p.paliers?.length
+          ? p.paliers.map((x: any) => `${x.cout} pts par ${x.nombre}`).join(', ')
+          : p.cout ? `${p.cout} pts` : '',
+      }))
+    : null
   return {
     oi,
     nom: def?.nom,
@@ -353,7 +374,7 @@ const profils = computed(() => {
                 :libelle="nomU(p.unite)"
                 @update:model-value="setRepartition(l.oi, p.unite, $event)"
               />
-              <span>{{ nomU(p.unite) }}<span v-if="p.cout" class="text-stone-500"> · {{ p.cout }} pts</span></span>
+              <span>{{ nomU(p.unite) }}<span v-if="p.detail" class="text-stone-500"> · {{ p.detail }}</span></span>
             </span>
           </div>
         </div>

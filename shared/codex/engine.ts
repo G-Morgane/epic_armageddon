@@ -235,18 +235,34 @@ function appliquerEffetSimple(
       if (!opt) { erreur(ctx, 'option_interdite', `${def.nom} : ${nomUnite(idx, uid)} n'est pas proposé`); continue }
       if (opt.max !== undefined && q > opt.max * mult) erreur(ctx, 'option_quantite', `${def.nom} : maximum ${opt.max * mult} ${nomUnite(idx, uid)}`)
       total += q
-      cout += q * opt.cout
+      if (opt.paliers?.length) {
+        const palier = opt.paliers.find((x) => x.nombre === q)
+        if (q > 0 && !palier) {
+          erreur(ctx, 'option_quantite', `${def.nom} : ${nomUnite(idx, uid)} se prend par ${opt.paliers.map((x) => x.nombre).join(' ou ')}`)
+        }
+        cout += palier?.cout ?? 0
+      } else {
+        cout += q * opt.cout
+      }
       if (q > 0) ajouterUnite(unites, { unite: uid, nom: nomUnite(idx, uid), nombre: q, origine: 'option', option: oi.id })
     }
     if (total < min) erreur(ctx, 'option_quantite', `${def.nom} : au moins ${min}`)
     if (typeof max === 'number' && total > max * mult) erreur(ctx, 'option_quantite', `${def.nom} : au plus ${max * mult}`)
     if (max === 'besoin_transport') {
       const sans = unites.filter((u) => u.option !== oi.id)
-      const premiere = effet.parmi[0]?.unite
-      if (premiere) {
-        const cap = idx.unites.get(premiere)?.transport?.capacite ?? 1
-        const maxi = Math.ceil(besoinTransport(idx, sans, premiere, effet.perimetre_transport) / cap)
-        if (total > maxi) erreur(ctx, 'option_quantite', `${def.nom} : ${maxi} suffisent pour embarquer la formation`)
+      const choisis = Object.entries(rep).filter(([, q]) => q > 0)
+      if (effet.parmi.length && choisis.length) {
+        // Les véhicules proposés n'ont pas tous la même capacité ni la même liste d'unités
+        // transportables : on raisonne en places, et on retient le besoin du transport le
+        // plus exigeant plutôt que d'en désigner un arbitrairement.
+        const places = Math.max(...effet.parmi.map((p) => besoinTransport(idx, sans, p.unite, effet.perimetre_transport)))
+        const capacite = (uid: string) => idx.unites.get(uid)?.transport?.capacite ?? 1
+        const offertes = choisis.reduce((s, [uid, q]) => s + capacite(uid) * q, 0)
+        // un véhicule est de trop quand son retrait laisserait encore toute la formation embarquée
+        const plusPetit = Math.min(...choisis.map(([uid]) => capacite(uid)))
+        if (offertes - plusPetit >= places) {
+          erreur(ctx, 'option_quantite', `${def.nom} : ${places} place(s) suffisent pour embarquer la formation`)
+        }
       }
     }
     return { cout, libelle: `${def.nom} ×${total}` }

@@ -158,8 +158,14 @@ export function coutOption(o: Option): string {
   if (e.type === 'remplacer') return e.cout ? `+${e.cout} pts` : 'Gratuit'
   if (e.type === 'mot_cle') return e.cout ? `${e.cout} pts` : 'Gratuit'
   if (e.type === 'choix_multiple') {
-    const couts = [...new Set(e.parmi.map((p) => p.cout))]
-    return couts.map((c) => (c ? `${c} pts chacun` : 'Gratuit')).join(' / ')
+    const couts: string[] = []
+    for (const p of e.parmi) {
+      const textes = p.paliers?.length
+        ? p.paliers.map((x) => `${x.cout} pts par ${x.nombre}`)
+        : [p.cout ? `${p.cout} pts chacun` : 'Gratuit']
+      for (const t of textes) if (!couts.includes(t)) couts.push(t)
+    }
+    return couts.join(' / ')
   }
   const couts = [...new Set(e.parmi.map((p) => p.cout))]
   return couts.map((c) => (c ? `${c} pts` : 'Gratuit')).join(' / ')

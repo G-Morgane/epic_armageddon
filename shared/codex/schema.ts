@@ -132,7 +132,15 @@ const EffetChoixMultiple = z.object({
     z.number().int().positive(),
     z.object({ min: z.number().int().nonnegative(), max: z.union([z.number().int().positive(), z.literal('besoin_transport')]) }),
   ]),
-  parmi: z.array(z.object({ unite: id, cout: z.number().int().nonnegative().default(0), max: z.number().int().positive().optional() })),
+  parmi: z.array(
+    z.object({
+      unite: id,
+      cout: z.number().int().nonnegative().default(0),
+      max: z.number().int().positive().optional(),
+      /** quantités autorisées et leur prix, quand l'unité se prend par lot indivisible (Rhinos : 25 pts par 3, 50 pts par 4) */
+      paliers: z.array(z.object({ nombre: z.number().int().positive(), cout: z.number().int().nonnegative() })).optional(),
+    }),
+  ),
   par_taille: z.boolean().optional(),
   perimetre_transport: z.enum(['formation', 'options']).default('formation'),
 })

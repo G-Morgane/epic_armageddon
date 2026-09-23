@@ -386,30 +386,20 @@ options:
     effet: { type: ajouter, cout: 50, unites: [{ unite: hunter, nombre: 1 }] }
     contraintes: [{ type: max_par_formation, valeur: 1 }]
     phrase_pdf: "Ajouter 1 Hunter à la formation"
+  # Le codex papier met les Rhinos et les Immolators sur deux lignes sans « ou » :
+  # les deux se cumulent, et c'est le seul moyen de remplir exactement 7 places
+  # (Couvent de Repentance) ou 8 (Couvent Sororita) sans laisser de siège vide.
   - id: transport
     nom: Transport
     effet:
-      type: choix
+      type: choix_multiple
+      total: { min: 1, max: besoin_transport }
       parmi:
-        - id: rhinos_3
-          nom: 3 Rhinos
-          cout: 25
-          effet: { type: ajouter, unites: [{ unite: rhino, nombre: 3 }] }
-        - id: rhinos_4
-          nom: 4 Rhinos
-          cout: 50
-          effet: { type: ajouter, unites: [{ unite: rhino, nombre: 4 }] }
-        - id: immolators
-          nom: Immolators
-          cout: 0
-          effet:
-            type: choix_multiple
-            total: { min: 1, max: besoin_transport }
-            parmi:
-              - { unite: immolator_immolation, cout: 25 }
-              - { unite: immolator_justice, cout: 25 }
+        - { unite: rhino, paliers: [{ nombre: 3, cout: 25 }, { nombre: 4, cout: 50 }] }
+        - { unite: immolator_immolation, cout: 25 }
+        - { unite: immolator_justice, cout: 25 }
     contraintes: [{ type: max_par_formation, valeur: 1 }]
-    phrase_pdf: "Ajouter des Rhinos à la formation (25 pts par 3 / 50 pts par 4) ou ajouter des Immolators à la formation (25 pts chacun)"
+    phrase_pdf: "Ajouter des Rhinos à la formation et/ou ajouter des Immolators à la formation"
     note_ref: transport
   - id: repressor
     nom: Repressor
@@ -633,7 +623,7 @@ listes_test:
       - formation: couvent_sororita
         options:
           - { option: superieure, choix: palatine }
-          - { option: transport, choix: rhinos_4 }
+          - { option: transport, repartition: { rhino: 3, immolator_immolation: 2 } }
           - { option: exorciste, quantite: 2 }
           - { option: celeste }
       - formation: couvent_exorcisme
@@ -722,3 +712,23 @@ listes_test:
       - { formation: couvent_sororita }
       - formation: suite_inquisitoriale
         options: [{ option: transport_inquisition, choix: chimeres, quantite: 5 }]
+  - nom: "Couvent Sororita embarqué dans 3 Rhinos et 2 Immolators"
+    limite: 2000
+    attendu: valide
+    formations:
+      - formation: couvent_sororita
+        options: [{ option: transport, repartition: { rhino: 3, immolator_immolation: 2 } }]
+  - nom: "un Immolator de trop derrière 4 Rhinos"
+    limite: 2000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: couvent_sororita
+        options: [{ option: transport, repartition: { rhino: 4, immolator_justice: 1 } }]
+  - nom: "Rhinos pris hors des lots de 3 ou de 4"
+    limite: 2000
+    attendu: refusee
+    erreur: option_quantite
+    formations:
+      - formation: couvent_sororita
+        options: [{ option: transport, repartition: { rhino: 2, immolator_immolation: 4 } }]
