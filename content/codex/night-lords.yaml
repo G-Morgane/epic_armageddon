@@ -1,0 +1,640 @@
+# Night Lords, transcrit depuis le PDF expérimental EAFR rev 1.0 (source de vérité).
+codex:
+  slug: night-lords
+  armee_id: 86734e23-5c2a-4a26-84e7-771fdb6db342
+  nom: Night Lords
+  version: "0.1"
+  faction: chaos
+  categorie: armees-du-chaos
+  statut: experimental
+  citation:
+    texte: "Nous avons reçu votre offre votre reddition et nous l'avons rejetée ; nous ne sommes pas venus pour entendre vos supplications mais pour rendre jugement. Le temps de la reddition est depuis longtemps passé. Le verdict est à la mesure de vos actes. Maintenant votre heure est venue."
+    auteur: Vox-communication de la flotte Night Lords lors de la pacification de Listrantia IV
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée des Night Lords basée sur les forces de Tarraq Darkblood lors de la XIIIème Croisade Noire d'Abaddon le Fléau. Cette liste peut également être utilisée pour représenter n'importe quel autre chapitre Space Marine du Chaos Universel comme les Red Corsairs ou les Sons of Malice.
+
+    Les armées des Night Lords sont organisées en formations appelées détachements ou détachements de spécialistes.
+
+    Chaque détachement et détachement de spécialistes peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement pour un maximum de quatre par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations de Soutien Titaniques des Légions Renégates et de la Flotte de Guerre du Chaos sont des formations autonomes des détachements. Un maximum d'1/3 des points de l'armée peuvent être dépensés pour ces formations.
+
+    La mention Space Marines du Chaos indiquée dans les notes des unités ayant la capacité "Transport" englobe les unités Space Marines du Chaos, Havocs, Terror Squads et Forlorn Hopes.
+  regles_md:
+    - titre: "Règle spéciale : Atramentars (50 pts)"
+      texte: |
+        0-2 Détachements Night Lords peuvent être transformés en Atramentars.
+
+        Pour la résolution de combat des assauts des Atramentars, les formations ennemies comptent comme ayant un pion impact de plus qu'elles ne possèdent réellement.
+
+        De plus, les formations ennemies en position de soutien de formations alliées ayant perdu un assaut initié par des Atramentars prennent 2 pions impacts au lieu de 1.
+
+        Les Atramentars sont l'élite des Night Lords et agissent seuls, ils ne peuvent pas participer à des assauts combinés des formations ayant la note Commandant ou Commandant Suprême.
+    - titre: "Règle spéciale : Capitaine du Kyroptera"
+      texte: |
+        0-7 Capitaines du Kyroptera peuvent être recrutés dans une armée de Night Lords.
+    - titre: "Règle spéciale : Modules d'atterrissage Dreadclaw"
+      texte: |
+        Une formation se déployant par Assaut Planétaire et pouvant être transportée par Modules d'atterrissage Dreadclaw le fait selon les règles spéciales suivantes : placez un marqueur de Module d'atterrissage en utilisant les règles d'Assaut Planétaire (4.3 et 4.4 du Livre de Règles). Un Vaisseau en orbite sera nécessaire pour déployer les Modules d'atterrissage.
+
+        Le Module d'atterrissage est un marqueur comptant comme la première unité de la formation au moment de déterminer son emplacement d'arrivée en Assaut Planétaire. Une fois le marqueur placé, résolvez son attaque de tir sur toutes les unités ennemies à moins de 15 cm de son centre. Chaque formation ennemie attaquée reçoit un Pion Impact selon les règles normales de tir.
+
+        Ensuite, débarquez les troupes transportées dans le Module d'atterrissage complètement à moins de 15 cm du centre de celui-ci, en cohésion et en dehors de toute zone de contrôle ennemie. Si les unités ne peuvent débarquer en totalité, les unités restantes seront détruites sans attribution de pions d'impacts.
+
+        Le Module d'atterrissage n'étant pas une unité mais un marqueur, il ne possède pas de zone de contrôle et il ne compte pas pour la cohérence de la formation. De plus, il ne peut pas être utilisé pour revendiquer un feu croisé ainsi que pour tenir ou contester des objectifs.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture LJ Koh."
+  valeur_strategique: 4
+  initiative:
+    defaut: "1+"
+    exceptions:
+      - { portee: "Flotte de Guerre du Chaos", valeur: "2+" }
+
+budgets:
+  - id: specialistes
+    libelle: Détachements de spécialistes
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 détachements de spécialistes différents par Suite de Night Lords"
+  - id: rare
+    libelle: Supports Night Lords
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: seigneur_chaos
+    nom: Seigneur du Chaos
+    type: Perso
+    armes:
+      - { nom: Arme démon, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: champion_exalte
+    nom: Champion Exalté du Chaos
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: sorcier_chaos
+    nom: Sorcier du Chaos
+    type: Perso
+    armes:
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: prince_demon
+    nom: Prince Démon
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Arme Possédée, portee: (contact), puissance: "Arme d'Assaut, +2A, MA" }
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation]
+    taille_transport: 2
+  - id: prince_demon_aile
+    nom: Prince Démon Ailé
+    type: Inf
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Arme Possédée, portee: (contact), puissance: "Arme d'Assaut, +2A, MA" }
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: [Réacteurs Dorsaux, Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation]
+    taille_transport: 2
+
+  # ---- Infanterie ----
+  - id: elus_terminators
+    nom: Élus Terminators du Chaos
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Bolters Combinés, portee: (15cm), puissance: Arme Légère }
+      - { nom: 2x Autocanon Faucheur, portee: 30cm, puissance: "AP4+/AC6+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé]
+    taille_transport: 2
+  - id: marines_chaos
+    nom: Space Marines du Chaos
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter, portee: (15cm), puissance: Arme Légère }
+  - id: terror_squad
+    nom: Terror Squad
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Infiltrateur, Éclaireurs]
+  - id: havocs
+    nom: Havocs
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter, portee: (15cm), puissance: Arme Légère }
+  - id: forlorn_hope
+    nom: Forlorn Hope
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter, portee: (15cm), puissance: Arme Légère }
+    notes: [Éclaireurs]
+  - id: motos_chaos
+    nom: Motos du Chaos
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Bolter, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Montés]
+  - id: raptors
+    nom: Raptors
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet Bolter, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Réacteurs Dorsaux]
+  - id: warp_talons
+    nom: Warp Talons
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes d'Assaut Warp, portee: (contact), puissance: "Arme d'Assaut, Snp, FeP" }
+    notes: [Réacteurs dorsaux, Sauvegarde Invulnérable, Éclaireurs]
+
+  # ---- Véhicules ----
+  - id: dreadnought_chaos
+    nom: Dreadnought du Chaos
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanons Jumelés, portee: 45cm, puissance: "AP4+/AC5+" }
+      - { nom: Poing Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Marcheur, Sans Peur]
+    taille_transport: 2
+  - id: rhino_chaos
+    nom: Rhino du Chaos
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Bolters jumelés, portee: (15cm), puissance: Arme Légère }
+    notes: ["Transport (2) : Space Marines du Chaos"]
+    transport: { capacite: 2, accepte: [marines_chaos, havocs, terror_squad, forlorn_hope] }
+  - id: predator_chaos
+    nom: Predator du Chaos
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: land_raider_chaos
+    nom: Land Raider du Chaos
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (2) : Space Marines du Chaos, Terminators du Chaos (prennent deux places), Prince Démon (prend deux places)"]
+    transport: { capacite: 2, accepte: [marines_chaos, havocs, terror_squad, forlorn_hope, elus_terminators, prince_demon] }
+  - id: vindicator_chaos
+    nom: Vindicator du Chaos
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Démolisseur (V), portee: 30cm, puissance: "MA4+" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage Renforcé]
+  - id: stalker
+    nom: Stalker
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 3x Canons Tempête Icarus, portee: 45cm, puissance: "AP6+/AC6+/AA6+" }
+  - id: dreadclaw
+    nom: Dreadclaw
+    type: VB
+    armes:
+      - { nom: Deathclaw, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: ["Assaut Planétaire, Transport. Ne peut transporter que des unités d'Infanterie (sauf motos) et des Dreadnoughts"]
+    transport: { capacite: 6, accepte: [marines_chaos, havocs, terror_squad, forlorn_hope, elus_terminators, raptors, warp_talons, dreadnought_chaos] }
+
+  # ---- Flotte de Guerre du Chaos ----
+  - id: hellblade
+    nom: Intercepteur Hellblade
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Faucheurs jumelées (hellblades), portee: 30cm, puissance: "AP3+/AC5+/AA4+, FrtF" }
+  - id: helltalon
+    nom: Chasseur-Bombardier Helltalon
+    type: A
+    vitesse: CB
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons Laser Jumelés AA, portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Lanceur Havoc, portee: 45cm, puissance: "AP5+/AC6+, FrtF" }
+      - { nom: Bombes Incendiaires, portee: 15cm, puissance: "2PB, IC, FrtF" }
+  - id: croiseur_devastation
+    nom: Croiseur de Classe Devastation
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital, portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe Chirurgicale, portee: "-", puissance: "MA2+, TT (D3)" }
+    notes: ["Transport (20) : toute unité pouvant être déployée en Dreadclaw selon les règles d'Assaut Planétaire"]
+  - id: cuirasse_despoiler
+    nom: Cuirassé de Classe Despoiler
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital, portee: "∞", puissance: "3PB, MA" }
+      - { nom: 3x Frappe Chirurgicale, portee: "-", puissance: "MA2+, TT (D3)" }
+    notes: ["Transport (40) : toute unité pouvant être déployée en Dreadclaw selon les règles d'Assaut Planétaire", "Lent, ne peut être utilisé lors des 2 premiers tours de la partie, à moins que le scénario ne précise le contraire."]
+
+  # ---- Légions Titaniques Renégates ----
+  - id: feral
+    nom: Titan Feral
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Deathstorm, portee: 45cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: Hellmouth, portee: 30cm, puissance: "3PB, MA, Frt" }
+      - { nom: Tête de Bataille, portee: (15cm), puissance: "Arme Légère, +2A, FrtF" }
+    notes: [Blindage Renforcé, Marcheur, Sans Peur, "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et de 2cm de large maximum."]
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le Titan est déséquilibré et vacille. Déplacez-le d'1D6 cm dans une direction aléatoire. S'il percute un terrain infranchissable ou une unité qu'il ne peut pas pousser, il s'arrête et subit un point de dommage supplémentaire. Les unités qu'il percute subissent une touche sur un 6+."
+  - id: ravager
+    nom: Titan Ravager
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Doomburner, portee: 45cm, puissance: "MA3+, TT (D3), FrtF" }
+      - { nom: 2x Deathstorm Lourd, portee: 60cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: Tête de Bataille, portee: (15cm), puissance: "Arme Légère, +2A, FrtF" }
+      - { nom: Queue, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: "", portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: [Blindage Renforcé, Marcheur, Sans Peur, "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et de 2cm de large maximum."]
+    degats:
+      cd: 6
+      bi: 4
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 durant la phase finale de chaque tour pour chaque fissure : 1, le réacteur explose et toute unité dans un rayon de 5cm subit une touche sur 5+ ; 2-3, le titan subit 1 point de dommages supplémentaire ; 4-6, la fissure est réparée."
+  - id: banelord
+    nom: Titan Banelord
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "2+"
+    ff: "4+"
+    armes:
+      - { nom: Rack de Missiles Havoc, portee: 60cm, puissance: "6x2PB, Ind, Uniq, IC, FrtF" }
+      - { nom: Canon Hellstrike, portee: 60cm, puissance: "3PB, MA, IC, Frt" }
+      - { nom: Poing de Combat Apocalypse, portee: 30cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: "", portee: (contact), puissance: "Arme d'Assaut, +2A, TT (D3)" }
+      - { nom: Tête de Bataille, portee: (15cm), puissance: "Arme Légère, +2A, FrtF" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Sans Peur, "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du titan et de 2cm de large maximum."]
+    degats:
+      cd: 8
+      bi: 6
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 durant la phase finale de chaque tour pour chaque fissure : 1, le réacteur explose et toute unité dans un rayon de 5cm subit une touche sur 5+ ; 2-3, le Banelord entre dans une rage démoniaque et bouge immédiatement de 3D6cm dans une direction aléatoire (s'il percute un terrain infranchissable ou une unité qu'il ne peut pousser, il s'arrête et subit un point de dommages supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 4+) ; 4-6, la fissure est réparée."
+
+options:
+  - id: personnage_chaos
+    nom: Personnage du Chaos
+    effet:
+      type: choix
+      parmi:
+        - id: seigneur
+          nom: Seigneur du Chaos
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: seigneur_chaos }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+        - { id: champion, nom: Champion Exalté du Chaos, cout: 25, effet: { type: ajouter, unites: [{ unite: champion_exalte }] } }
+        - { id: sorcier, nom: Sorcier du Chaos, cout: 25, effet: { type: ajouter, unites: [{ unite: sorcier_chaos }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "(0-1) Ajouter un Seigneur du Chaos (50 pts) ou ajouter un Champion Exalté du Chaos ou un Sorcier du Chaos (25 pts)"
+  - id: personnage_chaos_gratuit
+    nom: Personnage du Chaos (gratuit)
+    effet:
+      type: choix
+      parmi:
+        - id: seigneur
+          nom: Seigneur du Chaos
+          cout: 0
+          effet: { type: ajouter, unites: [{ unite: seigneur_chaos }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+        - { id: champion, nom: Champion Exalté du Chaos, cout: 0, effet: { type: ajouter, unites: [{ unite: champion_exalte }] } }
+        - { id: sorcier, nom: Sorcier du Chaos, cout: 0, effet: { type: ajouter, unites: [{ unite: sorcier_chaos }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }, { type: hors_quota_options }, { type: obligatoire }]
+    phrase_pdf: "L'amélioration Personnage du Chaos, gratuitement"
+  - id: prince_demon
+    nom: Prince Démon
+    effet:
+      type: choix
+      parmi:
+        - id: prince
+          nom: Prince Démon
+          cout: 50
+          effet: { type: remplacer, de: [seigneur_chaos, champion_exalte], par: prince_demon, lot: 1, max: 1 }
+        - id: prince_aile
+          nom: Prince Démon Ailé
+          cout: 50
+          effet: { type: remplacer, de: [seigneur_chaos, champion_exalte], par: prince_demon_aile, lot: 1, max: 1 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    note_md: "Remplace le Seigneur du Chaos ou le Champion Exalté du Chaos et l'unité qu'il accompagne. S'il remplace le Seigneur du Chaos, il acquiert la capacité Commandant Suprême."
+    phrase_pdf: "0-1 Prince Démon : remplacer le Seigneur du Chaos ou le Champion Exalté du Chaos par un Prince Démon (ou un Prince Démon Ailé)"
+  - id: dreadclaw
+    nom: Dreadclaw
+    effet: { type: remplacer, de: rhino_chaos, par: dreadclaw, tout: true, par_nombre: 1, cout: 0 }
+    contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer les Rhinos du Chaos de la formation par un Dreadclaw (gratuit)"
+  - id: transports
+    nom: Transports
+    effet:
+      type: choix
+      parmi:
+        - { id: dreadclaw, nom: Dreadclaw, cout: 0, effet: { type: ajouter, unites: [{ unite: dreadclaw }] } }
+        - id: rhinos
+          nom: Rhinos du Chaos
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 0, unites: [{ unite: rhino_chaos }], min: 1, max: besoin_transport }
+    contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Dreadclaw ou suffisamment de Rhinos du Chaos pour transporter la formation (gratuit)"
+  - id: land_raiders
+    nom: Land Raiders
+    effet: { type: ajouter, cout_par_unite: 75, unites: [{ unite: land_raider_chaos }], min: 1, max: 6 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "75 pts chacun, 125 pts les deux."
+    phrase_pdf: "Ajouter jusqu'à 6 Land Raiders du Chaos à la formation (75 pts chacun, 125 pts les deux)"
+  - id: support_lourd
+    nom: Support Lourd
+    effet:
+      type: choix
+      parmi:
+        - { id: vindicators, nom: 2 Vindicators du Chaos, cout: 75, effet: { type: ajouter, unites: [{ unite: vindicator_chaos, nombre: 2 }] } }
+        - { id: predators, nom: 2 Predators du Chaos, cout: 75, effet: { type: ajouter, unites: [{ unite: predator_chaos, nombre: 2 }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 2 Vindicators du Chaos ou 2 Predators du Chaos à la formation (75 pts)"
+  - id: stalker
+    nom: Stalker
+    effet: { type: ajouter, cout: 50, unites: [{ unite: stalker }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Stalker à la formation (50 pts)"
+  - id: havocs
+    nom: Havocs
+    effet: { type: ajouter, cout: 150, unites: [{ unite: havocs, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 4 unités d'Havocs à la formation (150 pts)"
+  - id: dreadnoughts
+    nom: Dreadnoughts
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: dreadnought_chaos }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 4 Dreadnoughts du Chaos à la formation (50 pts chacun)"
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Donner le mot-clé Téléportation à toutes les unités d'Infanterie de la formation (50 pts)"
+  - id: atramentars
+    nom: Atramentars
+    effet: { type: mot_cle, texte: Atramentars, cout: 50 }
+    contraintes: [{ type: max_par_armee, valeur: 2 }, { type: max_par_formation, valeur: 1 }]
+    note_md: "Règle spéciale Atramentars : 0-2 détachements Night Lords peuvent être transformés en Atramentars."
+
+formations:
+  # ---- Détachements ----
+  - id: suite_night_lords
+    nom: Suite de Night Lords
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: marines_chaos, nombre: 6 }
+          - { transports: { unite: rhino_chaos } }
+    options: [personnage_chaos, prince_demon, havocs, dreadnoughts, stalker, support_lourd, land_raiders, dreadclaw, atramentars]
+    contraintes: [{ type: fournit, budget: specialistes, quantite: 3 }]
+    phrase_pdf: "6 unités de Marines du Chaos + l'amélioration Transports"
+  - id: suite_elus
+    nom: Suite d'Élus Night Lords
+    variantes:
+      - { id: quatre, nom: 4 unités d'Élus Terminators du Chaos, cout: 200, composition: [{ unite: elus_terminators, nombre: 4 }] }
+      - { id: cinq, nom: 5 unités d'Élus Terminators du Chaos, cout: 250, composition: [{ unite: elus_terminators, nombre: 5 }] }
+      - { id: six, nom: 6 unités d'Élus Terminators du Chaos, cout: 300, composition: [{ unite: elus_terminators, nombre: 6 }] }
+    options: [personnage_chaos, prince_demon, teleportation, dreadnoughts, stalker, support_lourd, land_raiders, atramentars]
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+    phrase_pdf: "0-2 Suite d'Élus Night Lords : 4 à 6 unités d'Élus Terminators du Chaos (50 pts chacun)"
+  - id: suite_raptors
+    nom: Suite de Raptors
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: raptors, nombre: 6 }] }
+    options: [personnage_chaos_gratuit, prince_demon, atramentars]
+    contraintes: [{ type: min_par_armee, valeur: 1 }]
+    phrase_pdf: "1+ Suite de Raptors : 6 unités de Raptors + gratuitement l'amélioration Personnage du Chaos"
+  - id: compagnie_motos
+    nom: Compagnie de Motos du Chaos
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: motos_chaos, nombre: 6 }] }
+    options: [personnage_chaos_gratuit, atramentars]
+    phrase_pdf: "6 unités de Motos du Chaos + gratuitement l'amélioration Personnage du Chaos"
+
+  # ---- Détachements de spécialistes ----
+  - id: terror_squad
+    nom: Terror Squad
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: terror_squad, nombre: 6 }] }
+    options: [personnage_chaos_gratuit, prince_demon, havocs, dreadnoughts, stalker, support_lourd, land_raiders]
+    phrase_pdf: "6 unités de Terror Squad + gratuitement l'amélioration Personnage du Chaos"
+  - id: forlorn_hopes
+    nom: Forlorn Hopes
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: forlorn_hope, nombre: 4 }
+          - { unite: rhino_chaos, nombre: 2 }
+    options: []
+  - id: suite_warp_talons
+    nom: Suite de Warp Talons
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: warp_talons, nombre: 6 }] }
+    options: [personnage_chaos, prince_demon, teleportation]
+
+  # ---- Supports ----
+  - id: escadrille_intercepteurs
+    nom: Escadrille d'Intercepteurs
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: hellblade, nombre: 3 }] }
+  - id: escadrille_chasseurs_bombardiers
+    nom: Escadrille de Chasseurs-Bombardiers
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: helltalon, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: devastation, nom: 1 Croiseur Devastation, cout: 200, composition: [{ unite: croiseur_devastation, nombre: 1 }] }
+      - { id: despoiler, nom: 1 Cuirassé Despoiler, cout: 250, composition: [{ unite: cuirasse_despoiler, nombre: 1 }] }
+    contraintes: [{ type: pas_une_activation }]
+  - id: titan_feral
+    nom: Titan Feral
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: feral, nombre: 1 }] }
+  - id: titan_ravager
+    nom: Titan Ravager
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: ravager, nombre: 1 }] }
+  - id: titan_banelord
+    nom: Titan Banelord
+    variantes:
+      - { id: base, cout: 850, composition: [{ unite: banelord, nombre: 1 }] }
+
+sections:
+  - id: detachements
+    titre: DÉTACHEMENTS DES NIGHT LORDS
+    formations: [suite_night_lords, suite_elus, suite_raptors, compagnie_motos]
+    contraintes: [{ type: max_options, valeur: 4 }]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS DES NIGHT LORDS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement et chaque détachement peut recevoir au plus 4 améliorations"
+    options: [personnage_chaos, prince_demon, transports, land_raiders, support_lourd, stalker, havocs, dreadnoughts, teleportation]
+  - id: specialistes
+    titre: DÉTACHEMENTS DE SPÉCIALISTES DES NIGHT LORDS
+    sous_titre: "Jusqu'à 3 détachements de spécialistes différents par Suite de Night Lords"
+    formations: [terror_squad, forlorn_hopes, suite_warp_talons]
+    contraintes: [{ type: consomme, budget: specialistes }, { type: max_options, valeur: 4 }]
+    colonne_options: true
+  - id: flotte
+    titre: FLOTTE DE GUERRE DU CHAOS
+    sous_titre: "SUPPORTS NIGHT LORDS"
+    formations: [escadrille_intercepteurs, escadrille_chasseurs_bombardiers, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "2+" }]
+  - id: titanicus
+    titre: SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES
+    sous_titre: "SUPPORTS NIGHT LORDS"
+    formations: [titan_feral, titan_ravager, titan_banelord]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+
+listes_test:
+  - nom: "3000 pts, détachements, spécialistes et supports"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: suite_night_lords
+        options:
+          - { option: personnage_chaos, choix: seigneur }
+          - { option: havocs }
+          - { option: stalker }
+      - formation: suite_elus
+        variante: six
+        options:
+          - { option: teleportation }
+          - { option: atramentars }
+      - { formation: suite_raptors, options: [{ option: personnage_chaos_gratuit, choix: champion }] }
+      - { formation: terror_squad, options: [{ option: personnage_chaos_gratuit, choix: sorcier }] }
+      - { formation: forlorn_hopes }
+      - { formation: escadrille_intercepteurs }
+
+  - nom: "sans Suite de Raptors"
+    limite: 2000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: suite_night_lords }
+      - { formation: compagnie_motos, options: [{ option: personnage_chaos_gratuit, choix: champion }] }
+
+  - nom: "trois Suites d'Élus"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: suite_raptors, options: [{ option: personnage_chaos_gratuit, choix: champion }] }
+      - { formation: suite_elus, variante: quatre }
+      - { formation: suite_elus, variante: quatre }
+      - { formation: suite_elus, variante: quatre }
+
+  - nom: "cinq améliorations sur un détachement"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: suite_night_lords
+        options:
+          - { option: personnage_chaos, choix: champion }
+          - { option: havocs }
+          - { option: stalker }
+          - { option: dreadnoughts, quantite: 1 }
+          - { option: support_lourd, choix: predators }
+
+  - nom: "quatre détachements de spécialistes pour une Suite"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: suite_raptors, options: [{ option: personnage_chaos_gratuit, choix: champion }] }
+      - { formation: suite_night_lords }
+      - { formation: terror_squad, options: [{ option: personnage_chaos_gratuit, choix: champion }] }
+      - { formation: forlorn_hopes }
+      - { formation: suite_warp_talons }
+      - { formation: forlorn_hopes }

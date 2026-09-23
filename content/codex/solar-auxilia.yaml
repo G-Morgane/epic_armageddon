@@ -1,0 +1,830 @@
+# Cohorte du Solar Auxilia, transcrit depuis le PDF expérimental fan codex 1.5.1 (source de vérité).
+codex:
+  slug: solar-auxilia
+  armee_id: f9b38721-2cfa-4bef-9c02-1b98699c0517
+  nom: Solar Auxilia
+  version: "0.5.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: experimental
+  citation:
+    texte: "Les batailles se gagnent par le courage, en restant ferme face à une adversité écrasante, en avançant vers une mort certaine alors que votre instinct vous hurle de faire demi-tour. Tout le monde est un héros quand il n'y a plus d'endroit où fuir."
+    auteur: Auxiliaire Skarn, 2333e cohorte
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une Cohorte du Solar Auxilia. Elles sont organisées autour de petites formations appelées Tercios.
+
+    Les Cohortes du Solar Auxilia sont organisées autour de grandes formations appelées Tercios, elles-mêmes complétées par des sections de combat indépendantes qui leurs sont autonomes.
+
+    Les formations de la flotte de l'Aeronautica Imperialis et celles de l'alliance des Légions Titaniques ou des Chevaliers Impériaux sont des formations autonomes. Un maximum de 1/3 des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Vétéran de la Grande Croisade"
+      texte: |
+        Les formations du Solar Auxilia bénéficient toutes de la règle Obstiné :
+
+        - Une formation est démoralisée dès qu'elle a accumulé un nombre de pions Impact égal au nombre d'unités + 1.
+        - Lorsqu'une formation perd un assaut, elle subit une perte de moins lors de la résolution des touches supplémentaires. Ceci peut réduire à zéro les pertes encourues en résolution.
+    - titre: "Règle spéciale : Adaptation de l'explorateur"
+      texte: |
+        Lors d'un mouvement prudent (qui permet de relancer les tests de terrain dangereux), les formations du Solar Auxilia peuvent se déplacer jusqu'à 15cm au lieu des 5cm habituels.
+    - titre: "Règle spéciale : Veletaris"
+      texte: |
+        Les formations incluant au moins une unité ayant la note "Veletaris" bénéficient d'un bonus de +1 lors des tests d'actions pour effectuer un Assaut.
+    - titre: "Règle spéciale : Autodestruction"
+      texte: |
+        Les unités de Cyclopes sont automatiquement détruites à la fin de la phase après avoir réalisé leur attaque.
+
+        Si l'unité de Cyclope a pu réaliser son attaque alors, durant cette phase, sa formation ne reçoit pas de pions d'impact pour sa destruction, et celle-ci ne compte pas pour déterminer le vainqueur d'un assaut.
+    - titre: "Règle spéciale : Alliance et Flotte"
+      texte: |
+        Un tiers des points d'une liste de cohorte du Solar Auxilia peut être sélectionné dans les formations de la flotte de l'Aeronautica Imperialis et/ou dans l'un des deux codex Légions Titaniques ou Chevaliers Impériaux.
+
+        Cette sélection doit respecter la structure de ces listes (par exemple un choix de base pour avoir deux choix de soutien) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Games Workshop LTD."
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+
+budgets:
+  - id: slot_section
+    libelle: Sections de combat indépendantes
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 sections de combat indépendantes par Tercio"
+  - id: rare
+    libelle: Flotte et alliances
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Infanterie ----
+  - id: legate_commander
+    nom: Legate Commander
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Volkite Charger, portee: 30cm, puissance: "AP5+, Rpt" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme]
+  - id: commander
+    nom: Commander
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Volkite Charger, portee: 30cm, puissance: "AP5+, Rpt" }
+    notes: [Commandant, Meneur]
+  - id: auxiliaries
+    nom: Auxiliaries
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Lasrifles, portee: (15cm), puissance: Arme Légère }
+  - id: auxiliaries_flamers
+    nom: Auxiliaries Flamers
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Flamers, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, IC" }
+  - id: veletarii
+    nom: Veletarii
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Volkite Charger, portee: 30cm, puissance: "AP5+, Rpt" }
+    notes: [Veletaris]
+  - id: veletarii_assaut
+    nom: Veletarii d'assaut
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Power axes, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Veletaris]
+  - id: charonite_ogryns
+    nom: Charonite Ogryns
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Charonite claws, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: rapier_mortier
+    nom: Rapier - Mortier Taupe
+    type: Inf
+    vitesse: 10cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Torpille souterraine, portee: 30cm, puissance: "AP5+/AC5+, IC, Ind" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: rapier_thudd
+    nom: Rapier - Thudd Gun
+    type: Inf
+    vitesse: 10cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obus, portee: 45cm, puissance: "AP4+/AC6+, Ind" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: rapier_laser
+    nom: Rapier - Laser
+    type: Inf
+    vitesse: 10cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Destructeur laser, portee: 45cm, puissance: "AC4+" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+
+  # ---- Véhicules légers ----
+  - id: cyclope
+    nom: Cyclope
+    type: VL
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Demolition Charge, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Infiltrateur, Autodestruction]
+  - id: tarentule_hyperios
+    nom: Tarentule - Hyperios
+    type: VL
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "-"
+    ff: "6+"
+    armes:
+      - { nom: Lance missile Hyperios, portee: 45cm, puissance: "AC5+/AA5+" }
+    notes: [Eclaireur, "Ne peut pas contrôler les objectifs, juste les contester"]
+  - id: tarentule_laser
+    nom: Tarentule - Laser
+    type: VL
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "-"
+    ff: "5+"
+    armes:
+      - { nom: Batterie laser, portee: 45cm, puissance: "2xAP6+/AC5+" }
+    notes: [Eclaireur, "Ne peut pas contrôler les objectifs, juste les contester"]
+
+  # ---- Véhicules blindés ----
+  - id: aurox
+    nom: Aurox
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Mitrailleuse, portee: (15cm), puissance: Arme Légère }
+    notes: ["Transport (2) : Infanterie, Cyclope"]
+    transport: { capacite: 2, accepte: [auxiliaries, auxiliaries_flamers, veletarii, veletarii_assaut, charonite_ogryns, rapier_laser, rapier_mortier, rapier_thudd, commander, legate_commander, cyclope] }
+  - id: arvus_lighter
+    nom: Arvus Lighter
+    type: VB
+    vitesse: 35cm
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    notes: [Antigrav, "Transport (2) : Infanterie, Cyclope"]
+    transport: { capacite: 2, accepte: [auxiliaries, auxiliaries_flamers, veletarii, veletarii_assaut, charonite_ogryns, rapier_laser, rapier_mortier, rapier_thudd, commander, legate_commander, cyclope] }
+  - id: dracosan
+    nom: Dracosan
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Twin lascannon, portee: 45cm, puissance: "AC4+" }
+    notes: [Blindage Renforcé, "Transport (4) : Infanterie, Cyclope"]
+    transport: { capacite: 4, accepte: [auxiliaries, auxiliaries_flamers, veletarii, veletarii_assaut, charonite_ogryns, rapier_laser, rapier_mortier, rapier_thudd, commander, legate_commander, cyclope] }
+  - id: dracosan_demolisher
+    nom: Dracosan Demolisher
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Demolisher cannon, portee: 30cm, puissance: "MA4+" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage Renforcé, "Transport (2) : Infanterie, Cyclope"]
+    transport: { capacite: 2, accepte: [auxiliaries, auxiliaries_flamers, veletarii, veletarii_assaut, charonite_ogryns, rapier_laser, rapier_mortier, rapier_thudd, commander, legate_commander, cyclope] }
+  - id: aethon_sentinel
+    nom: Aethon Heavy Sentinel
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Aethon Missile Battery, portee: 30cm, puissance: "2xAP5+, Rpt" }
+    notes: [Eclaireur]
+  - id: leman_russ_obusier
+    nom: Leman Russ 30k Obusier
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_exterminator
+    nom: Leman Russ 30k Exterminator
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon jumelé, portee: 45cm, puissance: "AP4+/AC5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_annihilator
+    nom: Leman Russ 30k Annihilator
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Laser Annihilator, portee: 45cm, puissance: "AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_executioner
+    nom: Leman Russ 30k Executioner
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à Plasma Executioner, portee: 60cm, puissance: "AP2+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_vanquisher
+    nom: Leman Russ 30k Vanquisher
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Vanquisher, portee: 75cm, puissance: "AP4+/AC2+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_demolisher
+    nom: Leman Russ 30k Demolisher
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: basilisk
+    nom: Basilisk 30k
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+  - id: medusa
+    nom: Medusa 30k
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier de siège, portee: 45cm, puissance: "MA4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+
+  # ---- Engins de guerre ----
+  - id: malcador
+    nom: Malcador
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit." }
+  - id: malcador_infernus
+    nom: Malcador Infernus
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Inferno Lourd, portee: 30cm, puissance: "2xAP3+, IC, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: 2x Lance-Flamme Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit." }
+  - id: malcador_valdor
+    nom: Malcador Valdor
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Projecteur Laser à Neutron, portee: 75cm, puissance: "MA3+, Rpt" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 2, critique: "Détruit." }
+  - id: baneblade
+    nom: Baneblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Super Obusier, portee: 75cm, puissance: "AP3+/AC3+" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Canon Démolisseur (FF), portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormsword
+    nom: Stormsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon de siège, portee: 30cm, puissance: "3PB, IC, FrtF" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormblade
+    nom: Stormblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Plasma, portee: 60cm, puissance: "3xMA2+, Rchg, FrtF" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: shadowsword
+    nom: Shadowsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Volcano (FF), portee: 90cm, puissance: "MA2+, TT (D3), FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: stormhammer
+    nom: Stormhammer
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Stormhammer, portee: 75cm, puissance: "2xAP2+/AC4+" }
+      - { nom: Obusier jumelé, portee: 75cm, puissance: "AP3+/AC3+, FrtF" }
+      - { nom: Canon Laser de coque, portee: 45cm, puissance: "AC5+, FrtF" }
+      - { nom: Batterie Laser de flanc, portee: 45cm, puissance: "AC4+, Gch" }
+      - { nom: Batterie Laser de flanc, portee: 45cm, puissance: "AC4+, Drt" }
+    notes: [Blindage Renforcé]
+    degats: { cd: 3, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+
+  # ---- Flotte de l'Aeronautica Imperialis ----
+  - id: avenger
+    nom: Avenger
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon Avenger, portee: 30cm, puissance: "AP3+/AC5+, FrtF" }
+      - { nom: Canon Laser (AA), portee: 30cm, puissance: "AC5+/AA6+, FrtF" }
+      - { nom: Mitrailleuse Lourde (AA), portee: 30cm, puissance: "AA6+, Arr" }
+  - id: lightning
+    nom: Lightning Strike Fighter
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons Laser Jumelés (FF+AA), portee: 30cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Skystrikes, portee: 30cm, puissance: "AA4+, FrtF" }
+  - id: marauder
+    nom: Bombardier Marauder
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Bolters Lourds Jumelés (AA), portee: 30cm, puissance: "AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Arr), portee: 30cm, puissance: "AA5+, Arr" }
+      - { nom: Canons Laser Jumelés (AA Avant), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Bombes (Bomber), portee: 15cm, puissance: "3PB, FrtF" }
+    degats: { cd: 2, critique: "Le Bombardier Marauder s'écrase au sol et est détruit." }
+  - id: croiseur_lunar
+    nom: Croiseur Classe Lunar
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+
+options:
+  - id: legate
+    nom: Legate Commander
+    effet: { type: remplacer, de: commander, par: legate_commander, lot: 1, max: 1, cout: 0 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Le Commander devient Legate Commander (1 par armée max, gratuit)"
+  - id: cyclopes
+    nom: Cyclopes
+    effet: { type: remplacer, de: auxiliaries, par: cyclope, lot: 1, max: 2, cout: 0 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer jusqu'à 2 Auxiliaries par 2 Cyclope (gratuit)"
+  - id: veteran
+    nom: Vétéran
+    effet:
+      type: choix
+      parmi:
+        - { id: veletarii, nom: 3 Veletarii, cout: 25, effet: { type: remplacer, de: auxiliaries, par: veletarii, lot: 3, max: 1 } }
+        - { id: veletarii_assaut, nom: 3 Veletarii d'assaut, cout: 25, effet: { type: remplacer, de: auxiliaries, par: veletarii_assaut, lot: 3, max: 1 } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Vétéran : remplacer 3 Auxiliaries par 3 Veletarii (tous types)"
+  - id: medusa
+    nom: Medusa 30k
+    effet: { type: ajouter, cout: 75, unites: [{ unite: medusa, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 2 Medusa 30k à la formation"
+  - id: engins_de_guerre
+    nom: Engins de Guerre
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi:
+        - { unite: malcador, cout: 100 }
+        - { unite: malcador_infernus, cout: 100 }
+        - { unite: malcador_valdor, cout: 100 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 2 Engins de Guerre parmi : Malcador, Malcador Infernus, Valdor (100 pts chaque)"
+  - id: meneur
+    nom: Meneur
+    effet: { type: mot_cle, texte: Meneur, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la note Meneur à un véhicule de la formation"
+  - id: transport
+    nom: Options de Transport
+    effet:
+      type: choix
+      parmi:
+        - { id: tarentule, nom: 1 Tarentule-Hyperios, cout: 50, effet: { type: ajouter, unites: [{ unite: tarentule_hyperios }] } }
+        - id: arvus
+          nom: Arvus Lighter
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 10, unites: [{ unite: arvus_lighter }], min: 1, max: besoin_transport }
+        - id: aurox
+          nom: Aurox
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 10, unites: [{ unite: aurox }], min: 1, max: besoin_transport }
+        - id: dracosan
+          nom: Dracosan
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: dracosan }], min: 1, max: besoin_transport }
+        - id: dracosan_demolisher
+          nom: Dracosan Demolisher
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: dracosan_demolisher }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Un seul choix de transport possible. Arvus Lighter et Aurox : 10 pts chacun, 25 pts les 3. Dracosan (tous types) : 50 pts chacun, 125 pts les 3."
+    phrase_pdf: "Un seul choix : 1 Tarentule-Hyperios (50 pts), assez d'Arvus Lighter ou d'Aurox (10 pts chaque, 25 pts les 3), ou assez de Dracosan (50 pts chaque, 125 pts les 3)"
+  - id: hyperios_tarentule
+    nom: Tarentule-Hyperios
+    effet: { type: remplacer, de: tarentule_laser, par: tarentule_hyperios, lot: 1, max: 3, cout: 0 }
+    contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Jusqu'à 3 Tarentule-Laser peuvent être remplacées gratuitement par autant de Tarentule-Hyperios"
+
+formations:
+  # ---- Tercios ----
+  - id: tercio_militaris
+    nom: Tercio Militaris
+    variantes:
+      - id: base
+        cout: 75
+        composition:
+          - { unite: commander, nombre: 1 }
+          - { unite: auxiliaries, nombre: 3 }
+          - choix:
+              total: { min: 2, max: 5 }
+              parmi:
+                - { unite: auxiliaries_flamers, cout: 50, par_pioche: 2 }
+                - { unite: veletarii, cout: 50, par_pioche: 2 }
+                - { unite: veletarii_assaut, cout: 50, par_pioche: 2 }
+                - { unite: rapier_laser, cout: 50, par_pioche: 2 }
+                - { unite: aethon_sentinel, cout: 75, par_pioche: 2 }
+                - { unite: rapier_mortier, cout: 75, par_pioche: 2 }
+                - { unite: rapier_thudd, cout: 75, par_pioche: 2 }
+                - { unite: charonite_ogryns, cout: 75, par_pioche: 2 }
+                - { unite: auxiliaries, cout: 75, par_pioche: 4 }
+              phrase_pdf: "2-5 sections parmi : 2 Auxiliaries flamers ou 2 Veletarii (tous types) ou 2 Rapier-Laser (+50 pts) ; 2 Aethon Heavy Sentinel ou 2 Rapier-Mortier Taupe ou 2 Rapier-Thudd Gun (+75 pts) ; 2 Charonites Ogryns ou 4 Auxiliaries (+75 pts)"
+    options: [legate, cyclopes, veteran, medusa, engins_de_guerre, transport]
+    contraintes: [{ type: fournit, budget: slot_section, quantite: 2 }]
+  - id: tercio_blinde
+    nom: Tercio Blindé
+    variantes:
+      - id: base
+        cout: 400
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: leman_russ_obusier }, { unite: leman_russ_exterminator }, { unite: leman_russ_annihilator }]
+              phrase_pdf: "8 Leman Russ 30k au choix parmi : Obusier, Exterminator, Annihilator"
+    options: [medusa, engins_de_guerre, meneur]
+    contraintes: [{ type: fournit, budget: slot_section, quantite: 2 }]
+  - id: tercio_blinde_lourd
+    nom: Tercio Blindé (chars lourds)
+    description: "1 seule formation par armée"
+    variantes:
+      - id: base
+        cout: 475
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: leman_russ_executioner }, { unite: leman_russ_vanquisher }, { unite: leman_russ_demolisher }]
+              phrase_pdf: "8 Leman Russ 30k au choix parmi : Executioner, Vanquisher, Demolisher"
+    options: [medusa, engins_de_guerre, meneur]
+    contraintes: [{ type: fournit, budget: slot_section, quantite: 2 }, { type: max_par_armee, valeur: 1 }]
+  - id: tercio_super_lourd
+    nom: Tercio de char Super Lourd
+    variantes:
+      - id: deux
+        nom: 2 Engins de Guerre
+        cout: 350
+        composition:
+          - choix:
+              total: 2
+              parmi: [{ unite: baneblade }, { unite: stormsword }, { unite: stormblade }, { unite: shadowsword }, { unite: stormhammer }]
+              phrase_pdf: "2 Engins de Guerre parmi : Baneblade, Stormsword, Stormblade, Shadowsword, Stormhammer"
+      - id: trois
+        nom: 3 Engins de Guerre
+        cout: 500
+        composition:
+          - choix:
+              total: 3
+              parmi: [{ unite: baneblade }, { unite: stormsword }, { unite: stormblade }, { unite: shadowsword }, { unite: stormhammer }]
+              phrase_pdf: "3 Engins de Guerre parmi : Baneblade, Stormsword, Stormblade, Shadowsword, Stormhammer"
+    options: [engins_de_guerre, meneur]
+    contraintes: [{ type: fournit, budget: slot_section, quantite: 2 }]
+  - id: tercio_malcador
+    nom: Tercio de Malcador
+    variantes:
+      - id: base
+        cout: 375
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: malcador }, { unite: malcador_infernus }, { unite: malcador_valdor }]
+              phrase_pdf: "4 Engins de Guerre parmi : Malcador, Malcador Infernus, Valdor"
+    options: [meneur]
+    contraintes: [{ type: fournit, budget: slot_section, quantite: 2 }]
+
+  # ---- Sections de combat indépendantes ----
+  - id: section_sentinelle
+    nom: Section de Sentinelle
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: aethon_sentinel, nombre: 6 }] }
+  - id: section_ogryn
+    nom: Section d'Ogryn
+    variantes:
+      - id: base
+        cout: 325
+        composition:
+          - { unite: charonite_ogryns, nombre: 4 }
+          - { unite: dracosan_demolisher, nombre: 4 }
+  - id: section_super_lourd
+    nom: Section de char Super Lourd
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - choix:
+              total: 1
+              parmi: [{ unite: baneblade }, { unite: stormsword }, { unite: stormblade }, { unite: shadowsword }, { unite: stormhammer }]
+              phrase_pdf: "1 Engin de Guerre parmi : Baneblade, Stormsword, Stormblade, Shadowsword, Stormhammer"
+  - id: section_leman_russ
+    nom: Section de Leman Russ
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: leman_russ_obusier }, { unite: leman_russ_exterminator }, { unite: leman_russ_annihilator }]
+              phrase_pdf: "4 Leman Russ 30k au choix parmi : Obusier, Exterminator, Annihilator"
+    options: [medusa]
+  - id: section_leman_russ_lourd
+    nom: Section de Leman Russ (chars lourds)
+    description: "1 seule formation par armée"
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: leman_russ_executioner }, { unite: leman_russ_vanquisher }, { unite: leman_russ_demolisher }]
+              phrase_pdf: "4 Leman Russ 30k au choix parmi : Executioner, Vanquisher, Demolisher"
+    options: [medusa]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: section_malcador
+    nom: Section de Malcador
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - choix:
+              total: 2
+              parmi: [{ unite: malcador }, { unite: malcador_infernus }, { unite: malcador_valdor }]
+              phrase_pdf: "2 Engins de Guerre parmi : Malcador, Malcador Infernus, Valdor"
+  - id: batterie_artillerie
+    nom: Batterie d'Artillerie
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: basilisk, nombre: 4 }] }
+  - id: batterie_rapiere
+    nom: Batterie de Rapière
+    variantes:
+      - { id: laser, nom: 6 Rapier-Laser, cout: 175, composition: [{ unite: rapier_laser, nombre: 6 }] }
+      - { id: mortier, nom: 6 Rapier-Mortier Taupe, cout: 225, composition: [{ unite: rapier_mortier, nombre: 6 }] }
+      - { id: thudd, nom: 6 Rapier-Thudd Gun, cout: 225, composition: [{ unite: rapier_thudd, nombre: 6 }] }
+  - id: batterie_tarentule
+    nom: Batterie de Tarentule
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: tarentule_laser, nombre: 6 }] }
+    options: [hyperios_tarentule]
+
+  # ---- Flotte de l'Aeronautica Imperialis ----
+  - id: escadrille_avenger
+    nom: Escadrille Avenger
+    variantes:
+      - { id: deux, nom: 2 Chasseurs Avengers, cout: 150, composition: [{ unite: avenger, nombre: 2 }] }
+      - { id: quatre, nom: 4 Chasseurs Avengers, cout: 300, composition: [{ unite: avenger, nombre: 4 }] }
+  - id: escadrille_lightning
+    nom: Escadrille Lightning
+    variantes:
+      - { id: deux, nom: 2 Lightning Strike Fighters, cout: 175, composition: [{ unite: lightning, nombre: 2 }] }
+      - { id: trois, nom: 3 Lightning Strike Fighters, cout: 250, composition: [{ unite: lightning, nombre: 3 }] }
+  - id: escadrille_bombardiers
+    nom: Escadrille de Bombardiers
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: marauder, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: base, nom: 1 Croiseur Lunar, cout: 100, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
+    contraintes: [{ type: pas_une_activation }]
+
+sections:
+  - id: tercios
+    titre: TERCIOS DU SOLAR AUXILIA
+    formations: [tercio_militaris, tercio_blinde, tercio_blinde_lourd, tercio_super_lourd, tercio_malcador]
+    colonne_options: true
+    tableau_options:
+      titre: OPTIONS DES TERCIOS
+  - id: sections_independantes
+    titre: SECTIONS DE COMBAT INDÉPENDANTES
+    sous_titre: "Jusqu'à 2 sections de combat indépendantes par Tercio"
+    formations: [section_sentinelle, section_ogryn, section_super_lourd, section_leman_russ, section_leman_russ_lourd, section_malcador, batterie_artillerie, batterie_rapiere, batterie_tarentule]
+    contraintes: [{ type: consomme, budget: slot_section }]
+    colonne_options: true
+  - id: aeronautica
+    titre: FLOTTE DE L'AERONAUTICA IMPERIALIS
+    sous_titre: "Jusqu'à 1/3 des points disponibles, alliances comprises"
+    formations: [escadrille_avenger, escadrille_lightning, escadrille_bombardiers, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: titanicus
+    titre: ALLIANCE DES LÉGIONS TITANIQUES
+    sous_titre: "Jusqu'à 1/3 des points disponibles, flotte comprise"
+    formations: []
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    allies: { codex: adeptus-titanicus }
+
+listes_test:
+  - nom: "3000 pts, Tercios, sections indépendantes et flotte"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: tercio_militaris
+        choix: { "2": { veletarii: 2, charonite_ogryns: 2, aethon_sentinel: 1 } }
+        options:
+          - { option: legate }
+          - { option: medusa }
+          - { option: transport, choix: dracosan, quantite: 4 }
+      - formation: tercio_blinde
+        choix: { "0": { leman_russ_obusier: 4, leman_russ_exterminator: 4 } }
+        options: [{ option: meneur }]
+      - formation: tercio_super_lourd
+        variante: deux
+        choix: { "0": { baneblade: 1, shadowsword: 1 } }
+      - { formation: section_sentinelle }
+      - { formation: batterie_tarentule, options: [{ option: hyperios_tarentule, quantite: 3 }] }
+      - { formation: escadrille_avenger, variante: deux }
+
+  - nom: "deux Legate Commanders"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: tercio_militaris
+        choix: { "2": { veletarii: 2 } }
+        options: [{ option: legate }]
+      - formation: tercio_militaris
+        choix: { "2": { veletarii: 2 } }
+        options: [{ option: legate }]
+
+  - nom: "deux Tercios Blindés lourds"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: tercio_blinde_lourd, choix: { "0": { leman_russ_vanquisher: 8 } } }
+      - { formation: tercio_blinde_lourd, choix: { "0": { leman_russ_demolisher: 8 } } }
+
+  - nom: "trois sections indépendantes pour un seul Tercio"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: tercio_militaris
+        choix: { "2": { veletarii: 2 } }
+      - { formation: section_sentinelle }
+      - { formation: batterie_artillerie }
+      - { formation: section_malcador, choix: { "0": { malcador: 2 } } }
+
+  - nom: "flotte au-delà du tiers des points"
+    limite: 1500
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: tercio_militaris
+        choix: { "2": { veletarii: 2 } }
+      - { formation: escadrille_avenger, variante: quatre }
+      - { formation: escadrille_bombardiers }

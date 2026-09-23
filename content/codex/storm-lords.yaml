@@ -1,0 +1,713 @@
+# Storm Lords, transcrit depuis le PDF expérimental fan list 1.4 (source de vérité).
+codex:
+  slug: storm-lords
+  armee_id: 244fc0f8-de74-42a2-b379-3232e1f3234c
+  nom: Storm Lords
+  version: "0.2"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: experimental
+  citation:
+    texte: "Guerriers de Chogoris ! Frères de la Grande Tribu ! La chasse stellaire vous appelle, l'entendez-vous ? La crête rouge de la bataille est votre foyer, le respect de vos pairs est votre feu. Plongez dans le cœur de l'ennemi comme une lame et vous serez apaisés. L'Empereur nous a donné la force. Remboursons-le en lui donnant la victoire !"
+    auteur: Jaghatai Khan, la Dernière Charge de Galathamar
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de Storm Lords ou tout autre chapitre successeur des White Scars.
+  regles_md:
+    - titre: "Règle spéciale : Garnison"
+      texte: |
+        Les Storm Lords sont une armée mobile qui déploie rarement des garnisons. Par contre, leurs formations de motos progressent en avant-garde de l'armée.
+
+        Le joueur Storm Lords peut choisir de placer jusqu'à deux formations de Fils de Jaghatai en garnison même si ces formations ne respectent pas les règles normales permettant de placer une formation en garnison. S'il choisit cette option, aucune autre formation ne peut être placée en garnison.
+    - titre: "Règle spéciale : Charge féroce"
+      texte: |
+        Les unités d'une formation de Fils de Jaghatai peuvent relancer leurs jets de terrain difficile lors :
+
+        - d'un mouvement de charge ;
+        - d'un mouvement de contre-charge ;
+        - d'un mouvement de consolidation.
+    - titre: "Règle spéciale : Maître tacticien"
+      texte: |
+        Si le Commandant Suprême est présent sur la table, qu'il n'a pas encore utilisé sa relance lors de ce tour et qu'une formation Storm Lords peut réaliser une contre charge, alors le joueur Storm Lords peut choisir de consommer sa relance de commandant suprême pour ce tour afin de bénéficier du bonus suivant :
+
+        Toutes les unités de la formation Storm Lords peuvent effectuer ce mouvement de contre charge dans n'importe quelle direction.
+
+        De plus, si une fois ce mouvement terminé, la formation attaquante n'a plus aucune de ses unités dans un rayon de 15 cm autour d'une unité ennemie de la formation visée, l'assaut prend fin.
+    - titre: "Règle spéciale : Débordement"
+      texte: |
+        En début de partie, notez secrètement un bord de table latéral (autre que les bords de table des joueurs : gauche ou droit).
+
+        À partir du tour 2, lors de la phase de téléportation, vous pouvez placer la formation entièrement à moins de 15 cm du bord choisi. Puis, lancez 1 dé : sur un résultat de 1, la formation reçoit 1 PI.
+    - titre: "Règle spéciale : Et ils ne connaîtront pas la peur"
+      texte: |
+        - Il faut deux pions d'impact pour neutraliser une unité Space Marines ou détruire une unité démoralisée (ignorez les pions d'impacts en plus).
+        - Les formations Space Marines ne sont démoralisées qu'à partir du moment où elles ont deux pions d'impact ou plus par unité.
+        - Les formations Space Marines comptent comme ayant la moitié de leur nombre de pions impact lors de la résolution de l'assaut (arrondi à l'inférieur, à un minimum de 1 pion impact).
+        - Réduisez de moitié le nombre de touches supplémentaires subies par une formation de Space Marines perdant un assaut, en arrondissant à l'entier inférieur en faveur des Space Marines.
+        - Lorsqu'une formation Space Marines démoralisée se rallie, elle reçoit un nombre de pions impact égal au nombre d'unités plutôt qu'à la moitié du nombre d'unités.
+        - Les Meneurs Space Marines retirent deux pions d'impact au lieu d'habituellement un seul.
+    - titre: "Règle spéciale : Transports"
+      texte: |
+        Les formations Space Marines disposant d'unités avec le suffixe "+ Transports" peuvent prendre assez de Rhinos pour transporter l'intégralité de la formation. Si cette option est prise, le nombre de Rhinos doit être suffisant, mais la capacité totale de transport ne doit pas être excédentaire par rapport au nombre d'unités à transporter.
+
+        Si des véhicules avec une capacité de transport ont été achetés pour la formation (comme des Razorbacks ou des Land Raiders), on considère qu'ils transportent au maximum de leurs capacités et qu'il est possible de prendre assez de Rhinos pour transporter ce qu'il reste de la formation.
+
+        En outre, il est possible de remplacer tous les Rhinos de la formation par un Dreadnought ou par des Modules d'atterrissage, excepté pour les détachements de Scouts.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD."
+  valeur_strategique: 5
+  initiative:
+    defaut: "1+"
+
+budgets:
+  - id: soutien
+    libelle: Détachements de Soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 détachements de soutien par détachement principal"
+  - id: rare
+    libelle: Supports Storm Lords
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: maitre_chapitre
+    nom: Maître de Chapitre
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: capitaine
+    nom: Capitaine
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: chapelain
+    nom: Chapelain
+    type: Perso
+    armes:
+      - { nom: Crozius Arcanum, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: archiviste
+    nom: Archiviste
+    type: Perso
+    armes:
+      - { nom: Frappe Psychique, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Arme de Force, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: tactiques
+    nom: Tactiques
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-Missiles, portee: 45cm, puissance: "AP5+/AC6+" }
+  - id: marines_assaut
+    nom: Marines d'Assaut
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Réacteurs Dorsaux]
+    taille_transport: 2
+  - id: terminators
+    nom: Terminators
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Canon d'assaut, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Gantelet Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé]
+    taille_transport: 2
+  - id: scouts
+    nom: Scouts
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Eclaireurs, Infiltrateurs]
+  - id: motos
+    nom: Motos
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Montés]
+
+  # ---- Véhicules légers ----
+  - id: motos_assaut
+    nom: Motos d'Assaut
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: land_speeder
+    nom: Land Speeder
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Antigrav, Eclaireurs]
+  - id: land_speeder_tornado
+    nom: Land Speeder Tornado
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon d'Assaut, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, Eclaireurs]
+  - id: land_speeder_typhoon
+    nom: Land Speeder Typhoon
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-missiles Typhoon, portee: 45cm, puissance: "AP3+/AC5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, Eclaireurs]
+
+  # ---- Véhicules blindés ----
+  - id: dreadnought
+    nom: Dreadnought
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Canon d'Assaut, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Poing Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Marcheur, Sans peur]
+    taille_transport: 2
+  - id: dreadnought_feu_enfer
+    nom: Dreadnought Feu d'Enfer
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Lance-missiles, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Marcheur, Sans peur]
+    taille_transport: 2
+  - id: rhino
+    nom: Rhino
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fulgurant, portee: (15cm), puissance: Arme Légère }
+    notes: ["Transport (2) : Tactiques, Devastators, Scouts"]
+    transport: { capacite: 2, accepte: [tactiques, scouts] }
+  - id: razorback_bolters_lourds
+    nom: Razorback Bolters Lourds
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: ["Transport (1) : Tactiques, Devastators, Scouts"]
+    transport: { capacite: 1, accepte: [tactiques, scouts] }
+  - id: razorback_canons_laser
+    nom: Razorback Canons Laser
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+    notes: ["Transport (1) : Tactiques, Devastators, Scouts"]
+    transport: { capacite: 1, accepte: [tactiques, scouts] }
+  - id: land_raider
+    nom: Land Raider
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, "Transport (2) : Tactiques, Devastators, Terminators (prennent 2 places)"]
+    transport: { capacite: 2, accepte: [tactiques, terminators] }
+    taille_transport: 2
+  - id: predator_annihilator
+    nom: Predator Annihilator
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage renforcé]
+  - id: predator_destructor
+    nom: Predator Destructor
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage renforcé]
+  - id: hunter
+    nom: Hunter
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Lance-missiles Skyspear, portee: 60cm, puissance: "AC4+/AA4+" }
+  - id: module_atterrissage
+    nom: Module d'Atterrissage
+    type: VB
+    armes:
+      - { nom: Deathwind, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes:
+      - "Transport (Formation + Option) : Tactiques, Devastators, Dreadnought"
+      - "Marqueur et non unité : pas de zone de contrôle, ne compte pas pour la cohérence de la formation, ne peut ni revendiquer un feu croisé, ni tenir ou contester un objectif"
+
+  # ---- Flotte Storm Lords ----
+  - id: stormtalon_destructor
+    nom: Stormtalon Destructor
+    type: A
+    vitesse: C
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons d'Assaut Jumelés (AA), portee: 30cm, puissance: "AP4+/AC4+/AA5+" }
+      - { nom: Bolters Lourds Jumelés (AA Avant), portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+  - id: stormtalon_annihilator
+    nom: Stormtalon Annihilator
+    type: A
+    vitesse: C
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons d'Assaut Jumelés (AA), portee: 30cm, puissance: "AP4+/AC4+/AA5+" }
+      - { nom: Canons Laser Jumelés (FF+AA), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+  - id: stormeagle
+    nom: Stormeagle
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Bolters Lourds Jumelés (AA Avant), portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: 2x Canons Laser Jumelés (FF+AA), portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Lance-missiles Vengeance, portee: 45cm, puissance: "2PB, FrtF" }
+    notes: [Assaut planétaire, Blindage renforcé, "Transport (4) : Tactiques, Devastators, Scouts, Marines d'Assauts, Terminators (Marines d'Assaut et Terminators prennent 2 places)"]
+    transport: { capacite: 4, accepte: [tactiques, scouts, marines_assaut, terminators] }
+    degats: { cd: 1 }
+  - id: belier_assaut_caestus
+    nom: Bélier d'Assaut Caestus
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Bélier Caestus, portee: (contact), puissance: "Arme d'Assaut, MA, FrtF" }
+      - { nom: Magna Fuseur, portee: (contact), puissance: "Arme d'Assaut, +1A, MA, FrtF" }
+      - { nom: Lance-missiles Firefury, portee: 30cm, puissance: "2PB, Uniq, FrtF" }
+    notes: [Assaut planétaire, Blindage renforcé, Sauvegarde Invulnérable, "Transport (2) : Tactiques, Devastators, Scouts, Marines d'Assaut, Terminators"]
+    transport: { capacite: 2, accepte: [tactiques, scouts, marines_assaut, terminators] }
+    degats: { cd: 1 }
+  - id: thunderhawk_transporteur
+    nom: Thunderhawk Transporteur
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Bolters Lourds Jumelés (AA Droite), portee: 30cm, puissance: "AP4+/AA5+, Drt" }
+      - { nom: 2x Bolters Lourds Jumelés (AA Gauche), portee: 30cm, puissance: "AP4+/AA5+, Gch" }
+    notes: [Assaut planétaire, Blindage renforcé, "Transport (2) : Land Raider (prennent deux places), Rhinos, Razorbacks, Whirlwinds, Hunters, Predators, Vindicators et les unités qu'ils transportent"]
+    transport: { capacite: 2, accepte: [land_raider, rhino, razorback_bolters_lourds, razorback_canons_laser, hunter, predator_destructor, predator_annihilator] }
+    degats: { cd: 2, critique: "L'appareil s'écrase au sol, tuant tous ceux à son bord" }
+  - id: thunderhawk
+    nom: Thunderhawk
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier (Avant), portee: 75cm, puissance: "AP4+/AC4+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés (AA Avant), portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Bolters Lourds Jumelés (AA Droite), portee: 30cm, puissance: "AP4+/AA5+, Drt" }
+      - { nom: Bolters Lourds Jumelés (AA Gauche), portee: 30cm, puissance: "AP4+/AA5+, Gch" }
+    notes: [Assaut planétaire, Blindage renforcé, "Transport (8) : Tactiques, Devastators, Scouts, Marines d'Assaut, Motos, Motos d'Assaut, Terminators, Dreadnoughts (Terminators et Dreadnoughts prennent deux places)"]
+    transport: { capacite: 8, accepte: [tactiques, scouts, marines_assaut, motos, motos_assaut, terminators, dreadnought, dreadnought_feu_enfer] }
+    degats: { cd: 2, critique: "L'appareil s'écrase au sol, tuant tous ceux à son bord." }
+  - id: barge_debarquement
+    nom: Barge de Débarquement
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: 3x Bolters Lourds Jumelés (Barge), portee: 30cm, puissance: "AP4+/AA5+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Assaut planétaire, "Transport (12+6/4) : Tactiques, Devastators, Scouts, Marines d'Assaut, Motos, Motos d'Assaut, Terminator, Dreadnought (Terminators et Dreadnought prennent 2 places), plus 6 véhicules parmis Rhinos, Razorbacks, Whirlwinds, Hunters, Predators, Vindicators ou 4 Land Raiders"]
+    transport: { capacite: 12, accepte: [tactiques, scouts, marines_assaut, motos, motos_assaut, terminators, dreadnought, dreadnought_feu_enfer] }
+    degats: { cd: 4, critique: "La Barge de débarquement s'écrase au sol et est détruite, ainsi que toutes les unités à son bord. Toute unité dans un rayon de 5cm de l'appareil subit une touche si la Barge de débarquement se trouvait au sol." }
+  - id: croiseur_attaque
+    nom: Croiseur d'Attaque
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (5), portee: "∞", puissance: "5PB, MA" }
+    notes: ["Transport (20+20+6) : Tactiques, Devastators, Marines d'Assaut, Scouts, Terminators, Dreadnoughts, Motos et Motos d'assaut, plus 20 véhicules parmi Rhinos, Razorbacks, Whirlwinds, Hunters, Predators, Vindicators et Land Raiders ainsi que 6 Thunderhawks et Thunderhawks Transporteurs."]
+    transport: { capacite: 20, accepte: [tactiques, scouts, marines_assaut, motos, motos_assaut, terminators, dreadnought, dreadnought_feu_enfer] }
+  - id: barge_bataille
+    nom: Barge de Bataille
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (14), portee: "∞", puissance: "14PB, MA" }
+    notes:
+      - "Lent, ne peut être utilisé aux tours 1 et 2."
+      - "Transport (60+60+6) : Tactiques, Devastators, Marines d'Assaut, Scouts, Terminators, Dreadnoughts, Motos et Motos d'Assaut, plus 60 véhicules parmis Rhinos, Razorbacks, Whirlwinds, Hunters, Predators, Vindicators et Land Raiders ainsi que 9 Thunderhawks et Thunderhawks Transporteurs."
+    transport: { capacite: 60, accepte: [tactiques, scouts, marines_assaut, motos, motos_assaut, terminators, dreadnought, dreadnought_feu_enfer] }
+
+  # ---- Légions Titaniques ----
+  - id: warhound
+    nom: Warhound
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Méga Bolter Vulcain (F), portee: 45cm, puissance: "4xAP3+/AC5+, Frt" }
+      - { nom: Canon Plasma Léger (F), portee: 45cm, puissance: "2xMA2+, Rchg, Frt" }
+    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le titan est déséquilibré et vacille. Déplacez-le dans une direction aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 6+."
+
+options:
+  - id: commandant
+    nom: Commandant
+    effet:
+      type: choix
+      parmi:
+        - { id: capitaine, nom: Capitaine, cout: 50, effet: { type: ajouter, unites: [{ unite: capitaine }] } }
+        - { id: archiviste, nom: Archiviste, cout: 50, effet: { type: ajouter, unites: [{ unite: archiviste }] } }
+        - { id: chapelain, nom: Chapelain, cout: 50, effet: { type: ajouter, unites: [{ unite: chapelain }] } }
+        - id: maitre_chapitre
+          nom: Maître de chapitre
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: maitre_chapitre }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Capitaine ou un Archiviste ou un Chapelain (un Capitaine peut être échangé gratuitement par un Maître de chapitre)"
+  - id: attaque_de_flanc
+    nom: Attaque de Flanc
+    effet: { type: mot_cle, texte: Débordement, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la note Débordement à toutes les unités de la formation"
+  - id: transport_terminator
+    nom: Transport Terminator
+    effet:
+      type: choix
+      parmi:
+        - { id: land_raiders, nom: Ajouter 4 Land Raiders à la formation, cout: 300, effet: { type: ajouter, unites: [{ unite: land_raider, nombre: 4 }] } }
+        - { id: teleportation, nom: Téléportation, cout: 50, effet: { type: mot_cle, texte: Téléportation } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 4 Land Raiders à la formation (300 pts) ou la Note Téléportation aux unités d'infanterie de la formation (50 pts)"
+  - id: sniper
+    nom: Sniper
+    effet: { type: mot_cle, texte: Sniper, cout: 50, cible: [scouts] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Les Bolters lourds des unités de Scouts reçoivent la Note Sniper"
+  - id: hunter
+    nom: Hunter
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hunter }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Hunter à la formation"
+  - id: razorbacks
+    nom: Razorbacks
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: besoin_transport }
+      parmi:
+        - { unite: razorback_bolters_lourds, cout: 25 }
+        - { unite: razorback_canons_laser, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à autant de Razorbacks que d'unités à transporter (25 pts chacun)"
+  - id: tornado_typhoon
+    nom: Tornado / Typhoon
+    effet: { type: mot_cle, texte: "Land Speeders Tornado et Typhoon au choix dans la composition", cout: 0, cible: [land_speeder, land_speeder_tornado, land_speeder_typhoon] }
+    contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "La formation peut contenir des Land Speeders selon n'importe quelle combinaison : remplacer des unités par autant de Land Speeders Tornado (5 pts chacun) ou de Land Speeders Typhoon (15 pts chacun)"
+    note_md: "Porté par la composition des formations qui contiennent des Land Speeders ; cette ligne ne sert qu'à l'affichage du tableau."
+  - id: transport_remplacement
+    nom: Remplacer les transports
+    effet:
+      type: choix
+      parmi:
+        - id: dreadnought
+          nom: Dreadnought à la place des Rhinos
+          cout: 0
+          effet: { type: remplacer, de: rhino, par: dreadnought, tout: true, par_nombre: 1, cout: 0 }
+        - id: module_atterrissage
+          nom: Modules d'atterrissage à la place des Rhinos
+          cout: 0
+          effet: { type: remplacer, de: rhino, par: module_atterrissage, tout: true, par_nombre: 1, cout: 0 }
+    contraintes: [{ type: hors_quota_options }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer tous les Rhinos de la formation par un Dreadnought ou par des Modules d'atterrissage (hors détachements de Scouts)"
+  - id: thunderhawk_supplementaire
+    nom: Ajouter 1 Thunderhawk Transporteur
+    effet: { type: ajouter, cout: 150, unites: [{ unite: thunderhawk_transporteur }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: caestus_supplementaire
+    nom: Ajouter 1 Caestus
+    effet: { type: ajouter, cout: 100, unites: [{ unite: belier_assaut_caestus }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: warhound_supplementaire
+    nom: Ajouter 1 Titan Warhound
+    effet: { type: ajouter, cout: 225, unites: [{ unite: warhound }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+formations:
+  # ---- Détachements principaux ----
+  - id: fils_de_jaghatai
+    nom: Fils de Jaghatai
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: motos, nombre: 5 }
+          - choix:
+              total: 3
+              parmi: [{ unite: motos }, { unite: motos_assaut }, { unite: land_speeder }, { unite: land_speeder_tornado, cout: 5 }, { unite: land_speeder_typhoon, cout: 15 }]
+              phrase_pdf: "3 unités parmi : Motos, Motos d'assaut, Landspeeders"
+    options: [commandant, tornado_typhoon, attaque_de_flanc]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 3 }]
+    phrase_pdf: "5 Motos plus 3 unités parmi : Motos, Motos d'assaut, Landspeeders"
+
+  # ---- Détachements de soutien ----
+  - id: tactique
+    nom: Tactique
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - { unite: tactiques, nombre: 6 }
+          - { transports: { unite: rhino } }
+    options: [commandant, razorbacks, hunter, transport_remplacement]
+    phrase_pdf: "6 unités de Tactiques + transports"
+  - id: assaut
+    nom: Assaut
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: marines_assaut, nombre: 4 }] }
+    options: [commandant]
+  - id: terminator
+    nom: Terminator
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: terminators, nombre: 4 }] }
+    options: [commandant, transport_terminator]
+  - id: scouts
+    nom: Scouts
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: scouts, nombre: 4 }
+          - { transports: { unite: rhino } }
+    options: [commandant, razorbacks, sniper]
+    phrase_pdf: "4 unités de Scouts + transports"
+  - id: land_speeders
+    nom: Land Speeders
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - choix:
+              total: 5
+              parmi: [{ unite: land_speeder }, { unite: land_speeder_tornado, cout: 5 }, { unite: land_speeder_typhoon, cout: 15 }]
+              phrase_pdf: "5 Land Speeders"
+    options: [commandant, tornado_typhoon, attaque_de_flanc]
+  - id: predators
+    nom: Predators
+    variantes:
+      - { id: destructor, nom: 4 Predators Destructor, cout: 225, composition: [{ unite: predator_destructor, nombre: 4 }] }
+      - { id: annihilator, nom: 4 Predators Annihilator, cout: 275, composition: [{ unite: predator_annihilator, nombre: 4 }] }
+    options: [commandant, hunter]
+  - id: land_raiders
+    nom: Land Raiders
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: land_raider, nombre: 4 }] }
+    options: [commandant, hunter]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    phrase_pdf: "0-1 Land Raiders : 4 Land Raiders"
+
+  # ---- Supports ----
+  - id: thunderhawk
+    nom: Thunderhawk
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: thunderhawk, nombre: 1 }] }
+  - id: thunderhawks_transporteurs
+    nom: Thunderhawks Transporteurs
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: thunderhawk_transporteur, nombre: 2 }] }
+    options: [thunderhawk_supplementaire]
+    phrase_pdf: "2 Thunderhawks Transporteurs (Ajouter 1 Thunderhawk Transporteur : +150 pts)"
+  - id: barge_debarquement
+    nom: Barge de débarquement
+    variantes:
+      - { id: base, cout: 400, composition: [{ unite: barge_debarquement, nombre: 1 }] }
+  - id: intercepteurs_stormtalons
+    nom: Intercepteurs Stormtalons
+    variantes:
+      - { id: destructor, nom: 2 Stormtalons Destructor, cout: 200, composition: [{ unite: stormtalon_destructor, nombre: 2 }] }
+      - { id: annihilator, nom: 2 Stormtalons Annihilator, cout: 250, composition: [{ unite: stormtalon_annihilator, nombre: 2 }] }
+  - id: stormeagles
+    nom: Stormeagles
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: stormeagle, nombre: 2 }] }
+  - id: caestus
+    nom: Bélier d'assaut Caestus
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: belier_assaut_caestus, nombre: 2 }] }
+    options: [caestus_supplementaire]
+    phrase_pdf: "2 Caestus (Ajouter 1 Caestus : +100 pts)"
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: croiseur, nom: 1 Croiseur d'attaque, cout: 200, composition: [{ unite: croiseur_attaque, nombre: 1 }] }
+      - { id: barge_bataille, nom: 1 Barge de bataille, cout: 350, composition: [{ unite: barge_bataille, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+    phrase_pdf: "0-1 Soutien Orbital"
+  - id: titan_warhound
+    nom: Titan Warhound
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: warhound, nombre: 1 }] }
+    options: [warhound_supplementaire]
+    phrase_pdf: "1 Titan Warhound (Ajouter 1 Titan Warhound : +225 pts)"
+
+sections:
+  - id: detachements_principaux
+    titre: DÉTACHEMENTS PRINCIPAUX STORM LORDS
+    formations: [fils_de_jaghatai]
+    contraintes: [{ type: max_options, valeur: 3 }]
+    colonne_options: true
+  - id: detachements_soutien
+    titre: DÉTACHEMENTS DE SOUTIEN STORM LORDS
+    sous_titre: "Jusqu'à 3 détachements de soutien par détachement principal"
+    formations: [tactique, assaut, terminator, scouts, land_speeders, predators, land_raiders]
+    contraintes: [{ type: consomme, budget: soutien }, { type: max_options, valeur: 3 }]
+    colonne_options: true
+    options: [commandant, attaque_de_flanc, transport_terminator, sniper, hunter, razorbacks, tornado_typhoon, transport_remplacement]
+    tableau_options:
+      titre: AMÉLIORATIONS STORM LORDS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement et chaque détachement peut recevoir au plus 3 améliorations"
+  - id: flotte
+    titre: FLOTTE STORM LORDS
+    sous_titre: "SUPPORTS STORM LORDS"
+    formations: [thunderhawk, thunderhawks_transporteurs, barge_debarquement, intercepteurs_stormtalons, stormeagles, caestus, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: titanicus
+    titre: SOUTIEN DES LÉGIONS TITANIQUES
+    sous_titre: "SUPPORTS STORM LORDS"
+    formations: [titan_warhound]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts, deux détachements de Fils de Jaghatai et leurs soutiens"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: fils_de_jaghatai
+        choix: { "1": { motos: 2, motos_assaut: 1 } }
+        options:
+          - { option: commandant, choix: maitre_chapitre }
+          - { option: attaque_de_flanc }
+      - formation: fils_de_jaghatai
+        choix: { "1": { land_speeder_tornado: 3 } }
+      - { formation: tactique, options: [{ option: hunter }] }
+      - { formation: terminator, options: [{ option: transport_terminator, choix: teleportation }] }
+      - { formation: scouts, options: [{ option: sniper }] }
+      - { formation: predators, variante: destructor }
+      - { formation: intercepteurs_stormtalons, variante: destructor }
+
+  - nom: "deux Maîtres de chapitre"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: fils_de_jaghatai
+        choix: { "1": { motos: 3 } }
+        options: [{ option: commandant, choix: maitre_chapitre }]
+      - { formation: tactique, options: [{ option: commandant, choix: maitre_chapitre }] }
+
+  - nom: "deux détachements de Land Raiders"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: fils_de_jaghatai
+        choix: { "1": { motos: 3 } }
+      - { formation: land_raiders }
+      - { formation: land_raiders }
+
+  - nom: "quatre détachements de soutien pour un détachement principal"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: fils_de_jaghatai
+        choix: { "1": { motos: 3 } }
+      - { formation: assaut }
+      - { formation: scouts }
+      - { formation: tactique }
+      - { formation: predators, variante: destructor }

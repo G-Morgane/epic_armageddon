@@ -1,0 +1,614 @@
+# Raid Tallarn, transcrit depuis le PDF expérimental EAFR rev 0.1 (source de vérité).
+codex:
+  slug: tallarn
+  armee_id: b83b346e-cd5d-41b1-b055-15217d76d116
+  nom: Tallarn
+  version: "0.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: experimental
+  citation:
+    texte: "Soyez prestes et silencieux, tels le simoun qui traverse le désert sans faire frémir le moindre grain de sable."
+    auteur: Capitaine Al'Rahem
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied un régiment de Tallarn basé sur ceux déployés lors de la Campagne de Taros.
+
+    Les armées de Tallarn sont organisées autour de grandes formations appelées compagnies, elles-mêmes complétées par des formations d'appui qui leurs sont autonomes.
+
+    Chaque compagnie peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par compagnie. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Chaque compagnie peut prendre jusqu'à trois améliorations.
+
+    Les formations de support sont des formations autonomes des compagnies. Elles ne peuvent pas recevoir d'améliorations. Un maximum de 1/3 des points peuvent être dépensés pour ces formations.
+
+    Le Raid Tallarn utilise les feuilles de référence de Raid Tallarn, de l'Aeronautica Imperialis et de Soutien Super-Lourd de Raid Tallarn.
+  regles_md:
+    - titre: "Règle spéciale : Commissaires"
+      texte: |
+        Chaque compagnie inclut un Commissaire. De plus, vous pouvez ajouter gratuitement un Commissaire dans une formation d'appui pour chaque tranche (même incomplète) de 1 000 points dans votre armée hors Supports non régimentaires.
+    - titre: "Règle spéciale : Vifs comme le vent"
+      texte: |
+        Une formation ayant effectué un Redéploiement peut effectuer un soutien en assaut *, un feu croisé, et des tirs anti-aériens *.
+
+        * Ces actions se feront avec un malus à la touche de -1 supplémentaire à tout autre malus qui pourrait être subi.
+    - titre: "Règle spéciale : Formations motorisées"
+      texte: |
+        Au regard des améliorations auxquelles elles peuvent prétendre, les compagnies suivantes sont qualifiées de formations motorisées :
+
+        - Compagnie d'infanterie mécanisée
+        - Compagnie blindée légère
+
+        Les compagnies suivantes peuvent être qualifiées de formations motorisées si vous le choisissez au moment de rédiger votre liste d'armée :
+
+        - Compagnie de cavalerie
+        - Compagnie de reconnaissance
+
+        La compagnie suivante n'est pas une formation motorisée :
+
+        - Compagnie d'infanterie
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+
+budgets:
+  - id: slot_appui
+    libelle: Formations d'appui
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations d'appui par Compagnie"
+  - id: rare
+    libelle: Supports non régimentaires
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+  - id: commissaires_gratuits
+    libelle: Commissaires gratuits
+    capacite: { source: par_tranche, points: 1000, perimetre: "section:compagnies" }
+    phrase_pdf: "1 Commissaire gratuit par tranche (même incomplète) de 1 000 pts, hors Supports non régimentaires"
+
+unites:
+  # ---- Personnages ----
+  - id: commissaire
+    nom: Commissaire
+    type: Perso
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Armes d'assaut, Attaques Suppl. (+1), Macro Arme" }
+    notes: [Charismatique, Meneur, Sans Peur]
+    roles: [personnage]
+  - id: confesseur
+    nom: Confesseur
+    type: Perso
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: commandant
+    nom: Commandant
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils laser, portee: (15cm), puissance: Armes légères }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: Armes d'assaut }
+    notes: [Commandant]
+  - id: commandant_cavalier
+    nom: Commandant Cavalier de Tallarn
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Lances énergétiques, portee: (contact), puissance: "Armes d'assaut, Frappe en premier" }
+    notes: [Infiltrateurs, Montés, Commandant]
+  - id: cavaliers
+    nom: Cavaliers de Tallarn
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Lances énergétiques, portee: (contact), puissance: "Armes d'assaut, Frappe en premier" }
+    notes: [Infiltrateurs, Montés]
+  - id: mukaali
+    nom: Mukaali
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Lances énergétiques, portee: (contact), puissance: "Armes d'assaut, Frappe en premier" }
+      - { nom: Pattes épaisses, portee: (contact), puissance: "Armes d'assaut, Attaques Suppl. (+1)" }
+    notes: [Montés]
+  - id: mortiers
+    nom: Mortiers
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Mortiers, portee: 30cm, puissance: "AP5+, Tir indirect" }
+  - id: snipers
+    nom: Snipers
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils de Sniper, portee: 30cm, puissance: "AP5+, Sniper" }
+    notes: [Éclaireurs]
+  - id: plateforme_sabre
+    nom: Plateforme Sabre
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanons Jumelés AA, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+    taille_transport: 2
+  - id: appui_feu
+    nom: Escouade d'appui feu
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+  - id: gardes_imperiaux
+    nom: Gardes Impériaux
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: "½ Autocanon", portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils laser, portee: (15cm), puissance: Armes légères }
+    notes: ["Une unité sur deux, arrondie au supérieur, peut tirer à l'autocanon"]
+
+  # ---- Véhicules légers ----
+  - id: sentinelle_tallarn
+    nom: Sentinelle de Tallarn
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multilaser, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: [Marcheur]
+  - id: sentinelle_soutien
+    nom: Sentinelle de Soutien
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-roquettes multiple, portee: 30cm, puissance: "2xAP5+/AC6+, Tir indirect" }
+    notes: ["La portée du Lance-roquettes multiple n'est pas doublée lors d'un tir indirect et permet de tirer à moins de 30cm", Marcheur, Éclaireurs]
+
+  # ---- Véhicules blindés ----
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multilaser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport : 2 unités d'infanterie, les Plateformes Sabre comptent pour 2 unités chaque"]
+    transport: { capacite: 2, accepte: [gardes_imperiaux, appui_feu, mortiers, snipers, plateforme_sabre, commandant, commissaire, confesseur] }
+  - id: griffon
+    nom: Griffon
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier Griffon, portee: 30cm, puissance: "1PB, Tir indirect" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, Ignore les Couverts" }
+      - { nom: "", portee: (15cm), puissance: "Armes légères, Ignore les Couverts" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+  - id: hydre
+    nom: Hydre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+  - id: leman_russ_conqueror
+    nom: Leman Russ Conqueror
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obusier Conqueror, portee: 45cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_destroyer
+    nom: Leman Russ Destroyer
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Destroyer, portee: 75cm, puissance: "AC3+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_thunderer
+    nom: Leman Russ Thunderer
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_vanquisher
+    nom: Leman Russ Vanquisher allégé
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Vanquisher, portee: 75cm, puissance: "AP4+/AC2+" }
+      - { nom: Canon laser, portee: 45cm, puissance: "AC5+" }
+    notes: [Blindage Renforcé, Commandant]
+  - id: salamandre_commandement
+    nom: Salamandre de Commandement
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Eclaireur, Commandant]
+
+  # ---- Engins de guerre ----
+  - id: baneblade
+    nom: Baneblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Super Obusier, portee: 75cm, puissance: "AP3+/AC3+" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Canon Démolisseur (Avant), portee: 30cm, puissance: "MA4+, Arc de tir Frontal Fixe" }
+      - { nom: "", portee: (15cm), puissance: "Armes légères, Attaques suppl. (+1), Macro Arme" }
+      - { nom: Bolters lourds jumelés (FF), portee: 30cm, puissance: "AP4+, Arc de tir frontal fixe" }
+      - { nom: 2x Bolters lourds jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats:
+      cd: 3
+      critique: "Le Baneblade est détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+."
+  - id: shadowsword
+    nom: Shadowsword
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Volcano (FF), portee: 90cm, puissance: "MA2+, Arc de tir frontal fixe" }
+      - { nom: 2x Bolters lourds jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats:
+      cd: 3
+      critique: "Le Shadowsword est détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+."
+  - id: stormblade
+    nom: Stormblade
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon plasma léger, portee: 45cm, puissance: "2x MA2+, Rechargement, Arc de tir frontal fixe" }
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Bolter lourd (FF), portee: 30cm, puissance: "AP5+, Arc de tir frontal fixe" }
+      - { nom: 2x Bolters lourds jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé]
+    degats:
+      cd: 3
+      critique: "Le Stormblade est détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+."
+
+options:
+  - id: commandant_supreme
+    nom: Commandant Suprême
+    effet: { type: mot_cle, texte: Commandant Suprême, cout: 50 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "L'unité ayant la règle Commandant gagne à la place la règle Commandant Suprême"
+  - id: confesseur
+    nom: Confesseur
+    effet: { type: ajouter, cout: 50, unites: [{ unite: confesseur }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoute un Confesseur à 1 unité d'Infanterie (hors Cavaliers de Tallarn et Commandant Cavalier de Tallarn)"
+  - id: equipes_snipers
+    nom: Equipes de Snipers
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: snipers }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "Ajouter jusqu'à 4 unités de Sniper"
+  - id: appui_feu
+    nom: Appui-feu
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: appui_feu }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "Ajouter jusqu'à 4 escouades d'appui-feu"
+  - id: appui_mortier
+    nom: Appui Mortier
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: mortiers }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "Ajouter jusqu'à 4 unités de Mortiers"
+  - id: support_dca
+    nom: Support DCA
+    effet:
+      type: choix
+      parmi:
+        - id: plateformes
+          nom: Plateformes Sabre
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: plateforme_sabre }], min: 1, max: 2 }
+        - id: hydre
+          nom: Hydre
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: hydre }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Ajouter jusqu'à 2 Plateformes Sabre pour 25 pts chacune. Si la formation est motorisée, ajoutez à la place 1 Hydre pour 50 pts."
+    phrase_pdf: "Ajouter jusqu'à 2 Plateformes Sabre (+25 pts chaque), ou 1 Hydre si la formation est motorisée (+50 pts)"
+  - id: sentinelles
+    nom: Sentinelles
+    effet: { type: ajouter, cout: 75, unites: [{ unite: sentinelle_soutien, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 2 Sentinelles de soutien"
+  - id: transport_chimere
+    nom: Transport Chimères
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere }], max: besoin_transport, perimetre_transport: options }
+    contraintes: [{ type: hors_quota_options }]
+    note_md: "Réservé aux formations motorisées : ajoutez suffisamment de Chimères pour transporter les unités ajoutées par les améliorations."
+    phrase_pdf: "Si la formation est motorisée, ajoutez aussi suffisamment de Chimères pour les transporter (25 pts chacune)"
+  - id: commissaire_appui
+    nom: Commissaire
+    effet: { type: ajouter, cout: 0, unites: [{ unite: commissaire, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: consomme, budget: commissaires_gratuits }
+
+formations:
+  # ---- Compagnies ----
+  - id: compagnie_infanterie
+    nom: Compagnie d'infanterie
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: commandant, nombre: 1 }
+          - { unite: gardes_imperiaux, nombre: 12 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+  - id: compagnie_mecanisee
+    nom: Compagnie d'infanterie mécanisée
+    description: "Formation motorisée"
+    variantes:
+      - id: base
+        cout: 400
+        composition:
+          - { unite: commandant, nombre: 1 }
+          - { unite: gardes_imperiaux, nombre: 12 }
+          - { unite: chimere, nombre: 7 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    options_plus: [transport_chimere]
+  - id: compagnie_cavalerie
+    nom: Compagnie de cavalerie
+    description: "Peut être qualifiée de formation motorisée au moment de rédiger la liste d'armée"
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - { unite: commandant_cavalier, nombre: 1 }
+          - { unite: cavaliers, nombre: 11 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    options_plus: [transport_chimere]
+  - id: compagnie_reconnaissance
+    nom: Compagnie de reconnaissance
+    description: "Peut être qualifiée de formation motorisée au moment de rédiger la liste d'armée. Une Sentinelle a la règle Commandant."
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: sentinelle_tallarn, nombre: 10 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    options_plus: [transport_chimere]
+  - id: compagnie_blindee_legere
+    nom: Compagnie blindée légère
+    description: "Formation motorisée. Le Leman Russ Vanquisher allégé a la règle Commandant."
+    variantes:
+      - id: base
+        cout: 475
+        composition:
+          - { unite: leman_russ_conqueror, nombre: 9 }
+          - { unite: leman_russ_vanquisher, nombre: 1 }
+          - { unite: commissaire, nombre: 1, implicite: true }
+    options_plus: [transport_chimere]
+
+  # ---- Formations d'appui ----
+  - id: escadron_cavalerie_reconnaissance
+    nom: Escadron de cavalerie de reconnaissance
+    description: "Toutes les unités gagnent la capacité Eclaireur"
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: cavaliers, nombre: 6 }] }
+  - id: escadron_cavalerie_autochtone
+    nom: Escadron de cavalerie autochtone
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: mukaali, nombre: 6 }] }
+  - id: section_mortiers
+    nom: Section de mortiers
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: mortiers, nombre: 6 }] }
+  - id: section_snipers
+    nom: Section de snipers
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: snipers, nombre: 6 }] }
+  - id: section_artillerie_mobile
+    nom: Section d'artillerie mobile
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: salamandre_commandement, nombre: 1 }
+          - { unite: griffon, nombre: 3 }
+  - id: section_dca_mobile
+    nom: Section DCA mobile
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: salamandre_commandement, nombre: 1 }
+          - { unite: hydre, nombre: 3 }
+  - id: escadron_hellhounds
+    nom: Escadron de Hellhounds
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: hellhound, nombre: 6 }] }
+  - id: escadron_sentinelles_soutien
+    nom: Escadron de Sentinelles de soutien
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: sentinelle_soutien, nombre: 4 }] }
+  - id: escadron_conqueror
+    nom: Escadron de Leman Russ Conqueror
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: leman_russ_conqueror, nombre: 6 }] }
+  - id: escadron_leman_russ_speciaux
+    nom: Escadron de Leman Russ spéciaux
+    variantes:
+      - { id: destroyers, nom: 6 Leman Russ Destroyers, cout: 300, composition: [{ unite: leman_russ_destroyer, nombre: 6 }] }
+      - { id: thunderers, nom: 6 Leman Russ Thunderers, cout: 350, composition: [{ unite: leman_russ_thunderer, nombre: 6 }] }
+
+  # ---- Appui blindé super-lourd ----
+  - id: peloton_super_lourd
+    nom: Peloton de char Super Lourd
+    variantes:
+      - { id: baneblade, nom: 1 Baneblade, cout: 200, composition: [{ unite: baneblade, nombre: 1 }] }
+      - { id: shadowsword, nom: 1 Shadowsword, cout: 200, composition: [{ unite: shadowsword, nombre: 1 }] }
+      - { id: stormblade, nom: 1 Stormblade, cout: 200, composition: [{ unite: stormblade, nombre: 1 }] }
+
+sections:
+  - id: compagnies
+    titre: COMPAGNIES DE TALLARN
+    formations: [compagnie_infanterie, compagnie_mecanisee, compagnie_cavalerie, compagnie_reconnaissance, compagnie_blindee_legere]
+    contraintes:
+      - { type: max_options, valeur: 3 }
+      - { type: fournit, budget: slot_appui, quantite: 2 }
+    options: [commandant_supreme, confesseur, equipes_snipers, appui_feu, appui_mortier, support_dca, sentinelles]
+    tableau_options:
+      titre: AMÉLIORATIONS DE COMPAGNIES DE TALLARN
+      sous_titre: "Jusqu'à 3 améliorations différentes par Compagnie de la Garde"
+    notes:
+      embarquement: "Si la formation est motorisée, ajoutez aussi suffisamment de Chimères pour transporter ces unités, pour 25 pts chacune."
+  - id: appui
+    titre: FORMATIONS D'APPUI DE TALLARN
+    sous_titre: "Jusqu'à 2 formations d'appui par Compagnie"
+    formations: [escadron_cavalerie_reconnaissance, escadron_cavalerie_autochtone, section_mortiers, section_snipers, section_artillerie_mobile, section_dca_mobile, escadron_hellhounds, escadron_sentinelles_soutien, escadron_conqueror, escadron_leman_russ_speciaux]
+    contraintes: [{ type: consomme, budget: slot_appui }]
+    options: [commissaire_appui]
+  - id: aeronautica
+    titre: APPUI DE L'AERONAUTICA IMPERIALIS
+    sous_titre: "SUPPORTS NON RÉGIMENTAIRES"
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    formations: []
+    allies: { codex: aeronautica-imperialis }
+  - id: super_lourds
+    titre: APPUI BLINDÉ SUPER-LOURD
+    sous_titre: "SUPPORTS NON RÉGIMENTAIRES"
+    formations: [peloton_super_lourd]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+
+listes_test:
+  - nom: "3000 pts, trois compagnies, appuis et supports"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: compagnie_mecanisee
+        options:
+          - { option: commandant_supreme }
+          - { option: appui_feu, quantite: 4 }
+          - { option: transport_chimere, quantite: 2 }
+      - formation: compagnie_infanterie
+        options:
+          - { option: equipes_snipers, quantite: 2 }
+          - { option: support_dca, choix: plateformes, quantite: 2 }
+      - { formation: compagnie_blindee_legere }
+      - { formation: escadron_conqueror }
+      - { formation: section_artillerie_mobile, options: [{ option: commissaire_appui }] }
+      - { formation: escadron_leman_russ_speciaux, variante: thunderers }
+      - { formation: peloton_super_lourd, variante: baneblade }
+
+  - nom: "deux Commandants Suprêmes"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: compagnie_infanterie, options: [{ option: commandant_supreme }] }
+      - { formation: compagnie_mecanisee, options: [{ option: commandant_supreme }] }
+
+  - nom: "quatre améliorations sur une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: compagnie_infanterie
+        options:
+          - { option: confesseur }
+          - { option: equipes_snipers, quantite: 1 }
+          - { option: appui_feu, quantite: 1 }
+          - { option: appui_mortier, quantite: 1 }
+
+  - nom: "trois formations d'appui pour une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: section_mortiers }
+      - { formation: section_snipers }
+      - { formation: escadron_hellhounds }
+
+  - nom: "supports non régimentaires au-delà du tiers des points"
+    limite: 1500
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: peloton_super_lourd, variante: baneblade }
+      - { formation: peloton_super_lourd, variante: shadowsword }
+      - { formation: peloton_super_lourd, variante: stormblade }

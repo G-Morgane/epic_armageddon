@@ -1,0 +1,705 @@
+# Adeptus Custodes, transcrit depuis le PDF expérimental EAFR (source de vérité).
+codex:
+  slug: adeptus-custodes
+  armee_id: 59abce74-190d-40aa-b7f1-e321992e499b
+  nom: Adeptus Custodes
+  version: "0.2"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: experimental
+  citation:
+    texte: "Nous sommes la vigilance perpétuelle. Nous sommes le châtiment inéluctable. Nous sommes l'Adeptus Custodes, et tous craignent notre colère."
+    auteur: Capitaine-Bouclier Rothrian Ganyth
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied une armée de l'Adeptus Custodes basée sur les Formations Martiales de l'Adeptus Custodes et des Couvents de l'Anatema Psykana.
+
+    Les armées de l'Adeptus Custodes sont organisées autour de petites formations appelées Formations Martiales et Couvents Anatema Psykana.
+
+    Chaque Formation Martiale peut recevoir des améliorations. La liste d'armée indique pour chaque Formation Martiale quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par Formation Martiale. Les améliorations font partie intégrante des Formations Martiales et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'une Formation Martiale tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations des Couvents Anatema Psykana sont des formations autonomes des Formations Martiales. Elles ne peuvent jamais bénéficier des règles spéciales du codex Adeptus Custodes, sauf celles indiquées dans leur profil. Un maximum de 1/3 des points peuvent être dépensés pour ces formations.
+
+    L'Adeptus Custodes utilise les feuilles de référence Adeptus Custodes et des Légions Titaniques.
+  regles_md:
+    - titre: "Règle spéciale : Gardiens du Trône d'Or"
+      texte: |
+        Les Formations Martiales de l'Adeptus Custodes bénéficient de la règle "Et ils ne connaîtront pas la peur" ET de la règle "Obstiné" uniquement pour ce qui est du retrait des pertes dans la résolution d'un assaut.
+
+        De plus les Formations Martiales de l'Adeptus Custodes ignorent la règle des armes ruptures et les Pions Impacts supplémentaires infligés par les tirs croisés. Ils diminuent de 1 les Pions Impacts infligés par les armes à PB.
+    - titre: "Règle spéciale : Utilisateurs du Trône d'Or"
+      texte: |
+        Les guerriers de l'Adeptus Custodes sont les seuls de tout l'imperium à pouvoir utiliser le Trône d'Or. Cette Machine fut conçue et imaginée par l'Empereur Dieu pour pouvoir voyager à travers les énergies warp de manière fiable et sans risque. Lors de n'importe quelle téléportation du tour 1 et du tour 2 :
+
+        - les Formations Martiales entièrement Infanteries de l'Adeptus Custodes peuvent relancer leur jet de téléportation
+        - les autres Formations Martiales de l'Adeptus Custodes diminuent de 1 les Pi dû au jet de téléportation.
+    - titre: "Règle spéciale : Et ils ne connaîtront pas la peur"
+      texte: |
+        - Il faut deux pions d'impact pour neutraliser une unité Space Marines ou détruire une unité démoralisée (ignorez les pions d'impacts en plus).
+        - Les formations Space Marines ne sont démoralisées qu'à partir du moment où elles ont deux pions d'impact ou plus par unité.
+        - Les formations Space Marines comptent comme ayant la moitié de leur nombre de pions impact lors de la résolution de l'assaut (arrondi à l'inférieur, à un minimum de 1 pion impact).
+        - Réduisez de moitié le nombre de touches supplémentaires subies par une formation de Space Marines perdant un assaut, en arrondissant à l'entier inférieur en faveur des Space Marines.
+        - Lorsqu'une formation Space Marines démoralisée se rallie, elle reçoit un nombre de pions impact égal au nombre d'unités plutôt qu'à la moitié du nombre d'unités.
+        - Les Meneurs Space Marines retirent deux pions d'impact au lieu d'habituellement un seul.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Judas Chaban."
+  valeur_strategique: 5
+  initiative:
+    defaut: "1+"
+    exceptions:
+      - { portee: "Couvents de l'Anatema Psykana", valeur: "2+" }
+
+budgets:
+  - id: slot_soutien
+    libelle: Formations Martiales de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "2 Formations de soutien par Formation Martiale"
+  - id: rare
+    libelle: Supports Adeptus Custodes
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: capitaine_rempart
+    nom: Capitaine Rempart
+    type: Perso
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Commandant Suprême, Sans Peur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: champion_lames
+    nom: Champion des Lames
+    type: Perso
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: chevaliere_centura
+    nom: Chevalière Centura
+    type: Perso
+    armes:
+      - { nom: Espadon d'exécutrice, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: Bolter de Maître, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: [Meneur, Sauvegarde Invulnérable, Obstinée]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: gardes_bouclier
+    nom: Gardes Custodiens (Lame et Bouclier)
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Lame de Gardien, portee: (15cm), puissance: Arme Légère }
+      - { nom: Bouclier de Gardien, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Sauvegarde Invulnérable, Gardes Custodiens]
+  - id: gardes_lance
+    nom: Gardes Custodiens (Lance)
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Lance de Gardien, portee: (15cm), puissance: Arme Légère }
+      - { nom: "", portee: (contact), puissance: "Arme d'Assaut, FeP" }
+    notes: [Gardes Custodiens]
+  - id: veilleurs
+    nom: Veilleurs Custodiens
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Hache de Castellan, portee: (15cm), puissance: Arme Légère }
+      - { nom: "", portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: [Téléportation, Gardes Custodiens]
+  - id: sagittaires
+    nom: Sagittaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: Adrastus Bolt, portee: 30cm, puissance: "2xAP5+/AC6+, Rpt" }
+    notes: [Sagittaires]
+  - id: venatari
+    nom: Venatari
+    type: Inf
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Lance de Venatari, portee: (15cm), puissance: Arme Légère }
+      - { nom: "", portee: (contact), puissance: "Arme d'Assaut, FeP" }
+    notes: [Venatari]
+  - id: aquilon
+    nom: Aquilon Custodiens
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Lance flamme infernus, portee: 15cm, puissance: "AP4+/AC6+, IC" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Lastrum Stormbolter, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Gantelet Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Téléportation, Terminators]
+    taille_transport: 2
+  - id: allarus
+    nom: Allarus Custodiens
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Lance Allarus, portee: (15cm), puissance: Arme Légère }
+      - { nom: "", portee: (contact), puissance: "Arme d'Assaut, +1A, MA, FeP" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Téléportation, Terminators]
+    taille_transport: 2
+  - id: vigilators
+    nom: Vigilators
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Espadon, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Eclaireur, Infiltrateur, Obstinées]
+  - id: repurgatrices
+    nom: Répurgatrices
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Lance Flamme de répurgatrice, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: [Eclaireur, Obstinées]
+  - id: moto_dawn_eagle
+    nom: Moto Dawn Eagle
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Lanceur à salves, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: Lance d'intercepteurs, portee: (contact), puissance: "Arme d'Assaut, +1A, FeP" }
+    notes: [Eclaireur, Antigrav, Motos]
+    taille_transport: 2
+
+  # ---- Véhicules ----
+  - id: moto_agamatus
+    nom: Moto Agamatus
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Lastrum Bolt Canon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Canon Laser Jumelé, portee: 45cm, puissance: "AC4+" }
+      - { nom: Lance d'intercepteur, portee: (contact), puissance: "Arme d'Assaut, +1A, FeP" }
+    notes: [Blindage Renforcé, Antigrav, Motos]
+  - id: contemptor_achillus
+    nom: Contemptor Achillus
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Lance Flamme Infernus, portee: 15cm, puissance: "AP4+/AC6+, IC" }
+      - { nom: Lastrum Stormbolter, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Dreadspear d'Achillus, portee: (contact), puissance: "Arme d'Assaut, +1A, MA, FeP" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Sans Peur, Dreadnought]
+  - id: contemptor_galatus
+    nom: Contemptor Galatus
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Warblade Galatus, portee: (contact), puissance: "Arme d'Assaut, +1A, TK(1)" }
+      - { nom: Bouclier Galatus, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Sans Peur, Sauvegarde Invulnérable, Dreadnought]
+  - id: telemon
+    nom: Télémon
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: Couleuvrine Iliatus, portee: 45cm, puissance: "2xAC5+" }
+      - { nom: Lanceur Spiculus, portee: 30cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Dreadfist, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Sans Peur, Dreadnought]
+  - id: rhino
+    nom: Rhino
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fulgurant, portee: (15cm), puissance: Arme Légère }
+    notes: ["Transport (2) : Vigilators, Répurgatrices"]
+    transport: { capacite: 2, accepte: [vigilators, repurgatrices, chevaliere_centura] }
+  - id: caladius_iliatus
+    nom: Caladius Iliatus
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Couleuvrine Iliatus (jum), portee: 45cm, puissance: "2xAC4+" }
+      - { nom: Lastrum Stormbolter (jum), portee: 30cm, puissance: "AP4+/AC5+" }
+    notes: [Blindage renforcé, Antigrav]
+  - id: caladius_arachnus
+    nom: Caladius Arachnus
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Arachnus Blaze Canon Lrd (jum), portee: 45cm, puissance: "MA3+" }
+      - { nom: Lastrum Stormbolter (jum), portee: 30cm, puissance: "AP4+/AC5+" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage renforcé, Antigrav]
+  - id: pallas
+    nom: Pallas
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Arachnus Blaze Canon (jum), portee: 30cm, puissance: "MA3+" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage renforcé, Antigrav]
+  - id: land_raider_venerable
+    nom: Land Raider Vénérable
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canon Laser (jum), portee: 45cm, puissance: "AC4+" }
+      - { nom: Bolter Lourd Jumelé, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Sauvegarde Invulnérable, Marcheur, "Transport (2) : Gardes Custodiens, Sagittaires, Terminators (prennent 2 places)"]
+    transport: { capacite: 2, accepte: [gardes_bouclier, gardes_lance, sagittaires, veilleurs, allarus, aquilon, capitaine_rempart, champion_lames] }
+
+  # ---- Engins de guerre ----
+  - id: coronus
+    nom: Coronus
+    type: EG
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Arachnus Blaze Canon (jum), portee: 30cm, puissance: "MA3+" }
+      - { nom: Lastrum Stormbolter (jum), portee: 30cm, puissance: "AP4+/AC5+, Frt" }
+    notes: [Blindage renforcé, Blindage Arrière Renforcé, Antigrav, "Bouclier du vide (1)", "Transport (6) : Gardes Custodiens, Sagittaires"]
+    transport: { capacite: 6, accepte: [gardes_bouclier, gardes_lance, sagittaires, veilleurs, capitaine_rempart, champion_lames] }
+    degats: { cd: 2, critique: "Détruit" }
+  - id: orion
+    nom: Orion Assaut Dropship
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Arachnus Blaze Canon Lourd, portee: 45cm, puissance: "MA4+, Frt" }
+      - { nom: 2x Lanceur Spiculus, portee: 30cm, puissance: "AP4+/AC5+/AA5+, Frt" }
+      - { nom: Lastrum Stormbolter jum (G), portee: 30cm, puissance: "AP4+/AC5+" }
+      - { nom: Canon Lastrum Jumelé (D), portee: 30cm, puissance: "AP4+/AC5+" }
+    notes: [Blindage Renforcé, Sauvegarde Invulnérable, "Transport (8) : Gardes Custodiens, Sagittaires, Venatari, Motos (prennent 2 places), Terminators (prennent 2 places) ainsi que 1 Dreadnought"]
+    transport: { capacite: 8, accepte: [gardes_bouclier, gardes_lance, sagittaires, veilleurs, venatari, moto_dawn_eagle, allarus, aquilon] }
+    degats: { cd: 2, critique: "Détruit" }
+  - id: ares
+    nom: Ares Gunship
+    type: A/EG
+    vitesse: B
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Arachnus Blaze Canon Lourd, portee: 45cm, puissance: "MA4+, Frt" }
+      - { nom: Arachnus Magna Blaze Canon, portee: 45cm, puissance: "MA2+, TT (1), FrtF" }
+      - { nom: Système de défense intégré, portee: 30cm, puissance: "AA5+" }
+      - { nom: Infernus Bombe, portee: 15cm, puissance: "3PB, IC" }
+    notes: [Blindage Renforcé, Sauvegarde Invulnérable]
+    degats: { cd: 2, critique: "Détruit" }
+
+  # ---- Légions Titaniques ----
+  - id: warhound
+    nom: Warhound
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Méga Bolter Vulcain, portee: 45cm, puissance: "4xAP3+/AC5+, FrtF" }
+      - { nom: Canon Plasma Léger (F), portee: 45cm, puissance: "2xMA2+, Rchg, Frt" }
+    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le titan est déséquilibré et vacille. Déplacez-le dans une direction aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il percute subissent une touche sur un résultat de 6+."
+  - id: reaver
+    nom: Reaver
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Lance-missiles Apocalypse, portee: 60cm, puissance: "4PB, FrtF" }
+      - { nom: 2x Destructeurs Turbo laser, portee: 60cm, puissance: "4xAP5+/AC3+, Frt" }
+    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats:
+      cd: 6
+      bi: 4
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée."
+  - id: warlord
+    nom: Warlord
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "2+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Destructeurs Turbo laser (FF), portee: 60cm, puissance: "4xAP5+/AC3+, FrtF" }
+      - { nom: Canon Gatling, portee: 60cm, puissance: "4xAP4+/AC4+, FrtF" }
+      - { nom: Canon Volcano, portee: 90cm, puissance: "MA2+, TT (D3)" }
+    notes: [Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats:
+      cd: 8
+      bi: 6
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée."
+
+options:
+  - id: herault_imperium
+    nom: Héraut de l'Impérium
+    effet:
+      type: choix
+      parmi:
+        - id: capitaine_rempart
+          nom: Capitaine Rempart
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: capitaine_rempart }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+        - { id: champion_lames, nom: Champion des Lames, cout: 50, effet: { type: ajouter, unites: [{ unite: champion_lames }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-1 Capitaine Rempart (50 pts) ou Champion des Lames (50 pts)"
+  - id: sagittaires
+    nom: Sagittaires
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: sagittaires }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez jusqu'à 2 Sagittaires à une Formation Martiale (50 pts chacun)"
+  - id: dreadnought
+    nom: Dreadnought
+    effet:
+      type: choix
+      parmi:
+        - { id: contemptor, nom: Dreadnought Contemptor, cout: 50, effet: { type: ajouter, unites: [{ unite: contemptor_achillus }] } }
+        - { id: telemon, nom: Dreadnought Télémon, cout: 75, effet: { type: ajouter, unites: [{ unite: telemon }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 Dreadnought Contemptor (50 pts) ou 1 Dreadnought Télémon (75 pts)"
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoute la Note Téléportation aux unités de la formation (50 pts)"
+  - id: motos
+    nom: Motos
+    effet:
+      type: choix
+      parmi:
+        - { id: ajout, nom: Ajoutez une Moto Dawn Eagle, cout: 50, effet: { type: ajouter, unites: [{ unite: moto_dawn_eagle }] } }
+        - { id: agamatus, nom: Remplacez une Moto Dawn Eagle par une Moto Agamatus, cout: 25, effet: { type: remplacer, de: moto_dawn_eagle, par: moto_agamatus, lot: 1, max: 1 } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez une Moto Dawn Eagle (50 pts) et/ou remplacez une Moto Dawn Eagle par une Moto Agamatus (25 pts)"
+  - id: land_raiders
+    nom: Land Raiders
+    effet: { type: ajouter, cout_par_unite: 75, unites: [{ unite: land_raider_venerable }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez des Land Raiders Vénérables à la Formation jusqu'à la capacité de transport max de la Formation (75 pts chacun)"
+  - id: coronus
+    nom: Coronus
+    effet:
+      type: choix
+      parmi:
+        - { id: ajout, nom: Ajoutez 1 Coronus à la Formation, cout: 125, effet: { type: ajouter, unites: [{ unite: coronus }] } }
+        - { id: remplacement, nom: Remplacer le Télémon, cout: 50, effet: { type: remplacer, de: telemon, par: coronus, lot: 1, max: 1 } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 Coronus à la Formation (125 pts) ou remplacez le Télémon (50 pts)"
+  - id: appui_lourd
+    nom: Appui Lourd
+    effet:
+      type: choix
+      parmi:
+        - { id: caladius, nom: Ajoutez 2 Caladius, cout: 130, effet: { type: ajouter, unites: [{ unite: caladius_iliatus, nombre: 2 }] } }
+        - { id: pallas, nom: Ajoutez 2 Pallas, cout: 100, effet: { type: ajouter, unites: [{ unite: pallas, nombre: 2 }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 2 Caladius (65 pts chacun) ou 2 Pallas à la formation (50 pts chacun)"
+  - id: caladius_arachnus
+    nom: Caladius Arachnus
+    effet: { type: ajouter, cout: 75, unites: [{ unite: caladius_arachnus }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 Caladius Arachnus (75 pts)"
+
+  # ---- Supports ----
+  - id: ares_supplementaire
+    nom: Ajoutez 1 Ares Gunship
+    effet: { type: ajouter, cout: 200, unites: [{ unite: ares }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: warhound_supplementaire
+    nom: Ajoutez 1 Titan Warhound
+    effet: { type: ajouter, cout: 225, unites: [{ unite: warhound }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+formations:
+  # ---- Formations Martiales ----
+  - id: gardes_custodiens
+    nom: Gardes Custodiens
+    description: "Choisir 1 type d'Escouade de Gardes"
+    variantes:
+      - id: bouclier_4
+        nom: 4 Escouades de Gardes (Lame et Bouclier) + 1 Télémon
+        cout: 275
+        composition:
+          - { unite: gardes_bouclier, nombre: 4 }
+          - { unite: telemon, nombre: 1 }
+      - id: bouclier_6
+        nom: 6 Escouades de Gardes (Lame et Bouclier) + 1 Télémon
+        cout: 375
+        composition:
+          - { unite: gardes_bouclier, nombre: 6 }
+          - { unite: telemon, nombre: 1 }
+      - id: lance_4
+        nom: 4 Escouades de Gardes (Lance) + 1 Télémon
+        cout: 275
+        composition:
+          - { unite: gardes_lance, nombre: 4 }
+          - { unite: telemon, nombre: 1 }
+      - id: lance_6
+        nom: 6 Escouades de Gardes (Lance) + 1 Télémon
+        cout: 375
+        composition:
+          - { unite: gardes_lance, nombre: 6 }
+          - { unite: telemon, nombre: 1 }
+    options: [herault_imperium, coronus, land_raiders, appui_lourd, sagittaires, teleportation]
+  - id: moto_dawn_eagle
+    nom: Moto Dawn Eagle
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: moto_dawn_eagle, nombre: 5 }] }
+    options: [herault_imperium, motos]
+  - id: terminator_allarus
+    nom: Terminator Allarus
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: allarus, nombre: 4 }] }
+    options: [herault_imperium, land_raiders, dreadnought, teleportation]
+  - id: land_raiders
+    nom: Land Raiders
+    variantes:
+      - { id: base, cout: 400, composition: [{ unite: land_raider_venerable, nombre: 4 }] }
+    options: []
+
+  # ---- Formations Martiales de soutien ----
+  - id: veilleurs_custodiens
+    nom: Veilleurs Custodiens
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: veilleurs, nombre: 4 }] }
+    options: [herault_imperium, coronus, land_raiders, dreadnought]
+  - id: formation_sagittaires
+    nom: Sagittaires
+    variantes:
+      - { id: quatre, nom: 4 Escouades de Sagittaires, cout: 200, composition: [{ unite: sagittaires, nombre: 4 }] }
+      - { id: six, nom: 6 Escouades de Sagittaires, cout: 300, composition: [{ unite: sagittaires, nombre: 6 }] }
+    options: [coronus, land_raiders, dreadnought, appui_lourd]
+  - id: venatari
+    nom: Venatari
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: venatari, nombre: 6 }] }
+    options: [herault_imperium]
+  - id: terminator_aquillon
+    nom: Terminator Aquillon
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: aquilon, nombre: 4 }] }
+    options: [herault_imperium, land_raiders, dreadnought, teleportation]
+  - id: contemptor
+    nom: Contemptor
+    variantes:
+      - { id: achillus, nom: 4 Achillus, cout: 300, composition: [{ unite: contemptor_achillus, nombre: 4 }] }
+      - { id: galatus, nom: 4 Galatus, cout: 300, composition: [{ unite: contemptor_galatus, nombre: 4 }] }
+    options: [dreadnought]
+  - id: pallas
+    nom: Pallas
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: pallas, nombre: 4 }] }
+    options: [appui_lourd]
+  - id: caladius
+    nom: Caladius
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: caladius_iliatus, nombre: 4 }] }
+    options: [appui_lourd, caladius_arachnus]
+
+  # ---- Supports ----
+  - id: ares
+    nom: Ares
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: ares, nombre: 1 }] }
+    options: [ares_supplementaire]
+  - id: orion
+    nom: Orion
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: orion, nombre: 1 }] }
+    options: []
+  - id: couvent_vigilators
+    nom: Couvent Vigilators
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: vigilators, nombre: 5 }
+          - { unite: chevaliere_centura, nombre: 1 }
+          - { unite: rhino, nombre: 3 }
+    options: []
+  - id: couvent_repurgatrices
+    nom: Couvent Répurgatrices
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: repurgatrices, nombre: 5 }
+          - { unite: chevaliere_centura, nombre: 1 }
+          - { unite: rhino, nombre: 3 }
+    options: []
+  - id: titan_warhound
+    nom: Titan Warhound
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: warhound, nombre: 1 }] }
+    options: [warhound_supplementaire]
+  - id: titan_reaver
+    nom: Titan Reaver
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: reaver, nombre: 1 }] }
+    options: []
+  - id: titan_warlord
+    nom: Titan Warlord
+    variantes:
+      - { id: base, cout: 850, composition: [{ unite: warlord, nombre: 1 }] }
+    options: []
+
+sections:
+  - id: martiales
+    titre: FORMATIONS MARTIALES ADEPTUS CUSTODES
+    formations: [gardes_custodiens, moto_dawn_eagle, terminator_allarus, land_raiders]
+    contraintes:
+      - { type: max_options, valeur: 3 }
+      - { type: fournit, budget: slot_soutien, quantite: 2 }
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS ADEPTUS CUSTODES
+      sous_titre: "Jusqu'à 3 améliorations max par formation, chaque amélioration ne peut être sélectionnée qu'une seule fois"
+  - id: soutien
+    titre: FORMATIONS MARTIALES DE SOUTIEN ADEPTUS CUSTODES
+    sous_titre: "2 Formations de soutien par Formation Martiale"
+    formations: [veilleurs_custodiens, formation_sagittaires, venatari, terminator_aquillon, contemptor, pallas, caladius]
+    contraintes: [{ type: consomme, budget: slot_soutien }, { type: max_options, valeur: 3 }]
+    colonne_options: true
+  - id: aviation
+    titre: AVIATION ADEPTUS CUSTODES
+    sous_titre: "SUPPORTS ADEPTUS CUSTODES"
+    formations: [ares, orion]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    colonne_options: true
+  - id: couvents
+    titre: COUVENTS ANATEMA PSYKANA
+    sous_titre: "SUPPORTS ADEPTUS CUSTODES"
+    formations: [couvent_vigilators, couvent_repurgatrices]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "2+" }]
+  - id: titanicus
+    titre: LÉGIONS TITANIQUES
+    sous_titre: "SUPPORTS ADEPTUS CUSTODES"
+    formations: [titan_warhound, titan_reaver, titan_warlord]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts, formations martiales, soutiens et supports"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: gardes_custodiens
+        variante: bouclier_6
+        options:
+          - { option: herault_imperium, choix: capitaine_rempart }
+          - { option: land_raiders, quantite: 3 }
+          - { option: sagittaires, quantite: 2 }
+      - formation: terminator_allarus
+        options:
+          - { option: teleportation }
+          - { option: dreadnought, choix: telemon }
+      - { formation: formation_sagittaires, variante: quatre, options: [{ option: appui_lourd, choix: pallas }] }
+      - { formation: venatari }
+      - { formation: caladius, options: [{ option: caladius_arachnus }] }
+      - { formation: ares }
+      - { formation: couvent_vigilators }
+
+  - nom: "deux Capitaines Rempart"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: gardes_custodiens, variante: bouclier_4, options: [{ option: herault_imperium, choix: capitaine_rempart }] }
+      - { formation: terminator_allarus, options: [{ option: herault_imperium, choix: capitaine_rempart }] }
+
+  - nom: "quatre améliorations sur une formation martiale"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: gardes_custodiens
+        variante: bouclier_4
+        options:
+          - { option: herault_imperium, choix: champion_lames }
+          - { option: sagittaires, quantite: 1 }
+          - { option: teleportation }
+          - { option: appui_lourd, choix: pallas }
+
+  - nom: "trois formations de soutien pour une formation martiale"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: gardes_custodiens, variante: bouclier_4 }
+      - { formation: venatari }
+      - { formation: pallas }
+      - { formation: caladius }
+
+  - nom: "supports au-delà du tiers des points"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: gardes_custodiens, variante: bouclier_4 }
+      - { formation: titan_warlord }

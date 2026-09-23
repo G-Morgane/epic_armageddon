@@ -1,0 +1,563 @@
+# Rebelles Grotz, transcrit depuis le PDF expérimental rev 0.1 (source de vérité).
+codex:
+  slug: rebelles-grots
+  armee_id: e0776400-8172-4394-b3e0-7a3d22fa7ed5
+  nom: Rebelles Grotz
+  version: "0.1"
+  faction: xenos
+  categorie: armees-xenos
+  statut: experimental
+  intro_md: |
+    La liste qui suit vous autorise à mettre sur pied une Révolution Grotz telle qu'elle se produit quand des gobs énervés en ont assez de la pression de la société Ork et de ses injustices. Le plus connu de ces révolutionnaires étant Gobbo le Rouge, mais il y en a eu d'autres.
+
+    Les armées des Rebelles Grotz sont organisées autour de grandes formations appelées sections, qui sont accompagnées de formations d'appui, elles mêmes autonomes, nommées comités.
+
+    Chez les gobs, les améliorations sont appelées Kust'oms.
+
+    La liste d'armée indique pour chaque catégorie de Section quels kust'oms sont autorisés. Chaque kust'om autorisé peut être pris au maximum deux fois par Section. Une section ne peut avoir que quatre Kust'oms au maximum. La liste des Kust'oms accessibles aux Comités est indiquée sous l'entrée du Comité.
+
+    Les Sections autonomes sont des formations autonomes des sections, elles ne peuvent recevoir qu'un type de Kust'om : un Secrétaire de Section. Un maximum de 1/3 des points de l'armée peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : 1 million, selon le Comité, 500 selon les Nobz"
+      texte: |
+        Lorsque les bandes grotz tentent un test de ralliement, elles reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 lorsqu'ils sont plus de 10.
+
+        Les Squigs ne bénéficient jamais de ce bonus ; ils ne savent pas compter.
+    - titre: "Règle spéciale : Secrétaire Général"
+      texte: |
+        Un seul Secrétaire de Section de l'armée doit être transformé gratuitement en Secrétaire Général.
+
+        Il ne peut pas être inclus dans un Comité, seulement dans une Section de Grotz.
+  valeur_strategique: 4
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Section contenant le Secrétaire Général", valeur: "1+" }
+
+budgets:
+  - id: comite
+    libelle: Comités
+    capacite: { source: fournitures }
+    phrase_pdf: "0-2 Comités par Section"
+  - id: troupeau
+    libelle: Troupeaux de Squigs
+    capacite: { source: fournitures }
+    phrase_pdf: "0-1 Troupeau de Squigs par tranche de deux Sections de Grotz"
+  - id: autonomes
+    libelle: Sections Autonomes
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: secretaire_general
+    nom: Secrétaire Général
+    type: Perso
+    armes:
+      - { nom: Marteau / faucille énergétique, portee: (contact), puissance: "arme d'assaut, +1A, MA" }
+    notes: [Commandant suprême, Charismatique, Sauvegarde invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: secretaire_section
+    nom: Secrétaire de Section
+    type: Perso
+    armes:
+      - { nom: Marteau ou faucille, portee: (contact), puissance: "arme d'assaut, +1A" }
+    notes: [Meneur, Sauvegarde invulnérable]
+    roles: [personnage]
+  - id: gross_tete
+    nom: Gross Tête
+    type: Perso
+    armes:
+      - { nom: Zap, portee: (15cm), puissance: "Arme légère +1, MA" }
+      - { nom: "", portee: 15cm, puissance: "MA5+" }
+    notes: [Sauvegarde invulnérable]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: grotz
+    nom: Grotz
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+  - id: kommandos
+    nom: Kommandos
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Ch'ti Fling', portee: (15cm), puissance: Armes légères }
+    notes: ["Infiltration, éclaireur, option téléportation"]
+  - id: grokalibr
+    nom: Grokalibr
+    type: Inf
+    vitesse: 10cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Grokalibr, portee: 45cm, puissance: "AP5+/AC5+" }
+  - id: squigs
+    nom: Squigs
+    type: Inf
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Crocs, portee: (contact), puissance: arme d'assaut }
+  - id: krameurs
+    nom: Krameurs
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Karbonisator, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: "", portee: (15cm), puissance: "Armes légères, IC" }
+  - id: snipers
+    nom: Snipers
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Fling de précision, portee: 30cm, puissance: "AP5+, Sniper" }
+    notes: [Eclaireurs]
+  - id: kasstank
+    nom: Kass'Tank
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Outils de découpe, portee: (contact), puissance: "Armes d'assaut, +1A, lance" }
+  - id: chevaucheurs_grotz
+    nom: Chevaucheurs Grotz
+    type: Inf
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: crocs et grosses armes, portee: (contact), puissance: "arme d'assaut, +1A" }
+    notes: [monté, marcheur, infiltration]
+  - id: flak
+    nom: Flak
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Kanon Hydre dérobé, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+
+  # ---- Véhicules ----
+  - id: tank_gob
+    nom: Tank Gob
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+    notes: [blindage renforcé]
+  - id: transport_grotz
+    nom: Transport
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "-"
+    notes: ["Transport (2 infanterie)"]
+    transport: { capacite: 2, accepte: [grotz, kommandos, grokalibr, krameurs, snipers, kasstank, flak, secretaire_general, secretaire_section, gross_tete] }
+  - id: boitkitu
+    nom: Boitkitu
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "6+"
+    armes:
+      - { nom: Gros Fling', portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Pince de kombat, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Marcheur]
+  - id: chassa_bomba
+    nom: Chassa Bomba
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Aéro Fling', portee: 15cm, puissance: "AP5+/AA5+, FrtF" }
+      - { nom: Rokettes Kass'Tank, portee: 30cm, puissance: "AC4+, FrtF" }
+  - id: brikolaj
+    nom: Brikolaj'
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: 2-3 Gros kanons, portee: 45cm, puissance: "AP5+/AC5+" }
+      - { nom: 0-1 Marto de Komba, portee: 30cm, puissance: "AP5+/AP6+" }
+      - { nom: "", portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+    notes: ["Blindage renforcé", Marcheur, "Peut être équipé de 3 Gros kanons ou 2 Gros kanons et 1 Marto de Komba"]
+  - id: super_brikolaj
+    nom: Super Brikolaj'
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Regard de Mork, portee: 30cm, puissance: "MA4+, TT (1)" }
+      - { nom: 2-3 Superkanons, portee: 60cm, puissance: "2PB MA, FrtF" }
+      - { nom: 0-1 Méga kikoup', portee: 45cm, puissance: "AP5+/AC5+, FrtF" }
+      - { nom: "", portee: (contact), puissance: "Armes d'assaut, +1A, TT (D3)" }
+    notes: ["Blindage renforcé", Sans peur, Marcheur, "Champs Énergétiques : 1D3+3", "Peut être équipé de 3 Superkanons ou 2 Superkanons et 1 Méga kikoup'"]
+    degats:
+      cd: 8
+      critique: "Le Gargant subit un incendie, jetez 1D6 pour chaque incendie lors de la phase finale. Sur un résultat de 1, un nouvel incendie se déclare, sur un résultat de 5 / 6, le feu s'éteint. Tout incendie non éteint cause 1 point de dommage à la fin de la phase d'action."
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: griffon
+    nom: Griffon
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier Griffon, portee: 30cm, puissance: "1PB, Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: basilisk
+    nom: Basilisk
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: Ou, portee: 120cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+
+options:
+  # ---- Secrétaire Général (gratuit, obligatoire) ----
+  - id: secretaire_general
+    nom: Secrétaire Général
+    effet: { type: ajouter, cout: 0, unites: [{ unite: secretaire_general }] }
+    contraintes:
+      - { type: min_par_armee, valeur: 1 }
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+    note_md: "Un seul Secrétaire de Section de l'armée doit être transformé gratuitement en Secrétaire Général. Il ne peut pas être inclus dans un Comité, seulement dans une Section de Grotz."
+    phrase_pdf: "Secrétaire Général (gratuit, obligatoire, 1 par armée)"
+
+  # ---- Kust'oms des Sections ----
+  - id: leader_karismatik
+    nom: Leader Karismatik'
+    effet:
+      type: choix
+      parmi:
+        - { id: secretaire_section, nom: Secrétaire de section, cout: 25, effet: { type: ajouter, unites: [{ unite: secretaire_section }] } }
+        - { id: gross_tete, nom: Gross Têt, cout: 25, effet: { type: ajouter, unites: [{ unite: gross_tete }] } }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "Leader Karismatik' : Secrétaire de section ou Gross Têt (25 pts)"
+  - id: grotz_additionnels
+    nom: Grotz additionnels
+    effet: { type: ajouter, cout: 50, unites: [{ unite: grotz, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "6 socles de grots additionnels (50 pts)"
+  - id: snipers
+    nom: Snipers
+    effet: { type: ajouter, cout_par_unite: 15, unites: [{ unite: snipers }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "0-3 socles de snipers (15 pts par socle)"
+  - id: kasseurs_de_tanks
+    nom: Kasseurs de Tanks
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: kasstank }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "0-3 socles de Kasseurs de Tanks (25 pts par socle)"
+  - id: krameurs
+    nom: Krameurs
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: krameurs }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "0-3 socles de Krameurs (25 pts par socle)"
+  - id: transports_grotz
+    nom: Transports Grotz
+    effet: { type: ajouter, cout_par_unite: 10, unites: [{ unite: transport_grotz }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Assez de véhicules pour transporter la section (10 pts par véhicule)"
+  - id: grokalibr
+    nom: Grokalibr'
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: grokalibr }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "0-2 socles de grokalibr (25 pts par socle)"
+  - id: flak
+    nom: Flak
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: flak }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 2 }]
+    phrase_pdf: "0-2 socles de flak (25 pts par socle)"
+
+  # ---- Kust'oms propres à une formation ----
+  - id: squigs_additionnels
+    nom: Socles de Squigs additionnels
+    effet: { type: ajouter, cout_par_unite: 10, unites: [{ unite: squigs }], min: 1, max: 6 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-6 socles de Squigs additionnels (10 pts par Squig)"
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Téléportation (25 pts)"
+  - id: grokalibr_additionnels
+    nom: Grokalibr additionnels
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: grokalibr }], min: 1, max: 5 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-5 grokalibr additionnels (25 pts par socle)"
+
+  # ---- Kust'oms des Sections Autonomes ----
+  - id: secretaire_de_section
+    nom: Secrétaire de Section
+    effet: { type: ajouter, cout: 25, unites: [{ unite: secretaire_section }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter un Secrétaire de Section (25 pts)"
+  - id: leader_karismatik_obligatoire
+    nom: Leader Karismatik'
+    effet:
+      type: choix
+      parmi:
+        - { id: secretaire_section, nom: Secrétaire de section, cout: 25, effet: { type: ajouter, unites: [{ unite: secretaire_section }] } }
+        - { id: gross_tete, nom: Gross Têt, cout: 25, effet: { type: ajouter, unites: [{ unite: gross_tete }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }, { type: obligatoire }]
+    phrase_pdf: "Leader Karismatik' obligatoire (25 pts)"
+  - id: chassa_bomba_additionnels
+    nom: Chassa bomba additionnels
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chassa_bomba }], min: 1, max: 6 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-6 chassa bomba additionnels (50 pts chaque)"
+  - id: brikolaj_additionnels
+    nom: Brikolaj' additionnels
+    effet: { type: ajouter, cout_par_unite: 75, unites: [{ unite: brikolaj }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-3 Brikolaj' additionnels (75 pts chaque)"
+  - id: hellhounds_additionnels
+    nom: Hellhounds additionnels
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: hellhound }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-3 Hellhounds additionnels (50 pts chaque)"
+  - id: leman_russ_additionnels
+    nom: Leman Russ additionnels
+    effet: { type: ajouter, cout_par_unite: 75, unites: [{ unite: leman_russ }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-3 Leman Russ additionnels (75 pts chaque)"
+  - id: griffons_additionnels
+    nom: Griffons additionnels
+    effet: { type: ajouter, cout_par_unite: 35, unites: [{ unite: griffon }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-3 griffons additionnels (35 pts chaque)"
+
+formations:
+  # ---- Sections ----
+  - id: section_grotz
+    nom: Section de Grotz
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: grotz, nombre: 12 }] }
+    options: [secretaire_general, leader_karismatik, grotz_additionnels, snipers, kasseurs_de_tanks, krameurs, transports_grotz, grokalibr, flak]
+    contraintes: [{ type: fournit, budget: troupeau, quantite: 1 }]
+  - id: troupeau_squigs
+    nom: Troupeau de Squigs
+    description: "0-1 par tranche de deux Sections de Grotz"
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: squigs, nombre: 8 }] }
+    options: [squigs_additionnels]
+    contraintes:
+      - { type: consomme, budget: troupeau }
+      - { type: consomme, budget: troupeau }
+    phrase_pdf: "0-1 par tranche de deux Sections de Grotz"
+
+  # ---- Comités ----
+  - id: arnarko_syndikat
+    nom: Arnarko-syndikat
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: kommandos, nombre: 8 }] }
+    options: [teleportation, leader_karismatik]
+  - id: bande_boitkitu
+    nom: Bande de Boitkitu
+    variantes:
+      - { id: base, cout: 125, composition: [{ unite: boitkitu, nombre: 5 }] }
+    options: [leader_karismatik, kasseurs_de_tanks, krameurs, transports_grotz, flak, grotz_additionnels]
+  - id: chevaucheurs_grotz
+    nom: Chevaucheurs Grotz
+    variantes:
+      - { id: base, cout: 100, composition: [{ unite: chevaucheurs_grotz, nombre: 5 }] }
+    options: [leader_karismatik]
+  - id: comite_grokalibr
+    nom: Grokalibr
+    variantes:
+      - { id: base, cout: 125, composition: [{ unite: grokalibr, nombre: 5 }] }
+    options: [grokalibr_additionnels]
+  - id: tanks_grots
+    nom: Tanks Grots
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: tank_gob, nombre: 5 }] }
+    options: [leader_karismatik]
+
+  # ---- Sections Autonomes ----
+  - id: chassa_bombas
+    nom: Chassa-bombas
+    variantes:
+      - { id: base, cout: 50, composition: [{ unite: chassa_bomba, nombre: 3 }] }
+    options: [chassa_bomba_additionnels]
+    phrase_pdf: "3 à 9 chassa bomba"
+  - id: brikolaj
+    nom: Brikolaj'
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: brikolaj, nombre: 3 }] }
+    options: [brikolaj_additionnels, secretaire_de_section]
+  - id: super_brikolaj
+    nom: Super Brikolaj'
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: super_brikolaj, nombre: 1 }] }
+    options: [secretaire_de_section]
+  - id: vehicules_requisitionnes
+    nom: Véhicules réquisitionnés
+    variantes:
+      - { id: hellhounds, nom: Hellhounds, cout: 150, composition: [{ unite: hellhound, nombre: 3 }] }
+      - { id: leman_russ, nom: Leman Russ, cout: 175, composition: [{ unite: leman_russ, nombre: 3 }] }
+      - { id: griffons, nom: Griffons, cout: 100, composition: [{ unite: griffon, nombre: 3 }] }
+      - { id: basilisks, nom: Basilisks, cout: 225, composition: [{ unite: basilisk, nombre: 3 }] }
+    options: [leader_karismatik_obligatoire, hellhounds_additionnels, leman_russ_additionnels, griffons_additionnels]
+
+sections:
+  - id: sections
+    titre: SECTIONS
+    formations: [section_grotz, troupeau_squigs]
+    contraintes:
+      - { type: fournit, budget: comite, quantite: 2 }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+    tableau_options:
+      titre: KUST'OMS
+      sous_titre: "Chaque amélioration peut être choisie au maximum 2 fois par Section et jusqu'à un maximum de 4"
+  - id: comites
+    titre: COMITÉS
+    sous_titre: "0-2 par Section"
+    formations: [arnarko_syndikat, bande_boitkitu, chevaucheurs_grotz, comite_grokalibr, tanks_grots]
+    contraintes: [{ type: consomme, budget: comite }]
+    colonne_options: true
+  - id: autonomes
+    titre: SECTIONS AUTONOMES
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    formations: [chassa_bombas, brikolaj, super_brikolaj, vehicules_requisitionnes]
+    contraintes: [{ type: consomme, budget: autonomes, quoi: points }]
+    colonne_options: true
+
+listes_test:
+  - nom: "3000 pts, deux Sections, un Troupeau, des Comités et des Autonomes"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: section_grotz
+        options:
+          - { option: secretaire_general }
+          - { option: grotz_additionnels }
+          - { option: snipers, quantite: 3 }
+          - { option: transports_grotz, quantite: 7 }
+      - formation: section_grotz
+        options:
+          - { option: leader_karismatik, choix: gross_tete }
+          - { option: krameurs, quantite: 3 }
+      - { formation: troupeau_squigs }
+      - { formation: arnarko_syndikat, options: [{ option: teleportation }] }
+      - { formation: bande_boitkitu }
+      - { formation: tanks_grots }
+      - formation: vehicules_requisitionnes
+        variante: leman_russ
+        options: [{ option: leader_karismatik_obligatoire, choix: secretaire_section }]
+
+  - nom: "sans Secrétaire Général"
+    limite: 1500
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: section_grotz }
+      - { formation: bande_boitkitu }
+
+  - nom: "un Troupeau de Squigs pour une seule Section de Grotz"
+    limite: 1500
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: section_grotz
+        options: [{ option: secretaire_general }]
+      - { formation: troupeau_squigs }
+
+  - nom: "trois Comités pour une seule Section"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: section_grotz
+        options: [{ option: secretaire_general }]
+      - { formation: bande_boitkitu }
+      - { formation: tanks_grots }
+      - { formation: chevaucheurs_grotz }
+
+  - nom: "cinq Kust'oms sur une Section de Grotz"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: section_grotz
+        options:
+          - { option: secretaire_general }
+          - { option: leader_karismatik, choix: secretaire_section }
+          - { option: grotz_additionnels }
+          - { option: snipers, quantite: 3 }
+          - { option: krameurs, quantite: 3 }
+          - { option: flak, quantite: 2 }
+
+  - nom: "Véhicules réquisitionnés sans Leader Karismatik'"
+    limite: 3000
+    attendu: refusee
+    erreur: option_obligatoire
+    formations:
+      - formation: section_grotz
+        options: [{ option: secretaire_general }]
+      - { formation: vehicules_requisitionnes, variante: hellhounds }

@@ -1,0 +1,798 @@
+# Eldars de Saim-Hann, transcrit depuis le PDF expérimental beta (source de vérité).
+codex:
+  slug: eldars-de-saim-hann
+  armee_id: 78773e59-6566-4fb6-8501-8a423fa1ef07
+  nom: Eldars de Saim Hann
+  version: "0.3"
+  faction: xenos
+  categorie: armees-xenos
+  statut: experimental
+  citation:
+    texte: "Sentez le vent siffler autour de vous et entendez son cri à vos oreilles. Écoutez-le attentivement car ne sommes-nous point les Wild Riders, les enfants de la tempête ?"
+    auteur: Nuadhu "Coeur de feu", Chef de Saim Hann
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée du vaisseau monde Saim Hann. Cette liste peut également être utilisée comme liste générique pour représenter n'importe quelle autre armée d'eldars.
+
+    Une armée d'eldars est organisée autour de formations principales aussi appelées osts de guerre. Chaque formation principale permet de recruter jusqu'à 3 formations de support.
+
+    Chaque formation (principale ou de support) est autonome et peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelles améliorations sont autorisées. Chaque amélioration autorisée ne peut être prise qu'une fois par formation. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion.
+
+    Les formations de support lourd sont des formations autonomes. Un maximum de 1/3 des points peuvent être dépensés pour ces formations.
+
+    Une armée eldar peut également recevoir des options. Chaque option ne peut être sélectionnée qu'une seule fois.
+
+    Enfin, la dénomination Guerriers Aspects regroupe les unités suivantes : Vengeurs, Guerriers Scorpions, Banshees, Dragons de Feu, Faucheurs Noirs, Araignées Spectrales, Aigles Chasseurs et Lances de Lumière.
+  regles_md:
+    - titre: "Règle spéciale : Saim Hann"
+      texte: |
+        Toutes les unités d'infanterie et de véhicules légers (Inf et VL) Saim Hann possédant la note antigrav gagnent la note Marcheur.
+    - titre: "Règle spéciale : L'Avatar de Saim Hann"
+      texte: |
+        L'Avatar de Saim Hann peut apparaître sur le champ de bataille de deux manières différentes :
+
+        1. Par le biais d'un portail comme n'importe quelle formation se trouvant en réserve.
+        2. Par invocation dans les 15 cm d'un grand prophète lors de la phase de téléportation.
+
+        Dans tous les cas, dès son apparition, c'est une formation indépendante et permanente jusqu'à la fin de la partie ou sa destruction. Cependant il ne peut que contester les objectifs.
+    - titre: "Règle spéciale : Vision extra lucide"
+      texte: |
+        Toute formation Eldar qui comprend une unité ayant la capacité vision extra lucide ignore la pénalité de -1 au test d'action lorsqu'elle tente de conserver l'initiative.
+
+        De plus, une fois par tour le joueur Eldar peut essayer de retenir l'initiative deux fois d'affilée. N'importe quelle formation Eldar peut être choisie, y compris celles ne comportant pas de Grand Prophète, néanmoins un Grand Prophète doit impérativement être encore en jeu sur le champ de bataille. La formation doit tout de même passer un test d'initiative pour ne pas perdre l'action, et elle subit le modificateur de -1 pour avoir retenu l'initiative, sauf si elle comprend une unité ayant la capacité vision extra lucide. Une fois l'action réalisée, l'initiative retourne au joueur adverse.
+    - titre: "Règle spéciale : Armée en mouvement"
+      texte: |
+        Seuls les Pelotons de Rangers peuvent se déployer en garnison.
+    - titre: "Règle spéciale : Tactique du tirer et courir"
+      texte: |
+        Les formations Eldars qui reçoivent l'ordre avance ou avance rapide peuvent choisir de tirer soit avant soit après chaque mouvement. Elles ne peuvent néanmoins tirer qu'une seule fois durant l'action.
+
+        De plus, les formations Eldars qui remportent un assaut sont autorisées à utiliser la totalité de leur mouvement lorsqu'elles consolident leur position, au lieu d'être limitées à un mouvement de 5 cm.
+
+        Cependant (hormis pour les formations de Guerriers Aspects), les formations Eldars qui choisissent de consolider de leur mouvement complet ne peuvent en aucun cas prétendre au soutien d'un autre assaut lors du même tour. Les formations de Guerriers Aspects peuvent toujours consolider de leur mouvement complet et soutenir d'autres assauts.
+    - titre: "Règle spéciale : Holo-Champs"
+      texte: |
+        Les Holo-champs procurent aux titans Eldars une sauvegarde spéciale de 3+ qui peut être utilisée à la place de la sauvegarde normale du titan.
+
+        Cette sauvegarde peut toujours être utilisée, même en corps-à-corps, en fusillade et contre les armes tueuses de titan ou les macro armes. Faites une seule sauvegarde contre les armes avec la capacité tueuse de titan. Si un véhicule avec un Holo-champ a aussi un blindage renforcé, alors il est autorisé à relancer ses sauvegardes, sauf pour les attaques réalisées avec des armes ayant la capacité lance, macro-armes ou tueuses de titans.
+
+        Aucun point d'impact n'est placé pour une touche avec une arme ayant le trait Rupture sauvée par l'Holo-champ. La sauvegarde de l'Holo-champ peut tout à fait être modifiée par un tir croisé ou par les armes Sniper.
+    - titre: "Règle spéciale : Portails Eldars"
+      texte: |
+        Chaque Portail inclus dans une armée permet au joueur Eldar de conserver en réserve jusqu'à trois formations. Les formations en réserve peuvent entrer en jeu par n'importe quel Portail en réalisant une action qui comporte un mouvement, mesuré à partir du Portail. Une seule formation peut voyager à travers chaque portail à chaque tour.
+
+        Une formation ne peut qu'entrer en jeu grâce au portail mais jamais retourner en réserve. Une formation qui rate son activation en tentant de franchir un Portail prendra automatiquement l'ordre Tenir.
+
+        Les formations pouvant utiliser un Portail Fantôme sont : les unités d'infanterie, les véhicules légers, les véhicules blindés dotés de la capacité Marcheur et l'Avatar.
+
+        Le joueur Eldar peut, pour 50 pts, placer un Portail Fantôme sur un objectif de sa moitié de table : il compte à la fois comme un objectif et un Portail. Il ne peut ni être attaqué ni détruit.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Jaime Martinez."
+  valeur_strategique: 4
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations de Guerriers Aspects, Avatar et Titans", valeur: "1+" }
+
+budgets:
+  - id: support
+    libelle: Formations de Support
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 3 formations de Support par Ost de Guerre"
+  - id: slot_aspects
+    libelle: Osts de Guerre de Guerriers Aspects
+    capacite: { source: fournitures }
+    phrase_pdf: "1 Ost de Guerre de Guerriers Aspects max par Ost de guerre Wild Riders"
+  - id: rare
+    libelle: Formations de Support Lourd
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: chef_clan
+    nom: Chef de Clan Wild Rider
+    type: Perso
+    armes:
+      - { nom: Arme de Fusillade, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: Arme énergétique, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Commandant suprême, Charismatique, Sauvegarde invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: exarque
+    nom: Exarque
+    type: Perso
+    armes:
+      - { nom: Arme de Fusillade, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: ou Arme de Corps à Corps, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: [Charismatique, "Un Exarque ajouté à une unité de Vengeurs, Banshees, Lances de Lumière ou Scorpions doit avoir une Arme de Corps-à-Corps. Un Exarque ajouté à une unité de Faucheurs Noirs, de Dragons de Feu, d'Aigles Chasseurs ou d'Araignées Spectrales doit prendre une Arme de Fusillade."]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: grand_prophete
+    nom: Grand Prophète
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Épée sorcière, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Commandant, Vision extra lucide, Sauvegarde invulnérable]
+    roles: [commandant]
+  - id: grand_prophete_motojet
+    nom: Grand Prophète sur Motojet
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Catapulte shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Épée sorcière, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Antigrav, Monté, Commandant, Vision extra lucide, Sauvegarde invulnérable]
+    roles: [commandant]
+  - id: grand_prophete_vyper
+    nom: Grand Prophète sur Vyper
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Rayonneur laser, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Catapulte shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Épée sorcière, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Antigrav, Commandant, Vision extra lucide, Sauvegarde invulnérable]
+    roles: [commandant]
+  - id: gardiens
+    nom: Gardiens
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Catapulte shuriken, portee: (15cm), puissance: Armes légères }
+  - id: plateforme_arme_lourde
+    nom: Plate-forme d'Arme Lourde
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Rayonneur laser, portee: 30cm, puissance: "AP5+/AC5+" }
+  - id: wild_riders
+    nom: Wild Riders
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Catapulte shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Arme de Corps à Corps, portee: (contact), puissance: Armes d'assaut }
+    notes: [Antigrav, Monté]
+  - id: rangers
+    nom: Rangers
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusil long Eldar, portee: 30cm, puissance: "AP5+, Snp" }
+    notes: [Éclaireurs]
+  - id: lances_lumiere
+    nom: Lances de Lumière
+    type: Inf
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lance laser, portee: (contact), puissance: "Armes d'assaut, Lance" }
+    notes: [Antigrav, Monté]
+  - id: aigles_chasseurs
+    nom: Aigles Chasseurs
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lasblaster, portee: (15cm), puissance: Armes légères }
+    notes: [Réacteurs dorsaux, Éclaireurs, Téléportation]
+  - id: dragons_feu
+    nom: Dragons de Feu
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Fusil thermique, portee: 15cm, puissance: "MA5+" }
+      - { nom: "", portee: (15cm), puissance: "Armes légères, MA" }
+  - id: vengeurs
+    nom: Vengeurs
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "2+"
+    armes:
+      - { nom: Catapulte shuriken, portee: (15cm), puissance: Armes légères }
+  - id: faucheurs_noirs
+    nom: Faucheurs Noirs
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Lance missiles faucheur, portee: 45cm, puissance: "2xAP5+" }
+  - id: banshees
+    nom: Banshees
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Masque de Banshee, portee: (contact), puissance: "Armes d'assaut, FeP" }
+  - id: scorpions
+    nom: Guerriers Scorpions
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Pistolet shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Mandibules, portee: (contact), puissance: "Armes d'assaut, +1A" }
+
+  # ---- Véhicules ----
+  - id: vyper
+    nom: Vyper
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Rayonneur laser, portee: 30cm, puissance: "AP5+/AC5+" }
+    notes: [Antigrav]
+  - id: frelon
+    nom: Frelon
+    type: VL
+    vitesse: 40cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Laser Frelon, portee: 30cm, puissance: "2xAC4+" }
+    notes: [Antigrav, Eclaireur]
+  - id: falcon
+    nom: Falcon
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Laser à impulsions, portee: 45cm, puissance: "2xAC4+" }
+      - { nom: Rayonneur laser, portee: 30cm, puissance: "AP5+/AC5+" }
+    notes: [Antigrav, "Transport (1) : Plate-forme d'Arme Lourde, Grands Prophètes, Gardiens, Rangers, Scorpions, Banshees, Vengeurs, Dragons de Feu, Faucheurs Noirs"]
+    transport: { capacite: 1, accepte: [plateforme_arme_lourde, grand_prophete, gardiens, rangers, scorpions, banshees, vengeurs, dragons_feu, faucheurs_noirs] }
+  - id: firestorm
+    nom: Firestorm
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Batterie Firestorm, portee: 45cm, puissance: "2xAP5+/AC5+/AA4+" }
+    notes: [Antigrav]
+  - id: prisme_feu
+    nom: Prisme de Feu
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à prisme, portee: 60cm, puissance: "AP4+/AC3+, Lance" }
+    notes: [Antigrav]
+  - id: tisseur_nuit
+    nom: Tisseur de Nuit
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Tisseur de nuit, portee: 45cm, puissance: "1PB, Rpt, Ind" }
+    notes: [Antigrav]
+  - id: wave_serpent
+    nom: Wave Serpent
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canons shurikens jumelés, portee: 30cm, puissance: "AP4+" }
+    notes: [Blindage renforcé, Antigrav, "Transport (2) : Plate-formes Lourdes, Grands Prophètes, Gardiens, Rangers, Scorpions, Banshees, Vengeurs, Dragons de Feu, Faucheurs Noirs"]
+    transport: { capacite: 2, accepte: [plateforme_arme_lourde, grand_prophete, gardiens, rangers, scorpions, banshees, vengeurs, dragons_feu, faucheurs_noirs] }
+
+  # ---- Engins de guerre ----
+  - id: avatar
+    nom: Avatar
+    type: EG
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "2+"
+    ff: "4+"
+    armes:
+      - { nom: Mort hurlante, portee: 30cm, puissance: "MA5+" }
+      - { nom: "", portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: Cour du jeune Roi, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Commandant, Charismatique, Sans peur, Sauvegarde invulnérable, Marcheur]
+    degats: { cd: 3, critique: "L'Avatar s'effondre au sol. Toutes les formations Eldars ayant une ligne de vue sur l'Avatar reçoivent un pion d'impact." }
+  - id: storm_serpent
+    nom: Storm Serpent
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Laser Storm, portee: 45cm, puissance: "2xAC3+" }
+      - { nom: Rayonneur laser, portee: 30cm, puissance: "AP5+/AC5+" }
+    notes: [Antigrav, Blindage renforcé, "Portail fantôme", "Les formations utilisant le portail du Storm Serpent alors que ce dernier est démoralisé reçoivent automatiquement un pion d'impact lors de leur apparition"]
+    degats: { cd: 3, critique: "Détruit et toutes les unités à 5cm subissent une touche sur un 6." }
+  - id: cobra
+    nom: Cobra
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à distorsion lourd, portee: 30cm, puissance: "3PB, MA, FrtF, IC, TT(D3+1)" }
+      - { nom: Canon shuriken, portee: 30cm, puissance: "AP5+" }
+      - { nom: Lance missiles, portee: 45cm, puissance: "AP5+/AC6+/AA6+" }
+    notes: [Antigrav, Blindage renforcé]
+    degats: { cd: 3, critique: "Détruit et toutes les unités à 5cm subissent une touche sur un 6." }
+  - id: scorpion_vaul
+    nom: Scorpion
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Lasers pulsars jumelés, portee: 60cm, puissance: "2xMA2+, TT (1)" }
+      - { nom: Canon shuriken, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, Blindage renforcé]
+    degats: { cd: 3, critique: "Détruit et toutes les unités à 5cm subissent une touche sur un 6." }
+  - id: chevalier_sabre
+    nom: Chevalier Sabre
+    type: EG
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon shuriken, portee: 30cm, puissance: "AP5+" }
+      - { nom: Sabre spectral, portee: (contact), puissance: "Armes d'assaut, +2A, MA, TT(1)" }
+    notes: [Marcheur, "Bouclier Miroitant (Sauvegarde Invulnérable 5+)", "Les armes des chevaliers Eldars ont un arc de tir de 360°"]
+    degats: { cd: 2, critique: "Le chevalier est détruit." }
+  - id: titan_revenant
+    nom: Titan Revenant
+    type: EG
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Laser pulsar léger, portee: 45cm, puissance: "2xMA4+" }
+      - { nom: 2x Lance missiles, portee: 45cm, puissance: "AP5+/AC6+/AA6+" }
+    notes: [Holo-champ, Marcheur, Réacteurs dorsaux, Sans peur, "Les armes des titans Eldars ont un arc de tir de 360°"]
+    degats: { cd: 3, critique: "Le générateur d'Holo-champs est détruit. Le titan ne peut plus faire de sauvegarde holographique. La prochaine touche critique détruira le titan." }
+  - id: titan_fantome
+    nom: Titan Fantôme
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: 1-2 Laser pulsar, portee: 75cm, puissance: "3xMA3+" }
+      - { nom: 2x Lance missiles jumelés, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: 0-1 Poing Énergétique, portee: 30cm, puissance: "6xAP4+/AC4+" }
+      - { nom: "", portee: (contact), puissance: "Armes d'assaut, +2A, MA, TT(D3)" }
+    notes: [Holo-champ, Blindage renforcé, Marcheur, Sans peur, "Le Titan Fantôme peut être équipé de 2 Lasers Pulsars ou de 1 Laser Pulsar et 1 Poing Énergétique", "Les armes des titans Eldars ont un arc de tir de 360°"]
+    degats:
+      cd: 6
+      critique: "La touche critique provoque un point de dommage supplémentaire et la sauvegarde holographique est réduite à 4+ pour le reste de la partie. La prochaine touche critique détruira définitivement le générateur d'Holo-champs et causera un point de dommage supplémentaire."
+
+  # ---- Flotte ----
+  - id: nightwing
+    nom: Chasseur Nightwing
+    type: A
+    vitesse: C
+    blindage: "4+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons shurikens jumelés AA, portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Lances ardentes jumelées, portee: 30cm, puissance: "AC4+/AA5+, Lance, FrtF" }
+  - id: phoenix
+    nom: Bombardier Phoenix
+    type: A
+    vitesse: CB
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons shurikens jumelés AA, portee: 30cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Lasers à impulsion jumelés, portee: 45cm, puissance: "2xAC4+, FrtF" }
+      - { nom: Tisseur Phoenix, portee: 15cm, puissance: "2PB, Rpt, FrtF" }
+    notes: [Blindage renforcé]
+  - id: vampire_hunter
+    nom: Vampire Hunter
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Lance missiles jumelés, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Rayonneur laser (Vampire), portee: 30cm, puissance: "AP5+/AC5+/AA5+, FrtF" }
+      - { nom: 2x Pulsars Hunter jumelés, portee: 30cm, puissance: "MA2+, FrtF" }
+    notes: [Blindage renforcé]
+    degats: { cd: 2, critique: "Le Vampire est détruit." }
+  - id: vaisseau_fantome
+    nom: Vaisseau Fantôme
+    type: VS
+    armes:
+      - { nom: Bombardement orbital I, portee: "∞", puissance: "4PB MA" }
+      - { nom: ou 1x Frappes chirurgicales, portee: "-", puissance: "MA2+, TT (D3)" }
+    notes: ["Vous devez décider et noter le système d'armement ainsi que le tour où il entrera en jeu avant la bataille."]
+  - id: vaisseau_dragon
+    nom: Vaisseau Dragon
+    type: VS
+    armes:
+      - { nom: Bombardement orbital II, portee: "∞", puissance: "8PB MA" }
+      - { nom: ou 2x Frappes chirurgicales, portee: "-", puissance: "MA2+, TT (D3)" }
+    notes: ["Vous devez décider et noter le système d'armement ainsi que le tour où il entrera en jeu avant la bataille.", "Peut transporter 12 Vampires ainsi que les troupes se trouvant à l'intérieur."]
+
+options:
+  # ---- Options d'armée ----
+  - id: portail
+    nom: Portail
+    effet: { type: mot_cle, texte: Portail Fantôme, cout: 50 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+    phrase_pdf: "0-1 Portail : 1 Portail Fantôme (50 pts)"
+  - id: avatar
+    nom: Avatar
+    effet: { type: ajouter, cout: 100, unites: [{ unite: avatar }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+    phrase_pdf: "0-1 Avatar (100 pts)"
+  - id: chef_clan
+    nom: Chef de clan Wild Rider
+    effet: { type: ajouter, cout: 75, unites: [{ unite: chef_clan }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: requiert_unite, unites: [wild_riders] }
+    phrase_pdf: "0-1 Chef de clan Wild Rider : ajouter 1 personnage Chef de Clan Wild Rider à une unité de Wild Riders (75 pts)"
+
+  # ---- Améliorations ----
+  - id: wild_riders_vypers
+    nom: Wild Riders ou Vypers supplémentaires
+    effet:
+      type: choix_multiple
+      total: 3
+      parmi:
+        - { unite: wild_riders, cout: 34 }
+        - { unite: vyper, cout: 34 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Trois unités au choix pour 100 pts au total."
+    phrase_pdf: "Ajouter 3 unités parmi : Wild Riders, Vypers (100 pts)"
+  - id: frelons
+    nom: Frelons
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: frelon }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter jusqu'à 2 Frelons à la formation (50 pts chacun)"
+  - id: exarque
+    nom: Exarque
+    effet: { type: ajouter, cout: 25, unites: [{ unite: exarque }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Exarque à une unité de Guerriers Aspects (25 pts)"
+  - id: falcons
+    nom: Falcons
+    effet: { type: remplacer, de: wave_serpent, par: falcon, lot: 3, max: 1, cout: 175, par_nombre: 6 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer 3 Wave Serpents par 6 Falcons (175 pts)"
+  - id: plateformes
+    nom: Plate-formes d'armes lourdes
+    effet: { type: remplacer, de: gardiens, par: plateforme_arme_lourde, lot: 1, max: 2, cout: 0 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer jusqu'à deux unités de Gardiens par des Plate-formes d'armes lourdes (gratuit)"
+  - id: firestorm
+    nom: Firestorm
+    effet: { type: ajouter, cout: 75, unites: [{ unite: firestorm }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Firestorm à la formation (75 pts)"
+  - id: firestorms_remplacement
+    nom: Firestorms
+    effet: { type: remplacer, de: [tisseur_nuit, falcon, prisme_feu], par: firestorm, lot: 1, max: 2, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer 1 ou 2 véhicules blindés de la formation par autant de Firestorms (25 pts chacun)"
+
+formations:
+  # ---- Formations principales ----
+  - id: ost_wild_riders
+    nom: Ost de Guerre Wild Riders
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - { unite: grand_prophete_motojet, nombre: 1 }
+          - choix:
+              total: 7
+              parmi: [{ unite: wild_riders }, { unite: vyper }]
+              phrase_pdf: "7 unités de Wild Riders et/ou Vypers"
+    options: [portail, avatar, chef_clan, wild_riders_vypers, frelons]
+    contraintes:
+      - { type: fournit, budget: support, quantite: 3 }
+      - { type: fournit, budget: slot_aspects, quantite: 1 }
+  - id: ost_guerriers_aspects
+    nom: Ost de Guerre de Guerriers Aspects
+    description: "1 max par Ost de guerre Wild Riders"
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: aigles_chasseurs }, { unite: lances_lumiere }]
+              phrase_pdf: "8 unités de Guerriers Aspects parmi : Aigles Chasseurs, Lances de Lumière"
+    options: [portail, avatar, exarque]
+    contraintes:
+      - { type: fournit, budget: support, quantite: 3 }
+      - { type: consomme, budget: slot_aspects }
+
+  # ---- Formations de support ----
+  - id: peloton_aspects_embarques
+    nom: Peloton de Guerriers Aspects Embarqués
+    description: "Un type de Guerriers Aspects uniquement"
+    variantes:
+      - id: vengeurs
+        nom: 6 Vengeurs
+        cout: 350
+        composition:
+          - { unite: vengeurs, nombre: 6 }
+          - { unite: wave_serpent, nombre: 3 }
+      - id: scorpions
+        nom: 6 Guerriers Scorpions
+        cout: 350
+        composition:
+          - { unite: scorpions, nombre: 6 }
+          - { unite: wave_serpent, nombre: 3 }
+      - id: banshees
+        nom: 6 Banshees
+        cout: 350
+        composition:
+          - { unite: banshees, nombre: 6 }
+          - { unite: wave_serpent, nombre: 3 }
+      - id: dragons_feu
+        nom: 6 Dragons de Feu
+        cout: 350
+        composition:
+          - { unite: dragons_feu, nombre: 6 }
+          - { unite: wave_serpent, nombre: 3 }
+      - id: faucheurs_noirs
+        nom: 6 Faucheurs Noirs
+        cout: 350
+        composition:
+          - { unite: faucheurs_noirs, nombre: 6 }
+          - { unite: wave_serpent, nombre: 3 }
+    options: [portail, avatar, exarque, falcons]
+    contraintes: [{ type: consomme, budget: support }]
+  - id: peloton_gardiens
+    nom: Peloton de Gardiens
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: grand_prophete, nombre: 1 }
+          - { unite: gardiens, nombre: 5 }
+          - { unite: wave_serpent, nombre: 3 }
+    options: [portail, avatar, plateformes, firestorm]
+    contraintes: [{ type: consomme, budget: support }]
+  - id: peloton_rangers
+    nom: Peloton de Rangers
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - { unite: rangers, nombre: 4 }
+          - { unite: wave_serpent, nombre: 2 }
+    options: [portail, avatar, frelons]
+    contraintes: [{ type: consomme, budget: support }]
+  - id: escadron_bouclier_vaul
+    nom: Escadron Bouclier de Vaul
+    variantes:
+      - { id: tisseurs, nom: 3 Tisseurs de Nuit, cout: 175, composition: [{ unite: tisseur_nuit, nombre: 3 }] }
+      - id: mixte
+        nom: 2 Tisseurs de Nuit et 1 Firestorm
+        cout: 175
+        composition:
+          - { unite: tisseur_nuit, nombre: 2 }
+          - { unite: firestorm, nombre: 1 }
+    options: [portail, avatar, firestorms_remplacement]
+    contraintes: [{ type: consomme, budget: support }]
+  - id: escadron_lame_vaul
+    nom: Escadron Lame de Vaul
+    variantes:
+      - id: cinq
+        nom: 5 unités
+        cout: 250
+        composition:
+          - choix:
+              total: 5
+              parmi: [{ unite: falcon }, { unite: prisme_feu }]
+              phrase_pdf: "5 unités parmi : Falcon, Prisme de Feu"
+      - id: six
+        nom: 6 unités
+        cout: 300
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: falcon }, { unite: prisme_feu }]
+              phrase_pdf: "6 unités parmi : Falcon, Prisme de Feu"
+    options: [portail, avatar, firestorms_remplacement]
+    contraintes: [{ type: consomme, budget: support }]
+    phrase_pdf: "5 ou 6 unités parmi : Falcon, Prisme de Feu (50 pts chacun)"
+  - id: escadron_storm_serpent
+    nom: Escadron Storm Serpent
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: storm_serpent, nombre: 1 }] }
+    options: [portail, avatar]
+    contraintes: [{ type: consomme, budget: support }]
+  - id: escadron_frelons
+    nom: Escadron de Frelons
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: frelon, nombre: 5 }] }
+    options: [portail, avatar]
+    contraintes: [{ type: consomme, budget: support }]
+
+  # ---- Formations de support lourd ----
+  - id: croiseur_eldar
+    nom: Croiseur Eldar
+    variantes:
+      - { id: fantome, nom: 1 Vaisseau Fantôme, cout: 150, composition: [{ unite: vaisseau_fantome, nombre: 1 }] }
+      - { id: dragon, nom: 1 Vaisseau Dragon, cout: 300, composition: [{ unite: vaisseau_dragon, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+    phrase_pdf: "0-1 Croiseur Eldar"
+  - id: escadrille_nightwing
+    nom: Escadrille Nightwing
+    variantes:
+      - { id: deux, nom: 2 Nightwings, cout: 200, composition: [{ unite: nightwing, nombre: 2 }] }
+      - { id: trois, nom: 3 Nightwings, cout: 300, composition: [{ unite: nightwing, nombre: 3 }] }
+    phrase_pdf: "2 ou 3 Nightwings (100 pts chacun)"
+  - id: escadrille_phoenix
+    nom: Escadrille Phœnix
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: phoenix, nombre: 2 }] }
+  - id: vampire
+    nom: Vampire
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: vampire_hunter, nombre: 1 }] }
+  - id: machine_vaul
+    nom: Machine de Vaul
+    variantes:
+      - { id: cobra, nom: 1 Cobra, cout: 250, composition: [{ unite: cobra, nombre: 1 }] }
+      - { id: scorpion, nom: 1 Scorpion, cout: 250, composition: [{ unite: scorpion_vaul, nombre: 1 }] }
+  - id: titan_revenant
+    nom: Titan Revenant
+    variantes:
+      - { id: base, cout: 650, composition: [{ unite: titan_revenant, nombre: 2 }] }
+    phrase_pdf: "2 Titan Revenant"
+  - id: titan_fantome
+    nom: Titan Fantôme
+    variantes:
+      - { id: base, cout: 750, composition: [{ unite: titan_fantome, nombre: 1 }] }
+  - id: escadron_chevaliers
+    nom: Escadron de Chevaliers
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: chevalier_sabre, nombre: 3 }] }
+
+sections:
+  - id: principales
+    titre: FORMATIONS PRINCIPALES
+    formations: [ost_wild_riders, ost_guerriers_aspects]
+    colonne_options: true
+    tableau_options:
+      titre: OPTIONS ET AMÉLIORATIONS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une fois par formation"
+    options: [portail, avatar, chef_clan, wild_riders_vypers, frelons, exarque, falcons, plateformes, firestorm, firestorms_remplacement]
+  - id: support
+    titre: FORMATIONS DE SUPPORT
+    sous_titre: "Jusqu'à 3 formations de Support par Ost de Guerre"
+    formations: [peloton_aspects_embarques, peloton_gardiens, peloton_rangers, escadron_bouclier_vaul, escadron_lame_vaul, escadron_storm_serpent, escadron_frelons]
+    colonne_options: true
+  - id: support_lourd
+    titre: FORMATIONS DE SUPPORT LOURD
+    sous_titre: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+    formations: [croiseur_eldar, escadrille_nightwing, escadrille_phoenix, vampire, machine_vaul, titan_revenant, titan_fantome, escadron_chevaliers]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+
+listes_test:
+  - nom: "3000 pts, osts de guerre, supports et support lourd"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: ost_wild_riders
+        choix: { "1": { wild_riders: 5, vyper: 2 } }
+        options:
+          - { option: chef_clan }
+          - { option: portail }
+          - { option: wild_riders_vypers, repartition: { wild_riders: 2, vyper: 1 } }
+          - { option: frelons, quantite: 2 }
+      - formation: ost_guerriers_aspects
+        choix: { "0": { aigles_chasseurs: 4, lances_lumiere: 4 } }
+        options: [{ option: exarque }]
+      - { formation: peloton_gardiens, options: [{ option: plateformes, quantite: 2 }] }
+      - { formation: peloton_rangers }
+      - { formation: escadron_storm_serpent }
+      - { formation: escadrille_nightwing, variante: deux }
+
+  - nom: "deux Avatars"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: ost_wild_riders, choix: { "1": { wild_riders: 7 } }, options: [{ option: avatar }] }
+      - { formation: peloton_rangers, options: [{ option: avatar }] }
+
+  - nom: "deux Osts de Guerriers Aspects pour un seul Ost Wild Riders"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: ost_wild_riders, choix: { "1": { wild_riders: 7 } } }
+      - formation: ost_guerriers_aspects
+        choix: { "0": { aigles_chasseurs: 8 } }
+      - formation: ost_guerriers_aspects
+        choix: { "0": { lances_lumiere: 8 } }
+
+  - nom: "quatre formations de support pour un seul ost"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: ost_wild_riders, choix: { "1": { wild_riders: 7 } } }
+      - { formation: peloton_rangers }
+      - { formation: peloton_gardiens }
+      - { formation: escadron_frelons }
+      - { formation: escadron_storm_serpent }
+
+  - nom: "support lourd au-delà du tiers des points"
+    limite: 1500
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: ost_wild_riders, choix: { "1": { wild_riders: 7 } } }
+      - { formation: titan_fantome }

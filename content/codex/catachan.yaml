@@ -1,0 +1,712 @@
+# Catachan, transcrit depuis le PDF expérimental EAFR beta 0.1 (source de vérité).
+codex:
+  slug: catachan
+  armee_id: 43c57302-4c36-4726-8b17-5517dd5f6f22
+  nom: Catachan
+  version: "0.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: experimental
+  citation:
+    texte: "J'aime l'odeur du Promethium le matin. Tu sais, une fois on a bombardé une colline pendant douze heures. Quand tout a été terminé j'y suis allé. On n'a trouvé aucun Ork, pas le moindre morceau de leur corps puant. L'odeur, tu sais, cette odeur de Promethium, sur toute la colline. Ça sentait… la victoire."
+    auteur: Colonel Kilgore
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied un régiment de combattant de la jungle de Catachan. Cette liste peut également être utilisée pour représenter des régiments d'infanterie légère de la Garde Impériale d'autres origines.
+
+    Les régiments de Catachan sont organisés autour de grandes formations appelées compagnies, elles-mêmes complétées par des formations d'appui qui leurs sont autonomes.
+
+    Chaque compagnie peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par compagnie. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Chaque compagnie peut prendre jusqu'à trois améliorations.
+
+    Les formations de support sont des formations autonomes des compagnies. Elles ne peuvent pas recevoir d'améliorations. Un maximum de 1/3 des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Mobilité"
+      texte: |
+        Les véhicules blindés de Catachan peuvent pénétrer dans les jungles et ignorent tous les tests de terrain dangereux.
+
+        Les véhicules légers de Catachan peuvent traverser les terrains et profiter des règles de couvert comme s'il s'agissait d'infanterie.
+
+        Les éléments de fortification (champs de mines, barbelés, etc.) et les éléments de terrains spéciaux (rivière de lave, etc.) affectent cependant les Catachans normalement.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Games Workshop LTD."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Diables de Catachan", valeur: "1+" }
+      - { portee: "Soutiens de l'Adeptus Titanicus", valeur: "1+" }
+
+budgets:
+  - id: slot_appui
+    libelle: Formations d'appui
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations d'appui par compagnie"
+  - id: rare
+    libelle: Supports de Catachan
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Infanterie et personnages ----
+  - id: quartier_general
+    nom: Quartier Général
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Eviscerator, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: [Commandant Suprême]
+    roles: [commandant_supreme]
+  - id: commandement
+    nom: Commandement
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Fusils Laser, portee: (15cm), puissance: Arme Légère }
+      - { nom: Épée tronçonneuse, portee: (contact), puissance: Arme d'Assaut }
+    notes: [Commandant]
+  - id: commissaire
+    nom: Commissaire
+    type: Perso
+    armes:
+      - { nom: Arme Énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: [Charismatique, Meneur, Sans Peur]
+    roles: [personnage]
+  - id: gardes_catachan
+    nom: Gardes de Catachan
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: "½ Lance-flammes", portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: "½ Fuseur", portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: ["Une unité sur deux à portée et LdV possède un lance-flammes et une autre un fuseur. Arrondi au choix."]
+  - id: appui_feu
+    nom: Appui-feu
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+  - id: mortiers
+    nom: Mortiers
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Mortiers, portee: 30cm, puissance: "AP5+, Ind" }
+  - id: ratlings
+    nom: Ratlings
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Fusils de sniper, portee: 30cm, puissance: "AP5+, Snp" }
+    notes: [Éclaireur]
+  - id: ogryns
+    nom: Ogryns
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Ripper guns, portee: (15cm), puissance: Arme Légère }
+      - { nom: Arme de Corps-à-corps, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: ["Massifs (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: diables_catachan
+    nom: Diables de Catachan
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Couteau de Catachan, portee: (contact), puissance: "Armes d'Assaut, FeP, +1A" }
+      - { nom: Bobby Traps, portee: (15cm), puissance: "Armes Légères, FeP" }
+      - { nom: "", portee: (contact), puissance: "Armes d'Assaut, FeP" }
+    notes: [Infiltrateurs, Meneurs, Éclaireurs, Téléportation, Tunneliers]
+
+  # ---- Véhicules légers ----
+  - id: sentinelle
+    nom: Sentinelle
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Marcheur, Éclaireur]
+  - id: sentinelle_catachan
+    nom: Sentinelle de Catachan
+    type: VL
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+      - { nom: Tronçonneuse géante, portee: (contact), puissance: "Arme d'Assaut, IC, +1A" }
+    notes: [Marcheur]
+
+  # ---- Véhicules blindés ----
+  - id: hydre
+    nom: Hydre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Infanterie"]
+    transport: { capacite: 2, accepte: [gardes_catachan, appui_feu, mortiers, ratlings, ogryns, diables_catachan, commandement, quartier_general, commissaire] }
+  - id: chimere_acav
+    nom: Chimère ACAV
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Éclaireur, Blindage Renforcé, "Transport (1) : Infanterie (sauf Ogryns)"]
+    transport: { capacite: 1, accepte: [gardes_catachan, appui_feu, mortiers, ratlings, diables_catachan, commandement, quartier_general, commissaire] }
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Inferno, portee: 30cm, puissance: "AP3+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: devil_dog
+    nom: Devil Dog
+    type: VB
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Fuseur, portee: 30cm, puissance: "2xMA3+, TT (1)" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, +1A, TT (D3)" }
+      - { nom: Multi-Fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+  - id: valkyrie
+    nom: Valkyrie
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: 2x Nacelles de roquettes, portee: 30cm, puissance: "1PB, Uniq, Rpt" }
+    notes: [Antigrav, Éclaireur, "Transport (2)"]
+    transport: { capacite: 2, accepte: [gardes_catachan, appui_feu, mortiers, ratlings, diables_catachan, commandement, quartier_general, commissaire] }
+  - id: vulture
+    nom: Vulture
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Hellstrikes, portee: 90cm, puissance: "AC3+, Uniq" }
+      - { nom: Autocanons Jumelés, portee: 45cm, puissance: "AP4+/AC5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Antigrav, Éclaireur]
+  - id: vulture_catachan
+    nom: Vulture Catachan Pattern
+    type: VB
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Nacelles de roquettes }
+      - { nom: Autocanons Jumelés }
+      - { nom: Bolters Lourds }
+    notes: [Antigrav, Éclaireur]
+  - id: leman_russ_thunderer
+    nom: Leman Russ Thunderer
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Démolisseur (Thunderer), portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
+    notes: [Blindage Renforcé]
+  - id: leman_russ_exterminator
+    nom: Leman Russ Exterminator
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: [Blindage Renforcé]
+  - id: deathstrike
+    nom: Deathstrike
+    type: VB
+    vitesse: 20cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Missile Deathstrike, portee: "∞", puissance: "MA2+, Uniq, TT (D6), Ind" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+
+  # ---- Engins de guerre ----
+  - id: stormlord
+    nom: Stormlord
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "3+"
+    armes:
+      - { nom: Méga Bolter Vulcain léger (Avant), portee: 45cm, puissance: "4xAP3+/AC5+, FrtF" }
+      - { nom: Bolter Lourd (FF), portee: 30cm, puissance: "AP5+, FrtF" }
+      - { nom: 2x Bolters Lourds Jumelés, portee: 30cm, puissance: "AP4+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes: [Blindage Renforcé, "Transport (6) : Infanterie"]
+    transport: { capacite: 6, accepte: [gardes_catachan, appui_feu, mortiers, ratlings, diables_catachan, commandement, quartier_general, commissaire] }
+    degats:
+      cd: 3
+      critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+."
+  - id: hellhammer
+    nom: Hellhammer
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon de siège, portee: 30cm, puissance: "3PB, IC, FrtF" }
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x Lance-Flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+      - { nom: Canon Démolisseur (FF), portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Bolters Lourds Jumelés (FF), portee: 30cm, puissance: "AP4+, FrtF" }
+    notes: [Blindage Renforcé]
+    degats:
+      cd: 3
+      critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+."
+
+  # ---- Aeronautica Imperialis ----
+  - id: thunderbolt_catachan
+    nom: Thunderbolt Catachan Pattern
+    type: A
+    vitesse: CB
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Fulgurants, portee: 15cm, puissance: "AP4+/AA5+, FrtF" }
+      - { nom: Multi-Lasers (FF), portee: 30cm, puissance: "AP5+/AC6+/AA5+, FrtF" }
+      - { nom: Bombes au Napalm, portee: 15cm, puissance: "1PB, IC, Rpt" }
+  - id: croiseur_lunar
+    nom: Croiseur Classe Lunar
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+  - id: cuirasse_emperor
+    nom: Cuirassé Emperor
+    type: VS
+    armes:
+      - { nom: Bombardement Orbital (8), portee: "∞", puissance: "8PB, MA" }
+    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
+
+  # ---- Adeptus Titanicus ----
+  - id: warhound
+    nom: Warhound
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Méga Bolter Vulcain (F), portee: 45cm, puissance: "4xAP3+/AC5+, Frt" }
+      - { nom: Canon Plasma Léger (F), portee: 45cm, puissance: "2xMA2+, Rchg, Frt" }
+    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"]
+    degats: { cd: 3, bi: 2, critique: "Détruit" }
+  - id: dire_wolf
+    nom: Dire Wolf
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Méga Bolter Ardex, portee: 15cm, puissance: "3xAP3+/AC5+, Frt" }
+      - { nom: "", portee: (15cm), puissance: "Arme Légère, +1A, 360" }
+      - { nom: Canon Volcano, portee: 90cm, puissance: "MA2+, TT (D3), Frt" }
+    notes: [Blindage Renforcé, Marcheur, Sans peur, "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large", "Le Méga Bolter Ardex ne peut pas être utilisé quand le Dire Wolf initie un assaut"]
+    degats: { cd: 3, bi: 2, critique: "Le titan est détruit." }
+
+options:
+  # ---- Améliorations de compagnies ----
+  - id: commissaire
+    nom: Commissaire
+    effet: { type: ajouter, cout: 0, unites: [{ unite: commissaire }] }
+    contraintes: [{ type: max_par_armee, valeur: 2 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-2 Commissaire : ajoute un personnage Commissaire à une unité de la compagnie (gratuit)"
+  - id: peloton_infanterie
+    nom: Peloton d'Infanterie
+    effet: { type: ajouter, cout: 100, unites: [{ unite: gardes_catachan, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+  - id: lance_flammes
+    nom: Lance-Flammes
+    effet: { type: mot_cle, texte: Lance-flammes lourds, cout: 0 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer tous les autocanons de la formation par des lance-flammes lourds (gratuit)"
+  - id: snipers
+    nom: Snipers
+    effet: { type: ajouter, cout: 50, unites: [{ unite: ratlings, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+  - id: ogryns
+    nom: Ogryns
+    effet: { type: ajouter, cout: 50, unites: [{ unite: ogryns, nombre: 2 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+  - id: batterie_mortiers
+    nom: Batterie de Mortiers
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: mortiers }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "Jusqu'à 4 unités de Mortiers (25 pts chacune)"
+  - id: peloton_appui_feu
+    nom: Peloton d'Appui-feu
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: appui_feu }], min: 1, max: 4 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "Jusqu'à 4 unités d'Appui-feu (25 pts chacune)"
+  - id: dca
+    nom: DCA
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hydre }] }
+    contraintes: [{ type: max_par_armee, valeur: 2 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-2 DCA : 1 Hydre (50 pts)"
+  - id: chimeres
+    nom: Chimères
+    effet:
+      type: choix
+      parmi:
+        - id: chimere
+          nom: Chimères
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere }], min: 1, max: besoin_transport }
+        - id: chimere_acav
+          nom: Chimères ACAV
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere_acav }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez autant de Chimères et/ou Chimères ACAV pour transporter toutes les unités d'infanterie (25 pts chacune)"
+  - id: leman_russ
+    nom: Leman Russ
+    effet:
+      type: choix_multiple
+      total: 3
+      parmi:
+        - { unite: leman_russ_thunderer, cout: 50 }
+        - { unite: leman_russ_exterminator, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "3 unités parmi Leman Russ Thunderer ou Exterminator (150 pts)"
+  - id: support_aerien
+    nom: Support Aérien
+    effet:
+      type: choix
+      parmi:
+        - { id: vultures, nom: 2 Vultures, cout: 100, effet: { type: ajouter, unites: [{ unite: vulture, nombre: 2 }] } }
+        - { id: vultures_catachan, nom: 2 Vultures Catachan Pattern, cout: 100, effet: { type: ajouter, unites: [{ unite: vulture_catachan, nombre: 2 }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_md: "Uniquement pour les formations d'infanterie aéromobiles."
+    phrase_pdf: "2 Vultures ou Vultures Catachan Pattern (100 pts)"
+
+  # ---- Améliorations de formations d'appui ----
+  - id: chimeres_ogryns
+    nom: Ajouter 6 Chimères
+    effet: { type: ajouter, cout: 125, unites: [{ unite: chimere, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: devil_dog
+    nom: Devil Dog
+    effet: { type: remplacer, de: hellhound, par: devil_dog, lot: 1, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacez 1 Hellhound par 1 Devil Dog (+25 pts)"
+  - id: diables_tank_riders
+    nom: Ajouter 6 unités de Diables de Catachan
+    effet: { type: ajouter, cout: 200, unites: [{ unite: diables_catachan, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+
+formations:
+  # ---- Compagnies ----
+  - id: qg_regimentaire
+    nom: QG Régimentaire
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - { unite: quartier_general, nombre: 1 }
+          - { unite: gardes_catachan, nombre: 9 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: compagnie_infanterie
+    nom: Compagnie d'Infanterie
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: commandement, nombre: 1 }
+          - { unite: gardes_catachan, nombre: 9 }
+  - id: compagnie_aeromobile
+    nom: Compagnie d'Infanterie Aéromobile
+    variantes:
+      - id: base
+        cout: 400
+        composition:
+          - { unite: commandement, nombre: 1 }
+          - { unite: gardes_catachan, nombre: 9 }
+          - { unite: valkyrie, nombre: 5 }
+    options_plus: [support_aerien]
+  - id: compagnie_reconnaissance
+    nom: Compagnie de Reconnaissance
+    description: "Une Sentinelle de Catachan a les traits Commandant et Meneur"
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: sentinelle_catachan, nombre: 10 }] }
+
+  # ---- Formations d'appui ----
+  - id: appui_diables
+    nom: Diables de Catachan
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: diables_catachan, nombre: 6 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: peloton_ogryns
+    nom: Peloton d'Ogryns
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: ogryns, nombre: 6 }] }
+    options_plus: [chimeres_ogryns]
+  - id: escadron_mortiers
+    nom: Escadron de Mortiers
+    description: "Ne peuvent pas se déployer en garnison"
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: mortiers, nombre: 6 }] }
+  - id: escadron_sentinelles
+    nom: Escadron de Sentinelles
+    variantes:
+      - { id: base, cout: 100, composition: [{ unite: sentinelle, nombre: 4 }] }
+  - id: escadron_vulture
+    nom: Escadron de Vulture
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: vulture }, { unite: vulture_catachan }]
+              phrase_pdf: "4 unités parmi : Vultures, Vulture Catachan Pattern"
+  - id: escadron_hellhound
+    nom: Escadron de Hellhound
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: hellhound, nombre: 6 }] }
+    options_plus: [devil_dog]
+  - id: peloton_tank_riders
+    nom: Peloton Tank Riders
+    description: "Les Leman Russ de cette formation ont la note Transport (1)"
+    variantes:
+      - id: base
+        cout: 350
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: leman_russ_thunderer }, { unite: leman_russ_exterminator }]
+              phrase_pdf: "6 unités parmi Leman Russ Thunderer ou Exterminator avec la note Transport (1)"
+    options_plus: [diables_tank_riders]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: peloton_reconnaissance
+    nom: Peloton de Reconnaissance
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: gardes_catachan, nombre: 3 }
+          - { unite: chimere_acav, nombre: 3 }
+  - id: batterie_deathstrike
+    nom: Batterie de Missiles Deathstrike
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: deathstrike, nombre: 2 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+  - id: peloton_appui_lourd
+    nom: Peloton d'Appui Lourd
+    variantes:
+      - id: base
+        cout: 325
+        composition:
+          - { unite: gardes_catachan, nombre: 6 }
+          - { unite: stormlord, nombre: 1 }
+  - id: peloton_super_lourd
+    nom: Peloton de Char Super Lourd
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: hellhammer, nombre: 1 }] }
+
+  # ---- Supports ----
+  - id: escadrille_intercepteurs
+    nom: Escadrille d'Intercepteurs
+    variantes:
+      - { id: base, cout: 175, composition: [{ unite: thunderbolt_catachan, nombre: 2 }] }
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: lunar, nom: 1 Croiseur Lunar, cout: 100, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
+      - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+  - id: titan_warhound
+    nom: Titan Warhound
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: warhound, nombre: 1 }] }
+  - id: meute_warhounds
+    nom: Meute de Warhounds
+    variantes:
+      - { id: base, cout: 500, composition: [{ unite: warhound, nombre: 2 }] }
+  - id: titan_dire_wolf
+    nom: Titan Dire Wolf
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: dire_wolf, nombre: 1 }] }
+  - id: meute_dire_wolves
+    nom: Meute de Dire Wolves
+    variantes:
+      - { id: base, cout: 550, composition: [{ unite: dire_wolf, nombre: 2 }] }
+
+sections:
+  - id: compagnies
+    titre: COMPAGNIES DE CATACHAN
+    formations: [qg_regimentaire, compagnie_infanterie, compagnie_aeromobile, compagnie_reconnaissance]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: fournit, budget: slot_appui, quantite: 2 }
+    options: [commissaire, peloton_infanterie, lance_flammes, snipers, ogryns, batterie_mortiers, peloton_appui_feu, dca, chimeres, leman_russ]
+    tableau_options:
+      titre: AMÉLIORATIONS DE COMPAGNIES DE CATACHAN
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par formation et jusqu'à un maximum de 4"
+    notes:
+      embarquement: "Les formations de ces unités peuvent être embarquées pour 25 points par Chimère ou 50 points par Valkyrie. Vous ne pouvez pas prendre plus de Chimères que nécessaire pour embarquer ces troupes."
+  - id: appui
+    titre: FORMATIONS D'APPUI DE CATACHAN
+    sous_titre: "Jusqu'à 2 formations d'appui par compagnie"
+    formations: [appui_diables, peloton_ogryns, escadron_mortiers, escadron_sentinelles, escadron_vulture, escadron_hellhound, peloton_tank_riders, peloton_reconnaissance, batterie_deathstrike, peloton_appui_lourd, peloton_super_lourd]
+    contraintes: [{ type: consomme, budget: slot_appui }]
+    colonne_options: true
+  - id: aeronautica
+    titre: FLOTTES DE L'AERONAUTICA IMPERIALIS
+    sous_titre: "SUPPORTS DE CATACHAN"
+    formations: [escadrille_intercepteurs, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+  - id: titanicus
+    titre: SOUTIENS DE L'ADEPTUS TITANICUS
+    sous_titre: "SUPPORTS DE CATACHAN"
+    formations: [titan_warhound, meute_warhounds, titan_dire_wolf, meute_dire_wolves]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "1+" }]
+
+listes_test:
+  - nom: "3000 pts, QG, compagnies, appuis et supports"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: qg_regimentaire
+        options:
+          - { option: commissaire }
+          - { option: peloton_infanterie }
+          - { option: chimeres, choix: chimere, quantite: 8 }
+      - formation: compagnie_aeromobile
+        options:
+          - { option: support_aerien, choix: vultures }
+          - { option: batterie_mortiers, quantite: 4 }
+      - { formation: compagnie_reconnaissance }
+      - { formation: escadron_hellhound, options: [{ option: devil_dog }] }
+      - { formation: peloton_ogryns, options: [{ option: chimeres_ogryns }] }
+      - { formation: appui_diables }
+      - { formation: escadrille_intercepteurs }
+      - { formation: titan_warhound }
+
+  - nom: "trois Commissaires"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: qg_regimentaire, options: [{ option: commissaire }] }
+      - { formation: compagnie_infanterie, options: [{ option: commissaire }] }
+      - { formation: compagnie_aeromobile, options: [{ option: commissaire }] }
+
+  - nom: "cinq améliorations sur une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: max_options
+    formations:
+      - formation: compagnie_infanterie
+        options:
+          - { option: commissaire }
+          - { option: peloton_infanterie }
+          - { option: snipers }
+          - { option: ogryns }
+          - { option: lance_flammes }
+
+  - nom: "deux Pelotons Tank Riders"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: peloton_tank_riders }
+      - { formation: peloton_tank_riders }
+
+  - nom: "trois formations d'appui pour une compagnie"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_infanterie }
+      - { formation: escadron_mortiers }
+      - { formation: escadron_sentinelles }
+      - { formation: peloton_reconnaissance }

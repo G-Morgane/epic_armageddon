@@ -1,0 +1,330 @@
+# Harlequins (Masque de l'Ombre Onirique), transcrit depuis le PDF expérimental EAFR beta 3.1 (source de vérité).
+codex:
+  slug: harlequins
+  armee_id: 98ef779e-398b-4ff3-87e3-ab2d6b299acf
+  nom: Harlequins
+  version: "0.1"
+  faction: xenos
+  categorie: armees-xenos
+  statut: experimental
+  citation:
+    texte: "Des saltimbanques en costume de carnaval, des acrobates masqués, des bouffons, tels sont les Harlequins à première vue. Mais malheur à quiconque sous-estime leur ruse meurtrière et leur total dévouement à leur cause. Montrez-moi un imbécile qui se gausse de l'allure des Harlequins, et je vous montrerai un cadavre qui s'ignore."
+    auteur: Autarque Antelyth Thyllian du Vaisseau-Monde Saim-Hann
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une Troupe d'Harlequins du Masque de l'Ombre Onirique. Cette liste peut également représenter toute autre Troupe d'un Masque Harlequin conventionnel.
+
+    Les Troupes d'Harlequins sont organisées autour de petites formations appelées détachements.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion.
+
+    Les formations de Supports sont des formations autonomes des détachements. Elles ne peuvent pas recevoir d'amélioration. Un maximum d'1/4 des points de l'armée peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Holo-Combinaisons"
+      texte: |
+        Au combat, chaque Harlequin porte une Holo-Combinaison qui fragmente sa silhouette en une tornade d'éclats colorés, incapacitant les dispositifs de visée ennemis.
+
+        Les Harlequins sont toujours touchés avec un malus de -2, au tir comme en assaut, contre des armes conventionnelles comme de barrage. Ainsi, un 7+ ou un 8+ est parfois requis pour toucher en assaut.
+    - titre: "Règle spéciale : Lanceurs Mirages"
+      texte: |
+        Les Lanceurs Mirages et les holochamps transforment les véhicules Harlequin en un flou technicolor aveuglant, rendant toute visée impossible.
+
+        Les véhicules Harlequins sont aussi concernés par la règle Holo-Combinaisons, bien qu'elle émane d'une technologie différente.
+    - titre: "Règle spéciale : Ceintures Antigrav"
+      texte: |
+        Les unités Harlequin Infiltrateurs ignorent toutes les zones de contrôle lors d'une action de charge, et pas seulement celles de la formation chargée.
+
+        De plus, les unités Harlequins peuvent utiliser leurs valeurs de corps-à-corps contre les Antigravs adverses, bien que ces derniers puissent toujours choisir de riposter en fusillade.
+    - titre: "Règle spéciale : Tactique du tirer et courir"
+      texte: |
+        Les formations Harlequins qui reçoivent l'ordre Avance ou Avance Rapide peuvent choisir de tirer soit avant soit après chaque mouvement. Elles ne peuvent néanmoins tirer qu'une seule fois durant l'action.
+
+        De plus, les formations Harlequins qui remportent un assaut sont autorisées à utiliser la totalité de leur mouvement lorsqu'elles consolident leur position, au lieu d'être limitées à un mouvement de 5cm. Les formations qui consolident de leur mouvement complet peuvent tout à fait prétendre au soutien d'un autre assaut, même s'il a lieu lors du même tour.
+    - titre: "Règle spéciale : Portail Harlequins"
+      texte: |
+        Les Portails sont utilisés par les Aeldari pour voyager en toute sécurité à travers la Toile.
+
+        Chaque Portail inclus dans une armée permet au joueur Harlequin de prendre jusqu'à trois autres formations Harlequins composées uniquement d'Infanterie et de les conserver en réserve dans la Toile.
+
+        Les formations en réserve dans la Toile peuvent entrer en jeu par le Portail, en réalisant une action qui comporte un mouvement. Ce mouvement est alors mesuré à partir du centre du marqueur représentant le Portail sur la table de jeu. Les formations peuvent apparaître à travers n'importe quel portail. Une seule formation peut voyager à travers chaque portail chaque tour.
+
+        La sortie d'un Portail n'est pas possible si la formation arrivant en jeu ne peut se positionner sur la table dans le respect des règles de déplacement. Toute la formation sortant du Portail doit pouvoir se positionner légalement sans casser sa cohésion, sinon la formation reste hors table.
+    - titre: "Règle spéciale : Alliés ou Marionnettes"
+      texte: |
+        Les armées d'Harlequins peuvent sélectionner un allié parmi n'importe quel codex (sauf un codex affilié au Chaos ou le codex Nécrons). Jusqu'à la moitié des points disponibles peuvent être dépensés pour ces formations.
+
+        L'armée Harlequin prend alors la valeur de Stratégie de ce codex. Le joueur Harlequin peut sélectionner des formations et améliorations de ce codex en en respectant les limitations internes.
+
+        Les formations alliées ne comptent pas comme étant des formations Harlequins, ne peuvent en aucun cas emprunter un portail Harlequin mais peuvent bénéficier de la relance de Commandant Suprême du Grand Harlequin si elles sont Eldars, Exodite ou Eldars Noirs.
+
+        Les formations de Support Lourd calculent le tiers des points sur le budget total de l'armée Harlequin. Les alliés sont considérés comme détruits à la fin de la partie à moins qu'ils n'appartiennent à un codex Eldar, Exodite ou Eldar Noir.
+  valeur_strategique: 6
+  initiative:
+    defaut: "1+"
+
+unites:
+  # ---- Personnages ----
+  - id: coryphee
+    nom: Coryphée
+    type: Perso
+    armes:
+      - { nom: Pistolet à fusion, portee: (15cm), puissance: "Armes légères, Lance" }
+      - { nom: Arme énergétique, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: [Commandant, Meneur]
+    roles: [personnage, commandant]
+  - id: prophete_ombres
+    nom: Prophète des Ombres
+    type: Perso
+    armes:
+      - { nom: Lance-grenade hallucinogène, portee: 15cm, puissance: "2xAP2+, IC, Rupt" }
+      - { nom: Neuro-disrupteur, portee: (15cm), puissance: "Armes légères, IC" }
+      - { nom: Sceptre de Brumes, portee: (contact), puissance: "Armes d'assaut, +1A, IC" }
+    notes: [Meneur]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: choristes_lumiere
+    nom: Choristes (Lumière)
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Pistolet shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Baiser d'Harlequin, portee: (contact), puissance: Armes d'assaut }
+    notes: ["Immédiatement après le placement des objectifs, choisissez entre Lumière, Pénombre ou Crépuscule. Vos Choristes adoptent alors tous le profil choisi.", Infiltrateurs, Réacteurs Dorsaux, Holo-Combinaison, Ceinture Antigrav]
+  - id: choristes_penombre
+    nom: Choristes (Pénombre)
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Pistolet à fusion, portee: (15cm), puissance: "Armes légères, Lance" }
+      - { nom: Caresse d'Harlequin, portee: (contact), puissance: "Armes d'assaut, Lance" }
+    notes: ["Immédiatement après le placement des objectifs, choisissez entre Lumière, Pénombre ou Crépuscule. Vos Choristes adoptent alors tous le profil choisi.", Infiltrateurs, Réacteurs Dorsaux, Holo-Combinaison, Ceinture Antigrav]
+  - id: choristes_crepuscule
+    nom: Choristes (Crépuscule)
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Neuro-disrupteur, portee: (15cm), puissance: "Armes légères, IC" }
+      - { nom: Lame d'Harlequin, portee: (contact), puissance: "Armes d'assaut, IC" }
+    notes: ["Immédiatement après le placement des objectifs, choisissez entre Lumière, Pénombre ou Crépuscule. Vos Choristes adoptent alors tous le profil choisi.", Infiltrateurs, Réacteurs Dorsaux, Holo-Combinaison, Ceinture Antigrav]
+  - id: mimes
+    nom: Mimes
+    type: Inf
+    vitesse: 20cm
+    blindage: "-"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Pistolet shuriken, portee: (15cm), puissance: Armes légères }
+      - { nom: Lame d'Harlequin, portee: (contact), puissance: "Armes d'assaut, IC" }
+    notes: [Infiltrateurs, Réacteurs Dorsaux, Téléportation, Éclaireurs, Holo-Combinaison, Ceinture Antigrav]
+  - id: bouffons_tragiques
+    nom: Bouffons Tragiques
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canons Shurikens, portee: 30cm, puissance: "AP5+, Snp, Rupt" }
+    notes: [Réacteurs Dorsaux, Holo-Combinaison, Ceinture Antigrav]
+  - id: solitaire
+    nom: Solitaire
+    type: Inf
+    vitesse: 30cm
+    blindage: "-"
+    cc: "2+"
+    ff: "-"
+    armes:
+      - { nom: Caresse d'Harlequin, portee: (contact), puissance: "Armes d'assaut, Lance" }
+      - { nom: Étreinte d'Harlequin, portee: (contact), puissance: "Armes d'assaut, +1A, FeP, Snp" }
+    notes: [Éclaireur, Sauvegarde Invulnérable, Infiltrateur, Réacteur Dorsal, Holo-Combinaison, Ceinture Antigrav]
+  - id: skyweavers
+    nom: Motojets Skyweavers
+    type: Inf
+    vitesse: 40cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Canon shuriken, portee: 30cm, puissance: "AP5+" }
+      - { nom: Vouge Zéphyr, portee: (contact), puissance: "Armes d'assaut, FeP" }
+      - { nom: Bolas stellaires, portee: (15cm), puissance: "Armes légères, +1A, MA, Uniq" }
+    notes: [Antigrav, Montés, Holo-Combinaison, Ceinture Antigrav]
+
+  # ---- Véhicules légers ----
+  - id: starweaver
+    nom: Starweaver
+    type: VL
+    vitesse: 40cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "6+"
+    armes:
+      - { nom: 2x Canon shuriken, portee: 30cm, puissance: "AP5+" }
+      - { nom: Vouge Zéphyr, portee: (contact), puissance: "Armes d'assaut, FeP" }
+    notes: [Antigrav, "Transport (1)", Holo-Combinaison]
+    transport: { capacite: 1, accepte: [choristes_lumiere, choristes_penombre, choristes_crepuscule, mimes, bouffons_tragiques, solitaire, coryphee, prophete_ombres] }
+  - id: voidweaver
+    nom: Voidweaver
+    type: VL
+    vitesse: 40cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon shuriken, portee: 30cm, puissance: "AP5+" }
+      - { nom: Canon disrupteur, portee: 30cm, puissance: "AC3+, Lance" }
+      - { nom: "", portee: (15cm), puissance: "Armes légères, Lance" }
+    notes: [Antigrav, Holo-Combinaison]
+
+options:
+  # ---- Options d'armée ----
+  - id: portail
+    nom: Portail
+    effet: { type: mot_cle, texte: Portail Harlequin, cout: 50 }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+    phrase_pdf: "0-1 Portail : placez 1 Portail Harlequin sur un objectif de votre bord de table (50 pts)"
+  - id: grand_harlequin
+    nom: Grand Harlequin
+    effet: { type: mot_cle, texte: "Grand Harlequin (Commandant Suprême)", cout: 50, cible: [coryphee] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: requiert_unite, unites: [coryphee] }
+    phrase_pdf: "0-1 Grand Harlequin : un Coryphée obtient le mot-clé Commandant Suprême (50 pts)"
+
+  # ---- Améliorations ----
+  - id: personnage
+    nom: Personnage
+    effet:
+      type: choix
+      parmi:
+        - { id: coryphee, nom: Coryphée, cout: 25, effet: { type: ajouter, unites: [{ unite: coryphee }] } }
+        - { id: prophete, nom: Prophète de l'Ombre, cout: 25, effet: { type: ajouter, unites: [{ unite: prophete_ombres }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 Coryphée ou 1 Prophète de l'Ombre à une unité de la formation (25 pts)"
+  - id: choristes
+    nom: Choristes
+    effet:
+      type: choix
+      parmi:
+        - { id: lumiere, nom: 4 Choristes (Lumière), cout: 175, effet: { type: ajouter, unites: [{ unite: choristes_lumiere, nombre: 4 }] } }
+        - { id: penombre, nom: 4 Choristes (Pénombre), cout: 175, effet: { type: ajouter, unites: [{ unite: choristes_penombre, nombre: 4 }] } }
+        - { id: crepuscule, nom: 4 Choristes (Crépuscule), cout: 175, effet: { type: ajouter, unites: [{ unite: choristes_crepuscule, nombre: 4 }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 4 unités de Choristes à la formation (175 pts)"
+  - id: solitaire
+    nom: Solitaire
+    effet: { type: ajouter, cout: 75, unites: [{ unite: solitaire }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-1 Solitaire : ajoutez 1 Solitaire à la formation (75 pts)"
+  - id: starweavers
+    nom: Starweavers
+    effet: { type: ajouter, cout: 100, unites: [{ unite: starweaver, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 4 Starweavers à la formation (100 pts)"
+
+formations:
+  - id: troupe
+    nom: Troupe
+    variantes:
+      - { id: lumiere, nom: 4 Choristes (Lumière), cout: 200, composition: [{ unite: choristes_lumiere, nombre: 4 }] }
+      - { id: penombre, nom: 4 Choristes (Pénombre), cout: 200, composition: [{ unite: choristes_penombre, nombre: 4 }] }
+      - { id: crepuscule, nom: 4 Choristes (Crépuscule), cout: 200, composition: [{ unite: choristes_crepuscule, nombre: 4 }] }
+    options: [portail, grand_harlequin, personnage, choristes, solitaire, starweavers]
+    phrase_pdf: "4 unités de Choristes"
+  - id: mimes
+    nom: Mimes
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: mimes, nombre: 4 }] }
+    options: [portail, grand_harlequin]
+  - id: bouffons_tragiques
+    nom: Bouffons Tragiques
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: bouffons_tragiques, nombre: 4 }] }
+    options: [portail, grand_harlequin, starweavers]
+  - id: escadron_skyweavers
+    nom: Escadron de Skyweavers
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: skyweavers, nombre: 4 }] }
+    options: [portail, grand_harlequin]
+  - id: voidweavers
+    nom: Voidweavers
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: voidweaver, nombre: 4 }] }
+    options: [portail, grand_harlequin, starweavers]
+
+sections:
+  - id: detachements
+    titre: DÉTACHEMENTS HARLEQUINS
+    formations: [troupe, mimes, bouffons_tragiques, escadron_skyweavers, voidweavers]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS HARLEQUINS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement"
+    options: [portail, grand_harlequin, personnage, choristes, solitaire, starweavers]
+    notes:
+      mimes_absente: "La colonne Améliorations du PDF propose « Mimes » à la Troupe et aux Bouffons Tragiques, mais le tableau des améliorations ne donne aucune ligne ni coût pour cette amélioration : elle n'est donc pas transcrite."
+
+listes_test:
+  - nom: "3000 pts, Troupe, Mimes, Bouffons et Voidweavers"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: troupe
+        variante: penombre
+        options:
+          - { option: portail }
+          - { option: personnage, choix: coryphee }
+          - { option: grand_harlequin }
+          - { option: choristes, choix: penombre }
+          - { option: starweavers }
+      - { formation: mimes }
+      - { formation: bouffons_tragiques, options: [{ option: starweavers }] }
+      - { formation: escadron_skyweavers }
+      - { formation: voidweavers }
+
+  - nom: "deux Portails"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: troupe, variante: lumiere, options: [{ option: portail }] }
+      - { formation: mimes, options: [{ option: portail }] }
+
+  - nom: "deux Solitaires"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: troupe, variante: lumiere, options: [{ option: solitaire }] }
+      - formation: troupe
+        variante: crepuscule
+        options: [{ option: solitaire }]
+
+  - nom: "Grand Harlequin sans Coryphée"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - { formation: mimes, options: [{ option: grand_harlequin }] }
+
+  - nom: "Starweavers sur des Mimes"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - { formation: mimes, options: [{ option: starweavers }] }

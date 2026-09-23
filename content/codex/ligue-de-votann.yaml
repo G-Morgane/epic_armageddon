@@ -1,0 +1,612 @@
+# Ligue Majeure Thurienne (Ligue de Votann), transcrit depuis le PDF expérimental 1.0 (source de vérité).
+codex:
+  slug: ligue-de-votann
+  armee_id: 0a950336-6082-400d-a99c-7185fb977d7b
+  nom: Ligue de Votann
+  version: "0.2"
+  faction: xenos
+  categorie: armees-xenos
+  statut: experimental
+  citation:
+    texte: "Tu sais, p'tit gars, tu peux toujours rêver de conquêtes en bossant pour l'hégémonie de Kronus ou piloter une armure de combat du conglomérat d'Ymyr, mais si tu veux être un vrai guerrier cognat, bats-toi pour la ligue majeure Thurienne !"
+    auteur: Âdunn Vothik, Khâl de THU
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée des Ligues de Votann basée sur la Ligue Majeure Thurienne.
+
+    Les armées de la Ligue Majeure Thurienne sont organisées autour de petites formations appelées détachements.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+
+    Les formations de support sont des formations autonomes des détachements. Un maximum de 1/3 des points peuvent être dépensés pour ces formations.
+  regles_md:
+    - titre: "Règle spéciale : Jugement ancestral"
+      texte: |
+        Si une formation adverse provoque une perte chez une formation Votann, placez un pion "Jugement ancestral" dessus.
+
+        Lorsqu'une formation des Ligues de Votann annonce une action de tir ou d'assaut qui cible une formation avec un pion "Jugement ancestral", elle peut relancer son test d'activation si celui-ci échoue.
+
+        À la fin de l'action annoncée, retirez le pion "Jugement ancestral" de la formation ciblée.
+    - titre: "Règle spéciale : Avances coordonnées"
+      texte: |
+        Les formations de la Ligue Majeure Thurienne qui possèdent des véhicules de transport peuvent passer un ordre "Avances coordonnées".
+
+        Si la formation réussit son test d'activation, elle pourra effectuer deux mouvements lors de son activation. Les troupes embarquées peuvent sortir et tirer à la fin du premier mouvement avec un malus de -1.
+    - titre: "Règle spéciale : Pur Cognat !"
+      texte: |
+        Un socle d'infanterie cognat collé à un véhicule de transport de sa formation gagne la compétence Sauvegarde invulnérable.
+    - titre: "Règle spéciale : Transports"
+      texte: |
+        Les formations Ligue Majeure Thurienne disposant de l'option "Transports" peuvent prendre assez de transports pour transporter l'intégralité de la formation.
+
+        Si cette option est prise, le nombre de transports doit être suffisant, mais la capacité totale de transport ne doit pas être excédentaire par rapport au nombre d'unités à transporter.
+    - titre: "Règle spéciale : Tirs gravitiques"
+      texte: |
+        Les tirs de vaisseaux spatiaux possédant la note Tirs gravitiques ne nécessitent pas d'indiquer préalablement des coordonnées. Ils sont résolus après les frappes orbitales. Ils utilisent le gabarit de barrage (7,5cm) et peuvent prendre pour cible n'importe quelle formation ennemie suivant les règles du tir de barrage.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture Brandon Chen."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+
+budgets:
+  - id: soutien
+    libelle: Détachements de Soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "2 Détachements de Soutien maximum par Détachement Principal"
+  - id: rare
+    libelle: Supports Ligue Majeure Thurienne
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: haut_khal
+    nom: Haut-Khâl
+    type: Perso
+    armes:
+      - { nom: Gantelet à effet masse, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+      - { nom: Combi-bolter modèle Autoch, portee: (15cm), puissance: "Armes Légères, +1A" }
+    notes: [Commandant Suprême, Sauvegarde Invulnérable]
+    roles: [personnage, commandant_supreme]
+  - id: khal
+    nom: Khâl
+    type: Perso
+    armes:
+      - { nom: Gantelet à effet masse, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+    notes: [Commandant, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: champion_einhyr
+    nom: Champion Einhyr
+    type: Perso
+    armes:
+      - { nom: Hache de sombretoile, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+    notes: [Commandant, Sans-Peur, Meneur, Sauvegarde Invulnérable]
+    roles: [personnage, commandant]
+  - id: maitre_fer
+    nom: Maître-fer Brôkhyr
+    type: Perso
+    armes:
+      - { nom: Marteau à graviton, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+      - { nom: Bras manipulateurs, portee: (contact), puissance: "Armes d'Assaut, +1A" }
+      - { nom: Tromblon à graviton, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+    notes: [Meneur, Sauvegarde Invulnérable]
+    roles: [personnage]
+  - id: grimnyr
+    nom: Grimnyr
+    type: Perso
+    armes:
+      - { nom: Désintégrateur Volkanite, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+    notes: [Charismatique, Meneur, "Un Grimnyr confère à l'ensemble des unités de la formation la règle Sauvegarde Invulnérable"]
+    roles: [personnage]
+
+  # ---- Infanterie ----
+  - id: guerriers_atrekogs
+    nom: Guerriers Âtrekogs
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Bolter modèle Autoch, portee: (15cm), puissance: Armes légères }
+      - { nom: Fusil Magna-rail, portee: 30cm, puissance: "AP6+/AC5+" }
+  - id: recuperateurs_atrekogs
+    nom: Récupérateurs Âtrekogs
+    type: Inf
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Bolter modèle Autoch, portee: (15cm), puissance: Armes légères }
+      - { nom: Canon rotatif HYLaser, portee: 30cm, puissance: "AP5+/AC6+" }
+    notes: [Réacteurs dorsaux]
+  - id: atregardes_einhyr
+    nom: Âtregardes Einhyr
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-grenade d'exoarmure, portee: (15cm), puissance: Armes légères }
+      - { nom: Gantelet-lame à plasma, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+      - { nom: Fusil à plasma EtaCarn, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: [Blindage renforcé]
+    taille_transport: 2
+  - id: yaegirs_hernkogs
+    nom: Yaegirs Hernkogs
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Bolter modèle Autoch, portee: (15cm), puissance: Armes légères }
+      - { nom: Fusil Headshot, portee: 30cm, puissance: "AP5+, Sniper" }
+      - { nom: Charges explosives, portee: (15cm), puissance: "Armes légères, +1A, Uniq" }
+    notes: [Éclaireurs]
+  - id: beserks_cthoniens
+    nom: Beserks Cthoniens
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Lance-grenade taupe, portee: 30cm, puissance: "AP5+, Ind" }
+      - { nom: Masse à percussion, portee: (contact), puissance: "Armes d'assaut, MA" }
+  - id: pionniers_hernkogs
+    nom: Pionniers Hernkogs
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon à magna-rail, portee: 30cm, puissance: "AP6+/AC5+" }
+      - { nom: Fusil à pompe bolters, portee: (15cm), puissance: Armes légères }
+    notes: [Antigrav, Montés]
+  - id: pionniers_soutien
+    nom: Pionniers de soutien Hernkogs
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon rotatif HYlaser, portee: 30cm, puissance: "3xAP5+/AC6+" }
+    notes: [Antigrav, Montés]
+  - id: tonnekogs
+    nom: Tonnekogs Brôkhyrs
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canon éclateur à gravitons, portee: 30cm, puissance: "AP6+/AC5+" }
+      - { nom: Omni viseur, portee: (15cm), puissance: "Armes légères, +1A, IC" }
+    notes: [Blindage renforcé]
+    taille_transport: 2
+  - id: trembleterre
+    nom: Trembleterre Cthonien
+    type: Inf
+    vitesse: 10cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Trembleterre cthonien, portee: 30cm, puissance: "AP5+/AC5+, Ind, Rpt" }
+  - id: chaudronnier
+    nom: Chaudronnier de fer cognat
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Désintégrateur volkanite lourd, portee: 15cm, puissance: "AP4+/AC5+, Rpt" }
+      - { nom: Épée à plasma, portee: (contact), puissance: "Armes d'Assaut, +1A, MA" }
+    taille_transport: 2
+
+  # ---- Véhicules ----
+  - id: kapricus_transporteur
+    nom: Kapricus transporteur
+    type: VL
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon à magna-rail, portee: 30cm, puissance: "AP6+/AC5+" }
+    notes: [Antigrav, "Transport (1) : guerriers Âtrekogs, Yaegirs Hernkogs, Beserks cthoniens"]
+    transport: { capacite: 1, accepte: [guerriers_atrekogs, yaegirs_hernkogs, beserks_cthoniens] }
+  - id: kapricus_soutien
+    nom: Kapricus de soutien
+    type: VL
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon à magna-rail, portee: 30cm, puissance: "AP6+/AC5+" }
+      - { nom: Autocanon jumelé, portee: 45cm, puissance: "AP4+/AC5+" }
+    notes: [Antigrav]
+  - id: sagitaur
+    nom: Sagitaur
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon bolter jumelé, portee: 30cm, puissance: "AP4+" }
+      - { nom: Matrice à missile, portee: 45cm, puissance: "AC5+/AA6+" }
+    notes: [Blindage renforcé, "Transport (1) : guerriers Âtrekogs, Yaegirs Hernkogs, Beserks cthoniens"]
+    transport: { capacite: 1, accepte: [guerriers_atrekogs, yaegirs_hernkogs, beserks_cthoniens] }
+
+  # ---- Engins de guerre ----
+  - id: forteresse_hekaton
+    nom: Forteresse Mobile Hekaton
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Cyclo canon à ions, portee: 30cm, puissance: "3xAP6+/AC4+" }
+      - { nom: Autocanon MATI-R, portee: 30cm, puissance: "2xAP5+/AC6+" }
+      - { nom: Canon bolter jumelé, portee: 30cm, puissance: "AP4+, Drt" }
+      - { nom: Canon bolter jumelé, portee: 30cm, puissance: "AP4+, Gch" }
+      - { nom: Scanner panspectral, portee: (15cm), puissance: "Armes légères, IC" }
+    notes: [Blindage renforcé, "Transport (3) : guerriers Âtrekogs, Yaegirs Hernkogs, Beserks cthoniens, Âtregardes Einhyr, Tonnekogs Brôkhyrs, chaudronnier de fer (prennent 2 places)"]
+    transport: { capacite: 3, accepte: [guerriers_atrekogs, yaegirs_hernkogs, beserks_cthoniens, atregardes_einhyr, tonnekogs, chaudronnier] }
+    degats: { cd: 2, critique: "La forteresse explose." }
+  - id: forteresse_nuage_acier
+    nom: Forteresse Mobile Hekaton nuage d'acier
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon à magma rail lourd, portee: 60cm, puissance: "2xMA4+" }
+      - { nom: Autocanon MATI-R, portee: 30cm, puissance: "2xAP5+/AC6+" }
+      - { nom: Faisceaux à ion, portee: (15cm), puissance: "Armes légères, +1A" }
+      - { nom: Missile Marc, portee: 45cm, puissance: "1PB, Rpt, Ind, Uniq" }
+    notes: [Blindage renforcé, "Transport (1) : Tonnekogs Brôkhyrs"]
+    transport: { capacite: 1, accepte: [tonnekogs] }
+    degats: { cd: 2, critique: "La forteresse explose." }
+  - id: citadelle_hekaton
+    nom: Citadelle Mobile Hekaton
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "3+"
+    armes:
+      - { nom: Canon Tonnerre à magna rail, portee: 60cm, puissance: "6xMA3+, FrtF" }
+      - { nom: 6x Missiles Gravitique, portee: 60cm, puissance: "2PB, IC, Uniq, Ind" }
+      - { nom: Canon à faisceau HYlaser, portee: 30cm, puissance: "AC5+/AA6+, Drt" }
+      - { nom: Canon à faisceau HYlaser, portee: 30cm, puissance: "AC5+/AA6+, Gch" }
+      - { nom: 2x faisceaux à ion, portee: (15cm), puissance: "Armes légères, +1A" }
+    notes: [Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, "Boucliers du vide (3)", "Transport (8) : guerriers Âtrekogs, Yaegirs Hernkogs, Beserks cthoniens, Âtregardes Einhyr, Tonnekogs Brôkhyrs, chaudronnier de fer (prennent 2 places)"]
+    transport: { capacite: 8, accepte: [guerriers_atrekogs, yaegirs_hernkogs, beserks_cthoniens, atregardes_einhyr, tonnekogs, chaudronnier] }
+    degats:
+      cd: 4
+      bi: 3
+      critique: "Lancer 1D6 à la fin de chaque tour pour chaque coup critique reçu : 1, le réacteur à plasma explose détruisant le véhicule et infligeant une touche sur 5+ à toutes les unités dans un rayon de 5 cm ; 2-3, le système de visée est endommagé et la citadelle subit un malus de -1 sur ses tirs (si cette capacité a déjà été perdue, la citadelle perd un point de structure supplémentaire) ; 4-6, la fissure est réparée."
+
+  # ---- Flotte ----
+  - id: canonniere_colere
+    nom: Canonnière Colère ancestrale
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Bombes gravitiques, portee: 15cm, puissance: "3PB, IC" }
+      - { nom: Autocanon à magna-rail, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x faisceau à ion, portee: 15cm, puissance: "AC5+/AA6+, Drt" }
+      - { nom: 2x faisceau à ion, portee: 15cm, puissance: "AC5+/AA6+, Gch" }
+      - { nom: Canon Bolter, portee: 30cm, puissance: "AA5+, Arr" }
+    notes: [Blindage renforcé, Assaut planétaire, "Transport (8) : guerriers Âtrekogs, Yaegirs Hernkogs, Beserks cthoniens, Âtregardes Einhyr, Tonnekogs Brôkhyrs, chaudronnier de fer (prennent 2 places)"]
+    transport: { capacite: 8, accepte: [guerriers_atrekogs, yaegirs_hernkogs, beserks_cthoniens, atregardes_einhyr, tonnekogs, chaudronnier] }
+    degats: { cd: 2, critique: "L'appareil s'écrase au sol, tuant tous ceux à son bord." }
+  - id: canonniere_couronne
+    nom: Canonnière Couronne d'éclairs
+    type: A/EG
+    vitesse: B
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Cyclo canon à ions jumelé, portee: 30cm, puissance: "3xAP5+/AC3+" }
+      - { nom: Bombe gravitique, portee: 15cm, puissance: "3PB, IC" }
+      - { nom: Autocanon à magna-rail, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: 2x faisceau à ion, portee: 15cm, puissance: "AC5+/AA6+, Drt" }
+      - { nom: 2x faisceau à ion, portee: 15cm, puissance: "AC5+/AA6+, Gch" }
+      - { nom: Canon Bolter, portee: 30cm, puissance: "AA5+, Arr" }
+    notes: [Blindage renforcé, Assaut planétaire]
+    degats: { cd: 2, critique: "L'appareil s'écrase au sol, tuant tous ceux à son bord." }
+  - id: chasseur_poing_acier
+    nom: Chasseur Poing d'Acier
+    type: A
+    vitesse: C
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Autocanon MATI-R, portee: 30cm, puissance: "AP5+/AC4+/AA5+" }
+  - id: croiseur_bastion
+    nom: Croiseur Bastion
+    type: VS
+    armes:
+      - { nom: Tir gravitique, portee: "∞", puissance: "3PB, IC, Tir gravitique" }
+    notes: ["Peut transporter jusqu'à 4 canonnières et les unités présentes à l'intérieur"]
+  - id: cuirasse_stronghold
+    nom: Cuirassé Stronghold
+    type: VS
+    armes:
+      - { nom: Tir gravitique, portee: "∞", puissance: "6PB, IC, Tir gravitique" }
+    notes: ["Peut transporter jusqu'à 12 canonnières et les unités présentes à l'intérieur", "Lent, ne peut être utilisé aux tours 1 et 2."]
+
+options:
+  - id: personnage
+    nom: Personnage
+    effet:
+      type: choix
+      parmi:
+        - { id: khal, nom: 1 Khâl, cout: 50, effet: { type: ajouter, unites: [{ unite: khal }] } }
+        - id: haut_khal
+          nom: 1 Haut Khâl
+          cout: 75
+          effet: { type: ajouter, unites: [{ unite: haut_khal }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+        - { id: maitre_fer, nom: 1 Maître-fer Brôkhyr, cout: 50, effet: { type: ajouter, unites: [{ unite: maitre_fer }] } }
+        - id: grimnyr
+          nom: 1 Grimnyr
+          cout: 50
+          effet: { type: ajouter, unites: [{ unite: grimnyr }] }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "1 Khâl (50 pts), transformable en Haut Khâl (+25 pts, 1 max par armée), 1 Maître-fer Brôkhyr (50 pts) ou 1 Grimnyr (50 pts, 1 max par armée)"
+  - id: transports
+    nom: Transports
+    effet:
+      type: choix
+      parmi:
+        - { id: sagitaurs, nom: 2 Sagitaurs, cout: 75, effet: { type: ajouter, unites: [{ unite: sagitaur, nombre: 2 }] } }
+        - id: hekaton
+          nom: Forteresse Hekaton
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 100, unites: [{ unite: forteresse_hekaton }], min: 1, max: besoin_transport }
+        - id: kapricus
+          nom: Kapricus transporteurs
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: kapricus_transporteur }], min: 1, max: besoin_transport }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Rajoutez 2 Sagitaurs (75 pts les deux), des forteresses Hekaton (100 pts l'une) ou des Kapricus transporteurs (25 pts l'un)"
+  - id: soutien_rapproche
+    nom: Soutien rapproché
+    effet:
+      type: choix
+      parmi:
+        - id: atrekogs
+          nom: 1 à 4 socles de guerriers Âtrekogs
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: guerriers_atrekogs }], min: 1, max: 4 }
+        - id: beserks
+          nom: 2 à 4 socles de Beserks cthoniens
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 75, unites: [{ unite: beserks_cthoniens, nombre: 2 }], min: 1, max: 2 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Rajoutez 1 à 4 socles de guerriers Âtrekogs (50 pts chaque) ou 2 à 4 socles de Beserks cthoniens (75 pts les deux)"
+  - id: soutien_lourd
+    nom: Soutien lourd
+    effet:
+      type: choix
+      parmi:
+        - id: tonnekogs
+          nom: 1 à 4 socles de Tonnekogs Brôkhyrs
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: tonnekogs }], min: 1, max: 4 }
+        - id: chaudronniers
+          nom: 1 à 3 socles de chaudronniers de fer
+          cout: 0
+          effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: chaudronnier }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Rajoutez 1 à 4 socles de Tonnekogs Brôkhyrs ou 1 à 3 socles de chaudronniers de fer (50 pts chaque)"
+  - id: teleportation
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter la Note Téléportation aux unités d'infanterie de la formation"
+  - id: pionniers_soutien
+    nom: Pionniers Hernkogs de soutien
+    effet: { type: remplacer, de: pionniers_hernkogs, par: pionniers_soutien, lot: 2, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Transformez 2 pionniers Hernkogs en pionniers Hernkogs de soutien (+25 pts)"
+  - id: kapricus_soutien
+    nom: Kapricus de soutien
+    effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: kapricus_soutien }], min: 1, max: 3 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 à 3 Kapricus de soutien à la formation (+50 pts chacun)"
+  - id: forteresse_supplementaire
+    nom: Forteresse Mobile Hekaton nuage d'acier supplémentaire
+    effet: { type: ajouter, cout: 125, unites: [{ unite: forteresse_nuage_acier }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter une forteresse Mobile Hekaton nuage d'acier à la formation (+125 pts)"
+  - id: canonniere_supplementaire
+    nom: Canonnière supplémentaire
+    effet:
+      type: choix
+      parmi:
+        - { id: colere, nom: Canonnière Colère ancestrale, cout: 225, effet: { type: ajouter, unites: [{ unite: canonniere_colere }] } }
+        - { id: couronne, nom: Canonnière Couronne d'éclairs, cout: 225, effet: { type: ajouter, unites: [{ unite: canonniere_couronne }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter une canonnière de n'importe quel type (+225 pts)"
+  - id: chasseur_supplementaire
+    nom: Chasseur Poing d'Acier supplémentaire
+    effet: { type: ajouter, cout: 50, unites: [{ unite: chasseur_poing_acier }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 chasseur Poing d'Acier (+50 pts)"
+
+formations:
+  # ---- Détachements principaux ----
+  - id: guerriers_atrekogs
+    nom: Guerriers Âtrekogs
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: guerriers_atrekogs, nombre: 6 }] }
+    options: [personnage, soutien_rapproche, soutien_lourd, transports]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 2 }]
+  - id: atregardes_einhyr
+    nom: Âtregardes Einhyr
+    variantes:
+      - id: base
+        cout: 325
+        composition:
+          - { unite: atregardes_einhyr, nombre: 6 }
+          - { unite: champion_einhyr, nombre: 1 }
+    options: [teleportation, transports]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 2 }]
+  - id: pionniers_hernkogs
+    nom: Pionniers Hernkogs
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: pionniers_hernkogs, nombre: 6 }] }
+    options: [pionniers_soutien, kapricus_soutien]
+    contraintes: [{ type: fournit, budget: soutien, quantite: 2 }]
+
+  # ---- Détachements de soutien ----
+  - id: recuperateurs_atrekogs
+    nom: Récupérateurs Âtrekogs
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: recuperateurs_atrekogs, nombre: 6 }] }
+    options: [personnage]
+    contraintes: [{ type: consomme, budget: soutien }]
+  - id: yaegirs_hernkogs
+    nom: Yaegirs Hernkogs
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: yaegirs_hernkogs, nombre: 8 }] }
+    options: [personnage, transports]
+    contraintes: [{ type: consomme, budget: soutien }]
+  - id: beserks_cthoniens
+    nom: Beserks Cthoniens
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: beserks_cthoniens, nombre: 6 }] }
+    options: [personnage, soutien_rapproche, soutien_lourd, transports]
+    contraintes: [{ type: consomme, budget: soutien }]
+  - id: forteresse_mobile
+    nom: Forteresse Mobile Hekaton nuage d'acier
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: forteresse_nuage_acier, nombre: 3 }] }
+    options: [soutien_lourd, forteresse_supplementaire]
+    contraintes: [{ type: consomme, budget: soutien }]
+  - id: escouade_trembleterre
+    nom: Escouade de trembleterre cthonien
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: trembleterre, nombre: 6 }] }
+    contraintes: [{ type: consomme, budget: soutien }]
+
+  # ---- Supports ----
+  - id: canonniere_colere
+    nom: Canonnière Colère ancestrale
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: canonniere_colere, nombre: 1 }] }
+  - id: canonniere_couronne
+    nom: Canonnière Couronne d'éclairs
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: canonniere_couronne, nombre: 1 }] }
+    options: [canonniere_supplementaire]
+  - id: chasseurs_cognat
+    nom: Chasseurs Cognat
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: chasseur_poing_acier, nombre: 3 }] }
+    options: [chasseur_supplementaire]
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: bastion, nom: 1 Croiseur Bastion, cout: 100, composition: [{ unite: croiseur_bastion, nombre: 1 }] }
+      - { id: stronghold, nom: 1 Cuirassé Stronghold, cout: 200, composition: [{ unite: cuirasse_stronghold, nombre: 1 }] }
+    contraintes: [{ type: pas_une_activation }]
+  - id: citadelle_mobile
+    nom: Citadelle Mobile Hekaton
+    variantes:
+      - { id: base, cout: 500, composition: [{ unite: citadelle_hekaton, nombre: 1 }] }
+
+sections:
+  - id: detachements
+    titre: DÉTACHEMENTS LIGUE MAJEURE THURIENNE
+    formations: [guerriers_atrekogs, atregardes_einhyr, pionniers_hernkogs]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS LIGUE MAJEURE THURIENNE
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement"
+    options: [personnage, transports, soutien_rapproche, soutien_lourd, teleportation]
+  - id: detachements_soutien
+    titre: DÉTACHEMENTS DE SOUTIEN
+    sous_titre: "2 Détachements de Soutien maximum par Détachement Principal"
+    formations: [recuperateurs_atrekogs, yaegirs_hernkogs, beserks_cthoniens, forteresse_mobile, escouade_trembleterre]
+    colonne_options: true
+  - id: flotte
+    titre: FLOTTE LIGUE MAJEURE THURIENNE
+    sous_titre: "SUPPORTS LIGUE MAJEURE THURIENNE"
+    formations: [canonniere_colere, canonniere_couronne, chasseurs_cognat, soutien_orbital]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+    colonne_options: true
+  - id: soutiens
+    titre: SOUTIENS
+    sous_titre: "SUPPORTS LIGUE MAJEURE THURIENNE"
+    formations: [citadelle_mobile]
+    contraintes: [{ type: consomme, budget: rare, quoi: points }]
+
+listes_test:
+  - nom: "3000 pts, détachements, soutiens et flotte"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: guerriers_atrekogs
+        options:
+          - { option: personnage, choix: haut_khal }
+          - { option: soutien_lourd, choix: tonnekogs, quantite: 2 }
+          - { option: transports, choix: kapricus, quantite: 6 }
+      - { formation: atregardes_einhyr, options: [{ option: teleportation }] }
+      - { formation: pionniers_hernkogs, options: [{ option: kapricus_soutien, quantite: 3 }] }
+      - { formation: beserks_cthoniens, options: [{ option: personnage, choix: grimnyr }] }
+      - { formation: escouade_trembleterre }
+      - { formation: chasseurs_cognat, options: [{ option: chasseur_supplementaire }] }
+
+  - nom: "deux Haut Khâl"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: guerriers_atrekogs, options: [{ option: personnage, choix: haut_khal }] }
+      - { formation: beserks_cthoniens, options: [{ option: personnage, choix: haut_khal }] }
+
+  - nom: "trois détachements de soutien pour un seul détachement principal"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: guerriers_atrekogs }
+      - { formation: recuperateurs_atrekogs }
+      - { formation: escouade_trembleterre }
+      - { formation: beserks_cthoniens }
+
+  - nom: "Téléportation sur des Guerriers Âtrekogs"
+    limite: 3000
+    attendu: refusee
+    erreur: option_interdite
+    formations:
+      - formation: guerriers_atrekogs
+        options: [{ option: teleportation }]
+
+  - nom: "supports au-delà du tiers des points"
+    limite: 1200
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: guerriers_atrekogs }
+      - { formation: citadelle_mobile }
