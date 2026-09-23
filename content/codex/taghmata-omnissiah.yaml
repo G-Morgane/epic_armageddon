@@ -1,0 +1,1204 @@
+# Taghmata Omnissiah, transcrit depuis le PDF EAFR (pied de page : FANLIST LEGIO - EAFR - REV 0.5.5.1,
+# publié sur le site en REV 0.1 — source de vérité).
+#
+# Le PDF porte deux listes : Loyaliste (Legio Cybernetica) et Renégat (Mechanicum Obscur). Elles partagent
+# l'Ordo Reductor, le Questor Mechanicus et le Basilica Potentis. Une armée suit l'une ou l'autre : le moteur
+# ne sait pas l'interdire, il vérifie en revanche que les supports d'une branche sont bien débloqués par les
+# formations de base de cette branche.
+codex:
+  slug: taghmata-omnissiah
+  armee_id: cbb8e6c6-bb38-4254-b96a-965bde21b188
+  nom: Taghmata Omnissiah
+  version: "0.1"
+  faction: imperium
+  categorie: armees-imperiales
+  statut: beta
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/taghmata-omnissiah.png
+  couleur: "#7a2b2b"
+  citation:
+    texte: "Un soldat obéissant est certes un atout pour son commandant. Or, l'obéissance implique la possibilité de désobéir. C'est une transgression indigne du service de l'Omnimessie, aussi abolissons-nous ce choix. Mes serfs ne sont pas obéissants, ce sont des pantins assujettis à ma volonté, pour parfaitement servir les desseins du Dieu-Machine."
+    auteur: Haephex Ul, Auxiliaire Lachrimallus
+  intro_md: |
+    Les listes qui suivent vous permettent de mettre sur pied un ost du Taghmata Omnissiah Loyaliste ou du Taghmata Omnissiah Renégat basé sur ceux déployés lors de la Grande Croisade puis durant l'Hérésie d'Horus.
+
+    Les osts du Taghmata Omnissiah Loyaliste sont organisés autour de formations appelées formations de base et de support de la Legio Cybernetica, elles-mêmes complétées par des formations de l'Ordo Reductor et du Questor Mechanicus qui leur sont autonomes.
+
+    Les osts du Taghmata Omnissiah Renégat sont organisés autour de formations appelées formations de base et de support du Mechanicum Obscur, elles-mêmes complétées par des formations de l'Ordo Reductor et du Questor Mechanicus qui leur sont autonomes.
+
+    Chaque formation de base débloque deux formations de support.
+
+    Chaque formation peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une seule fois par formation et sera parfois limitée dans ses possibilités. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion.
+
+    Les formations de l'Ordo Reductor sont des formations autonomes. Un maximum de la moitié des points peuvent être dépensés pour ces formations.
+
+    Les formations du Questor Mechanicus sont des formations autonomes. Un maximum de la moitié des points peuvent être dépensés pour ces formations.
+
+    Les formations de support du Basilica Potentis sont des formations autonomes des détachements. Elles ne peuvent pas recevoir d'améliorations. Un maximum d'un tiers des points peuvent être dépensés pour ces formations.
+
+    Le Taghmata Omnissiah utilise les feuilles de référence du Taghmata Omnissiah & Legio Cybernetica, d'Ordo Reductor & Questor Mechanicus et du Basilica Potentis & Mechanicum Obscur.
+  regles_md:
+    - titre: "Règle spéciale : Parangons de métal"
+      texte: |
+        Les unités de cette formation possèdent un profil amélioré. Elles gagnent les Notes suivantes : **Sauvegarde Invulnérable** et **Sans Peur**.
+
+        De plus, les unités « Automates » de la formation peuvent contrôler les objectifs au lieu de juste les contester.
+    - titre: "Règle spéciale : Prêtre ordonné"
+      texte: |
+        Tant qu'une unité Prêtre ordonné est vivante, sa formation peut retirer 1 pion impact supplémentaire si celle-ci réussit son jet de ralliement (un Prêtre ordonné ayant la capacité Meneur peut donc enlever 2 PI à sa formation si le jet est réussi).
+
+        Un Primat Archimagos sur Abéant peut toujours retirer 3 pions impacts supplémentaires à sa formation (la capacité Meneur donnée par la capacité Commandant Suprême est déjà incluse dans ces 3 pions impacts).
+
+        Toute formation contenant au moins un Magos Auxiliaire et/ou Primat Archimagos sur Abéant peut sélectionner l'amélioration Gardes Scyllax une seule fois.
+
+        Les unités de Technoserfs détruites peuvent être réparées par une unité Prêtre Ordonné. Si leur formation effectue un test de Regroupement dans le cadre d'un ordre de Regroupement ou Tenir, on peut utiliser le résultat de son dé pour retirer des pions d'impact ou pour faire revenir en jeu des unités de Technoserfs dans les 5cm du Prêtre ordonné, sans dépasser pour autant leur effectif initial (par exemple, si le résultat est 2, vous pouvez soit retirer 2 pions d'impact, soit réparer 2 unités, soit retirer 1 pion d'impact et réparer 1 unité).
+    - titre: "Règle spéciale : Automates"
+      texte: |
+        Les unités Automates ne génèrent pas de pion impact lorsqu'elles sont détruites. Par contre, elles reçoivent des pions d'impact dans tous les autres cas (ex : arme à Rupture, Barrage, Feu Croisé…).
+
+        Les unités Automates comptent dans le calcul des pertes lors de la résolution d'un assaut. À la fin de l'assaut, les unités Automates détruites génèrent normalement des pions d'impact.
+
+        En outre, les unités Automates ne peuvent que contester les objectifs, pas les contrôler, à moins que leur formation ne contienne une unité ayant la règle spéciale : Prêtre ordonné.
+    - titre: "Règle spéciale : Questor Mechanicus"
+      texte: |
+        **Armement des Chevaliers** : les Chevaliers Styrix, Megaera et Atropos sont des engins de guerre mobiles et leurs armes ont toutes un angle de tir frontal. Les Chevaliers Asterius sont des engins de guerre d'appui feu et leurs armes ont toutes un angle de tir frontal fixe.
+
+        **Bouclier à Ions** : les Chevaliers sont protégés par un Bouclier à Ions. Un Chevalier peut décider d'utiliser la sauvegarde de son Bouclier à Ions à la place de sa sauvegarde de blindage, y compris contre les armes n'autorisant habituellement pas les sauvegardes (MA et TT). Dans ce cas, chaque touche en TT doit être sauvegardée séparément. Si la sauvegarde du Bouclier à Ions échoue, le Chevalier peut utiliser son Blindage Renforcé si l'arme l'y autorise (les attaques TT, MA et Lance annulent donc cette possibilité). Il utilisera alors sa valeur de blindage et non la valeur de son Bouclier à Ions. Par contre, cette règle ne s'applique pas contre les attaques de corps à corps et les tirs en cas de feu croisé.
+
+        **Courage Chevaleresque** : les formations du Questor Mechanicus bénéficient d'un bonus de +1 lors des tests d'actions d'Assaut et des tests de ralliement.
+    - titre: "Règle spéciale : Boucliers du vide"
+      texte: |
+        Chaque bouclier stoppe automatiquement un point de dommages avant de se désactiver. Ne faites pas de sauvegarde contre les attaques stoppées par des boucliers, n'ajoutez pas non plus de pion d'impact pour chaque bouclier désactivé. Une fois que tous les boucliers sont désactivés, l'engin de guerre peut être endommagé normalement. Faites les jets de sauvegarde habituels contre les touches subies.
+
+        Les touches de corps à corps lors d'un assaut ignorent les boucliers, mais pas celles de fusillade.
+
+        Les boucliers désactivés peuvent être réparés. Un engin de guerre répare un bouclier désactivé à la fin de chaque tour. De plus, si un engin de guerre se regroupe, il peut utiliser le résultat de son dé pour retirer des pions d'impact ou pour réparer des boucliers.
+    - titre: "Règle spéciale : Boucliers Constructs"
+      texte: |
+        Les Constructs du Mechanicum Obscur possèdent des Boucliers Constructs. Le nombre dont dispose chaque unité est indiqué sur sa fiche d'unité, BC.
+
+        Les Boucliers Constructs fonctionnent de la même manière que les Boucliers du Vide des Impériaux, à la différence qu'une fois abattus, ils ne sont pas réparables et restent donc inactifs jusqu'à la fin de la bataille.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD."
+  valeur_strategique: 3
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations comprenant une unité Prêtre ordonné", valeur: "1+" }
+      - { portee: "Formations de la Legio Titanicus", valeur: "1+" }
+      - { portee: "Unités ayant la règle Parangons de métal (liste Loyaliste)", valeur: "1+" }
+
+budgets:
+  - id: cenacles
+    libelle: Cénacles de Technoserfs
+    capacite: { source: par_tranche, points: 1000 }
+    phrase_pdf: "0-1 Cénacle de Technoserfs par tranche de 1 000 pts"
+  - id: slot_support_loyaliste
+    libelle: Supports de la Legio Cybernetica
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations de support par formation de base de la Legio Cybernetica"
+  - id: slot_support_renegat
+    libelle: Supports du Mechanicum Obscur
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 formations de support par formation de base du Mechanicum Obscur"
+  - id: krios_loyaliste
+    libelle: Escadrons Krios (Manipules Castellax)
+    capacite: { source: fournitures }
+    phrase_pdf: "0-1 Escadron Krios par Manipule Castellax"
+  - id: krios_renegat
+    libelle: Escadrons Krios (Cohortes Tenebrax)
+    capacite: { source: fournitures }
+    phrase_pdf: "0-1 Escadron Krios par Cohorte Tenebrax"
+  - id: questor
+    libelle: Questor Mechanicus
+    capacite: { source: ratio_points, ratio: 0.5 }
+    phrase_pdf: "Jusqu'à 1/2 des points disponibles peuvent être dépensés dans ces formations"
+  - id: reductor
+    libelle: Ordo Reductor
+    capacite: { source: ratio_points, ratio: 0.5 }
+    phrase_pdf: "Jusqu'à 1/2 des points disponibles peuvent être dépensés dans ces formations"
+  - id: basilica
+    libelle: Basilica Potentis
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations"
+
+unites:
+  # ---- Taghmata & Legio Cybernetica ----
+  - id: primat_archimagos
+    nom: Primat Archimagos sur Abéant
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Rayon Eradicateur, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Commandant Suprême", "Blindage Renforcé", "Sauvegarde Invulnérable", "Prêtre ordonné"]
+    roles: [commandant_supreme]
+  - id: magos_auxiliaire
+    nom: Magos Auxiliaire
+    type: Pers
+    armes:
+      - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Commandant", "Meneur", "Sauvegarde Invulnérable", "Prêtre ordonné"]
+    roles: [personnage]
+  - id: scyllax
+    nom: Scyllax
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Bolter Maxima, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Automates"]
+  - id: technoserfs
+    nom: Technoserfs
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Mousquet laser, portee: (15cm), puissance: "Arme Légère" }
+    notes:
+      - "Automates"
+      - "Toute formation contenant une ou plusieurs de ces unités ne peut pas tenter d'accomplir l'ordre suivant sans qu'elles soient toutes transportées : Redéploiement"
+  - id: myrmidon_secutors
+    nom: Myrmidon Secutors
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Bolters Maxima, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Sauvegarde Invulnérable", "Obstinés", "Cette unité prend 2 places dans un Transport"]
+    taille_transport: 2
+  - id: myrmidon_destructors
+    nom: Myrmidon Destructors
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Faisceau de conversion, portee: 45cm, puissance: "MA4+" }
+      - { nom: Chargeurs-choc, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: ["Sauvegarde Invulnérable", "Obstinés", "Cette unité prend 2 places dans un Transport"]
+    taille_transport: 2
+  - id: char_karacnos
+    nom: Char d'assaut Karacnos
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Mousquets à foudre, portee: 45cm, puissance: "AP3+/AC5+, IC" }
+      - { nom: Batterie de Mortiers Karacnos, portee: 45cm, puissance: "2xAP4+/AC6+, Ind" }
+      - { nom: Bélier à choc, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: ["Blindage renforcé", "Marcheur"]
+    degats: { cd: 2 }
+  - id: krios
+    nom: Char de combat Krios
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à foudre, portee: 45cm, puissance: "2xAP3+/AC5+, IC" }
+      - { nom: Paire d'arquebuses volkites, portee: 30cm, puissance: "AP4+/AC6+" }
+    notes: ["Blindage renforcé", "Marcheur"]
+  - id: krios_venator
+    nom: Char de combat Krios Venator
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Pulsar pilonneur, portee: 45cm, puissance: "2xAC4+, Rpt" }
+      - { nom: Paire d'arquebuses volkites, portee: 30cm, puissance: "AP4+/AC6+" }
+    notes: ["Blindage renforcé", "Marcheur"]
+  - id: convoyeur_triaros
+    nom: Convoyeur Triaros
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Paire d'arquebuses volkites, portee: 30cm, puissance: "AP4+/AC6+" }
+      - { nom: Canons à bolts Mauler jumelés, portee: 30cm, puissance: "AP4+, Rpt" }
+      - { nom: Bélier-choc, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: ["Blindage renforcé", "Marcheur", "Transport (4 unités d'Inf)"]
+    degats: { cd: 2 }
+    transport:
+      capacite: 4
+      accepte: [technoserfs, scyllax, myrmidon_secutors, myrmidon_destructors, thallax, thallax_icarus, ursarax, escorte_serviteurs, magos_auxiliaire, primat_archimagos, technopretre_reductor]
+  - id: macrocarid_explorator
+    nom: Macrocarid Explorator
+    type: VB
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: 2x Canons laser jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Canons à bolts Mauler, portee: 30cm, puissance: "AP5+, Rpt" }
+    notes: ["Blindage renforcé", "Sauvegarde Invulnérable", "Marcheur", "Transport (2 unités d'Inf)"]
+    transport:
+      capacite: 2
+      accepte: [technoserfs, scyllax, myrmidon_secutors, myrmidon_destructors, thallax, thallax_icarus, ursarax, escorte_serviteurs, magos_auxiliaire, primat_archimagos, technopretre_reductor]
+  - id: castellax
+    nom: Castellax
+    type: VB
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à bolts Mauler, portee: 30cm, puissance: "AP5+, Rpt" }
+      - { nom: Bolters intégrés, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Chargeurs-choc, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: ["Automates", "Marcheur"]
+  - id: vorax
+    nom: Vorax
+    type: Inf
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Paire de Canons rotor, portee: 30cm, puissance: "AP5+, Rpt" }
+      - { nom: Paire de Canons rotor, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: Fusil à foudre, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Arrois à lame énergétiques, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Automates", "Infiltrateurs"]
+  - id: vultarax
+    nom: Vultarax
+    type: VL
+    vitesse: 35cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Electro-éclateur, portee: 30cm, puissance: "AP4+/AC4+" }
+      - { nom: Lanceurs Havoc jumelés, portee: 45cm, puissance: "AP4+/AC5+, FrtF" }
+    notes: ["Antigrav", "Éclaireurs"]
+  - id: arlatax
+    nom: Arlatax
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Canon à plasma, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Arrois à lame énergétiques, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Automates", "Marcheur", "Blindage Renforcé", "Infiltrateurs", "Réacteurs Dorsaux"]
+  - id: domitar
+    nom: Domitar
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Lance-missile Domitar, portee: 45cm, puissance: "AP5+/AC5+/AA6+" }
+      - { nom: Marteaux à graviton, portee: (15cm), puissance: "Arme Légère, IC" }
+      - { nom: Marteaux à graviton, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Automates", "Marcheur", "Blindage Renforcé"]
+  - id: thanatar_cavas
+    nom: Thanatar Cavas
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Mortier à plasma, portee: 45cm, puissance: "1PB, IC, Ind" }
+      - { nom: Canons à bolts Mauler jumelés, portee: 30cm, puissance: "AP4+, Rpt" }
+      - { nom: Chargeurs-choc, portee: (contact), puissance: "Arme d'Assaut, +1A" }
+    notes: ["Automates", "Marcheur", "Blindage Renforcé"]
+  - id: thanatar_calix
+    nom: Thanatar Calix
+    type: VB
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Laser lourd Sollex, portee: 45cm, puissance: "AP6+/AC3+, Lance" }
+      - { nom: Canons à bolts Mauler jumelés, portee: 30cm, puissance: "AP4+, Rpt" }
+      - { nom: Bélier à gravitons, portee: (contact), puissance: "Arme d'Assaut, MA" }
+    notes: ["Automates", "Marcheur", "Blindage Renforcé"]
+
+  # ---- Ordo Reductor & Questor Mechanicus ----
+  - id: technopretre_reductor
+    nom: Technoprêtre de l'Ordo Reductor
+    type: Pers
+    vitesse: 15cm
+    armes:
+      - { nom: Faisceau de conversion, portee: 45cm, puissance: "MA4+" }
+      - { nom: Hache de l'Omnimessie, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Meneur", "Sauvegarde Invulnérable", "Prêtre ordonné", "Une unité ne peut contenir qu'un seul Technoprêtre de l'Ordo Reductor."]
+    roles: [personnage]
+  - id: escorte_serviteurs
+    nom: Escorte de Serviteurs
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Lance-Plasma Lourds, portee: 30cm, puissance: "AP5+/AC5+" }
+      - { nom: Servo-armes, portee: (contact), puissance: "Arme d'Assaut" }
+    notes:
+      - "Automates"
+      - "Toute formation contenant une ou plusieurs de ces unités ne peut pas tenter d'accomplir l'ordre suivant sans être transportée : Redéploiement"
+  - id: thallax
+    nom: Thallax
+    type: Inf
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Multi-fuseur, portee: 15cm, puissance: "MA5+" }
+      - { nom: Multi-fuseur, portee: (15cm), puissance: "Arme Légère, MA" }
+      - { nom: Fusils à foudre, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Réacteurs Dorsaux", "Cette unité prend 2 places dans un Transport"]
+    taille_transport: 2
+  - id: thallax_icarus
+    nom: Thallax Icarus
+    type: Inf
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Pulseurs à photons, portee: 30cm, puissance: "AP5+/AC5+/AA5+" }
+      - { nom: Fusils à foudre, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Réacteurs Dorsaux", "Cette unité prend 2 places dans un Transport"]
+    taille_transport: 2
+  - id: ursarax
+    nom: Ursarax
+    type: Inf
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Incinérateurs Volkites, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Griffes éclair, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Réacteurs Dorsaux", "Infiltrateur"]
+  - id: medusa
+    nom: Medusa
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Médusa, portee: 60cm, puissance: "MA4+, IC" }
+      - { nom: Bolter lourd, portee: 30cm, puissance: "AP5+" }
+  - id: minotaure
+    nom: Minotaure
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: 2x Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: 2x Canon Tremble-Terre (ou), portee: 120cm, puissance: "AP4+/AC4+" }
+    notes: ["Blindage Renforcé"]
+    degats: { cd: 2, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
+  - id: ordinatus_sagittar
+    nom: Ordinatus Minoris Sagittar
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Volcano (FF), portee: 90cm, puissance: "MA2+, TT (D3), FrtF" }
+      - { nom: Couleuvrine Volkite (Droit), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Drt" }
+      - { nom: Couleuvrine Volkite (Gauche), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Gch" }
+      - { nom: Couleuvrine Volkite (Arrière), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Arr" }
+    degats: { cd: 2, bi: 2, critique: "Détruit" }
+  - id: ordinatus_ulator
+    nom: Ordinatus Minoris Ulator
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Destructeur sonique, portee: 75cm, puissance: "3PB, Rpt, FrtF" }
+      - { nom: Couleuvrine Volkite (Droit), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Drt" }
+      - { nom: Couleuvrine Volkite (Gauche), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Gch" }
+      - { nom: Couleuvrine Volkite (Arrière), portee: 45cm, puissance: "AP4+/AC6+, Rpt, Arr" }
+    degats: { cd: 2, bi: 2, critique: "Détruit" }
+  - id: ordinatus_mars
+    nom: Ordinatus Mars
+    type: EG
+    vitesse: 10cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canon laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: Disrupteur sonique, portee: 100cm, puissance: "10PB, Rpt, IC, FrtF" }
+    notes: ["Blindage Arrière Renforcé", "Sans Peur"]
+    degats:
+      cd: 3
+      bi: 6
+      critique: "Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de chaque tour. Sur un 1, l'Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est réparée."
+  - id: lord_scion
+    nom: Lord Scion
+    type: Pers
+    armes:
+      - { nom: Arme de corps à corps, portee: (contact), puissance: "Arme d'assaut, +1A" }
+    notes: ["Meneur"]
+    roles: [personnage]
+  - id: moirax_contact
+    nom: Moirax (Contact)
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Veuglaire volkite, portee: 30cm, puissance: "AP4+/AC6+, Rpt" }
+      - { nom: Pince de siège, portee: (contact), puissance: "Arme d'Assaut, +1A, TT (1)" }
+    notes: ["Bouclier à Ion (5+)", "Marcheur", "Blindage Renforcé", "Éclaireurs"]
+  - id: moirax_tirailleur
+    nom: Moirax (Tirailleur)
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Mousquet à foudre, portee: 45cm, puissance: "AP3+/AC5+, IC" }
+    notes: ["Bouclier à Ion (5+)", "Marcheur", "Blindage Renforcé", "Éclaireurs"]
+  - id: magaera
+    nom: Magaera
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Canon à foudre, portee: 45cm, puissance: "2xAP3+/AC5+, IC" }
+      - { nom: Pince de siège Hekaton, portee: (contact), puissance: "Arme d'Assaut, +1A, TT (1)" }
+      - { nom: Irradieur, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: ["Bouclier à Ion (4+)", "Blindage renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: styrix
+    nom: Styrix
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Chiérovile Volkite, portee: 45cm, puissance: "2xAP3+/AC5+, Lance" }
+      - { nom: Pince de siège Hekaton, portee: (contact), puissance: "Arme d'Assaut, +1A, TT (1)" }
+      - { nom: Irradieur, portee: (15cm), puissance: "Arme Légère, +1A" }
+    notes: ["Bouclier à Ion (4+)", "Blindage renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: atropos
+    nom: Atrapos
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "3+"
+    armes:
+      - { nom: Découpeur de phase Atrapos, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
+      - { nom: Découpeur de phase Atrapos (ou), portee: (15cm), puissance: "Arme légère, +1A, MA" }
+      - { nom: Canon à singularité, portee: 30cm, puissance: "2xAP5+/AC4+, Lance" }
+    notes: ["Bouclier à Ion (4+)", "Blindage renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: asterius
+    nom: Asterius
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Canons à conversion lourds jumelés, portee: 60cm, puissance: "2xMA3+" }
+      - { nom: Mortiers Karacnos, portee: 60cm, puissance: "2xAP3+/AC6+" }
+      - { nom: 2x Couleuvrine Volkite, portee: 45cm, puissance: "AP4+/AC6+, Rpt" }
+    notes: ["Bouclier à Ion (4+)", "Blindage Renforcé", "Marcheur", "Sans Peur"]
+    degats:
+      cd: 3
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur 1 le réacteur explose, détruisant l'Asterius et infligeant une touche sur 6+ à toute unité dans un rayon de 5cm. Sur 2-3, l'Asterius subit un point de dommage supplémentaire. Sur 4-6 la fissure est réparée."
+
+  # ---- Basilica Potentis ----
+  - id: avenger
+    nom: Avenger
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canon Avenger, portee: 30cm, puissance: "AP3+/AC5+, FrtF" }
+      - { nom: Canon Laser (AA), portee: 30cm, puissance: "AC5+/AA6+, FrtF" }
+      - { nom: Mitrailleuse Lourde (AA), portee: 30cm, puissance: "AA6+, Arr" }
+  - id: lightning_strike
+    nom: Lightning Strike Fighters
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons Laser Jumelés (FF+AA), portee: 30cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Skystrikes, portee: 30cm, puissance: "AA4+, FrtF" }
+  - id: croiseur_lunar
+    nom: Croiseur Lunar
+    type: VS
+    armes:
+      - { nom: Bombardement orbital (3), portee: "∞", puissance: "3PB, MA" }
+      - { nom: Frappe chirurgicale, portee: "∞", puissance: "MA2+, TT (D3)" }
+  - id: ark_mechanicus
+    nom: Ark Mechanicus
+    type: VS
+    armes:
+      - { nom: Bombardement orbital (8), portee: "∞", puissance: "8PB, MA" }
+    notes: ["Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne précise le contraire."]
+  - id: titan_warhound
+    nom: Titan Warhound de Croisade
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Éradicateur Volkite léger, portee: 30cm, puissance: "3xAP3+/AC4+, Rpt, IC, Frt" }
+      - { nom: Lance-missile Warhound, portee: 45cm, puissance: "4xAP4+/AC4+, Frt" }
+    notes:
+      - "Blindage Renforcé"
+      - "Marcheur"
+      - "Sans peur"
+      - "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur 1 le réacteur explose, détruisant le Warhound et infligeant une touche sur 6+ à toute unité dans un rayon de 5cm. Sur 2-3, le Warhound subit un point de dommage supplémentaire. Sur 4-6 la fissure est réparée."
+  - id: titan_direwolf
+    nom: Titan Direwolf de Croisade
+    type: EG
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Dissipateur de Conversion, portee: 60cm, puissance: "3xMA3+, FrtF" }
+      - { nom: Ardex defensor mega-bolters jumelés, portee: 15cm, puissance: "4xAP3+/AC6+, Frt" }
+      - { nom: Ardex defensor mega-bolters jumelés, portee: (15cm), puissance: "Arme légère, +1A" }
+    notes:
+      - "Blindage Renforcé"
+      - "Marcheur"
+      - "Sans peur"
+      - "Éclaireurs"
+      - "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur 1 le réacteur explose, détruisant le Direwolf et infligeant une touche sur 6+ à toute unité dans un rayon de 5cm. Sur 2-3, le Direwolf subit un point de dommage supplémentaire. Sur 4-6 la fissure est réparée."
+  - id: titan_reaver
+    nom: Titan Reaver de Croisade
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Éradicateur Volkite, portee: 45cm, puissance: "3xAP3+/AC4+, Rpt, IC, FrtF" }
+      - { nom: Multi-Lasers de Carapace, portee: 30cm, puissance: "AP5+/AC6+/AA5+" }
+      - { nom: Canon Fuseur, portee: 30cm, puissance: "2xMA3+, TT (1), Frt" }
+      - { nom: Canon Fuseur, portee: (15cm), puissance: "Arme Légère, +1A, TT (D3), Frt" }
+      - { nom: Poing Tronçonneur, portee: (contact), puissance: "Arme d'Assaut, +6A, MA, Frt" }
+    notes:
+      - "Blindage Renforcé"
+      - "Marcheur"
+      - "Sans peur"
+      - "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"
+    degats:
+      cd: 6
+      bi: 4
+      critique: "Le réacteur à plasma se fissure. Lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur 1 le réacteur explose, détruisant le Reaver et infligeant une touche sur 6+ à toute unité dans un rayon de 5cm. Sur 2-3, le Reaver subit un point de dommage supplémentaire. Sur 4-6 la fissure est réparée."
+
+  # ---- Mechanicum Obscur ----
+  - id: harpax
+    nom: Harpax « Swarmer »
+    type: Inf
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Répéteurs exo-planaires, portee: (15cm), puissance: "Armes légères, Lance" }
+    notes: ["Réacteurs dorsaux", "Automate"]
+  - id: scintillax
+    nom: Scintillax « Cyclops »
+    type: VB
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Laser d'assaut, portee: 45cm, puissance: "AP3+/AC6+" }
+    notes: ["BC1", "Marcheur", "Blindage renforcé", "Automate", "Meneur", "Prêtre Ordonné"]
+  - id: errax
+    nom: Errax « Butcher »
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Fuseur Errax, portee: (15cm), puissance: "Arme Légère, MA" }
+      - { nom: Dendrites d'assaut, portee: (contact), puissance: "Arme d'Assaut, +2A, MA" }
+    notes: ["BC1", "Marcheur", "Blindage renforcé", "Automate"]
+  - id: tenebrax
+    nom: Tenebrax « Archer »
+    type: VB
+    vitesse: 25cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Laser d'assaut dépeceur, portee: 45cm, puissance: "2xAP3+/AC5+, Ignore les Boucliers" }
+      - { nom: Canon exo-planaire, portee: 30cm, puissance: "AP3+/AC6+, Lance" }
+    notes: ["BC1", "Marcheur", "Blindage renforcé", "Automate"]
+  - id: serperos_bombarde
+    nom: Serperos « Overlord » (Bombarde)
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Bombarde exo-planaire, portee: 45cm, puissance: "3PB, Lance, IC, FrtF" }
+      - { nom: Machine d'irradiation, portee: 30cm, puissance: "MA4+" }
+    notes: ["BC2", "Marcheur", "Blindage renforcé", "Automate"]
+    degats: { cd: 2 }
+  - id: serperos_laser
+    nom: Serperos « Overlord » (Laser)
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Batterie de Laser d'assaut, portee: 60cm, puissance: "4xAP3+/AC4+, Ignore les Boucliers, FrtF" }
+      - { nom: Machine d'irradiation, portee: 30cm, puissance: "MA4+" }
+    notes: ["BC2", "Marcheur", "Blindage renforcé", "Automate"]
+    degats: { cd: 2 }
+  - id: scorpios
+    nom: Scorpios Colossi
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Mega Canon Scorpios, portee: 30cm, puissance: "2xAP3+/AC5+" }
+      - { nom: Lance Flammes, portee: 15cm, puissance: "2x AP4+, IC" }
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: Canon Démolisseur (et), portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: 2x Griffes de Combat, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes:
+      - "Infiltrateur"
+      - "Marcheur"
+      - "Blindage Renforcé"
+      - "Sans Peur"
+      - "Sauvegarde Invulnérable"
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du Scorpios Colossi et de 2cm de large maximum."
+    degats:
+      cd: 3
+      critique: "Le Scorpios Colossi est détruit. Toutes les unités dans un rayon de 5cm subissent une touche sur 6+"
+
+options:
+  - id: adaptation_thallax
+    nom: Adaptation Thallax
+    effet:
+      type: choix
+      parmi:
+        - id: empyrite
+          nom: "0-1 Empyrite : la formation gagne Téléportation, limité à une formation de 6 unités"
+          cout: 50
+          effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+          contraintes: [{ type: max_par_armee, valeur: 1 }]
+        - id: icarus
+          nom: "Icarus : remplacer 2 unités Thallax par 2 Thallax Icarus"
+          cout: 50
+          effet: { type: remplacer, de: thallax, par: thallax_icarus, lot: 2, max: 1, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: domitar_castellax
+    nom: Domitar
+    effet: { type: remplacer, de: castellax, par: domitar, lot: 2, max: 1, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: Remplacer 2 Castellax par 2 Domitar
+  - id: domitar_thanatar
+    nom: Domitar
+    effet: { type: ajouter, cout: 50, unites: [{ unite: domitar, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: Ajouter 1 Domitar à la formation Thanatar
+  - id: gardes_scyllax
+    nom: Gardes Scyllax
+    effet: { type: ajouter, cout: 75, unites: [{ unite: scyllax, nombre: 4 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [magos_auxiliaire, primat_archimagos] }
+    note_md: "Réservée aux formations contenant au moins un Magos Auxiliaire et/ou un Primat Archimagos sur Abéant."
+  - id: levee_supplementaire
+    nom: Levée supplémentaire
+    effet: { type: ajouter, cout_par_unite: 25, lot: 2, unites: [{ unite: technoserfs, nombre: 2 }], max: 4 }
+    phrase_pdf: "Ajouter jusqu'à 8 unités de Technoserfs"
+  - id: lord_scion_opt
+    nom: Lord Scion
+    effet: { type: ajouter, cout: 25, unites: [{ unite: lord_scion, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: magos_auxiliaire_opt
+    nom: Magos auxiliaire
+    effet: { type: ajouter, cout: 50, unites: [{ unite: magos_auxiliaire, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: magos_primat
+    nom: 0-1 Magos primat
+    effet: { type: remplacer, de: magos_auxiliaire, par: primat_archimagos, lot: 1, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    phrase_pdf: Remplacer un Magos Auxiliaire par un Primat Archimagos sur Abéant
+  - id: mission_elargie
+    nom: Mission élargie
+    effet:
+      type: ajouter
+      cout: 175
+      unites: [{ unite: technopretre_reductor, nombre: 2 }, { unite: escorte_serviteurs, nombre: 4 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: ordinatus_minoris_opt
+    nom: Ordinatus Minoris
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi: [{ unite: ordinatus_sagittar, cout: 150 }, { unite: ordinatus_ulator, cout: 150 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 ou 2 Ordinatus Minoris (tous types), 150 pts chacun"
+  - id: parangons_de_metal
+    nom: 0-1 Parangons de métal
+    effet: { type: mot_cle, texte: Parangons de métal, cout: 75 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    phrase_pdf: Accorde la règle Parangons de métal à la formation
+  - id: transport
+    nom: Transport
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: besoin_transport }
+      parmi: [{ unite: convoyeur_triaros, cout: 75 }, { unite: macrocarid_explorator, cout: 75 }]
+    note_md: "Ajouter suffisamment de Convoyeur Triaros et/ou de Macrocarid Explorator pour transporter toute la formation sans qu'il ne reste de place libre. 75 pts chacun, 125 pts la paire (la remise par paire n'est pas calculée par le constructeur)."
+  - id: controleur_noospherique
+    nom: Contrôleur Noosphérique
+    effet: { type: ajouter, cout: 75, unites: [{ unite: scintillax, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: Ajouter 1 Scyntillax « Cyclope »
+
+formations:
+  # ---- Base, Legio Cybernetica ----
+  - id: cenacle_technoserfs
+    nom: Cénacle de Technoserfs
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: technoserfs, nombre: 12 }
+          - { unite: magos_auxiliaire, nombre: 1 }
+    contraintes: [{ type: consomme, budget: cenacles }]
+    options: [magos_primat, levee_supplementaire, transport, gardes_scyllax]
+    phrase_pdf: "0-1 par tranche de 1000 pts"
+  - id: manipule_castellax
+    nom: Manipule Castellax
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: castellax, nombre: 8 }
+          - { unite: magos_auxiliaire, nombre: 1 }
+    contraintes: [{ type: fournit, budget: krios_loyaliste, quantite: 1 }]
+    options: [magos_primat, domitar_castellax, gardes_scyllax]
+  - id: escadron_krios
+    nom: Escadron Krios
+    description: "0-1 par Manipule Castellax"
+    variantes:
+      - { id: krios, nom: 6 Char de combat Krios, cout: 325, composition: [{ unite: krios, nombre: 6 }] }
+      - { id: venator, nom: 6 Char de combat Krios Venator, cout: 325, composition: [{ unite: krios_venator, nombre: 6 }] }
+    contraintes: [{ type: consomme, budget: krios_loyaliste }]
+    options: []
+
+  # ---- Support, Legio Cybernetica ----
+  - id: ost_myrmidon
+    nom: Ost Myrmidon
+    variantes:
+      - id: quatre
+        nom: 4 unités de Myrmidons
+        cout: 150
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: myrmidon_secutors }, { unite: myrmidon_destructors }]
+              phrase_pdf: "4 unités de Myrmidons (tous types)"
+      - id: huit
+        nom: 8 unités de Myrmidons
+        cout: 300
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: myrmidon_secutors }, { unite: myrmidon_destructors }]
+              phrase_pdf: "8 unités de Myrmidons (tous types)"
+    options: [transport]
+  - id: manipule_vorax
+    nom: Manipule Vorax
+    variantes:
+      - { id: base, cout: 275, composition: [{ unite: vorax, nombre: 6 }] }
+    options: [parangons_de_metal]
+  - id: escadron_vultarax
+    nom: Escadron Vultarax
+    variantes:
+      - { id: quatre, nom: 4 Vultarax, cout: 200, composition: [{ unite: vultarax, nombre: 4 }] }
+      - { id: six, nom: 6 Vultarax, cout: 300, composition: [{ unite: vultarax, nombre: 6 }] }
+    options: []
+  - id: manipule_arlatax
+    nom: Manipule Arlatax
+    variantes:
+      - { id: base, cout: 250, composition: [{ unite: arlatax, nombre: 4 }] }
+    options: [parangons_de_metal]
+  - id: manipule_thanatar
+    nom: Manipule Thanatar
+    variantes:
+      - { id: cavas, nom: 4 Thanatar Cavas, cout: 275, composition: [{ unite: thanatar_cavas, nombre: 4 }] }
+      - { id: calix, nom: 4 Thanatar Calix, cout: 275, composition: [{ unite: thanatar_calix, nombre: 4 }] }
+    options: [magos_auxiliaire_opt, parangons_de_metal, domitar_thanatar, gardes_scyllax]
+  - id: escadron_karacnos
+    nom: Escadron Karacnos
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: char_karacnos, nombre: 3 }] }
+    options: []
+
+  # ---- Base, Mechanicum Obscur ----
+  - id: cenacle_technoserfs_obscur
+    nom: Cénacle de Technoserfs
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: technoserfs, nombre: 12 }
+          - { unite: magos_auxiliaire, nombre: 1 }
+    contraintes: [{ type: consomme, budget: cenacles }]
+    options: [magos_primat, levee_supplementaire, transport, gardes_scyllax]
+    phrase_pdf: "0-1 par tranche de 1000 pts"
+  - id: cohorte_tenebrax
+    nom: Cohorte Tenebrax
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: tenebrax, nombre: 4 }] }
+    contraintes: [{ type: fournit, budget: krios_renegat, quantite: 1 }]
+    options: [controleur_noospherique]
+  - id: ost_harpax
+    nom: Ost Harpax
+    variantes:
+      - { id: base, cout: 325, composition: [{ unite: harpax, nombre: 8 }] }
+    options: []
+
+  # ---- Support, Mechanicum Obscur ----
+  - id: escadron_krios_obscur
+    nom: Escadron Krios
+    description: "0-1 par Cohorte Tenebrax"
+    variantes:
+      - { id: krios, nom: 6 Char de combat Krios, cout: 325, composition: [{ unite: krios, nombre: 6 }] }
+      - { id: venator, nom: 6 Char de combat Krios Venator, cout: 325, composition: [{ unite: krios_venator, nombre: 6 }] }
+    contraintes: [{ type: consomme, budget: krios_renegat }]
+    options: []
+  - id: cohort_errax
+    nom: Cohort Errax
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: errax, nombre: 4 }] }
+    options: [controleur_noospherique]
+  - id: manipule_serperos
+    nom: Manipule Serperos
+    description: "175 pts chacun"
+    variantes:
+      - id: deux
+        nom: 2 Serperos « Overlord »
+        cout: 350
+        composition:
+          - choix:
+              total: 2
+              parmi: [{ unite: serperos_bombarde }, { unite: serperos_laser }]
+              phrase_pdf: "2 Serperos « Overlord »"
+      - id: trois
+        nom: 3 Serperos « Overlord »
+        cout: 525
+        composition:
+          - choix:
+              total: 3
+              parmi: [{ unite: serperos_bombarde }, { unite: serperos_laser }]
+              phrase_pdf: "3 Serperos « Overlord »"
+    options: [controleur_noospherique]
+  - id: scorpios_colossi
+    nom: 0-1 Scorpios Colossi
+    description: "225 pts chacun"
+    variantes:
+      - { id: un, nom: 1 Scorpios, cout: 225, composition: [{ unite: scorpios, nombre: 1 }] }
+      - { id: deux, nom: 2 Scorpios, cout: 450, composition: [{ unite: scorpios, nombre: 2 }] }
+      - { id: trois, nom: 3 Scorpios, cout: 675, composition: [{ unite: scorpios, nombre: 3 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
+    options: []
+  - id: escadron_karacnos_obscur
+    nom: Escadron Karacnos
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: char_karacnos, nombre: 3 }] }
+    options: []
+
+  # ---- Questor Mechanicus ----
+  - id: armigeres_moirax
+    nom: Armigères Moirax
+    variantes:
+      - id: quatre
+        nom: 4 Moirax
+        cout: 250
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: moirax_contact }, { unite: moirax_tirailleur }]
+              phrase_pdf: "4 Moirax"
+      - id: six
+        nom: 6 Moirax
+        cout: 375
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: moirax_contact }, { unite: moirax_tirailleur }]
+              phrase_pdf: "6 Moirax"
+    options: []
+  - id: mechanicus_magaera
+    nom: Mechanicus Magaera
+    variantes:
+      - { id: trois, nom: 3 Magaera, cout: 350, composition: [{ unite: magaera, nombre: 3 }] }
+      - { id: quatre, nom: 4 Magaera, cout: 475, composition: [{ unite: magaera, nombre: 4 }] }
+    options: [lord_scion_opt]
+  - id: mechanicus_styrix
+    nom: Mechanicus Styrix
+    variantes:
+      - { id: trois, nom: 3 Styrix, cout: 350, composition: [{ unite: styrix, nombre: 3 }] }
+      - { id: quatre, nom: 4 Styrix, cout: 475, composition: [{ unite: styrix, nombre: 4 }] }
+    options: [lord_scion_opt]
+  - id: mechanicus_atropos
+    nom: Mechanicus Atropos
+    variantes:
+      - { id: trois, nom: 3 Atropos, cout: 375, composition: [{ unite: atropos, nombre: 3 }] }
+      - { id: quatre, nom: 4 Atropos, cout: 500, composition: [{ unite: atropos, nombre: 4 }] }
+    options: [lord_scion_opt]
+  - id: mechanicus_asterius
+    nom: Mechanicus Asterius
+    variantes:
+      - { id: un, nom: 1 Asterius, cout: 300, composition: [{ unite: asterius, nombre: 1 }] }
+      - { id: deux, nom: 2 Asterius, cout: 550, composition: [{ unite: asterius, nombre: 2 }] }
+    options: []
+
+  # ---- Ordo Reductor ----
+  - id: cohorte_thallax
+    nom: Cohorte Thallax
+    variantes:
+      - { id: six, nom: 6 unités de Thallax, cout: 225, composition: [{ unite: thallax, nombre: 6 }] }
+      - { id: huit, nom: 8 unités de Thallax, cout: 300, composition: [{ unite: thallax, nombre: 8 }] }
+    options: [magos_auxiliaire_opt, magos_primat, transport, adaptation_thallax, gardes_scyllax]
+  - id: cohorte_ursarax
+    nom: Cohorte Ursarax
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: ursarax, nombre: 8 }] }
+    options: []
+  - id: couvent_reductor
+    nom: Couvent Reductor
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - { unite: technopretre_reductor, nombre: 2 }
+          - { unite: escorte_serviteurs, nombre: 4 }
+    options: [mission_elargie, transport]
+  - id: batterie_artillerie
+    nom: Batterie d'artillerie
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: medusa, nombre: 3 }] }
+    options: []
+  - id: batterie_minotaures
+    nom: Batterie Minotaures
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: minotaure, nombre: 2 }] }
+    options: []
+  - id: ordinatus_minoris
+    nom: Ordinatus Minoris
+    variantes:
+      - { id: sagittar, nom: 1 Ordinatus Minoris Sagittar, cout: 200, composition: [{ unite: ordinatus_sagittar, nombre: 1 }] }
+      - { id: ulator, nom: 1 Ordinatus Minoris Ulator, cout: 200, composition: [{ unite: ordinatus_ulator, nombre: 1 }] }
+    options: [ordinatus_minoris_opt]
+  - id: formation_ordinatus_mars
+    nom: Ordinatus Mars
+    description: "Pour chaque Ordinatus Mars sélectionné après le premier, vous devez sélectionner un Couvent Reductor (règle non vérifiée par le constructeur)."
+    variantes:
+      - { id: base, cout: 400, composition: [{ unite: ordinatus_mars, nombre: 1 }] }
+    options: []
+
+  # ---- Basilica Potentis ----
+  - id: escadron_avengers
+    nom: Escadron Avengers
+    variantes:
+      - { id: deux, nom: 2 Avengers, cout: 150, composition: [{ unite: avenger, nombre: 2 }] }
+      - { id: trois, nom: 3 Avengers, cout: 225, composition: [{ unite: avenger, nombre: 3 }] }
+    options: []
+  - id: escadron_primaris_lightning
+    nom: Escadron Primaris Lighting
+    variantes:
+      - { id: deux, nom: 2 Lightning Strike Fighters, cout: 175, composition: [{ unite: lightning_strike, nombre: 2 }] }
+      - { id: trois, nom: 3 Lightning Strike Fighters, cout: 250, composition: [{ unite: lightning_strike, nombre: 3 }] }
+    options: []
+  - id: soutien_orbital
+    nom: Soutien Orbital
+    variantes:
+      - { id: croiseur, nom: 1 Croiseur Lunar, cout: 150, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
+      - { id: ark, nom: 1 Ark Mechanicus, cout: 300, composition: [{ unite: ark_mechanicus, nombre: 1 }] }
+    options: []
+  - id: formation_titan_warhound
+    nom: Titan Warhound
+    variantes:
+      - { id: un, nom: 1 Titan Warhound de croisade, cout: 275, composition: [{ unite: titan_warhound, nombre: 1 }] }
+      - { id: deux, nom: 2 Titan Warhound de croisade, cout: 500, composition: [{ unite: titan_warhound, nombre: 2 }] }
+    options: []
+  - id: formation_titan_direwolf
+    nom: Titan Direwolf
+    description: "350 pts dans la liste Renégat : écart entre les deux pages du PDF, la valeur Loyaliste fait foi ici."
+    variantes:
+      - { id: base, nom: 1 Titan Direwolf de croisade, cout: 325, composition: [{ unite: titan_direwolf, nombre: 1 }] }
+    options: []
+  - id: formation_titan_reaver
+    nom: Titan Reaver
+    variantes:
+      - { id: base, nom: 1 Titan Reaver de croisade, cout: 650, composition: [{ unite: titan_reaver, nombre: 1 }] }
+    options: []
+
+sections:
+  - id: base_loyaliste
+    titre: FORMATIONS DE BASE DE LA LEGIO CYBERNETICA
+    sous_titre: TAGHMATA OMNISSIAH - LOYALISTE
+    formations: [cenacle_technoserfs, manipule_castellax, escadron_krios]
+    contraintes: [{ type: fournit, budget: slot_support_loyaliste, quantite: 2 }]
+    colonne_options: true
+  - id: support_loyaliste
+    titre: FORMATIONS DE SUPPORT DE LA LEGIO CYBERNETICA
+    formations: [ost_myrmidon, manipule_vorax, escadron_vultarax, manipule_arlatax, manipule_thanatar, escadron_karacnos]
+    contraintes: [{ type: consomme, budget: slot_support_loyaliste }]
+    colonne_options: true
+    options: [adaptation_thallax, domitar_castellax, domitar_thanatar, gardes_scyllax, levee_supplementaire, lord_scion_opt, magos_auxiliaire_opt, magos_primat, mission_elargie, ordinatus_minoris_opt, parangons_de_metal, transport]
+    tableau_options:
+      titre: AMÉLIORATIONS DE TAGHMATA
+      sous_titre: "Chaque amélioration autorisée ne peut être prise qu'une seule fois par formation"
+  - id: base_renegat
+    titre: FORMATIONS DE BASE DU MECHANICUM OBSCUR
+    sous_titre: TAGHMATA OMNISSIAH - RENÉGAT
+    formations: [cenacle_technoserfs_obscur, cohorte_tenebrax, ost_harpax]
+    contraintes: [{ type: fournit, budget: slot_support_renegat, quantite: 2 }]
+    colonne_options: true
+  - id: support_renegat
+    titre: FORMATIONS DE SUPPORT DU MECHANICUM OBSCUR
+    formations: [escadron_krios_obscur, cohort_errax, manipule_serperos, scorpios_colossi, escadron_karacnos_obscur]
+    contraintes: [{ type: consomme, budget: slot_support_renegat }]
+    colonne_options: true
+    options: [controleur_noospherique, adaptation_thallax, gardes_scyllax, levee_supplementaire, lord_scion_opt, magos_auxiliaire_opt, magos_primat, mission_elargie, ordinatus_minoris_opt, transport]
+    tableau_options:
+      titre: AMÉLIORATIONS DE TAGHMATA (RENÉGAT)
+      sous_titre: "Chaque amélioration autorisée ne peut être prise qu'une seule fois par formation"
+  - id: questor_mechanicus
+    titre: FORMATIONS DU QUESTOR MECHANICUS
+    formations: [armigeres_moirax, mechanicus_magaera, mechanicus_styrix, mechanicus_atropos, mechanicus_asterius]
+    contraintes: [{ type: consomme, budget: questor, quoi: points }]
+    colonne_options: true
+  - id: ordo_reductor
+    titre: FORMATIONS DE L'ORDO REDUCTOR
+    formations: [cohorte_thallax, cohorte_ursarax, couvent_reductor, batterie_artillerie, batterie_minotaures, ordinatus_minoris, formation_ordinatus_mars]
+    contraintes: [{ type: consomme, budget: reductor, quoi: points }]
+    colonne_options: true
+  - id: basilikon_astra
+    titre: BASILIKON ASTRA
+    sous_titre: FORMATIONS DE SUPPORT DU BASILICA POTENTIS
+    formations: [escadron_avengers, escadron_primaris_lightning, soutien_orbital]
+    contraintes: [{ type: consomme, budget: basilica, quoi: points }]
+  - id: legio_titanicus
+    titre: LEGIO TITANICUS
+    sous_titre: FORMATIONS DE SUPPORT DU BASILICA POTENTIS
+    formations: [formation_titan_warhound, formation_titan_direwolf, formation_titan_reaver]
+    contraintes: [{ type: consomme, budget: basilica, quoi: points }, { type: initiative, valeur: "1+" }]
+
+listes_test:
+  - nom: "Ost loyaliste 3000 pts"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: cenacle_technoserfs
+        options: [{ option: magos_primat }, { option: levee_supplementaire, quantite: 2 }]
+      - formation: manipule_castellax
+        options: [{ option: domitar_castellax }]
+      - { formation: escadron_krios, variante: krios }
+      - { formation: manipule_thanatar, variante: cavas, options: [{ option: parangons_de_metal }] }
+      - { formation: escadron_karacnos }
+      - { formation: cohorte_thallax, variante: six }
+      - { formation: mechanicus_magaera, variante: trois }
+  - nom: "Ost renégat 3000 pts"
+    limite: 3000
+    attendu: valide
+    formations:
+      - { formation: cohorte_tenebrax, options: [{ option: controleur_noospherique }] }
+      - { formation: ost_harpax }
+      - { formation: escadron_krios_obscur, variante: venator }
+      - { formation: manipule_serperos, variante: deux, choix: { "0": { serperos_bombarde: 1, serperos_laser: 1 } }, options: [{ option: controleur_noospherique }] }
+      - { formation: scorpios_colossi, variante: un }
+      - { formation: formation_titan_warhound, variante: un }
+  - nom: "trop de supports pour une seule formation de base"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: manipule_castellax }
+      - { formation: manipule_vorax }
+      - { formation: escadron_vultarax, variante: quatre }
+      - { formation: manipule_arlatax }
+  - nom: "Escadron Krios sans Manipule Castellax"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: cenacle_technoserfs }
+      - { formation: escadron_krios, variante: krios }
+  - nom: "trois Cénacles au-delà du quota par tranche"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: cenacle_technoserfs }
+      - { formation: cenacle_technoserfs }
+      - { formation: cenacle_technoserfs }
+  - nom: "Basilica Potentis au-delà du tiers"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: manipule_castellax }
+      - { formation: formation_titan_reaver }
+      - { formation: formation_titan_warhound, variante: deux }
