@@ -953,7 +953,7 @@ formations:
               phrase_pdf: "3 Serperos « Overlord »"
     options: [controleur_noospherique]
   - id: scorpios_colossi
-    nom: 0-1 Scorpios Colossi
+    nom: Scorpios Colossi
     description: "225 pts chacun"
     variantes:
       - { id: un, nom: 1 Scorpios, cout: 225, composition: [{ unite: scorpios, nombre: 1 }] }

@@ -68,18 +68,25 @@ const tabColor = computed(() =>
  * la carte : le bouton « Construire » ne peut pas vivre dans un lien.
  */
 const cartes = computed(() => {
-  const m = new Map<string, { balise: 'NuxtLink' | 'a' | 'div'; to?: string; href?: string; rev?: string; builder?: string }>()
+  const m = new Map<string, { balise: 'NuxtLink' | 'a' | 'div'; to?: string; href?: string; rev?: string; builder?: string; slug?: string }>()
   for (const army of [...(betaArmies.value ?? []), ...(experimentalArmies.value ?? [])]) {
     const codex = codexDeArmee(tousCodex.value, army.id, army.name)
     const version = army.army_versions?.[0]
     const pdf = version?.pdf_url && version.pdf_url !== '#' ? version.pdf_url : undefined
-    if (codex) m.set(army.id, { balise: 'NuxtLink', to: `/armees/${army.faction}/${army.id}`, rev: codex.version, builder: `/builder/${codex.slug}` })
+    if (codex) m.set(army.id, { balise: 'NuxtLink', to: `/armees/${army.faction}/${army.id}`, rev: codex.version, builder: `/builder/${codex.slug}`, slug: codex.slug })
     else if (pdf) m.set(army.id, { balise: 'a', href: pdf, rev: version?.version })
     else m.set(army.id, { balise: 'div', rev: version?.version })
   }
   return m
 })
-const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const, to: undefined, href: undefined, rev: undefined, builder: undefined }
+const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const, to: undefined, href: undefined, rev: undefined, builder: undefined, slug: undefined }
+
+/* aperçu du PDF composé, dans le tiroir partagé avec les autres pages codex */
+const apercu = ref<{ slug: string; nom: string } | null>(null)
+const apercuOuvert = computed({
+  get: () => !!apercu.value,
+  set: (v: boolean) => { if (!v) apercu.value = null },
+})
 </script>
 
 <template>
@@ -196,7 +203,7 @@ const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const
               v-for="army in group.armies"
               :key="army.id"
               :class="[
-                'group relative flex items-center gap-4 rounded-xl border p-4 backdrop-blur-sm transition-all',
+                'group relative flex flex-wrap items-center gap-x-4 gap-y-3 rounded-xl border p-4 backdrop-blur-sm transition-all',
                 army.status === 'beta'
                   ? 'border-amber-500/10 bg-white/[0.04] hover:border-amber-500/25 hover:bg-white/[0.07]'
                   : 'border-purple-500/10 bg-white/[0.03] hover:border-purple-500/25 hover:bg-white/[0.06]',
@@ -232,7 +239,7 @@ const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const
                   {{ army.name[0] }}
                 </span>
               </div>
-              <div class="min-w-0">
+              <div class="min-w-[8rem] flex-1">
                 <p
                   :class="[
                     'font-semibold text-gray-200 transition-colors',
@@ -243,16 +250,23 @@ const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const
                 </p>
                 <p class="flex flex-wrap items-center gap-2 text-xs text-gray-500">
                   <span v-if="carteDe(army.id).rev">REV {{ carteDe(army.id).rev }}</span>
-                  <span v-if="carteDe(army.id).builder" class="rounded bg-gold/10 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-gold">Codex dynamique</span>
                 </p>
               </div>
-              <NuxtLink
-                v-if="carteDe(army.id).builder"
-                :to="carteDe(army.id).builder"
-                class="relative z-10 ml-auto shrink-0 rounded-lg border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
-              >
-                Construire
-              </NuxtLink>
+              <div v-if="carteDe(army.id).builder" class="relative z-10 ml-auto flex shrink-0 flex-wrap justify-end gap-2">
+                <NuxtLink
+                  :to="carteDe(army.id).builder"
+                  class="rounded-lg border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+                >
+                  Construire
+                </NuxtLink>
+                <button
+                  type="button"
+                  class="rounded-lg border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+                  @click="apercu = { slug: carteDe(army.id).slug!, nom: army.name }"
+                >
+                  Voir le PDF
+                </button>
+              </div>
               <svg v-else-if="carteDe(army.id).href" class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>
@@ -262,5 +276,7 @@ const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const
         </div>
       </div>
     </div>
+
+    <CodexVisionneusePdf v-if="apercu" v-model="apercuOuvert" :slug="apercu.slug" :nom="apercu.nom" />
   </div>
 </template>

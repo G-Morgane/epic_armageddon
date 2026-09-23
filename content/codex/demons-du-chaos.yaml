@@ -1,0 +1,696 @@
+# Démons du Chaos, transcrit depuis le PDF EAFR (pied de page : CODEX DÉMONS DU CHAOS - EAFR -
+# BETA - V0.1, publié sur le site en REV 0.2 — source de vérité).
+codex:
+  slug: demons-du-chaos
+  armee_id: 599a78d8-3463-4699-9eee-19419733562f
+  nom: Démons du Chaos
+  version: "0.2"
+  faction: chaos
+  categorie: armees-chaos
+  statut: beta
+  couleur: "#5c3a6e"
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/demons-du-chaos.png
+  citation:
+    texte: "Les intentions de leur sombre maître se reflètent sur le visage et l'apparence de ses émissaires."
+    auteur: Extrait du Liber Maleficarum
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de Démons du Chaos telles celles qui apparaissent lors des grandes incursions démoniaques. Les armées de Démons du Chaos sont organisées en formations appelées détachements.
+
+    Chaque détachement peut recevoir des améliorations. La liste d'armée indique pour chaque détachement quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement pour un maximum de quatre par détachement. Les améliorations font partie intégrante des détachements et doivent respecter les règles de cohésion. Notez que certaines améliorations remplacent des unités d'un détachement tandis que d'autres ajoutent des unités supplémentaires.
+  regles_md:
+    - titre: "Règle spéciale : Factions"
+      texte: |
+        Chaque formation dans une armée de Démons du Chaos appartient à une faction qui prête allégeance à l'un des Dieux du Chaos (Khorne, Nurgle, Slaanesh ou Tzeentch) ou au Chaos Universel.
+
+        À l'exception de celles vénérant le Chaos Universel, les différentes factions ne s'entendent pas toutes bien, et certaines entretiennent entre elles des haines millénaires.
+
+        Les unités et les améliorations sélectionnées pour une formation doivent appartenir à la même faction (pas de Héraut de Khorne dans une formation de Nurgle). Certaines améliorations sont spécifiques à une faction, qui est alors indiquée entre parenthèses. Un Commandant d'une faction ne peut pas utiliser sa règle Commandant avec un détachement d'une autre faction.
+
+        **Khorne** : Buveur de Sang, Sanguinaires, Équarrisseurs, Chiens de Khorne, Canon de Khorne, Héraut de Khorne, Preneur de Crâne. **Tzeentch** : Duc du Changement, Incendiaires, Hurleurs, Chariots de feu, Héraut de Tzeentch. **Nurgle** : Grand Immonde, Portepestes, Nurglings, Mouches de Nurgle, Bêtes de Nurgle, Crapauds de la peste, Héraut de Nurgle, Jardinier de Nurgle. **Slaanesh** : Gardien des Secrets, Démonettes, Veneuses, Bêtes de Slaanesh, Chariots de Slaanesh, Héraut de Slaanesh, Ravisseur infernal, Le Masque.
+
+        Le constructeur ne sait pas vérifier la faction d'une formation : à vous de ne pas mélanger deux Dieux dans un même détachement.
+    - titre: "Règle spéciale : Exalté"
+      texte: |
+        Un seul Démon Majeur de l'armée peut devenir gratuitement un Démon Majeur Exalté. Il gagne la règle Commandant Suprême.
+
+        Si vous jouez la Cour du Premier Prince, alors le Prince Démon de la Cour du Premier Prince devient Commandant Suprême à la place.
+    - titre: "Règle spéciale : Sacrifiables"
+      texte: |
+        Les unités Sacrifiables ne génèrent pas de pion impact lorsqu'elles sont détruites. Cependant, les unités Sacrifiables comptent dans le calcul des pertes lors de la résolution d'un assaut.
+    - titre: "Règle spéciale : Instables"
+      texte: |
+        Les démons sont instables. Une fois démoralisés, chaque pion d'impact leur fera perdre 2 socles au lieu de 1. Les Démons majeurs ne perdent que 1 CD.
+    - titre: "Règle spéciale : Portail Démoniaque"
+      texte: |
+        Lors des grandes invasions démoniaques, les Démons s'infiltrent dans le monde réel par de gigantesques failles Warp. Ces failles servent de portails qui permettent aux démons de se matérialiser pour quelques heures, jours ou semaines.
+
+        Chaque portail démoniaque permet de mettre jusqu'à 3 formations de démons en réserve. Dans le scénario du Grand Tournoi, les formations avec plusieurs options de déploiement doivent désigner leur méthode de déploiement durant le déploiement (Portail, aéronef, Faille Démoniaque…).
+
+        Le joueur Démons du Chaos peut remplacer gratuitement son objectif Blitz par un Portail. Il compte à la fois comme un objectif et un Portail. Il peut remplacer un seul marqueur d'objectif supplémentaire dans sa moitié de table par un Portail s'il en a payé l'option. Un portail ne peut être ni attaqué, ni détruit.
+
+        Un Portail Démoniaque permet, lors de la phase de Téléportation, d'invoquer une et une seule formation de démons préalablement sélectionnée lors de la composition de l'armée. La formation invoquée apparaît à moins de 15cm du portail démoniaque, et hors des zones de contrôle ennemies. Si cela n'est pas possible, alors la formation ne peut pas être déployée.
+
+        On ne peut invoquer qu'une seule formation de démons par Portail Démoniaque et par tour. La formation invoquée ne subit pas de PI suite à sa « téléportation ». Elle devient immédiatement une formation à part entière et en suit les règles habituelles d'activation, de cohésion, etc.
+    - titre: "Règle spéciale : Faille démoniaque"
+      texte: |
+        Les Démons du Chaos peuvent apparaître via des Failles démoniaques. Une Faille démoniaque permet de déployer jusqu'à 2 détachements de Démons du Chaos en suivant les règles d'Assaut planétaire indépendant. Ne prenez qu'une seule coordonnée par Faille Démoniaque, qui sera utilisée pour déployer les 2 détachements liés à la Faille (les 2 détachements seront donc déployés dans les 15cm de la Faille démoniaque).
+
+        La Faille démoniaque compte comme une activation. Les formations déployées ainsi deviennent immédiatement des formations à part entière et en suivent les règles habituelles d'activation, de cohésion, etc.
+    - titre: "Règle spéciale : Cacophonie Psychique"
+      texte: |
+        Lors des invasions démoniaques, le ciel se couvre de nuages chargés d'énergie psychique. Lors de leur entrée en jeu, les aéronefs ennemis subissent 1 tir AA6+ par formation.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture par Tze Kun Chin."
+  valeur_strategique: 1
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Formations comprenant un Démon Majeur et Failles Démoniaques", valeur: "1+" }
+
+budgets:
+  - id: soutien
+    libelle: Formations de soutien
+    capacite: { source: fournitures }
+    phrase_pdf: "Maximum 2 formations de soutien par détachement de Démons du Chaos"
+  - id: rare
+    libelle: Formations rares
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Maximum 1/3 des points"
+
+unites:
+  # ---- Khorne ----
+  - id: buveur_sang
+    nom: Buveur de Sang
+    type: EG
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Hache de Khorne, portee: (contact), puissance: "Armes d'assaut, +2A, TT (1)" }
+      - { nom: Fouet de Khorne, portee: (contact), puissance: "Armes d'assaut, +1A, TT (1)" }
+    notes: ["Blindage Renforcé", "Charismatique", "Marcheur", "Meneur", "Réacteurs Dorsaux", "Sauvegarde Invulnérable"]
+    degats:
+      cd: 3
+      critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6."
+  - id: sanguinaires
+    nom: Sanguinaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Lame d'Enfer, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: ["Sauvegarde Invulnérable", "Instables"]
+  - id: equarrisseurs
+    nom: Équarrisseurs de Khorne
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Lame d'Enfer, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: ["Sauvegarde Invulnérable", "Montés"]
+  - id: chien_khorne
+    nom: Chien de Khorne
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Crocs Démoniaques, portee: (contact), puissance: "Armes d'assaut, +1A" }
+    notes: ["Sauvegarde Invulnérable"]
+  - id: karanak
+    nom: Karanak
+    type: Inf
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "5+"
+    armes:
+      - { nom: Crocs Démoniaques, portee: (contact), puissance: "Armes d'assaut, +1A" }
+      - { nom: Rugissement infernal, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Sauvegarde Invulnérable", "Charismatique", "Meneur"]
+  - id: canon_khorne
+    nom: Canon de Khorne
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Feu d'Enfer, portee: 60cm, puissance: "MA4+" }
+    notes: ["Sans Peur", "Sauvegarde Invulnérable"]
+  - id: heraut_khorne
+    nom: Héraut de Khorne
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Commandant", "Meneur", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+  - id: preneur_cranes
+    nom: Preneur de Crâne
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Charismatique", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+
+  # ---- Tzeentch ----
+  - id: duc_changement
+    nom: Duc du Changement
+    type: EG
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Regard Cinglant, portee: 30cm, puissance: "2x MA3+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+      - { nom: Bâton de Chari Vari, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Blindage Renforcé", "Charismatique", "Marcheur", "Meneur", "Réacteurs Dorsaux", "Sauvegarde Invulnérable"]
+    degats:
+      cd: 3
+      critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6."
+  - id: incendiaires
+    nom: Incendiaires
+    type: Inf
+    vitesse: 15cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Flammes de Tzeentch, portee: (15cm), puissance: "Armes légères, IC" }
+    notes: ["Sauvegarde Invulnérable", "Instables"]
+  - id: incendiaire_exalte
+    nom: Incendiaire Exalté
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Flammes de Tzeentch, portee: (15cm), puissance: "Armes légères, IC" }
+      - { nom: Feu de Tzeentch, portee: 15cm, puissance: "AP4+/AC6+, IC" }
+    notes: ["Sauvegarde Invulnérable", "Instables"]
+  - id: hurleurs
+    nom: Hurleurs de Tzeentch
+    type: Inf
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Crocs, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Attaque de nuée, portee: 15cm, puissance: "AA6+" }
+      - { nom: Hurlement de Tzeentch, portee: 30cm, puissance: "AP5+" }
+    notes: ["Sauvegarde Invulnérable", "Antigrav"]
+  - id: chariot_feu
+    nom: Chariot de Feu
+    type: VL
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Crocs, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Flammes de Tzeentch, portee: (15cm), puissance: "Armes légères, IC" }
+      - { nom: 2x Feu de Tzeentch, portee: 15cm, puissance: "AP4+/AC6+, IC" }
+    notes: ["Antigrav", "Sauvegarde Invulnérable"]
+  - id: heraut_tzeentch
+    nom: Héraut de Tzeentch
+    type: Perso
+    armes:
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Armes légères, +1A, MA" }
+    notes: ["Commandant", "Meneur", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+
+  # ---- Nurgle ----
+  - id: grand_immonde
+    nom: Grand Immonde
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "5+"
+    armes:
+      - { nom: Nuée de Nurglings, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+      - { nom: et, portee: (souffle), puissance: "AP4+/AC5+, IC, Rpt" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, IC" }
+    notes: ["Blindage Renforcé", "Charismatique", "Meneur", "Marcheur", "Sauvegarde Invulnérable"]
+    degats:
+      cd: 4
+      critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6."
+  - id: portepestes
+    nom: Portepestes
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Épée de la Peste, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Nuée de Mouches, portee: (15cm), puissance: "Armes légères" }
+    notes: ["Sauvegarde Invulnérable", "Instables"]
+  - id: mouches_nurgle
+    nom: Mouches de Nurgle
+    type: Inf
+    vitesse: 25cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "6+"
+    armes:
+      - { nom: Épée de la Peste, portee: (contact), puissance: "Armes d'assaut" }
+      - { nom: Attaque de nuée, portee: 15cm, puissance: "AA6+" }
+      - { nom: Nuée de Mouches, portee: (15cm), puissance: "Armes légères" }
+    notes: ["Montés", "Sauvegarde Invulnérable", "Antigrav"]
+  - id: bete_nurgle
+    nom: Bête de Nurgle
+    type: VL
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes Démoniaques, portee: (contact), puissance: "Armes d'assaut" }
+    notes: ["Infiltrateurs", "Sauvegarde Invulnérable"]
+  - id: crapaud_peste
+    nom: Crapaud de la Peste
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Langue préhensile, portee: (contact), puissance: "Armes d'assaut, +1A, FeP" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères" }
+      - { nom: Épée de la Peste, portee: (contact), puissance: "Armes d'assaut" }
+    notes: ["Marcheur", "Sauvegarde Invulnérable"]
+  - id: nurgling
+    nom: Nurgling
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "-"
+    armes:
+      - { nom: Griffes Démoniaques, portee: (contact), puissance: "Armes d'assaut" }
+    notes: ["Sauvegarde Invulnérable", "Sacrifiables", "Infiltrateur", "Ne comptent pas pour déterminer le vainqueur d'un assaut", "Instables"]
+  - id: heraut_nurgle
+    nom: Héraut de Nurgle
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Commandant", "Meneur", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+  - id: jardinier_nurgle
+    nom: Jardinier de Nurgle
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Charismatique", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+
+  # ---- Slaanesh ----
+  - id: gardien_secrets
+    nom: Gardien des Secrets
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Regard de Slaanesh, portee: 45cm, puissance: "2xMA4+" }
+      - { nom: et, portee: (15cm), puissance: "Armes légères, +1A, MA, FeP" }
+      - { nom: Fouet du Tourment, portee: (contact), puissance: "Armes d'assaut, +1A, MA, FeP" }
+    notes: ["Blindage Renforcé", "Charismatique", "Meneur", "Marcheur", "Sauvegarde Invulnérable"]
+    degats:
+      cd: 3
+      critique: "Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est entraînée dans le Warp et détruite sur un résultat de 6."
+  - id: demonettes
+    nom: Démonettes
+    type: Inf
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes Démoniaques, portee: (contact), puissance: "Armes d'assaut" }
+    notes: ["Frappe en Premier", "Sauvegarde Invulnérable", "Instables"]
+  - id: veneuses
+    nom: Veneuses de Slaanesh
+    type: Inf
+    vitesse: 35cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Lances énergétiques, portee: (contact), puissance: "Arme d'assaut, FeP" }
+    notes: ["Sauvegarde Invulnérable", "Montés"]
+  - id: bete_slaanesh
+    nom: Bête de Slaanesh
+    type: VL
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Griffes Démoniaques, portee: (contact), puissance: "Armes d'assaut" }
+    notes: ["Infiltrateurs", "Sauvegarde Invulnérable", "Frappe en Premier"]
+  - id: chariot_slaanesh
+    nom: Chariot de Slaanesh
+    type: VL
+    vitesse: 30cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Lames Démoniaques, portee: (contact), puissance: "Armes d'assaut, +(D3)A" }
+    notes: ["Sauvegarde Invulnérable", "Montés", "Frappe en Premier"]
+  - id: heraut_slaanesh
+    nom: Héraut de Slaanesh
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Commandant", "Meneur", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+  - id: le_masque
+    nom: Le Masque
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Commandant", "Meneur", "Charismatique", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+  - id: ravisseur_infernal
+    nom: Ravisseur infernal
+    type: Perso
+    armes:
+      - { nom: Arme Démon, portee: (contact), puissance: "Armes d'assaut, +1A, MA" }
+    notes: ["Charismatique", "Sauvegarde Invulnérable"]
+    roles: [personnage]
+
+  # ---- Communs ----
+  - id: faille_demoniaque
+    nom: Faille Démoniaque
+    type: "-"
+    armes: []
+    notes: ["Assaut planétaire indépendant", "Transport (2 formations de démons du chaos)"]
+  - id: portail_demoniaque
+    nom: Portail Démoniaque
+    type: "-"
+    armes: []
+    notes: ["Un portail ne peut être ni attaqué, ni détruit", "Permet de mettre jusqu'à 3 formations de démons en réserve", "Invoque une formation de démons par tour"]
+
+options:
+  - id: champion_demoniaque
+    nom: Champion Démoniaque
+    effet:
+      type: choix
+      parmi:
+        - { id: heraut_khorne, nom: Héraut de Khorne, cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: heraut_khorne }] } }
+        - { id: heraut_tzeentch, nom: Héraut de Tzeentch, cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: heraut_tzeentch }] } }
+        - { id: heraut_nurgle, nom: Héraut de Nurgle, cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: heraut_nurgle }] } }
+        - { id: heraut_slaanesh, nom: Héraut de Slaanesh, cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: heraut_slaanesh }] } }
+        - { id: preneur_cranes, nom: Preneur de Crâne (Khorne), cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: preneur_cranes }] } }
+        - { id: jardinier_nurgle, nom: Jardinier de Nurgle (Nurgle), cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: jardinier_nurgle }] } }
+        - { id: ravisseur_infernal, nom: Ravisseur infernal (Slaanesh), cout: 50, effet: { type: ajouter, cout: 50, unites: [{ unite: ravisseur_infernal }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 Héraut Démoniaque ou 1 Soutien Démoniaque à l'une des unités de la formation"
+  - id: bete_demoniaque
+    nom: Bête Démoniaque
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 3 }
+      parmi: [{ unite: chien_khorne, cout: 25 }, { unite: bete_nurgle, cout: 25 }, { unite: bete_slaanesh, cout: 25 }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez jusqu'à 3 Bêtes Démoniaques, 25 pts chacune"
+  - id: demon_mineur_opt
+    nom: Démon Mineur
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 6 }
+      parmi:
+        - { unite: sanguinaires, cout: 25 }
+        - { unite: incendiaires, cout: 25 }
+        - { unite: portepestes, cout: 25 }
+        - { unite: demonettes, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez jusqu'à 6 unités de Démons mineurs, 25 pts chacune"
+  - id: support_demoniaque_opt
+    nom: Support Démoniaque
+    effet:
+      type: choix
+      parmi:
+        - { id: canon_khorne, nom: Canon de Khorne, cout: 75, effet: { type: ajouter, cout: 75, unites: [{ unite: canon_khorne }] } }
+        - { id: chariot_feu, nom: Chariot de Feu de Tzeentch, cout: 75, effet: { type: ajouter, cout: 75, unites: [{ unite: chariot_feu }] } }
+        - { id: crapaud_peste, nom: Crapaud de la Peste, cout: 75, effet: { type: ajouter, cout: 75, unites: [{ unite: crapaud_peste }] } }
+        - { id: chariot_slaanesh, nom: Chariot de Slaanesh, cout: 75, effet: { type: ajouter, cout: 75, unites: [{ unite: chariot_slaanesh }] } }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez 1 unité de Support Démoniaque"
+  - id: attaque_rapide_opt
+    nom: Attaque rapide
+    effet:
+      type: choix_multiple
+      total: { min: 1, max: 2 }
+      parmi:
+        - { unite: equarrisseurs, cout: 25 }
+        - { unite: hurleurs, cout: 25 }
+        - { unite: mouches_nurgle, cout: 25 }
+        - { unite: veneuses, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajoutez jusqu'à 2 unités d'Attaque rapide, 25 pts chacune"
+  - id: karanak_opt
+    nom: Karanak (Khorne)
+    effet: { type: ajouter, cout: 50, unites: [{ unite: karanak, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-1 par armée. Ajoutez 1 unité de Karanak"
+  - id: incendiaire_exalte_opt
+    nom: Incendiaire Exalté (Tzeentch)
+    effet: { type: remplacer, de: incendiaires, par: incendiaire_exalte, lot: 2, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacez 2 Incendiaires par 2 Incendiaires exaltés"
+  - id: nurgling_opt
+    nom: 0-2 Nurgling (Nurgle)
+    effet: { type: ajouter, cout_par_unite: 25, lot: 2, unites: [{ unite: nurgling, nombre: 2 }], max: 2 }
+    phrase_pdf: "Ajoutez 2 unités de Nurgling, 25 pts"
+  - id: le_masque_opt
+    nom: Le Masque (Slaanesh)
+    effet: { type: remplacer, de: heraut_slaanesh, par: le_masque, lot: 1, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "0-1 par armée. Remplacez un Héraut Démoniaque de Slaanesh par Le Masque"
+
+formations:
+  # ---- Détachements ----
+  - id: legion_demoniaque
+    nom: 1+ Légion Démoniaque
+    variantes:
+      - id: base
+        cout: 300
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: sanguinaires }, { unite: incendiaires }, { unite: portepestes }, { unite: demonettes }]
+              phrase_pdf: "8 unités de Démons Mineurs"
+          - choix:
+              total: 1
+              parmi: [{ unite: buveur_sang }, { unite: duc_changement }, { unite: grand_immonde }, { unite: gardien_secrets }]
+              phrase_pdf: "1 Démon Majeur"
+    contraintes:
+      - { type: min_par_armee, valeur: 1 }
+      - { type: fournit, budget: soutien, quantite: 2 }
+    options: [bete_demoniaque, demon_mineur_opt, nurgling_opt, le_masque_opt, support_demoniaque_opt, attaque_rapide_opt, karanak_opt, incendiaire_exalte_opt]
+  - id: demon_majeur_khorne
+    nom: Démon Majeur de Khorne
+    description: "0-1 Démon Majeur par Dieu"
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: buveur_sang, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: fournit, budget: soutien, quantite: 2 }]
+    options: []
+  - id: demon_majeur_tzeentch
+    nom: Démon Majeur de Tzeentch
+    description: "0-1 Démon Majeur par Dieu"
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: duc_changement, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: fournit, budget: soutien, quantite: 2 }]
+    options: []
+  - id: demon_majeur_nurgle
+    nom: Démon Majeur de Nurgle
+    description: "0-1 Démon Majeur par Dieu"
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: grand_immonde, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: fournit, budget: soutien, quantite: 2 }]
+    options: []
+  - id: demon_majeur_slaanesh
+    nom: Démon Majeur de Slaanesh
+    description: "0-1 Démon Majeur par Dieu"
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: gardien_secrets, nombre: 1 }] }
+    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: fournit, budget: soutien, quantite: 2 }]
+    options: []
+  - id: horde_demons_mineurs
+    nom: Horde de Démons Mineurs
+    variantes:
+      - id: base
+        cout: 275
+        composition:
+          - choix:
+              total: 12
+              parmi: [{ unite: sanguinaires }, { unite: incendiaires }, { unite: portepestes }, { unite: demonettes }]
+              phrase_pdf: "12 unités de Démons Mineurs"
+    contraintes: [{ type: fournit, budget: soutien, quantite: 2 }]
+    options: [champion_demoniaque, bete_demoniaque, demon_mineur_opt, nurgling_opt, le_masque_opt, support_demoniaque_opt, attaque_rapide_opt, karanak_opt, incendiaire_exalte_opt]
+
+  # ---- Soutien ----
+  - id: demons_mineurs
+    nom: Démons Mineurs
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: sanguinaires }, { unite: incendiaires }, { unite: portepestes }, { unite: demonettes }]
+              phrase_pdf: "8 unités de Démons Mineurs"
+    contraintes: [{ type: consomme, budget: soutien }]
+    options: [champion_demoniaque, bete_demoniaque, nurgling_opt, le_masque_opt, support_demoniaque_opt, attaque_rapide_opt, karanak_opt, incendiaire_exalte_opt]
+  - id: formation_attaque_rapide
+    nom: Attaque Rapide
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - choix:
+              total: 8
+              parmi: [{ unite: equarrisseurs }, { unite: hurleurs }, { unite: mouches_nurgle }, { unite: veneuses }]
+              phrase_pdf: "8 unités d'Attaque Rapide"
+    contraintes: [{ type: consomme, budget: soutien }]
+    options: [champion_demoniaque]
+  - id: betes_demoniaques
+    nom: Bêtes Démoniaques
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: chien_khorne }, { unite: bete_nurgle }, { unite: bete_slaanesh }]
+              phrase_pdf: "6 unités de Bêtes démoniaques"
+    contraintes: [{ type: consomme, budget: soutien }]
+    options: [champion_demoniaque, bete_demoniaque, karanak_opt]
+  - id: formation_support_demoniaque
+    nom: Support Démoniaque
+    variantes:
+      - id: quatre
+        nom: 4 unités de Support Démoniaque
+        cout: 250
+        composition:
+          - choix:
+              total: 4
+              parmi: [{ unite: canon_khorne }, { unite: chariot_feu }, { unite: crapaud_peste }, { unite: chariot_slaanesh }]
+              phrase_pdf: "4 unités de Support Démoniaque"
+      - id: six
+        nom: 6 unités de Support Démoniaque
+        cout: 375
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: canon_khorne }, { unite: chariot_feu }, { unite: crapaud_peste }, { unite: chariot_slaanesh }]
+              phrase_pdf: "6 unités de Support Démoniaque"
+    contraintes: [{ type: consomme, budget: soutien }]
+    options: [champion_demoniaque, support_demoniaque_opt]
+
+  # ---- Rares ----
+  - id: formation_portail
+    nom: Portail Démoniaque
+    variantes:
+      - { id: base, cout: 50, composition: [{ unite: portail_demoniaque, nombre: 1 }] }
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: pas_une_activation }]
+    options: []
+  - id: formation_faille
+    nom: Faille Démoniaque
+    variantes:
+      - { id: base, cout: 50, composition: [{ unite: faille_demoniaque, nombre: 1 }] }
+    contraintes: [{ type: consomme, budget: rare, quoi: points }, { type: initiative, valeur: "1+" }]
+    options: []
+
+sections:
+  - id: detachements
+    titre: DÉTACHEMENTS DÉMONS DU CHAOS
+    formations: [legion_demoniaque, demon_majeur_khorne, demon_majeur_tzeentch, demon_majeur_nurgle, demon_majeur_slaanesh, horde_demons_mineurs]
+    contraintes: [{ type: max_options, valeur: 4 }]
+    colonne_options: true
+  - id: soutien_demoniaque
+    titre: FORMATION DE SOUTIEN
+    sous_titre: "Maximum 2 formations de soutien par détachement de Démons du Chaos"
+    formations: [demons_mineurs, formation_attaque_rapide, betes_demoniaques, formation_support_demoniaque]
+    contraintes: [{ type: consomme, budget: soutien }, { type: max_options, valeur: 4 }]
+    colonne_options: true
+    options: [champion_demoniaque, bete_demoniaque, demon_mineur_opt, support_demoniaque_opt, attaque_rapide_opt, karanak_opt, incendiaire_exalte_opt, nurgling_opt, le_masque_opt]
+    tableau_options:
+      titre: AMÉLIORATIONS DÉMONS DU CHAOS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une seule fois par détachement"
+  - id: rares
+    titre: FORMATION RARE
+    sous_titre: "Maximum 1/3 des points"
+    formations: [formation_portail, formation_faille]
+
+listes_test:
+  - nom: "Invasion démoniaque 3000 pts"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: legion_demoniaque
+        choix: { "0": { sanguinaires: 8 }, "1": { buveur_sang: 1 } }
+        options: [{ option: bete_demoniaque, repartition: { chien_khorne: 3 } }, { option: karanak_opt }]
+      - formation: horde_demons_mineurs
+        choix: { "0": { portepestes: 12 } }
+        options: [{ option: champion_demoniaque, choix: heraut_nurgle }, { option: nurgling_opt, quantite: 2 }]
+      - { formation: demon_majeur_slaanesh }
+      - formation: demons_mineurs
+        choix: { "0": { demonettes: 8 } }
+      - formation: formation_attaque_rapide
+        choix: { "0": { veneuses: 8 } }
+      - { formation: formation_faille }
+      - { formation: formation_portail }
+  - nom: "armée sans Légion Démoniaque"
+    limite: 3000
+    attendu: refusee
+    erreur: min_par_armee
+    formations:
+      - { formation: demon_majeur_khorne }
+      - formation: horde_demons_mineurs
+        choix: { "0": { sanguinaires: 12 } }
+  - nom: "deux Démons Majeurs du même Dieu"
+    limite: 3000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - formation: legion_demoniaque
+        choix: { "0": { sanguinaires: 8 }, "1": { buveur_sang: 1 } }
+      - { formation: demon_majeur_khorne }
+      - { formation: demon_majeur_khorne }
+  - nom: "trois soutiens pour un seul détachement"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: legion_demoniaque
+        choix: { "0": { sanguinaires: 8 }, "1": { buveur_sang: 1 } }
+      - formation: demons_mineurs
+        choix: { "0": { sanguinaires: 8 } }
+      - formation: betes_demoniaques
+        choix: { "0": { chien_khorne: 6 } }
+      - formation: formation_attaque_rapide
+        choix: { "0": { equarrisseurs: 8 } }
+  - nom: "rares au-delà du tiers"
+    limite: 300
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - formation: legion_demoniaque
+        choix: { "0": { sanguinaires: 8 }, "1": { buveur_sang: 1 } }
+      - { formation: formation_faille }
+      - { formation: formation_portail }
+      - { formation: formation_portail }

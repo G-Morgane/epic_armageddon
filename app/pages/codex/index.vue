@@ -19,6 +19,9 @@ interface CodexMeta {
 
 const urlSite = useUrlSite()
 const { isAuthenticated } = useAuth()
+const monte = useMonte()
+// Page mise en cache par Vercel : rendu serveur identique pour tout le monde.
+const connecte = computed(() => monte.value && isAuthenticated.value)
 
 useSeoMeta({
   title: 'Construire une armée',
@@ -92,7 +95,7 @@ const apercuOuvert = computed({
       </p>
       <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
-      <p v-if="isAuthenticated" class="mt-5 text-sm text-gray-400">
+      <p v-if="connecte" class="mt-5 text-sm text-gray-400">
         Une liste en cours ?
         <NuxtLink to="/compte" class="underline hover:text-gold">Retrouve tes armées enregistrées</NuxtLink>.
       </p>

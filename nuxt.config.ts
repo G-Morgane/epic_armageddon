@@ -47,6 +47,26 @@ export default defineNuxtConfig({
     // pointent encore dessus, la redirection permanente les rattrape.
     '/codex-test': { redirect: { to: '/codex', statusCode: 301 } },
     '/codex-test/**': { redirect: { to: '/codex/**', statusCode: 301 } },
+    // Pages publiques servies depuis le cache de l'edge Vercel (ISR) : la
+    // fonction serveur n'est plus invoquée, donc plus de démarrage à froid de
+    // 3 s sur un site à faible trafic. Le contenu vient de Supabase et peut
+    // donc avoir jusqu'à 10 min de retard ; passé ce délai Vercel sert quand
+    // même la version en cache et régénère en arrière-plan, personne n'attend.
+    // Exclus : /admin, /compte, /connexion, /builder et /codex/{slug}/imprimer
+    // (la page que Chromium imprime doit refléter l'état demandé, brouillon
+    // ou version précise, pas un rendu mis en cache).
+    '/': { isr: 600 },
+    '/armees': { isr: 600 },
+    '/armees/**': { isr: 600 },
+    '/codex': { isr: 600 },
+    '/codex-beta': { isr: 600 },
+    '/epic-30k': { isr: 600 },
+    '/regles': { isr: 600 },
+    '/outils': { isr: 600 },
+    '/evenements': { isr: 600 },
+    '/communaute': { isr: 600 },
+    '/conditions': { isr: 600 },
+    '/confidentialite': { isr: 600 },
     // Hors prod, l'en-tête couvre ce que robots.txt ne couvre pas :
     // PDF générés, sitemap, pages déjà connues d'un moteur.
     ...(indexable ? {} : { '/**': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } } }),
@@ -54,7 +74,8 @@ export default defineNuxtConfig({
   nitro: {
     // Codex YAML (source de vérité) embarqués dans le serveur
     serverAssets: [{ baseName: 'codex', dir: '../content/codex' }],
-    // Génération de PDF : Chromium met quelques secondes à démarrer sur Vercel
+    // Génération de PDF : au premier appel la fonction télécharge Chromium
+    // (67 Mo) puis le démarre, ce qui dépasse largement la limite par défaut.
     vercel: { functions: { maxDuration: 60 } },
   },
   app: {
@@ -96,6 +117,9 @@ export default defineNuxtConfig({
     r2AccessKeyId: process.env.R2_ACCESS_KEY_ID,
     r2SecretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
     r2BucketName: process.env.R2_BUCKET_NAME,
+    // Surcharge facultative de l'archive Chromium des PDF. Par défaut elle est
+    // servie par R2, à côté des PDF (voir server/utils/codex-pdf.ts).
+    chromiumPackUrl: process.env.CHROMIUM_PACK_URL,
     public: {
       // Démo locale uniquement : contourne la connexion admin pour les écrans Codex (jamais actif en build de prod)
       codexDemoSansAuth: process.env.CODEX_DEMO_SANS_AUTH === '1',

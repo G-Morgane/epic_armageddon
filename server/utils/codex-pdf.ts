@@ -3,10 +3,28 @@ import { existsSync } from 'node:fs'
 import { requeteOptionsPdf, lireOptionsPdf } from '~~/shared/codex/pdf'
 
 /**
+ * Archive des binaires Chromium, sur R2. À régénérer et réuploader à chaque
+ * montée de version de @sparticuz/chromium-min (le contenu doit correspondre
+ * au paquet installé) : voir scripts/publier-pack-chromium.ts.
+ */
+const PACK_CHROMIUM = 'chromium-v153.0.0-pack.x64.tar'
+
+/**
  * Génère le PDF d'un codex en imprimant la page /codex/{slug}/imprimer
  * avec un Chromium sans écran. Sur Vercel (ou tout serverless), Chromium vient
- * de @sparticuz/chromium ; en local, du Chrome installé ou de CHROMIUM_PATH.
+ * de @sparticuz/chromium-min ; en local, du Chrome installé ou de CHROMIUM_PATH.
+ *
+ * `-min` et non le paquet complet : celui-ci embarque le binaire (67 Mo sur
+ * 84 Mo de fonction). Comme Vercel empaquette toutes les routes ensemble,
+ * chaque requête froide du site, même une page sans PDF, payait le chargement
+ * de ce binaire. Il est donc hébergé sur R2 et téléchargé dans /tmp au premier
+ * PDF, puis réutilisé tant que l'instance reste chaude.
  */
+function urlPack(): string {
+  const config = useRuntimeConfig()
+  return config.chromiumPackUrl || `${config.public.r2PublicUrl}/${PACK_CHROMIUM}`
+}
+
 async function executable(): Promise<{ path: string; args: string[] }> {
   const locaux = [
     process.env.CHROMIUM_PATH,
@@ -16,9 +34,9 @@ async function executable(): Promise<{ path: string; args: string[] }> {
     '/usr/bin/google-chrome',
   ].filter((p): p is string => !!p && existsSync(p))
   if (locaux.length && !process.env.VERCEL) return { path: locaux[0]!, args: [] }
-  const sparticuz = await import('@sparticuz/chromium')
+  const sparticuz = await import('@sparticuz/chromium-min')
   const mod = (sparticuz.default ?? sparticuz) as { executablePath: (p?: string) => Promise<string>; args: string[] }
-  return { path: await mod.executablePath(), args: mod.args }
+  return { path: await mod.executablePath(urlPack()), args: mod.args }
 }
 
 /**

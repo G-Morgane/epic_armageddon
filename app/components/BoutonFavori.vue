@@ -7,7 +7,11 @@ const props = defineProps<{
   armee: { id: string; name: string; faction: string; cover_image?: string | null }
 }>()
 
-const { connecte, init, estFavori, basculer } = useFavoris()
+const { connecte: connecteSession, init, estFavori, basculer } = useFavoris()
+const monte = useMonte()
+// La fiche est mise en cache par Vercel : le rendu serveur montre toujours
+// l'état « non connecté », le navigateur corrige après l'hydratation.
+const connecte = computed(() => monte.value && connecteSession.value)
 const route = useRoute()
 const lienConnexion = computed(() => `/connexion?suivant=${encodeURIComponent(route.fullPath)}`)
 const occupe = ref(false)

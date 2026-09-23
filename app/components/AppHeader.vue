@@ -2,9 +2,14 @@
 const mobileMenuOpen = ref(false)
 const route = useRoute()
 const { isAuthenticated, pseudo, init } = useAuth()
+const monte = useMonte()
 
 // le rôle et le pseudo ne servent qu'à l'affichage du menu : chargement sans blocage
 onMounted(() => { init() })
+
+// Le rendu serveur est mis en cache et partagé entre visiteurs : il montre
+// toujours « Connexion », le navigateur corrige après l'hydratation.
+const connecte = computed(() => monte.value && isAuthenticated.value)
 
 watch(() => route.fullPath, () => {
   mobileMenuOpen.value = false
@@ -120,11 +125,11 @@ function toggleDropdown(label: string) {
         </template>
         <BoutonTheme class="ml-1 rounded-md p-2.5 text-gray-300 transition-colors hover:bg-surface-lighter hover:text-gold" />
         <NuxtLink
-          :to="isAuthenticated ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
+          :to="connecte ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
           class="ml-2 rounded-md border border-gold/25 px-4 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
           active-class="bg-gold/10"
         >
-          {{ isAuthenticated ? (pseudo ?? 'Mon compte') : 'Connexion' }}
+          {{ connecte ? (pseudo ?? 'Mon compte') : 'Connexion' }}
         </NuxtLink>
       </nav>
 
@@ -230,10 +235,10 @@ function toggleDropdown(label: string) {
         <!-- Compte -->
         <div class="border-t border-gold/10 px-3 py-3">
           <NuxtLink
-            :to="isAuthenticated ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
+            :to="connecte ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
             class="flex items-center rounded-lg px-4 py-3 text-[15px] font-medium text-gold transition-colors hover:bg-gold/10"
           >
-            {{ isAuthenticated ? (pseudo ?? 'Mon compte') : 'Connexion' }}
+            {{ connecte ? (pseudo ?? 'Mon compte') : 'Connexion' }}
           </NuxtLink>
         </div>
 

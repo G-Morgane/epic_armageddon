@@ -835,7 +835,7 @@ formations:
       - { id: base, cout: 200, composition: [{ unite: enfant_chaos, nombre: 6 }] }
     options: [enfant_geant]
   - id: infestation_nurgle
-    nom: 0-2 Infestation de Nurgle
+    nom: Infestation de Nurgle
     variantes:
       - id: base
         cout: 175
