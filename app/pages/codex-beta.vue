@@ -94,49 +94,51 @@ const tabColor = computed(() =>
         </div>
 
         <!-- Tab switch -->
-        <div class="mt-10 inline-flex rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
-          <button
-            :class="[
-              'rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
-              activeTab === 'all'
-                ? 'bg-gold/15 text-gold shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTab = 'all'"
-          >
-            Tous
-            <span class="ml-2 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
-              {{ (betaArmies?.length ?? 0) + (experimentalArmies?.length ?? 0) }}
-            </span>
-          </button>
-          <button
-            :class="[
-              'rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
-              activeTab === 'beta'
-                ? 'bg-amber-500/15 text-amber-400 shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTab = 'beta'"
-          >
-            Bêta
-            <span class="ml-2 rounded-full bg-amber-500/10 px-2 py-0.5 text-xs">
-              {{ betaArmies?.length ?? 0 }}
-            </span>
-          </button>
-          <button
-            :class="[
-              'rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
-              activeTab === 'experimental'
-                ? 'bg-purple-500/15 text-purple-400 shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTab = 'experimental'"
-          >
-            Expérimentaux
-            <span class="ml-2 rounded-full bg-purple-500/10 px-2 py-0.5 text-xs">
-              {{ experimentalArmies?.length ?? 0 }}
-            </span>
-          </button>
+        <div class="-mx-4 mt-10 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <div class="inline-flex rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
+                activeTab === 'all'
+                  ? 'bg-gold/15 text-gold shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTab = 'all'"
+            >
+              Tous
+              <span class="ml-2 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
+                {{ (betaArmies?.length ?? 0) + (experimentalArmies?.length ?? 0) }}
+              </span>
+            </button>
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
+                activeTab === 'beta'
+                  ? 'bg-amber-500/15 text-amber-400 shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTab = 'beta'"
+            >
+              Bêta
+              <span class="ml-2 rounded-full bg-amber-500/10 px-2 py-0.5 text-xs">
+                {{ betaArmies?.length ?? 0 }}
+              </span>
+            </button>
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
+                activeTab === 'experimental'
+                  ? 'bg-purple-500/15 text-purple-400 shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTab = 'experimental'"
+            >
+              Expérimentaux
+              <span class="ml-2 rounded-full bg-purple-500/10 px-2 py-0.5 text-xs">
+                {{ experimentalArmies?.length ?? 0 }}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 

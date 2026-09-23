@@ -147,15 +147,15 @@ const factionBadgeColors: Record<string, string> = {
           <span v-else class="font-heading text-3xl text-gold/30 sm:text-5xl">{{ army.name[0] }}</span>
         </div>
 
-        <div class="flex-1">
+        <div class="min-w-0 flex-1">
           <span
             class="inline-block rounded-full border px-3 py-0.5 text-xs font-semibold uppercase tracking-wider"
             :class="factionBadgeColors[army.faction]"
           >
             {{ army.faction }}
           </span>
-          <div class="mt-2 flex items-start justify-between gap-4">
-            <h1 class="text-3xl font-bold sm:text-4xl md:text-5xl">{{ army.name }}</h1>
+          <div class="mt-2 flex flex-col items-start gap-3 sm:flex-row sm:justify-between sm:gap-4">
+            <h1 class="text-3xl font-bold break-words sm:text-4xl md:text-5xl">{{ army.name }}</h1>
             <BoutonFavori class="shrink-0" :armee="army" />
           </div>
           <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent sm:w-64" />

@@ -92,7 +92,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', auClicDehors))
 </script>
 
 <template>
-  <div ref="racine" class="relative" :class="bloc ? 'w-full' : 'inline-block'">
+  <div ref="racine" class="relative min-w-0" :class="bloc ? 'w-full' : 'inline-block'">
     <button
       type="button"
       class="declencheur"
@@ -102,7 +102,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', auClicDehors))
       @click="basculer"
       @keydown="auClavier"
     >
-      <span class="truncate" :class="choisie ? 'text-stone-100' : 'text-stone-400'">{{ libelle }}</span>
+      <span class="min-w-0 truncate" :class="choisie ? 'text-stone-100' : 'text-stone-400'">{{ libelle }}</span>
       <span v-if="detailActuel ?? choisie?.detail" class="ml-auto shrink-0 text-xs text-gold/80">{{ detailActuel ?? choisie?.detail }}</span>
       <span class="shrink-0 text-[10px] text-gold/70 transition-transform" :class="ouvert ? 'rotate-180' : ''">▾</span>
     </button>
@@ -137,7 +137,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', auClicDehors))
 
 <style scoped>
 .declencheur {
-  @apply flex w-full items-center gap-2 rounded border border-white/15 bg-surface px-2 py-1 text-left
+  @apply flex w-full min-w-0 items-center gap-2 rounded border border-white/15 bg-surface px-2 py-1 text-left
          text-sm text-stone-100 transition-colors hover:border-gold/40 focus:border-gold focus:outline-none;
 }
 .menu {

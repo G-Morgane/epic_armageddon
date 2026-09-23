@@ -230,7 +230,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
 
     <div class="mt-6 grid gap-6 lg:grid-cols-[280px_1fr_260px]">
       <!-- Catalogue -->
-      <aside class="space-y-2 impression-cacher">
+      <aside class="min-w-0 space-y-2 impression-cacher">
         <div v-for="s in catalogue" :key="s.id" class="rounded border border-white/10 bg-surface-light">
           <button type="button" class="flex w-full items-center justify-between gap-2 px-3 py-2 text-left" @click="basculer(s.id)">
             <span class="font-heading text-xs uppercase tracking-wider text-gold">{{ s.titre }}</span>
@@ -266,7 +266,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       </aside>
 
       <!-- Liste -->
-      <main class="space-y-3">
+      <main class="min-w-0 space-y-3">
         <div class="impression-seulement mb-4">
           <h1 class="font-heading text-2xl font-bold">{{ liste.nom }}</h1>
           <p>{{ c.codex.nom }} v{{ c.codex.version }} · {{ resultat.total }} / {{ liste.limite }} pts</p>
@@ -301,7 +301,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       </main>
 
       <!-- Bilan -->
-      <aside class="space-y-4 lg:sticky lg:top-24 lg:self-start">
+      <aside class="min-w-0 space-y-4 lg:sticky lg:top-24 lg:self-start">
         <div class="rounded-lg border border-white/15 bg-surface-light p-4">
           <p class="text-xs uppercase tracking-wider text-stone-400">Total</p>
           <p class="font-heading text-3xl font-bold" :class="resultat.total > liste.limite ? 'text-red-300' : 'text-white'">

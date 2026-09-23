@@ -264,8 +264,8 @@ const profils = computed(() => {
           <!-- ligne de tête : nom, menu, coût, retrait -->
           <div class="flex flex-wrap items-center gap-2">
             <span class="font-medium text-stone-100">{{ l.nom }}</span>
-            <Selecteur v-if="l.estChoix" v-model="l.oi.choix" class="flex-1" :options="l.choix" :detail-actuel="l.detail" />
-            <Selecteur v-if="l.aVariantes" v-model="l.oi.variante" class="flex-1" :options="l.variantes" :detail-actuel="l.detailVariante" />
+            <Selecteur v-if="l.estChoix" v-model="l.oi.choix" class="flex-1 basis-40" :options="l.choix" :detail-actuel="l.detail" />
+            <Selecteur v-if="l.aVariantes" v-model="l.oi.variante" class="flex-1 basis-40" :options="l.variantes" :detail-actuel="l.detailVariante" />
             <span v-if="!l.aSelecteur" class="ml-auto text-gold">{{ l.cout }} pts</span>
             <button type="button" class="bouton-ghost shrink-0 text-red-300" title="Retirer" @click="retirerOption(l.oi.id)">✕</button>
           </div>
