@@ -429,6 +429,48 @@ const erreursBilan = computed(() => resultat.value.erreurs.map((e) => ({
   carte: e.formation ? racineParInstance.value.get(e.formation) : undefined,
 })))
 
+/**
+ * Un seul bouton pour toutes les actions.
+ *
+ * Sept boutons alignés dans la barre : le geste courant (poser des formations)
+ * se jouait à côté d'un mur d'actions rares. Le menu les range, et le bouton
+ * lui-même porte l'état de la dernière action, sinon la confirmation d'une
+ * sauvegarde repartirait avec le menu qui se referme.
+ */
+const menuOuvert = ref(false)
+const signalementOuvert = ref(false)
+const menuRacine = ref<HTMLElement | null>(null)
+
+const libelleMenu = computed(() => {
+  if (etatSauvegarde.value === 'en_cours') return 'Sauvegarde…'
+  if (etatSauvegarde.value === 'fait') return '✓ Sauvegardée'
+  if (etatPartage.value === 'en_cours') return 'Partage…'
+  if (etatPartage.value === 'copie') return '✓ Lien copié'
+  return 'Actions'
+})
+
+/** Une entrée du menu le referme, sauf « Vider » qui y demande sa confirmation. */
+function action(faire: () => void) {
+  menuOuvert.value = false
+  faire()
+}
+
+onMounted(() => {
+  const dehors = (e: MouseEvent) => {
+    if (menuOuvert.value && !menuRacine.value?.contains(e.target as Node)) menuOuvert.value = false
+  }
+  const echap = (e: KeyboardEvent) => { if (e.key === 'Escape') menuOuvert.value = false }
+  document.addEventListener('click', dehors)
+  window.addEventListener('keydown', echap)
+  onBeforeUnmount(() => {
+    document.removeEventListener('click', dehors)
+    window.removeEventListener('keydown', echap)
+  })
+})
+
+/** erreurs jointes à un signalement de bug : le texte seul, la carte visée n'a de sens qu'ici */
+const erreursSignalement = computed(() => resultat.value.erreurs.map((e) => e.message))
+
 /** carte montrée du doigt après un clic sur une erreur, le temps qu'on la repère */
 const carteSignalee = ref<string | null>(null)
 async function allerVersCarte(id: string) {
@@ -455,35 +497,68 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       <div class="mt-4 flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
         <label class="flex items-center gap-2 text-sm text-stone-300">Limite <input v-model.number="liste.limite" type="number" step="250" min="250" class="champ w-24"> pts</label>
-        <div class="ml-auto flex flex-wrap items-center gap-3">
+        <div ref="menuRacine" class="relative ml-auto">
           <button
             type="button"
-            class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10 disabled:opacity-60"
-            :disabled="etatSauvegarde === 'en_cours'"
-            @click="sauvegarder"
+            class="flex items-center gap-2 rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10"
+            aria-haspopup="menu"
+            :aria-expanded="menuOuvert"
+            @click="menuOuvert = !menuOuvert"
           >
-            {{ etatSauvegarde === 'en_cours' ? 'Sauvegarde…' : etatSauvegarde === 'fait' ? '✓ Sauvegardée' : 'Sauvegarder' }}
+            {{ libelleMenu }}
+            <span class="text-[9px] leading-none" aria-hidden="true">▼</span>
           </button>
-          <button
-            type="button"
-            class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10 disabled:opacity-60"
-            :disabled="etatPartage === 'en_cours'"
-            title="Enregistre la liste si besoin, puis copie son lien de partage"
-            @click="partager"
+
+          <Transition
+            enter-active-class="transition duration-150 ease-out"
+            enter-from-class="opacity-0 -translate-y-1"
+            enter-to-class="opacity-100 translate-y-0"
+            leave-active-class="transition duration-100 ease-in"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
           >
-            {{ etatPartage === 'en_cours' ? 'Partage…' : etatPartage === 'copie' ? '✓ Lien copié' : 'Partager' }}
-          </button>
-          <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="documentOuvert = true">Voir le PDF</button>
-          <button type="button" class="rounded border border-white/20 px-3 py-1.5 text-sm text-stone-200 hover:bg-white/5" @click="reglesOuvert = true">Règles de l'armée</button>
-          <button
-            type="button"
-            class="rounded border px-3 py-1.5 text-sm"
-            :class="confirmationVider ? 'border-red-400 bg-red-500/20 text-red-200' : 'border-red-400/40 text-red-300 hover:bg-red-500/10'"
-            @click="vider"
-          >
-            {{ confirmationVider ? 'Confirmer ?' : 'Vider' }}
-          </button>
-          <button type="button" class="rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10" @click="listesOuvert = true">Mes listes</button>
+            <div
+              v-if="menuOuvert"
+              class="absolute right-0 z-50 mt-2 w-64 overflow-hidden rounded-lg border border-gold/20 bg-surface shadow-2xl"
+              role="menu"
+            >
+              <button type="button" role="menuitem" class="entree-menu" :disabled="etatSauvegarde === 'en_cours'" @click="action(sauvegarder)">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                Sauvegarder
+              </button>
+              <button type="button" role="menuitem" class="entree-menu" :disabled="etatPartage === 'en_cours'" title="Enregistre la liste si besoin, puis copie son lien de partage" @click="action(partager)">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
+                Partager le lien
+              </button>
+              <button type="button" role="menuitem" class="entree-menu" @click="action(() => (listesOuvert = true))">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+                Mes listes
+              </button>
+              <button type="button" role="menuitem" class="entree-menu border-t border-white/10" @click="action(() => (documentOuvert = true))">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                Voir le PDF
+              </button>
+              <button type="button" role="menuitem" class="entree-menu" @click="action(() => (reglesOuvert = true))">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                Règles de l'armée
+              </button>
+              <button type="button" role="menuitem" class="entree-menu border-t border-white/10" @click="action(() => (signalementOuvert = true))">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8a4 4 0 014 4v3a4 4 0 01-8 0v-3a4 4 0 014-4zm0 0V6a2.5 2.5 0 015 0M8 12H4m16 0h-4M6.5 7.5L9 9.5m8.5-2L15 9.5M6.5 17.5L9 15.5m8.5 2L15 15.5" /></svg>
+                Signaler un bug
+              </button>
+              <!-- « Vider » garde sa confirmation ici même : le menu reste ouvert le temps du second clic -->
+              <button
+                type="button"
+                role="menuitem"
+                class="entree-menu border-t border-white/10 text-red-300 hover:bg-red-500/10"
+                :class="confirmationVider && 'bg-red-500/20 text-red-200'"
+                @click="confirmationVider ? action(vider) : vider()"
+              >
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" /></svg>
+                {{ confirmationVider ? 'Confirmer ? Vider la liste' : 'Vider la liste' }}
+              </button>
+            </div>
+          </Transition>
         </div>
       </div>
     </div>
@@ -511,6 +586,21 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
     <CodexVisionneuseListe v-model="documentOuvert" :slug="slug" :nom="liste.nom" :partage="codePartage" />
 
     <CodexReglesArmee v-model="reglesOuvert" :meta="c.codex" />
+
+    <SignalerBug
+      v-model="signalementOuvert"
+      page="builder"
+      :codex-slug="slug"
+      :codex-nom="c.codex.nom"
+      :codex-version="c.codex.version"
+      :faction="c.codex.faction"
+      :liste="liste"
+      :total="resultat.total"
+      :limite="liste.limite"
+      :valide="resultat.valide"
+      :erreurs="erreursSignalement"
+      :id-serveur="idServeur"
+    />
 
     <div class="mt-6 grid gap-6 lg:grid-cols-[280px_1fr_260px]">
       <!-- Catalogue -->
@@ -687,6 +777,8 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
 
 <style scoped>
 .champ { @apply rounded border border-white/15 bg-surface px-2 py-1 text-sm text-stone-100 focus:border-gold focus:outline-none; }
+.entree-menu { @apply flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm text-stone-200 hover:bg-white/5 disabled:opacity-50; }
+.icone-menu { @apply h-4 w-4 shrink-0 text-stone-400; }
 .fleche { @apply inline-flex min-h-[32px] min-w-[26px] items-center justify-center text-[9px] leading-none hover:text-gold disabled:cursor-not-allowed disabled:text-stone-700 disabled:hover:text-stone-700; }
 .impression-seulement { display: none; }
 @media print {
