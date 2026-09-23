@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const supabase = useSupabaseServer()
   const query = getQuery(event)
   const faction = query.faction as string | undefined
@@ -39,4 +39,7 @@ export default defineEventHandler(async (event) => {
   }
 
   return result
-})
+}, cacheDonnees('armies', (e) => {
+  const q = getQuery(e)
+  return `${q.faction ?? ''}|${q.status ?? 'official'}|${q.tag ?? ''}`
+}))

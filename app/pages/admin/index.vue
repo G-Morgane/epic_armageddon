@@ -11,8 +11,10 @@ const { uploadPdf } = useUploadPdf()
 
 // Toutes les armées de l'admin, tous statuts : la route les prend séparés par des
 // virgules. Les cinq appels d'avant s'enchaînaient, donc cinq allers-retours en file.
+// `fresh` : l'admin écrit puis relit dans la foulée, il lui faut la base, pas le
+// cache de la route (voir server/utils/cache.ts).
 const { data: toutesArmees, refresh } = await useFetch<ArmyWithVersion[]>('/api/armies', {
-  query: { status: 'official,beta,experimental,30k,archived' },
+  query: { status: 'official,beta,experimental,30k,archived', fresh: 1 },
 })
 
 const armies = computed(() => toutesArmees.value ?? [])
@@ -414,7 +416,7 @@ const tagError = ref('')
 async function loadTags() {
   tagsLoading.value = true
   try {
-    allTags.value = await $fetch<ArmyTag[]>('/api/army-tags')
+    allTags.value = await $fetch<ArmyTag[]>('/api/army-tags', { query: { fresh: 1 } })
   } catch {
     allTags.value = []
   }

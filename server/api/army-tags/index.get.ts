@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const supabase = useSupabaseServer()
   const query = getQuery(event)
   const faction = query.faction as string | undefined
@@ -20,4 +20,4 @@ export default defineEventHandler(async (event) => {
   }
 
   return data
-})
+}, cacheDonnees('army-tags', (e) => (getQuery(e).faction as string) ?? 'all'))

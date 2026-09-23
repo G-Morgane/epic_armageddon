@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const supabase = useSupabaseServer()
   const id = getRouterParam(event, 'id')
 
@@ -14,4 +14,4 @@ export default defineEventHandler(async (event) => {
   }
 
   return data
-})
+}, cacheDonnees('armie', (e) => getRouterParam(e, 'id') ?? ''))

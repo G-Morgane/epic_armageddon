@@ -1,55 +1,54 @@
-export default defineEventHandler(async () => {
+/**
+ * Les trois dernières parutions mises en avant sur l'accueil.
+ *
+ * Ordre de préférence : officielles publiées depuis moins de trois mois, puis
+ * les autres statuts sur la même fenêtre, puis les plus récentes quelle que
+ * soit leur date pour ne jamais rendre moins de trois cartes.
+ *
+ * Une seule requête : `is_current` ne garde qu'une version par armée (65 lignes),
+ * et le classement se fait ici. Les trois requêtes en file d'avant coûtaient
+ * trois allers-retours jusqu'à la base pour trois lignes.
+ */
+export default defineCachedEventHandler(async () => {
   const supabase = useSupabaseServer()
 
-  const threeMonthsAgo = new Date()
-  threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
-  const cutoff = threeMonthsAgo.toISOString()
+  const troisMoisAvant = new Date()
+  troisMoisAvant.setMonth(troisMoisAvant.getMonth() - 3)
+  const seuil = troisMoisAvant.getTime()
 
-  // Try official armies updated in last 3 months first
-  const { data: official } = await supabase
+  const { data, error } = await supabase
     .from('army_versions')
     .select('*, armies!inner(*)')
     .eq('is_current', true)
-    .eq('armies.status', 'official')
-    .gte('published_at', cutoff)
     .order('published_at', { ascending: false })
-    .limit(3)
+    // Départage stable : plusieurs codex partagent la même date de publication,
+    // et sans second critère Postgres rend ces ex aequo dans l'ordre qui
+    // l'arrange. L'accueil changeait de carte d'un déploiement à l'autre.
+    .order('id', { ascending: true })
 
-  if (official && official.length >= 3) {
-    return official
+  if (error) {
+    throw createError({ statusCode: 500, message: error.message })
   }
 
-  // Not enough official, fill with other statuses
-  const officialIds = (official ?? []).map(v => v.id)
+  const versions = data ?? []
+  // `published_at` peut être nul : une version sans date n'entre jamais dans la fenêtre.
+  const recente = (v: any) => v.published_at != null && new Date(v.published_at).getTime() >= seuil
+  const recentes = versions.filter(recente)
 
-  const { data: others } = await supabase
-    .from('army_versions')
-    .select('*, armies!inner(*)')
-    .eq('is_current', true)
-    .gte('published_at', cutoff)
-    .order('published_at', { ascending: false })
-    .limit(3 - (official?.length ?? 0))
+  const classees = [
+    ...recentes.filter((v: any) => v.armies?.status === 'official'),
+    ...recentes.filter((v: any) => v.armies?.status !== 'official'),
+    ...versions,
+  ]
 
-  const combined = [...(official ?? []), ...(others ?? []).filter(v => !officialIds.includes(v.id))]
-
-  // If still not enough, just get the most recent ones
-  if (combined.length < 3) {
-    const existingIds = combined.map(v => v.id)
-    const { data: fallback } = await supabase
-      .from('army_versions')
-      .select('*, armies(*)')
-      .eq('is_current', true)
-      .order('published_at', { ascending: false })
-      .limit(3)
-
-    // Merge without duplicates
-    for (const v of fallback ?? []) {
-      if (!existingIds.includes(v.id) && combined.length < 3) {
-        combined.push(v)
-        existingIds.push(v.id)
-      }
-    }
+  const vues = new Set<string>()
+  const sortie: any[] = []
+  for (const v of classees) {
+    if (sortie.length === 3) break
+    if (vues.has(v.id)) continue
+    vues.add(v.id)
+    sortie.push(v)
   }
 
-  return combined.slice(0, 3)
-})
+  return sortie
+}, cacheDonnees('armies-recentes', () => 'v1'))
