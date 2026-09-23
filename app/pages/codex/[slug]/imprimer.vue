@@ -278,6 +278,14 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
 
 <style>
 /* la taille de page est injectée par useHead (portrait ou paysage) */
+/*
+  Le document est sur papier blanc, quel que soit le thème du site.
+  `color-scheme` et pas seulement `background` : le script de thème pose la
+  classe `dark` sur <html> avant le rendu, donc `color-scheme: dark`, et
+  Chromium peint alors la surface de page hors du bloc racine avec son gris
+  sombre. À l'impression, cela encadrait les feuilles de noir.
+*/
+html.print { color-scheme: light; }
 html.print, html.print body { background: #fff; color: #111; }
 
 /* À l'écran (aperçu dans le tiroir) : chaque section devient une feuille A4 posée sur un fond neutre. */

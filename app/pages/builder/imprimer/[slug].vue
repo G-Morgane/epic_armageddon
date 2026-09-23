@@ -247,6 +247,14 @@ function imprimer() { window.print() }
 </template>
 
 <style>
+/*
+  Le document est sur papier blanc, quel que soit le thème du site.
+  `color-scheme` et pas seulement `background` : le script de thème pose la
+  classe `dark` sur <html> avant le rendu, donc `color-scheme: dark`, et
+  Chromium peint alors la surface de page hors du bloc racine avec son gris
+  sombre. À l'impression, cela encadrait les feuilles de noir.
+*/
+html.print { color-scheme: light; }
 html.print, html.print body { background: #fff; color: #111; }
 @media screen {
   html.print, html.print body { background: #4a4540; }
