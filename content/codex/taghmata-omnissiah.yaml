@@ -273,7 +273,7 @@ unites:
     ff: "5+"
     armes:
       - { nom: Paire de Canons rotor, portee: 30cm, puissance: "AP5+, Rpt" }
-      - { nom: Paire de Canons rotor, portee: (15cm), puissance: "Arme Légère, +1A" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A" }
       - { nom: Fusil à foudre, portee: (15cm), puissance: "Arme Légère" }
       - { nom: Arrois à lame énergétiques, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
     notes: ["Automates", "Infiltrateurs"]
@@ -309,7 +309,7 @@ unites:
     armes:
       - { nom: Lance-missile Domitar, portee: 45cm, puissance: "AP5+/AC5+/AA6+" }
       - { nom: Marteaux à graviton, portee: (15cm), puissance: "Arme Légère, IC" }
-      - { nom: Marteaux à graviton, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: et, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
     notes: ["Automates", "Marcheur", "Blindage Renforcé"]
   - id: thanatar_cavas
     nom: Thanatar Cavas
@@ -368,7 +368,7 @@ unites:
     ff: "4+"
     armes:
       - { nom: Multi-fuseur, portee: 15cm, puissance: "MA5+" }
-      - { nom: Multi-fuseur, portee: (15cm), puissance: "Arme Légère, MA" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, MA" }
       - { nom: Fusils à foudre, portee: (15cm), puissance: "Arme Légère" }
     notes: ["Réacteurs Dorsaux", "Cette unité prend 2 places dans un Transport"]
     taille_transport: 2
@@ -414,7 +414,7 @@ unites:
     ff: "6+"
     armes:
       - { nom: 2x Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
-      - { nom: 2x Canon Tremble-Terre (ou), portee: 120cm, puissance: "AP4+/AC4+" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
     notes: ["Blindage Renforcé"]
     degats: { cd: 2, critique: "Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+." }
   - id: ordinatus_sagittar
@@ -521,7 +521,7 @@ unites:
     ff: "3+"
     armes:
       - { nom: Découpeur de phase Atrapos, portee: (contact), puissance: "Arme d'assaut, +1A, MA" }
-      - { nom: Découpeur de phase Atrapos (ou), portee: (15cm), puissance: "Arme légère, +1A, MA" }
+      - { nom: ou, portee: (15cm), puissance: "Arme légère, +1A, MA" }
       - { nom: Canon à singularité, portee: 30cm, puissance: "2xAP5+/AC4+, Lance" }
     notes: ["Bouclier à Ion (4+)", "Blindage renforcé", "Marcheur"]
     degats: { cd: 2, critique: "Détruit" }
@@ -604,7 +604,7 @@ unites:
     armes:
       - { nom: Dissipateur de Conversion, portee: 60cm, puissance: "3xMA3+, FrtF" }
       - { nom: Ardex defensor mega-bolters jumelés, portee: 15cm, puissance: "4xAP3+/AC6+, Frt" }
-      - { nom: Ardex defensor mega-bolters jumelés, portee: (15cm), puissance: "Arme légère, +1A" }
+      - { nom: et, portee: (15cm), puissance: "Arme légère, +1A" }
     notes:
       - "Blindage Renforcé"
       - "Marcheur"
@@ -626,7 +626,7 @@ unites:
       - { nom: Éradicateur Volkite, portee: 45cm, puissance: "3xAP3+/AC4+, Rpt, IC, FrtF" }
       - { nom: Multi-Lasers de Carapace, portee: 30cm, puissance: "AP5+/AC6+/AA5+" }
       - { nom: Canon Fuseur, portee: 30cm, puissance: "2xMA3+, TT (1), Frt" }
-      - { nom: Canon Fuseur, portee: (15cm), puissance: "Arme Légère, +1A, TT (D3), Frt" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, TT (D3), Frt" }
       - { nom: Poing Tronçonneur, portee: (contact), puissance: "Arme d'Assaut, +6A, MA, Frt" }
     notes:
       - "Blindage Renforcé"
@@ -716,7 +716,7 @@ unites:
       - { nom: Mega Canon Scorpios, portee: 30cm, puissance: "2xAP3+/AC5+" }
       - { nom: Lance Flammes, portee: 15cm, puissance: "2x AP4+, IC" }
       - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
-      - { nom: Canon Démolisseur (et), portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
       - { nom: 2x Griffes de Combat, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
     notes:
       - "Infiltrateur"

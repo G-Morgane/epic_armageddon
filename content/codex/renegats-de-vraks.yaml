@@ -1,0 +1,1018 @@
+# Renégats de Vraks, transcrit depuis le PDF EAFR (pied de page : CODEX ÉGARÉS & DAMNÉS - EAFR -
+# REV BETA VIII, publié sur le site en REV 0.7 — source de vérité).
+#
+# Liste cousine d'Égarés et Damnés : plusieurs unités portent le même nom dans les deux codex, mais
+# les profils repris ici sont ceux des feuilles de références du PDF de Vraks.
+codex:
+  slug: renegats-de-vraks
+  armee_id: cdd5d146-584a-44ed-be12-afb27478d66c
+  nom: Renégats de Vraks
+  version: "0.7"
+  faction: chaos
+  categorie: armees-chaos
+  statut: beta
+  couleur: "#6b2f2f"
+  illustration: https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/codex/couvertures/renegats-de-vraks.png
+  citation:
+    texte: "Sur ma parole, le maelström viendra et Vraks se noiera dans le sang. Même les morts ne trouveront pas la paix. Je serai le héraut de l'apocalypse à venir et les vrais dieux connaîtront mon nom."
+    auteur: Seigneur Xaphan, Cardinal Apostat, Archi-hérétique et Despote de Vraks
+  intro_md: |
+    La liste qui suit vous permet de mettre sur pied une armée de Renégats de Vraks composée de Miliciens, de Space Marines du Chaos, ainsi que des Démons issus des Dieux du Chaos et leurs machines de guerres infernales.
+
+    Pour chaque Formation Renégate Principale sélectionnée dans votre liste d'armée, vous pouvez également sélectionner soit deux Formations d'Appui Renégate, soit une de ces formations et une Formation du Chaos.
+
+    Chaque Formation Renégate Principale, Formation d'Appui Renégate, Formation du Chaos Universel et Formation de Démons peut recevoir des améliorations. La liste d'armée indique pour chaque formation quelle amélioration est autorisée. Chaque amélioration autorisée ne peut être prise qu'une fois par détachement pour un maximum de quatre par formation. Les améliorations font partie intégrante des formations et doivent respecter les règles de cohésion. Noter que certaines améliorations remplacent des unités d'une formation tandis que d'autres ajoutent des unités supplémentaires.
+  regles_md:
+    - titre: "Règle spéciale : Exécuteurs"
+      texte: |
+        Pour chaque Formation Principale des Renégats de Vraks qu'inclut votre armée, un Exécuteur est automatiquement intégré.
+
+        De plus, vous pouvez ajouter gratuitement un Exécuteur dans une Formation d'Appui Vraksienne pour chaque tranche de 1 000 pts dans votre armée.
+    - titre: "Règle spéciale : Allégeances"
+      texte: |
+        Une armée Renégats de Vraks peut prêter allégeance à l'un des Dieux du Chaos (Khorne ou Nurgle) ou au Chaos Universel. Si vous décidez d'affilier une armée de Renégats de Vraks, vous devez décider à quelle allégeance appartient votre armée au début de la bataille et le noter sur votre liste d'armée. Il est impossible de lier des alliances entre les différents Dieux. Vous n'aurez accès qu'aux formations de Machines Démons du Dieu choisi et à celles du Chaos Universel pour constituer votre armée.
+
+        **Chaos Universel** : Éclaireurs de l'Alpha Légion, Enfants du Chaos, Chiens du Chaos. **Khorne** : Grands Scorpions d'Airain, Massacreurs Sanglants. **Nurgle** : Drones de la Ruine, Zombies de la Peste.
+
+        Le constructeur ne sait pas vérifier l'allégeance : à vous de ne pas mélanger deux Dieux dans une même liste.
+    - titre: "Règle spéciale : Maître de sièges (Vraks)"
+      texte: |
+        Chaque Milice Renégate, Milice Ouvrière et Populace Mutante permet de prendre un ensemble de Positions Fortifiées. Ces Positions Fortifiées devront être déployées en garnison ou dans la zone de déploiement, lors de la phase de déploiement, et ne pourront être conservées en réserve d'aucune sorte.
+
+        **Tranchées (2)** : Couvert 4+ pour l'infanterie, Dangereux pour les véhicules, sans effet sur les engins de guerre. **Emplacement d'artillerie (1)** : Couvert 4+ / 5+ / sans effet. **Emplacement de Char (1)** : Couvert 4+ / 5+ / 5+. **Bunkers (2)** : Couvert 3+ pour l'infanterie, Infranchissable pour les véhicules et les engins de guerre. **Barbelés** : Dangereux pour l'infanterie, sans effet sur le reste.
+
+        Les (X) indiquent le nombre d'unités maximum pouvant occuper ces fortifications par tronçon de 4 cm de longueur.
+    - titre: "Règle spéciale : Infestations"
+      texte: |
+        Le déploiement des Infestations fonctionne exactement comme la règle spéciale Téléportation, mais après avoir placé une unité, lancez 2D6+6 pour savoir combien de socles de Zombies de la Peste apparaissent. Testez ensuite normalement pour les pions impact pour la Téléportation (cela représente une infestation de zombies de la peste qui a été lâchée sur l'ennemi).
+    - titre: "Règle spéciale : Tunnelier"
+      texte: |
+        Une formation Tunnelier peut se déployer en utilisant la règle suivante : un tunnelier est déployé au même moment et de la même manière qu'un vaisseau spatial (voir section 4.3.1 du livre de règles). Les unités transportées dans un tunnelier sont gardées en réserve. Définissez ensuite une « zone de largage », selon la procédure décrite en section 4.3.1.
+
+        Un tunnelier peut apparaître dans votre moitié de table dès le deuxième tour et dans la moitié de table adverse dès le troisième tour. Il est déployé avant le jet de stratégie au début du tour indiqué, aux coordonnées prédéfinies. Un tunnelier et toutes les unités qu'il transporte peuvent agir normalement dès leur tour d'arrivée.
+  credits: "Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustration de couverture (GW) et contenu Vukašin Ivković."
+  valeur_strategique: 2
+  initiative:
+    defaut: "2+"
+    exceptions:
+      - { portee: "Alpha Légion et Engins de Guerre démoniaques", valeur: "1+" }
+
+budgets:
+  - id: appui
+    libelle: Formations d'appui
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 2 Formations d'Appui par Formation Principale dont une peut être une Formation du Chaos"
+  - id: appui_chaos
+    libelle: Formations du Chaos
+    capacite: { source: fournitures }
+    phrase_pdf: "Une seule des deux formations d'appui d'une Formation Principale peut être une Formation du Chaos"
+  - id: milices_ouvrieres
+    libelle: Milices Ouvrières
+    capacite: { source: fournitures }
+    phrase_pdf: "1 Milice Ouvrière par Milice Renégate"
+  - id: populaces
+    libelle: Populaces Mutantes
+    capacite: { source: fournitures }
+    phrase_pdf: "1 Populace Mutante par Milice Ouvrière"
+  - id: fortifications
+    libelle: Fortifications
+    capacite: { source: fournitures }
+    phrase_pdf: "Jusqu'à 1 Fortification pour chaque Milice Renégate et chaque Milice Ouvrière"
+  - id: executeurs_gratuits
+    libelle: Exécuteurs gratuits
+    capacite: { source: par_tranche, points: 1000 }
+    phrase_pdf: "1 Exécuteur gratuit par tranche de 1 000 pts dans votre armée"
+  - id: support
+    libelle: Supports
+    capacite: { source: ratio_points, ratio: 0.3334 }
+    phrase_pdf: "Jusqu'à 1/3 des points disponibles peuvent être dépensés dans ces formations"
+
+unites:
+  # ---- Personnages ----
+  - id: archi_heretique
+    nom: Archi-Hérétique
+    type: Perso
+    armes: []
+    notes: ["Commandant Suprême"]
+    roles: [personnage, commandant_supreme]
+  - id: executeur
+    nom: Exécuteur
+    type: Perso
+    armes:
+      - { nom: Arme énergétique, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Charismatique", "Meneur"]
+    roles: [personnage]
+  - id: psyker_renegat
+    nom: Psyker Renégat
+    type: Perso
+    armes:
+      - { nom: Explosion Warp, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: ["Sauvegarde Invulnérable", "Sans peur"]
+    roles: [personnage]
+
+  # ---- Infanterie renégate ----
+  - id: aspirant_champion
+    nom: Aspirant Champion Space Marine du Chaos
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Arme Démon, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Sauvegarde invulnérable", "Commandant", "Meneur"]
+    roles: [commandant]
+  - id: commandant_renegat
+    nom: Commandant renégat
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "5+"
+    armes:
+      - { nom: Lance Grenades, portee: 30cm, puissance: "AP6+/AC6+" }
+      - { nom: Pouvoir de l'Arcane, portee: 30cm, puissance: "MA6+, MA" }
+      - { nom: Arme Démon, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère" }
+    notes: ["Sauvegarde invulnérable", "Commandant"]
+    roles: [commandant]
+  - id: champion_mutant
+    nom: Champion Mutant
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Arme à Feu, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Diverses Armes, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: ["Meneur", "Tant que le Champion Mutant est en vie sa formation gagne Infiltrateur"]
+  - id: cultiste
+    nom: Cultiste
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Mitrailleuse Lourde, portee: 30cm, puissance: "AP6+" }
+      - { nom: Arme à Feu, portee: (15cm), puissance: "Arme Légère" }
+  - id: disciples
+    nom: Disciples
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-plasma, portee: 15cm, puissance: "AP5+/AC5+" }
+    notes: ["Éclaireurs"]
+  - id: ogryn_berserk
+    nom: Ogryn Berserk
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Arme Improvisée, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes: ["Massif (prennent 2 places dans les transports)"]
+    taille_transport: 2
+  - id: mutant
+    nom: Mutant
+    type: Inf
+    vitesse: 15cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "6+"
+    armes:
+      - { nom: Arme à Feu, portee: (15cm), puissance: "Arme Légère" }
+      - { nom: Diverses Armes, portee: (contact), puissance: "Arme d'Assaut" }
+  - id: appui_feu
+    nom: Appui-feu
+    type: Inf
+    vitesse: 15cm
+    blindage: "-"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: 2x Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+
+  # ---- Chaos ----
+  - id: eclaireur_alpha
+    nom: Éclaireur Alpha Légion
+    type: Inf
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+    notes: ["Éclaireurs"]
+  - id: chien_chaos
+    nom: Chien du Chaos
+    type: Inf
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Crocs, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: ["Les Chiens du Chaos ne peuvent contester les objectifs."]
+  - id: zombie_peste
+    nom: Zombie de la Peste
+    type: Inf
+    vitesse: 10cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "-"
+    armes:
+      - { nom: Griffes et Crocs, portee: (contact), puissance: "Arme d'Assaut" }
+    notes: ["Infiltrateurs", "Infestation", "Les Zombies de la Peste peuvent contester les objectifs mais pas les tenir."]
+  - id: enfant_chaos
+    nom: Enfant du Chaos
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "4+"
+    ff: "-"
+    armes:
+      - { nom: Horribles Mutations, portee: (contact), puissance: "Arme d'Assaut, +D3A" }
+    notes: ["Sans Peur", "Sauvegarde Invulnérable", "Les Enfants du Chaos peuvent contester les objectifs mais pas les tenir"]
+  - id: enfant_chaos_geant
+    nom: Enfant du Chaos Géant
+    type: Inf
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Horribles Mutations Améliorées, portee: (contact), puissance: "Arme d'Assaut, Macro Arme, +D3A" }
+    notes: ["Sans Peur", "Sauvegarde Invulnérable", "Les Enfants du Chaos peuvent contester les objectifs mais pas les tenir"]
+  - id: drone_ruine
+    nom: Drone de la Ruine
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Maw, portee: 30cm, puissance: "AP3+/AC5+, IC" }
+      - { nom: Autocanon Faucheur, portee: 30cm, puissance: "AP4+/AC6+" }
+      - { nom: Canon à Peste, portee: (15cm), puissance: "Arme Légère, IC" }
+    notes: ["Antigrav", "Sans Peur", "Blindage Arrière Renforcé", "Sauvegarde Invulnérable"]
+  - id: massacreur_sanglant
+    nom: Massacreur Sanglant
+    type: VB
+    vitesse: 15cm
+    blindage: "3+"
+    cc: "3+"
+    ff: "-"
+    armes:
+      - { nom: Lame de l'Enfer, portee: (contact), puissance: "Arme d'Assaut, +1A, TT (1)" }
+    notes: ["Sans Peur", "Infiltrateur", "Sauvegarde Invulnérable", "Marcheur"]
+  - id: grand_scorpion_airain
+    nom: Grand Scorpion d'Airain
+    type: EG
+    vitesse: 20cm
+    blindage: "5+"
+    cc: "3+"
+    ff: "4+"
+    armes:
+      - { nom: Mega Canon Scorpion, portee: 30cm, puissance: "2xAP3+/AC5+" }
+      - { nom: Canon Hellmaw, portee: 15cm, puissance: "2x AP4+, IC" }
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: 2x Griffes de Combat, portee: (contact), puissance: "Arme d'Assaut, +1A, MA" }
+    notes:
+      - "Infiltrateur"
+      - "Marcheur"
+      - "Blindage Renforcé"
+      - "Sans Peur"
+      - "Sauvegarde Invulnérable"
+      - "Peut passer au-dessus d'unités et de terrains infranchissables ou dangereux moins hauts que les genoux du Grand Scorpion d'Airain et de 2cm de large maximum"
+    degats:
+      cd: 3
+      critique: "Le Scorpion d'Airain est détruit. Toutes les unités dans un rayon de 5cm subissent une touche sur 6+"
+
+  # ---- Véhicules renégats ----
+  - id: salamandre
+    nom: Salamandre
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Autocanon, portee: 45cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Éclaireur"]
+  - id: chimere
+    nom: Chimère
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Multi-Laser, portee: 30cm, puissance: "AP5+/AC6+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Transport (2) : Commandant renégat, Aspirant Champion Marine du Chaos, Cultistes, Mutants, Disciples, Appui-feu, Ogryns Berserk* (* prennent 2 places)"]
+    transport:
+      capacite: 2
+      accepte: [commandant_renegat, aspirant_champion, champion_mutant, cultiste, mutant, disciples, appui_feu, psyker_renegat, executeur, archi_heretique, ogryn_berserk]
+  - id: hellhound
+    nom: Hellhound
+    type: VB
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Lance-flammes Lourd, portee: 15cm, puissance: "AP4+, IC" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: leman_russ
+    nom: Leman Russ
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Blindage Renforcé"]
+  - id: leman_russ_demolisseur
+    nom: Leman Russ Démolisseur
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+" }
+      - { nom: 2x Lance-Plasma Lourds, portee: 30cm, puissance: "AP5+/AC5+" }
+    notes: ["Blindage Renforcé"]
+  - id: leman_russ_destroyer
+    nom: Leman Russ Destroyer
+    type: VB
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canon Destroyer, portee: 75cm, puissance: "AC3+, Lance" }
+    notes: ["Blindage Renforcé"]
+  - id: malcador
+    nom: Malcador
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Obusier, portee: 75cm, puissance: "AP4+/AC4+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: ["Blindage Renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: malcador_annihilator
+    nom: Malcador Annihilator
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: Canons Laser Jumelés, portee: 45cm, puissance: "AC4+" }
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+      - { nom: 2x Canon Laser, portee: 45cm, puissance: "AC5+" }
+    notes: ["Blindage Renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: malcador_defender
+    nom: Malcador Defender
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "5+"
+    ff: "4+"
+    armes:
+      - { nom: 6x Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+      - { nom: Canon Démolisseur, portee: 30cm, puissance: "MA4+, FrtF" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, MA" }
+    notes: ["Blindage Renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: malcador_infernus
+    nom: Malcador Infernus
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "4+"
+    armes:
+      - { nom: Canon Inferno Lourd, portee: 30cm, puissance: "2xAP3+/AC6+, IC, Frt" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC, Frt" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+    notes: ["Blindage Renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: valdor
+    nom: Valdor
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Laser Projecteur à Neutron, portee: 75cm, puissance: "MA3+, Rpt, FrtF" }
+      - { nom: Canon Laser, portee: 45cm, puissance: "AC5+, Drt" }
+    notes: ["Blindage Renforcé", "Marcheur"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: minotaure
+    nom: Minotaure
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canons Tremble-Terre Jumelés, portee: 120cm, puissance: "2PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+    notes: ["Blindage Renforcé"]
+    degats: { cd: 2, critique: "Détruit" }
+  - id: hydre
+    nom: Hydre
+    type: VB
+    vitesse: 30cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "5+"
+    armes:
+      - { nom: 2x Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+      - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
+  - id: plateforme_hydre
+    nom: Plateforme Hydre
+    type: VB
+    vitesse: 0cm
+    blindage: "6+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: 2x Canons Hydre, portee: 45cm, puissance: "AP4+/AC5+/AA5+" }
+  - id: plateforme_basilisk
+    nom: Plateforme Basilisk
+    type: VB
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Tremble-Terre, portee: 120cm, puissance: "1PB, Ind" }
+      - { nom: ou, portee: 120cm, puissance: "AP4+/AC4+" }
+  - id: plateforme_medusa
+    nom: Plateforme Medusa
+    type: VB
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Canon Medusa, portee: 60cm, puissance: "MA4+, IC" }
+  - id: plateforme_manticore
+    nom: Plateforme Manticore
+    type: VB
+    vitesse: 0cm
+    blindage: "5+"
+    cc: "6+"
+    ff: "6+"
+    armes:
+      - { nom: Lance-roquettes (Manticore), portee: 150cm, puissance: "2PB, Ind, Rpt, Rchg" }
+
+  # ---- Fortifications ----
+  - id: bunker
+    nom: Bunker
+    type: Fort
+    armes: []
+    notes: ["Couvert 3+ pour l'infanterie, Infranchissable pour les véhicules et les engins de guerre", "2 unités par tronçon de 4 cm"]
+  - id: tranchees
+    nom: Tranchées
+    type: Fort
+    armes: []
+    notes: ["Couvert 4+ pour l'infanterie, Dangereux pour les véhicules, sans effet sur les engins de guerre", "2 unités par tronçon de 4 cm"]
+  - id: barbeles
+    nom: Barbelés
+    type: Fort
+    armes: []
+    notes: ["Dangereux pour l'infanterie, sans effet sur les véhicules et les engins de guerre"]
+  - id: emplacement_artillerie
+    nom: Emplacement d'artillerie
+    type: Fort
+    armes: []
+    notes: ["Couvert 4+ pour l'infanterie, Couvert 5+ pour les véhicules, sans effet sur les engins de guerre", "1 unité par tronçon de 4 cm"]
+
+  # ---- Support aéronaval et Légions Titaniques ----
+  - id: hellblade
+    nom: Intercepteur Hellblade
+    type: A
+    vitesse: C
+    blindage: "6+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Faucheurs jumelées (hellblades), portee: 30cm, puissance: "AP3+/AC5+/AA4+, FrtF" }
+  - id: helltalon
+    nom: Chasseur-Bombardier Helltalon
+    type: A
+    vitesse: CB
+    blindage: "5+"
+    cc: "-"
+    ff: "-"
+    armes:
+      - { nom: Canons Laser Jumelés AA, portee: 45cm, puissance: "AC4+/AA5+, FrtF" }
+      - { nom: Lanceur Havoc, portee: 45cm, puissance: "AP5+/AC6+, FrtF" }
+      - { nom: Bombes Incendiaires, portee: 15cm, puissance: "2PB, IC, FrtF" }
+  - id: warhound_chaos
+    nom: Warhound du Chaos
+    type: EG
+    vitesse: 30cm
+    blindage: "5+"
+    cc: "4+"
+    ff: "4+"
+    armes:
+      - { nom: Méga Bolter Vulcain (F), portee: 45cm, puissance: "4xAP3+/AC5+" }
+      - { nom: Canon Inferno léger (F), portee: 30cm, puissance: "2PB, IC" }
+      - { nom: et, portee: (15cm), puissance: "Arme Légère, +1A, IC" }
+    notes:
+      - "Blindage Renforcé"
+      - "Marcheur"
+      - "Sans peur"
+      - "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"
+    degats:
+      cd: 3
+      bi: 2
+      critique: "Le titan est déséquilibré et vacille. Déplacez-le dans une direction aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne peut pousser, il s'arrête et perd un point de dommage supplémentaire ; les unités qu'il percute subissent une touche sur un résultat de 6+."
+  - id: reaver_chaos
+    nom: Reaver du Chaos
+    type: EG
+    vitesse: 20cm
+    blindage: "4+"
+    cc: "3+"
+    ff: "3+"
+    armes:
+      - { nom: Lance-missiles Apocalypse, portee: 60cm, puissance: "4PB, FrtF" }
+      - { nom: Canon Gatling, portee: 60cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: Poing tronçonneur, portee: (contact), puissance: "Arme d'Assaut, +6A, MA" }
+    notes:
+      - "Blindage Renforcé"
+      - "Marcheur"
+      - "Sans peur"
+      - "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"
+    degats:
+      cd: 6
+      bi: 4
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ aux unités à 5cm ; sur 2-3, le Reaver perd 1 CD ; sur 4+ la fissure est réparée."
+  - id: warlord_chaos
+    nom: Warlord du Chaos
+    type: EG
+    vitesse: 15cm
+    blindage: "4+"
+    cc: "2+"
+    ff: "3+"
+    armes:
+      - { nom: 2x Destructeur Turbo Laser, portee: 60cm, puissance: "4xAP5+/AC3+, FrtF" }
+      - { nom: Canon Gatling, portee: 60cm, puissance: "4xAP4+/AC4+, Frt" }
+      - { nom: Canon Volcano, portee: 90cm, puissance: "MA2+, TT (D3), Frt" }
+    notes:
+      - "Blindage Renforcé"
+      - "Blindage arrière Renforcé"
+      - "Marcheur"
+      - "Sans peur"
+      - "Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au maximum de 2cm de large"
+    degats:
+      cd: 8
+      bi: 6
+      critique: "Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour pour chaque fissure. Sur un résultat de 1, le Warlord explose et inflige une touche sur un 4+ aux unités à 5cm ; sur 2-3, le Warlord perd 1 CD ; sur 4+ la fissure est réparée."
+
+options:
+  - id: archi_heretique_opt
+    nom: 0-1 Archi-Hérétique
+    effet: { type: ajouter, cout: 50, unites: [{ unite: archi_heretique, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_armee, valeur: 1 }
+      - { type: max_par_formation, valeur: 1 }
+      - { type: requiert_unite, unites: [commandant_renegat] }
+    phrase_pdf: "Ajouter la capacité « Commandant suprême » à 1 unité de Commandant renégat"
+  - id: loge_psychique
+    nom: Loge Psychique
+    effet: { type: ajouter, cout: 25, unites: [{ unite: psyker_renegat, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "1 unité de Psykers"
+  - id: soutien_infanterie
+    nom: Soutien d'Infanterie
+    effet: { type: ajouter, cout: 100, unites: [{ unite: cultiste, nombre: 6 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    note_ref: embarquement
+    phrase_pdf: "6 unités de Cultistes"
+  - id: appuis_feux
+    nom: Appuis-feux Renégats
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: appui_feu, nombre: 1 }], max: 4 }
+    note_ref: embarquement
+    phrase_pdf: "Jusqu'à 4 unités d'Appui-feu, 25 pts par unité"
+  - id: brutes_ogryns
+    nom: Brutes Ogryns
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: ogryn_berserk, nombre: 1 }], max: 4 }
+    note_ref: embarquement
+    phrase_pdf: "Jusqu'à 4 unités de Ogryns Berserk, 25 pts par unité"
+  - id: chiens_chaos
+    nom: Chiens du Chaos
+    effet: { type: ajouter, cout_par_unite: 10, unites: [{ unite: chien_chaos, nombre: 1 }], max: 4 }
+    phrase_pdf: "Jusqu'à 4 unités de Chien du Chaos, 10 pts par unité"
+  - id: flak_renegate
+    nom: Flak Renégate
+    effet: { type: ajouter, cout: 50, unites: [{ unite: hydre, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "1 Hydre"
+  - id: soutien_blinde
+    nom: Soutien Blindé
+    effet:
+      type: choix
+      parmi:
+        - id: hellhounds
+          nom: 3 Hellhounds
+          cout: 150
+          effet: { type: ajouter, cout: 150, unites: [{ unite: hellhound, nombre: 3 }] }
+        - id: leman_russ
+          nom: "3 unités parmi : Leman Russ, Leman Russ Démolisseurs"
+          cout: 200
+          effet:
+            type: choix_multiple
+            total: 3
+            parmi: [{ unite: leman_russ }, { unite: leman_russ_demolisseur }]
+        - id: malcador
+          nom: "3 unités parmi : Malcador, Malcador Annihilator, Malcador Infernus, Malcador Defender"
+          cout: 300
+          effet:
+            type: choix_multiple
+            total: 3
+            parmi: [{ unite: malcador }, { unite: malcador_annihilator }, { unite: malcador_infernus }, { unite: malcador_defender }]
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+  - id: transport_chimere
+    nom: Chimères
+    effet: { type: ajouter, cout_par_unite: 25, unites: [{ unite: chimere, nombre: 1 }], max: besoin_transport, perimetre_transport: options }
+    contraintes: [{ type: hors_quota_options }]
+    note_ref: embarquement
+    phrase_pdf: "Chimères, autant que nécessaire pour embarquer les unités des améliorations"
+  - id: tunnelier
+    nom: Tunnelier
+    effet: { type: mot_cle, texte: Tunnelier, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter Tunnelier à la formation"
+  - id: chimeres_disciples
+    nom: Chimères
+    effet: { type: ajouter, cout: 100, unites: [{ unite: chimere, nombre: 4 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 4 Chimères à la formation"
+  - id: teleportation_disciples
+    nom: Téléportation
+    effet: { type: mot_cle, texte: Téléportation, cout: 50 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter Téléportation à la formation"
+  - id: emplacements_artillerie
+    nom: Emplacements d'Artillerie
+    effet: { type: ajouter, cout: 25, unites: [{ unite: emplacement_artillerie, nombre: 3 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 3 Emplacements d'Artillerie à la formation"
+  - id: enfant_geant
+    nom: Enfant du Chaos Géant
+    effet: { type: remplacer, de: enfant_chaos, par: enfant_chaos_geant, lot: 1, max: 1, cout: 25 }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Remplacer un Enfant du Chaos par un Enfant du Chaos Géant"
+  - id: executeur_appui
+    nom: Exécuteur
+    effet: { type: ajouter, cout: 0, unites: [{ unite: executeur, nombre: 1 }] }
+    contraintes:
+      - { type: max_par_formation, valeur: 1 }
+      - { type: hors_quota_options }
+      - { type: consomme, budget: executeurs_gratuits }
+    phrase_pdf: "Exécuteur gratuit, 1 par tranche de 1 000 pts"
+  - id: warhound_supplementaire
+    nom: Titan Warhound supplémentaire
+    effet: { type: ajouter, cout: 225, unites: [{ unite: warhound_chaos, nombre: 1 }] }
+    contraintes: [{ type: max_par_formation, valeur: 1 }]
+    phrase_pdf: "Ajouter 1 Titan Warhound du Chaos"
+
+formations:
+  # ---- Principales ----
+  - id: milice_renegate
+    nom: Milice Renégate
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - { unite: commandant_renegat, nombre: 1 }
+          - { unite: cultiste, nombre: 11 }
+          - { unite: executeur, nombre: 1, implicite: true }
+    contraintes:
+      - { type: fournit, budget: milices_ouvrieres, quantite: 1 }
+      - { type: fournit, budget: fortifications, quantite: 1 }
+  - id: milice_ouvriere
+    nom: Milice Ouvrière
+    description: "1 par Milice Renégate"
+    variantes:
+      - id: base
+        cout: 225
+        composition:
+          - { unite: ogryn_berserk, nombre: 3 }
+          - { unite: cultiste, nombre: 6 }
+          - { unite: executeur, nombre: 1, implicite: true }
+    contraintes:
+      - { type: consomme, budget: milices_ouvrieres }
+      - { type: fournit, budget: populaces, quantite: 1 }
+      - { type: fournit, budget: fortifications, quantite: 1 }
+    options: [brutes_ogryns, tunnelier, transport_chimere, executeur_appui]
+  - id: populace_mutante
+    nom: Populace Mutante
+    description: "1 par Milice Ouvrière"
+    variantes:
+      - id: base
+        cout: 325
+        composition:
+          - { unite: champion_mutant, nombre: 1 }
+          - { unite: mutant, nombre: 19 }
+          - { unite: executeur, nombre: 1, implicite: true }
+    contraintes: [{ type: consomme, budget: populaces }]
+    options: []
+  - id: compagnie_blindee
+    nom: Compagnie Blindée Renégate
+    variantes:
+      - id: base
+        cout: 600
+        composition:
+          - choix:
+              total: 6
+              parmi: [{ unite: malcador }, { unite: malcador_annihilator }, { unite: malcador_infernus }, { unite: malcador_defender }]
+              phrase_pdf: "6 unités parmi : Malcador, Malcador Annihilator, 0-2 Malcador Infernus, Malcador Defender"
+          - { unite: executeur, nombre: 1, implicite: true }
+    options: [soutien_blinde]
+
+  # ---- Appui vraksiennes ----
+  - id: disciples_xaphan
+    nom: Disciples de Xaphan
+    variantes:
+      - id: base
+        cout: 200
+        composition:
+          - { unite: commandant_renegat, nombre: 1 }
+          - { unite: disciples, nombre: 7 }
+    options_plus: [chimeres_disciples, teleportation_disciples]
+  - id: escadron_reconnaissance
+    nom: Escadron de Reconnaissance
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: salamandre, nombre: 4 }] }
+    options: [executeur_appui]
+  - id: escadron_chasseurs_chars
+    nom: Escadron de Chasseurs de Chars
+    variantes:
+      - id: leman_russ
+        nom: 3 Leman Russ + 3 Leman Russ Destroyer
+        cout: 400
+        composition:
+          - { unite: leman_russ, nombre: 3 }
+          - { unite: leman_russ_destroyer, nombre: 3 }
+      - { id: valdor, nom: 3 Valdor, cout: 350, composition: [{ unite: valdor, nombre: 3 }] }
+    options: [executeur_appui]
+  - id: peloton_hellhounds
+    nom: Peloton de Hellhounds
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: hellhound, nombre: 6 }] }
+    options: [executeur_appui]
+  - id: batterie_artillerie
+    nom: Batterie d'Artillerie
+    variantes:
+      - { id: medusa, nom: 3 Plateformes Medusa, cout: 150, composition: [{ unite: plateforme_medusa, nombre: 3 }] }
+      - { id: basilisk, nom: 3 Plateformes Basilisk, cout: 150, composition: [{ unite: plateforme_basilisk, nombre: 3 }] }
+      - { id: manticore, nom: 3 Plateformes Manticore, cout: 175, composition: [{ unite: plateforme_manticore, nombre: 3 }] }
+    options: [emplacements_artillerie, executeur_appui]
+  - id: batterie_artillerie_lourde
+    nom: Batterie d'Artillerie Lourde
+    variantes:
+      - { id: base, cout: 350, composition: [{ unite: minotaure, nombre: 2 }] }
+    options: [emplacements_artillerie, executeur_appui]
+  - id: batterie_antiaerienne
+    nom: Batterie Antiaérienne
+    variantes:
+      - id: base
+        cout: 150
+        composition:
+          - { unite: plateforme_hydre, nombre: 3 }
+          - { unite: emplacement_artillerie, nombre: 3 }
+    options: [executeur_appui]
+
+  # ---- Formations du Chaos ----
+  - id: suite_alpha_legion
+    nom: Suite de l'Alpha Legion
+    variantes:
+      - id: base
+        cout: 250
+        composition:
+          - { unite: aspirant_champion, nombre: 1 }
+          - { unite: eclaireur_alpha, nombre: 5 }
+    options: []
+  - id: meute_sauvage
+    nom: Meute sauvage
+    variantes:
+      - { id: base, cout: 150, composition: [{ unite: chien_chaos, nombre: 8 }] }
+    options: []
+  - id: horde_mutante
+    nom: Horde Mutante
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: enfant_chaos, nombre: 6 }] }
+    options: [enfant_geant]
+  - id: infestation_nurgle
+    nom: 0-2 Infestation de Nurgle
+    variantes:
+      - id: base
+        cout: 175
+        composition:
+          - { unite: zombie_peste, nombre: 13 }
+    contraintes: [{ type: max_par_armee, valeur: 2 }]
+    options: []
+    phrase_pdf: "2d6 + 6 Zombies de la peste"
+  - id: avant_garde_ruine
+    nom: Avant-garde de la Ruine
+    variantes:
+      - { id: quatre, nom: 4 Drones de la Ruine, cout: 225, composition: [{ unite: drone_ruine, nombre: 4 }] }
+      - { id: six, nom: 6 Drones de la Ruine, cout: 325, composition: [{ unite: drone_ruine, nombre: 6 }] }
+    options: []
+  - id: meute_massacreurs
+    nom: Meute de Massacreurs
+    variantes:
+      - { id: base, cout: 300, composition: [{ unite: massacreur_sanglant, nombre: 6 }] }
+    options: []
+  - id: scorpions_airain
+    nom: Scorpions d'Airain
+    description: "225 pts chacun"
+    variantes:
+      - { id: un, nom: 1 Grand Scorpion d'Airain, cout: 225, composition: [{ unite: grand_scorpion_airain, nombre: 1 }] }
+      - { id: deux, nom: 2 Grands Scorpions d'Airain, cout: 450, composition: [{ unite: grand_scorpion_airain, nombre: 2 }] }
+      - { id: trois, nom: 3 Grands Scorpions d'Airain, cout: 675, composition: [{ unite: grand_scorpion_airain, nombre: 3 }] }
+    options: []
+
+  # ---- Fortifications ----
+  - id: position_fortifiee
+    nom: Position Fortifiée
+    variantes:
+      - id: base
+        cout: 100
+        composition:
+          - { unite: bunker, nombre: 3 }
+          - { unite: tranchees, nombre: 1 }
+          - { unite: barbeles, nombre: 1 }
+    contraintes: [{ type: consomme, budget: fortifications }, { type: pas_une_activation }]
+    options: []
+    phrase_pdf: "3 Bunkers et jusqu'à 80cm de Tranchées + 80cm de Barbelés"
+
+  # ---- Support ----
+  - id: escadrille_hellblades
+    nom: Escadrille d'Intercepteurs Hellblades
+    variantes:
+      - { id: base, cout: 200, composition: [{ unite: hellblade, nombre: 3 }] }
+    options: []
+  - id: escadrille_helltalons
+    nom: Escadrille de Chasseurs-Bombardiers Helltalons
+    variantes:
+      - { id: base, cout: 225, composition: [{ unite: helltalon, nombre: 2 }] }
+    options: []
+  - id: formation_warhound_chaos
+    nom: Warhound du Chaos
+    variantes:
+      - { id: base, nom: 1 Titan Warhound du Chaos, cout: 275, composition: [{ unite: warhound_chaos, nombre: 1 }] }
+    options: [warhound_supplementaire]
+  - id: formation_reaver_chaos
+    nom: Titan Reaver du Chaos
+    variantes:
+      - { id: base, nom: 1 Titan Reaver du Chaos, cout: 650, composition: [{ unite: reaver_chaos, nombre: 1 }] }
+    options: []
+  - id: formation_warlord_chaos
+    nom: Titan Warlord du Chaos
+    variantes:
+      - { id: base, nom: 1 Titan Warlord du Chaos, cout: 850, composition: [{ unite: warlord_chaos, nombre: 1 }] }
+    options: []
+
+sections:
+  - id: principales
+    titre: FORMATIONS PRINCIPALES VRAKSIENNES
+    formations: [milice_renegate, milice_ouvriere, populace_mutante, compagnie_blindee]
+    contraintes:
+      - { type: max_options, valeur: 4 }
+      - { type: fournit, budget: appui, quantite: 2 }
+      - { type: fournit, budget: appui_chaos, quantite: 1 }
+    options: [archi_heretique_opt, loge_psychique, soutien_infanterie, appuis_feux, brutes_ogryns, chiens_chaos, flak_renegate, soutien_blinde, transport_chimere]
+    colonne_options: true
+    tableau_options:
+      titre: AMÉLIORATIONS DES RENÉGATS DE VRAKS
+      sous_titre: "Chaque amélioration ne peut être prise qu'une fois par formation, pour un maximum de quatre"
+    notes:
+      embarquement: "Si l'unité est transportée par Chimère, ajouter autant de Chimères que nécessaire pour le transport de l'unité (+25 pts par Chimère)."
+  - id: appui_vraksiennes
+    titre: FORMATIONS D'APPUI VRAKSIENNES
+    sous_titre: FORMATIONS DE SOUTIEN RENÉGATES
+    formations: [disciples_xaphan, escadron_reconnaissance, escadron_chasseurs_chars, peloton_hellhounds, batterie_artillerie, batterie_artillerie_lourde, batterie_antiaerienne]
+    contraintes: [{ type: consomme, budget: appui }, { type: max_options, valeur: 4 }]
+    options: [archi_heretique_opt, loge_psychique, soutien_infanterie, appuis_feux, brutes_ogryns, chiens_chaos, flak_renegate, soutien_blinde, transport_chimere, executeur_appui]
+    colonne_options: true
+  - id: formations_chaos
+    titre: FORMATIONS DU CHAOS
+    sous_titre: FORMATIONS DE SOUTIEN RENÉGATES
+    formations: [suite_alpha_legion, meute_sauvage, horde_mutante, infestation_nurgle, avant_garde_ruine, meute_massacreurs, scorpions_airain]
+    contraintes:
+      - { type: consomme, budget: appui }
+      - { type: consomme, budget: appui_chaos }
+      - { type: max_options, valeur: 4 }
+    colonne_options: true
+  - id: fortifications_renegates
+    titre: FORTIFICATIONS RENÉGATES
+    sous_titre: "Jusqu'à 1 Fortification pour chaque Formation de Milice Renégate et Milice Ouvrière"
+    formations: [position_fortifiee]
+  - id: support_aeronaval
+    titre: SUPPORT AÉRONAVAL RENÉGAT
+    sous_titre: FORMATIONS DE SUPPORT RENÉGATES
+    formations: [escadrille_hellblades, escadrille_helltalons]
+    contraintes: [{ type: consomme, budget: support, quoi: points }]
+  - id: support_titanique
+    titre: SUPPORT DES LÉGIONS TITANIQUES RENÉGATES
+    sous_titre: FORMATIONS DE SUPPORT RENÉGATES
+    formations: [formation_warhound_chaos, formation_reaver_chaos, formation_warlord_chaos]
+    contraintes: [{ type: consomme, budget: support, quoi: points }, { type: initiative, valeur: "1+" }]
+    colonne_options: true
+
+listes_test:
+  - nom: "Armée de Vraks 3000 pts"
+    limite: 3000
+    attendu: valide
+    formations:
+      - formation: milice_renegate
+        options: [{ option: archi_heretique_opt }, { option: appuis_feux, quantite: 2 }]
+      - formation: milice_ouvriere
+        options: [{ option: brutes_ogryns, quantite: 2 }, { option: tunnelier }]
+      - { formation: populace_mutante }
+      - { formation: position_fortifiee }
+      - { formation: disciples_xaphan, options: [{ option: chimeres_disciples }] }
+      - { formation: batterie_artillerie, variante: medusa, options: [{ option: emplacements_artillerie }] }
+      - { formation: meute_sauvage }
+      - { formation: formation_warhound_chaos }
+  - nom: "trois appuis pour une seule formation principale"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: milice_renegate }
+      - { formation: escadron_reconnaissance }
+      - { formation: peloton_hellhounds }
+      - { formation: batterie_artillerie, variante: basilisk }
+  - nom: "deux formations du Chaos pour une seule formation principale"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: milice_renegate }
+      - { formation: meute_sauvage }
+      - { formation: horde_mutante }
+  - nom: "Populace Mutante sans Milice Ouvrière"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: milice_renegate }
+      - { formation: populace_mutante }
+  - nom: "fortification sans milice"
+    limite: 3000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: compagnie_blindee }
+      - { formation: position_fortifiee }
+  - nom: "supports au-delà du tiers"
+    limite: 2000
+    attendu: refusee
+    erreur: budget_depasse
+    formations:
+      - { formation: milice_renegate }
+      - { formation: formation_warlord_chaos }
+  - nom: "trois Infestations de Nurgle"
+    limite: 4000
+    attendu: refusee
+    erreur: max_par_armee
+    formations:
+      - { formation: milice_renegate }
+      - { formation: milice_ouvriere }
+      - { formation: compagnie_blindee, choix: { "0": { malcador: 4, malcador_defender: 2 } } }
+      - { formation: infestation_nurgle }
+      - { formation: infestation_nurgle }
+      - { formation: infestation_nurgle }
