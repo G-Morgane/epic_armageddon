@@ -2,7 +2,7 @@
 /** Profil d'une unité : stats, armes, notes, transport, dégâts. `compact` : version dense pour le catalogue. */
 import type { Arme, Unite } from '~~/shared/codex/schema'
 import type { IndexCodex } from '~~/shared/codex/engine'
-import { texteArmesPossibles } from '~~/shared/codex/phrases'
+import { armesPossiblesLignes } from '~~/shared/codex/phrases'
 
 const props = defineProps<{ idx: IndexCodex; unite: Unite; nombre?: number; compact?: boolean }>()
 const u = computed(() => props.unite)
@@ -12,7 +12,7 @@ const transportRedondant = computed(() => u.value.notes.some((n) => /transport/i
 /** convention des livres : une arme à deux profils note le second « et ». C'est une suite de la ligne du dessus, pas une arme. */
 const estSuite = (nom: string) => nom.trim().toLowerCase() === 'et'
 /** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
-const choixArmes = (a: Arme) => texteArmesPossibles(props.idx, a)
+const choixArmes = (a: Arme) => armesPossiblesLignes(props.idx, a)
 </script>
 
 <template>
@@ -38,8 +38,8 @@ const choixArmes = (a: Arme) => texteArmesPossibles(props.idx, a)
             <td class="py-1 text-stone-300" :class="compact ? 'pr-3' : 'pr-4'">{{ a.puissance ?? '-' }}</td>
           </tr>
           <!-- armes au choix : sur toute la largeur, la colonne du nom est trop étroite pour une liste -->
-          <tr v-if="choixArmes(a)">
-            <td colspan="3" class="pb-1 text-[10px] italic leading-snug text-stone-500" :class="compact ? 'px-3' : 'px-4'">Au choix : {{ choixArmes(a) }}</td>
+          <tr v-if="choixArmes(a).length">
+            <td colspan="3" class="pb-1 text-[10px] italic leading-snug text-stone-500" :class="compact ? 'px-3' : 'px-4'">Au choix : <template v-for="(w, wi) in choixArmes(a)" :key="wi"><span v-if="wi"> · </span><span class="not-italic text-stone-400">{{ w.nom }}</span><template v-if="w.profil"> : {{ w.profil }}</template></template></td>
           </tr>
         </template>
       </tbody>

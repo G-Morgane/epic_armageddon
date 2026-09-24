@@ -95,14 +95,14 @@ export function indexerCodex(codex: Codex): IndexCodex {
  * Armes possibles derrière une ligne générique d'arme (« 2x Armes de Bras ») :
  * les choix de l'option d'armement du codex, filtrés par emplacement.
  */
-export function armesPossibles(idx: IndexCodex, arme: Arme): { nom: string; cout: number; categorie?: string }[] {
+export function armesPossibles(idx: IndexCodex, arme: Arme): { nom: string; cout: number; categorie?: string; portee?: string; puissance?: string }[] {
   const ref = arme.armement
   if (!ref) return []
   const effet = idx.options.get(ref.option)?.effet
   if (effet?.type !== 'choix') return []
   return effet.parmi
     .filter((p) => !ref.emplacement || !p.emplacement || p.emplacement === ref.emplacement)
-    .map((p) => ({ nom: p.nom, cout: p.cout, categorie: p.categorie }))
+    .map((p) => ({ nom: p.nom, cout: p.cout, categorie: p.categorie, portee: p.portee, puissance: p.puissance }))
 }
 
 export function optionsDisponibles(idx: IndexCodex, formation: Formation): string[] {

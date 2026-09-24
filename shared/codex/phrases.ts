@@ -155,11 +155,23 @@ export function libelleChoix(p: { nom: string; categorie?: string; emplacement?:
   return tags.length ? `${p.nom} (${tags.join(', ')})` : p.nom
 }
 
-/** Armes au choix derrière une ligne générique, avec leur coût. Chaîne vide si la ligne n'en a pas. */
+/**
+ * Armes au choix derrière une ligne générique : le nom avec son coût d'un côté,
+ * le profil de l'autre, pour que l'affichage puisse détacher les deux. Tableau
+ * vide si la ligne n'a pas d'armes au choix.
+ */
+export function armesPossiblesLignes(idx: IndexCodex, arme: Arme): { nom: string; profil: string }[] {
+  return armesPossibles(idx, arme).map((a) => ({
+    nom: `${a.nom} (${a.cout ? `${a.cout} pts` : 'gratuit'})`,
+    profil: [a.portee, a.puissance].filter(Boolean).join(', '),
+  }))
+}
+
+/** Les mêmes, en une phrase. Le profil contient déjà des virgules, d'où le point médian entre les armes. */
 export function texteArmesPossibles(idx: IndexCodex, arme: Arme): string {
-  const armes = armesPossibles(idx, arme)
-  if (!armes.length) return ''
-  return armes.map((a) => `${a.nom} (${a.cout ? `${a.cout} pts` : 'gratuit'})`).join(', ')
+  return armesPossiblesLignes(idx, arme)
+    .map((a) => `${a.nom}${a.profil ? ` : ${a.profil}` : ''}`)
+    .join(' · ')
 }
 
 export function coutOption(o: Option): string {

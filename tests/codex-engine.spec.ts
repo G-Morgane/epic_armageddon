@@ -79,6 +79,11 @@ describe('armes possibles derrière une ligne générique', () => {
     expect(texte).not.toContain('Missile de barrage')
   })
 
+  it('le profil de l\'arme suit son nom et son coût', () => {
+    const texte = texteArmesPossibles(idx, arme('titan_reaver', '2x Armes de Bras'))
+    expect(texte).toContain('Canon à Plasma (25 pts) : 60cm, 3xMA2+, Rchg')
+  })
+
   it('une arme ordinaire ne propose rien', () => {
     expect(texteArmesPossibles(idx, arme('titan_imperator', 'Canon Fournaise'))).toBe('')
   })

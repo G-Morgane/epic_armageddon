@@ -173,6 +173,9 @@ const EffetChoix = z.object({
       categorie: z.string().optional(),
       /** armes de titan : emplacement imposé ; absent = les deux */
       emplacement: EmplacementSchema.optional(),
+      /** armes de titan : profil affiché dans la liste des armes possibles */
+      portee: z.string().optional(),
+      puissance: z.string().optional(),
     }),
   ),
 })

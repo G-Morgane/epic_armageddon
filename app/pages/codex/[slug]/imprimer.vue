@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, marqueNote, sousTitreSection, optionsDeSection, texteArmesPossibles } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, marqueNote, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir } from '~~/shared/codex/markdown'
 
@@ -87,9 +87,9 @@ const unitesOrdonnees = computed<Unite[]>(() => {
 
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
 /** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
-const choixArmes = (a: Arme) => texteArmesPossibles(idx, a)
+const choixArmes = (a: Arme) => armesPossiblesLignes(idx, a)
 /** lignes occupées par les armes d'une unité, celles des armes au choix comprises */
-const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixArmes(a) ? 2 : 1), 0)
+const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixArmes(a).length ? 2 : 1), 0)
 /** lignes sous le profil : capacité de dommage, critique, notes (seulement si renseignées) */
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
@@ -235,10 +235,12 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
             <tr class="fiche-stats"><td>{{ u.type }}</td><td>{{ u.vitesse ?? '-' }}</td><td>{{ u.blindage ?? '-' }}</td><td>{{ u.cc ?? '-' }}</td><td>{{ u.ff ?? '-' }}</td></tr>
             <tr class="fiche-entete"><th colspan="2">Arme</th><th>Portée</th><th colspan="2">Puissance de feu</th></tr>
             <template v-for="(a, ai) in lignesArmes(u)" :key="ai">
-              <tr class="fiche-arme" :class="{ 'arme-suivie': choixArmes(a) }">
+              <tr class="fiche-arme" :class="{ 'arme-suivie': choixArmes(a).length }">
                 <td colspan="2">{{ a.nom || '-' }}</td><td>{{ a.portee || '-' }}</td><td colspan="2">{{ a.puissance || '-' }}</td>
               </tr>
-              <tr v-if="choixArmes(a)" class="fiche-arme fiche-choix"><td colspan="5">Au choix : {{ choixArmes(a) }}</td></tr>
+              <tr v-if="choixArmes(a).length" class="fiche-arme fiche-choix">
+                <td colspan="5">Au choix : <template v-for="(w, wi) in choixArmes(a)" :key="wi"><span v-if="wi"> · </span><span class="arme-nom">{{ w.nom }}</span><template v-if="w.profil"> : {{ w.profil }}</template></template></td>
+              </tr>
             </template>
             <tr v-for="(l, li) in complements(u)" :key="`c${li}`" class="fiche-comp">
               <td colspan="5"><strong v-if="l.label">{{ l.label }} : </strong>{{ l.texte }}</td>
@@ -272,7 +274,9 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 <td>{{ a.portee }}</td>
                 <td>{{ a.puissance }}</td>
               </tr>
-              <tr v-if="choixArmes(a)" class="ligne-choix"><td colspan="3">Au choix : {{ choixArmes(a) }}</td></tr>
+              <tr v-if="choixArmes(a).length" class="ligne-choix">
+                <td colspan="3">Au choix : <template v-for="(w, wi) in choixArmes(a)" :key="wi"><span v-if="wi"> · </span><span class="arme-nom">{{ w.nom }}</span><template v-if="w.profil"> : {{ w.profil }}</template></template></td>
+              </tr>
             </template>
             <tr v-for="(l, li) in complements(u, true)" :key="`${u.id}-c${li}`" class="sous-ligne" :class="{ derniere: li === complements(u, true).length - 1 }">
               <td :colspan="nbColonnesStats"><span v-if="l.label" class="etiquette">{{ l.label }} : </span>{{ l.texte }}</td>
@@ -427,6 +431,7 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
 /* armes au choix sous une ligne générique : gris, discret, ce n'est pas l'armement du titan mais son menu */
 .fiche-arme.arme-suivie td { border-bottom: 0; }
 .fiche-choix td { font-size: 6.2pt; font-style: italic; color: #777; padding-top: 0; }
+.fiche-choix .arme-nom, table.stats tr.ligne-choix .arme-nom { font-style: normal; color: #444; }
 .fiche-comp strong { font-style: normal; }
 /* Aperçu écran : feuilles séparées, au format réel, pour juger de la mise en page. */
 @media screen {

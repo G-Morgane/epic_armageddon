@@ -414,12 +414,12 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: griffe_ursus, nom: Griffe d'Ursus, cout: 0 }
-        - { id: natrix_shock_lance, nom: Natrix Shock Lance, cout: 0 }
-        - { id: canon_plasma_leger, nom: Canon à Plasma Léger, cout: 0 }
-        - { id: canon_inferno_leger, nom: Canon Inferno Léger, cout: 0 }
-        - { id: destructeur_turbo_laser_leger, nom: Destructeur Turbo Laser Léger, cout: 0 }
-        - { id: mega_bolter_vulcain_leger, nom: Méga Bolter Vulcain Léger, cout: 0 }
+        - { id: griffe_ursus, nom: Griffe d'Ursus, cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1D3)" }
+        - { id: natrix_shock_lance, nom: Natrix Shock Lance, cout: 0, portee: "30cm et (15cm)", puissance: "2xAC3+, Lance, ignore les boucliers du Vide / Arme Légère, +1A, Lance, ignore les boucliers du Vide" }
+        - { id: canon_plasma_leger, nom: Canon à Plasma Léger, cout: 0, portee: "45cm", puissance: "2xMA2+, Rchg" }
+        - { id: canon_inferno_leger, nom: Canon Inferno Léger, cout: 0, portee: "30cm et (15cm)", puissance: "2PB, IC / Arme Légère, +1A, IC" }
+        - { id: destructeur_turbo_laser_leger, nom: Destructeur Turbo Laser Léger, cout: 0, portee: "45cm", puissance: "4xAP5+/AC3+" }
+        - { id: mega_bolter_vulcain_leger, nom: Méga Bolter Vulcain Léger, cout: 0, portee: "45cm", puissance: "4x AP3+/AC5+" }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 2 }
@@ -429,12 +429,12 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: griffe_ursus, nom: Griffe d'Ursus, cout: 0 }
-        - { id: natrix_shock_lance, nom: Natrix Shock Lance, cout: 0 }
-        - { id: canon_plasma_leger, nom: Canon à Plasma Léger, cout: 0 }
-        - { id: canon_inferno_leger, nom: Canon Inferno Léger, cout: 0 }
-        - { id: destructeur_turbo_laser_leger, nom: Destructeur Turbo Laser Léger, cout: 0 }
-        - { id: mega_bolter_vulcain_leger, nom: Méga Bolter Vulcain Léger, cout: 0 }
+        - { id: griffe_ursus, nom: Griffe d'Ursus, cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (1D3)" }
+        - { id: natrix_shock_lance, nom: Natrix Shock Lance, cout: 0, portee: "30cm et (15cm)", puissance: "2xAC3+, Lance, ignore les boucliers du Vide / Arme Légère, +1A, Lance, ignore les boucliers du Vide" }
+        - { id: canon_plasma_leger, nom: Canon à Plasma Léger, cout: 0, portee: "45cm", puissance: "2xMA2+, Rchg" }
+        - { id: canon_inferno_leger, nom: Canon Inferno Léger, cout: 0, portee: "30cm et (15cm)", puissance: "2PB, IC / Arme Légère, +1A, IC" }
+        - { id: destructeur_turbo_laser_leger, nom: Destructeur Turbo Laser Léger, cout: 0, portee: "45cm", puissance: "4xAP5+/AC3+" }
+        - { id: mega_bolter_vulcain_leger, nom: Méga Bolter Vulcain Léger, cout: 0, portee: "45cm", puissance: "4x AP3+/AC5+" }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 4 }
@@ -444,10 +444,10 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: canon_gatling, nom: Canon Gatling (Titan), cout: 25 }
-        - { id: destructeur_turbo_laser, nom: Destructeur Turbo Laser, cout: 25 }
-        - { id: canon_fuseur, nom: Canon Fuseur, cout: 25 }
-        - { id: canon_volcano, nom: Canon Volcano (Titan), cout: 50 }
+        - { id: canon_gatling, nom: Canon Gatling (Titan), cout: 25, portee: "60cm", puissance: "4xAP4+/AC4+" }
+        - { id: destructeur_turbo_laser, nom: Destructeur Turbo Laser, cout: 25, portee: "60cm", puissance: "4xAP5+/AC3+" }
+        - { id: canon_fuseur, nom: Canon Fuseur, cout: 25, portee: "30cm et (15cm)", puissance: "2xMA3+, TT (1) / Arme Légère, +1A, TT (D3)" }
+        - { id: canon_volcano, nom: Canon Volcano (Titan), cout: 50, portee: "90cm", puissance: "MA2+, TT (D3)" }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 2 }
@@ -457,22 +457,22 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: poing_combat, nom: "Poing de Combat", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: poing_tronconneur, nom: "Poing tronçonneur", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: demolisseur, nom: "Démolisseur", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: canon_plasma, nom: "Canon à Plasma", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: canon_inferno, nom: "Canon Inferno", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser", cout: 25, categorie: tactique }
-        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain", cout: 25, categorie: tactique }
-        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse", cout: 25, categorie: tactique, emplacement: carapace }
-        - { id: canon_gatling, nom: "Canon Gatling", cout: 25, categorie: tactique }
-        - { id: thermo_fuseur, nom: "Thermo Fuseur", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: canon_fuseur, nom: "Canon Fuseur", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: annihilateur_plasma, nom: "Annihilateur à plasma", cout: 50, categorie: support, emplacement: bras }
-        - { id: sismo_canon, nom: "Sismo Canon", cout: 50, categorie: support, emplacement: bras }
-        - { id: canon_volcano, nom: "Canon Volcano", cout: 50, categorie: support, emplacement: bras }
-        - { id: missile_warp, nom: "Missile Warp", cout: 50, categorie: support, emplacement: carapace, contraintes: [{ type: consomme, budget: missile_warp }] }
-        - { id: missile_barrage, nom: "Missile de barrage", cout: 50, categorie: support, emplacement: carapace }
+        - { id: poing_combat, nom: "Poing de Combat", cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +3A, TT (D3)", categorie: assaut, emplacement: bras }
+        - { id: poing_tronconneur, nom: "Poing tronçonneur", cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +6A, MA", categorie: assaut, emplacement: bras }
+        - { id: demolisseur, nom: "Démolisseur", cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (D6), FeP", categorie: assaut, emplacement: bras }
+        - { id: canon_plasma, nom: "Canon à Plasma", cout: 25, portee: "60cm", puissance: "3xMA2+, Rchg", categorie: tactique, emplacement: bras }
+        - { id: canon_inferno, nom: "Canon Inferno", cout: 25, portee: "30cm et (15cm)", puissance: "4PB, IC / Arme Légère, +2A, IC", categorie: tactique, emplacement: bras }
+        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser", cout: 25, portee: "60cm", puissance: "4xAP5+/AC3+", categorie: tactique }
+        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain", cout: 25, portee: "45cm", puissance: "6x AP3+/AC5+", categorie: tactique }
+        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse", cout: 25, portee: "60cm", puissance: "4PB", categorie: tactique, emplacement: carapace }
+        - { id: canon_gatling, nom: "Canon Gatling", cout: 25, portee: "60cm", puissance: "4xAP4+/AC4+", categorie: tactique }
+        - { id: thermo_fuseur, nom: "Thermo Fuseur", cout: 25, portee: "(15cm)", puissance: "Arme Légère, +3A, MA", categorie: tactique, emplacement: bras }
+        - { id: canon_fuseur, nom: "Canon Fuseur", cout: 25, portee: "30cm et (15cm)", puissance: "2xMA3+, TT (1) / Arme Légère, +1A, TT (D3)", categorie: tactique, emplacement: bras }
+        - { id: annihilateur_plasma, nom: "Annihilateur à plasma", cout: 50, portee: "90cm", puissance: "4xMA2+, Rchg", categorie: support, emplacement: bras }
+        - { id: sismo_canon, nom: "Sismo Canon", cout: 50, portee: "90cm", puissance: "3PB, MA", categorie: support, emplacement: bras }
+        - { id: canon_volcano, nom: "Canon Volcano", cout: 50, portee: "90cm", puissance: "MA2+, TT (D3)", categorie: support, emplacement: bras }
+        - { id: missile_warp, nom: "Missile Warp", cout: 50, portee: "Illimité", puissance: "MA2+, Uniq, TT (D3), Ind, ignore les boucliers du Vide", categorie: support, emplacement: carapace, contraintes: [{ type: consomme, budget: missile_warp }] }
+        - { id: missile_barrage, nom: "Missile de barrage", cout: 50, portee: "Illimité", puissance: "8PB, Uniq, Rpt, Ind", categorie: support, emplacement: carapace }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 3 }
@@ -482,24 +482,24 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: module_assaut_corvus, nom: "Module d'assaut Corvus", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: poing_combat, nom: "Poing de Combat", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: poing_tronconneur, nom: "Poing tronçonneur", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: demolisseur, nom: "Démolisseur", cout: 0, categorie: assaut, emplacement: bras }
-        - { id: canon_plasma, nom: "Canon à Plasma", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: canon_inferno, nom: "Canon Inferno", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser", cout: 25, categorie: tactique }
-        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain", cout: 25, categorie: tactique }
-        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse", cout: 25, categorie: tactique, emplacement: carapace }
-        - { id: canon_gatling, nom: "Canon Gatling", cout: 25, categorie: tactique }
-        - { id: thermo_fuseur, nom: "Thermo Fuseur", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: canon_fuseur, nom: "Canon Fuseur", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: poing_combat_arioch, nom: "Poing de Combat Arioch", cout: 25, categorie: tactique, emplacement: bras }
-        - { id: annihilateur_plasma, nom: "Annihilateur à plasma", cout: 50, categorie: support, emplacement: bras }
-        - { id: sismo_canon, nom: "Sismo Canon", cout: 50, categorie: support, emplacement: bras }
-        - { id: canon_volcano, nom: "Canon Volcano", cout: 50, categorie: support, emplacement: bras }
-        - { id: missile_warp, nom: "Missile Warp", cout: 50, categorie: support, emplacement: carapace, contraintes: [{ type: consomme, budget: missile_warp }] }
-        - { id: missile_barrage, nom: "Missile de barrage", cout: 50, categorie: support, emplacement: carapace }
+        - { id: module_assaut_corvus, nom: "Module d'assaut Corvus", cout: 0, portee: "(15cm)", puissance: "Arme Légère, +4A, Transport (8)", categorie: assaut, emplacement: bras }
+        - { id: poing_combat, nom: "Poing de Combat", cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +3A, TT (D3)", categorie: assaut, emplacement: bras }
+        - { id: poing_tronconneur, nom: "Poing tronçonneur", cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +6A, MA", categorie: assaut, emplacement: bras }
+        - { id: demolisseur, nom: "Démolisseur", cout: 0, portee: "(contact)", puissance: "Arme d'Assaut, +1A, TT (D6), FeP", categorie: assaut, emplacement: bras }
+        - { id: canon_plasma, nom: "Canon à Plasma", cout: 25, portee: "60cm", puissance: "3xMA2+, Rchg", categorie: tactique, emplacement: bras }
+        - { id: canon_inferno, nom: "Canon Inferno", cout: 25, portee: "30cm et (15cm)", puissance: "4PB, IC / Arme Légère, +2A, IC", categorie: tactique, emplacement: bras }
+        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser", cout: 25, portee: "60cm", puissance: "4xAP5+/AC3+", categorie: tactique }
+        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain", cout: 25, portee: "45cm", puissance: "6x AP3+/AC5+", categorie: tactique }
+        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse", cout: 25, portee: "60cm", puissance: "4PB", categorie: tactique, emplacement: carapace }
+        - { id: canon_gatling, nom: "Canon Gatling", cout: 25, portee: "60cm", puissance: "4xAP4+/AC4+", categorie: tactique }
+        - { id: thermo_fuseur, nom: "Thermo Fuseur", cout: 25, portee: "(15cm)", puissance: "Arme Légère, +3A, MA", categorie: tactique, emplacement: bras }
+        - { id: canon_fuseur, nom: "Canon Fuseur", cout: 25, portee: "30cm et (15cm)", puissance: "2xMA3+, TT (1) / Arme Légère, +1A, TT (D3)", categorie: tactique, emplacement: bras }
+        - { id: poing_combat_arioch, nom: "Poing de Combat Arioch", cout: 25, portee: "30cm et (contact)", puissance: "2x AP3+/AC5+ / Arme d'Assaut, +3A, TT (D3)", categorie: tactique, emplacement: bras }
+        - { id: annihilateur_plasma, nom: "Annihilateur à plasma", cout: 50, portee: "90cm", puissance: "4xMA2+, Rchg", categorie: support, emplacement: bras }
+        - { id: sismo_canon, nom: "Sismo Canon", cout: 50, portee: "90cm", puissance: "3PB, MA", categorie: support, emplacement: bras }
+        - { id: canon_volcano, nom: "Canon Volcano", cout: 50, portee: "90cm", puissance: "MA2+, TT (D3)", categorie: support, emplacement: bras }
+        - { id: missile_warp, nom: "Missile Warp", cout: 50, portee: "Illimité", puissance: "MA2+, Uniq, TT (D3), Ind, ignore les boucliers du Vide", categorie: support, emplacement: carapace, contraintes: [{ type: consomme, budget: missile_warp }] }
+        - { id: missile_barrage, nom: "Missile de barrage", cout: 50, portee: "Illimité", puissance: "8PB, Uniq, Rpt, Ind", categorie: support, emplacement: carapace }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 4 }
@@ -509,10 +509,10 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: lance_roquettes_apocalypse, nom: Lance-roquettes Apocalypse, cout: 0 }
-        - { id: destructeur_turbo_laser, nom: Destructeur Turbo Laser, cout: 0 }
-        - { id: mega_bolter_vulcain, nom: Méga Bolter Vulcain, cout: 0 }
-        - { id: canon_gatling, nom: Canon Gatling, cout: 0 }
+        - { id: lance_roquettes_apocalypse, nom: Lance-roquettes Apocalypse, cout: 0, portee: "60cm", puissance: "4PB" }
+        - { id: destructeur_turbo_laser, nom: Destructeur Turbo Laser, cout: 0, portee: "60cm", puissance: "4xAP5+/AC3+" }
+        - { id: mega_bolter_vulcain, nom: Méga Bolter Vulcain, cout: 0, portee: "45cm", puissance: "6x AP3+/AC5+" }
+        - { id: canon_gatling, nom: Canon Gatling, cout: 0, portee: "60cm", puissance: "4xAP4+/AC4+" }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 1 }

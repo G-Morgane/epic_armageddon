@@ -14,7 +14,7 @@
 import type { Arme, Codex, Unite } from '~~/shared/codex/schema'
 import { indexerCodex, calculerListe, type ResultatListe, type FormationResolue } from '~~/shared/codex/engine'
 import type { Liste } from '~~/shared/codex/liste'
-import { pluriel, texteArmesPossibles } from '~~/shared/codex/phrases'
+import { pluriel, armesPossiblesLignes } from '~~/shared/codex/phrases'
 import { trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 
 definePageMeta({ layout: false })
@@ -124,9 +124,9 @@ const unitesPresentes = computed<Unite[]>(() => {
 
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
 /** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
-const choixArmes = (a: Arme) => texteArmesPossibles(idx, a)
+const choixArmes = (a: Arme) => armesPossiblesLignes(idx, a)
 /** lignes occupées par les armes d'une unité, celles des armes au choix comprises */
-const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixArmes(a) ? 2 : 1), 0)
+const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixArmes(a).length ? 2 : 1), 0)
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
 
@@ -238,7 +238,9 @@ function imprimer() { window.print() }
                   <td>{{ a.portee }}</td>
                   <td>{{ a.puissance }}</td>
                 </tr>
-                <tr v-if="choixArmes(a)" class="ligne-choix"><td colspan="3">Au choix : {{ choixArmes(a) }}</td></tr>
+                <tr v-if="choixArmes(a).length" class="ligne-choix">
+                  <td colspan="3">Au choix : <template v-for="(w, wi) in choixArmes(a)" :key="wi"><span v-if="wi"> · </span><span class="arme-nom">{{ w.nom }}</span><template v-if="w.profil"> : {{ w.profil }}</template></template></td>
+                </tr>
               </template>
               <tr v-for="(l, li) in complements(u, true)" :key="`${u.id}-c${li}`" class="sous-ligne" :class="{ derniere: li === complements(u, true).length - 1 }">
                 <td :colspan="nbColonnesStats"><span v-if="l.label" class="etiquette">{{ l.label }} : </span>{{ l.texte }}</td>
@@ -307,6 +309,7 @@ table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
 table.stats tr.vide td { padding: 0; }
 /* armes au choix sous une ligne générique : gris, discret, ce n'est pas l'armement du titan mais son menu */
 table.stats tr.ligne-choix td { font-size: 6.2pt; font-style: italic; color: #777; padding-top: 0; }
+table.stats tr.ligne-choix .arme-nom { font-style: normal; color: #444; }
 
 /* Couverture : même composition que celle des codex, au nom de l'armée du joueur */
 .couverture { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }
