@@ -125,6 +125,8 @@ const unitesPresentes = computed<Unite[]>(() => {
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
 /** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
 const choixArmes = (a: Arme) => texteArmesPossibles(idx, a)
+/** lignes occupées par les armes d'une unité, celles des armes au choix comprises */
+const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixArmes(a) ? 2 : 1), 0)
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
 
@@ -222,19 +224,22 @@ function imprimer() { window.print() }
           </thead>
           <tbody>
             <template v-for="u in unitesPresentes" :key="u.id">
-              <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" :class="{ premiere: ai === 0 }">
-                <template v-if="ai === 0">
-                  <td class="nom" :rowspan="lignesArmes(u).length">{{ u.nom }}</td>
-                  <td :rowspan="lignesArmes(u).length">{{ u.type }}</td>
-                  <td :rowspan="lignesArmes(u).length">{{ u.vitesse ?? '-' }}</td>
-                  <td :rowspan="lignesArmes(u).length">{{ u.blindage ?? '-' }}</td>
-                  <td :rowspan="lignesArmes(u).length">{{ u.cc ?? '-' }}</td>
-                  <td :rowspan="lignesArmes(u).length">{{ u.ff ?? '-' }}</td>
-                </template>
-                <td>{{ a.nom }}<div v-if="choixArmes(a)" class="armes-choix">Au choix : {{ choixArmes(a) }}</div></td>
-                <td>{{ a.portee }}</td>
-                <td>{{ a.puissance }}</td>
-              </tr>
+              <template v-for="(a, ai) in lignesArmes(u)" :key="ai">
+                <tr :class="{ premiere: ai === 0 }">
+                  <template v-if="ai === 0">
+                    <td class="nom" :rowspan="nbLignesArmes(u)">{{ u.nom }}</td>
+                    <td :rowspan="nbLignesArmes(u)">{{ u.type }}</td>
+                    <td :rowspan="nbLignesArmes(u)">{{ u.vitesse ?? '-' }}</td>
+                    <td :rowspan="nbLignesArmes(u)">{{ u.blindage ?? '-' }}</td>
+                    <td :rowspan="nbLignesArmes(u)">{{ u.cc ?? '-' }}</td>
+                    <td :rowspan="nbLignesArmes(u)">{{ u.ff ?? '-' }}</td>
+                  </template>
+                  <td>{{ a.nom }}</td>
+                  <td>{{ a.portee }}</td>
+                  <td>{{ a.puissance }}</td>
+                </tr>
+                <tr v-if="choixArmes(a)" class="ligne-choix"><td colspan="3">Au choix : {{ choixArmes(a) }}</td></tr>
+              </template>
               <tr v-for="(l, li) in complements(u, true)" :key="`${u.id}-c${li}`" class="sous-ligne" :class="{ derniere: li === complements(u, true).length - 1 }">
                 <td :colspan="nbColonnesStats"><span v-if="l.label" class="etiquette">{{ l.label }} : </span>{{ l.texte }}</td>
               </tr>
@@ -301,7 +306,7 @@ table.stats tr.sous-ligne td { font-size: 6.6pt; font-style: italic; color: #333
 table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
 table.stats tr.vide td { padding: 0; }
 /* armes au choix sous une ligne générique : gris, discret, ce n'est pas l'armement du titan mais son menu */
-.armes-choix { font-size: 6.2pt; font-style: italic; color: #777; padding-top: .5pt; }
+table.stats tr.ligne-choix td { font-size: 6.2pt; font-style: italic; color: #777; padding-top: 0; }
 
 /* Couverture : même composition que celle des codex, au nom de l'armée du joueur */
 .couverture { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }

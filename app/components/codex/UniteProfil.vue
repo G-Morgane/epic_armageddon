@@ -31,11 +31,17 @@ const choixArmes = (a: Arme) => texteArmesPossibles(props.idx, a)
     </div>
     <table v-if="u.armes.length" class="w-full text-[11px]">
       <tbody>
-        <tr v-for="(a, ai) in u.armes" :key="ai" class="align-top" :class="estSuite(a.nom) ? '' : 'border-t border-white/5'">
-          <td class="py-1" :class="[compact ? 'px-3' : 'px-4', estSuite(a.nom) ? 'pl-8 italic text-stone-500' : 'text-stone-100']">{{ a.nom }}<span v-if="choixArmes(a)" class="mt-0.5 block text-[10px] italic leading-snug text-stone-500">Au choix : {{ choixArmes(a) }}</span></td>
-          <td class="py-1 pr-2 whitespace-nowrap text-stone-400">{{ a.portee ?? '-' }}</td>
-          <td class="py-1 text-stone-300" :class="compact ? 'pr-3' : 'pr-4'">{{ a.puissance ?? '-' }}</td>
-        </tr>
+        <template v-for="(a, ai) in u.armes" :key="ai">
+          <tr class="align-top" :class="estSuite(a.nom) ? '' : 'border-t border-white/5'">
+            <td class="py-1" :class="[compact ? 'px-3' : 'px-4', estSuite(a.nom) ? 'pl-8 italic text-stone-500' : 'text-stone-100']">{{ a.nom }}</td>
+            <td class="py-1 pr-2 whitespace-nowrap text-stone-400">{{ a.portee ?? '-' }}</td>
+            <td class="py-1 text-stone-300" :class="compact ? 'pr-3' : 'pr-4'">{{ a.puissance ?? '-' }}</td>
+          </tr>
+          <!-- armes au choix : sur toute la largeur, la colonne du nom est trop étroite pour une liste -->
+          <tr v-if="choixArmes(a)">
+            <td colspan="3" class="pb-1 text-[10px] italic leading-snug text-stone-500" :class="compact ? 'px-3' : 'px-4'">Au choix : {{ choixArmes(a) }}</td>
+          </tr>
+        </template>
       </tbody>
     </table>
     <div v-if="u.notes.length || u.degats || (u.transport && !transportRedondant)" class="space-y-0.5 border-t border-white/5 py-1.5 text-[11px] text-stone-300" :class="compact ? 'px-3' : 'px-4'">

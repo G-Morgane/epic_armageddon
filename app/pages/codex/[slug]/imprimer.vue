@@ -88,6 +88,8 @@ const unitesOrdonnees = computed<Unite[]>(() => {
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
 /** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
 const choixArmes = (a: Arme) => texteArmesPossibles(idx, a)
+/** lignes occupées par les armes d'une unité, celles des armes au choix comprises */
+const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixArmes(a) ? 2 : 1), 0)
 /** lignes sous le profil : capacité de dommage, critique, notes (seulement si renseignées) */
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
@@ -232,9 +234,12 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
           <tbody>
             <tr class="fiche-stats"><td>{{ u.type }}</td><td>{{ u.vitesse ?? '-' }}</td><td>{{ u.blindage ?? '-' }}</td><td>{{ u.cc ?? '-' }}</td><td>{{ u.ff ?? '-' }}</td></tr>
             <tr class="fiche-entete"><th colspan="2">Arme</th><th>Portée</th><th colspan="2">Puissance de feu</th></tr>
-            <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" class="fiche-arme">
-              <td colspan="2">{{ a.nom || '-' }}<div v-if="choixArmes(a)" class="armes-choix">Au choix : {{ choixArmes(a) }}</div></td><td>{{ a.portee || '-' }}</td><td colspan="2">{{ a.puissance || '-' }}</td>
-            </tr>
+            <template v-for="(a, ai) in lignesArmes(u)" :key="ai">
+              <tr class="fiche-arme" :class="{ 'arme-suivie': choixArmes(a) }">
+                <td colspan="2">{{ a.nom || '-' }}</td><td>{{ a.portee || '-' }}</td><td colspan="2">{{ a.puissance || '-' }}</td>
+              </tr>
+              <tr v-if="choixArmes(a)" class="fiche-arme fiche-choix"><td colspan="5">Au choix : {{ choixArmes(a) }}</td></tr>
+            </template>
             <tr v-for="(l, li) in complements(u)" :key="`c${li}`" class="fiche-comp">
               <td colspan="5"><strong v-if="l.label">{{ l.label }} : </strong>{{ l.texte }}</td>
             </tr>
@@ -253,19 +258,22 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
         </thead>
         <tbody>
           <template v-for="u in unitesOrdonnees" :key="u.id">
-            <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" :class="{ premiere: ai === 0 }">
-              <template v-if="ai === 0">
-                <td class="nom" :rowspan="lignesArmes(u).length">{{ u.nom }}</td>
-                <td :rowspan="lignesArmes(u).length">{{ u.type }}</td>
-                <td :rowspan="lignesArmes(u).length">{{ u.vitesse ?? '-' }}</td>
-                <td :rowspan="lignesArmes(u).length">{{ u.blindage ?? '-' }}</td>
-                <td :rowspan="lignesArmes(u).length">{{ u.cc ?? '-' }}</td>
-                <td :rowspan="lignesArmes(u).length">{{ u.ff ?? '-' }}</td>
-              </template>
-              <td>{{ a.nom }}<div v-if="choixArmes(a)" class="armes-choix">Au choix : {{ choixArmes(a) }}</div></td>
-              <td>{{ a.portee }}</td>
-              <td>{{ a.puissance }}</td>
-            </tr>
+            <template v-for="(a, ai) in lignesArmes(u)" :key="ai">
+              <tr :class="{ premiere: ai === 0 }">
+                <template v-if="ai === 0">
+                  <td class="nom" :rowspan="nbLignesArmes(u)">{{ u.nom }}</td>
+                  <td :rowspan="nbLignesArmes(u)">{{ u.type }}</td>
+                  <td :rowspan="nbLignesArmes(u)">{{ u.vitesse ?? '-' }}</td>
+                  <td :rowspan="nbLignesArmes(u)">{{ u.blindage ?? '-' }}</td>
+                  <td :rowspan="nbLignesArmes(u)">{{ u.cc ?? '-' }}</td>
+                  <td :rowspan="nbLignesArmes(u)">{{ u.ff ?? '-' }}</td>
+                </template>
+                <td>{{ a.nom }}</td>
+                <td>{{ a.portee }}</td>
+                <td>{{ a.puissance }}</td>
+              </tr>
+              <tr v-if="choixArmes(a)" class="ligne-choix"><td colspan="3">Au choix : {{ choixArmes(a) }}</td></tr>
+            </template>
             <tr v-for="(l, li) in complements(u, true)" :key="`${u.id}-c${li}`" class="sous-ligne" :class="{ derniere: li === complements(u, true).length - 1 }">
               <td :colspan="nbColonnesStats"><span v-if="l.label" class="etiquette">{{ l.label }} : </span>{{ l.texte }}</td>
             </tr>
@@ -346,6 +354,7 @@ table.stats td.nom { font-weight: 600; }
 table.stats tr.sous-ligne td { font-size: 6.6pt; font-style: italic; color: #333; padding-left: 24pt; }
 table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
 table.stats tr.vide td { padding: 0; }
+table.stats tr.ligne-choix td { font-size: 6.2pt; font-style: italic; color: #777; padding-top: 0; }
 tr { break-inside: avoid; }
 
 /* Couverture : bloc typographique centré, posé sur l'illustration quand il y en a une. */
@@ -416,7 +425,8 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
 .fiche-arme td:first-child { width: 38%; }
 .fiche-comp td { font-size: 6.8pt; font-style: italic; border-top: 1px solid #eee; }
 /* armes au choix sous une ligne générique : gris, discret, ce n'est pas l'armement du titan mais son menu */
-.armes-choix { font-size: 6.2pt; font-style: italic; color: #777; padding-top: .5pt; }
+.fiche-arme.arme-suivie td { border-bottom: 0; }
+.fiche-choix td { font-size: 6.2pt; font-style: italic; color: #777; padding-top: 0; }
 .fiche-comp strong { font-style: normal; }
 /* Aperçu écran : feuilles séparées, au format réel, pour juger de la mise en page. */
 @media screen {
