@@ -1,7 +1,8 @@
 <script setup lang="ts">
 /** Profil d'une unité : stats, armes, notes, transport, dégâts. `compact` : version dense pour le catalogue. */
-import type { Unite } from '~~/shared/codex/schema'
+import type { Arme, Unite } from '~~/shared/codex/schema'
 import type { IndexCodex } from '~~/shared/codex/engine'
+import { texteArmesPossibles } from '~~/shared/codex/phrases'
 
 const props = defineProps<{ idx: IndexCodex; unite: Unite; nombre?: number; compact?: boolean }>()
 const u = computed(() => props.unite)
@@ -10,6 +11,8 @@ const degats = computed(() => u.value.degats ? `CD ${u.value.degats.cd}${u.value
 const transportRedondant = computed(() => u.value.notes.some((n) => /transport/i.test(n)))
 /** convention des livres : une arme à deux profils note le second « et ». C'est une suite de la ligne du dessus, pas une arme. */
 const estSuite = (nom: string) => nom.trim().toLowerCase() === 'et'
+/** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
+const choixArmes = (a: Arme) => texteArmesPossibles(props.idx, a)
 </script>
 
 <template>
@@ -29,7 +32,7 @@ const estSuite = (nom: string) => nom.trim().toLowerCase() === 'et'
     <table v-if="u.armes.length" class="w-full text-[11px]">
       <tbody>
         <tr v-for="(a, ai) in u.armes" :key="ai" class="align-top" :class="estSuite(a.nom) ? '' : 'border-t border-white/5'">
-          <td class="py-1" :class="[compact ? 'px-3' : 'px-4', estSuite(a.nom) ? 'pl-8 italic text-stone-500' : 'text-stone-100']">{{ a.nom }}</td>
+          <td class="py-1" :class="[compact ? 'px-3' : 'px-4', estSuite(a.nom) ? 'pl-8 italic text-stone-500' : 'text-stone-100']">{{ a.nom }}<span v-if="choixArmes(a)" class="mt-0.5 block text-[10px] italic leading-snug text-stone-500">Au choix : {{ choixArmes(a) }}</span></td>
           <td class="py-1 pr-2 whitespace-nowrap text-stone-400">{{ a.portee ?? '-' }}</td>
           <td class="py-1 text-stone-300" :class="compact ? 'pr-3' : 'pr-4'">{{ a.puissance ?? '-' }}</td>
         </tr>

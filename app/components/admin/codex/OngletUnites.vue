@@ -2,6 +2,7 @@
 import type { CodexInput } from '~~/shared/codex/schema'
 
 type UniteInput = NonNullable<CodexInput['unites']>[number]
+type ArmeInput = NonNullable<UniteInput['armes']>[number]
 
 const codex = useBrouillonCodex()
 const unites = computed(() => codex.value.unites)
@@ -40,6 +41,9 @@ function renommerId(u: UniteInput) {
   if (compterReferences(u.id) === 0) u.id = idUnique(slugifier(u.nom), unites.value.filter((x) => x !== u))
 }
 function ajouterArme(u: UniteInput) { (u.armes ??= []).push({ nom: '', portee: '', puissance: '' }) }
+/** Options du codex qui proposent une liste : seules celles-là peuvent servir de menu d'armes à une ligne générique. */
+const optionsArmement = computed(() => (codex.value.options ?? []).filter((o) => (o.effet as { type?: string })?.type === 'choix'))
+function lierArmement(a: ArmeInput) { a.armement = { option: optionsArmement.value[0]?.id ?? '' } }
 function notesTexte(u: UniteInput) { return (u.notes ?? []).join(' · ') }
 function setNotes(u: UniteInput, v: string) { u.notes = v.split(/\s*·\s*|\n/).map((s) => s.trim()).filter(Boolean) }
 function transportTexte(u: UniteInput) { return u.transport ? u.transport.accepte?.map((a) => unites.value.find((x) => x.id === a)?.nom ?? a).join(', ') ?? '' : '' }
@@ -96,13 +100,23 @@ function toggleAccepte(u: UniteInput, id: string) {
               <div class="grid gap-4 lg:grid-cols-[1fr_320px]">
                 <div>
                   <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Armes</p>
-                  <div v-for="(a, ai) in u.armes" :key="ai" class="mb-1 grid grid-cols-[1fr_90px_1fr_auto] gap-2">
-                    <input v-model="a.nom" class="champ" placeholder="Nom">
-                    <input v-model="a.portee" class="champ" placeholder="Portée">
-                    <input v-model="a.puissance" class="champ" placeholder="Puissance de feu">
-                    <button type="button" class="icone hover:text-red-300" @click="u.armes!.splice(ai, 1)">✕</button>
+                  <div v-for="(a, ai) in u.armes" :key="ai" class="mb-1">
+                    <div class="grid grid-cols-[1fr_90px_1fr_auto] gap-2">
+                      <input v-model="a.nom" class="champ" placeholder="Nom">
+                      <input v-model="a.portee" class="champ" placeholder="Portée">
+                      <input v-model="a.puissance" class="champ" placeholder="Puissance de feu">
+                      <button type="button" class="icone hover:text-red-300" @click="u.armes!.splice(ai, 1)">✕</button>
+                    </div>
+                    <!-- ligne générique (« 2x Armes de Bras ») : le menu d'armes affiché dessous vient d'une option à choix -->
+                    <div v-if="a.armement" class="mt-1 ml-4 grid grid-cols-[1fr_120px_auto] gap-2">
+                      <select v-model="a.armement.option" class="champ"><option v-for="o in optionsArmement" :key="o.id" :value="o.id">{{ o.nom }}</option></select>
+                      <select :value="a.armement.emplacement ?? ''" class="champ" @change="a.armement!.emplacement = (($event.target as HTMLSelectElement).value || undefined) as never"><option value="">Tous</option><option value="bras">Bras</option><option value="carapace">Carapace</option></select>
+                      <button type="button" class="icone hover:text-red-300" title="Retirer les armes au choix" @click="a.armement = undefined">✕</button>
+                    </div>
+                    <button v-else-if="optionsArmement.length" type="button" class="ml-4 text-[11px] text-gray-500 hover:text-gold hover:underline" @click="lierArmement(a)">+ armes au choix</button>
                   </div>
                   <button type="button" class="text-xs text-gold hover:underline" @click="ajouterArme(u)">+ Arme</button>
+                  <p class="mt-1 text-[11px] text-gray-500">« + armes au choix » : sous une ligne générique (« 2x Armes de Bras »), la liste des armes possibles d'une option à choix, avec leur coût. L'emplacement ne garde que les choix qui lui correspondent.</p>
                   <p class="mb-1 mt-3 text-xs uppercase tracking-wider text-gray-500">Notes <span class="normal-case text-gray-600">(séparées par ·)</span></p>
                   <input :value="notesTexte(u)" class="champ w-full" placeholder="Blindage Renforcé · Marcheur · Sans peur" @change="setNotes(u, ($event.target as HTMLInputElement).value)">
                   <div class="mt-3 grid grid-cols-3 gap-2">

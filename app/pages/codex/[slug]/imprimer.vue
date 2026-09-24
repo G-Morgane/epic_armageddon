@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Codex, Section, Unite } from '~~/shared/codex/schema'
+import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, marqueNote, sousTitreSection, optionsDeSection } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, marqueNote, sousTitreSection, optionsDeSection, texteArmesPossibles } from '~~/shared/codex/phrases'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir } from '~~/shared/codex/markdown'
 
@@ -86,6 +86,8 @@ const unitesOrdonnees = computed<Unite[]>(() => {
 })
 
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
+/** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
+const choixArmes = (a: Arme) => texteArmesPossibles(idx, a)
 /** lignes sous le profil : capacité de dommage, critique, notes (seulement si renseignées) */
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
@@ -231,7 +233,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
             <tr class="fiche-stats"><td>{{ u.type }}</td><td>{{ u.vitesse ?? '-' }}</td><td>{{ u.blindage ?? '-' }}</td><td>{{ u.cc ?? '-' }}</td><td>{{ u.ff ?? '-' }}</td></tr>
             <tr class="fiche-entete"><th colspan="2">Arme</th><th>Portée</th><th colspan="2">Puissance de feu</th></tr>
             <tr v-for="(a, ai) in lignesArmes(u)" :key="ai" class="fiche-arme">
-              <td colspan="2">{{ a.nom || '-' }}</td><td>{{ a.portee || '-' }}</td><td colspan="2">{{ a.puissance || '-' }}</td>
+              <td colspan="2">{{ a.nom || '-' }}<div v-if="choixArmes(a)" class="armes-choix">Au choix : {{ choixArmes(a) }}</div></td><td>{{ a.portee || '-' }}</td><td colspan="2">{{ a.puissance || '-' }}</td>
             </tr>
             <tr v-for="(l, li) in complements(u)" :key="`c${li}`" class="fiche-comp">
               <td colspan="5"><strong v-if="l.label">{{ l.label }} : </strong>{{ l.texte }}</td>
@@ -260,7 +262,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 <td :rowspan="lignesArmes(u).length">{{ u.cc ?? '-' }}</td>
                 <td :rowspan="lignesArmes(u).length">{{ u.ff ?? '-' }}</td>
               </template>
-              <td>{{ a.nom }}</td>
+              <td>{{ a.nom }}<div v-if="choixArmes(a)" class="armes-choix">Au choix : {{ choixArmes(a) }}</div></td>
               <td>{{ a.portee }}</td>
               <td>{{ a.puissance }}</td>
             </tr>
@@ -322,10 +324,10 @@ p { margin: 0 0 5pt; text-align: justify; }
 .bloc { margin-bottom: 6pt; break-inside: avoid; }
 .cote-a-cote { break-inside: avoid; }
 .groupe { break-inside: avoid; }
-.entete { background: color-mix(in srgb, var(--accent) 70%, #c9a56a); color: #fff; text-align: center; font-weight: 700; font-size: 8.5pt; padding: 2.5pt 4pt; margin: 4pt 0 0; text-transform: uppercase; letter-spacing: .3pt; }
+.entete { background: var(--accent); color: #fff; text-align: center; font-weight: 700; font-size: 8.5pt; padding: 2.5pt 4pt; margin: 4pt 0 0; text-transform: uppercase; letter-spacing: .3pt; }
 .entete small { display: block; font-weight: 400; text-transform: none; font-style: italic; font-size: 7pt; letter-spacing: 0; }
 table.liste { width: 100%; border-collapse: collapse; font-size: 7.6pt; }
-table.liste th { text-align: left; font-size: 7pt; border-bottom: 1px solid #999; padding: 2pt 4pt; }
+table.liste th { text-align: left; font-size: 7.6pt; border-bottom: 1px solid #999; padding: 2pt 4pt; }
 table.liste td { padding: 2pt 4pt; border-bottom: 1px dotted #ccc; vertical-align: top; }
 table.liste td.nom { font-weight: 600; width: 30%; }
 table.liste .cout { text-align: right; white-space: nowrap; width: 14%; }
@@ -413,6 +415,8 @@ table.fiche td { padding: 1.5pt 3pt; vertical-align: top; }
 .fiche-arme td:nth-child(2) { text-align: center; width: 22%; }
 .fiche-arme td:first-child { width: 38%; }
 .fiche-comp td { font-size: 6.8pt; font-style: italic; border-top: 1px solid #eee; }
+/* armes au choix sous une ligne générique : gris, discret, ce n'est pas l'armement du titan mais son menu */
+.armes-choix { font-size: 6.2pt; font-style: italic; color: #777; padding-top: .5pt; }
 .fiche-comp strong { font-style: normal; }
 /* Aperçu écran : feuilles séparées, au format réel, pour juger de la mise en page. */
 @media screen {

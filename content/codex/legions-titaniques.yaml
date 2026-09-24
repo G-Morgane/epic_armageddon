@@ -127,7 +127,7 @@ unites:
     cc: "4+"
     ff: "4+"
     armes:
-      - { nom: 2x Armes de Bras, puissance: Frt }
+      - { nom: 2x Armes de Bras, puissance: Frt, armement: { option: armement_warhound } }
     notes:
       - Blindage renforcé
       - Marcheur
@@ -145,8 +145,8 @@ unites:
     cc: "3+"
     ff: "3+"
     armes:
-      - { nom: Armes de Carapace, puissance: FrtF }
-      - { nom: 2x Armes de Bras, puissance: Frt }
+      - { nom: Armes de Carapace, puissance: FrtF, armement: { option: armement_reaver, emplacement: carapace } }
+      - { nom: 2x Armes de Bras, puissance: Frt, armement: { option: armement_reaver, emplacement: bras } }
     notes:
       - Blindage renforcé
       - Marcheur
@@ -166,7 +166,7 @@ unites:
     armes:
       - { nom: Nemesis Quake Canon, portee: 90cm, puissance: "3PB, MA, Ind, FrtF" }
       - { nom: 2x Batterie de Défense modèle Anvillus, portee: 45cm, puissance: "2x AP3+/AC4+/AA5+" }
-      - { nom: 2x Arme de bras Warbringer Nemesis, puissance: Frt }
+      - { nom: 2x Arme de bras Warbringer Nemesis, puissance: Frt, armement: { option: armement_warbringer } }
     notes:
       - Blindage renforcé
       - Blindage arrière renforcé
@@ -185,8 +185,8 @@ unites:
     cc: "2+"
     ff: "3+"
     armes:
-      - { nom: 2x Armes de carapace, puissance: FrtF }
-      - { nom: 2x Armes de Bras, puissance: Frt }
+      - { nom: 2x Armes de carapace, puissance: FrtF, armement: { option: armement_warlord, emplacement: carapace } }
+      - { nom: 2x Armes de Bras, puissance: Frt, armement: { option: armement_warlord, emplacement: bras } }
     notes:
       - Blindage renforcé
       - Blindage arrière renforcé
@@ -457,22 +457,22 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: poing_combat, nom: "Poing de Combat (assaut, bras)", cout: 0 }
-        - { id: poing_tronconneur, nom: "Poing tronçonneur (assaut, bras)", cout: 0 }
-        - { id: demolisseur, nom: "Démolisseur (assaut, bras)", cout: 0 }
-        - { id: canon_plasma, nom: "Canon à Plasma (tactique, bras)", cout: 25 }
-        - { id: canon_inferno, nom: "Canon Inferno (tactique, bras)", cout: 25 }
-        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser (tactique)", cout: 25 }
-        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain (tactique)", cout: 25 }
-        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse (tactique, carapace)", cout: 25 }
-        - { id: canon_gatling, nom: "Canon Gatling (tactique)", cout: 25 }
-        - { id: thermo_fuseur, nom: "Thermo Fuseur (tactique, bras)", cout: 25 }
-        - { id: canon_fuseur, nom: "Canon Fuseur (tactique, bras)", cout: 25 }
-        - { id: annihilateur_plasma, nom: "Annihilateur à plasma (support, bras)", cout: 50 }
-        - { id: sismo_canon, nom: "Sismo Canon (support, bras)", cout: 50 }
-        - { id: canon_volcano, nom: "Canon Volcano (support, bras)", cout: 50 }
-        - { id: missile_warp, nom: "Missile Warp (support, carapace)", cout: 50, contraintes: [{ type: consomme, budget: missile_warp }] }
-        - { id: missile_barrage, nom: "Missile de barrage (support, carapace)", cout: 50 }
+        - { id: poing_combat, nom: "Poing de Combat", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: poing_tronconneur, nom: "Poing tronçonneur", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: demolisseur, nom: "Démolisseur", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: canon_plasma, nom: "Canon à Plasma", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: canon_inferno, nom: "Canon Inferno", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser", cout: 25, categorie: tactique }
+        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain", cout: 25, categorie: tactique }
+        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse", cout: 25, categorie: tactique, emplacement: carapace }
+        - { id: canon_gatling, nom: "Canon Gatling", cout: 25, categorie: tactique }
+        - { id: thermo_fuseur, nom: "Thermo Fuseur", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: canon_fuseur, nom: "Canon Fuseur", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: annihilateur_plasma, nom: "Annihilateur à plasma", cout: 50, categorie: support, emplacement: bras }
+        - { id: sismo_canon, nom: "Sismo Canon", cout: 50, categorie: support, emplacement: bras }
+        - { id: canon_volcano, nom: "Canon Volcano", cout: 50, categorie: support, emplacement: bras }
+        - { id: missile_warp, nom: "Missile Warp", cout: 50, categorie: support, emplacement: carapace, contraintes: [{ type: consomme, budget: missile_warp }] }
+        - { id: missile_barrage, nom: "Missile de barrage", cout: 50, categorie: support, emplacement: carapace }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 3 }
@@ -482,24 +482,24 @@ options:
     effet:
       type: choix
       parmi:
-        - { id: module_assaut_corvus, nom: "Module d'assaut Corvus (assaut, bras)", cout: 0 }
-        - { id: poing_combat, nom: "Poing de Combat (assaut, bras)", cout: 0 }
-        - { id: poing_tronconneur, nom: "Poing tronçonneur (assaut, bras)", cout: 0 }
-        - { id: demolisseur, nom: "Démolisseur (assaut, bras)", cout: 0 }
-        - { id: canon_plasma, nom: "Canon à Plasma (tactique, bras)", cout: 25 }
-        - { id: canon_inferno, nom: "Canon Inferno (tactique, bras)", cout: 25 }
-        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser (tactique)", cout: 25 }
-        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain (tactique)", cout: 25 }
-        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse (tactique, carapace)", cout: 25 }
-        - { id: canon_gatling, nom: "Canon Gatling (tactique)", cout: 25 }
-        - { id: thermo_fuseur, nom: "Thermo Fuseur (tactique, bras)", cout: 25 }
-        - { id: canon_fuseur, nom: "Canon Fuseur (tactique, bras)", cout: 25 }
-        - { id: poing_combat_arioch, nom: "Poing de Combat Arioch (tactique, bras)", cout: 25 }
-        - { id: annihilateur_plasma, nom: "Annihilateur à plasma (support, bras)", cout: 50 }
-        - { id: sismo_canon, nom: "Sismo Canon (support, bras)", cout: 50 }
-        - { id: canon_volcano, nom: "Canon Volcano (support, bras)", cout: 50 }
-        - { id: missile_warp, nom: "Missile Warp (support, carapace)", cout: 50, contraintes: [{ type: consomme, budget: missile_warp }] }
-        - { id: missile_barrage, nom: "Missile de barrage (support, carapace)", cout: 50 }
+        - { id: module_assaut_corvus, nom: "Module d'assaut Corvus", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: poing_combat, nom: "Poing de Combat", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: poing_tronconneur, nom: "Poing tronçonneur", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: demolisseur, nom: "Démolisseur", cout: 0, categorie: assaut, emplacement: bras }
+        - { id: canon_plasma, nom: "Canon à Plasma", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: canon_inferno, nom: "Canon Inferno", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: destructeur_turbo_laser, nom: "Destructeur Turbo Laser", cout: 25, categorie: tactique }
+        - { id: mega_bolter_vulcain, nom: "Méga Bolter Vulcain", cout: 25, categorie: tactique }
+        - { id: lance_roquettes_apocalypse, nom: "Lance-roquettes Apocalypse", cout: 25, categorie: tactique, emplacement: carapace }
+        - { id: canon_gatling, nom: "Canon Gatling", cout: 25, categorie: tactique }
+        - { id: thermo_fuseur, nom: "Thermo Fuseur", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: canon_fuseur, nom: "Canon Fuseur", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: poing_combat_arioch, nom: "Poing de Combat Arioch", cout: 25, categorie: tactique, emplacement: bras }
+        - { id: annihilateur_plasma, nom: "Annihilateur à plasma", cout: 50, categorie: support, emplacement: bras }
+        - { id: sismo_canon, nom: "Sismo Canon", cout: 50, categorie: support, emplacement: bras }
+        - { id: canon_volcano, nom: "Canon Volcano", cout: 50, categorie: support, emplacement: bras }
+        - { id: missile_warp, nom: "Missile Warp", cout: 50, categorie: support, emplacement: carapace, contraintes: [{ type: consomme, budget: missile_warp }] }
+        - { id: missile_barrage, nom: "Missile de barrage", cout: 50, categorie: support, emplacement: carapace }
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 4 }

@@ -11,10 +11,10 @@
  * partage. Elle n'est jamais lue côté serveur : un Chromium sans écran n'a ni
  * le `localStorage` du joueur ni sa session.
  */
-import type { Codex, Unite } from '~~/shared/codex/schema'
+import type { Arme, Codex, Unite } from '~~/shared/codex/schema'
 import { indexerCodex, calculerListe, type ResultatListe, type FormationResolue } from '~~/shared/codex/engine'
 import type { Liste } from '~~/shared/codex/liste'
-import { pluriel } from '~~/shared/codex/phrases'
+import { pluriel, texteArmesPossibles } from '~~/shared/codex/phrases'
 import { trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 
 definePageMeta({ layout: false })
@@ -123,6 +123,8 @@ const unitesPresentes = computed<Unite[]>(() => {
 })
 
 const lignesArmes = (u: Unite) => (u.armes.length ? u.armes : [{ nom: '', portee: '', puissance: '' }])
+/** armes au choix derrière une ligne générique (« 2x Armes de Bras ») */
+const choixArmes = (a: Arme) => texteArmesPossibles(idx, a)
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
 
@@ -229,7 +231,7 @@ function imprimer() { window.print() }
                   <td :rowspan="lignesArmes(u).length">{{ u.cc ?? '-' }}</td>
                   <td :rowspan="lignesArmes(u).length">{{ u.ff ?? '-' }}</td>
                 </template>
-                <td>{{ a.nom }}</td>
+                <td>{{ a.nom }}<div v-if="choixArmes(a)" class="armes-choix">Au choix : {{ choixArmes(a) }}</div></td>
                 <td>{{ a.portee }}</td>
                 <td>{{ a.puissance }}</td>
               </tr>
@@ -272,9 +274,9 @@ html.print, html.print body { background: #fff; color: #111; }
 .vide { max-width: 186mm; margin: 20mm auto; text-align: center; color: #ddd; }
 
 .bloc { margin-bottom: 6pt; break-inside: avoid; }
-.entete { background: color-mix(in srgb, var(--accent) 70%, #c9a56a); color: #fff; text-align: center; font-weight: 700; font-size: 8.5pt; padding: 2.5pt 4pt; margin: 6pt 0 0; text-transform: uppercase; letter-spacing: .3pt; }
+.entete { background: var(--accent); color: #fff; text-align: center; font-weight: 700; font-size: 8.5pt; padding: 2.5pt 4pt; margin: 6pt 0 0; text-transform: uppercase; letter-spacing: .3pt; }
 table.liste { width: 100%; border-collapse: collapse; font-size: 7.6pt; }
-table.liste th { text-align: left; font-size: 7pt; border-bottom: 1px solid #999; padding: 2pt 4pt; }
+table.liste th { text-align: left; font-size: 7.6pt; border-bottom: 1px solid #999; padding: 2pt 4pt; }
 table.liste td { padding: 2pt 4pt; border-bottom: 1px dotted #ccc; vertical-align: top; }
 table.liste td.nom { font-weight: 600; width: 28%; }
 table.liste .cout { text-align: right; white-space: nowrap; width: 14%; }
@@ -298,6 +300,8 @@ table.stats td.nom { font-weight: 600; }
 table.stats tr.sous-ligne td { font-size: 6.6pt; font-style: italic; color: #333; padding-left: 24pt; }
 table.stats tr.sous-ligne .etiquette { font-style: normal; font-weight: 600; }
 table.stats tr.vide td { padding: 0; }
+/* armes au choix sous une ligne générique : gris, discret, ce n'est pas l'armement du titan mais son menu */
+.armes-choix { font-size: 6.2pt; font-style: italic; color: #777; padding-top: .5pt; }
 
 /* Couverture : même composition que celle des codex, au nom de l'armée du joueur */
 .couverture { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 271mm; }

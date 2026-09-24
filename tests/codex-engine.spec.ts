@@ -4,6 +4,7 @@ import { chargerCodex } from '../shared/codex/schema'
 import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation } from '../shared/codex/engine'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
+import { texteArmesPossibles } from '../shared/codex/phrases'
 import { trierParType, lignesComplementaires, requeteOptionsPdf, lireOptionsPdf, OPTIONS_PDF_DEFAUT } from '../shared/codex/pdf'
 
 describe('moteur : listes de test des codex', () => {
@@ -57,6 +58,29 @@ describe('moteur : armes en amélioration (sans unité)', () => {
   it('un troisième bras est refusé', () => {
     const r = resoudreFormation(idx, reaver([{ option: 'bras_reaver', choix: 'poing' }, { option: 'bras_reaver', choix: 'poing' }, { option: 'bras_reaver', choix: 'gatling' }]) as any)
     expect(r.erreurs.map((e) => e.message)).toContain('Armement de Bras : au plus 2 fois par formation')
+  })
+})
+
+describe('armes possibles derrière une ligne générique', () => {
+  const idx = indexerCodex(chargerCodexParSlug('legions-titaniques'))
+  const arme = (uniteId: string, nom: string) => idx.unites.get(uniteId)!.armes.find((a) => a.nom === nom)!
+
+  it('la carapace du Reaver ne propose pas les armes réservées aux bras', () => {
+    const texte = texteArmesPossibles(idx, arme('titan_reaver', 'Armes de Carapace'))
+    expect(texte).toContain('Lance-roquettes Apocalypse (25 pts)')
+    expect(texte).toContain('Destructeur Turbo Laser (25 pts)')
+    expect(texte).not.toContain('Poing de Combat')
+  })
+
+  it('les bras du Reaver proposent les armes d\'assaut, pas les missiles de carapace', () => {
+    const texte = texteArmesPossibles(idx, arme('titan_reaver', '2x Armes de Bras'))
+    expect(texte).toContain('Poing de Combat (gratuit)')
+    expect(texte).toContain('Canon Volcano (50 pts)')
+    expect(texte).not.toContain('Missile de barrage')
+  })
+
+  it('une arme ordinaire ne propose rien', () => {
+    expect(texteArmesPossibles(idx, arme('titan_imperator', 'Canon Fournaise'))).toBe('')
   })
 })
 

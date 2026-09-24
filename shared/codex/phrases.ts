@@ -1,5 +1,6 @@
-import type { Contrainte, Formation, Option, Section, Variante } from './schema'
+import type { Arme, Contrainte, Formation, Option, Section, Variante } from './schema'
 import type { IndexCodex } from './engine'
+import { armesPossibles } from './engine'
 
 /**
  * Phrases du PDF générées à partir des données structurées.
@@ -145,7 +146,20 @@ export function phraseOption(idx: IndexCodex, o: Option): string {
     return `Ajouter ${plageTexte(e.total)} véhicule(s) selon n'importe quelle combinaison : ${unites.join(', ')}`
   }
   // choix
-  return e.parmi.map((p) => p.nom).join(' ou ')
+  return e.parmi.map(libelleChoix).join(' ou ')
+}
+
+/** Libellé d'un choix d'option : les armes de titan portent leur catégorie et leur emplacement. */
+export function libelleChoix(p: { nom: string; categorie?: string; emplacement?: string }): string {
+  const tags = [p.categorie, p.emplacement].filter(Boolean)
+  return tags.length ? `${p.nom} (${tags.join(', ')})` : p.nom
+}
+
+/** Armes au choix derrière une ligne générique, avec leur coût. Chaîne vide si la ligne n'en a pas. */
+export function texteArmesPossibles(idx: IndexCodex, arme: Arme): string {
+  const armes = armesPossibles(idx, arme)
+  if (!armes.length) return ''
+  return armes.map((a) => `${a.nom} (${a.cout ? `${a.cout} pts` : 'gratuit'})`).join(', ')
 }
 
 export function coutOption(o: Option): string {

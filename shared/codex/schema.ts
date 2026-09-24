@@ -10,10 +10,23 @@ const id = z.string().regex(/^[a-z0-9_]+$/, 'identifiant en snake_case')
 
 // ---------- Unités ----------
 
+/** Emplacement d'un système d'arme sur un engin de guerre (titans). */
+export const EmplacementSchema = z.enum(['bras', 'carapace'])
+
 export const ArmeSchema = z.object({
   nom: z.string(),
   portee: z.string().optional(),
   puissance: z.string().optional(),
+  /**
+   * Ligne générique (« 2x Armes de Bras ») : renvoie à l'option d'armement du codex
+   * pour afficher les armes possibles sous la ligne. `emplacement` filtre les choix.
+   */
+  armement: z
+    .object({
+      option: id,
+      emplacement: EmplacementSchema.optional(),
+    })
+    .optional(),
 })
 
 export const UniteSchema = z.object({
@@ -156,6 +169,10 @@ const EffetChoix = z.object({
       cout: z.number().int().nonnegative().default(0),
       effet: EffetSimple.optional(),
       contraintes: z.array(ContrainteSchema).default([]),
+      /** armes de titan : catégorie (assaut, tactique, support) affichée entre parenthèses */
+      categorie: z.string().optional(),
+      /** armes de titan : emplacement imposé ; absent = les deux */
+      emplacement: EmplacementSchema.optional(),
     }),
   ),
 })
@@ -357,6 +374,7 @@ export const CodexSchema = z.object({
 export type Codex = z.infer<typeof CodexSchema>
 export type CodexInput = z.input<typeof CodexSchema>
 export type Unite = z.infer<typeof UniteSchema>
+export type Arme = z.infer<typeof ArmeSchema>
 export type Option = z.infer<typeof OptionSchema>
 export type Effet = z.infer<typeof EffetSchema>
 export type Contrainte = z.infer<typeof ContrainteSchema>
@@ -406,7 +424,10 @@ export function verifierReferences(codex: Codex): string[] {
     }
   }
 
-  for (const un of codex.unites) un.transport?.accepte.forEach((x) => u(`unité ${un.id}`, x))
+  for (const un of codex.unites) {
+    un.transport?.accepte.forEach((x) => u(`unité ${un.id}`, x))
+    un.armes.forEach((a) => { if (a.armement) o(`unité ${un.id}`, a.armement.option) })
+  }
   for (const op of codex.options) { effet(`option ${op.id}`, op.effet); c(`option ${op.id}`, op.contraintes) }
   for (const fo of codex.formations) {
     const ctx = `formation ${fo.id}`

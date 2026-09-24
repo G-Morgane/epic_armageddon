@@ -158,9 +158,10 @@ function appliquerJson(o: OptionInput, txt: string) {
 
           <!-- choix -->
           <template v-else-if="eff(o).type === 'choix'">
-            <div v-for="(p, pi) in eff(o).parmi" :key="pi" class="flex gap-2"><input v-model="p.nom" class="champ flex-1" placeholder="Capitaine"><input v-model.number="p.cout" type="number" class="champ w-20"><button type="button" class="icone hover:text-red-300" @click="eff(o).parmi.splice(pi, 1)">✕</button></div>
+            <div v-for="(p, pi) in eff(o).parmi" :key="pi" class="flex gap-2"><input v-model="p.nom" class="champ flex-1" placeholder="Capitaine"><input v-model.number="p.cout" type="number" class="champ w-20"><input v-model="p.categorie" class="champ w-24" placeholder="catégorie"><select :value="p.emplacement ?? ''" class="champ w-24" @change="p.emplacement = (($event.target as HTMLSelectElement).value || undefined) as never"><option value="">emplacement</option><option value="bras">bras</option><option value="carapace">carapace</option></select><button type="button" class="icone hover:text-red-300" @click="eff(o).parmi.splice(pi, 1)">✕</button></div>
             <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ id: 'c' + (eff(o).parmi.length + 1), nom: 'Choix', cout: 0 })">+ Choix</button>
             <p class="text-[11px] text-gray-500">Chaque ligne est un libellé avec son coût, par exemple une arme (Poing de Combat 0, Canon Gatling 25, Canon Volcano 50). Le joueur en prend une par emplacement : pour deux bras, règle « Au plus 2 fois par formation ». Un choix qui ajoute ou remplace des unités se règle dans l'éditeur avancé à droite.</p>
+            <p class="text-[11px] text-gray-500">Armes de titan : la catégorie (assaut, tactique, support) et l'emplacement s'affichent entre parenthèses après le nom, et l'emplacement dit sous quelle ligne d'arme le choix apparaît (onglet Unités, « armes au choix »). Emplacement vide : l'arme va sur les deux.</p>
           </template>
 
           <!-- choix multiple -->

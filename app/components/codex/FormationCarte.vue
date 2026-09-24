@@ -3,7 +3,7 @@ import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
 import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
-import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante } from '~~/shared/codex/phrases'
+import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante, libelleChoix } from '~~/shared/codex/phrases'
 
 const props = defineProps<{
   idx: IndexCodex
@@ -63,7 +63,7 @@ function statsEffet(e: any) {
   if (e.type === 'remplacer') return statsUnites([e.par])
   if (e.type === 'choix_multiple') return statsUnites((e.parmi ?? []).map((p: any) => p.unite))
   // une option à choix ouvre un second menu : annoncer les branches, pas leurs stats
-  if (e.type === 'choix') return (e.parmi ?? []).map((p: any) => p.nom).join(' ou ')
+  if (e.type === 'choix') return (e.parmi ?? []).map(libelleChoix).join(' ou ')
   if (e.type === 'mot_cle') return e.texte
   return undefined
 }
@@ -104,7 +104,7 @@ const optionsSous = computed(() => (specSous.value?.parmi ?? []).map((fid) => {
 }))
 function optionsChoix(oi: FormationInstance['options'][number]) {
   const parmi = (props.idx.options.get(oi.option)?.effet as any)?.parmi ?? []
-  return parmi.map((p: any) => ({ valeur: p.id, libelle: p.nom, detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
+  return parmi.map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
 }
 function optionsVarianteOption(oi: FormationInstance['options'][number]) {
   const variantes = (effetDe(oi) as any)?.variantes ?? []

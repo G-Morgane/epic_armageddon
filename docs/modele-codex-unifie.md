@@ -136,6 +136,14 @@ unites:
       - { nom: Bolter Lourd, portee: 30cm, puissance: "AP5+" }
     notes: ["Transport (2) : Infanterie"]
     transport: { capacite: 2, accepte: [Inf] }     # utilisé par le builder
+  - id: titan_reaver
+    nom: Titan Reaver
+    type: EG
+    armes:
+      # ligne générique : les armes possibles sont listées sous la ligne (fiche,
+      # feuille de références, builder) à partir de l'option d'armement du codex.
+      # `emplacement` filtre les choix (absent dans l'option = les deux).
+      - { nom: 2x Armes de Bras, puissance: Frt, armement: { option: armement_reaver, emplacement: bras } }
   - id: ogryns
     nom: Ogryns
     type: Inf

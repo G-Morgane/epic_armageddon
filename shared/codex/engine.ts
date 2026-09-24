@@ -1,4 +1,4 @@
-import type { Codex, Contrainte, Effet, Formation, Option, Section, Unite, Variante } from './schema'
+import type { Arme, Codex, Contrainte, Effet, Formation, Option, Section, Unite, Variante } from './schema'
 import type { FormationInstance, Liste, OptionInstance } from './liste'
 
 /**
@@ -89,6 +89,20 @@ export function indexerCodex(codex: Codex): IndexCodex {
   }
   for (const s of codex.sections) for (const f of s.formations) idx.sectionDe.set(f, s)
   return idx
+}
+
+/**
+ * Armes possibles derrière une ligne générique d'arme (« 2x Armes de Bras ») :
+ * les choix de l'option d'armement du codex, filtrés par emplacement.
+ */
+export function armesPossibles(idx: IndexCodex, arme: Arme): { nom: string; cout: number; categorie?: string }[] {
+  const ref = arme.armement
+  if (!ref) return []
+  const effet = idx.options.get(ref.option)?.effet
+  if (effet?.type !== 'choix') return []
+  return effet.parmi
+    .filter((p) => !ref.emplacement || !p.emplacement || p.emplacement === ref.emplacement)
+    .map((p) => ({ nom: p.nom, cout: p.cout, categorie: p.categorie }))
 }
 
 export function optionsDisponibles(idx: IndexCodex, formation: Formation): string[] {
