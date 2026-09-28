@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
-import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition } from '~~/shared/codex/engine'
+import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition, emplacementsSatures } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante, libelleChoix } from '~~/shared/codex/phrases'
@@ -104,7 +104,9 @@ const optionsSous = computed(() => (specSous.value?.parmi ?? []).map((fid) => {
 }))
 function optionsChoix(oi: FormationInstance['options'][number]) {
   const parmi = (props.idx.options.get(oi.option)?.effet as any)?.parmi ?? []
-  return parmi.map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
+  // armes de titan : les emplacements déjà pleins ne proposent plus leurs armes (sauf celle déjà choisie ici)
+  const satures = emplacementsSatures(props.idx, props.instance, oi)
+  return parmi.filter((p: any) => p.id === oi.choix || !p.emplacement || !satures.includes(p.emplacement)).map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
 }
 function optionsVarianteOption(oi: FormationInstance['options'][number]) {
   const variantes = (effetDe(oi) as any)?.variantes ?? []

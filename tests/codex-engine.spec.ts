@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { listerSlugs, chargerCodexParSlug, chargerCodexBrut } from '../shared/codex/charger'
 import { chargerCodex } from '../shared/codex/schema'
-import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation } from '../shared/codex/engine'
+import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures } from '../shared/codex/engine'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
 import { texteArmesPossibles } from '../shared/codex/phrases'
@@ -58,6 +58,39 @@ describe('moteur : armes en amélioration (sans unité)', () => {
   it('un troisième bras est refusé', () => {
     const r = resoudreFormation(idx, reaver([{ option: 'bras_reaver', choix: 'poing' }, { option: 'bras_reaver', choix: 'poing' }, { option: 'bras_reaver', choix: 'gatling' }]) as any)
     expect(r.erreurs.map((e) => e.message)).toContain('Armement de Bras : au plus 2 fois par formation')
+  })
+})
+
+describe('moteur : emplacements des armes de titan', () => {
+  const idx = indexerCodex(chargerCodexParSlug('legions-titaniques'))
+  const reaver = (choix: string[]) => resoudreFormation(idx, { id: 'f', formation: 'titan_reaver', variante: 'base', choix: {}, sous_formations: [], options: choix.map((c, i) => ({ id: `o${i}`, option: 'armement_reaver', choix: c })) } as any)
+
+  it('deux armes de bras et une de carapace passent', () => {
+    expect(reaver(['poing_combat', 'canon_volcano', 'missile_barrage']).erreurs).toEqual([])
+  })
+
+  it('une arme sans emplacement complète les bras ou la carapace', () => {
+    expect(reaver(['poing_combat', 'canon_gatling', 'destructeur_turbo_laser']).erreurs).toEqual([])
+  })
+
+  it('trois armes de bras sont refusées', () => {
+    const r = reaver(['poing_combat', 'poing_combat', 'canon_volcano'])
+    expect(r.erreurs.map((e) => e.message)).toContain('Armement du Reaver : au plus 2 arme(s) de bras')
+  })
+
+  it('deux armes de carapace sont refusées', () => {
+    const r = reaver(['missile_barrage', 'lance_roquettes_apocalypse', 'poing_combat'])
+    expect(r.erreurs.map((e) => e.message)).toContain('Armement du Reaver : au plus 1 arme(s) de carapace')
+  })
+
+  it('l\'UI masque les armes d\'un emplacement plein, sauf celle déjà choisie', () => {
+    const fi = { id: 'f', formation: 'titan_reaver', variante: 'base', choix: {}, sous_formations: [], options: [
+      { id: 'a', option: 'armement_reaver', choix: 'poing_combat' },
+      { id: 'b', option: 'armement_reaver', choix: 'canon_volcano' },
+      { id: 'c', option: 'armement_reaver', choix: 'canon_gatling' },
+    ] } as any
+    expect(emplacementsSatures(idx, fi, fi.options[2])).toEqual(['bras'])
+    expect(emplacementsSatures(idx, fi, fi.options[0])).toEqual([])
   })
 })
 

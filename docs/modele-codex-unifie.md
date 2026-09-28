@@ -300,6 +300,7 @@ l'écrit pas deux fois.
 | `max_par_armee: n` | formation, option | 0-n dans la liste | préfixe « 0-1 » | `FormationLimite`, `limiteOptionGlobal` |
 | `min_par_armee: n` | formation, section | obligatoire | « Au moins une … obligatoire » | `FormationMinimum`, `min_formations` |
 | `max_par_formation: n` | option | n fois par formation, surchargeable par variante | « une seule fois par formation » | `limit`, `limit_par_variante` |
+| `max_par_emplacement: {emplacement, n}` | option (armement de titan) | n choix portant cet emplacement ; les armes sans emplacement vont partout | rien | (nouveau) |
 | `max_options: n` | formation, section | nb d'options comptées | « jusqu'à 3 améliorations » | `limiteOptionFormation` |
 | `hors_quota_options` | option | ne compte pas dans `max_options` | astérisque + note | `IsNotOption` |
 | `exclusif: groupe` | option | une seule option du groupe par formation | « ou » | `unique`, `exclut` |

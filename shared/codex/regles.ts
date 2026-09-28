@@ -18,6 +18,7 @@ export const GABARITS: Gabarit[] = [
   { type: 'max_par_armee', portee: ['formation', 'option', 'section'], phrase: 'Au plus {valeur} dans l\'armée', trous: { valeur: { type: 'nombre', defaut: 1 } } },
   { type: 'min_par_armee', portee: ['formation', 'option', 'section'], phrase: 'Au moins {valeur} dans l\'armée', trous: { valeur: { type: 'nombre', defaut: 1 } } },
   { type: 'max_par_formation', portee: ['option'], phrase: 'Au plus {valeur} fois par formation{par_taille}', trous: { valeur: { type: 'nombre', defaut: 1 }, par_taille: { type: 'bool', defaut: false } } },
+  { type: 'max_par_emplacement', portee: ['option'], phrase: 'Au plus {valeur} arme(s) d\'emplacement « {emplacement} »', trous: { valeur: { type: 'nombre', defaut: 2 }, emplacement: { type: 'texte', defaut: 'bras' } } },
   { type: 'max_options', portee: ['formation', 'section'], phrase: 'Au plus {valeur} améliorations par formation', trous: { valeur: { type: 'nombre', defaut: 3 } } },
   { type: 'hors_quota_options', portee: ['option'], phrase: 'Ne compte pas dans le nombre d\'améliorations', trous: {} },
   { type: 'exclusif', portee: ['option'], phrase: 'Une seule option du groupe « {groupe} » par formation', trous: { groupe: { type: 'texte', defaut: 'commandant' } } },

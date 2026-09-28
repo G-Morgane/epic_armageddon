@@ -67,6 +67,8 @@ export const ContrainteSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('min_par_armee'), valeur: z.number().int().positive() }),
   /** Limite d'une option par formation. `par_taille` : multipliée par la taille de la variante (Orks). */
   z.object({ type: z.literal('max_par_formation'), valeur: z.number().int().positive(), par_taille: z.boolean().optional() }),
+  /** Armes de titan : limite des choix portant cet `emplacement` (les armes sans emplacement vont partout). */
+  z.object({ type: z.literal('max_par_emplacement'), emplacement: EmplacementSchema, valeur: z.number().int().positive() }),
   z.object({ type: z.literal('max_options'), valeur: z.number().int().positive() }),
   z.object({ type: z.literal('hors_quota_options') }),
   z.object({ type: z.literal('exclusif'), groupe: z.string() }),

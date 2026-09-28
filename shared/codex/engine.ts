@@ -119,6 +119,26 @@ export function optionsObligatoires(idx: IndexCodex, formationId: string): strin
   return optionsDisponibles(idx, def).filter((id) => idx.options.get(id)?.contraintes.some((c) => c.type === 'obligatoire'))
 }
 
+/** Nombre d'instances d'une option d'armement dont l'arme choisie porte cet emplacement. */
+function compteEmplacement(idx: IndexCodex, fi: FormationInstance, optionId: string, emplacement: 'bras' | 'carapace', sauf?: string): number {
+  const def = idx.options.get(optionId)
+  if (!def || def.effet.type !== 'choix') return 0
+  const parmi = def.effet.parmi
+  return fi.options.filter((x) => x.option === optionId && x.id !== sauf && (parmi.find((p) => p.id === x.choix) ?? parmi[0])?.emplacement === emplacement).length
+}
+
+/**
+ * Emplacements d'armes déjà pleins pour une instance d'option d'armement (les autres instances comptent, pas elle).
+ * Sert à l'UI pour masquer les armes qui ne rentrent plus.
+ */
+export function emplacementsSatures(idx: IndexCodex, fi: FormationInstance, oi: OptionInstance): Array<'bras' | 'carapace'> {
+  const def = idx.options.get(oi.option)
+  if (!def) return []
+  return tous(def.contraintes, 'max_par_emplacement')
+    .filter((me) => compteEmplacement(idx, fi, oi.option, me.emplacement, oi.id) >= me.valeur)
+    .map((me) => me.emplacement)
+}
+
 /** Nombre maximal de fois qu'une formation peut figurer dans l'armée, `null` si non limité. */
 export function plafondFormation(idx: IndexCodex, formationId: string): number | null {
   const def = idx.formations.get(formationId)
@@ -418,6 +438,9 @@ export function resoudreFormation(idx: IndexCodex, fi: FormationInstance, profon
     if (maxF) {
       const limite = maxF.valeur * (maxF.par_taille ? variante.taille : 1)
       if (compteOption(o.def.id) > limite) erreur(ctx, 'option_quantite', `${o.def.nom} : au plus ${limite} fois par formation`)
+    }
+    for (const me of tous(csO, 'max_par_emplacement')) {
+      if (compteEmplacement(idx, fi, o.def.id, me.emplacement) > me.valeur) erreur(ctx, 'option_quantite', `${o.def.nom} : au plus ${me.valeur} arme(s) de ${me.emplacement}`)
     }
     const excl = trouve(csO, 'exclusif')
     if (excl) {

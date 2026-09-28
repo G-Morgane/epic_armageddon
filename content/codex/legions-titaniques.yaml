@@ -476,6 +476,8 @@ options:
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 3 }
+      - { type: max_par_emplacement, emplacement: bras, valeur: 2 }
+      - { type: max_par_emplacement, emplacement: carapace, valeur: 1 }
     note_md: "Un Titan Reaver doit être équipé de 3 armes au choix parmi les armes d'assaut, tactiques et de support : une arme de carapace et deux armes de bras. Le Module d'assaut Corvus et le Poing de Combat Arioch sont réservés au Titan Warlord."
   - id: armement_warlord
     nom: Armement du Warlord
@@ -503,6 +505,8 @@ options:
     contraintes:
       - { type: hors_quota_options }
       - { type: max_par_formation, valeur: 4 }
+      - { type: max_par_emplacement, emplacement: bras, valeur: 2 }
+      - { type: max_par_emplacement, emplacement: carapace, valeur: 2 }
     note_md: "Un Titan Warlord doit être équipé de 4 armes au choix parmi les armes d'assaut, tactiques et de support : deux armes de carapace et deux armes de bras."
   - id: seconde_arme_carapace
     nom: Deuxième arme tactique de carapace identique
