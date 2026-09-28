@@ -4,7 +4,7 @@ codex:
   armee_id: b344fee5-9202-4ec3-8231-6d2bdf1664cf
   logo: /icons/legions_titaniques.svg
   nom: Légions Titaniques
-  version: "1.4.1"
+  version: "1.4.2"
   faction: imperium
   categorie: armees-imperiales
   statut: official
