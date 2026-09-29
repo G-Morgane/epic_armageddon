@@ -133,11 +133,22 @@ const nbColonnesStats = 9
 const dateDuJour = new Date().toLocaleDateString('fr-FR', { dateStyle: 'long' })
 const pied = computed(() => `${liste.value?.nom ?? ''} · ${c.codex.nom.toUpperCase()} · ${total.value} PTS`)
 
-function imprimer() { window.print() }
+/**
+ * Deux sorties papier. « Impression » saute la couverture : une pleine page
+ * d'encre noire pour rien sur une imprimante de bureau. « Frime » la garde et
+ * force les fonds (`print-color-adjust`), sans quoi le navigateur, qui décoche
+ * les graphiques d'arrière-plan par défaut, perd l'illustration et les bandeaux.
+ */
+const mode = ref<'impression' | 'frime'>('impression')
+async function imprimer(m: 'impression' | 'frime') {
+  mode.value = m
+  await nextTick()
+  window.print()
+}
 </script>
 
 <template>
-  <div class="doc" :class="{ paysage }" :data-pret="pret ? '' : undefined" :style="{ '--accent': couleur, zoom: echelle }">
+  <div class="doc" :class="{ paysage, frime: mode === 'frime' }" :data-pret="pret ? '' : undefined" :style="{ '--accent': couleur, zoom: echelle }">
     <!-- Barre d'écran : elle ne part jamais sur le papier -->
     <div class="barre">
       <!-- dans le tiroir du builder, la croix sert déjà de retour -->
@@ -146,7 +157,8 @@ function imprimer() { window.print() }
         Joueur
         <input :value="auteur ?? ''" placeholder="Ton pseudo" @input="auteur = ($event.target as HTMLInputElement).value || null">
       </label>
-      <button type="button" class="barre-bouton" @click="imprimer">Imprimer / Enregistrer en PDF</button>
+      <button type="button" class="barre-bouton" title="Sans la page de couverture, économe en encre" @click="imprimer('impression')">Imprimer</button>
+      <button type="button" class="barre-bouton" title="Avec la couverture illustrée, pour un PDF à montrer" @click="imprimer('frime')">PDF avec couverture</button>
     </div>
 
     <p v-if="pret && !liste?.formations.length" class="vide">
@@ -368,6 +380,9 @@ table.stats tr.ligne-choix .arme-nom { font-style: normal; color: #444; }
 .barre-bouton:hover { background: rgba(216, 192, 138, .12); }
 @media print {
   .barre { display: none; }
+  .doc:not(.frime) .couverture { display: none; }
+  .doc.frime, .doc.frime * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .doc.frime .couverture.illustree::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 
 /* Aperçu écran : des feuilles A4 posées sur un fond neutre, comme pour les codex */
