@@ -45,7 +45,8 @@ const libelle = computed(() => choisie.value?.libelle ?? props.placeholder)
 function ouvrir() {
   ouvert.value = true
   survol.value = props.action ? 0 : Math.max(0, props.options.findIndex((o) => o.valeur === valeur.value))
-  nextTick(() => defiler())
+  // amène le menu entier à l'écran : ouvert en bas de page, il passait sous la barre fixe
+  nextTick(() => { menu.value?.scrollIntoView({ block: 'nearest' }); defiler() })
 }
 function fermer() {
   ouvert.value = false
@@ -141,7 +142,7 @@ onBeforeUnmount(() => document.removeEventListener('mousedown', auClicDehors))
          text-sm text-stone-100 transition-colors hover:border-gold/40 focus:border-gold focus:outline-none;
 }
 .menu {
-  @apply absolute left-0 z-30 mt-1 max-h-72 w-max min-w-full max-w-[min(22rem,80vw)] overflow-y-auto
+  @apply absolute left-0 z-30 mt-1 max-h-[min(28rem,60vh)] scroll-mb-16 scroll-mt-20 w-max min-w-full max-w-[min(22rem,80vw)] overflow-y-auto
          overflow-x-hidden rounded-md border border-gold/25 bg-surface-lighter py-1 shadow-xl shadow-black/60;
 }
 .option {
