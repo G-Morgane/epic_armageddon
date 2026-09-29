@@ -193,8 +193,9 @@ export function coutOption(o: Option): string {
     }
     return couts.join(' / ')
   }
-  const couts = [...new Set(e.parmi.map((p) => p.cout))]
-  return couts.map((c) => (c ? `${c} pts` : 'Gratuit')).join(' / ')
+  // un choix sans coût propre porte son coût dans son effet (« 50 pts chacun », « 175 pts »)
+  const couts = e.parmi.map((p) => (p.effet && !p.cout ? coutOption({ ...o, effet: p.effet }) : p.cout ? `${p.cout} pts` : 'Gratuit'))
+  return [...new Set(couts)].join(' / ')
 }
 
 /** Astérisque si l'option renvoie à une note de bas de tableau. */

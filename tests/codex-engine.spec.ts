@@ -4,7 +4,7 @@ import { chargerCodex } from '../shared/codex/schema'
 import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures } from '../shared/codex/engine'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
-import { texteArmesPossibles } from '../shared/codex/phrases'
+import { texteArmesPossibles, coutOption } from '../shared/codex/phrases'
 import { trierParType, lignesComplementaires, requeteOptionsPdf, lireOptionsPdf, OPTIONS_PDF_DEFAUT } from '../shared/codex/pdf'
 
 describe('moteur : listes de test des codex', () => {
@@ -166,5 +166,21 @@ describe('limite de formations par armée', () => {
     const f = (id: string) => normaliserFormation({ id, formation: 'groupe_nexus' } as never, (x) => varianteParDefaut(idx, x))
     const res = calculerListe(idx, { id: 'l', nom: 'x', codex: 'tyranides', limite: 3000, formations: [f('a'), f('b')] })
     expect(res.erreurs.map((e) => e.type)).toContain('max_par_armee')
+  })
+})
+
+describe('coût des options à choix', () => {
+  it("affiche le coût porté par l'effet de chaque choix", () => {
+    const idx = indexerCodex(chargerCodexParSlug('eldars-d-iyanden'))
+    expect(coutOption(idx.options.get('fantomes')!)).toBe('+25 pts / 50 pts chacun / 75 pts')
+    expect(coutOption(idx.options.get('seigneurs_fantomes')!)).toBe('+25 pts / 175 pts')
+  })
+
+  it("ne compte le coût d'un choix qu'une fois (Iyanden rework)", () => {
+    const idx = indexerCodex(chargerCodexParSlug('eldars-d-iyanden-rework'))
+    const f = normaliserFormation({ id: 'o', formation: 'ost_fantomes', choix: { '0': { garde_fantome: 1, guerrier_fantome: 1 } }, options: [{ option: 'fantomes', choix: 'gardes', quantite: 2 }, { option: 'firestorm_opt', choix: 'ajout' }] } as never, (x) => varianteParDefaut(idx, x))
+    const res = calculerListe(idx, { id: 'l', nom: 'x', codex: 'eldars-d-iyanden-rework', limite: 3000, formations: [f] })
+    const avant = calculerListe(idx, { id: 'l', nom: 'x', codex: 'eldars-d-iyanden-rework', limite: 3000, formations: [{ ...f, options: [] }] })
+    expect(res.total - avant.total).toBe(2 * 50 + 75)
   })
 })

@@ -614,11 +614,9 @@ options:
       parmi:
         - id: gardes
           nom: 1 à 4 Gardes Fantômes
-          cout: 50
           effet: { type: ajouter, cout_par_unite: 50, unites: [{ unite: garde_fantome, nombre: 1 }], max: 4 }
         - id: guerriers
           nom: 2 ou 4 unités de Guerriers Fantômes
-          cout: 75
           effet: { type: ajouter, cout_par_unite: 75, lot: 2, unites: [{ unite: guerrier_fantome, nombre: 2 }], max: 2 }
     contraintes: [{ type: max_par_formation, valeur: 1 }]
   - id: seigneurs_fantomes_opt
@@ -640,11 +638,9 @@ options:
       parmi:
         - id: remplacement
           nom: Remplacez 1 ou 2 véhicules blindés de la formation par autant de Firestorms
-          cout: 25
           effet: { type: remplacer, de: [falcon, wave_serpent, prisme_feu, warp_hunter, tisseur_nuit], par: firestorm, lot: 1, max: 2, cout: 25 }
         - id: ajout
           nom: Ajouter 1 Firestorm à l'Ost de Guerre ou au Bouclier de Vaul
-          cout: 75
           effet: { type: ajouter, cout: 75, unites: [{ unite: firestorm, nombre: 1 }] }
     contraintes: [{ type: max_par_formation, valeur: 1 }]
   - id: tisseur_nuit_opt
