@@ -758,12 +758,12 @@ sections:
     colonne_options: true
   - id: aeronautica
     titre: FLOTTE DE L'AERONAUTICA IMPERIALIS
-    sous_titre: "Jusqu'à 1/3 des points disponibles, alliances comprises"
+    sous_titre: "SUPPORTS DU SOLAR AUXILIA"
     formations: [escadrille_avenger, escadrille_lightning, escadrille_bombardiers, soutien_orbital]
     contraintes: [{ type: consomme, budget: rare, quoi: points }]
   - id: titanicus
     titre: ALLIANCE DES LÉGIONS TITANIQUES
-    sous_titre: "Jusqu'à 1/3 des points disponibles, flotte comprise"
+    sous_titre: "SUPPORTS DU SOLAR AUXILIA"
     formations: []
     contraintes: [{ type: consomme, budget: rare, quoi: points }]
     allies: { codex: adeptus-titanicus }
