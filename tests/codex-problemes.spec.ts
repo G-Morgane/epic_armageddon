@@ -67,3 +67,19 @@ describe('changements brouillon / publié', () => {
     expect(d.find((l) => l.texte === 'l10')).toBeUndefined()
   })
 })
+
+describe('caractéristiques des améliorations imprimées', async () => {
+  const { caracOption } = await import('../shared/codex/phrases')
+  const codex = chargerCodexBrut('legions-titaniques')
+  const opt = (id: string) => codex.options.find((o) => o.id === id)!
+  it('arme choisie : son profil', () => {
+    expect(caracOption({ def: opt('armement_reaver'), instance: { option: 'armement_reaver', choix: 'canon_plasma' } as any })).toBe('60cm, 3xMA2+, Rchg')
+  })
+  it('mot-clé : la parenthèse seulement, le nom est déjà dans le libellé', () => {
+    expect(caracOption({ def: opt('multi_lasers_carapace'), instance: { option: 'multi_lasers_carapace' } as any })).toBe('30cm, AP5+/AC6+/AA5+')
+    expect(caracOption({ def: opt('icone_sacree'), instance: { option: 'icone_sacree', choix: 'equiper' } as any })).toBe('Charismatique')
+  })
+  it('ajout d\'unités : rien à ajouter', () => {
+    expect(caracOption({ def: opt('tunneliers'), instance: { option: 'tunneliers', choix: 'taupe' } as any })).toBeUndefined()
+  })
+})

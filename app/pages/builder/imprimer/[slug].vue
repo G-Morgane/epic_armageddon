@@ -14,7 +14,7 @@
 import type { Arme, Codex, Unite } from '~~/shared/codex/schema'
 import { indexerCodex, calculerListe, type ResultatListe, type FormationResolue } from '~~/shared/codex/engine'
 import type { Liste } from '~~/shared/codex/liste'
-import { pluriel, armesPossiblesLignes } from '~~/shared/codex/phrases'
+import { pluriel, armesPossiblesLignes, caracOption } from '~~/shared/codex/phrases'
 import { trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 
 definePageMeta({ layout: false })
@@ -95,6 +95,8 @@ const groupes = computed(() => {
   })
 })
 
+/** lignes du récapitulatif occupées par une formation : elle, ses améliorations, ses sous-formations, son total */
+const lignesRecap = (f: FormationResolue) => 1 + f.options.length + f.sous_formations.length + (f.cout !== f.cout_base ? 1 : 0)
 const unitesDe = (f: FormationResolue) => f.unites.filter((u) => !u.implicite)
 const phraseUnites = (f: FormationResolue) =>
   unitesDe(f).map((u) => `${u.nombre} ${u.nombre > 1 ? pluriel(u.nom) : u.nom}`).join(', ')
@@ -182,7 +184,7 @@ async function imprimer(m: 'impression' | 'frime') {
         </div>
       </section>
 
-      <!-- 2. Récapitulatif : ce qu'on a sous la main pendant la partie, sans les caractéristiques -->
+      <!-- 2. Récapitulatif : ce qu'on a sous la main pendant la partie, avec le profil des armes choisies et ce qu'apportent les améliorations -->
       <section class="page">
         <h1 class="titre-liste">Récapitulatif</h1>
         <p class="chapeau">{{ c.codex.nom }} · {{ total }} / {{ liste.limite }} pts · {{ activations }} activation(s)</p>
@@ -193,20 +195,25 @@ async function imprimer(m: 'impression' | 'frime') {
             <thead>
               <tr><th>Formation</th><th>Unités</th><th class="cout">Coût</th></tr>
             </thead>
-            <tbody>
-              <tr v-for="f in g.formations" :key="f.instance.id">
-                <td class="nom">{{ nomComplet(f) }}</td>
-                <td>
-                  <div class="ligne">{{ phraseUnites(f) }}</div>
-                  <div v-for="o in f.options" :key="o.instance.id" class="ligne italique">+ {{ o.libelle }}</div>
-                  <div v-for="s in f.sous_formations" :key="s.instance.id" class="ligne italique">+ {{ nomComplet(s) }} : {{ phraseUnites(s) }}</div>
-                </td>
-                <td class="cout">
-                  <div class="ligne">{{ f.cout_base }}</div>
-                  <div v-for="o in f.options" :key="o.instance.id" class="ligne italique">{{ o.cout ? `+${o.cout}` : 'gratuit' }}</div>
-                  <div v-for="s in f.sous_formations" :key="s.instance.id" class="ligne italique">+{{ s.cout }}</div>
-                  <div v-if="f.cout !== f.cout_base" class="ligne fort">{{ f.cout }}</div>
-                </td>
+            <!-- Un tbody par formation, une ligne par amélioration : une amélioration dont les
+                 caractéristiques passent à la ligne garde son coût en face d'elle. -->
+            <tbody v-for="f in g.formations" :key="f.instance.id" class="formation">
+              <tr>
+                <td class="nom" :rowspan="lignesRecap(f)">{{ nomComplet(f) }}</td>
+                <td>{{ phraseUnites(f) }}</td>
+                <td class="cout">{{ f.cout_base }}</td>
+              </tr>
+              <tr v-for="o in f.options" :key="o.instance.id" class="italique">
+                <td>+ {{ o.libelle }}<span v-if="caracOption(o)" class="carac"> · {{ caracOption(o) }}</span></td>
+                <td class="cout">{{ o.cout ? `+${o.cout}` : 'gratuit' }}</td>
+              </tr>
+              <tr v-for="s in f.sous_formations" :key="s.instance.id" class="italique">
+                <td>+ {{ nomComplet(s) }} : {{ phraseUnites(s) }}</td>
+                <td class="cout">+{{ s.cout }}</td>
+              </tr>
+              <tr v-if="f.cout !== f.cout_base">
+                <td />
+                <td class="cout"><span class="fort">{{ f.cout }}</span></td>
               </tr>
             </tbody>
           </table>
@@ -296,13 +303,17 @@ html.print, html.print body { background: #fff; color: #111; }
 .entete { background: var(--accent); color: #fff; text-align: center; font-weight: 700; font-size: 8.5pt; padding: 2.5pt 4pt; margin: 6pt 0 0; text-transform: uppercase; letter-spacing: .3pt; }
 table.liste { width: 100%; border-collapse: collapse; font-size: 7.6pt; }
 table.liste th { text-align: left; font-size: 7.6pt; border-bottom: 1px solid #999; padding: 2pt 4pt; }
-table.liste td { padding: 2pt 4pt; border-bottom: 1px dotted #ccc; vertical-align: top; }
+table.liste td { padding: 1pt 4pt; vertical-align: top; }
+table.liste tbody.formation { border-bottom: 1px dotted #ccc; break-inside: avoid; }
+table.liste tbody.formation tr:first-child td { padding-top: 2pt; }
+table.liste tbody.formation tr:last-child td { padding-bottom: 2pt; }
+table.liste .carac { font-style: normal; color: #555; }
 table.liste td.nom { font-weight: 600; width: 28%; }
 table.liste .cout { text-align: right; white-space: nowrap; width: 14%; }
 table.liste th.cout { text-align: right; }
-.ligne + .ligne { margin-top: 1pt; }
 .italique { font-style: italic; }
 .fort { font-weight: 700; border-top: 1px solid #bbb; padding-top: 1pt; }
+table.liste span.fort { display: inline-block; }
 tr { break-inside: avoid; }
 
 table.totaux { width: 100%; border-collapse: collapse; font-size: 8pt; margin-top: 8pt; }

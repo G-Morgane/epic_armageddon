@@ -1,5 +1,5 @@
 import type { Arme, Contrainte, Formation, Option, Section, Variante } from './schema'
-import type { IndexCodex } from './engine'
+import type { IndexCodex, OptionResolue } from './engine'
 import { armesPossibles } from './engine'
 
 /**
@@ -172,6 +172,30 @@ export function texteArmesPossibles(idx: IndexCodex, arme: Arme): string {
   return armesPossiblesLignes(idx, arme)
     .map((a) => `${a.nom}${a.profil ? ` : ${a.profil}` : ''}`)
     .join(' · ')
+}
+
+/**
+ * Caractéristiques d'une amélioration prise, pour la liste imprimée : le profil de
+ * l'arme choisie (« 60cm, 3xMA2+, Rchg »), ou ce qu'un mot-clé apporte. Le nom est
+ * déjà dans le libellé : d'un mot-clé « Auspex Amélioré (Tir Indirect…) » on ne garde
+ * que la parenthèse. Vide quand il n'y a rien à ajouter au libellé.
+ */
+export function caracOption(o: Pick<OptionResolue, 'def' | 'instance'>): string | undefined {
+  const detail = (texte: string, nom: string) => {
+    const m = texte.match(/^[^(]*\((.*)\)\s*$/)
+    if (m) return m[1]
+    return nom.toLowerCase().includes(texte.toLowerCase()) ? undefined : texte
+  }
+  const e = o.def.effet
+  if (e.type === 'choix') {
+    const c = e.parmi.find((p) => p.id === o.instance.choix) ?? e.parmi[0]
+    if (!c) return
+    const profil = [c.portee, c.puissance].filter(Boolean).join(', ')
+    if (profil) return profil
+    if (c.effet?.type === 'mot_cle') return detail(c.effet.texte, c.nom)
+    return
+  }
+  if (e.type === 'mot_cle') return detail(e.texte, o.def.nom)
 }
 
 export function coutOption(o: Option): string {
