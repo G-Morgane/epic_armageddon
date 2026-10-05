@@ -4,6 +4,7 @@ import { indexerCodex, calculerListe, optionsObligatoires, plafondFormation, typ
 import type { Liste, FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { lignesFormation, prefixeFormation } from '~~/shared/codex/phrases'
+import { texteDiscord } from '~~/shared/codex/discord'
 
 const route = useRoute()
 const slug = route.params.slug as string
@@ -408,6 +409,21 @@ async function partager() {
   }
 }
 
+/** Copie la liste en Markdown Discord. Presse-papiers refusé : le texte s'affiche, à copier à la main. */
+const etatDiscord = ref<'' | 'copie'>('')
+const texteDiscordManuel = ref('')
+async function copierDiscord() {
+  const texte = texteDiscord(c, resultat.value)
+  try {
+    await navigator.clipboard.writeText(texte)
+    texteDiscordManuel.value = ''
+    etatDiscord.value = 'copie'
+    setTimeout(() => { if (etatDiscord.value === 'copie') etatDiscord.value = '' }, 3000)
+  } catch {
+    texteDiscordManuel.value = texte
+  }
+}
+
 /**
  * Bilan : toutes les erreurs, pas seulement celles qui ne visent aucune
  * formation. Une erreur de formation ne s'affichait que sur sa carte, donc
@@ -446,6 +462,7 @@ const libelleMenu = computed(() => {
   if (etatSauvegarde.value === 'fait') return '✓ Sauvegardée'
   if (etatPartage.value === 'en_cours') return 'Partage…'
   if (etatPartage.value === 'copie') return '✓ Lien copié'
+  if (etatDiscord.value === 'copie') return '✓ Copiée pour Discord'
   return 'Actions'
 })
 
@@ -530,6 +547,10 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
                 <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
                 Partager le lien
               </button>
+              <button type="button" role="menuitem" class="entree-menu" title="Copie la liste mise en forme pour un salon Discord" @click="action(copierDiscord)">
+                <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>
+                Copier pour Discord
+              </button>
               <button type="button" role="menuitem" class="entree-menu" @click="action(() => (listesOuvert = true))">
                 <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
                 Mes listes
@@ -567,6 +588,13 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
     <p v-if="erreurSauvegarde" class="mt-4 rounded border border-red-400/40 bg-red-500/10 px-4 py-2 text-sm text-red-300 impression-cacher">Sauvegarde impossible : {{ erreurSauvegarde }}</p>
     <!-- Presse-papiers refusé : le lien reste sous les yeux, à copier à la main -->
     <p v-if="lienPartage && etatPartage !== 'copie'" class="mt-4 break-all rounded border border-gold/30 bg-gold/10 px-4 py-2 font-mono text-xs text-gold-light impression-cacher">{{ lienPartage }}</p>
+    <div v-if="texteDiscordManuel" class="mt-4 rounded border border-gold/30 bg-gold/10 px-4 py-2 text-sm text-gold-light impression-cacher">
+      <div class="mb-1 flex items-center justify-between gap-3">
+        <span>Copie automatique refusée par le navigateur : sélectionne le texte pour Discord.</span>
+        <button type="button" class="text-gold/70 hover:text-gold" @click="texteDiscordManuel = ''">✕</button>
+      </div>
+      <textarea readonly :value="texteDiscordManuel" rows="8" class="w-full rounded border border-white/10 bg-surface p-2 font-mono text-xs text-stone-200" @focus="($event.target as HTMLTextAreaElement).select()" />
+    </div>
     <p v-if="vidage" class="mt-4 flex flex-wrap items-center gap-3 rounded border border-white/15 bg-surface-light px-4 py-2 text-sm text-stone-300 impression-cacher">
       Liste vidée.
       <button type="button" class="rounded border border-gold/40 px-2 py-1 text-xs text-gold hover:bg-gold/10" @click="annulerVidage">Annuler</button>

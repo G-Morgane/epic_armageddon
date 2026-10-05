@@ -83,3 +83,29 @@ describe('caractéristiques des améliorations imprimées', async () => {
     expect(caracOption({ def: opt('tunneliers'), instance: { option: 'tunneliers', choix: 'taupe' } as any })).toBeUndefined()
   })
 })
+
+describe('export Discord', async () => {
+  const { texteDiscord } = await import('../shared/codex/discord')
+  const { indexerCodex, calculerListe, varianteParDefaut } = await import('../shared/codex/engine')
+  const { normaliserFormation } = await import('../shared/codex/liste')
+  it('titre, nombre de formations, BLM, une ligne par formation, améliorations en petit', () => {
+    const codex = chargerCodexBrut('legions-titaniques')
+    const idx = indexerCodex(codex)
+    const formations = [
+      { formation: 'titan_reaver', options: [{ option: 'auspex_ameliore' }] },
+      { formation: 'titan_warlord' },
+    ].map((f) => normaliserFormation(f as any, (id) => varianteParDefaut(idx, id)))
+    const res = calculerListe(idx, { id: 't', nom: 't', codex: 'legions-titaniques', limite: 3000, formations } as any)
+    const texte = texteDiscord(codex, res)
+    expect(texte).toBe([
+      `## Légions Titaniques (${res.total} pts)`,
+      'Formations : ***2***',
+      '***BLM : Titan Warlord (725 pts)***',
+      '',
+      '**1. Titan Reaver** (600 pts)',
+      '-# + Auspex amélioré',
+      '**2. Titan Warlord** (725 pts)',
+    ].join('\n'))
+    expect(texte).not.toContain('—')
+  })
+})
