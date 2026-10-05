@@ -156,6 +156,13 @@ export default defineNuxtConfig({
       r2PublicUrl: process.env.R2_PUBLIC_URL,
       siteUrl,
       indexable,
+      // Version de l'app, pour repérer un ancien lien de preview Vercel (figé sur un vieux commit).
+      // `brancheUrl` : alias qui suit toujours le dernier déploiement de la branche.
+      build: {
+        commit: process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? '',
+        date: new Date().toISOString(),
+        brancheUrl: process.env.VERCEL_BRANCH_URL ? `https://${process.env.VERCEL_BRANCH_URL}` : '',
+      },
     },
   },
 })

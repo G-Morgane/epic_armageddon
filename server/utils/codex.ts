@@ -346,6 +346,14 @@ export async function lireBrouillon(slug: string): Promise<{ data: CodexInput; m
   return { data: base as CodexInput, existe: false }
 }
 
+/** Ce que le brouillon modifie : la dernière version publiée, sinon le YAML embarqué. */
+export async function lireReference(slug: string): Promise<{ data: CodexInput | null; version?: string }> {
+  verifierSlug(slug)
+  const publie = await depot().publie(slug)
+  if (publie) return { data: publie.data, version: publie.version }
+  return { data: ((await lireYaml(slug)) as CodexInput | null) ?? null }
+}
+
 export async function ecrireBrouillon(slug: string, brut: CodexInput): Promise<void> {
   verifierSlug(slug)
   await depot().ecrireBrouillon(slug, brut)

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { CodexInput } from '~~/shared/codex/schema'
-import { CodexSchema, verifierReferences } from '~~/shared/codex/schema'
+import { problemesCodex, type OngletCodex, type Probleme } from '~~/shared/codex/problemes'
+import { changementsCodex } from '~~/shared/codex/changements'
 import { CLE_BROUILLON } from '~/composables/useBrouillonCodex'
 
 definePageMeta({ layout: 'admin', middleware: 'admin' })
@@ -17,9 +18,11 @@ const pret = ref(false)
 /** dernier état enregistré (ou chargé), pour ne pas créer de brouillon sans changement réel */
 let dernierEtat = ''
 const erreurChargement = ref('')
-const onglet = ref<'armee' | 'unites' | 'liste' | 'options' | 'texte' | 'apercu'>('liste')
+const onglet = ref<OngletCodex | 'texte' | 'changements' | 'apercu'>('liste')
+/** Version publiée (ou YAML de départ) que le brouillon modifie. */
+const reference = ref<{ data: CodexInput | null; version?: string }>({ data: null })
 const sauvegarde = ref<'propre' | 'modifie' | 'encours' | 'ok'>('propre')
-const problemes = ref<string[]>([])
+const problemes = ref<Probleme[]>([])
 const afficherProblemes = ref(false)
 const modalePublier = ref(false)
 const publication = ref({ version: '', changelog: '', encours: false, erreur: '' })
@@ -34,8 +37,9 @@ provide(CLE_BROUILLON, brouillon as Ref<CodexInput>)
 onMounted(async () => {
   try { const a = sessionStorage.getItem(CLE_AVIS); if (a) { avis.value = a; sessionStorage.removeItem(CLE_AVIS) } } catch { /* stockage indisponible */ }
   try {
-    const r = await api.get<{ data: CodexInput; existe: boolean; versions: typeof versions.value }>(`/api/admin/codex/${slug}/brouillon`)
+    const r = await api.get<{ data: CodexInput; existe: boolean; versions: typeof versions.value; reference: typeof reference.value }>(`/api/admin/codex/${slug}/brouillon`)
     brouillon.value = r.data
+    reference.value = r.reference
     dernierEtat = JSON.stringify(r.data)
     existe.value = r.existe
     versions.value = r.versions
@@ -50,11 +54,18 @@ onMounted(async () => {
 })
 
 /** Validation locale immédiate (mêmes règles que le serveur). */
-function verifier(): string[] {
-  if (!brouillon.value) return []
-  const r = CodexSchema.safeParse(brouillon.value)
-  return r.success ? verifierReferences(r.data) : r.error.issues.map((i) => `${i.path.join('.')} : ${i.message}`)
+function verifier(): Probleme[] {
+  return brouillon.value ? problemesCodex(brouillon.value) : []
 }
+
+/**
+ * Valeurs que cette version de l'app ne connaît pas : le codex a été enregistré par une
+ * version plus récente. Typiquement un ancien lien de preview Vercel, figé sur un vieux commit.
+ */
+const inconnus = computed(() => [...new Set(problemes.value.map((p) => p.inconnu).filter((x): x is string => !!x))])
+const build = useRuntimeConfig().public.build as { commit: string; date: string; brancheUrl: string }
+
+const changements = computed(() => (brouillon.value && reference.value.data ? changementsCodex(reference.value.data, brouillon.value) : []))
 
 let minuteur: ReturnType<typeof setTimeout> | undefined
 watch(brouillon, () => {
@@ -70,7 +81,7 @@ async function enregistrer() {
   if (!brouillon.value) return
   sauvegarde.value = 'encours'
   try {
-    const r = await api.put<{ problemes: string[] }>(`/api/admin/codex/${slug}/brouillon`, brouillon.value)
+    const r = await api.put<{ problemes: Probleme[] }>(`/api/admin/codex/${slug}/brouillon`, brouillon.value)
     problemes.value = r.problemes
     dernierEtat = JSON.stringify(brouillon.value)
     existe.value = true
@@ -123,6 +134,7 @@ const onglets = [
   { id: 'liste', label: "Liste d'armée" },
   { id: 'options', label: 'Améliorations' },
   { id: 'texte', label: 'Texte du PDF' },
+  { id: 'changements', label: 'Changements' },
   { id: 'apercu', label: 'Aperçu' },
 ] as const
 const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercuCle.value}`)
@@ -163,9 +175,26 @@ const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercu
         <button type="button" class="text-emerald-300/70 hover:text-emerald-200" @click="avis = ''">✕</button>
       </div>
 
+      <div v-if="inconnus.length" class="mb-5 rounded-lg border border-amber-400/40 bg-amber-500/10 p-4 text-sm text-amber-100">
+        <p class="font-semibold">Cette version de l'app est trop ancienne pour ce codex</p>
+        <p class="mt-1">
+          Il utilise des réglages ajoutés depuis ({{ inconnus.map((x) => `« ${x} »`).join(', ') }}). Rien n'est cassé dans le codex :
+          tu ouvres sans doute un ancien lien de l'app, figé sur une version précédente. Ouvre la dernière version, puis reviens sur cette page.
+        </p>
+        <p class="mt-2 flex flex-wrap items-center gap-3 text-xs text-amber-200/70">
+          <a v-if="build.brancheUrl" :href="`${build.brancheUrl}/admin/codex/${slug}`" class="rounded-md border border-amber-300/40 px-3 py-1 text-sm text-amber-100 hover:bg-amber-400/10">Ouvrir la dernière version</a>
+          <span v-if="build.commit">Version de l'app ouverte : {{ build.commit }}, du {{ new Date(build.date).toLocaleDateString('fr-FR') }}</span>
+        </p>
+      </div>
+
       <div v-if="afficherProblemes && problemes.length" class="mb-5 rounded-lg border border-red-400/30 bg-red-500/10 p-4 text-sm text-red-200">
         <p class="mb-2 text-xs uppercase tracking-wider">À corriger avant publication</p>
-        <ul class="list-disc space-y-0.5 pl-5"><li v-for="(p, i) in problemes" :key="i">{{ p }}</li></ul>
+        <ul class="space-y-1">
+          <li v-for="(p, i) in problemes" :key="i">
+            <span class="font-medium text-red-100">{{ p.lieu }}</span> : {{ p.message }}
+            <button v-if="p.onglet && p.onglet !== onglet" type="button" class="ml-1 text-xs text-red-300/80 underline hover:text-red-100" @click="onglet = p.onglet">aller à l'onglet</button>
+          </li>
+        </ul>
       </div>
 
       <!-- Onglets -->
@@ -175,6 +204,7 @@ const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercu
           <span v-if="o.id === 'unites'" class="ml-1 text-xs text-gray-500">{{ brouillon.unites.length }}</span>
           <span v-else-if="o.id === 'liste'" class="ml-1 text-xs text-gray-500">{{ brouillon.formations.length }}</span>
           <span v-else-if="o.id === 'options'" class="ml-1 text-xs text-gray-500">{{ brouillon.options?.length ?? 0 }}</span>
+          <span v-else-if="o.id === 'changements' && changements.length" class="ml-1 rounded-full bg-amber-400/15 px-1.5 text-xs text-amber-300">{{ changements.length }}</span>
         </button>
       </div>
 
@@ -183,6 +213,7 @@ const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercu
       <AdminCodexOngletListe v-else-if="onglet === 'liste'" />
       <AdminCodexOngletOptions v-else-if="onglet === 'options'" />
       <AdminCodexOngletTextePdf v-else-if="onglet === 'texte'" />
+      <AdminCodexOngletChangements v-else-if="onglet === 'changements'" :changements="changements" :version="reference.version" @aller="onglet = $event" />
       <div v-else class="space-y-4">
         <div class="flex flex-wrap items-center gap-3 text-sm">
           <p class="text-gray-400">Aperçu du brouillon, régénéré à chaque enregistrement.</p>
@@ -214,6 +245,10 @@ const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercu
         <div class="w-full max-w-md rounded-lg border border-gold/20 bg-surface-light p-6">
           <h2 class="font-heading text-xl font-bold text-white">Publier {{ brouillon.codex.nom }}</h2>
           <p class="mt-1 text-sm text-gray-400">Le brouillon est validé, ses listes de test sont rejouées, puis il devient la version publique. Le PDF de cette version est composé et conservé tel quel dans l'historique.</p>
+          <p class="mt-3 text-sm text-gray-300">
+            {{ changements.length ? `${changements.length} élément(s) modifié(s)${reference.version ? ` depuis la v${reference.version}` : ''}.` : 'Aucun changement détecté.' }}
+            <button v-if="changements.length" type="button" class="text-gold hover:underline" @click="modalePublier = false; onglet = 'changements'">Relire les changements</button>
+          </p>
           <label class="mt-4 flex flex-col gap-1 text-xs text-gray-400">Numéro de version<input v-model="publication.version" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100"></label>
           <!-- Obligatoire : ce texte suit la version dans l'historique public, et il
                est ce que les joueurs lisent pour savoir ce qui change chez eux. -->

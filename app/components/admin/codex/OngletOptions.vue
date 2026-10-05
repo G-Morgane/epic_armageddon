@@ -17,7 +17,7 @@ const valide = computed<Codex | null>(() => { const r = CodexSchema.safeParse(co
 const idx = computed(() => (valide.value ? indexerCodex(valide.value) : null))
 function apercu(o: OptionInput) {
   const v = idx.value?.options.get(o.id)
-  return v && idx.value ? `${phraseOption(idx.value, v)} · ${coutOption(v)}` : '(brouillon incohérent)'
+  return v && idx.value ? `${phraseOption(idx.value, v)} · ${coutOption(v)}` : '(aperçu indisponible tant qu\'il reste des problèmes)'
 }
 
 const TYPES = [
