@@ -78,6 +78,35 @@ export async function lireListePartagee(code: string): Promise<(ListeEnregistree
   return { ...(liste as ListeEnregistree), pseudo }
 }
 
+/** Liste publique telle que l'accueil la montre : en-tête, code de partage et pseudo, ni id ni propriétaire. */
+export interface ListePublique {
+  code_partage: string
+  codex: string
+  nom: string
+  limite: number
+  total: number | null
+  updated_at: string
+  pseudo: string | null
+}
+
+/** Une liste partagée est publique : les plus récentes, avec le pseudo de leur auteur. */
+export async function listerListesPubliques(nombre: number): Promise<ListePublique[]> {
+  const { data, error } = await sb().from('listes_armee')
+    .select('code_partage, codex, nom, limite, total, updated_at, user_id')
+    .not('code_partage', 'is', null)
+    .order('updated_at', { ascending: false })
+    .limit(nombre)
+  if (error) erreurSql(error, 'lecture des listes publiques')
+  const lignes = (data ?? []) as unknown as (Omit<ListePublique, 'pseudo'> & { user_id: string | null })[]
+  const ids = [...new Set(lignes.map((l) => l.user_id).filter((id): id is string => !!id))]
+  const pseudos = new Map<string, string | null>()
+  if (ids.length) {
+    const { data: profils } = await sb().from('profiles').select('id, display_name').in('id', ids)
+    for (const p of (profils ?? []) as { id: string; display_name: string | null }[]) pseudos.set(p.id, p.display_name)
+  }
+  return lignes.map(({ user_id: userId, ...l }) => ({ ...l, pseudo: userId ? pseudos.get(userId) ?? null : null }))
+}
+
 interface Entree {
   codex: string
   nom: string

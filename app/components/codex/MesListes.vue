@@ -230,7 +230,7 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
               <div class="mt-2 flex flex-wrap items-center gap-2 text-xs">
                 <button type="button" class="rounded border border-white/15 px-2 py-1 text-stone-200 hover:bg-white/5" @click="charger(l)">Ouvrir</button>
                 <button type="button" class="rounded border border-white/15 px-2 py-1 text-stone-300 hover:bg-white/5 disabled:opacity-50" :disabled="occupe === l.id" @click="basculerPartage(l)">
-                  {{ l.code_partage ? 'Ne plus partager' : 'Partager par lien' }}
+                  {{ l.code_partage ? 'Rendre privée' : 'Partager (publique)' }}
                 </button>
                 <button v-if="l.code_partage" type="button" class="rounded border border-gold/30 px-2 py-1 text-gold hover:bg-gold/10" @click="copierLien(l)">
                   {{ copie === l.id ? 'Lien copié' : 'Copier le lien' }}

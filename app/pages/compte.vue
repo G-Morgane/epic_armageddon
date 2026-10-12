@@ -183,7 +183,7 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
                 class="rounded border border-gold/30 px-2 py-1 text-gold hover:bg-gold/10"
                 @click="copierPartage(l)"
               >
-                {{ copie === l.id ? 'Lien copié' : 'Copier le lien de partage' }}
+                {{ copie === l.id ? 'Lien copié' : 'Copier le lien (liste publique)' }}
               </button>
               <button
                 type="button"
@@ -262,7 +262,7 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
               placeholder="Ton pseudo de joueur"
             >
             <p class="mt-2 text-xs text-gray-500">
-              Affiché sur les listes que tu partages. Ton email, lui, n'est jamais visible.
+              Affiché sur les listes que tu partages, visibles par tous sur l'accueil. Ton email, lui, n'est jamais visible.
             </p>
           </div>
 
@@ -282,5 +282,13 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
         </div>
       </section>
     </div>
+
+    <!-- Listes publiques de la communauté -->
+    <ListesPubliques class="mt-16 border-t border-white/10 pt-10">
+      <template #titre>
+        <h2 class="font-heading text-2xl font-bold text-white">Explorez ces listes</h2>
+        <p class="mt-1 text-sm text-gray-400">Les armées partagées par les joueurs de la communauté</p>
+      </template>
+    </ListesPubliques>
   </div>
 </template>

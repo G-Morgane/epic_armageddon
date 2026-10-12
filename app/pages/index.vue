@@ -241,6 +241,15 @@ const startSteps = [
 
     </section>
 
+    <!-- Listes publiques -->
+    <ListesPubliques class="mx-auto max-w-6xl px-4 py-10">
+      <template #titre>
+        <h2 class="text-3xl font-bold md:text-4xl">Explorez ces listes</h2>
+        <p class="mt-2 text-gray-400">Les armées partagées par les joueurs de la communauté</p>
+        <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent md:w-64" />
+      </template>
+    </ListesPubliques>
+
     <!-- Battle banner -->
     <section class="relative h-[30vh] overflow-hidden sm:h-[40vh]">
       <div class="absolute inset-0">
