@@ -724,7 +724,7 @@ formations:
     variantes:
       - { id: croiseur, nom: 1 Croiseur d'attaque, cout: 200, composition: [{ unite: croiseur_attaque, nombre: 1 }] }
       - { id: barge_bataille, nom: 1 Barge de bataille, cout: 350, composition: [{ unite: barge_bataille, nombre: 1 }] }
-    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
     phrase_pdf: "0-1 Soutien Orbital"
 
 sections:

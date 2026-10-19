@@ -654,7 +654,6 @@ formations:
     contraintes:
       - { type: max_par_armee, valeur: 1 }
       - { type: initiative, valeur: "2+" }
-      - { type: pas_une_activation }
 
   # ---- Soutiens rares ----
   - id: pylone

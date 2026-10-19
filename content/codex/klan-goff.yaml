@@ -607,7 +607,7 @@ formations:
     nom: Kroiseur Goff
     variantes:
       - { id: base, cout: 200, composition: [{ unite: kroiseur_goff, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
 sections:
   - id: bandes

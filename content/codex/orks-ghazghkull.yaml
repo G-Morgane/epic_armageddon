@@ -630,7 +630,7 @@ formations:
       - { id: kitu, nom: 1 Kroiseur Kitu, cout: 200, composition: [{ unite: kroiseur_kitu, nombre: 1 }] }
       - { id: la_mort, nom: 1 Kroiseur d'la Mort, cout: 250, composition: [{ unite: kroiseur_la_mort, nombre: 1 }] }
     options: []
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
 sections:
   - id: bandes

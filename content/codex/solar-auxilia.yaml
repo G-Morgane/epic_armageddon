@@ -741,7 +741,7 @@ formations:
     nom: Soutien Orbital
     variantes:
       - { id: base, nom: 1 Croiseur Lunar, cout: 100, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
 sections:
   - id: tercios

@@ -536,7 +536,7 @@ formations:
     variantes:
       - { id: devastation, nom: 1 Croiseur Devastation, cout: 200, composition: [{ unite: croiseur_devastation, nombre: 1 }] }
       - { id: despoiler, nom: 1 Cuirassé Despoiler, cout: 250, composition: [{ unite: cuirasse_despoiler, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
   - id: titan_feral
     nom: Titan Feral
     variantes:

@@ -67,7 +67,7 @@ formations:
     variantes:
       - { id: lunar, nom: 1 Croiseur Lunar, cout: 150, composition: [{ unite: croiseur_lunar, nombre: 1 }] }
       - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
 sections:
   - id: aeronautica

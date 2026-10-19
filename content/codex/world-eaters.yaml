@@ -704,7 +704,7 @@ formations:
     variantes:
       - { id: croiseur, nom: 1 Croiseur Devastation, cout: 200, composition: [{ unite: croiseur_devastation, nombre: 1 }] }
       - { id: cuirasse, nom: 1 Cuirassé Despoiler, cout: 250, composition: [{ unite: cuirasse_despoiler, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
   # ---- Supports : Soutien Titanique des Légions Renégates ----
   - id: seigneur_bataille

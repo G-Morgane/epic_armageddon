@@ -763,7 +763,7 @@ formations:
               parmi: [{ unite: escorteur_corsaire, cout: 100 }]
               phrase_pdf: "(ajouter 1 ou 2 Escorteurs, +100 pts chacun)"
     options: []
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
   # ---- Soutien titanique ----
   - id: titans_tourmenteurs

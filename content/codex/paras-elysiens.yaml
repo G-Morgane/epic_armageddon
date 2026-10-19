@@ -554,7 +554,7 @@ formations:
     variantes:
       - { id: claymore, nom: 1 Frégate Claymore, cout: 200, composition: [{ unite: fregate_claymore, nombre: 1 }] }
       - { id: emperor, nom: 1 Cuirassé Emperor, cout: 300, composition: [{ unite: cuirasse_emperor, nombre: 1 }] }
-    contraintes: [{ type: max_par_armee, valeur: 1 }, { type: pas_une_activation }]
+    contraintes: [{ type: max_par_armee, valeur: 1 }]
 
 sections:
   - id: compagnies

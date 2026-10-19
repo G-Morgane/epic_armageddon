@@ -530,7 +530,7 @@ formations:
     variantes:
       - { id: bastion, nom: 1 Croiseur Bastion, cout: 100, composition: [{ unite: croiseur_bastion, nombre: 1 }] }
       - { id: stronghold, nom: 1 Cuirassé Stronghold, cout: 200, composition: [{ unite: cuirasse_stronghold, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
   - id: citadelle_mobile
     nom: Citadelle Mobile Hekaton
     variantes:

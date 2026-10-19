@@ -490,7 +490,7 @@ formations:
     nom: Soutien Orbital
     variantes:
       - { id: base, cout: 150, composition: [{ unite: croiseur_attaque, nombre: 1 }] }
-    contraintes: [{ type: pas_une_activation }]
+    contraintes: []
 
   # ---- Supports : Auxiliaires du Departmento Munitorum ----
   - id: redemptionistes
