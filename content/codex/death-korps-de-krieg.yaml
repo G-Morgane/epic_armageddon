@@ -698,6 +698,7 @@ formations:
           - { unite: tranchees, nombre: 1 }
           - { unite: bunker, nombre: 3 }
           - { unite: barbeles, nombre: 1 }
+    contraintes: [{ type: pas_une_activation }]
 
 sections:
   - id: compagnies
