@@ -217,18 +217,48 @@ export function coutOption(o: Option): string {
     }
     return couts.join(' / ')
   }
-  // un choix sans coût propre porte son coût dans son effet (« 50 pts chacun », « 175 pts »)
-  const couts = e.parmi.map((p) => (p.effet && !p.cout ? coutOption({ ...o, effet: p.effet }) : p.cout ? `${p.cout} pts` : 'Gratuit'))
-  return [...new Set(couts)].join(' / ')
+  return [...new Set(e.parmi.map((p) => coutChoix(o, p)))].join(' / ')
+}
+
+type ChoixOption = Extract<Option['effet'], { type: 'choix' }>['parmi'][number]
+
+// un choix sans coût propre porte son coût dans son effet (« 50 pts chacun », « 175 pts »)
+function coutChoix(o: Option, p: ChoixOption): string {
+  return p.effet && !p.cout ? coutOption({ ...o, effet: p.effet }) : p.cout ? `${p.cout} pts` : 'Gratuit'
+}
+
+/** Au-delà, une ligne par choix allonge trop le tableau (armes de titan) : on garde la phrase. */
+const MAX_LIGNES_AUTO = 4
+
+/** Une ligne par choix exclusif, générée comme les variantes de formation ; null si l'option n'en a pas 2 à 4. */
+function lignesChoix(idx: IndexCodex, o: Option): { texte: string; cout: string }[] | null {
+  const e = o.effet
+  if (e.type === 'choix' && e.parmi.length >= 2 && e.parmi.length <= MAX_LIGNES_AUTO) {
+    // « ou ajouter… » : le verbe généré suit le « ou » en minuscule, un nom propre de choix garde sa majuscule
+    const verbe = (t: string, i: number) => (i > 0 ? t.replace(/^(Ajouter|Remplacer) /, (m) => m.toLowerCase()) : t)
+    return e.parmi.map((p, i) => ({
+      texte: p.effet ? verbe(phraseOption(idx, { ...o, effet: p.effet, phrase_pdf: undefined }), i) : libelleChoix(p),
+      cout: coutChoix(o, p),
+    }))
+  }
+  if (e.type === 'ajouter' && e.variantes && e.variantes.length >= 2 && e.variantes.length <= MAX_LIGNES_AUTO) {
+    return e.variantes.map((v) => ({ texte: v.nom, cout: `${v.cout} pts` }))
+  }
+  return null
 }
 
 /**
- * Lignes d'une option dans le tableau du PDF : un retour à la ligne saisi dans
- * la phrase du PDF ouvre une nouvelle ligne, précédée de « ou » comme les
- * variantes de formation. Le coût suit ligne à ligne quand il compte autant de
- * montants que la phrase de lignes, sinon il reste entier sur la première.
+ * Lignes d'une option dans le tableau du PDF, précédées de « ou » comme les
+ * variantes de formation. Sans phrase saisie, une option à choix exclusifs
+ * donne une ligne par choix. Avec une phrase saisie, c'est elle qui fait foi :
+ * chaque retour à la ligne ouvre une ligne, et le coût suit ligne à ligne quand
+ * il compte autant de montants, sinon il reste entier sur la première.
  */
 export function lignesOption(idx: IndexCodex, o: Option): { texte: string; cout: string }[] {
+  if (!o.phrase_pdf) {
+    const auto = lignesChoix(idx, o)
+    if (auto) return auto
+  }
   const textes = phraseOption(idx, o).split('\n').map((t) => t.trim()).filter(Boolean)
   const cout = coutOption(o)
   const couts = cout.split(' / ')

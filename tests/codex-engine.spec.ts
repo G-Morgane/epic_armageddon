@@ -186,6 +186,12 @@ describe('coût des options à choix', () => {
     expect(lignesOption(idx, trois).map((l) => l.cout)).toEqual(['50 pts / 75 pts', '', ''])
   })
 
+  it('sans phrase saisie, une option à choix exclusifs donne une ligne par choix', () => {
+    const idx = indexerCodex(chargerCodexParSlug('adepta-sororitas'))
+    const o = { ...idx.options.get('repressor')!, phrase_pdf: undefined }
+    expect(lignesOption(idx, o)).toEqual([{ texte: 'Ajouter 3 Repressors', cout: '50 pts' }, { texte: 'ajouter 4 Repressors', cout: '75 pts' }])
+  })
+
   it("ne compte le coût d'un choix qu'une fois (Iyanden rework)", () => {
     const idx = indexerCodex(chargerCodexParSlug('eldars-d-iyanden-rework'))
     const f = normaliserFormation({ id: 'o', formation: 'ost_fantomes', choix: { '0': { garde_fantome: 1, guerrier_fantome: 1 } }, options: [{ option: 'fantomes', choix: 'gardes', quantite: 2 }, { option: 'firestorm_opt', choix: 'ajout' }] } as never, (x) => varianteParDefaut(idx, x))
