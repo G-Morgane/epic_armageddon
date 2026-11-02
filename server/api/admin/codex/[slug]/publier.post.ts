@@ -20,10 +20,12 @@ export default defineEventHandler(async (event) => {
     const b = await lireBrouillon(slug)
     const { chargerCodex } = await import('~~/shared/codex/schema')
     const codex = chargerCodex({ ...b.data, codex: { ...b.data.codex, version: body.version } })
-    // 2. listes de test
-    const idx = indexerCodex(codex)
+    // 2. listes de test, rejouées avec les alliés comme le builder public :
+    //    sans eux, une liste qui aligne un Titan échoue en « Formation inconnue »
+    const complet = await avecAllies(codex)
+    const idx = indexerCodex(complet)
     const echecs: string[] = []
-    for (const t of codex.listes_test) {
+    for (const t of complet.listes_test) {
       const liste = { id: 't', nom: t.nom, codex: slug, limite: t.limite, formations: t.formations.map((f) => normaliserFormation(f as never, (id) => varianteParDefaut(idx, id))) }
       const r = calculerListe(idx, liste)
       if (t.attendu === 'valide' && !r.valide) echecs.push(`« ${t.nom} » devrait être valide : ${r.erreurs.map((e) => e.message).join(' ; ')}`)
