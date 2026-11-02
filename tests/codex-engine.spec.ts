@@ -181,9 +181,22 @@ describe('coût des options à choix', () => {
     const o = idx.options.get('repressor')!
     expect(lignesOption(idx, o)).toEqual([{ texte: o.phrase_pdf, cout: '50 pts / 75 pts' }])
     const deux = { ...o, phrase_pdf: 'Ajouter 3 Repressors\nAjouter 4 Repressors' }
-    expect(lignesOption(idx, deux)).toEqual([{ texte: 'Ajouter 3 Repressors', cout: '50 pts' }, { texte: 'Ajouter 4 Repressors', cout: '75 pts' }])
+    expect(lignesOption(idx, deux)).toEqual([{ texte: 'Ajouter 3 Repressors', cout: '50 pts' }, { texte: 'ajouter 4 Repressors', cout: '75 pts' }])
     const trois = { ...o, phrase_pdf: 'a\nb\nc' }
     expect(lignesOption(idx, trois).map((l) => l.cout)).toEqual(['50 pts / 75 pts', '', ''])
+  })
+
+  it('une phrase saisie se coupe sur chaque « ou » qui sépare deux choix', () => {
+    const idx = indexerCodex(chargerCodexParSlug('adepta-sororitas'))
+    expect(lignesOption(idx, idx.options.get('superieure')!)).toEqual([
+      { texte: 'Ajouter un personnage de Palatine à la formation', cout: '50 pts' },
+      { texte: 'ajouter un personnage de Chanoinesse à la formation (1 maximum par armée)', cout: '75 pts' },
+    ])
+    const o = idx.options.get('superieure')!
+    // une quantité, « inférieur ou égal » et ce qu'on remplace ne coupent pas
+    for (const phrase of ['Ajouter 1 ou 2 Palatines', 'Ajouter des Palatines au mouvement inférieur ou égal à 15cm', 'Remplacer la Palatine ou la Chanoinesse par une Sainte']) {
+      expect(lignesOption(idx, { ...o, phrase_pdf: phrase }).map((l) => l.texte)).toEqual([phrase])
+    }
   })
 
   it('sans phrase saisie, une option à choix exclusifs donne une ligne par choix', () => {

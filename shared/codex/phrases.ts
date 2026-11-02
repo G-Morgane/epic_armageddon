@@ -248,21 +248,100 @@ function lignesChoix(idx: IndexCodex, o: Option): { texte: string; cout: string 
 }
 
 /**
+ * Coût de chaque choix d'une option à plusieurs choix, dans l'ordre ; null sinon.
+ * Les choix voisins au même coût n'en font qu'un : les deux Immolators d'un
+ * transport tiennent sur la ligne « ajouter des Immolators ».
+ */
+function coutsParChoix(o: Option): string[] | null {
+  const e = o.effet
+  let couts: string[] | null = null
+  if (e.type === 'choix') couts = e.parmi.map((p) => coutChoix(o, p))
+  if (e.type === 'ajouter' && e.variantes && e.variantes.length >= 2) couts = e.variantes.map((v) => `${v.cout} pts`)
+  if (e.type === 'choix_multiple') {
+    couts = e.parmi.map((p) => (p.paliers?.length ? p.paliers.map((x) => `${x.cout} pts par ${x.nombre}`).join(' / ') : p.cout ? `${p.cout} pts chacun` : 'Gratuit'))
+  }
+  return couts && couts.length >= 2 ? couts : null
+}
+
+/** Coûts alignés sur `n` lignes : un par choix, ou un par groupe de choix voisins au même coût. */
+function coutsSurLignes(parChoix: string[] | null, cout: string, n: number): string[] | null {
+  if (parChoix?.length === n) return parChoix
+  const groupes = parChoix?.filter((c, i) => i === 0 || c !== parChoix[i - 1])
+  if (groupes?.length === n) return groupes
+  // tous les choix au même prix (Capitaine, Archiviste, Chapelain…) : le prix vaut pour chaque ligne
+  if (parChoix && new Set(parChoix).size === 1) return Array(n).fill(parChoix[0])
+  const montants = cout.split(' / ')
+  return montants.length === n ? montants : null
+}
+
+/**
+ * Coupe une phrase saisie sur chaque « ou » hors parenthèses, sauf là où le
+ * « ou » ne sépare pas deux choix et recolle le morceau au suivant :
+ * - une quantité (« Ajouter 1 ou 2 Dreadnoughts ») ;
+ * - « inférieur ou égal » ;
+ * - ce qu'on remplace (« Remplacer le Seigneur ou le Champion par un Prince Démon »).
+ */
+function decouperOu(phrase: string): string[] {
+  const morceaux = couperOu(phrase)
+  const lignes: string[] = []
+  for (const m of morceaux) {
+    const prec = lignes.at(-1)
+    const recoller = prec !== undefined && (/\d$/.test(prec) || /(inférieur|supérieur)$/.test(prec) || (/rempla/i.test(prec) && !/ par /.test(prec)))
+    if (recoller) lignes[lignes.length - 1] = `${prec} ou ${m}`
+    else lignes.push(m)
+  }
+  return lignes
+}
+
+function couperOu(phrase: string): string[] {
+  const morceaux: string[] = []
+  let prof = 0
+  let debut = 0
+  for (let i = 0; i < phrase.length; i++) {
+    const c = phrase[i]
+    if (c === '(') prof++
+    else if (c === ')') prof = Math.max(0, prof - 1)
+    else if (prof === 0 && phrase.startsWith(' ou ', i)) {
+      morceaux.push(phrase.slice(debut, i))
+      debut = i + 4
+      i += 3
+    }
+  }
+  morceaux.push(phrase.slice(debut))
+  const propres = morceaux.map((m) => m.trim().replace(/,$/, '').trim())
+  return propres.some((m) => !m) ? [phrase] : propres
+}
+
+// « (50 pts) », « (25 pts chacune) », « (50 pts par 3 / 75 pts par 4) » : le coût passe dans sa colonne
+const COUT_SEUL = /\s*\(\+?\d+ pts(?: (?:chacun|chacune|chaque|le lot|les deux|par \d+))?(?: \/ \+?\d+ pts(?: (?:chacun|chacune|chaque|le lot|les deux|par \d+))?)*\)/g
+// « (75 pts, 1 maximum par armée) » : seule la précision reste entre parenthèses
+const COUT_EN_TETE = /\(\+?\d+ pts(?: (?:chacun|chacune|chaque))?, /g
+
+const sansCout = (t: string) => t.replace(COUT_SEUL, '').replace(COUT_EN_TETE, '(').trim()
+
+/**
  * Lignes d'une option dans le tableau du PDF, précédées de « ou » comme les
  * variantes de formation. Sans phrase saisie, une option à choix exclusifs
- * donne une ligne par choix. Avec une phrase saisie, c'est elle qui fait foi :
- * chaque retour à la ligne ouvre une ligne, et le coût suit ligne à ligne quand
- * il compte autant de montants, sinon il reste entier sur la première.
+ * donne une ligne par choix. Une phrase saisie s'ouvre à chaque retour à la
+ * ligne et, quand l'option a plusieurs choix, à chaque « ou ». Le coût suit
+ * ligne à ligne quand il compte autant de montants que de lignes (et quitte
+ * alors le texte), sinon il reste entier sur la première.
  */
 export function lignesOption(idx: IndexCodex, o: Option): { texte: string; cout: string }[] {
   if (!o.phrase_pdf) {
     const auto = lignesChoix(idx, o)
     if (auto) return auto
   }
-  const textes = phraseOption(idx, o).split('\n').map((t) => t.trim()).filter(Boolean)
+  const parChoix = coutsParChoix(o)
+  let textes = phraseOption(idx, o).split('\n').map((t) => t.trim()).filter(Boolean)
+  if (o.phrase_pdf && parChoix && textes.length === 1) textes = decouperOu(textes[0]!)
   const cout = coutOption(o)
-  const couts = cout.split(' / ')
-  return textes.map((texte, i) => ({ texte, cout: couts.length === textes.length ? couts[i]! : i === 0 ? cout : '' }))
+  const couts = coutsSurLignes(parChoix, cout, textes.length)
+  if (textes.length > 1 && couts) {
+    return textes.map((t, i) => ({ texte: i > 0 ? t.replace(/^(Ajout|Rempla)/, (m) => m.toLowerCase()) : t, cout: couts[i]! }))
+      .map((l) => ({ ...l, texte: sansCout(l.texte) }))
+  }
+  return textes.map((texte, i) => ({ texte, cout: i === 0 ? cout : '' }))
 }
 
 /** Astérisque si l'option renvoie à une note de bas de tableau. */
