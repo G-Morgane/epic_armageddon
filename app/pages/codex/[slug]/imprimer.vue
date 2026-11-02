@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, marqueNote, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, marqueNote, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir } from '~~/shared/codex/markdown'
 
@@ -208,8 +208,12 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 <tbody>
                   <tr v-for="o in optionsDeSection(idx, s)" :key="o.id">
                     <td class="nom">{{ o.nom }}{{ marqueNote(o, s) }}</td>
-                    <td>{{ phraseOption(idx, o) }}</td>
-                    <td class="cout">{{ coutOption(o) }}</td>
+                    <td>
+                      <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne"><span v-if="li > 0" class="ou">ou</span> {{ l.texte }}</div>
+                    </td>
+                    <td class="cout">
+                      <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne">{{ l.cout }}</div>
+                    </td>
                   </tr>
                 </tbody>
               </table>

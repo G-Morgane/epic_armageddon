@@ -222,6 +222,19 @@ export function coutOption(o: Option): string {
   return [...new Set(couts)].join(' / ')
 }
 
+/**
+ * Lignes d'une option dans le tableau du PDF : un retour à la ligne saisi dans
+ * la phrase du PDF ouvre une nouvelle ligne, précédée de « ou » comme les
+ * variantes de formation. Le coût suit ligne à ligne quand il compte autant de
+ * montants que la phrase de lignes, sinon il reste entier sur la première.
+ */
+export function lignesOption(idx: IndexCodex, o: Option): { texte: string; cout: string }[] {
+  const textes = phraseOption(idx, o).split('\n').map((t) => t.trim()).filter(Boolean)
+  const cout = coutOption(o)
+  const couts = cout.split(' / ')
+  return textes.map((texte, i) => ({ texte, cout: couts.length === textes.length ? couts[i]! : i === 0 ? cout : '' }))
+}
+
 /** Astérisque si l'option renvoie à une note de bas de tableau. */
 export function marqueNote(o: Option, section: Section): string {
   return o.note_ref && section.notes[o.note_ref] ? '*' : ''

@@ -4,7 +4,7 @@ import { chargerCodex } from '../shared/codex/schema'
 import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures } from '../shared/codex/engine'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
-import { texteArmesPossibles, coutOption } from '../shared/codex/phrases'
+import { texteArmesPossibles, coutOption, lignesOption } from '../shared/codex/phrases'
 import { trierParType, lignesComplementaires, requeteOptionsPdf, lireOptionsPdf, OPTIONS_PDF_DEFAUT } from '../shared/codex/pdf'
 
 describe('moteur : listes de test des codex', () => {
@@ -174,6 +174,16 @@ describe('coût des options à choix', () => {
     const idx = indexerCodex(chargerCodexParSlug('eldars-d-iyanden'))
     expect(coutOption(idx.options.get('fantomes')!)).toBe('+25 pts / 50 pts chacun / 75 pts')
     expect(coutOption(idx.options.get('seigneurs_fantomes')!)).toBe('+25 pts / 175 pts')
+  })
+
+  it('un retour à la ligne dans la phrase du PDF donne une ligne par choix', () => {
+    const idx = indexerCodex(chargerCodexParSlug('adepta-sororitas'))
+    const o = idx.options.get('repressor')!
+    expect(lignesOption(idx, o)).toEqual([{ texte: o.phrase_pdf, cout: '50 pts / 75 pts' }])
+    const deux = { ...o, phrase_pdf: 'Ajouter 3 Repressors\nAjouter 4 Repressors' }
+    expect(lignesOption(idx, deux)).toEqual([{ texte: 'Ajouter 3 Repressors', cout: '50 pts' }, { texte: 'Ajouter 4 Repressors', cout: '75 pts' }])
+    const trois = { ...o, phrase_pdf: 'a\nb\nc' }
+    expect(lignesOption(idx, trois).map((l) => l.cout)).toEqual(['50 pts / 75 pts', '', ''])
   })
 
   it("ne compte le coût d'un choix qu'une fois (Iyanden rework)", () => {

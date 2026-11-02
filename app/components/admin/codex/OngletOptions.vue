@@ -171,7 +171,7 @@ function appliquerJson(o: OptionInput, txt: string) {
             <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ unite: unites[0]?.id ?? '', cout: 0 })">+ Unité proposée</button>
           </template>
 
-          <label class="lbl">Phrase du PDF (surcharge, optionnel)<input v-model="o.phrase_pdf" class="champ"></label>
+          <label class="lbl">Phrase du PDF (surcharge, optionnel, un retour à la ligne par choix)<textarea v-model="o.phrase_pdf" rows="2" class="champ font-body text-base" /></label>
           <label class="lbl">Note (astérisque de bas de tableau, optionnel)<input v-model="o.note_md" class="champ"></label>
         </div>
 
