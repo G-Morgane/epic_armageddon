@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { chargerCodexBrut } from '../shared/codex/charger'
 import { problemesCodex } from '../shared/codex/problemes'
-import { changementsCodex, diffLignes } from '../shared/codex/changements'
+import { changementsCodex, diffLignes, annulerChangement } from '../shared/codex/changements'
 
 const copie = <T>(x: T): T => JSON.parse(JSON.stringify(x))
 
@@ -55,6 +55,22 @@ describe('changements brouillon / publié', () => {
     const modif = ch[1]!
     expect(modif.lignes.filter((l) => l.type === '-').map((l) => l.texte.trim())).toEqual(['valeur: 3'])
     expect(modif.lignes.filter((l) => l.type === '+').map((l) => l.texte.trim())).toEqual(['valeur: 5'])
+  })
+
+  it('annule un seul changement sans toucher aux autres', () => {
+    const a = chargerCodexBrut('legions-titaniques') as any
+    const b = copie(a)
+    b.options.find((o: any) => o.id === 'armement_reaver').contraintes[1].valeur = 5
+    const retiree = b.options.splice(1, 1)[0]
+    b.unites.push({ id: 'nouvelle', nom: 'Nouvelle unité', type: 'INF' })
+    b.codex.nom = 'Autre nom'
+    annulerChangement(a, b, 'options:armement_reaver')
+    annulerChangement(a, b, `options:${retiree.id}`)
+    expect(changementsCodex(a, b).map((c) => c.cle)).toEqual(['codex', 'unites:nouvelle'])
+    expect(b.options.map((o: any) => o.id)).toEqual(a.options.map((o: any) => o.id))
+    annulerChangement(a, b, 'unites:nouvelle')
+    annulerChangement(a, b, 'codex')
+    expect(changementsCodex(a, b)).toEqual([])
   })
 
   it('masque les lignes identiques loin des changements', () => {

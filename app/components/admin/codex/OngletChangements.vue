@@ -3,7 +3,7 @@ import type { Changement } from '~~/shared/codex/changements'
 import type { OngletCodex } from '~~/shared/codex/problemes'
 
 const props = defineProps<{ changements: Changement[]; version?: string }>()
-const emit = defineEmits<{ aller: [onglet: OngletCodex] }>()
+const emit = defineEmits<{ aller: [onglet: OngletCodex]; annuler: [cle: string] }>()
 
 const fermes = ref(new Set<string>())
 function basculer(cle: string) {
@@ -44,6 +44,7 @@ const STATUTS = {
         <span class="text-xs uppercase tracking-wider text-gray-500">{{ c.libelle }}</span>
         <span class="font-medium text-gray-100">{{ c.nom }}</span>
         <span class="ml-auto font-mono text-xs"><span class="text-emerald-300">+{{ c.ajouts }}</span> <span class="text-red-300">−{{ c.suppressions }}</span></span>
+        <button type="button" class="text-xs text-gray-400 hover:text-red-300 hover:underline" :title="`Remettre « ${c.nom} » comme dans la version publiée`" @click.stop="emit('annuler', c.cle)">Annuler ce changement</button>
         <button type="button" class="text-xs text-gold hover:underline" @click.stop="emit('aller', c.onglet)">Ouvrir l'onglet</button>
       </div>
       <div v-if="!fermes.has(c.cle)" class="overflow-x-auto border-t border-white/5 bg-surface font-mono text-xs leading-5">

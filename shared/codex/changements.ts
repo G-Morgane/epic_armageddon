@@ -148,3 +148,39 @@ export function changementsCodex(avant: unknown, apres: unknown): Changement[] {
   }
   return out
 }
+
+/**
+ * Annule un seul changement du brouillon (modifie `apres` sur place) : l'élément reprend
+ * sa forme publiée, un ajout disparaît, une suppression revient à sa place d'origine.
+ * Les autres changements du brouillon ne bougent pas.
+ */
+export function annulerChangement(avant: unknown, apres: unknown, cle: string): void {
+  const a = (avant ?? {}) as Brut
+  const b = apres as Brut
+  // copie JSON : le brouillon et la référence sont des proxys réactifs, que structuredClone refuse
+  const copie = <T>(x: T): T => JSON.parse(JSON.stringify(x))
+  if (cle === 'codex') {
+    b.codex = { ...copie(a.codex as Brut), version: (b.codex as Brut | undefined)?.version }
+    return
+  }
+  const sep = cle.indexOf(':')
+  const col = cle.slice(0, sep)
+  const id = cle.slice(sep + 1)
+  if (!COLLECTIONS.some((c) => c.cle === col)) return
+  const listeA = (a[col] as unknown[] | undefined) ?? []
+  const listeB = ((b[col] as unknown[] | undefined) ??= [])
+  const iA = listeA.findIndex((x, i) => cleDe(x, i) === id)
+  const iB = listeB.findIndex((x, i) => cleDe(x, i) === id)
+  if (iA < 0 && iB >= 0) listeB.splice(iB, 1)
+  else if (iA >= 0 && iB >= 0) listeB.splice(iB, 1, copie(listeA[iA]))
+  else if (iA >= 0) {
+    // réinsérée juste après le dernier élément qui la précédait dans la version publiée
+    const clesB = listeB.map((x, i) => cleDe(x, i))
+    let pos = 0
+    for (let k = iA - 1; k >= 0; k--) {
+      const j = clesB.indexOf(cleDe(listeA[k], k))
+      if (j >= 0) { pos = j + 1; break }
+    }
+    listeB.splice(pos, 0, copie(listeA[iA]))
+  }
+}

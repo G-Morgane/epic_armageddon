@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { CodexInput } from '~~/shared/codex/schema'
 import { problemesCodex, type OngletCodex, type Probleme } from '~~/shared/codex/problemes'
-import { changementsCodex } from '~~/shared/codex/changements'
+import { changementsCodex, annulerChangement } from '~~/shared/codex/changements'
 import { CLE_BROUILLON } from '~/composables/useBrouillonCodex'
 
 definePageMeta({ layout: 'admin', middleware: 'admin' })
@@ -91,6 +91,15 @@ async function enregistrer() {
     sauvegarde.value = 'modifie'
     alert((e as { data?: { message?: string } }).data?.message ?? 'Enregistrement impossible')
   }
+}
+
+/** Remet un seul élément comme dans la version publiée, sans toucher au reste du brouillon. */
+function annuler(cle: string) {
+  const c = changements.value.find((x) => x.cle === cle)
+  if (!c || !brouillon.value || !reference.value.data) return
+  const quoi = c.statut === 'ajoute' ? 'Retirer cet ajout' : c.statut === 'supprime' ? 'Rétablir cet élément supprimé' : 'Remettre cet élément comme dans la version publiée'
+  if (!confirm(`${quoi} (${c.libelle.toLowerCase()} « ${c.nom} ») ? Les autres changements du brouillon sont conservés.`)) return
+  annulerChangement(reference.value.data, brouillon.value, cle)
 }
 
 async function abandonner() {
@@ -213,7 +222,7 @@ const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercu
       <AdminCodexOngletListe v-else-if="onglet === 'liste'" />
       <AdminCodexOngletOptions v-else-if="onglet === 'options'" />
       <AdminCodexOngletTextePdf v-else-if="onglet === 'texte'" />
-      <AdminCodexOngletChangements v-else-if="onglet === 'changements'" :changements="changements" :version="reference.version" @aller="onglet = $event" />
+      <AdminCodexOngletChangements v-else-if="onglet === 'changements'" :changements="changements" :version="reference.version" @aller="onglet = $event" @annuler="annuler" />
       <div v-else class="space-y-4">
         <div class="flex flex-wrap items-center gap-3 text-sm">
           <p class="text-gray-400">Aperçu du brouillon, régénéré à chaque enregistrement.</p>
