@@ -345,8 +345,8 @@ p { margin: 0 0 5pt; text-align: justify; }
 table.liste { width: 100%; border-collapse: collapse; font-size: 7.6pt; }
 table.liste th { text-align: left; font-size: 7.6pt; border-bottom: 1px solid #999; padding: 2pt 4pt; }
 table.liste td { padding: 2pt 4pt; border-bottom: 1px dotted #ccc; vertical-align: top; }
-table.liste td.nom { font-weight: 600; width: 30%; }
-table.liste .cout { text-align: right; white-space: nowrap; width: 14%; }
+table.liste td.nom { font-weight: 600; width: 18%; }
+table.liste .cout { text-align: right; white-space: nowrap; width: 1%; }
 table.liste th.cout { text-align: right; }
 .ligne + .ligne { margin-top: 1pt; }
 .ou { font-style: italic; color: #555; }
