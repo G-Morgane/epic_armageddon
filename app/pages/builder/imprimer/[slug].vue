@@ -39,6 +39,7 @@ const paysage = route.query.orientation === 'paysage'
 const echelle = useEchellePapier(paysage)
 
 const liste = ref<Liste | null>(null)
+const nomAllegeance = computed(() => c.codex.allegeances.find((a) => a.id === liste.value?.allegeance)?.nom)
 const pret = ref(false)
 const auteur = ref<string | null>(null)
 const { pseudo, init } = useAuth()
@@ -178,7 +179,7 @@ async function imprimer(m: 'impression' | 'frime') {
           <h1 class="couverture-titre">{{ liste.nom }}</h1>
           <p class="couverture-sous">{{ c.codex.nom }}</p>
           <p v-if="auteur" class="couverture-auteur">Liste de {{ auteur }}</p>
-          <p class="couverture-points">{{ total }} / {{ liste.limite }} pts · {{ activations }} activation(s)</p>
+          <p class="couverture-points">{{ total }} / {{ liste.limite }} pts · {{ activations }} activation(s)<template v-if="nomAllegeance"> · Allégeance {{ nomAllegeance }}</template></p>
           <div class="couverture-bande bas" />
           <p class="couverture-version">Codex version {{ c.codex.version }} · {{ dateDuJour }}</p>
         </div>
@@ -187,7 +188,7 @@ async function imprimer(m: 'impression' | 'frime') {
       <!-- 2. Récapitulatif : ce qu'on a sous la main pendant la partie, avec le profil des armes choisies et ce qu'apportent les améliorations -->
       <section class="page">
         <h1 class="titre-liste">Récapitulatif</h1>
-        <p class="chapeau">{{ c.codex.nom }} · {{ total }} / {{ liste.limite }} pts · {{ activations }} activation(s)</p>
+        <p class="chapeau">{{ c.codex.nom }} · {{ total }} / {{ liste.limite }} pts · {{ activations }} activation(s)<template v-if="nomAllegeance"> · Allégeance {{ nomAllegeance }}</template></p>
 
         <div v-for="g in groupes" :key="g.id" class="bloc">
           <div class="entete">{{ g.titre }}</div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Codex } from '~~/shared/codex/schema'
-import { indexerCodex, calculerListe, optionsObligatoires, plafondFormation, type ResultatListe } from '~~/shared/codex/engine'
+import { indexerCodex, calculerListe, optionsObligatoires, plafondFormation, formationAutorisee, type ResultatListe } from '~~/shared/codex/engine'
 import type { Liste, FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { lignesFormation, prefixeFormation } from '~~/shared/codex/phrases'
@@ -129,13 +129,13 @@ const resolueDe = (id: string) => resolueParId.value.get(id)
 
 const sectionsCatalogue = computed(() => c.sections.filter((s) => !s.contraintes.some((k) => k.type === 'non_autonome')))
 /** Lignes du catalogue préparées une fois : le gabarit relisait l'index quatre fois par ligne. */
+// allégeance choisie : les formations d'un autre dieu sortent du catalogue
 const catalogue = computed(() => sectionsCatalogue.value.map((s) => ({
   id: s.id,
   titre: s.titre,
-  total: s.formations.length,
   lignes: s.formations.flatMap((fid) => {
     const def = idx.formations.get(fid)
-    if (!def) return []
+    if (!def || !formationAutorisee(idx, liste.value.allegeance, fid)) return []
     return [{
       fid,
       def,
@@ -413,7 +413,7 @@ async function partager() {
 const etatDiscord = ref<'' | 'copie'>('')
 const texteDiscordManuel = ref('')
 async function copierDiscord() {
-  const texte = texteDiscord(c, resultat.value)
+  const texte = texteDiscord(c, resultat.value, liste.value.allegeance)
   try {
     await navigator.clipboard.writeText(texte)
     texteDiscordManuel.value = ''
@@ -514,6 +514,12 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       <div class="mt-4 flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
         <label class="flex items-center gap-2 text-sm text-stone-300">Limite <input v-model.number="liste.limite" type="number" step="250" min="250" class="champ w-24"> pts</label>
+        <label v-if="c.codex.allegeances.length" class="flex items-center gap-2 text-sm text-stone-300">Allégeance
+          <select :value="liste.allegeance ?? ''" class="champ" :class="{ 'border-gold text-gold': !liste.allegeance }" @change="liste.allegeance = ($event.target as HTMLSelectElement).value || undefined">
+            <option value="">À choisir</option>
+            <option v-for="a in c.codex.allegeances" :key="a.id" :value="a.id">{{ a.nom }}</option>
+          </select>
+        </label>
         <div ref="menuRacine" class="relative ml-auto">
           <button
             type="button"
@@ -638,7 +644,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
             <span class="font-heading text-xs uppercase tracking-wider text-gold">{{ s.titre }}</span>
             <span class="flex shrink-0 items-center gap-2 text-xs text-stone-500">
               <span v-if="nbDansListe(s.id)" class="rounded-full bg-gold/15 px-1.5 py-0.5 text-gold">{{ nbDansListe(s.id) }}</span>
-              <span>{{ s.total }}</span>
+              <span>{{ s.lignes.length }}</span>
               <span class="text-stone-400">{{ ouvertes.includes(s.id) ? '▴' : '▾' }}</span>
             </span>
           </button>
@@ -716,6 +722,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
                 :instance="f"
                 :resolue="resolueDe(f.id)"
                 :compte-armee="compteArmee"
+                :allegeance="liste.allegeance"
                 pliable
                 :ouvert="cartesOuvertes.includes(f.id)"
                 @basculer="basculerCarte(f.id)"

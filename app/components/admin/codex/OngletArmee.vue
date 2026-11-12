@@ -1,6 +1,19 @@
 <script setup lang="ts">
 const codex = useBrouillonCodex()
 const meta = computed(() => codex.value.codex)
+const allegeances = computed(() => (meta.value.allegeances ??= []))
+function ajouterAllegeance() { allegeances.value.push({ id: idUnique('allegeance', allegeances.value), nom: '' }) }
+/** l'id suit le nom tant qu'aucune unité ne porte cette allégeance */
+function nommerAllegeance(a: { id: string; nom: string }) {
+  if (!codex.value.unites.some((u) => u.allegeance === a.id) && a.nom.trim()) a.id = idUnique(slugifier(a.nom), allegeances.value.filter((x) => x !== a))
+}
+function retirerAllegeance(i: number) {
+  const a = allegeances.value[i]!
+  const n = codex.value.unites.filter((u) => u.allegeance === a.id).length
+  if (n && !confirm(`${n} unité(s) portent l'allégeance « ${a.nom} ». La retirer quand même ? Ces unités redeviendront jouables par toutes les allégeances.`)) return
+  for (const u of codex.value.unites) if (u.allegeance === a.id) delete u.allegeance
+  allegeances.value.splice(i, 1)
+}
 
 const { uploadImage } = useUploadPdf()
 /* Couverture et icône s'envoient pareil : même dépôt, seul le champ visé change. */
@@ -100,6 +113,18 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <label class="champ-label">Valeur stratégique<input v-model="meta.valeur_strategique" class="champ"></label>
           <label class="champ-label">Initiative par défaut<input v-model="meta.initiative.defaut" class="champ"></label>
+        </div>
+
+        <div class="mt-5 border-t border-white/5 pt-4">
+          <p class="text-xs uppercase tracking-wider text-gray-500">Allégeances</p>
+          <p class="mb-2 text-xs text-gray-500">Le joueur en choisit une pour toute son armée (Khorne, Nurgle…). Indique ensuite l'allégeance des unités concernées dans l'onglet Unités : celles d'une autre allégeance ne sont plus proposées. Laisser vide si le codex n'en a pas.</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <div v-for="(a, i) in allegeances" :key="i" class="flex items-center gap-1">
+              <input v-model="a.nom" class="champ w-36" placeholder="Khorne" @blur="nommerAllegeance(a)">
+              <button type="button" class="rounded px-1.5 text-gray-500 hover:bg-white/10 hover:text-red-300" title="Retirer" @click="retirerAllegeance(i)">✕</button>
+            </div>
+            <button type="button" class="text-xs text-gold hover:underline" @click="ajouterAllegeance">+ Allégeance</button>
+          </div>
         </div>
 
         <div class="mt-5 border-t border-white/5 pt-4">

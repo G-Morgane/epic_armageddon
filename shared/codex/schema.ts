@@ -58,6 +58,8 @@ export const UniteSchema = z.object({
       critique: z.string().optional(),
     })
     .optional(),
+  /** id d'une allégeance du codex (Khorne…) : l'unité n'est jouable que dans une armée de cette allégeance */
+  allegeance: id.optional(),
 })
 
 // ---------- Contraintes (vocabulaire fermé) ----------
@@ -211,6 +213,8 @@ const ChoixComposition = z.object({
       par_pioche: z.number().int().positive().default(1),
     }),
   ),
+  /** toutes les pioches doivent être la même unité (Questor ou Subjugator, pas les deux) */
+  une_seule_sorte: z.boolean().optional(),
   phrase_pdf: z.string().optional(),
 })
 
@@ -337,6 +341,8 @@ export const ListeTestSchema = z.object({
   nom: z.string(),
   limite: z.number().int().positive(),
   attendu: z.enum(['valide', 'refusee']),
+  /** allégeance de l'armée, pour les codex qui en proposent */
+  allegeance: id.optional(),
   /** type d'erreur attendu quand `refusee` */
   erreur: z.string().optional(),
   formations: z.array(FormationInstanceSchema),
@@ -365,6 +371,8 @@ export const CodexSchema = z.object({
     regles_md: z.array(z.object({ titre: z.string(), texte: z.string() })).default([]),
     credits: z.string().optional(),
     valeur_strategique: z.union([z.number(), z.string()]),
+    /** allégeances au choix de l'armée (Khorne, Nurgle…) : une seule par liste, les unités marquées d'une autre sont refusées */
+    allegeances: z.array(z.object({ id, nom: z.string() })).default([]),
     initiative: z.object({
       defaut: z.string(),
       exceptions: z.array(z.object({ portee: z.string(), valeur: z.string() })).default([]),
@@ -431,7 +439,9 @@ export function verifierReferences(codex: Codex): string[] {
     }
   }
 
+  const allegeances = new Set(codex.codex.allegeances.map((x) => x.id))
   for (const un of codex.unites) {
+    if (un.allegeance && !allegeances.has(un.allegeance)) pb.push(`unité ${un.id} : allégeance inconnue « ${un.allegeance} »`)
     un.transport?.accepte.forEach((x) => u(`unité ${un.id}`, x))
     un.armes.forEach((a) => { if (a.armement) o(`unité ${un.id}`, a.armement.option) })
   }

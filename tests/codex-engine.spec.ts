@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { listerSlugs, chargerCodexParSlug, chargerCodexBrut } from '../shared/codex/charger'
 import { chargerCodex } from '../shared/codex/schema'
-import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures } from '../shared/codex/engine'
+import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures, formationAutorisee } from '../shared/codex/engine'
+import { parserComposition, formaterComposition } from '../shared/codex/parser'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
 import { texteArmesPossibles, coutOption, lignesOption } from '../shared/codex/phrases'
@@ -16,7 +17,7 @@ describe('moteur : listes de test des codex', () => {
       for (const test of codex.listes_test) {
         it(`${test.nom} (${test.attendu})`, () => {
           const liste = {
-            id: 't', nom: test.nom, codex: slug, limite: test.limite,
+            id: 't', nom: test.nom, codex: slug, limite: test.limite, allegeance: test.allegeance,
             formations: test.formations.map((f) => normaliserFormation(f as any, (id) => varianteParDefaut(idx, id))),
           }
           const res = calculerListe(idx, liste)
@@ -211,5 +212,52 @@ describe('coût des options à choix', () => {
     const res = calculerListe(idx, { id: 'l', nom: 'x', codex: 'eldars-d-iyanden-rework', limite: 3000, formations: [f] })
     const avant = calculerListe(idx, { id: 'l', nom: 'x', codex: 'eldars-d-iyanden-rework', limite: 3000, formations: [{ ...f, options: [] }] })
     expect(res.total - avant.total).toBe(2 * 50 + 75)
+  })
+})
+
+describe('allégeance et choix d\'une seule sorte (Égarés et Damnés)', () => {
+  const brut = chargerCodexBrut('egares-et-damnes') as any
+  brut.codex.allegeances = [{ id: 'khorne', nom: 'Khorne' }, { id: 'nurgle', nom: 'Nurgle' }, { id: 'slaanesh', nom: 'Slaanesh' }]
+  const dieux: Record<string, string> = { buveur_sang: 'khorne', sanguinaires: 'khorne', seigneur_bataille: 'khorne', grand_immonde: 'nurgle', portepestes: 'nurgle', demonettes: 'slaanesh', titan_subjugator: 'slaanesh', titan_questor: 'slaanesh' }
+  for (const u of brut.unites) if (dieux[u.id]) u.allegeance = dieux[u.id]
+  const titan = brut.formations.find((f: any) => f.id === 'titan_leger_demoniaque')
+  titan.variantes[0].composition[0].choix.une_seule_sorte = true
+  const idx = indexerCodex(brut)
+  const f = (formation: string, choix?: Record<string, Record<string, number>>) => normaliserFormation({ formation, choix } as never, (x) => varianteParDefaut(idx, x))
+  const liste = (allegeance: string | undefined, ...formations: ReturnType<typeof f>[]) => calculerListe(idx, { id: 'l', nom: 'x', codex: 'egares-et-damnes', limite: 3000, allegeance, formations })
+
+  it('refuse des démons de plusieurs dieux dans une même armée', () => {
+    const res = liste('khorne', f('demons_mineurs', { '0': { sanguinaires: 4, portepestes: 4 } }))
+    expect(res.erreurs.map((e) => e.message).join()).toContain('Portepestes')
+    expect(res.erreurs.filter((e) => e.type === 'allegeance')).toHaveLength(1)
+  })
+
+  it('accepte une armée qui reste dans son allégeance', () => {
+    const res = liste('khorne', f('demons_mineurs', { '0': { sanguinaires: 8 } }), f('seigneurs_batailles'))
+    expect(res.erreurs.filter((e) => e.type === 'allegeance')).toEqual([])
+  })
+
+  it("demande l'allégeance dès qu'une unité marquée est prise", () => {
+    expect(liste(undefined, f('demons_mineurs', { '0': { sanguinaires: 8 } })).erreurs.map((e) => e.type)).toContain('allegeance')
+  })
+
+  it("retire du catalogue les formations d'un autre dieu", () => {
+    expect(formationAutorisee(idx, 'nurgle', 'seigneurs_batailles')).toBe(false)
+    expect(formationAutorisee(idx, 'khorne', 'seigneurs_batailles')).toBe(true)
+    expect(formationAutorisee(idx, 'nurgle', 'demons_mineurs')).toBe(true)
+  })
+
+  it('refuse Questor et Subjugator dans la même formation', () => {
+    const mixte = resoudreFormation(idx, f('titan_leger_demoniaque', { '0': { titan_questor: 1, titan_subjugator: 1 } }))
+    expect(mixte.erreurs.map((e) => e.message).join()).toContain("une seule sorte")
+    const deux = resoudreFormation(idx, f('titan_leger_demoniaque', { '0': { titan_questor: 2 } }))
+    expect(deux.erreurs).toEqual([])
+  })
+
+  it('le texte de composition lit et réécrit « d\'une seule sorte parmi »', () => {
+    const r = parserComposition("1 à 2 d'une seule sorte parmi Titan Subjugator (250), Titan Questor (275)", idx.codex.unites)
+    expect(r.erreurs).toEqual([])
+    expect(r.lignes[0]).toMatchObject({ choix: { une_seule_sorte: true, total: { min: 1, max: 2 } } })
+    expect(formaterComposition(r.lignes, idx.codex.unites)).toContain("d'une seule sorte parmi")
   })
 })

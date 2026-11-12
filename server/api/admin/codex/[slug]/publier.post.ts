@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
     const idx = indexerCodex(complet)
     const echecs: string[] = []
     for (const t of complet.listes_test) {
-      const liste = { id: 't', nom: t.nom, codex: slug, limite: t.limite, formations: t.formations.map((f) => normaliserFormation(f as never, (id) => varianteParDefaut(idx, id))) }
+      const liste = { id: 't', nom: t.nom, codex: slug, limite: t.limite, allegeance: t.allegeance, formations: t.formations.map((f) => normaliserFormation(f as never, (id) => varianteParDefaut(idx, id))) }
       const r = calculerListe(idx, liste)
       if (t.attendu === 'valide' && !r.valide) echecs.push(`« ${t.nom} » devrait être valide : ${r.erreurs.map((e) => e.message).join(' ; ')}`)
       if (t.attendu === 'refusee' && r.valide) echecs.push(`« ${t.nom} » devrait être refusée`)

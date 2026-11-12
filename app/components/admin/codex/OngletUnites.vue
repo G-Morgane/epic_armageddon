@@ -9,6 +9,7 @@ const unites = computed(() => codex.value.unites)
 const ouverte = ref<string | null>(null)
 const filtre = ref('')
 const types = ['Inf', 'VL', 'VB', 'EG', 'A', 'A/EG', 'VS', 'Perso', 'Bat']
+const allegeances = computed(() => codex.value.codex.allegeances ?? [])
 
 const visibles = computed(() => {
   const f = filtre.value.trim().toLowerCase()
@@ -73,7 +74,7 @@ function toggleAccepte(u: UniteInput, id: string) {
 
     <table class="w-full text-sm">
       <thead class="text-left text-xs uppercase tracking-wider text-gray-500">
-        <tr><th class="px-4 py-2">Nom</th><th class="w-20 py-2">Type</th><th class="w-20 py-2">Vitesse</th><th class="w-20 py-2">Blindage</th><th class="w-16 py-2">CC</th><th class="w-16 py-2">FF</th><th class="py-2">Armes</th><th class="w-24 py-2" /></tr>
+        <tr><th class="px-4 py-2">Nom</th><th class="w-20 py-2">Type</th><th class="w-20 py-2">Vitesse</th><th class="w-20 py-2">Blindage</th><th class="w-16 py-2">CC</th><th class="w-16 py-2">FF</th><th class="py-2">Armes</th><th v-if="allegeances.length" class="w-28 py-2">Allégeance</th><th class="w-24 py-2" /></tr>
       </thead>
       <tbody>
         <template v-for="u in visibles" :key="u.id">
@@ -89,6 +90,12 @@ function toggleAccepte(u: UniteInput, id: string) {
               <span v-else class="italic text-gray-600">aucune</span>
               <span v-if="u.transport" class="ml-2 rounded bg-gold/10 px-1.5 py-0.5 text-gold">Transport ({{ u.transport.capacite }})</span>
             </td>
+            <td v-if="allegeances.length" class="py-1.5 pr-2">
+              <select :value="u.allegeance ?? ''" class="champ w-full" @change="u.allegeance = ($event.target as HTMLSelectElement).value || undefined">
+                <option value="">Toutes</option>
+                <option v-for="a in allegeances" :key="a.id" :value="a.id">{{ a.nom || a.id }}</option>
+              </select>
+            </td>
             <td class="py-1.5 pr-3 text-right whitespace-nowrap">
               <button type="button" class="icone" :title="ouverte === u.id ? 'Replier' : 'Détails'" @click="ouverte = ouverte === u.id ? null : u.id">{{ ouverte === u.id ? '▴' : '▾' }}</button>
               <button type="button" class="icone" title="Dupliquer" @click="dupliquer(u)">⧉</button>
@@ -96,7 +103,7 @@ function toggleAccepte(u: UniteInput, id: string) {
             </td>
           </tr>
           <tr v-if="ouverte === u.id" class="bg-gold/5">
-            <td colspan="8" class="px-4 pb-4 pt-1">
+            <td :colspan="allegeances.length ? 9 : 8" class="px-4 pb-4 pt-1">
               <div class="grid gap-4 lg:grid-cols-[1fr_320px]">
                 <div>
                   <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Armes</p>

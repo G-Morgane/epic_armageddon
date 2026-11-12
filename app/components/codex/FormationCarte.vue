@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
-import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition, emplacementsSatures } from '~~/shared/codex/engine'
+import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition, emplacementsSatures, uniteAutorisee } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante, libelleChoix } from '~~/shared/codex/phrases'
@@ -15,7 +15,12 @@ const props = defineProps<{
   ouvert?: boolean
   /** nombre d'occurrences d'une option dans toute l'armée (pour les limites par armée) */
   compteArmee?: (optionId: string) => number
+  /** allégeance de l'armée : les unités d'une autre allégeance ne sont pas proposées */
+  allegeance?: string
 }>()
+const autorisee = (uid: string) => uniteAutorisee(props.idx, props.allegeance, uid)
+/** un choix (option) qui ajoute des unités d'une autre allégeance n'est pas proposé */
+const choixAutorise = (p: any) => ((p?.effet?.unites ?? []) as Array<{ unite: string }>).every((u) => autorisee(u.unite))
 const emit = defineEmits<{ supprimer: []; dupliquer: []; basculer: [] }>()
 
 /** une carte pliable ne montre que son entête tant qu'elle n'est pas la carte ouverte */
@@ -106,7 +111,7 @@ function optionsChoix(oi: FormationInstance['options'][number]) {
   const parmi = (props.idx.options.get(oi.option)?.effet as any)?.parmi ?? []
   // armes de titan : les emplacements déjà pleins ne proposent plus leurs armes (sauf celle déjà choisie ici)
   const satures = emplacementsSatures(props.idx, props.instance, oi)
-  return parmi.filter((p: any) => p.id === oi.choix || !p.emplacement || !satures.includes(p.emplacement)).map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
+  return parmi.filter((p: any) => p.id === oi.choix || ((!p.emplacement || !satures.includes(p.emplacement)) && choixAutorise(p))).map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
 }
 function optionsVarianteOption(oi: FormationInstance['options'][number]) {
   const variantes = (effetDe(oi) as any)?.variantes ?? []
@@ -125,8 +130,10 @@ function maxChoix(ligne: number, unite: string) {
   const l = variante.value?.composition[ligne]
   if (!l || !('choix' in l)) return null
   const max = typeof l.choix.total === 'number' ? l.choix.total : l.choix.total.max
-  const autres = Object.entries(props.instance.choix[String(ligne)] ?? {}).filter(([u]) => u !== unite).reduce((s, [, q]) => s + q, 0)
-  return Math.max(0, max - autres)
+  const autres = Object.entries(props.instance.choix[String(ligne)] ?? {}).filter(([u]) => u !== unite)
+  // une seule sorte : dès qu'une unité est prise, les autres sont bloquées
+  if (l.choix.une_seule_sorte && autres.some(([, q]) => q > 0)) return 0
+  return Math.max(0, max - autres.reduce((s, [, q]) => s + q, 0))
 }
 /** ce qui est déjà placé sur une ligne de composition à choix, et s'il en faut encore */
 function placesChoix(ligne: number) {
@@ -305,13 +312,13 @@ const profils = computed(() => {
           <p class="mb-2 flex flex-wrap items-baseline justify-between gap-x-3 text-xs">
             <span class="text-stone-400">
               Choisir {{ typeof l.choix.total === 'number' ? l.choix.total : `${l.choix.total.min} à ${l.choix.total.max}` }}
-              <template v-if="l.choix.parmi.some((p) => p.par_pioche > 1)"> (par lot)</template> :
+              <template v-if="l.choix.parmi.some((p) => p.par_pioche > 1)"> (par lot)</template><template v-if="l.choix.une_seule_sorte"> (d'une seule sorte)</template> :
             </span>
             <span :class="choixComplet(li) ? 'text-emerald-300' : 'text-gold'">{{ placesChoix(li) }} placé(s)</span>
           </p>
           <!-- une ligne par unité possible : côte à côte, on ne voyait plus que les champs, pas les noms -->
           <ul class="space-y-1.5">
-            <li v-for="(p, pi) in l.choix.parmi" :key="p.unite" class="flex items-center gap-2">
+            <li v-for="(p, pi) in l.choix.parmi.filter((x) => autorisee(x.unite) || instance.choix[String(li)]?.[x.unite])" :key="p.unite" class="flex items-center gap-2">
               <span class="w-5 shrink-0 text-right text-[11px] italic text-stone-600">{{ pi ? 'ou' : '' }}</span>
               <Compteur
                 :model-value="instance.choix[String(li)]?.[p.unite] ?? 0"
@@ -395,6 +402,7 @@ const profils = computed(() => {
           :idx="idx"
           :instance="s"
           :resolue="resolue?.sous_formations.find((r) => r.instance.id === s.id)"
+          :allegeance="allegeance"
           sous
           @supprimer="retirerSous(s.id)"
         />

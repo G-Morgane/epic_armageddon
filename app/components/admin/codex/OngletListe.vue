@@ -135,7 +135,14 @@ function appliquerCompo(v: VarianteInput, texte: string) {
   compoTexte.value[cle] = texte
   const r = parserComposition(texte, (valide.value?.unites ?? codex.value.unites) as never)
   compoErreurs.value[cle] = r.erreurs
-  if (!r.erreurs.length || r.lignes.length) v.composition = r.lignes as never
+  if (!r.erreurs.length || r.lignes.length) {
+    // le texte ne porte pas la phrase du PDF d'un choix : on la garde à la même position
+    r.lignes.forEach((l, i) => {
+      const avant = v.composition[i] as { choix?: { phrase_pdf?: string } } | undefined
+      if ('choix' in l && avant?.choix?.phrase_pdf) l.choix.phrase_pdf = avant.choix.phrase_pdf
+    })
+    v.composition = r.lignes as never
+  }
 }
 function erreursCompo(v: VarianteInput) { return compoErreurs.value[`${formationSel.value?.id}/${v.id}`] ?? [] }
 function ajouterVariante(f: FormationInput) {
@@ -256,7 +263,7 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
           </div>
           <textarea :value="texteCompo(v)" rows="2" class="champ mt-2 w-full font-body text-base" placeholder="12 Gardes Impériaux, 7 Chimères, 1 Commissaire (implicite)" @input="appliquerCompo(v, ($event.target as HTMLTextAreaElement).value)" />
           <p v-if="erreursCompo(v).length" class="mt-1 text-xs text-red-300">{{ erreursCompo(v).join(' · ') }}</p>
-          <p v-else class="mt-1 text-[11px] text-gray-500">Formes comprises : « 6 Leman Russ », « 3 au choix parmi Baneblade, Shadowsword », « 2 à 6 au choix parmi Termagant ×6 (75), Hormagaunt ×6 (75) », « + transports Rhino », « 1 Commissaire (implicite) ».</p>
+          <p v-else class="mt-1 text-[11px] text-gray-500">Formes comprises : « 6 Leman Russ », « 3 au choix parmi Baneblade, Shadowsword », « 2 à 6 au choix parmi Termagant ×6 (75), Hormagaunt ×6 (75) », « 1 à 2 d'une seule sorte parmi Subjugator (250), Questor (275) », « + transports Rhino », « 1 Commissaire (implicite) ».</p>
         </div>
         <button type="button" class="mt-2 text-xs text-gold hover:underline" @click="ajouterVariante(formationSel)">+ Variante « ou »</button>
 

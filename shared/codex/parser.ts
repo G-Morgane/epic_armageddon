@@ -5,6 +5,7 @@ import type { LigneComposition, Unite } from './schema'
  *   « 12 Gardes Impériaux, 7 Chimères »
  *   « 3 au choix parmi Baneblade, Shadowsword »
  *   « 2 à 6 au choix parmi Termagant ×6 (75), Hormagaunt ×6 (75) »
+ *   « 1 à 2 d'une seule sorte parmi Subjugator (250), Questor (275) »
  *   « + transports Rhino »
  *   « 1 Commissaire (implicite) »
  */
@@ -34,6 +35,9 @@ export function trouverUnite(unites: Unite[], texte: string): Unite | undefined 
   return undefined
 }
 
+/** « N au choix parmi … » ou « N d'une seule sorte parmi … » */
+const CHOIX = /(?:au choix|d.une seule sorte) parmi/i
+
 export interface ResultatParse {
   lignes: LigneComposition[]
   erreurs: string[]
@@ -51,7 +55,7 @@ export function parserComposition(texte: string, unites: Unite[]): ResultatParse
   const items: string[] = []
   for (const m of morceaux) {
     const dernier = items[items.length - 1]
-    if (dernier && /au choix parmi/i.test(dernier) && !/^\+?\s*\d/.test(m) && !/au choix parmi/i.test(m) && !/^\+\s*transports?/i.test(m)) {
+    if (dernier && CHOIX.test(dernier) && !/^\+?\s*\d/.test(m) && !CHOIX.test(m) && !/^\+\s*transports?/i.test(m)) {
       items[items.length - 1] = `${dernier}, ${m}`
     } else items.push(m)
   }
@@ -66,17 +70,18 @@ export function parserComposition(texte: string, unites: Unite[]): ResultatParse
       continue
     }
 
-    if ((m = item.match(/^(\d+)(?:\s*(?:à|a|-)\s*(\d+))?\s+au choix parmi\s*:?\s*(.+)$/i))) {
+    if ((m = item.match(/^(\d+)(?:\s*(?:à|a|-)\s*(\d+))?\s+(au choix|d.une seule sorte) parmi\s*:?\s*(.+)$/i))) {
       const min = parseInt(m[1]!, 10)
       const max = m[2] ? parseInt(m[2]!, 10) : min
+      const uneSeule = !/^au choix$/i.test(m[3]!)
       const parmi: Array<{ unite: string; cout: number; par_pioche: number }> = []
-      for (const brut of m[3]!.split(/\s*,\s*/)) {
+      for (const brut of m[4]!.split(/\s*,\s*/)) {
         const p = brut.match(/^(.+?)(?:\s*[×x]\s*(\d+))?(?:\s*\((\d+)\s*(?:pts?)?\))?$/i)
         const u = trouverUnite(unites, p?.[1] ?? brut)
         if (!u) { erreurs.push(`Unité inconnue : « ${brut} »`); continue }
         parmi.push({ unite: u.id, par_pioche: p?.[2] ? parseInt(p[2]!, 10) : 1, cout: p?.[3] ? parseInt(p[3]!, 10) : 0 })
       }
-      if (parmi.length) lignes.push({ choix: { total: min === max ? min : { min, max }, parmi } })
+      if (parmi.length) lignes.push({ choix: { total: min === max ? min : { min, max }, parmi, ...(uneSeule ? { une_seule_sorte: true } : {}) } })
       continue
     }
 
@@ -103,7 +108,7 @@ export function formaterComposition(lignes: LigneComposition[], unites: Unite[])
       const t = l.choix.total
       const total = typeof t === 'number' ? `${t}` : `${t.min} à ${t.max}`
       const parmi = l.choix.parmi.map((p) => `${nom(p.unite)}${p.par_pioche > 1 ? ` ×${p.par_pioche}` : ''}${p.cout ? ` (${p.cout})` : ''}`).join(', ')
-      return `${total} au choix parmi ${parmi}`
+      return `${total} ${l.choix.une_seule_sorte ? 'd\'une seule sorte' : 'au choix'} parmi ${parmi}`
     })
     .join(', ')
 }

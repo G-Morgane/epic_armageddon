@@ -32,6 +32,8 @@ export interface Liste {
   nom: string
   codex: string
   limite: number
+  /** allégeance choisie, pour les codex qui en proposent */
+  allegeance?: string
   formations: FormationInstance[]
 }
 
