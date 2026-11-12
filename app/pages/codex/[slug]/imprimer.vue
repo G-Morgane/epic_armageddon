@@ -2,6 +2,7 @@
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
 import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, marqueNote, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
+import { ABREVIATIONS } from '~~/shared/codex/abreviations'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir } from '~~/shared/codex/markdown'
 
@@ -39,6 +40,7 @@ const pages = computed(() => {
   n.push('regles', 'liste')
   if (opts.profils) n.push('profils')
   if (opts.references) n.push('references')
+  if (opts.abreviations) n.push('abreviations')
   return n
 })
 const numero = (cle: string) => pages.value.indexOf(cle) + 1
@@ -99,8 +101,17 @@ const optionsFormation = (fid: string) => {
   if (!f) return ''
   const s = idx.sectionDe.get(fid)
   const ids = f.options ?? s?.options ?? []
-  return [...ids, ...f.options_plus].filter((o) => !f.options_moins.includes(o)).map((o) => idx.options.get(o)?.nom ?? o).join(', ')
+  return [...ids, ...f.options_plus].filter((o) => !f.options_moins.includes(o) && !idx.options.get(o)?.masque_pdf).map((o) => (idx.options.get(o)?.nom ?? o) + marqueNoteOption(o, s)).join(', ')
 }
+/** améliorations cachées du PDF (masque_pdf) : gardées pour le builder seulement */
+const visible = (oid: string) => !idx.options.get(oid)?.masque_pdf
+const optionsPdf = (s: Section) => optionsDeSection(idx, s).filter((o) => !o.masque_pdf)
+/** notes libres des améliorations (note_md) : astérisques à la suite de ceux des notes de section */
+const notesOptions = (s: Section) => {
+  const deja = Object.keys(s.notes).length ? 1 : 0
+  return optionsPdf(s).filter((o) => o.note_md).map((o, i) => ({ id: o.id, marque: '*'.repeat(deja + i + 1), texte: o.note_md! }))
+}
+const marqueNoteOption = (oid: string, s?: Section) => (s ? notesOptions(s).find((n) => n.id === oid)?.marque ?? '' : '')
 const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}`
 </script>
 
@@ -182,7 +193,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">
                         <span v-if="li > 0" class="ou">ou</span> {{ l.nom && lignesFormation(idx, idx.formations.get(fid)!).length > 1 && !l.composition.startsWith(l.nom) ? l.nom + ' : ' : '' }}{{ l.composition }}
                       </div>
-                      <div v-for="oid in idx.formations.get(fid)!.options_plus" :key="oid" class="ligne italique">{{ phraseOption(idx, idx.options.get(oid)!) }}</div>
+                      <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">{{ phraseOption(idx, idx.options.get(oid)!) }}</div>
                       <div v-if="idx.formations.get(fid)!.description" class="ligne italique">{{ idx.formations.get(fid)!.description }}</div>
                     </td>
                     <td v-if="idx.formations.get(s.formations[0]!)?.sous_formations || idx.formations.get(s.formations[0]!)?.variantes.some(v => v.sous_formations)">
@@ -191,14 +202,14 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                     <td v-if="colonneOptions(s)" class="petit">{{ optionsFormation(fid) }}</td>
                     <td class="cout">
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">{{ l.cout }}</div>
-                      <div v-for="oid in idx.formations.get(fid)!.options_plus" :key="oid" class="ligne italique">({{ coutOption(idx.options.get(oid)!) }})</div>
+                      <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">({{ coutOption(idx.options.get(oid)!) }})</div>
                     </td>
                   </tr>
                 </template>
               </tbody>
             </table>
 
-            <template v-if="s.tableau_options && optionsDeSection(idx, s).length">
+            <template v-if="s.tableau_options && optionsPdf(s).length">
               <div class="entete">
                 {{ s.tableau_options.titre }}
                 <small v-if="s.tableau_options.sous_titre">({{ s.tableau_options.sous_titre }})</small>
@@ -206,8 +217,8 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
               <table class="liste">
                 <thead><tr><th>Améliorations</th><th>Unités</th><th class="cout">Coût</th></tr></thead>
                 <tbody>
-                  <tr v-for="o in optionsDeSection(idx, s)" :key="o.id">
-                    <td class="nom">{{ o.nom }}{{ marqueNote(o, s) }}</td>
+                  <tr v-for="o in optionsPdf(s)" :key="o.id">
+                    <td class="nom">{{ o.nom }}{{ marqueNote(o, s) }}{{ marqueNoteOption(o.id, s) }}</td>
                     <td>
                       <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne"><span v-if="li > 0" class="ou">ou</span> {{ l.texte }}</div>
                     </td>
@@ -220,6 +231,8 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
             </template>
             <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
             <p v-for="(n, k) in s.notes" :key="k" class="note">* <span v-html="enrichir(n)" /></p>
+            <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+            <p v-for="n in notesOptions(s)" :key="n.id" class="note">{{ n.marque }} <span v-html="enrichir(n.texte)" /></p>
           </div>
         </div>
       </div>
@@ -291,6 +304,18 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
       </table>
       <div class="pied">{{ numero('references') }} - {{ pied }}</div>
     </section>
+
+    <!-- Liste des abréviations (optionnelle) : commune à tous les codex -->
+    <section v-if="opts.abreviations" class="page">
+      <h1 class="titre-liste">Liste des abréviations</h1>
+      <div class="abreviations">
+        <table v-for="g in ABREVIATIONS" :key="g.theme" class="stats">
+          <thead><tr><th colspan="2">{{ g.theme }}</th></tr></thead>
+          <tbody><tr v-for="[abr, sens] in g.entrees" :key="abr"><td class="nom">{{ abr }}</td><td>{{ sens }}</td></tr></tbody>
+        </table>
+      </div>
+      <div class="pied">{{ numero('abreviations') }} - {{ pied }}</div>
+    </section>
   </div>
 </template>
 
@@ -353,6 +378,9 @@ table.liste th.cout { text-align: right; }
 .italique { font-style: italic; }
 .petit { font-size: 7pt; }
 .note { font-size: 6.8pt; margin: 3pt 0 0; font-style: italic; }
+.abreviations { columns: 2; column-gap: 14pt; }
+.abreviations table.stats { break-inside: avoid; margin-bottom: 10pt; font-size: 8pt; }
+.abreviations td.nom { width: 22%; font-weight: 700; }
 table.stats { width: 100%; border-collapse: collapse; font-size: 7pt; }
 table.stats th { text-align: left; font-size: 6.8pt; color: #fff; background: var(--accent); padding: 2pt 3pt; }
 table.stats td { padding: 1.5pt 3pt; vertical-align: top; }

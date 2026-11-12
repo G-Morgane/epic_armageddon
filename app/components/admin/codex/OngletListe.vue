@@ -238,6 +238,13 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
           </div>
         </div>
         <label class="lbl">Nom<input v-model="formationSel.nom" class="champ text-base font-semibold" @blur="renommerId(formationSel)"></label>
+        <!-- Surcharge du texte de la 1re variante (souvent héritée de l'import) : vider pour revenir au texte généré. -->
+        <label class="lbl mt-3">Phrase du PDF <span class="normal-case text-gray-600">· remplace le texte de la 1re variante, vider pour revenir au texte généré</span>
+          <div class="flex items-center gap-2">
+            <input :value="formationSel.phrase_pdf ?? ''" class="champ flex-1" placeholder="(texte généré)" @input="formationSel.phrase_pdf = ($event.target as HTMLInputElement).value || undefined">
+            <button v-if="formationSel.phrase_pdf" type="button" class="icone hover:text-red-300" title="Effacer" @click="formationSel.phrase_pdf = undefined">✕</button>
+          </div>
+        </label>
 
         <p class="lbl mt-4">Composition et coût <span class="normal-case text-gray-600">· une variante par ligne « ou »</span></p>
         <div v-for="v in formationSel.variantes" :key="v.id" class="mt-2 rounded-md border border-white/10 p-3">

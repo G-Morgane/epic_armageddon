@@ -195,6 +195,8 @@ export const OptionSchema = z.object({
   note_ref: id.optional(),
   /** surcharge de la phrase générée dans la colonne Unités du PDF */
   phrase_pdf: z.string().optional(),
+  /** utile au builder mais absente du codex PDF (Remplacer les transports) */
+  masque_pdf: z.boolean().optional(),
 })
 
 // ---------- Formations ----------

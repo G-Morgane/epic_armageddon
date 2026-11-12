@@ -13,10 +13,12 @@ export interface OptionsPdf {
   profils: boolean
   /** tableau récapitulatif de tous les profils */
   references: boolean
+  /** liste des abréviations, en dernière page */
+  abreviations: boolean
   orientation: 'portrait' | 'paysage'
 }
 
-export const OPTIONS_PDF_DEFAUT: OptionsPdf = { couverture: true, profils: false, references: true, orientation: 'portrait' }
+export const OPTIONS_PDF_DEFAUT: OptionsPdf = { couverture: true, profils: false, references: true, abreviations: false, orientation: 'portrait' }
 
 const vrai = (v: unknown, defaut: boolean) => (v === undefined || v === null || v === '' ? defaut : v !== '0' && v !== 'false' && v !== false)
 
@@ -26,6 +28,7 @@ export function lireOptionsPdf(q: Record<string, unknown>): OptionsPdf {
     couverture: vrai(q.couverture, OPTIONS_PDF_DEFAUT.couverture),
     profils: vrai(q.profils, OPTIONS_PDF_DEFAUT.profils),
     references: vrai(q.references, OPTIONS_PDF_DEFAUT.references),
+    abreviations: vrai(q.abreviations, OPTIONS_PDF_DEFAUT.abreviations),
     orientation: q.orientation === 'paysage' ? 'paysage' : 'portrait',
   }
 }
@@ -36,6 +39,7 @@ export function requeteOptionsPdf(o: OptionsPdf, extra: Record<string, string> =
   if (o.couverture !== OPTIONS_PDF_DEFAUT.couverture) p.set('couverture', o.couverture ? '1' : '0')
   if (o.profils !== OPTIONS_PDF_DEFAUT.profils) p.set('profils', o.profils ? '1' : '0')
   if (o.references !== OPTIONS_PDF_DEFAUT.references) p.set('references', o.references ? '1' : '0')
+  if (o.abreviations !== OPTIONS_PDF_DEFAUT.abreviations) p.set('abreviations', o.abreviations ? '1' : '0')
   if (o.orientation !== OPTIONS_PDF_DEFAUT.orientation) p.set('orientation', o.orientation)
   const s = p.toString()
   return s ? `?${s}` : ''

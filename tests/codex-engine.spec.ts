@@ -147,7 +147,7 @@ describe('mise en forme et composition du PDF', () => {
   it('la query string ne porte que ce qui diffère du défaut', () => {
     expect(requeteOptionsPdf(OPTIONS_PDF_DEFAUT)).toBe('')
     expect(requeteOptionsPdf({ ...OPTIONS_PDF_DEFAUT, profils: true, orientation: 'paysage' })).toBe('?profils=1&orientation=paysage')
-    expect(lireOptionsPdf({ couverture: '0', profils: '1' })).toEqual({ couverture: false, profils: true, references: true, orientation: 'portrait' })
+    expect(lireOptionsPdf({ couverture: '0', profils: '1' })).toEqual({ couverture: false, profils: true, references: true, abreviations: false, orientation: 'portrait' })
   })
 })
 

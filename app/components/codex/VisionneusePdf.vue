@@ -26,6 +26,7 @@ const parties = [
   { cle: 'couverture', nom: 'Couverture', detail: 'Page de garde au nom du codex' },
   { cle: 'profils', nom: 'Profils d\'unité', detail: 'Une fiche par unité, à l\'ancienne' },
   { cle: 'references', nom: 'Feuille de références', detail: 'Tous les profils dans un tableau' },
+  { cle: 'abreviations', nom: 'Abréviations', detail: 'Liste des abréviations, en fin de codex' },
 ] as const
 
 const extra = computed(() => {
@@ -78,7 +79,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-2 lg:grid-cols-4">
+          <div class="grid grid-cols-2 gap-2 lg:grid-cols-5">
             <div class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 opacity-70">
               <p class="flex items-center gap-2 text-sm font-medium text-stone-200"><span class="text-gold">✓</span> Règles et liste d'armée</p>
               <p class="mt-0.5 hidden pl-6 text-[11px] text-stone-500 sm:block">Toujours incluses</p>

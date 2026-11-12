@@ -85,6 +85,7 @@ function appliquerJson(o: OptionInput, txt: string) {
           <div class="flex flex-wrap items-center gap-2">
             <span class="font-medium text-gray-100">{{ o.nom }}</span>
             <span class="rounded bg-white/5 px-2 py-0.5 text-[11px] uppercase tracking-wider text-gray-500">{{ TYPES.find((t) => t.v === (o.effet as any).type)?.l ?? (o.effet as any).type }}</span>
+            <span v-if="o.masque_pdf" class="rounded bg-amber-500/10 px-2 py-0.5 text-[11px] uppercase tracking-wider text-amber-300">hors PDF</span>
           </div>
           <p class="mt-0.5 text-sm text-gray-400">{{ apercu(o) }}</p>
         </div>
@@ -173,6 +174,7 @@ function appliquerJson(o: OptionInput, txt: string) {
 
           <label class="lbl">Phrase du PDF (surcharge, optionnel, un retour à la ligne par choix)<textarea v-model="o.phrase_pdf" rows="2" class="champ font-body text-base" /></label>
           <label class="lbl">Note (astérisque de bas de tableau, optionnel)<input v-model="o.note_md" class="champ"></label>
+          <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_pdf" @change="o.masque_pdf = ($event.target as HTMLInputElement).checked || undefined"> N'apparaît pas dans le PDF <span class="text-xs text-gray-500">(reste proposée dans le builder)</span></label>
         </div>
 
         <div class="space-y-3">
