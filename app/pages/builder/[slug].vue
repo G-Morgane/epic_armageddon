@@ -392,11 +392,13 @@ async function partager() {
   etatPartage.value = 'en_cours'
   erreurSauvegarde.value = ''
   try {
-    if (!idServeur.value) await sauvegarder()
+    // toujours enregistrer d'abord : la version publique est celle du serveur, pas celle de l'écran
+    await sauvegarder()
     if (!idServeur.value) throw new Error("la liste n'a pas pu être enregistrée")
     const code = await listesApi.partager(idServeur.value)
     const lien = `${window.location.origin}/builder/${slug}?liste=${code}`
     lienPartage.value = lien
+    messagePartage.value = 'Ta liste est publique : elle apparaît dans l\'annuaire « Listes des joueurs » avec ton pseudo. Pour la rendre privée : Actions › Mes listes › Rendre privée.'
     try {
       await navigator.clipboard.writeText(lien)
       etatPartage.value = 'copie'
@@ -560,9 +562,9 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
                 <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
                 Sauvegarder
               </button>
-              <button type="button" role="menuitem" class="entree-menu" :disabled="etatPartage === 'en_cours'" title="Enregistre la liste si besoin, puis copie son lien de partage" @click="action(partager)">
+              <button type="button" role="menuitem" class="entree-menu" :disabled="etatPartage === 'en_cours'" title="Enregistre la liste, la publie dans l'annuaire des listes et copie son lien" @click="action(partager)">
                 <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>
-                Partager le lien
+                Rendre publique et partager
               </button>
               <button type="button" role="menuitem" class="entree-menu" title="Copie la liste mise en forme pour un salon Discord" @click="action(copierDiscord)">
                 <svg class="icone-menu" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>

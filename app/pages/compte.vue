@@ -284,7 +284,7 @@ const dateCourte = (iso: string) => new Date(iso).toLocaleString('fr-FR', { date
     </div>
 
     <!-- Listes publiques de la communauté -->
-    <ListesPubliques class="mt-16 border-t border-white/10 pt-10">
+    <ListesPubliques :nombre="6" class="mt-16 border-t border-white/10 pt-10">
       <template #titre>
         <h2 class="font-heading text-2xl font-bold text-white">Explorez ces listes</h2>
         <p class="mt-1 text-sm text-gray-400">Les armées partagées par les joueurs de la communauté</p>

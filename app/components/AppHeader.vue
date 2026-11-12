@@ -34,6 +34,7 @@ const navLinks = [
       { label: 'Bêta & Expérimentaux', to: '/codex-beta' },
       { label: 'Epic 30k — Horus Hérésie', to: '/epic-30k' },
       { label: 'Construire mon armée', to: '/codex' },
+      { label: 'Listes des joueurs', to: '/listes' },
     ],
   },
   { label: 'Règles & FAQ', to: '/regles' },

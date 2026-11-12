@@ -91,11 +91,39 @@ export interface ListePublique {
 
 /** Une liste partagée est publique : les plus récentes, avec le pseudo de leur auteur. */
 export async function listerListesPubliques(nombre: number): Promise<ListePublique[]> {
-  const { data, error } = await sb().from('listes_armee')
-    .select('code_partage, codex, nom, limite, total, updated_at, user_id')
+  return (await chercherListesPubliques({ nombre })).listes
+}
+
+export interface RechercheListes {
+  nombre: number
+  decalage?: number
+  /** slugs de codex acceptés ; vide = tous */
+  codex?: string[]
+  /** cherche dans le nom de la liste et dans le pseudo de l'auteur */
+  texte?: string
+}
+
+/**
+ * Annuaire des listes publiques : filtres, page et total.
+ * Le pseudo vit dans `profiles`, sans jointure possible (voir lireListePartagee) :
+ * la recherche par pseudo passe donc d'abord par les ids des profils trouvés.
+ */
+export async function chercherListesPubliques(r: RechercheListes): Promise<{ listes: ListePublique[]; total: number }> {
+  let requete = sb().from('listes_armee')
+    .select('code_partage, codex, nom, limite, total, updated_at, user_id', { count: 'exact' })
     .not('code_partage', 'is', null)
+  if (r.codex?.length) requete = requete.in('codex', r.codex)
+  // les caractères qui structurent le filtre `or` de PostgREST sont retirés de la saisie
+  const texte = (r.texte ?? '').replace(/[,()%*\\]/g, ' ').trim()
+  if (texte) {
+    const { data: profils } = await sb().from('profiles').select('id').ilike('display_name', `%${texte}%`).limit(200)
+    const ids = ((profils ?? []) as { id: string }[]).map((p) => p.id)
+    requete = requete.or(ids.length ? `nom.ilike.%${texte}%,user_id.in.(${ids.join(',')})` : `nom.ilike.%${texte}%`)
+  }
+  const debut = r.decalage ?? 0
+  const { data, error, count } = await requete
     .order('updated_at', { ascending: false })
-    .limit(nombre)
+    .range(debut, debut + r.nombre - 1)
   if (error) erreurSql(error, 'lecture des listes publiques')
   const lignes = (data ?? []) as unknown as (Omit<ListePublique, 'pseudo'> & { user_id: string | null })[]
   const ids = [...new Set(lignes.map((l) => l.user_id).filter((id): id is string => !!id))]
@@ -104,7 +132,8 @@ export async function listerListesPubliques(nombre: number): Promise<ListePubliq
     const { data: profils } = await sb().from('profiles').select('id, display_name').in('id', ids)
     for (const p of (profils ?? []) as { id: string; display_name: string | null }[]) pseudos.set(p.id, p.display_name)
   }
-  return lignes.map(({ user_id: userId, ...l }) => ({ ...l, pseudo: userId ? pseudos.get(userId) ?? null : null }))
+  const listes = lignes.map(({ user_id: userId, ...l }) => ({ ...l, pseudo: userId ? pseudos.get(userId) ?? null : null }))
+  return { listes, total: count ?? listes.length }
 }
 
 interface Entree {
