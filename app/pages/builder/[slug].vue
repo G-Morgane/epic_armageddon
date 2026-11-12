@@ -334,6 +334,8 @@ onBeforeUnmount(() => {
 
 /** Règles de l'armée, en tiroir : elles ne vivaient que dans le document imprimable. */
 const reglesOuvert = ref(false)
+/** Vidéo tuto du builder, ouverte à tous (`public/tutos/builder.webm`). */
+const tutoOuvert = ref(false)
 /**
  * Le document s'ouvre en tiroir, sur la liste en cours : il la relit dans le
  * navigateur, donc enregistrée sur le compte ou non. Il est recomposé à part
@@ -520,7 +522,16 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
             <option v-for="a in c.codex.allegeances" :key="a.id" :value="a.id">{{ a.nom }}</option>
           </select>
         </label>
-        <div ref="menuRacine" class="relative ml-auto">
+        <button
+          type="button"
+          class="ml-auto flex items-center gap-2 rounded border border-white/15 px-3 py-1.5 text-sm text-stone-300 hover:border-gold/30 hover:text-gold"
+          title="Vidéo : comment construire une armée"
+          @click="tutoOuvert = true"
+        >
+          <span class="text-[10px] leading-none" aria-hidden="true">▶</span>
+          Tuto vidéo
+        </button>
+        <div ref="menuRacine" class="relative">
           <button
             type="button"
             class="flex items-center gap-2 rounded border border-gold/30 px-3 py-1.5 text-sm text-gold hover:bg-gold/10"
@@ -620,6 +631,8 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
     <CodexVisionneuseListe v-model="documentOuvert" :slug="slug" :nom="liste.nom" :partage="codePartage" />
 
     <CodexReglesArmee v-model="reglesOuvert" :meta="c.codex" />
+
+    <TutoVideo v-model="tutoOuvert" src="/tutos/builder.webm" titre="Construire une armée" />
 
     <SignalerBug
       v-model="signalementOuvert"
