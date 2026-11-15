@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, marqueNote, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
 import { ABREVIATIONS } from '~~/shared/codex/abreviations'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
-import { paragraphesEnrichis, enrichir } from '~~/shared/codex/markdown'
+import { paragraphesEnrichis, enrichir, tableauRegle } from '~~/shared/codex/markdown'
 
 definePageMeta({ layout: false })
 
@@ -32,6 +32,10 @@ useHead({
 })
 
 const paragraphes = (md?: string) => paragraphesEnrichis(md)
+/** listes d'armes et d'équipements : imprimées en tableaux pleine largeur, sous le texte en colonnes */
+const regles = c.codex.regles_md.map((r) => ({ ...r, tableau: tableauRegle(r.texte) }))
+const reglesTexte = regles.filter((r) => !r.tableau)
+const reglesTableaux = regles.filter((r) => r.tableau)
 
 /** numérotation : seules les pages retenues comptent */
 const pages = computed(() => {
@@ -96,22 +100,56 @@ const nbLignesArmes = (u: Unite) => lignesArmes(u).reduce((n, a) => n + (choixAr
 const complements = (u: Unite, compact = false) => lignesComplementaires(u, compact)
 const nbColonnesStats = 9
 const colonneOptions = (s: Section) => !!s.colonne_options
-const optionsFormation = (fid: string) => {
+/** améliorations de la formation, dans l'ordre de la colonne « Améliorations » */
+const idsOptionsFormation = (fid: string) => {
   const f = idx.formations.get(fid)
-  if (!f) return ''
+  if (!f) return []
   const s = idx.sectionDe.get(fid)
   const ids = f.options ?? s?.options ?? []
-  return [...ids, ...f.options_plus].filter((o) => !f.options_moins.includes(o) && !idx.options.get(o)?.masque_pdf).map((o) => (idx.options.get(o)?.nom ?? o) + marqueNoteOption(o, s)).join(', ')
+  return [...ids, ...f.options_plus].filter((o) => !f.options_moins.includes(o) && !idx.options.get(o)?.masque_pdf)
 }
+const optionsFormation = (fid: string) => idsOptionsFormation(fid).map((o) => ({ id: o, nom: idx.options.get(o)?.nom ?? o }))
 /** améliorations cachées du PDF (masque_pdf) : gardées pour le builder seulement */
 const visible = (oid: string) => !idx.options.get(oid)?.masque_pdf
 const optionsPdf = (s: Section) => optionsDeSection(idx, s).filter((o) => !o.masque_pdf)
-/** notes libres des améliorations (note_md) : astérisques à la suite de ceux des notes de section */
-const notesOptions = (s: Section) => {
-  const deja = Object.keys(s.notes).length ? 1 : 0
-  return optionsPdf(s).filter((o) => o.note_md).map((o, i) => ({ id: o.id, marque: '*'.repeat(deja + i + 1), texte: o.note_md! }))
+
+/**
+ * Notes de bas de tableau d'une section, numérotées 1, 2, 3… dans l'ordre où
+ * les améliorations apparaissent. Une même note (même texte) n'est imprimée
+ * qu'une fois, avec un seul numéro, qu'elle vienne des notes de section
+ * (note_ref) ou d'une amélioration (note_md).
+ */
+const notesParSection = new Map<string, { notes: Array<{ n: number; texte: string }>; marques: Map<string, number[]> }>()
+const notesSection = (s: Section) => {
+  const deja = notesParSection.get(s.id)
+  if (deja) return deja
+  const notes: Array<{ n: number; texte: string }> = []
+  const parTexte = new Map<string, number>()
+  const marques = new Map<string, number[]>()
+  const numero = (texte: string) => {
+    const t = texte.trim()
+    let n = parTexte.get(t)
+    if (!n) { n = notes.length + 1; parTexte.set(t, n); notes.push({ n, texte: t }) }
+    return n
+  }
+  const ordre = [
+    ...s.formations.flatMap((fid) => (colonneOptions(s) ? idsOptionsFormation(fid) : [])),
+    ...(s.tableau_options ? optionsPdf(s).map((o) => o.id) : []),
+  ]
+  for (const oid of new Set(ordre)) {
+    const o = idx.options.get(oid)
+    if (!o) continue
+    const ns: number[] = []
+    if (o.note_ref && s.notes[o.note_ref]) ns.push(numero(s.notes[o.note_ref]!))
+    if (o.note_md) ns.push(numero(o.note_md))
+    if (ns.length) marques.set(oid, [...new Set(ns)])
+  }
+  for (const t of Object.values(s.notes)) numero(t)
+  const res = { notes, marques }
+  notesParSection.set(s.id, res)
+  return res
 }
-const marqueNoteOption = (oid: string, s?: Section) => (s ? notesOptions(s).find((n) => n.id === oid)?.marque ?? '' : '')
+const marqueNoteOption = (oid: string, s?: Section) => (s ? (notesSection(s).marques.get(oid) ?? []).join(',') : '')
 const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}`
 </script>
 
@@ -152,11 +190,30 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
           <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
           <p v-for="(p, i) in paragraphes(c.codex.intro_md)" :key="i" v-html="p" />
         </div>
-        <div v-for="r in c.codex.regles_md" :key="r.titre" class="regle">
+        <div v-for="r in reglesTexte" :key="r.titre" class="regle">
           <h2>{{ r.titre }}</h2>
           <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
           <p v-for="(p, i) in paragraphes(r.texte)" :key="i" v-html="p" />
         </div>
+      </div>
+      <!-- listes d'armes et d'équipements : en tableaux, comme les sections de la liste d'armée -->
+      <div v-for="r in reglesTableaux" :key="r.titre" class="bloc tableau-regle">
+        <div class="entete">
+          {{ r.titre }}
+          <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+          <small v-for="(p, i) in r.tableau!.chapeau" :key="i" v-html="p" />
+        </div>
+        <table class="liste rayee">
+          <thead><tr><th v-for="(col, ci) in r.tableau!.colonnes" :key="ci" :class="{ cout: ci === r.tableau!.colonneCout }">{{ col }}</th></tr></thead>
+          <tbody>
+            <tr v-for="(ligne, li) in r.tableau!.lignes" :key="li">
+              <td v-for="(cell, ci) in ligne" :key="ci" :class="{ nom: ci === 0, cout: ci === r.tableau!.colonneCout, court: r.tableau!.courtes.includes(ci), portee: r.tableau!.colonnes[ci] === 'Portée' }">
+                <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+                <div v-for="(t, ti) in cell" :key="ti" class="ligne" v-html="t" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <p v-if="c.codex.credits" class="credits">{{ c.codex.credits }}</p>
       <div class="pied">{{ numero('regles') }} - {{ pied }}</div>
@@ -199,7 +256,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                     <td v-if="idx.formations.get(s.formations[0]!)?.sous_formations || idx.formations.get(s.formations[0]!)?.variantes.some(v => v.sous_formations)">
                       {{ phraseSousFormations(idx.formations.get(fid)!) }}
                     </td>
-                    <td v-if="colonneOptions(s)" class="petit">{{ optionsFormation(fid) }}</td>
+                    <td v-if="colonneOptions(s)" class="petit"><template v-for="(o, oi) in optionsFormation(fid)" :key="o.id">{{ oi ? ', ' : '' }}{{ o.nom }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></template></td>
                     <td class="cout">
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">{{ l.cout }}</div>
                       <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">({{ coutOption(idx.options.get(oid)!) }})</div>
@@ -218,7 +275,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 <thead><tr><th>Améliorations</th><th>Unités</th><th class="cout">Coût</th></tr></thead>
                 <tbody>
                   <tr v-for="o in optionsPdf(s)" :key="o.id">
-                    <td class="nom">{{ o.nom }}{{ marqueNote(o, s) }}{{ marqueNoteOption(o.id, s) }}</td>
+                    <td class="nom">{{ o.nom }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></td>
                     <td>
                       <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne"><span v-if="li > 0" class="ou">ou</span> {{ l.texte }}</div>
                     </td>
@@ -229,10 +286,13 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 </tbody>
               </table>
             </template>
-            <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
-            <p v-for="(n, k) in s.notes" :key="k" class="note">* <span v-html="enrichir(n)" /></p>
-            <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
-            <p v-for="n in notesOptions(s)" :key="n.id" class="note">{{ n.marque }} <span v-html="enrichir(n.texte)" /></p>
+            <ol v-if="notesSection(s).notes.length" class="notes">
+              <li v-for="n in notesSection(s).notes" :key="n.n">
+                <span class="numero">{{ n.n }}</span>
+                <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
+                <span v-html="enrichir(n.texte)" />
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -377,7 +437,22 @@ table.liste th.cout { text-align: right; }
 .ou { font-style: italic; color: #555; }
 .italique { font-style: italic; }
 .petit { font-size: 7pt; }
-.note { font-size: 6.8pt; margin: 3pt 0 0; font-style: italic; }
+.notes { list-style: none; padding: 0; margin: 4pt 0 0; font-size: 7pt; font-style: italic; color: #333; }
+.notes li { display: flex; gap: 3pt; margin: 0 0 1.5pt; }
+.notes .numero { flex: none; min-width: 7pt; font-weight: 700; font-style: normal; color: var(--accent); }
+/* renvoi de note : chiffre en exposant, à la couleur du codex pour le repérer d'un coup d'œil.
+   Décalage par `top` et non `vertical-align` : le reset Tailwind (preflight) fixe déjà
+   position/vertical-align sur <sup>, et les deux mis ensemble faisaient tomber le chiffre sous la ligne. */
+sup.renvoi { position: relative; top: -.45em; vertical-align: baseline; font-size: 70%; font-weight: 700; font-style: normal; color: var(--accent); line-height: 0; margin-left: .5pt; }
+/* tableaux d'armes et d'équipements : pleine largeur, lignes alternées pour suivre la ligne à l'œil */
+.tableau-regle { margin-top: 8pt; }
+.tableau-regle .entete small { margin-top: 1pt; }
+table.liste.rayee td { border-bottom: 0; padding-top: 2.5pt; padding-bottom: 2.5pt; }
+table.liste.rayee tbody tr:nth-child(odd) td { background: color-mix(in srgb, var(--accent) 10%, #fff); }
+table.liste.rayee td.court { white-space: nowrap; }
+/* largeurs fixes : les tableaux d'armes d'un même codex gardent leurs colonnes alignées */
+table.liste.rayee td.court { width: 9%; }
+table.liste.rayee td.court.portee { width: 16%; text-align: center; }
 .abreviations { columns: 2; column-gap: 14pt; }
 .abreviations table.stats { break-inside: avoid; margin-bottom: 10pt; font-size: 8pt; }
 .abreviations td.nom { width: 22%; font-weight: 700; }
