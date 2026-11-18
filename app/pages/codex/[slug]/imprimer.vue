@@ -4,7 +4,7 @@ import { indexerCodex } from '~~/shared/codex/engine'
 import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
 import { ABREVIATIONS } from '~~/shared/codex/abreviations'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
-import { paragraphesEnrichis, enrichir, tableauRegle } from '~~/shared/codex/markdown'
+import { paragraphesEnrichis, enrichir, tableauRegle, estTableau } from '~~/shared/codex/markdown'
 
 definePageMeta({ layout: false })
 
@@ -84,6 +84,7 @@ const unitesOrdonnees = computed<Unite[]>(() => {
     for (const v of f?.variantes ?? []) for (const l of v.composition) {
       if ('unite' in l) pousser(l.unite)
       else if ('choix' in l) l.choix.parmi.forEach((p) => pousser(p.unite))
+      else if ('transports_possibles' in l) l.transports_possibles.unites.forEach(pousser)
       else pousser(l.transports.unite)
     }
   }
@@ -188,12 +189,12 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
         <div class="regle">
           <h2>Utiliser la liste d'armée</h2>
           <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
-          <p v-for="(p, i) in paragraphes(c.codex.intro_md)" :key="i" v-html="p" />
+          <template v-for="(p, i) in paragraphes(c.codex.intro_md)" :key="i"><div v-if="estTableau(p)" class="tableau-md" v-html="p" /><p v-else v-html="p" /></template>
         </div>
         <div v-for="r in reglesTexte" :key="r.titre" class="regle">
           <h2>{{ r.titre }}</h2>
           <!-- eslint-disable-next-line vue/no-v-html -- texte échappé par enrichir() -->
-          <p v-for="(p, i) in paragraphes(r.texte)" :key="i" v-html="p" />
+          <template v-for="(p, i) in paragraphes(r.texte)" :key="i"><div v-if="estTableau(p)" class="tableau-md" v-html="p" /><p v-else v-html="p" /></template>
         </div>
       </div>
       <!-- listes d'armes et d'équipements : en tableaux, comme les sections de la liste d'armée -->
@@ -248,7 +249,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                     <td class="nom">{{ prefixeFormation(idx, idx.formations.get(fid)!) }}{{ idx.formations.get(fid)!.nom }}</td>
                     <td>
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">
-                        <span v-if="li > 0" class="ou">ou</span> {{ l.nom && lignesFormation(idx, idx.formations.get(fid)!).length > 1 && !l.composition.startsWith(l.nom) ? l.nom + ' : ' : '' }}{{ l.composition }}
+                        <span v-if="li > 0" class="ou">ou</span> {{ l.nom && lignesFormation(idx, idx.formations.get(fid)!).length > 1 ? l.nom : l.composition }}
                       </div>
                       <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">{{ phraseOption(idx, idx.options.get(oid)!) }}</div>
                       <div v-if="idx.formations.get(fid)!.description" class="ligne italique">{{ idx.formations.get(fid)!.description }}</div>
@@ -417,6 +418,10 @@ h2 { break-after: avoid; }
 h2 { font-size: 10pt; margin: 8pt 0 3pt; }
 p { margin: 0 0 5pt; text-align: justify; }
 .regle { margin-bottom: 6pt; }
+.tableau-md { margin: 0 0 5pt; break-inside: avoid; }
+.tableau-md :deep(table) { width: 100%; border-collapse: collapse; font-size: 8pt; }
+.tableau-md :deep(th) { background: var(--accent); color: #fff; text-align: left; padding: 1.5pt 3pt; }
+.tableau-md :deep(td) { border-bottom: .5pt solid #bbb; padding: 1.5pt 3pt; }
 .regle:first-child h2 { margin-top: 0; }
 .credits { font-size: 6.5pt; color: #555; margin-top: 12pt; }
 .pied { position: absolute; bottom: 0; left: 0; font-size: 7pt; color: #444; }

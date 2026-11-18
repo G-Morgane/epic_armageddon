@@ -41,6 +41,7 @@ export function fusionnerAllies(hote: Codex, allies: Record<string, Codex>): Cod
       for (const v of f.variantes) for (const l of v.composition) {
         if ('unite' in l) unitesUtiles.add(l.unite)
         else if ('choix' in l) l.choix.parmi.forEach((p) => unitesUtiles.add(p.unite))
+        else if ('transports_possibles' in l) l.transports_possibles.unites.forEach((x) => unitesUtiles.add(x))
         else unitesUtiles.add(l.transports.unite)
       }
       const sectionAllie = sectionsSource.find((s) => s.formations.includes(f.id))
@@ -104,6 +105,7 @@ export function fusionnerAllies(hote: Codex, allies: Record<string, Codex>): Cod
         v.composition = v.composition.map((l) => {
           if ('unite' in l) return { ...l, unite: ru(l.unite) }
           if ('choix' in l) return { choix: { ...l.choix, parmi: l.choix.parmi.map((p) => ({ ...p, unite: ru(p.unite) })) } }
+          if ('transports_possibles' in l) return { transports_possibles: { unites: l.transports_possibles.unites.map(ru) } }
           return { transports: { unite: ru(l.transports.unite) } }
         })
         if (v.sous_formations) v.sous_formations.parmi = v.sous_formations.parmi.map(rf)

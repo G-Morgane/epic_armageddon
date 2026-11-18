@@ -4,6 +4,7 @@
  *
  *   **gras**  ou  __gras__
  *   *italique*  ou  _italique_
+ *   | tableau | Markdown |  (un paragraphe dont chaque ligne commence par « | »)
  */
 
 const ECHAPPES: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }
@@ -19,9 +20,26 @@ export function enrichir(texte?: string): string {
     .replace(/(^|[^_\w])_(?=\S)([^_]*?\S)_(?!\w)/g, '$1<em>$2</em>')
 }
 
-/** Paragraphes d'un texte, chacun enrichi. */
+const cellules = (ligne: string) => ligne.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim())
+const LIGNE_SEPARATION = /^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?$/
+
+/** Tableau Markdown (« | a | b | », ligne « |---|---| » facultative) en HTML sûr, ou null si le bloc n'en est pas un. */
+export function tableauEnrichi(bloc: string): string | null {
+  const lignes = bloc.split('\n').map((l) => l.trim()).filter(Boolean)
+  if (lignes.length < 2 || !lignes.every((l) => l.startsWith('|'))) return null
+  const [tete, ...reste] = lignes
+  const corps = reste.filter((l) => !LIGNE_SEPARATION.test(l))
+  const th = cellules(tete!).map((c) => `<th>${enrichir(c)}</th>`).join('')
+  const trs = corps.map((l) => `<tr>${cellules(l).map((c) => `<td>${enrichir(c)}</td>`).join('')}</tr>`).join('')
+  return `<table><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table>`
+}
+
+/** Vrai pour un bloc rendu en tableau : il va dans un `div`, un `p` ne peut pas contenir de `table`. */
+export const estTableau = (html: string) => html.startsWith('<table')
+
+/** Paragraphes d'un texte, chacun enrichi (ou rendu en tableau). */
 export function paragraphesEnrichis(texte?: string): string[] {
-  return (texte ?? '').split(/\n\s*\n/).map((p) => enrichir(p.trim())).filter(Boolean)
+  return (texte ?? '').split(/\n\s*\n/).map((p) => tableauEnrichi(p.trim()) ?? enrichir(p.trim())).filter(Boolean)
 }
 
 /** Texte sans les marqueurs, pour les endroits qui n'acceptent pas de HTML (attributs, PDF brut). */

@@ -15,10 +15,22 @@ const props = defineProps<{
   ouvert?: boolean
   /** nombre d'occurrences d'une option dans toute l'armée (pour les limites par armée) */
   compteArmee?: (optionId: string) => number
-  /** allégeance de l'armée : les unités d'une autre allégeance ne sont pas proposées */
-  allegeance?: string
+  /** allégeances de l'armée : les unités d'une autre allégeance ne sont pas proposées */
+  allegeances?: string[]
 }>()
-const autorisee = (uid: string) => uniteAutorisee(props.idx, props.allegeance, uid)
+/**
+ * Une formation ne mélange pas deux allégeances : dès qu'elle aligne une unité
+ * marquée, seules les unités de cette allégeance (ou sans allégeance) restent proposées.
+ */
+const allegeanceFormation = computed(() => {
+  for (const u of props.resolue?.unites ?? []) { const a = props.idx.unites.get(u.unite)?.allegeance; if (a) return a }
+  return undefined
+})
+const autorisee = (uid: string) => {
+  if (!uniteAutorisee(props.idx, props.allegeances, uid)) return false
+  const a = props.idx.unites.get(uid)?.allegeance
+  return !a || !allegeanceFormation.value || a === allegeanceFormation.value
+}
 /** un choix (option) qui ajoute des unités d'une autre allégeance n'est pas proposé */
 const choixAutorise = (p: any) => ((p?.effet?.unites ?? []) as Array<{ unite: string }>).every((u) => autorisee(u.unite))
 const emit = defineEmits<{ supprimer: []; dupliquer: []; basculer: [] }>()
@@ -29,7 +41,7 @@ const replie = computed(() => !!props.pliable && !props.ouvert)
 const def = computed(() => props.idx.formations.get(props.instance.formation))
 const variante = computed(() => def.value?.variantes.find((v) => v.id === props.instance.variante) ?? def.value?.variantes[0])
 const nomU = (id: string) => props.idx.unites.get(id)?.nom ?? id
-const dispo = computed(() => (def.value ? optionsDisponibles(props.idx, def.value).map((o) => props.idx.options.get(o)!).filter(Boolean) : []))
+const dispo = computed(() => (def.value ? optionsDisponibles(props.idx, def.value).map((o) => props.idx.options.get(o)!).filter((o) => o && !o.masque_builder) : []))
 const ajoutables = computed(() => (props.resolue ? optionsAjoutables(props.idx, props.resolue, props.compteArmee) : dispo.value))
 const specSous = computed(() => variante.value?.sous_formations ?? def.value?.sous_formations)
 const erreursIci = computed(() => props.resolue?.erreurs.filter((e) => e.formation === props.instance.id) ?? [])
@@ -111,7 +123,7 @@ function optionsChoix(oi: FormationInstance['options'][number]) {
   const parmi = (props.idx.options.get(oi.option)?.effet as any)?.parmi ?? []
   // armes de titan : les emplacements déjà pleins ne proposent plus leurs armes (sauf celle déjà choisie ici)
   const satures = emplacementsSatures(props.idx, props.instance, oi)
-  return parmi.filter((p: any) => p.id === oi.choix || ((!p.emplacement || !satures.includes(p.emplacement)) && choixAutorise(p))).map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : undefined, stats: statsEffet(p.effet) }))
+  return parmi.filter((p: any) => p.id === oi.choix || ((!p.emplacement || !satures.includes(p.emplacement)) && choixAutorise(p))).map((p: any) => ({ valeur: p.id, libelle: libelleChoix(p), detail: p.cout ? `${p.cout} pts` : p.effet?.cout ? `${p.effet.type === 'remplacer' ? '+' : ''}${p.effet.cout} pts` : undefined, stats: statsEffet(p.effet) }))
 }
 function optionsVarianteOption(oi: FormationInstance['options'][number]) {
   const variantes = (effetDe(oi) as any)?.variantes ?? []
@@ -272,8 +284,11 @@ const profilsOuverts = ref(false)
 const profils = computed(() => {
   const compte = new Map<string, number>()
   for (const u of props.resolue?.unites ?? []) compte.set(u.unite, (compte.get(u.unite) ?? 0) + u.nombre)
-  return [...compte.entries()].flatMap(([id, n]) => { const u = props.idx.unites.get(id); return u ? [{ unite: u, nombre: n }] : [] })
+  const presents = [...compte.entries()].flatMap(([id, n]) => { const u = props.idx.unites.get(id); return u ? [{ unite: u, nombre: n }] : [] })
+  return [...presents, ...transportsPossibles.value.filter((p) => !compte.has(p.unite.id))]
 })
+/** « + transports parmi » : choisis en début de partie, leur profil suit la formation sans qu'ils comptent dans la liste */
+const transportsPossibles = computed(() => (props.resolue?.profils_possibles ?? []).flatMap((id) => { const u = props.idx.unites.get(id); return u ? [{ unite: u, nombre: undefined }] : [] }))
 </script>
 
 <template>
@@ -339,6 +354,7 @@ const profils = computed(() => {
           <span>
             <span v-for="(u, ui) in unitesVisibles" :key="ui">{{ ui ? ', ' : '' }}<span :class="u.origine === 'base' || u.origine === 'choix' ? '' : 'text-gold-light'">{{ u.nombre }} {{ u.nombre > 1 ? pluriel(u.nom) : u.nom }}</span><span v-if="places(u.unite, u.nombre)" class="text-stone-500"> ({{ places(u.unite, u.nombre) }} place{{ places(u.unite, u.nombre) > 1 ? 's' : '' }})</span></span>
             <span v-if="resolue?.mots_cles.length" class="text-stone-400"> · {{ resolue.mots_cles.join(', ') }}</span>
+            <span v-if="transportsPossibles.length" class="text-stone-400"> + transports ({{ transportsPossibles.map((p) => p.unite.nom).join(', ') }}, au choix en début de partie)</span>
           </span>
           <button v-if="profils.length" type="button" class="shrink-0 text-xs text-gold hover:underline" @click="profilsOuverts = !profilsOuverts">
             {{ profilsOuverts ? 'Cacher les caractéristiques' : 'Afficher les caractéristiques' }} {{ profilsOuverts ? '▴' : '▾' }}
@@ -402,7 +418,7 @@ const profils = computed(() => {
           :idx="idx"
           :instance="s"
           :resolue="resolue?.sous_formations.find((r) => r.instance.id === s.id)"
-          :allegeance="allegeance"
+          :allegeances="allegeances"
           sous
           @supprimer="retirerSous(s.id)"
         />

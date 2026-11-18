@@ -32,9 +32,17 @@ export interface Liste {
   nom: string
   codex: string
   limite: number
-  /** allégeance choisie, pour les codex qui en proposent */
+  /** allégeance choisie (listes enregistrées avant les allégeances multiples) */
   allegeance?: string
+  /** allégeances choisies, pour les codex qui en proposent */
+  allegeances?: string[]
   formations: FormationInstance[]
+}
+
+/** Allégeances d'une liste, quel que soit le champ où elles sont rangées. */
+export function allegeancesDe(liste: Pick<Liste, 'allegeance' | 'allegeances'>): string[] {
+  if (liste.allegeances?.length) return liste.allegeances
+  return liste.allegeance ? [liste.allegeance] : []
 }
 
 let compteur = 0

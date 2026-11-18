@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { listerSlugs, chargerCodexParSlug, chargerCodexBrut } from '../shared/codex/charger'
 import { chargerCodex } from '../shared/codex/schema'
-import { indexerCodex, calculerListe, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures, formationAutorisee } from '../shared/codex/engine'
+import { indexerCodex, calculerListe, calculerListeTest, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures, formationAutorisee } from '../shared/codex/engine'
 import { parserComposition, formaterComposition } from '../shared/codex/parser'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
@@ -16,11 +16,7 @@ describe('moteur : listes de test des codex', () => {
     describe(slug, () => {
       for (const test of codex.listes_test) {
         it(`${test.nom} (${test.attendu})`, () => {
-          const liste = {
-            id: 't', nom: test.nom, codex: slug, limite: test.limite, allegeance: test.allegeance,
-            formations: test.formations.map((f) => normaliserFormation(f as any, (id) => varianteParDefaut(idx, id))),
-          }
-          const res = calculerListe(idx, liste)
+          const res = calculerListeTest(idx, test, slug)
           const detail = res.erreurs.map((e) => `[${e.type}] ${e.message}`).join('\n')
           if (test.attendu === 'valide') {
             expect(res.valide, `attendu valide, erreurs :\n${detail}`).toBe(true)
@@ -229,7 +225,7 @@ describe('allégeance et choix d\'une seule sorte (Égarés et Damnés)', () => 
   it('refuse des démons de plusieurs dieux dans une même armée', () => {
     const res = liste('khorne', f('demons_mineurs', { '0': { sanguinaires: 4, portepestes: 4 } }))
     expect(res.erreurs.map((e) => e.message).join()).toContain('Portepestes')
-    expect(res.erreurs.filter((e) => e.type === 'allegeance')).toHaveLength(1)
+    expect(res.erreurs.filter((e) => e.type === 'allegeance').map((e) => e.message).join()).toContain('ne mélange pas')
   })
 
   it('accepte une armée qui reste dans son allégeance', () => {
@@ -254,10 +250,81 @@ describe('allégeance et choix d\'une seule sorte (Égarés et Damnés)', () => 
     expect(deux.erreurs).toEqual([])
   })
 
+  describe('plusieurs allégeances (Word Bearers, Black Legion)', () => {
+    const multi = indexerCodex({ ...idx.codex, codex: { ...idx.codex.codex, allegeances_max: 2, allegeances_incompatibles: [['khorne', 'slaanesh']] } })
+    const listeM = (allegeances: string[], ...formations: ReturnType<typeof f>[]) => calculerListe(multi, { id: 'l', nom: 'x', codex: 'egares-et-damnes', limite: 3000, allegeances, formations })
+    const erreursA = (r: ReturnType<typeof listeM>) => r.erreurs.filter((e) => e.type === 'allegeance').map((e) => e.message)
+
+    it('accepte deux allégeances, chaque formation restant pure', () => {
+      expect(erreursA(listeM(['khorne', 'nurgle'], f('demons_mineurs', { '0': { sanguinaires: 8 } }), f('demons_mineurs', { '0': { portepestes: 8 } })))).toEqual([])
+    })
+    it('refuse deux dieux dans une même formation', () => {
+      expect(erreursA(listeM(['khorne', 'nurgle'], f('demons_mineurs', { '0': { sanguinaires: 4, portepestes: 4 } }))).join()).toContain('ne mélange pas')
+    })
+    it('refuse une paire interdite et un nombre trop grand', () => {
+      expect(erreursA(listeM(['khorne', 'slaanesh'])).join()).toContain('ne peuvent pas servir')
+      expect(erreursA(listeM(['khorne', 'nurgle', 'slaanesh'])).join()).toContain('Au plus 2')
+    })
+    it('catalogue : une formation passe si une des allégeances la permet', () => {
+      expect(formationAutorisee(multi, ['nurgle', 'khorne'], 'seigneurs_batailles')).toBe(true)
+      expect(formationAutorisee(multi, ['nurgle'], 'seigneurs_batailles')).toBe(false)
+    })
+    it('une liste de test sans allégeance prend celles de ses unités', () => {
+      const t = { nom: 't', limite: 3000, attendu: 'valide' as const, formations: [{ formation: 'demons_mineurs', choix: { '0': { sanguinaires: 8 } } }] }
+      expect(erreursA(calculerListeTest(multi, t))).toEqual([])
+    })
+  })
+
+  it('« + transports parmi » : aucune unité, profils gardés', () => {
+    const r = parserComposition('6 Gardes Impériaux, + transports parmi Rhino, Chimère', [
+      { id: 'garde', nom: 'Gardes Impériaux' }, { id: 'rhino', nom: 'Rhino' }, { id: 'chimere', nom: 'Chimère' },
+    ] as never)
+    expect(r.erreurs).toEqual([])
+    expect(r.lignes[1]).toEqual({ transports_possibles: { unites: ['rhino', 'chimere'] } })
+    expect(formaterComposition(r.lignes, [{ id: 'rhino', nom: 'Rhino' }, { id: 'chimere', nom: 'Chimère' }] as never)).toContain('+ transports parmi Rhino, Chimère')
+  })
+
   it('le texte de composition lit et réécrit « d\'une seule sorte parmi »', () => {
     const r = parserComposition("1 à 2 d'une seule sorte parmi Titan Subjugator (250), Titan Questor (275)", idx.codex.unites)
     expect(r.erreurs).toEqual([])
     expect(r.lignes[0]).toMatchObject({ choix: { une_seule_sorte: true, total: { min: 1, max: 2 } } })
     expect(formaterComposition(r.lignes, idx.codex.unites)).toContain("d'une seule sorte parmi")
+  })
+})
+
+describe('règles : tableaux Markdown', () => {
+  it('rend un tableau et laisse les autres paragraphes en texte', async () => {
+    const { paragraphesEnrichis, estTableau } = await import('../shared/codex/markdown')
+    const p = paragraphesEnrichis('Intro **gras**\n\n| Factions | Démons |\n|---|---|\n| Khorne | Sanguinaires |\n| <b> | - |')
+    expect(estTableau(p[0]!)).toBe(false)
+    expect(p[1]).toBe('<table><thead><tr><th>Factions</th><th>Démons</th></tr></thead><tbody><tr><td>Khorne</td><td>Sanguinaires</td></tr><tr><td>&lt;b&gt;</td><td>-</td></tr></tbody></table>')
+  })
+})
+
+describe('« Remplacer » à lignes « ou »', () => {
+  const brut = chargerCodexBrut('adeptus-astartes') as any
+  brut.options.push({
+    id: 'speeder_lourd', nom: 'Land Speeders lourds', contraintes: [],
+    effet: { type: 'choix', parmi: [
+      { id: 'r1', nom: 'Land Speeder Tornado', cout: 0, effet: { type: 'remplacer', de: 'land_speeder', par: 'land_speeder_tornado', lot: 1, max: 5, cout: 5 } },
+      { id: 'r2', nom: 'Land Speeder Typhoon', cout: 0, effet: { type: 'remplacer', de: 'land_speeder', par: 'land_speeder_typhoon', lot: 1, max: 5, cout: 15 } },
+    ] },
+  })
+  brut.formations.find((f: any) => f.id === 'land_speeders').options.push('speeder_lourd')
+  const idx = indexerCodex(chargerCodex(brut))
+
+  it('le PDF imprime une ligne par remplacement, avec son coût', () => {
+    expect(lignesOption(idx, idx.options.get('speeder_lourd')!)).toEqual([
+      { texte: 'Remplacer 1 Land Speeder par 1 Land Speeder Tornado', cout: '+5 pts' },
+      { texte: 'remplacer 1 Land Speeder par 1 Land Speeder Typhoon', cout: '+15 pts' },
+    ])
+  })
+
+  it('le moteur remplace selon la ligne choisie', () => {
+    const f = normaliserFormation({ formation: 'land_speeders', choix: { '0': { land_speeder: 5 } }, options: [{ option: 'speeder_lourd', choix: 'r2', quantite: 2 }] } as never, (x) => varianteParDefaut(idx, x))
+    const r = resoudreFormation(idx, f)
+    expect(r.erreurs).toEqual([])
+    expect(r.unites.find((u) => u.unite === 'land_speeder_typhoon')?.nombre).toBe(2)
+    expect(r.cout_options).toBe(30)
   })
 })

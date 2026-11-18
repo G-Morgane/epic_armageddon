@@ -263,7 +263,7 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
           </div>
           <textarea :value="texteCompo(v)" rows="2" class="champ mt-2 w-full font-body text-base" placeholder="12 Gardes Impériaux, 7 Chimères, 1 Commissaire (implicite)" @input="appliquerCompo(v, ($event.target as HTMLTextAreaElement).value)" />
           <p v-if="erreursCompo(v).length" class="mt-1 text-xs text-red-300">{{ erreursCompo(v).join(' · ') }}</p>
-          <p v-else class="mt-1 text-[11px] text-gray-500">Formes comprises : « 6 Leman Russ », « 3 au choix parmi Baneblade, Shadowsword », « 2 à 6 au choix parmi Termagant ×6 (75), Hormagaunt ×6 (75) », « 1 à 2 d'une seule sorte parmi Subjugator (250), Questor (275) », « + transports Rhino », « 1 Commissaire (implicite) ».</p>
+          <p v-else class="mt-1 text-[11px] text-gray-500">Formes comprises : « 6 Leman Russ », « 3 au choix parmi Baneblade, Shadowsword », « 2 à 6 au choix parmi Termagant ×6 (75), Hormagaunt ×6 (75) », « 1 à 2 d'une seule sorte parmi Subjugator (250), Questor (275) », « + transports Rhino », « + transports parmi Rhino, Dreadnought, Module d'atterrissage » (choisis en début de partie : aucune unité ajoutée, profils affichés), « 1 Commissaire (implicite) ».</p>
         </div>
         <button type="button" class="mt-2 text-xs text-gold hover:underline" @click="ajouterVariante(formationSel)">+ Variante « ou »</button>
 

@@ -11,11 +11,11 @@ function nomFormation(f: FormationResolue): string {
  * formations, BLM (la plus grosse formation, en points), puis une ligne par
  * formation. Les améliorations et sous-formations passent en petit texte (`-#`).
  */
-export function texteDiscord(codex: Codex, resultat: ResultatListe, allegeance?: string): string {
+export function texteDiscord(codex: Codex, resultat: ResultatListe, allegeances: string[] = []): string {
   const fs = resultat.formations
   const lignes = [`## ${codex.codex.nom} (${resultat.total} pts)`]
-  const a = codex.codex.allegeances?.find((x) => x.id === allegeance)
-  if (a) lignes.push(`Allégeance : ***${a.nom}***`)
+  const noms = allegeances.map((id) => codex.codex.allegeances?.find((x) => x.id === id)?.nom).filter(Boolean)
+  if (noms.length) lignes.push(`Allégeance${noms.length > 1 ? 's' : ''} : ***${noms.join(', ')}***`)
   lignes.push(`Formations : ***${fs.length}***`)
   const blm = fs.reduce<FormationResolue | undefined>((max, f) => (!max || f.cout > max.cout ? f : max), undefined)
   if (blm) lignes.push(`***BLM : ${nomFormation(blm)} (${blm.cout} pts)***`)

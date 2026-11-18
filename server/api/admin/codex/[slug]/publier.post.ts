@@ -1,5 +1,4 @@
-import { indexerCodex, calculerListe, varianteParDefaut } from '~~/shared/codex/engine'
-import { normaliserFormation } from '~~/shared/codex/liste'
+import { indexerCodex, calculerListeTest } from '~~/shared/codex/engine'
 import type { Codex } from '~~/shared/codex/schema'
 
 /** Publie le brouillon : validation stricte + listes de test, puis snapshot versionné. */
@@ -26,8 +25,7 @@ export default defineEventHandler(async (event) => {
     const idx = indexerCodex(complet)
     const echecs: string[] = []
     for (const t of complet.listes_test) {
-      const liste = { id: 't', nom: t.nom, codex: slug, limite: t.limite, allegeance: t.allegeance, formations: t.formations.map((f) => normaliserFormation(f as never, (id) => varianteParDefaut(idx, id))) }
-      const r = calculerListe(idx, liste)
+      const r = calculerListeTest(idx, t, slug)
       if (t.attendu === 'valide' && !r.valide) echecs.push(`« ${t.nom} » devrait être valide : ${r.erreurs.map((e) => e.message).join(' ; ')}`)
       if (t.attendu === 'refusee' && r.valide) echecs.push(`« ${t.nom} » devrait être refusée`)
       if (t.attendu === 'refusee' && t.erreur && !r.erreurs.some((e) => e.type === t.erreur)) echecs.push(`« ${t.nom} » : erreur ${t.erreur} attendue`)

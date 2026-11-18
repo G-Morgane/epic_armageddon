@@ -8,7 +8,7 @@
  * construction.
  */
 import type { Codex } from '~~/shared/codex/schema'
-import { paragraphesEnrichis } from '~~/shared/codex/markdown'
+import { paragraphesEnrichis, estTableau } from '~~/shared/codex/markdown'
 
 const props = defineProps<{ meta: Codex['codex'] }>()
 
@@ -58,14 +58,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
           <section v-if="meta.intro_md">
             <h3 class="font-heading text-sm uppercase tracking-widest text-gold">Utiliser la liste d'armée</h3>
             <div class="mt-2 space-y-2 text-sm leading-relaxed text-stone-300">
-              <p v-for="(p, i) in paragraphes(meta.intro_md)" :key="i" v-html="p" />
+              <template v-for="(p, i) in paragraphes(meta.intro_md)" :key="i"><div v-if="estTableau(p)" class="tableau-md" v-html="p" /><p v-else v-html="p" /></template>
             </div>
           </section>
 
           <section v-for="r in meta.regles_md" :key="r.titre">
             <h3 class="font-heading text-sm uppercase tracking-widest text-gold">{{ r.titre }}</h3>
             <div class="mt-2 space-y-2 text-sm leading-relaxed text-stone-300">
-              <p v-for="(p, i) in paragraphes(r.texte)" :key="i" v-html="p" />
+              <template v-for="(p, i) in paragraphes(r.texte)" :key="i"><div v-if="estTableau(p)" class="tableau-md" v-html="p" /><p v-else v-html="p" /></template>
             </div>
           </section>
 
@@ -77,3 +77,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', surTouche))
     </Transition>
   </Teleport>
 </template>
+
+<style scoped>
+.tableau-md { overflow-x: auto; }
+.tableau-md :deep(table) { width: 100%; border-collapse: collapse; }
+.tableau-md :deep(th) { text-align: left; color: rgb(var(--c-gold)); font-weight: 600; padding: .25rem .5rem; border-bottom: 1px solid rgb(255 255 255 / .15); }
+.tableau-md :deep(td) { padding: .25rem .5rem; border-bottom: 1px solid rgb(255 255 255 / .06); }
+</style>

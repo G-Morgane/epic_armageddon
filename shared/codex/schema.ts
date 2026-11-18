@@ -199,6 +199,8 @@ export const OptionSchema = z.object({
   phrase_pdf: z.string().optional(),
   /** utile au builder mais absente du codex PDF (Remplacer les transports) */
   masque_pdf: z.boolean().optional(),
+  /** imprimée dans le codex PDF mais absente du builder (règle choisie en partie, pas à la construction) */
+  masque_builder: z.boolean().optional(),
 })
 
 // ---------- Formations ----------
@@ -228,6 +230,11 @@ export const LigneCompositionSchema = z.union([
   z.object({ choix: ChoixComposition }),
   /** transports automatiques et gratuits : autant que nécessaire pour embarquer la formation */
   z.object({ transports: z.object({ unite: id }) }),
+  /**
+   * transports choisis en début de partie (Adeptus Astartes) : n'ajoute aucune unité,
+   * mais les profils des transports possibles suivent la formation (builder, liste imprimée)
+   */
+  z.object({ transports_possibles: z.object({ unites: z.array(id).min(1) }) }),
 ])
 
 const SousFormations = z.object({
@@ -343,6 +350,8 @@ export const ListeTestSchema = z.object({
   attendu: z.enum(['valide', 'refusee']),
   /** allégeance de l'armée, pour les codex qui en proposent */
   allegeance: id.optional(),
+  /** allégeances de l'armée, pour les codex qui en permettent plusieurs */
+  allegeances: z.array(id).optional(),
   /** type d'erreur attendu quand `refusee` */
   erreur: z.string().optional(),
   formations: z.array(FormationInstanceSchema),
@@ -371,8 +380,12 @@ export const CodexSchema = z.object({
     regles_md: z.array(z.object({ titre: z.string(), texte: z.string() })).default([]),
     credits: z.string().optional(),
     valeur_strategique: z.union([z.number(), z.string()]),
-    /** allégeances au choix de l'armée (Khorne, Nurgle…) : une seule par liste, les unités marquées d'une autre sont refusées */
+    /** allégeances au choix de l'armée (Khorne, Nurgle…) : les unités marquées d'une allégeance non choisie sont refusées */
     allegeances: z.array(z.object({ id, nom: z.string() })).default([]),
+    /** nombre d'allégeances qu'une armée peut prendre (Word Bearers 2, Black Legion 3) ; chaque formation reste d'une seule */
+    allegeances_max: z.number().int().positive().default(1),
+    /** paires d'allégeances qu'une même armée ne peut pas réunir (Khorne et Slaanesh) */
+    allegeances_incompatibles: z.array(z.tuple([id, id])).default([]),
     initiative: z.object({
       defaut: z.string(),
       exceptions: z.array(z.object({ portee: z.string(), valeur: z.string() })).default([]),
@@ -440,6 +453,7 @@ export function verifierReferences(codex: Codex): string[] {
   }
 
   const allegeances = new Set(codex.codex.allegeances.map((x) => x.id))
+  for (const paire of codex.codex.allegeances_incompatibles) for (const a of paire) if (!allegeances.has(a)) pb.push(`allégeances incompatibles : allégeance inconnue « ${a} »`)
   for (const un of codex.unites) {
     if (un.allegeance && !allegeances.has(un.allegeance)) pb.push(`unité ${un.id} : allégeance inconnue « ${un.allegeance} »`)
     un.transport?.accepte.forEach((x) => u(`unité ${un.id}`, x))
@@ -457,6 +471,7 @@ export function verifierReferences(codex: Codex): string[] {
       for (const l of v.composition) {
         if ('unite' in l) u(ctx, l.unite)
         else if ('choix' in l) l.choix.parmi.forEach((x) => u(ctx, x.unite))
+        else if ('transports_possibles' in l) l.transports_possibles.unites.forEach((x) => u(ctx, x))
         else u(ctx, l.transports.unite)
       }
     }

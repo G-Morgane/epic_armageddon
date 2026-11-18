@@ -5,13 +5,22 @@ const allegeances = computed(() => (meta.value.allegeances ??= []))
 function ajouterAllegeance() { allegeances.value.push({ id: idUnique('allegeance', allegeances.value), nom: '' }) }
 /** l'id suit le nom tant qu'aucune unité ne porte cette allégeance */
 function nommerAllegeance(a: { id: string; nom: string }) {
-  if (!codex.value.unites.some((u) => u.allegeance === a.id) && a.nom.trim()) a.id = idUnique(slugifier(a.nom), allegeances.value.filter((x) => x !== a))
+  if (codex.value.unites.some((u) => u.allegeance === a.id) || !a.nom.trim()) return
+  const ancien = a.id
+  a.id = idUnique(slugifier(a.nom), allegeances.value.filter((x) => x !== a))
+  for (const p of incompatibles.value) p.forEach((x, i) => { if (x === ancien) p[i] = a.id })
+}
+const incompatibles = computed(() => (meta.value.allegeances_incompatibles ??= []) as [string, string][])
+function ajouterIncompatibles() {
+  const [a, b] = allegeances.value
+  if (a && b) incompatibles.value.push([a.id, b.id])
 }
 function retirerAllegeance(i: number) {
   const a = allegeances.value[i]!
   const n = codex.value.unites.filter((u) => u.allegeance === a.id).length
   if (n && !confirm(`${n} unité(s) portent l'allégeance « ${a.nom} ». La retirer quand même ? Ces unités redeviendront jouables par toutes les allégeances.`)) return
   for (const u of codex.value.unites) if (u.allegeance === a.id) delete u.allegeance
+  meta.value.allegeances_incompatibles = incompatibles.value.filter((p) => !p.includes(a.id))
   allegeances.value.splice(i, 1)
 }
 
@@ -117,13 +126,29 @@ function changerSource(b: { capacite: Record<string, unknown> }, source: string)
 
         <div class="mt-5 border-t border-white/5 pt-4">
           <p class="text-xs uppercase tracking-wider text-gray-500">Allégeances</p>
-          <p class="mb-2 text-xs text-gray-500">Le joueur en choisit une pour toute son armée (Khorne, Nurgle…). Indique ensuite l'allégeance des unités concernées dans l'onglet Unités : celles d'une autre allégeance ne sont plus proposées. Laisser vide si le codex n'en a pas.</p>
+          <p class="mb-2 text-xs text-gray-500">Le joueur en choisit une pour toute son armée (Khorne, Nurgle…), ou plusieurs si le réglage ci-dessous le permet. Indique ensuite l'allégeance des unités concernées dans l'onglet Unités : celles d'une autre allégeance ne sont plus proposées. Laisser vide si le codex n'en a pas.</p>
           <div class="flex flex-wrap items-center gap-2">
             <div v-for="(a, i) in allegeances" :key="i" class="flex items-center gap-1">
               <input v-model="a.nom" class="champ w-36" placeholder="Khorne" @blur="nommerAllegeance(a)">
               <button type="button" class="rounded px-1.5 text-gray-500 hover:bg-white/10 hover:text-red-300" title="Retirer" @click="retirerAllegeance(i)">✕</button>
             </div>
             <button type="button" class="text-xs text-gold hover:underline" @click="ajouterAllegeance">+ Allégeance</button>
+          </div>
+          <div v-if="allegeances.length > 1" class="mt-3 flex flex-wrap items-start gap-6">
+            <label class="champ-label w-48">Allégeances par armée
+              <input :value="meta.allegeances_max ?? 1" type="number" min="1" :max="allegeances.length" class="champ" @input="meta.allegeances_max = Math.max(1, Number(($event.target as HTMLInputElement).value) || 1)">
+              <span class="text-[11px] normal-case tracking-normal text-gray-500">Au-delà de 1, le joueur coche ses allégeances ; chaque formation reste d'une seule.</span>
+            </label>
+            <div v-if="(meta.allegeances_max ?? 1) > 1">
+              <p class="mb-1 text-xs uppercase tracking-wider text-gray-500">Paires interdites</p>
+              <div v-for="(p, pi) in incompatibles" :key="pi" class="mb-1 flex items-center gap-1 text-sm text-gray-300">
+                <select v-model="p[0]" class="champ w-32"><option v-for="a in allegeances" :key="a.id" :value="a.id">{{ a.nom || a.id }}</option></select>
+                <span>et</span>
+                <select v-model="p[1]" class="champ w-32"><option v-for="a in allegeances" :key="a.id" :value="a.id">{{ a.nom || a.id }}</option></select>
+                <button type="button" class="rounded px-1.5 text-gray-500 hover:bg-white/10 hover:text-red-300" title="Retirer" @click="incompatibles.splice(pi, 1)">✕</button>
+              </div>
+              <button type="button" class="text-xs text-gold hover:underline" @click="ajouterIncompatibles">+ Paire interdite</button>
+            </div>
           </div>
         </div>
 

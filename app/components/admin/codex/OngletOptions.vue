@@ -59,6 +59,26 @@ function setModeAjout(o: OptionInput, mode: string) {
   else if (mode === 'quantite') { e.cout_par_unite = 25; e.min = 1; e.max = 2 }
   else e.variantes = [{ id: 'a', nom: 'Variante A', cout: 100, unites: [] }]
 }
+/** « Remplacer » à plusieurs lignes « ou » : un choix dont chaque ligne porte un remplacement (le moteur sait déjà le résoudre). */
+function estRemplacerOu(o: OptionInput) {
+  const e = eff(o)
+  return e.type === 'choix' && e.parmi?.length > 0 && e.parmi.every((p: any) => p.effet?.type === 'remplacer')
+}
+const typeAffiche = (o: OptionInput) => (estRemplacerOu(o) ? 'remplacer' : eff(o).type)
+function lignesRemplacer(o: OptionInput): Record<string, any>[] { return estRemplacerOu(o) ? eff(o).parmi.map((p: any) => p.effet) : [eff(o)] }
+const nomU = (id: string) => unites.value.find((x) => x.id === id)?.nom ?? id
+function idChoixLibre(o: OptionInput) { let n = eff(o).parmi.length + 1; while (eff(o).parmi.some((p: any) => p.id === `r${n}`)) n++; return `r${n}` }
+function nommerLigne(o: OptionInput, i: number) { const p = eff(o).parmi[i]; p.nom = nomU(p.effet.par) }
+function setModeRemplacer(o: OptionInput, ou: boolean) {
+  if (ou === estRemplacerOu(o)) return
+  if (ou) { const r = { ...eff(o) }; o.effet = { type: 'choix', parmi: [{ id: 'r1', nom: nomU(r.par), cout: 0, effet: r }] } as never }
+  else o.effet = { ...eff(o).parmi[0].effet } as never
+}
+function ajouterLigneRemplacer(o: OptionInput) {
+  const prec = eff(o).parmi.at(-1)?.effet ?? {}
+  const effet = { type: 'remplacer', de: prec.de ?? unites.value[0]?.id ?? '', par: unites.value[0]?.id ?? '', lot: 1, max: 1, cout: 0 }
+  eff(o).parmi.push({ id: idChoixLibre(o), nom: nomU(effet.par), cout: 0, effet })
+}
 function ajouterUniteA(liste: Array<{ unite: string; nombre: number }>) { liste.push({ unite: unites.value[0]?.id ?? '', nombre: 1 }) }
 function json(o: OptionInput) { return jsonBrut.value[o.id] ?? JSON.stringify(o.effet, null, 2) }
 function appliquerJson(o: OptionInput, txt: string) {
@@ -84,8 +104,9 @@ function appliquerJson(o: OptionInput, txt: string) {
         <div class="min-w-0 flex-1">
           <div class="flex flex-wrap items-center gap-2">
             <span class="font-medium text-gray-100">{{ o.nom }}</span>
-            <span class="rounded bg-white/5 px-2 py-0.5 text-[11px] uppercase tracking-wider text-gray-500">{{ TYPES.find((t) => t.v === (o.effet as any).type)?.l ?? (o.effet as any).type }}</span>
+            <span class="rounded bg-white/5 px-2 py-0.5 text-[11px] uppercase tracking-wider text-gray-500">{{ TYPES.find((t) => t.v === typeAffiche(o))?.l ?? typeAffiche(o) }}</span>
             <span v-if="o.masque_pdf" class="rounded bg-amber-500/10 px-2 py-0.5 text-[11px] uppercase tracking-wider text-amber-300">hors PDF</span>
+            <span v-if="o.masque_builder" class="rounded bg-amber-500/10 px-2 py-0.5 text-[11px] uppercase tracking-wider text-amber-300">hors builder</span>
           </div>
           <p class="mt-0.5 text-sm text-gray-400">{{ apercu(o) }}</p>
         </div>
@@ -95,7 +116,7 @@ function appliquerJson(o: OptionInput, txt: string) {
         <div class="space-y-3">
           <div class="grid grid-cols-[1fr_auto] gap-2">
             <label class="lbl">Nom<input v-model="o.nom" class="champ" @blur="renommerId(o)"></label>
-            <label class="lbl">Type d'effet<select :value="(o.effet as any).type" class="champ" @change="changerType(o, ($event.target as HTMLSelectElement).value)"><option v-for="t in TYPES" :key="t.v" :value="t.v">{{ t.l }}</option></select></label>
+            <label class="lbl">Type d'effet<select :value="typeAffiche(o)" class="champ" @change="changerType(o, ($event.target as HTMLSelectElement).value)"><option v-for="t in TYPES" :key="t.v" :value="t.v">{{ t.l }}</option></select></label>
           </div>
 
           <!-- ajouter -->
@@ -137,17 +158,29 @@ function appliquerJson(o: OptionInput, txt: string) {
             </template>
           </template>
 
-          <!-- remplacer -->
-          <template v-else-if="eff(o).type === 'remplacer'">
-            <div class="grid grid-cols-2 gap-2">
-              <label class="lbl">Remplace<select v-model="eff(o).de" class="champ"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select></label>
-              <label class="lbl">Par<select v-model="eff(o).par" class="champ"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select></label>
-              <label class="lbl">Unités par lot<input v-model.number="eff(o).lot" type="number" min="1" class="champ"></label>
-              <label class="lbl">Coût par lot<input v-model.number="eff(o).cout" type="number" min="0" class="champ"></label>
-              <label class="flex items-center gap-2 text-xs text-gray-300"><input type="checkbox" :checked="eff(o).tout || eff(o).max === 'tout'" @change="eff(o).tout = ($event.target as HTMLInputElement).checked; if (!eff(o).tout) eff(o).max = 1"> Remplace toutes les unités concernées</label>
-              <label v-if="!eff(o).tout" class="lbl">Lots max<input v-model.number="eff(o).max" type="number" min="1" class="champ"></label>
-              <label v-else class="lbl">Nombre obtenu<input v-model.number="eff(o).par_nombre" type="number" min="1" class="champ" placeholder="autant"></label>
+          <!-- remplacer (simple, ou plusieurs lignes « ou » stockées comme un choix de remplacements) -->
+          <template v-else-if="eff(o).type === 'remplacer' || estRemplacerOu(o)">
+            <div class="flex gap-3 text-xs text-gray-300">
+              <label class="flex items-center gap-1"><input type="radio" :checked="!estRemplacerOu(o)" @change="setModeRemplacer(o, false)"> un seul remplacement</label>
+              <label class="flex items-center gap-1"><input type="radio" :checked="estRemplacerOu(o)" @change="setModeRemplacer(o, true)"> lignes « ou »</label>
             </div>
+            <div v-for="(r, ri) in lignesRemplacer(o)" :key="ri" :class="estRemplacerOu(o) ? 'rounded border border-white/10 p-2' : ''">
+              <div v-if="estRemplacerOu(o)" class="mb-2 flex gap-2">
+                <input v-model="eff(o).parmi[ri].nom" class="champ flex-1" placeholder="Libellé dans le builder (Land Speeder Tornado)">
+                <button type="button" class="icone hover:text-red-300" :disabled="eff(o).parmi.length < 2" @click="eff(o).parmi.splice(ri, 1)">✕</button>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="lbl">Remplace<select v-model="r.de" class="champ"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select></label>
+                <label class="lbl">Par<select v-model="r.par" class="champ" @change="estRemplacerOu(o) && nommerLigne(o, Number(ri))"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select></label>
+                <label class="lbl">Unités par lot<input v-model.number="r.lot" type="number" min="1" class="champ"></label>
+                <label class="lbl">Coût par lot<input v-model.number="r.cout" type="number" min="0" class="champ"></label>
+                <label class="flex items-center gap-2 text-xs text-gray-300"><input type="checkbox" :checked="r.tout || r.max === 'tout'" @change="r.tout = ($event.target as HTMLInputElement).checked; if (!r.tout) r.max = 1"> Remplace toutes les unités concernées</label>
+                <label v-if="!r.tout" class="lbl">Lots max<input v-model.number="r.max" type="number" min="1" class="champ"></label>
+                <label v-else class="lbl">Nombre obtenu<input v-model.number="r.par_nombre" type="number" min="1" class="champ" placeholder="autant"></label>
+              </div>
+            </div>
+            <button v-if="estRemplacerOu(o)" type="button" class="text-xs text-gold hover:underline" @click="ajouterLigneRemplacer(o)">+ Ligne « ou »</button>
+            <p v-if="estRemplacerOu(o)" class="text-[11px] text-gray-500">Le joueur choisit une seule ligne par amélioration prise. Le PDF imprime une ligne par choix, précédée de « ou ».</p>
           </template>
 
           <!-- mot-clé -->
@@ -174,7 +207,8 @@ function appliquerJson(o: OptionInput, txt: string) {
 
           <label class="lbl">Phrase du PDF (surcharge, optionnel, un retour à la ligne par choix)<textarea v-model="o.phrase_pdf" rows="2" class="champ font-body text-base" /></label>
           <label class="lbl">Note (astérisque de bas de tableau, optionnel)<input v-model="o.note_md" class="champ"></label>
-          <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_pdf" @change="o.masque_pdf = ($event.target as HTMLInputElement).checked || undefined"> N'apparaît pas dans le PDF <span class="text-xs text-gray-500">(reste proposée dans le builder)</span></label>
+          <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_pdf" @change="o.masque_pdf = ($event.target as HTMLInputElement).checked || undefined; if (o.masque_pdf) o.masque_builder = undefined"> N'apparaît pas dans le PDF <span class="text-xs text-gray-500">(reste proposée dans le builder)</span></label>
+          <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_builder" @change="o.masque_builder = ($event.target as HTMLInputElement).checked || undefined; if (o.masque_builder) o.masque_pdf = undefined"> N'apparaît pas dans le builder <span class="text-xs text-gray-500">(reste imprimée dans le PDF)</span></label>
         </div>
 
         <div class="space-y-3">

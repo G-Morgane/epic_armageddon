@@ -7,6 +7,7 @@ import type { LigneComposition, Unite } from './schema'
  *   « 2 à 6 au choix parmi Termagant ×6 (75), Hormagaunt ×6 (75) »
  *   « 1 à 2 d'une seule sorte parmi Subjugator (250), Questor (275) »
  *   « + transports Rhino »
+ *   « + transports parmi Rhino, Dreadnought » (choisis en partie : profils seulement)
  *   « 1 Commissaire (implicite) »
  */
 
@@ -37,6 +38,8 @@ export function trouverUnite(unites: Unite[], texte: string): Unite | undefined 
 
 /** « N au choix parmi … » ou « N d'une seule sorte parmi … » */
 const CHOIX = /(?:au choix|d.une seule sorte) parmi/i
+/** « + transports parmi A, B » : même regroupement des virgules */
+const PARMI_TRANSPORTS = /^\+\s*transports?\s+parmi/i
 
 export interface ResultatParse {
   lignes: LigneComposition[]
@@ -55,13 +58,24 @@ export function parserComposition(texte: string, unites: Unite[]): ResultatParse
   const items: string[] = []
   for (const m of morceaux) {
     const dernier = items[items.length - 1]
-    if (dernier && CHOIX.test(dernier) && !/^\+?\s*\d/.test(m) && !CHOIX.test(m) && !/^\+\s*transports?/i.test(m)) {
+    if (dernier && (CHOIX.test(dernier) || PARMI_TRANSPORTS.test(dernier)) && !/^\+?\s*\d/.test(m) && !CHOIX.test(m) && !/^\+\s*transports?/i.test(m)) {
       items[items.length - 1] = `${dernier}, ${m}`
     } else items.push(m)
   }
 
   for (const item of items) {
     let m: RegExpMatchArray | null
+
+    if ((m = item.match(/^\+\s*transports?\s+parmi\s*:?\s*(.+)$/i))) {
+      const ids: string[] = []
+      for (const brut of m[1]!.split(/\s*,\s*/)) {
+        const u = trouverUnite(unites, brut)
+        if (!u) { erreurs.push(`Transport inconnu : « ${brut} »`); continue }
+        ids.push(u.id)
+      }
+      if (ids.length) lignes.push({ transports_possibles: { unites: ids } })
+      continue
+    }
 
     if ((m = item.match(/^\+\s*transports?\s+(.+)$/i))) {
       const u = trouverUnite(unites, m[1]!)
@@ -105,6 +119,7 @@ export function formaterComposition(lignes: LigneComposition[], unites: Unite[])
     .map((l) => {
       if ('unite' in l) return `${l.nombre} ${nom(l.unite)}${l.implicite ? ' (implicite)' : ''}`
       if ('transports' in l) return `+ transports ${nom(l.transports.unite)}`
+      if ('transports_possibles' in l) return `+ transports parmi ${l.transports_possibles.unites.map(nom).join(', ')}`
       const t = l.choix.total
       const total = typeof t === 'number' ? `${t}` : `${t.min} à ${t.max}`
       const parmi = l.choix.parmi.map((p) => `${nom(p.unite)}${p.par_pioche > 1 ? ` ×${p.par_pioche}` : ''}${p.cout ? ` (${p.cout})` : ''}`).join(', ')

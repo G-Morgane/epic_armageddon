@@ -14,6 +14,7 @@
 import type { Arme, Codex, Unite } from '~~/shared/codex/schema'
 import { indexerCodex, calculerListe, type ResultatListe, type FormationResolue } from '~~/shared/codex/engine'
 import type { Liste } from '~~/shared/codex/liste'
+import { allegeancesDe } from '~~/shared/codex/liste'
 import { pluriel, armesPossiblesLignes, caracOption } from '~~/shared/codex/phrases'
 import { trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 
@@ -39,7 +40,7 @@ const paysage = route.query.orientation === 'paysage'
 const echelle = useEchellePapier(paysage)
 
 const liste = ref<Liste | null>(null)
-const nomAllegeance = computed(() => c.codex.allegeances.find((a) => a.id === liste.value?.allegeance)?.nom)
+const nomAllegeance = computed(() => (liste.value ? allegeancesDe(liste.value) : []).map((id) => c.codex.allegeances.find((a) => a.id === id)?.nom).filter(Boolean).join(', '))
 const pret = ref(false)
 const auteur = ref<string | null>(null)
 const { pseudo, init } = useAuth()
@@ -118,6 +119,11 @@ const unitesPresentes = computed<Unite[]>(() => {
     for (const u of f.unites) {
       const def = idx.unites.get(u.unite)
       if (def && !vues.has(u.unite)) { vues.add(u.unite); out.push(def) }
+    }
+    // « + transports parmi » : choisis en début de partie, leurs profils doivent être sur la feuille
+    for (const id of f.profils_possibles) {
+      const def = idx.unites.get(id)
+      if (def && !vues.has(id)) { vues.add(id); out.push(def) }
     }
     f.sous_formations.forEach(parcourir)
   }

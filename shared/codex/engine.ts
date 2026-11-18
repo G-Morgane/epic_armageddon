@@ -1,5 +1,6 @@
-import type { Arme, Codex, Contrainte, Effet, Formation, Option, Section, Unite, Variante } from './schema'
+import type { Arme, Codex, Contrainte, Effet, Formation, ListeTest, Option, Section, Unite, Variante } from './schema'
 import type { FormationInstance, Liste, OptionInstance } from './liste'
+import { allegeancesDe, normaliserFormation } from './liste'
 
 /**
  * Moteur de règles : résout une liste (unités réelles, coûts) et la valide
@@ -40,6 +41,8 @@ export interface FormationResolue {
   unites: UniteResolue[]
   options: OptionResolue[]
   sous_formations: FormationResolue[]
+  /** transports choisis en partie (« + transports parmi ») : profils à montrer, aucune unité dans la liste */
+  profils_possibles: string[]
   mots_cles: string[]
   cout_base: number
   cout_options: number
@@ -116,7 +119,7 @@ export function optionsDisponibles(idx: IndexCodex, formation: Formation): strin
 export function optionsObligatoires(idx: IndexCodex, formationId: string): string[] {
   const def = idx.formations.get(formationId)
   if (!def) return []
-  return optionsDisponibles(idx, def).filter((id) => idx.options.get(id)?.contraintes.some((c) => c.type === 'obligatoire'))
+  return optionsDisponibles(idx, def).filter((id) => { const o = idx.options.get(id); return !o?.masque_builder && o?.contraintes.some((c) => c.type === 'obligatoire') })
 }
 
 /** Nombre d'instances d'une option d'armement dont l'arme choisie porte cet emplacement. */
@@ -353,7 +356,7 @@ export function resoudreFormation(idx: IndexCodex, fi: FormationInstance, profon
     return {
       instance: fi, def: def ?? ({ id: fi.formation, nom: fi.formation, variantes: [], options_plus: [], options_moins: [], contraintes: [] } as unknown as Formation),
       variante: { id: fi.variante, cout: 0, composition: [], taille: 1, contraintes: [] }, section: section ?? ({ id: '?', titre: '?', formations: [], contraintes: [], options: [], notes: {} } as Section),
-      unites: [], options: [], sous_formations: [], mots_cles: [], cout_base: 0, cout_options: 0, cout_sous_formations: 0, cout: 0, initiative: '', activation: true,
+      unites: [], options: [], sous_formations: [], profils_possibles: [], mots_cles: [], cout_base: 0, cout_options: 0, cout_sous_formations: 0, cout: 0, initiative: '', activation: true,
       erreurs: [{ type: 'formation_inconnue', message: `Formation inconnue : ${fi.formation}`, formation: fi.id, niveau: 'erreur' }],
     }
   }
@@ -470,7 +473,7 @@ export function resoudreFormation(idx: IndexCodex, fi: FormationInstance, profon
     if (n > maxOptions.valeur) erreur(ctx, 'max_options', `${def.nom} : au plus ${maxOptions.valeur} améliorations (${n})`)
   }
   for (const o of idx.codex.options) {
-    if (trouve(o.contraintes, 'obligatoire') && dispo.has(o.id) && !fi.options.some((x) => x.option === o.id)) {
+    if (!o.masque_builder && trouve(o.contraintes, 'obligatoire') && dispo.has(o.id) && !fi.options.some((x) => x.option === o.id)) {
       erreur(ctx, 'option_obligatoire', `${o.nom} est obligatoire dans ${def.nom}`)
     }
   }
@@ -505,6 +508,7 @@ export function resoudreFormation(idx: IndexCodex, fi: FormationInstance, profon
 
   return {
     instance: fi, def, variante, section, unites, options, sous_formations: sous, mots_cles: mots,
+    profils_possibles: [...new Set(variante.composition.flatMap((l) => ('transports_possibles' in l ? l.transports_possibles.unites : [])))],
     cout_base, cout_options, cout_sous_formations: cout_sous, cout: cout_base + cout_options + cout_sous,
     initiative, activation: !trouve(cs, 'pas_une_activation'), erreurs,
   }
@@ -521,7 +525,7 @@ export function optionsAjoutables(idx: IndexCodex, f: FormationResolue, compteAr
   const presentes = f.options.map((o) => o.def)
   return optionsDisponibles(idx, f.def)
     .map((id) => idx.options.get(id))
-    .filter((o): o is Option => !!o)
+    .filter((o): o is Option => !!o && !o.masque_builder)
     .filter((o) => {
       const cs = o.contraintes
       const horsQuota = !!trouve(cs, 'hors_quota_options')
@@ -614,20 +618,47 @@ function assigner(consommateurs: Consommateur[], capacite: Map<string, number>):
 
 // ---------- Liste ----------
 
-/** Unité jouable dans une armée de cette allégeance (toujours vrai sans allégeance choisie ou pour une unité non marquée). */
-export function uniteAutorisee(idx: IndexCodex, allegeance: string | undefined, uniteId: string): boolean {
+const enListe = (a: string | string[] | undefined): string[] => (Array.isArray(a) ? a : a ? [a] : [])
+
+/** Unité jouable dans une armée de ces allégeances (toujours vrai sans allégeance choisie ou pour une unité non marquée). */
+export function uniteAutorisee(idx: IndexCodex, allegeances: string | string[] | undefined, uniteId: string): boolean {
   const a = idx.unites.get(uniteId)?.allegeance
-  return !a || !allegeance || a === allegeance
+  const choisies = enListe(allegeances)
+  return !a || !choisies.length || choisies.includes(a)
 }
 
-/** Formation jouable dans l'allégeance : au moins une variante dont toutes les unités fixes sont autorisées et chaque choix garde une possibilité. */
-export function formationAutorisee(idx: IndexCodex, allegeance: string | undefined, formationId: string): boolean {
+/**
+ * Formation jouable : pour au moins une des allégeances choisies, une variante dont toutes
+ * les unités fixes sont autorisées et chaque choix garde une possibilité. Une formation ne
+ * mélange pas deux allégeances, d'où le test allégeance par allégeance.
+ */
+export function formationAutorisee(idx: IndexCodex, allegeances: string | string[] | undefined, formationId: string): boolean {
   const f = idx.formations.get(formationId)
-  if (!f || !allegeance) return true
-  return f.variantes.some((v) => v.composition.every((l) =>
-    'unite' in l ? uniteAutorisee(idx, allegeance, l.unite)
-      : 'choix' in l ? l.choix.parmi.some((p) => uniteAutorisee(idx, allegeance, p.unite))
-        : true))
+  const choisies = enListe(allegeances)
+  if (!f || !choisies.length) return true
+  return choisies.some((a) => f.variantes.some((v) => v.composition.every((l) =>
+    'unite' in l ? uniteAutorisee(idx, a, l.unite)
+      : 'choix' in l ? l.choix.parmi.some((p) => uniteAutorisee(idx, a, p.unite))
+        : true)))
+}
+
+/** Paire d'allégeances interdite dans la sélection, ou undefined. */
+export function allegeancesIncompatibles(idx: IndexCodex, choisies: string[]): [string, string] | undefined {
+  return idx.codex.codex.allegeances_incompatibles.find(([a, b]) => choisies.includes(a) && choisies.includes(b))
+}
+
+/**
+ * Allégeances déduites des unités marquées d'une liste qui n'en déclare pas
+ * (listes de test écrites avant les allégeances) : celles qu'elle aligne.
+ */
+export function allegeancesDeduites(idx: IndexCodex, formations: FormationResolue[]): string[] {
+  const vues = new Set<string>()
+  const parcourir = (f: FormationResolue) => {
+    for (const u of f.unites) { const a = idx.unites.get(u.unite)?.allegeance; if (a) vues.add(a) }
+    f.sous_formations.forEach(parcourir)
+  }
+  formations.forEach(parcourir)
+  return [...vues]
 }
 
 export function calculerListe(idx: IndexCodex, liste: Liste): ResultatListe {
@@ -638,17 +669,28 @@ export function calculerListe(idx: IndexCodex, liste: Liste): ResultatListe {
   const collecter = (f: FormationResolue) => { toutes.push(f); f.sous_formations.forEach(collecter) }
   formations.forEach(collecter)
 
-  // allégeance : une seule par armée, les unités d'une autre allégeance sont refusées
+  // allégeances : jusqu'à `allegeances_max` par armée, sans paire interdite ; une seule par formation
   const allegeances = idx.codex.codex.allegeances
   if (allegeances.length) {
-    const marquees = toutes.flatMap((f) => f.unites.filter((u) => idx.unites.get(u.unite)?.allegeance).map((u) => ({ f, u })))
-    if (!liste.allegeance) {
-      if (marquees.length) erreurs.push({ type: 'allegeance', message: `Choisir l'allégeance de l'armée (${allegeances.map((a) => a.nom).join(', ')})`, niveau: 'erreur' })
+    const choisies = allegeancesDe(liste)
+    const max = idx.codex.codex.allegeances_max
+    const nomA = (id?: string) => allegeances.find((a) => a.id === id)?.nom ?? id
+    const allegeanceDe = (uid: string) => idx.unites.get(uid)?.allegeance
+    const marquees = toutes.flatMap((f) => f.unites.filter((u) => allegeanceDe(u.unite)).map((u) => ({ f, u })))
+    if (!choisies.length) {
+      if (marquees.length) erreurs.push({ type: 'allegeance', message: `Choisir ${max > 1 ? `jusqu'à ${max} allégeances` : 'l\'allégeance'} de l'armée (${allegeances.map((a) => a.nom).join(', ')})`, niveau: 'erreur' })
     } else {
-      const nomA = (id?: string) => allegeances.find((a) => a.id === id)?.nom ?? id
+      if (choisies.length > max) erreurs.push({ type: 'allegeance', message: `Au plus ${max} allégeance${max > 1 ? 's' : ''} par armée (${choisies.length})`, niveau: 'erreur' })
+      const interdite = allegeancesIncompatibles(idx, choisies)
+      if (interdite) erreurs.push({ type: 'allegeance', message: `${nomA(interdite[0])} et ${nomA(interdite[1])} ne peuvent pas servir dans la même armée`, niveau: 'erreur' })
+      const texteChoisies = choisies.map(nomA).join(' et ')
       for (const { f, u } of marquees) {
-        if (!uniteAutorisee(idx, liste.allegeance, u.unite)) erreurs.push({ type: 'allegeance', message: `${f.def.nom} : ${u.nom} (${nomA(idx.unites.get(u.unite)?.allegeance)}) n'est pas jouable dans une armée ${nomA(liste.allegeance)}`, formation: f.instance.id, niveau: 'erreur' })
+        if (!uniteAutorisee(idx, choisies, u.unite)) erreurs.push({ type: 'allegeance', message: `${f.def.nom} : ${u.nom} (${nomA(allegeanceDe(u.unite))}) n'est pas jouable dans une armée ${texteChoisies}`, formation: f.instance.id, niveau: 'erreur' })
       }
+    }
+    for (const f of toutes) {
+      const dansFormation = [...new Set(f.unites.map((u) => allegeanceDe(u.unite)).filter((a): a is string => !!a))]
+      if (dansFormation.length > 1) erreurs.push({ type: 'allegeance', message: `${f.def.nom} : une formation ne mélange pas ${dansFormation.map(nomA).join(' et ')}`, formation: f.instance.id, niveau: 'erreur' })
     }
   }
 
@@ -777,4 +819,20 @@ export function calculerListe(idx: IndexCodex, liste: Liste): ResultatListe {
     avertissements: erreurs.filter((e) => e.niveau === 'avertissement'),
     valide: !erreurs.some((e) => e.niveau === 'erreur'),
   }
+}
+
+/**
+ * Rejoue une liste de test du codex. Une liste écrite avant les allégeances n'en
+ * déclare pas : on lui prête celles des unités qu'elle aligne, pour qu'elle reste
+ * valide tant qu'elle respecte les règles (nombre, paires interdites, formations pures).
+ */
+export function calculerListeTest(idx: IndexCodex, t: ListeTest, codex = idx.codex.codex.slug): ResultatListe {
+  const liste: Liste = {
+    id: 't', nom: t.nom, codex, limite: t.limite, allegeance: t.allegeance, allegeances: t.allegeances,
+    formations: t.formations.map((f) => normaliserFormation(f as never, (id) => varianteParDefaut(idx, id))),
+  }
+  const r = calculerListe(idx, liste)
+  if (allegeancesDe(liste).length || !idx.codex.codex.allegeances.length) return r
+  const deduites = allegeancesDeduites(idx, r.formations)
+  return deduites.length ? calculerListe(idx, { ...liste, allegeances: deduites }) : r
 }

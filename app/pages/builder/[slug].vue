@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { Codex } from '~~/shared/codex/schema'
-import { indexerCodex, calculerListe, optionsObligatoires, plafondFormation, formationAutorisee, type ResultatListe } from '~~/shared/codex/engine'
+import { indexerCodex, calculerListe, optionsObligatoires, plafondFormation, formationAutorisee, allegeancesIncompatibles, type ResultatListe } from '~~/shared/codex/engine'
 import type { Liste, FormationInstance } from '~~/shared/codex/liste'
-import { genererId } from '~~/shared/codex/liste'
+import { genererId, allegeancesDe } from '~~/shared/codex/liste'
 import { lignesFormation, prefixeFormation } from '~~/shared/codex/phrases'
 import { texteDiscord } from '~~/shared/codex/discord'
 
@@ -127,6 +127,22 @@ const compteArmee = (optionId: string) => comptes.value.options.get(optionId) ??
 const resolueParId = computed(() => new Map(resultat.value.formations.map((f) => [f.instance.id, f])))
 const resolueDe = (id: string) => resolueParId.value.get(id)
 
+/** allégeances de la liste ; les listes enregistrées avant les allégeances multiples n'en portent qu'une, dans `allegeance` */
+const allegeancesListe = computed(() => allegeancesDe(liste.value))
+function choisirAllegeances(ids: string[]) {
+  liste.value.allegeances = ids.length ? ids : undefined
+  liste.value.allegeance = undefined
+}
+/** une allégeance se coche si elle est déjà prise, ou s'il reste de la place et qu'elle n'est incompatible avec aucune autre */
+function allegeancePossible(id: string) {
+  const choisies = allegeancesListe.value
+  if (choisies.includes(id)) return true
+  return choisies.length < c.codex.allegeances_max && !allegeancesIncompatibles(idx, [...choisies, id])
+}
+function basculerAllegeance(id: string) {
+  const choisies = allegeancesListe.value
+  choisirAllegeances(choisies.includes(id) ? choisies.filter((x) => x !== id) : [...choisies, id])
+}
 const sectionsCatalogue = computed(() => c.sections.filter((s) => !s.contraintes.some((k) => k.type === 'non_autonome')))
 /** Lignes du catalogue préparées une fois : le gabarit relisait l'index quatre fois par ligne. */
 // allégeance choisie : les formations d'un autre dieu sortent du catalogue
@@ -135,7 +151,7 @@ const catalogue = computed(() => sectionsCatalogue.value.map((s) => ({
   titre: s.titre,
   lignes: s.formations.flatMap((fid) => {
     const def = idx.formations.get(fid)
-    if (!def || !formationAutorisee(idx, liste.value.allegeance, fid)) return []
+    if (!def || !formationAutorisee(idx, allegeancesListe.value, fid)) return []
     return [{
       fid,
       def,
@@ -417,7 +433,7 @@ async function partager() {
 const etatDiscord = ref<'' | 'copie'>('')
 const texteDiscordManuel = ref('')
 async function copierDiscord() {
-  const texte = texteDiscord(c, resultat.value, liste.value.allegeance)
+  const texte = texteDiscord(c, resultat.value, allegeancesListe.value)
   try {
     await navigator.clipboard.writeText(texte)
     texteDiscordManuel.value = ''
@@ -518,12 +534,19 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
       <div class="mt-4 flex flex-wrap items-center gap-3">
         <input v-model="liste.nom" class="champ w-56" placeholder="Nom de la liste">
         <label class="flex items-center gap-2 text-sm text-stone-300">Limite <input v-model.number="liste.limite" type="number" step="250" min="250" class="champ w-24"> pts</label>
-        <label v-if="c.codex.allegeances.length" class="flex items-center gap-2 text-sm text-stone-300">Allégeance
-          <select :value="liste.allegeance ?? ''" class="champ" :class="{ 'border-gold text-gold': !liste.allegeance }" @change="liste.allegeance = ($event.target as HTMLSelectElement).value || undefined">
+        <label v-if="c.codex.allegeances.length && c.codex.allegeances_max === 1" class="flex items-center gap-2 text-sm text-stone-300">Allégeance
+          <select :value="allegeancesListe[0] ?? ''" class="champ" :class="{ 'border-gold text-gold': !allegeancesListe.length }" @change="choisirAllegeances(($event.target as HTMLSelectElement).value ? [($event.target as HTMLSelectElement).value] : [])">
             <option value="">À choisir</option>
             <option v-for="a in c.codex.allegeances" :key="a.id" :value="a.id">{{ a.nom }}</option>
           </select>
         </label>
+        <!-- plusieurs allégeances (Word Bearers, Black Legion) : cases, les paires interdites se grisent -->
+        <div v-else-if="c.codex.allegeances.length" class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-stone-300">
+          <span :class="{ 'text-gold': !allegeancesListe.length }">Allégeances <span class="text-xs text-stone-500">(jusqu'à {{ c.codex.allegeances_max }})</span></span>
+          <label v-for="a in c.codex.allegeances" :key="a.id" class="flex items-center gap-1" :class="{ 'opacity-40': !allegeancePossible(a.id) }">
+            <input type="checkbox" :checked="allegeancesListe.includes(a.id)" :disabled="!allegeancePossible(a.id)" @change="basculerAllegeance(a.id)"> {{ a.nom }}
+          </label>
+        </div>
         <button
           type="button"
           class="ml-auto flex items-center gap-2 rounded border border-white/15 px-3 py-1.5 text-sm text-stone-300 hover:border-gold/30 hover:text-gold"
@@ -737,7 +760,7 @@ const pourcentage = (b: { utilise: number; capacite: number }) => (b.capacite ? 
                 :instance="f"
                 :resolue="resolueDe(f.id)"
                 :compte-armee="compteArmee"
-                :allegeance="liste.allegeance"
+                :allegeances="allegeancesListe"
                 pliable
                 :ouvert="cartesOuvertes.includes(f.id)"
                 @basculer="basculerCarte(f.id)"

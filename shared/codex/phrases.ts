@@ -145,7 +145,13 @@ export function phraseOption(idx: IndexCodex, o: Option): string {
     const unites = e.parmi.map((p) => nom(idx, p.unite, 2))
     return `Ajouter ${plageTexte(e.total)} véhicule(s) selon n'importe quelle combinaison : ${unites.join(', ')}`
   }
-  // choix
+  // choix ; « Remplacer » à lignes « ou » : chaque ligne dit ce qu'elle remplace
+  if (e.parmi.length && e.parmi.every((p) => p.effet?.type === 'remplacer')) {
+    return e.parmi.map((p, i) => {
+      const t = phraseOption(idx, { ...o, effet: p.effet!, phrase_pdf: undefined })
+      return i > 0 ? t.replace(/^Remplacer /, 'remplacer ') : t
+    }).join(' ou ')
+  }
   return e.parmi.map(libelleChoix).join(' ou ')
 }
 
