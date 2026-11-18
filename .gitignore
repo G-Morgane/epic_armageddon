@@ -26,3 +26,6 @@ logs
 
 # Script de migration R2 historique : contient des clés en clair, ne jamais committer
 scripts/migrate-to-r2.ts
+
+# Sauvegardes Supabase locales : contiennent des emails
+backups/
