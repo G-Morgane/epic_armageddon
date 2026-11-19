@@ -204,6 +204,11 @@ export function caracOption(o: Pick<OptionResolue, 'def' | 'instance'>): string 
   if (e.type === 'mot_cle') return detail(e.texte, o.def.nom)
 }
 
+/** coût de la colonne Coût du PDF : « Variable » quand les coûts sont écrits dans la phrase */
+export function coutOptionPdf(o: Option): string {
+  return o.cout_variable_pdf ? 'Variable' : coutOption(o)
+}
+
 export function coutOption(o: Option): string {
   const e = o.effet
   if (e.type === 'ajouter') {
@@ -334,6 +339,11 @@ const sansCout = (t: string) => t.replace(COUT_SEUL, '').replace(COUT_EN_TETE, '
  * alors le texte), sinon il reste entier sur la première.
  */
 export function lignesOption(idx: IndexCodex, o: Option): { texte: string; cout: string }[] {
+  // coûts écrits dans la phrase : texte gardé tel quel, « Variable » sur la première ligne
+  if (o.cout_variable_pdf) {
+    const textes = phraseOption(idx, o).split('\n').map((t) => t.trim()).filter(Boolean)
+    return textes.map((texte, i) => ({ texte, cout: i === 0 ? 'Variable' : '' }))
+  }
   if (!o.phrase_pdf) {
     const auto = lignesChoix(idx, o)
     if (auto) return auto

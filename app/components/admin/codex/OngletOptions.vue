@@ -215,6 +215,7 @@ function appliquerJson(o: OptionInput, txt: string) {
           <label class="lbl">Note (astérisque de bas de tableau, optionnel)<input v-model="o.note_md" class="champ"></label>
           <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_pdf" @change="o.masque_pdf = ($event.target as HTMLInputElement).checked || undefined; if (o.masque_pdf) o.masque_builder = undefined"> N'apparaît pas dans le PDF <span class="text-xs text-gray-500">(reste proposée dans le builder)</span></label>
           <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_builder" @change="o.masque_builder = ($event.target as HTMLInputElement).checked || undefined; if (o.masque_builder) o.masque_pdf = undefined"> N'apparaît pas dans le builder <span class="text-xs text-gray-500">(reste imprimée dans le PDF)</span></label>
+          <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.cout_variable_pdf" @change="o.cout_variable_pdf = ($event.target as HTMLInputElement).checked || undefined"> Coût « Variable » dans le PDF <span class="text-xs text-gray-500">(coûts à écrire dans la phrase du PDF, le builder garde les vrais coûts)</span></label>
         </div>
 
         <div class="space-y-3">

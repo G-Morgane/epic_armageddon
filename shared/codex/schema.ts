@@ -203,6 +203,8 @@ export const OptionSchema = z.object({
   masque_builder: z.boolean().optional(),
   /** mot qui ouvre chaque ligne après la première dans le PDF : « ou » (défaut), « et/ou », ou rien */
   liaison_pdf: z.enum(['ou', 'et_ou', 'aucune']).optional(),
+  /** colonne Coût du PDF : « Variable » (coûts écrits dans la phrase) ; le builder garde les vrais coûts */
+  cout_variable_pdf: z.boolean().optional(),
 })
 
 // ---------- Formations ----------

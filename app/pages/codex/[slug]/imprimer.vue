@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes, liaisonLigne } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOptionPdf, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes, liaisonLigne } from '~~/shared/codex/phrases'
 import { ABREVIATIONS } from '~~/shared/codex/abreviations'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir, tableauRegle, estTableau } from '~~/shared/codex/markdown'
@@ -260,7 +260,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                     <td v-if="colonneOptions(s)" class="petit"><template v-for="(o, oi) in optionsFormation(fid)" :key="o.id">{{ oi ? ', ' : '' }}{{ o.nom }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></template></td>
                     <td class="cout">
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">{{ l.cout }}</div>
-                      <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">({{ coutOption(idx.options.get(oid)!) }})</div>
+                      <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">({{ coutOptionPdf(idx.options.get(oid)!) }})</div>
                     </td>
                   </tr>
                 </template>

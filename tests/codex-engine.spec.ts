@@ -330,6 +330,15 @@ describe('« Remplacer » à lignes « ou »', () => {
 })
 
 describe('PDF : mot en début de ligne d\'amélioration', () => {
+  it('coût « Variable » : PDF seulement, phrase gardée telle quelle', async () => {
+    const { lignesOption, coutOption, coutOptionPdf } = await import('../shared/codex/phrases')
+    const idx = indexerCodex(chargerCodexParSlug('adeptus-astartes'))
+    const o = { ...[...idx.options.values()][0]!, cout_variable_pdf: true, phrase_pdf: 'Remplacer par Tornado (5 pts)\nou par Typhoon (15 pts)' }
+    expect(lignesOption(idx, o)).toEqual([{ texte: 'Remplacer par Tornado (5 pts)', cout: 'Variable' }, { texte: 'ou par Typhoon (15 pts)', cout: '' }])
+    expect(coutOptionPdf(o)).toBe('Variable')
+    expect(coutOption(o)).not.toBe('Variable')
+  })
+
   it('« ou » par défaut, « et/ou » ou rien au choix, et respecte ce qui est tapé', async () => {
     const { liaisonLigne } = await import('../shared/codex/phrases')
     expect(liaisonLigne({}, 'Ajouter 2 Rhinos', 0)).toBe('')
