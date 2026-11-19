@@ -201,6 +201,8 @@ export const OptionSchema = z.object({
   masque_pdf: z.boolean().optional(),
   /** imprimée dans le codex PDF mais absente du builder (règle choisie en partie, pas à la construction) */
   masque_builder: z.boolean().optional(),
+  /** mot qui ouvre chaque ligne après la première dans le PDF : « ou » (défaut), « et/ou », ou rien */
+  liaison_pdf: z.enum(['ou', 'et_ou', 'aucune']).optional(),
 })
 
 // ---------- Formations ----------

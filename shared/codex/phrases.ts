@@ -241,7 +241,7 @@ function lignesChoix(idx: IndexCodex, o: Option): { texte: string; cout: string 
   const e = o.effet
   if (e.type === 'choix' && e.parmi.length >= 2 && e.parmi.length <= MAX_LIGNES_AUTO) {
     // « ou ajouter… » : le verbe généré suit le « ou » en minuscule, un nom propre de choix garde sa majuscule
-    const verbe = (t: string, i: number) => (i > 0 ? t.replace(/^(Ajouter|Remplacer) /, (m) => m.toLowerCase()) : t)
+    const verbe = (t: string, i: number) => (i > 0 && o.liaison_pdf !== 'aucune' ? t.replace(/^(Ajouter|Remplacer) /, (m) => m.toLowerCase()) : t)
     return e.parmi.map((p, i) => ({
       texte: p.effet ? verbe(phraseOption(idx, { ...o, effet: p.effet, phrase_pdf: undefined }), i) : libelleChoix(p),
       cout: coutChoix(o, p),
@@ -344,10 +344,20 @@ export function lignesOption(idx: IndexCodex, o: Option): { texte: string; cout:
   const cout = coutOption(o)
   const couts = coutsSurLignes(parChoix, cout, textes.length)
   if (textes.length > 1 && couts) {
-    return textes.map((t, i) => ({ texte: i > 0 ? t.replace(/^(Ajout|Rempla)/, (m) => m.toLowerCase()) : t, cout: couts[i]! }))
+    return textes.map((t, i) => ({ texte: i > 0 && o.liaison_pdf !== 'aucune' ? t.replace(/^(Ajout|Rempla)/, (m) => m.toLowerCase()) : t, cout: couts[i]! }))
       .map((l) => ({ ...l, texte: sansCout(l.texte) }))
   }
   return textes.map((texte, i) => ({ texte, cout: i === 0 ? cout : '' }))
+}
+
+/**
+ * Mot imprimé devant une ligne d'amélioration (« ou », « et/ou » ou rien), selon le
+ * réglage de l'option. La première ligne n'en a jamais, et une ligne qui commence
+ * déjà par « ou », « et/ou » ou « et » garde ce qu'on a tapé.
+ */
+export function liaisonLigne(o: Pick<Option, 'liaison_pdf'>, texte: string, i: number): string {
+  if (i === 0 || o.liaison_pdf === 'aucune' || /^(ou|et\/ou|et)\s/i.test(texte)) return ''
+  return o.liaison_pdf === 'et_ou' ? 'et/ou' : 'ou'
 }
 
 /** Astérisque si l'option renvoie à une note de bas de tableau. */

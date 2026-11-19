@@ -328,3 +328,21 @@ describe('« Remplacer » à lignes « ou »', () => {
     expect(r.cout_options).toBe(30)
   })
 })
+
+describe('PDF : mot en début de ligne d\'amélioration', () => {
+  it('« ou » par défaut, « et/ou » ou rien au choix, et respecte ce qui est tapé', async () => {
+    const { liaisonLigne } = await import('../shared/codex/phrases')
+    expect(liaisonLigne({}, 'Ajouter 2 Rhinos', 0)).toBe('')
+    expect(liaisonLigne({}, 'ajouter 2 Rhinos', 1)).toBe('ou')
+    expect(liaisonLigne({ liaison_pdf: 'et_ou' }, 'ajouter 2 Rhinos', 1)).toBe('et/ou')
+    expect(liaisonLigne({ liaison_pdf: 'aucune' }, 'Ajouter 2 Rhinos', 1)).toBe('')
+    expect(liaisonLigne({}, 'et/ou ajouter 2 Rhinos', 1)).toBe('')
+    expect(liaisonLigne({}, 'Ou un Capitaine', 1)).toBe('')
+  })
+
+  it('sans liaison, la ligne suivante garde sa majuscule', () => {
+    const idx = indexerCodex(chargerCodexParSlug('adepta-sororitas'))
+    const o = { ...idx.options.get('repressor')!, phrase_pdf: undefined }
+    expect(lignesOption(idx, { ...o, liaison_pdf: 'aucune' }).map((l) => l.texte)).toEqual(['Ajouter 3 Repressors', 'Ajouter 4 Repressors'])
+  })
+})

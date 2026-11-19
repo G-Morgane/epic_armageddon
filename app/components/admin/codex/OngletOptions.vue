@@ -206,6 +206,12 @@ function appliquerJson(o: OptionInput, txt: string) {
           </template>
 
           <label class="lbl">Phrase du PDF (surcharge, optionnel, un retour à la ligne par choix)<textarea v-model="o.phrase_pdf" rows="2" class="champ font-body text-base" /></label>
+          <label class="lbl">Début des lignes suivantes dans le PDF
+            <select :value="o.liaison_pdf ?? 'ou'" class="champ w-56" @change="o.liaison_pdf = (($event.target as HTMLSelectElement).value === 'ou' ? undefined : ($event.target as HTMLSelectElement).value) as never">
+              <option value="ou">« ou »</option><option value="et_ou">« et/ou »</option><option value="aucune">rien</option>
+            </select>
+            <span class="text-[11px] normal-case tracking-normal text-gray-500">Une ligne qui commence déjà par « ou », « et/ou » ou « et » garde ce qui est écrit.</span>
+          </label>
           <label class="lbl">Note (astérisque de bas de tableau, optionnel)<input v-model="o.note_md" class="champ"></label>
           <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_pdf" @change="o.masque_pdf = ($event.target as HTMLInputElement).checked || undefined; if (o.masque_pdf) o.masque_builder = undefined"> N'apparaît pas dans le PDF <span class="text-xs text-gray-500">(reste proposée dans le builder)</span></label>
           <label class="flex items-center gap-2 text-sm text-gray-300"><input type="checkbox" :checked="!!o.masque_builder" @change="o.masque_builder = ($event.target as HTMLInputElement).checked || undefined; if (o.masque_builder) o.masque_pdf = undefined"> N'apparaît pas dans le builder <span class="text-xs text-gray-500">(reste imprimée dans le PDF)</span></label>

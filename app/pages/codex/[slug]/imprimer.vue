@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOption, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes, liaisonLigne } from '~~/shared/codex/phrases'
 import { ABREVIATIONS } from '~~/shared/codex/abreviations'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir, tableauRegle, estTableau } from '~~/shared/codex/markdown'
@@ -278,7 +278,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                   <tr v-for="o in optionsPdf(s)" :key="o.id">
                     <td class="nom">{{ o.nom }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></td>
                     <td>
-                      <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne"><span v-if="li > 0" class="ou">ou</span> {{ l.texte }}</div>
+                      <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne"><span v-if="liaisonLigne(o, l.texte, li)" class="ou">{{ liaisonLigne(o, l.texte, li) }}</span> {{ l.texte }}</div>
                     </td>
                     <td class="cout">
                       <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne">{{ l.cout }}</div>
