@@ -154,6 +154,8 @@ const EffetChoixMultiple = z.object({
       unite: id,
       cout: z.number().int().nonnegative().default(0),
       max: z.number().int().positive().optional(),
+      /** unités par prise, au prix de `cout` (2 : une paire, souvent moins chère que deux unités seules) */
+      nombre: z.number().int().positive().optional(),
       /** quantités autorisées et leur prix, quand l'unité se prend par lot indivisible (Rhinos : 25 pts par 3, 50 pts par 4) */
       paliers: z.array(z.object({ nombre: z.number().int().positive(), cout: z.number().int().nonnegative() })).optional(),
     }),
@@ -451,6 +453,13 @@ export function verifierReferences(codex: Codex): string[] {
       e.cible?.forEach((x) => u(ctx, x))
     } else if (e.type === 'choix_multiple') {
       e.parmi.forEach((x) => u(ctx, x.unite))
+      // deux lignes même unité et même nombre partageraient le même compteur du builder
+      const vues = new Set<string>()
+      for (const x of e.parmi) {
+        const cle = `${x.unite}/${x.nombre ?? 1}`
+        if (vues.has(cle)) pb.push(`${ctx} : ${x.unite} proposé deux fois${(x.nombre ?? 1) > 1 ? ` par ${x.nombre}` : ''} (pour une paire à un autre prix, utiliser « + Paire d'unités »)`)
+        vues.add(cle)
+      }
     } else if (e.type === 'choix') {
       e.parmi.forEach((p) => { if (p.effet) effet(`${ctx} > ${p.id}`, p.effet); c(`${ctx} > ${p.id}`, p.contraintes) })
     }

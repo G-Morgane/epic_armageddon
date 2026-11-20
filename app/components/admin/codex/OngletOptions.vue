@@ -201,8 +201,12 @@ function appliquerJson(o: OptionInput, txt: string) {
           <!-- choix multiple -->
           <template v-else-if="eff(o).type === 'choix_multiple'">
             <div class="flex gap-3"><label class="lbl">Min<input v-model.number="eff(o).total.min" type="number" min="0" class="champ w-16"></label><label class="lbl">Max<input v-model.number="eff(o).total.max" type="number" min="1" class="champ w-16"></label></div>
-            <div v-for="(p, pi) in eff(o).parmi" :key="pi" class="flex items-center gap-2"><select v-model="p.unite" class="champ flex-1"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select><input v-model.number="p.cout" type="number" class="champ w-20" placeholder="pts"><button type="button" class="icone hover:text-red-300" @click="eff(o).parmi.splice(pi, 1)">✕</button></div>
-            <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ unite: unites[0]?.id ?? '', cout: 0 })">+ Unité proposée</button>
+            <div v-for="(p, pi) in eff(o).parmi" :key="pi" class="flex items-center gap-2"><span v-if="(p.nombre ?? 1) > 1" class="whitespace-nowrap text-xs text-gold" title="Nombre d'unités par prise">Paire de</span><select v-model="p.unite" class="champ flex-1"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select><input v-model.number="p.cout" type="number" class="champ w-20" placeholder="pts"><button type="button" class="icone hover:text-red-300" @click="eff(o).parmi.splice(pi, 1)">✕</button></div>
+            <div class="flex gap-4">
+              <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ unite: unites[0]?.id ?? '', cout: 0 })">+ Unité proposée</button>
+              <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ unite: eff(o).parmi.at(-1)?.unite ?? unites[0]?.id ?? '', cout: 0, nombre: 2 })">+ Paire d'unités proposée</button>
+            </div>
+            <p class="text-[11px] text-gray-500">Une paire se prend d'un bloc (2 unités) à son propre prix, en plus de la ligne de l'unité seule. Elle compte pour 2 dans le min et le max.</p>
           </template>
 
           <label class="lbl">Phrase du PDF (surcharge, optionnel, un retour à la ligne par choix)<textarea v-model="o.phrase_pdf" rows="2" class="champ font-body text-base" /></label>

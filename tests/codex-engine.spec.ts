@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { listerSlugs, chargerCodexParSlug, chargerCodexBrut } from '../shared/codex/charger'
 import { chargerCodex } from '../shared/codex/schema'
-import { indexerCodex, calculerListe, calculerListeTest, varianteParDefaut, resoudreFormation, plafondFormation, emplacementsSatures, formationAutorisee } from '../shared/codex/engine'
+import { indexerCodex, calculerListe, calculerListeTest, varianteParDefaut, resoudreFormation, plafondRepartition, cleRepartition, plafondFormation, emplacementsSatures, formationAutorisee } from '../shared/codex/engine'
 import { parserComposition, formaterComposition } from '../shared/codex/parser'
 import { normaliserFormation } from '../shared/codex/liste'
 import { enrichir } from '../shared/codex/markdown'
@@ -353,5 +353,38 @@ describe('PDF : mot en début de ligne d\'amélioration', () => {
     const idx = indexerCodex(chargerCodexParSlug('adepta-sororitas'))
     const o = { ...idx.options.get('repressor')!, phrase_pdf: undefined }
     expect(lignesOption(idx, { ...o, liaison_pdf: 'aucune' }).map((l) => l.texte)).toEqual(['Ajouter 3 Repressors', 'Ajouter 4 Repressors'])
+  })
+})
+
+describe('répartition : paire d\'unités à son propre prix', () => {
+  const brut = chargerCodexBrut('eldars-d-iyanden') as any
+  brut.options.find((o: any) => o.id === 'machine_vaul').effet.parmi.push({ unite: 'scorpion', cout: 300, nombre: 2 })
+  const idx = indexerCodex(chargerCodex(brut))
+  const cle = cleRepartition({ unite: 'scorpion', nombre: 2 })
+  const liste = (repartition: Record<string, number>) => {
+    const f = normaliserFormation({ formation: 'escadron_machine_vaul', options: [{ option: 'machine_vaul', repartition }] } as never, (x) => varianteParDefaut(idx, x))
+    return { f, res: calculerListe(idx, { id: 'l', nom: 'x', codex: 'eldars-d-iyanden', limite: 5000, formations: [f] }) }
+  }
+
+  it('compte la paire au prix de la paire, pour 2 unités', () => {
+    const vide = liste({}).res
+    const { res } = liste({ [cle]: 1 })
+    expect(res.erreurs.filter((e) => e.type === 'option_quantite')).toEqual([])
+    expect(res.total - vide.total).toBe(300)
+  })
+
+  it('la paire compte pour 2 dans le maximum', () => {
+    const { res, f } = liste({ [cle]: 1, cobra: 1 })
+    expect(res.erreurs.map((e) => e.type)).toContain('option_quantite')
+    const r = resoudreFormation(idx, f)
+    expect(plafondRepartition(idx, r, f.options[0]!, 'cobra')).toBe(0)
+  })
+
+  it('le PDF annonce le prix de la paire', () => {
+    expect(coutOption(idx.options.get('machine_vaul')!)).toBe('200 pts chacun / 300 pts la paire')
+  })
+
+  it('les listes existantes (clé = id d\'unité) restent lues', () => {
+    expect(liste({ scorpion: 1 }).res.erreurs.filter((e) => e.type === 'option_interdite')).toEqual([])
   })
 })

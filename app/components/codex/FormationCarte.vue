@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
-import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition, emplacementsSatures, uniteAutorisee } from '~~/shared/codex/engine'
+import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition, cleRepartition, emplacementsSatures, uniteAutorisee } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
 import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante, libelleChoix } from '~~/shared/codex/phrases'
@@ -178,9 +178,9 @@ function effetDe(oi: FormationInstance['options'][number]) {
   return o.effet
 }
 /** Quantités autorisées pour une unité qui se prend par lot indivisible (0 compris), sinon `null`. */
-function paliersDe(oi: FormationInstance['options'][number], unite: string): number[] | null {
+function paliersDe(oi: FormationInstance['options'][number], cle: string): number[] | null {
   const effet = effetDe(oi) as any
-  const p = effet?.type === 'choix_multiple' ? effet.parmi.find((x: any) => x.unite === unite) : undefined
+  const p = effet?.type === 'choix_multiple' ? effet.parmi.find((x: any) => cleRepartition(x) === cle) : undefined
   if (!p?.paliers?.length) return null
   return [0, ...p.paliers.map((x: any) => x.nombre as number)].sort((a, b) => a - b)
 }
@@ -232,6 +232,8 @@ const lignesOptions = computed(() => props.instance.options.map((oi) => {
   const repartition = effet?.type === 'choix_multiple'
     ? (effet.parmi as any[]).map((p) => ({
         ...p,
+        cle: cleRepartition(p),
+        nomLigne: (p.nombre ?? 1) === 2 ? `Paire de ${nomU(p.unite)}` : (p.nombre ?? 1) > 1 ? `${p.nombre} ${nomU(p.unite)}` : nomU(p.unite),
         detail: p.paliers?.length
           ? p.paliers.map((x: any) => `${x.cout} pts par ${x.nombre}`).join(', ')
           : p.cout ? `${p.cout} pts` : '',
@@ -392,14 +394,14 @@ const transportsPossibles = computed(() => (props.resolue?.profils_possibles ?? 
               />
               <span v-if="l.bornes.max !== null" class="text-stone-500">sur {{ l.bornes.max }}</span>
             </span>
-            <span v-for="p in l.repartition" :key="p.unite" class="flex items-center gap-2 text-xs text-stone-300">
+            <span v-for="p in l.repartition" :key="p.cle" class="flex items-center gap-2 text-xs text-stone-300">
               <Compteur
-                :model-value="l.oi.repartition?.[p.unite] ?? 0"
-                :max="plafond(l.oi, p.unite)"
-                :libelle="nomU(p.unite)"
-                @update:model-value="setRepartition(l.oi, p.unite, $event)"
+                :model-value="l.oi.repartition?.[p.cle] ?? 0"
+                :max="plafond(l.oi, p.cle)"
+                :libelle="p.nomLigne"
+                @update:model-value="setRepartition(l.oi, p.cle, $event)"
               />
-              <span>{{ nomU(p.unite) }}<span v-if="p.detail" class="text-stone-500"> · {{ p.detail }}</span></span>
+              <span>{{ p.nomLigne }}<span v-if="p.detail" class="text-stone-500"> · {{ p.detail }}</span></span>
             </span>
           </div>
         </div>

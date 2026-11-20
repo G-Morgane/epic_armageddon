@@ -267,10 +267,13 @@ function appliquerEffetSimple(
     const { min, max } = plage(effet.total)
     let total = 0
     let cout = 0
-    for (const [uid, q] of Object.entries(rep)) {
-      const opt = effet.parmi.find((p) => p.unite === uid)
-      if (!opt) { erreur(ctx, 'option_interdite', `${def.nom} : ${nomUnite(idx, uid)} n'est pas proposé`); continue }
-      if (opt.max !== undefined && q > opt.max * mult) erreur(ctx, 'option_quantite', `${def.nom} : maximum ${opt.max * mult} ${nomUnite(idx, uid)}`)
+    for (const [cle, prises] of Object.entries(rep)) {
+      const opt = effet.parmi.find((p) => cleRepartition(p) === cle)
+      if (!opt) { erreur(ctx, 'option_interdite', `${def.nom} : ${nomUnite(idx, cle)} n'est pas proposé`); continue }
+      const uid = opt.unite
+      if (opt.max !== undefined && prises > opt.max * mult) erreur(ctx, 'option_quantite', `${def.nom} : maximum ${opt.max * mult} ${nomUnite(idx, uid)}`)
+      // une paire compte pour deux unités, au prix d'une prise
+      const q = prises * (opt.nombre ?? 1)
       total += q
       if (opt.paliers?.length) {
         const palier = opt.paliers.find((x) => x.nombre === q)
@@ -279,7 +282,7 @@ function appliquerEffetSimple(
         }
         cout += palier?.cout ?? 0
       } else {
-        cout += q * opt.cout
+        cout += prises * opt.cout
       }
       if (q > 0) ajouterUnite(unites, { unite: uid, nom: nomUnite(idx, uid), nombre: q, origine: 'option', option: oi.id })
     }
@@ -287,7 +290,10 @@ function appliquerEffetSimple(
     if (typeof max === 'number' && total > max * mult) erreur(ctx, 'option_quantite', `${def.nom} : au plus ${max * mult}`)
     if (max === 'besoin_transport') {
       const sans = unites.filter((u) => u.option !== oi.id)
-      const choisis = Object.entries(rep).filter(([, q]) => q > 0)
+      const choisis = Object.entries(rep).flatMap(([cle, q]) => {
+        const p = effet.parmi.find((x) => cleRepartition(x) === cle)
+        return p && q > 0 ? [[p.unite, q * (p.nombre ?? 1)] as [string, number]] : []
+      })
       if (effet.parmi.length && choisis.length) {
         // Les véhicules proposés n'ont pas tous la même capacité ni la même liste d'unités
         // transportables : on raisonne en places, et on retient le besoin du transport le
@@ -576,16 +582,26 @@ export function bornesOption(idx: IndexCodex, f: FormationResolue, oi: OptionIns
   return { min: 1, max: null }
 }
 
-/** Plafond par unité d'un `choix_multiple` (ou null). */
-export function plafondRepartition(idx: IndexCodex, f: FormationResolue, oi: OptionInstance, unite: string): number | null {
+/**
+ * Clé d'une ligne de `choix_multiple` dans `repartition` : l'id de l'unité pour une
+ * ligne simple (listes déjà enregistrées), suffixée du nombre pour une paire ou un lot.
+ */
+export function cleRepartition(p: { unite: string; nombre?: number }): string {
+  return p.nombre && p.nombre > 1 ? `${p.unite}__x${p.nombre}` : p.unite
+}
+
+/** Plafond, en prises, d'une ligne d'un `choix_multiple` (ou null). */
+export function plafondRepartition(idx: IndexCodex, f: FormationResolue, oi: OptionInstance, cle: string): number | null {
   const def = idx.options.get(oi.option)
   const effet = def?.effet.type === 'choix' ? (def.effet.parmi.find((p) => p.id === oi.choix) ?? def.effet.parmi[0])?.effet : def?.effet
   if (!effet || effet.type !== 'choix_multiple') return null
   const mult = effet.par_taille ? f.variante.taille : 1
-  const p = effet.parmi.find((x) => x.unite === unite)
+  const p = effet.parmi.find((x) => cleRepartition(x) === cle)
+  const nombre = p?.nombre ?? 1
   const total = plage(effet.total)
-  const autres = Object.entries(oi.repartition ?? {}).filter(([u]) => u !== unite).reduce((s, [, q]) => s + q, 0)
-  const restant = typeof total.max === 'number' ? Math.max(0, total.max * mult - autres) : null
+  const autres = Object.entries(oi.repartition ?? {}).filter(([c]) => c !== cle)
+    .reduce((s, [c, q]) => s + q * (effet.parmi.find((x) => cleRepartition(x) === c)?.nombre ?? 1), 0)
+  const restant = typeof total.max === 'number' ? Math.max(0, Math.floor((total.max * mult - autres) / nombre)) : null
   const propre = p?.max !== undefined ? p.max * mult : null
   if (restant === null && propre === null) return null
   return Math.min(restant ?? Infinity, propre ?? Infinity)

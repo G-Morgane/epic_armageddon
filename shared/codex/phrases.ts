@@ -142,7 +142,8 @@ export function phraseOption(idx: IndexCodex, o: Option): string {
   }
   if (e.type === 'mot_cle') return e.texte
   if (e.type === 'choix_multiple') {
-    const unites = e.parmi.map((p) => nom(idx, p.unite, 2))
+    // une paire reprend l'unité déjà nommée : le nom n'est cité qu'une fois
+    const unites = [...new Set(e.parmi.map((p) => nom(idx, p.unite, 2)))]
     return `Ajouter ${plageTexte(e.total)} véhicule(s) selon n'importe quelle combinaison : ${unites.join(', ')}`
   }
   // choix ; « Remplacer » à lignes « ou » : chaque ligne dit ce qu'elle remplace
@@ -223,12 +224,19 @@ export function coutOption(o: Option): string {
     for (const p of e.parmi) {
       const textes = p.paliers?.length
         ? p.paliers.map((x) => `${x.cout} pts par ${x.nombre}`)
-        : [p.cout ? `${p.cout} pts chacun` : 'Gratuit']
+        : [coutLigneRepartition(p)]
       for (const t of textes) if (!couts.includes(t)) couts.push(t)
     }
     return couts.join(' / ')
   }
   return [...new Set(e.parmi.map((p) => coutChoix(o, p)))].join(' / ')
+}
+
+/** Coût d'une ligne de répartition : « 50 pts chacun », « 75 pts la paire », « 100 pts par 3 ». */
+export function coutLigneRepartition(p: { cout: number; nombre?: number }): string {
+  if (!p.cout) return 'Gratuit'
+  const n = p.nombre ?? 1
+  return n === 2 ? `${p.cout} pts la paire` : n > 1 ? `${p.cout} pts par ${n}` : `${p.cout} pts chacun`
 }
 
 type ChoixOption = Extract<Option['effet'], { type: 'choix' }>['parmi'][number]
@@ -269,7 +277,7 @@ function coutsParChoix(o: Option): string[] | null {
   if (e.type === 'choix') couts = e.parmi.map((p) => coutChoix(o, p))
   if (e.type === 'ajouter' && e.variantes && e.variantes.length >= 2) couts = e.variantes.map((v) => `${v.cout} pts`)
   if (e.type === 'choix_multiple') {
-    couts = e.parmi.map((p) => (p.paliers?.length ? p.paliers.map((x) => `${x.cout} pts par ${x.nombre}`).join(' / ') : p.cout ? `${p.cout} pts chacun` : 'Gratuit'))
+    couts = e.parmi.map((p) => (p.paliers?.length ? p.paliers.map((x) => `${x.cout} pts par ${x.nombre}`).join(' / ') : coutLigneRepartition(p)))
   }
   return couts && couts.length >= 2 ? couts : null
 }
