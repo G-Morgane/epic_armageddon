@@ -75,6 +75,18 @@ function toggleOptionSection(s: SectionInput, oid: string) {
   else arr.push(oid)
   s.options = arr
 }
+function ajouterNoteSection(s: SectionInput) {
+  const notes = (s.notes ??= {})
+  let i = Object.keys(notes).length + 1
+  while (notes[`note_${i}`] !== undefined) i++
+  notes[`note_${i}`] = ''
+}
+function supprimerNoteSection(s: SectionInput, k: string) {
+  if (!s.notes) return
+  delete s.notes[k]
+  // une amélioration qui renvoyait à cette note n'a plus d'appel de note
+  for (const o of codex.value.options ?? []) if (o.note_ref === k && !(codex.value.sections.some((x) => x.notes?.[k] !== undefined))) o.note_ref = undefined
+}
 function toggleTableauOptions(s: SectionInput, on: boolean) {
   s.tableau_options = on ? { titre: `AMÉLIORATIONS ${s.titre}`, sous_titre: '' } : undefined
 }
@@ -324,6 +336,13 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
           <input v-model="sectionSel.tableau_options.sous_titre" class="champ mt-1 w-full" placeholder="Sous-titre (optionnel)">
         </template>
         <label class="mt-3 flex items-center gap-2 text-xs text-gray-300"><input v-model="sectionSel.colonne_options" type="checkbox"> Colonne « Améliorations » dans le tableau des formations</label>
+
+        <p class="lbl mt-4">Notes sous le tableau <span class="normal-case text-gray-600">· imprimées en bas de la section, numérotées avec celles des améliorations</span></p>
+        <div v-for="k in Object.keys(sectionSel.notes ?? {})" :key="k" class="mt-1 flex items-start gap-1">
+          <textarea v-model="sectionSel.notes![k]" rows="2" class="champ w-full text-xs" />
+          <button type="button" class="icone hover:text-red-300" title="Supprimer la note" @click="supprimerNoteSection(sectionSel, k)">✕</button>
+        </div>
+        <button type="button" class="mt-1 text-xs text-gold hover:underline" @click="ajouterNoteSection(sectionSel)">+ Ajouter une note</button>
       </div>
 
       <div v-else class="panneau text-sm text-gray-400">

@@ -141,11 +141,11 @@ const notesSection = (s: Section) => {
     const o = idx.options.get(oid)
     if (!o) continue
     const ns: number[] = []
-    if (o.note_ref && s.notes[o.note_ref]) ns.push(numero(s.notes[o.note_ref]!))
+    if (o.note_ref && s.notes[o.note_ref]?.trim()) ns.push(numero(s.notes[o.note_ref]!))
     if (o.note_md) ns.push(numero(o.note_md))
     if (ns.length) marques.set(oid, [...new Set(ns)])
   }
-  for (const t of Object.values(s.notes)) numero(t)
+  for (const t of Object.values(s.notes)) if (t.trim()) numero(t)
   const res = { notes, marques }
   notesParSection.set(s.id, res)
   return res
