@@ -107,7 +107,7 @@ const idsOptionsFormation = (fid: string) => {
   if (!f) return []
   const s = idx.sectionDe.get(fid)
   const ids = f.options ?? s?.options ?? []
-  return [...ids, ...f.options_plus].filter((o) => !f.options_moins.includes(o) && !idx.options.get(o)?.masque_pdf)
+  return [...new Set([...ids, ...f.options_plus])].filter((o) => !f.options_moins.includes(o) && !idx.options.get(o)?.masque_pdf)
 }
 const optionsFormation = (fid: string) => idsOptionsFormation(fid).map((o) => { const def = idx.options.get(o); return { id: o, nom: def ? nomOption(def) : o } })
 /** améliorations cachées du PDF (masque_pdf) : gardées pour le builder seulement */

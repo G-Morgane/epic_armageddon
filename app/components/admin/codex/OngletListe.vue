@@ -191,6 +191,19 @@ function optionActive(f: FormationInput, oid: string) {
 }
 /** imprimée sous le nom de la formation dans le PDF */
 const sousLaFormation = (f: FormationInput | undefined, oid: string) => !!f && (f.options_plus ?? []).includes(oid) && !(f.options_moins ?? []).includes(oid)
+/**
+ * Interrupteur « sous la formation », pour une amélioration héritée (section ou
+ * liste propre de la formation) : elle reste disponible dans les deux cas, et
+ * options_plus l'imprime en plus sous le nom. Une amélioration ajoutée à la
+ * formation seule vit dans options_plus : elle est forcément imprimée dessous.
+ */
+function toggleSousFormation(f: FormationInput, oid: string) {
+  if (!optionsDeBase(f).includes(oid) || !optionActive(f, oid)) return
+  const plus = new Set(f.options_plus ?? [])
+  if (plus.has(oid)) plus.delete(oid)
+  else plus.add(oid)
+  f.options_plus = [...plus]
+}
 function activerSousFormations(f: FormationInput, on: boolean) {
   f.sous_formations = on ? { label: 'essaims instinctifs', total: { min: 2, max: 6 }, parmi: [] } : undefined
 }
@@ -296,12 +309,20 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
           <label v-for="o in codex.options ?? []" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300">
             <input type="checkbox" :checked="optionActive(formationSel, o.id)" @change="toggleOptionFormation(formationSel, o.id)">
             {{ o.nom }}
-            <span v-if="sousLaFormation(formationSel, o.id)" class="text-gold/70">(sous la formation)</span>
-            <span v-else-if="optionsDeBase(formationSel).includes(o.id)" class="text-gray-600">({{ formationSel.options ? 'liste de la formation' : 'section' }})</span>
+            <span v-if="optionsDeBase(formationSel).includes(o.id)" class="text-gray-600">({{ formationSel.options ? 'liste de la formation' : 'section' }})</span>
+            <button
+              v-if="optionActive(formationSel, o.id)"
+              type="button"
+              class="ml-auto shrink-0 rounded border px-1.5 text-[10px]"
+              :class="sousLaFormation(formationSel, o.id) ? 'border-gold/60 bg-gold/15 text-gold' : 'border-white/15 text-gray-500 hover:text-gray-300'"
+              :disabled="!optionsDeBase(formationSel).includes(o.id)"
+              :title="optionsDeBase(formationSel).includes(o.id) ? 'Imprimer aussi cette amélioration en italique sous le nom de la formation' : 'Ajoutée à cette formation seule : toujours imprimée sous son nom'"
+              @click.prevent="toggleSousFormation(formationSel, o.id)"
+            >↳ sous la formation{{ sousLaFormation(formationSel, o.id) ? ' ✓' : '' }}</button>
           </label>
           <p v-if="!codex.options?.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
         </div>
-        <p class="mt-1 text-[11px] text-gray-500">Une amélioration cochée ici sans venir de la section s'imprime sous le nom de la formation dans le PDF. Celles de la section s'impriment dans la colonne ou le tableau « Améliorations ».</p>
+        <p class="mt-1 text-[11px] text-gray-500">La case rend l'amélioration disponible pour cette formation (colonne ou tableau « Améliorations »). « ↳ sous la formation » l'imprime en plus en italique sous le nom de la formation dans le PDF. Une amélioration cochée qui ne vient ni de la section ni de la liste de la formation y est toujours imprimée.</p>
 
         <p class="lbl mt-4">Règles propres à cette formation</p>
         <AdminCodexReglesEditeur :contraintes="formationSel.contraintes as any" portee="formation" />
