@@ -51,6 +51,18 @@ function changerType(o: OptionInput, type: string) {
   else o.effet = { type, total: { min: 1, max: 2 }, parmi: [] } as never
 }
 const eff = (o: OptionInput) => o.effet as unknown as Record<string, any>
+/** total d'une répartition, toujours sous la forme { min, max } (un nombre seul vaut min = max) */
+function totalRepartition(o: OptionInput): { min: number; max?: number | 'besoin_transport' } {
+  const e = eff(o)
+  if (typeof e.total === 'number') e.total = { min: e.total, max: e.total }
+  return (e.total ??= { min: 1, max: 2 })
+}
+function setMaxRepartition(o: OptionInput, mode: string) {
+  const t = totalRepartition(o)
+  if (mode === 'transport') t.max = 'besoin_transport'
+  else if (mode === 'illimite') delete t.max
+  else t.max = Math.max(2, t.min)
+}
 function modeAjout(o: OptionInput) { const e = eff(o); return e.variantes?.length ? 'variantes' : e.cout_par_unite !== undefined ? 'quantite' : 'fixe' }
 function setModeAjout(o: OptionInput, mode: string) {
   const e = eff(o)
@@ -200,7 +212,18 @@ function appliquerJson(o: OptionInput, txt: string) {
 
           <!-- choix multiple -->
           <template v-else-if="eff(o).type === 'choix_multiple'">
-            <div class="flex gap-3"><label class="lbl">Min<input v-model.number="eff(o).total.min" type="number" min="0" class="champ w-16"></label><label class="lbl">Max<input v-model.number="eff(o).total.max" type="number" min="1" class="champ w-16"></label></div>
+            <div class="flex flex-wrap gap-3">
+              <label class="lbl">Min<input v-model.number="totalRepartition(o).min" type="number" min="0" class="champ w-16"></label>
+              <label class="lbl">Max
+                <select :value="totalRepartition(o).max === 'besoin_transport' ? 'transport' : totalRepartition(o).max === undefined ? 'illimite' : 'n'" class="champ" @change="setMaxRepartition(o, ($event.target as HTMLSelectElement).value)">
+                  <option value="n">nombre</option><option value="illimite">illimité</option><option value="transport">autant que nécessaire pour embarquer</option>
+                </select>
+              </label>
+              <label v-if="typeof totalRepartition(o).max === 'number'" class="lbl">Valeur<input v-model.number="totalRepartition(o).max" type="number" min="1" class="champ w-16"></label>
+              <label v-if="totalRepartition(o).max === 'besoin_transport'" class="lbl">Embarquer<select v-model="eff(o).perimetre_transport" class="champ"><option value="formation">toute la formation</option><option value="options">les unités des améliorations</option></select></label>
+              <label class="flex items-center gap-1 self-end pb-1.5 text-xs text-gray-300"><input v-model="eff(o).par_taille" type="checkbox"> max × taille de bande</label>
+            </div>
+            <p v-if="totalRepartition(o).max === 'besoin_transport'" class="text-[11px] text-gray-500">Le builder compte les places des véhicules choisis et bloque dès qu'il y en a assez pour embarquer.</p>
             <div v-for="(p, pi) in eff(o).parmi" :key="pi" class="flex items-center gap-2"><span v-if="(p.nombre ?? 1) > 1" class="whitespace-nowrap text-xs text-gold" title="Nombre d'unités par prise">Paire de</span><select v-model="p.unite" class="champ flex-1"><option v-for="x in unites" :key="x.id" :value="x.id">{{ x.nom }}</option></select><input v-model.number="p.cout" type="number" class="champ w-20" placeholder="pts"><button type="button" class="icone hover:text-red-300" @click="eff(o).parmi.splice(pi, 1)">✕</button></div>
             <div class="flex gap-4">
               <button type="button" class="text-xs text-gold hover:underline" @click="eff(o).parmi.push({ unite: unites[0]?.id ?? '', cout: 0 })">+ Unité proposée</button>

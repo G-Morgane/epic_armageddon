@@ -388,3 +388,79 @@ describe('répartition : paire d\'unités à son propre prix', () => {
     expect(liste({ scorpion: 1 }).res.erreurs.filter((e) => e.type === 'option_interdite')).toEqual([])
   })
 })
+
+describe('répartition : max « autant que nécessaire pour embarquer » ou illimité', () => {
+  const brut = chargerCodexBrut('adeptus-astartes') as any
+  brut.options.push({
+    id: 'vehicules_test', nom: 'Véhicules',
+    effet: { type: 'choix_multiple', total: { min: 0, max: 'besoin_transport' }, parmi: [{ unite: 'rhino', cout: 25 }, { unite: 'razorback_bolters_lourds', cout: 25 }] },
+    contraintes: [],
+  })
+  brut.options.push({
+    id: 'vehicules_libres', nom: 'Véhicules libres',
+    effet: { type: 'choix_multiple', total: { min: 0 }, parmi: [{ unite: 'rhino', cout: 25 }] },
+    contraintes: [],
+  })
+  // 6 Tactiques sans transport fourni : 6 places à couvrir (Rhino 2 places, Razorback 1)
+  brut.formations.push({ id: 'test_rep', nom: 'Test', variantes: [{ id: 'base', cout: 100, composition: [{ unite: 'tactiques', nombre: 6 }] }], options: ['vehicules_test', 'vehicules_libres'] })
+  brut.sections[0].formations.push('test_rep')
+  const idx = indexerCodex(chargerCodex(brut))
+  const formation = (option: string, repartition: Record<string, number>) =>
+    normaliserFormation({ formation: 'test_rep', options: [{ option, repartition }] } as never, (x) => varianteParDefaut(idx, x))
+  const plafond = (repartition: Record<string, number>, cle: string) => {
+    const f = formation('vehicules_test', repartition)
+    return plafondRepartition(idx, resoudreFormation(idx, f), f.options[0]!, cle)
+  }
+  const erreurs = (option: string, repartition: Record<string, number>) =>
+    calculerListe(idx, { id: 'l', nom: 'x', codex: 'adeptus-astartes', limite: 5000, formations: [formation(option, repartition)] }).erreurs.filter((e) => e.type === 'option_quantite')
+
+  it('plafonne chaque ligne aux places encore manquantes', () => {
+    expect(plafond({}, 'rhino')).toBe(3)
+    expect(plafond({}, 'razorback_bolters_lourds')).toBe(6)
+    // 2 Rhinos = 4 places : il en manque 2, soit 1 Rhino ou 2 Razorbacks
+    expect(plafond({ rhino: 2 }, 'razorback_bolters_lourds')).toBe(2)
+    expect(plafond({ razorback_bolters_lourds: 5 }, 'rhino')).toBe(1)
+  })
+
+  it('accepte juste assez de véhicules et refuse un véhicule de trop', () => {
+    expect(erreurs('vehicules_test', { rhino: 3 })).toEqual([])
+    expect(erreurs('vehicules_test', { rhino: 2, razorback_bolters_lourds: 2 })).toEqual([])
+    expect(erreurs('vehicules_test', { rhino: 4 }).length).toBe(1)
+  })
+
+  it('max absent : aucun plafond', () => {
+    const f = formation('vehicules_libres', { rhino: 12 })
+    expect(plafondRepartition(idx, resoudreFormation(idx, f), f.options[0]!, 'rhino')).toBeNull()
+    expect(erreurs('vehicules_libres', { rhino: 12 })).toEqual([])
+  })
+
+  it('le PDF dit ce que le max signifie', async () => {
+    const { phraseOption } = await import('../shared/codex/phrases')
+    expect(phraseOption(idx, idx.options.get('vehicules_test')!)).toBe("Ajouter autant de véhicules que nécessaire pour embarquer la formation, selon n'importe quelle combinaison : Rhinos, Razorback Bolters Lourds")
+    expect(phraseOption(idx, idx.options.get('vehicules_libres')!)).toBe("Ajouter autant de véhicules que souhaité, selon n'importe quelle combinaison : Rhinos")
+  })
+})
+
+describe('« 0-N » devant les améliorations limitées dans l\'armée', () => {
+  it('préfixe comme pour les formations, sans doubler un préfixe déjà saisi', async () => {
+    const { nomOption } = await import('../shared/codex/phrases')
+    const limite = [{ type: 'max_par_armee', valeur: 1 }] as never
+    expect(nomOption({ nom: 'Big Boss', contraintes: limite })).toBe('0-1 Big Boss')
+    expect(nomOption({ nom: 'Big Boss', contraintes: [{ type: 'max_par_armee', valeur: 2 }] as never })).toBe('0-2 Big Boss')
+    expect(nomOption({ nom: '0-1 Missile Warp', contraintes: limite })).toBe('0-1 Missile Warp')
+    expect(nomOption({ nom: 'Kaptain', contraintes: [{ type: 'max_par_formation', valeur: 1 }] as never })).toBe('Kaptain')
+  })
+})
+
+describe('répartition « autant que nécessaire » avec transports automatiques', () => {
+  it('les Rhinos automatiques ne bloquent pas les Razorbacks (Adeptus Astartes, Tactique)', () => {
+    const idx = indexerCodex(chargerCodexParSlug('adeptus-astartes'))
+    const plafond = (repartition: Record<string, number>) => {
+      const f = normaliserFormation({ formation: 'tactique', options: [{ option: 'razorback', repartition }] } as never, (x) => varianteParDefaut(idx, x))
+      return plafondRepartition(idx, resoudreFormation(idx, f), f.options[0]!, 'razorback_bolters_lourds')
+    }
+    // 6 Tactiques, 1 place par Razorback
+    expect(plafond({})).toBe(6)
+    expect(plafond({ razorback_canons_laser: 4 })).toBe(2)
+  })
+})

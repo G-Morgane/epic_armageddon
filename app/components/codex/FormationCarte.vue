@@ -3,7 +3,7 @@ import type { IndexCodex, FormationResolue } from '~~/shared/codex/engine'
 import { optionsDisponibles, optionsAjoutables, optionsObligatoires, bornesOption, plafondRepartition, cleRepartition, emplacementsSatures, uniteAutorisee } from '~~/shared/codex/engine'
 import type { FormationInstance } from '~~/shared/codex/liste'
 import { genererId } from '~~/shared/codex/liste'
-import { phraseOption, coutOption, pluriel, lignesFormation, placesVariante, libelleChoix } from '~~/shared/codex/phrases'
+import { phraseOption, nomOption, coutOption, pluriel, lignesFormation, placesVariante, libelleChoix } from '~~/shared/codex/phrases'
 
 const props = defineProps<{
   idx: IndexCodex
@@ -104,7 +104,7 @@ const optionsVariante = computed(() => {
 })
 const optionsAjout = computed(() => ajoutables.value.map((o) => ({
   valeur: o.id,
-  libelle: o.nom,
+  libelle: nomOption(o),
   detail: coutOption(o),
   titre: phraseOption(props.idx, o),
   stats: statsEffet(o.effet),
@@ -241,7 +241,7 @@ const lignesOptions = computed(() => props.instance.options.map((oi) => {
     : null
   return {
     oi,
-    nom: def?.nom,
+    nom: def ? nomOption(def) : undefined,
     cout,
     estChoix,
     aVariantes,

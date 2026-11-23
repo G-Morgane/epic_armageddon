@@ -25,9 +25,10 @@ export function joindre(parts: string[]): string {
   return `${p.slice(0, -1).join(', ')} et ${p[p.length - 1]}`
 }
 
-function plageTexte(total: number | { min: number; max: number | 'besoin_transport' }): string {
+function plageTexte(total: number | { min: number; max?: number | 'besoin_transport' }): string {
   if (typeof total === 'number') return `${total}`
   if (total.max === 'besoin_transport') return `jusqu'à autant que d'unités à transporter`
+  if (total.max === undefined) return total.min > 0 ? `au moins ${total.min}` : `autant de`
   if (total.min === 0) return `jusqu'à ${total.max}`
   return `${total.min} à ${total.max}`
 }
@@ -120,6 +121,17 @@ export function phraseSousFormations(f: Formation): string | undefined {
 
 // ---------- Options ----------
 
+/**
+ * Nom d'une amélioration précédé de « 0-N » quand elle a la règle « Au plus N dans
+ * l'armée », comme pour les formations. Un nom déjà saisi avec sa limite
+ * (« 0-1 Missile Warp ») est laissé tel quel.
+ */
+export function nomOption(o: Pick<Option, 'nom' | 'contraintes'>): string {
+  const max = (o.contraintes ?? []).find((c) => c.type === 'max_par_armee')
+  if (!max || max.type !== 'max_par_armee' || /^\d+\s*-\s*\d+\s/.test(o.nom)) return o.nom
+  return `0-${max.valeur} ${o.nom}`
+}
+
 export function phraseOption(idx: IndexCodex, o: Option): string {
   if (o.phrase_pdf) return o.phrase_pdf
   const e = o.effet
@@ -144,7 +156,14 @@ export function phraseOption(idx: IndexCodex, o: Option): string {
   if (e.type === 'choix_multiple') {
     // une paire reprend l'unité déjà nommée : le nom n'est cité qu'une fois
     const unites = [...new Set(e.parmi.map((p) => nom(idx, p.unite, 2)))]
-    return `Ajouter ${plageTexte(e.total)} véhicule(s) selon n'importe quelle combinaison : ${unites.join(', ')}`
+    const t = e.total
+    if (typeof t !== 'number' && t.max === 'besoin_transport') {
+      return `Ajouter autant de véhicules que nécessaire pour embarquer ${e.perimetre_transport === 'options' ? 'les unités des améliorations' : 'la formation'}, selon n'importe quelle combinaison : ${unites.join(', ')}`
+    }
+    if (typeof t !== 'number' && t.max === undefined && t.min === 0) {
+      return `Ajouter autant de véhicules que souhaité, selon n'importe quelle combinaison : ${unites.join(', ')}`
+    }
+    return `Ajouter ${plageTexte(t)} véhicule(s) selon n'importe quelle combinaison : ${unites.join(', ')}`
   }
   // choix ; « Remplacer » à lignes « ou » : chaque ligne dit ce qu'elle remplace
   if (e.parmi.length && e.parmi.every((p) => p.effet?.type === 'remplacer')) {

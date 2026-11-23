@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Arme, Codex, Section, Unite } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, coutOptionPdf, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes, liaisonLigne } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, phraseOption, nomOption, coutOptionPdf, lignesOption, sousTitreSection, optionsDeSection, armesPossiblesLignes, liaisonLigne } from '~~/shared/codex/phrases'
 import { ABREVIATIONS } from '~~/shared/codex/abreviations'
 import { lireOptionsPdf, trierParType, lignesComplementaires } from '~~/shared/codex/pdf'
 import { paragraphesEnrichis, enrichir, tableauRegle, estTableau } from '~~/shared/codex/markdown'
@@ -109,9 +109,14 @@ const idsOptionsFormation = (fid: string) => {
   const ids = f.options ?? s?.options ?? []
   return [...ids, ...f.options_plus].filter((o) => !f.options_moins.includes(o) && !idx.options.get(o)?.masque_pdf)
 }
-const optionsFormation = (fid: string) => idsOptionsFormation(fid).map((o) => ({ id: o, nom: idx.options.get(o)?.nom ?? o }))
+const optionsFormation = (fid: string) => idsOptionsFormation(fid).map((o) => { const def = idx.options.get(o); return { id: o, nom: def ? nomOption(def) : o } })
 /** améliorations cachées du PDF (masque_pdf) : gardées pour le builder seulement */
 const visible = (oid: string) => !idx.options.get(oid)?.masque_pdf
+/** améliorations imprimées sous le nom de la formation : ajoutées à elle seule, et pas retirées */
+const sousFormation = (fid: string) => {
+  const f = idx.formations.get(fid)
+  return f ? f.options_plus.filter((o) => visible(o) && !f.options_moins.includes(o)) : []
+}
 const optionsPdf = (s: Section) => optionsDeSection(idx, s).filter((o) => !o.masque_pdf)
 
 /**
@@ -251,7 +256,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">
                         <span v-if="li > 0" class="ou">ou</span> {{ l.nom && lignesFormation(idx, idx.formations.get(fid)!).length > 1 ? l.nom : l.composition }}
                       </div>
-                      <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">{{ phraseOption(idx, idx.options.get(oid)!) }}</div>
+                      <div v-for="oid in sousFormation(fid)" :key="oid" class="ligne italique">{{ phraseOption(idx, idx.options.get(oid)!) }}</div>
                       <div v-if="idx.formations.get(fid)!.description" class="ligne italique">{{ idx.formations.get(fid)!.description }}</div>
                     </td>
                     <td v-if="idx.formations.get(s.formations[0]!)?.sous_formations || idx.formations.get(s.formations[0]!)?.variantes.some(v => v.sous_formations)">
@@ -260,7 +265,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                     <td v-if="colonneOptions(s)" class="petit"><template v-for="(o, oi) in optionsFormation(fid)" :key="o.id">{{ oi ? ', ' : '' }}{{ o.nom }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></template></td>
                     <td class="cout">
                       <div v-for="(l, li) in lignesFormation(idx, idx.formations.get(fid)!)" :key="li" class="ligne">{{ l.cout }}</div>
-                      <div v-for="oid in idx.formations.get(fid)!.options_plus.filter(visible)" :key="oid" class="ligne italique">({{ coutOptionPdf(idx.options.get(oid)!) }})</div>
+                      <div v-for="oid in sousFormation(fid)" :key="oid" class="ligne italique">({{ coutOptionPdf(idx.options.get(oid)!) }})</div>
                     </td>
                   </tr>
                 </template>
@@ -276,7 +281,7 @@ const pied = `CODEX ${c.codex.nom.toUpperCase()} - EAFR - REV ${c.codex.version}
                 <thead><tr><th>Améliorations</th><th>Unités</th><th class="cout">Coût</th></tr></thead>
                 <tbody>
                   <tr v-for="o in optionsPdf(s)" :key="o.id">
-                    <td class="nom">{{ o.nom }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></td>
+                    <td class="nom">{{ nomOption(o) }}<sup v-if="marqueNoteOption(o.id, s)" class="renvoi">{{ marqueNoteOption(o.id, s) }}</sup></td>
                     <td>
                       <div v-for="(l, li) in lignesOption(idx, o)" :key="li" class="ligne"><span v-if="liaisonLigne(o, l.texte, li)" class="ou">{{ liaisonLigne(o, l.texte, li) }}</span> {{ l.texte }}</div>
                     </td>

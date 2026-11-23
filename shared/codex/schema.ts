@@ -145,9 +145,13 @@ const EffetMotCle = z.object({
 
 const EffetChoixMultiple = z.object({
   type: z.literal('choix_multiple'),
+  /**
+   * nombre exact, ou plage : `max` absent = illimité, `besoin_transport` = autant de
+   * places que nécessaire pour embarquer la formation (ou les unités des améliorations)
+   */
   total: z.union([
     z.number().int().positive(),
-    z.object({ min: z.number().int().nonnegative(), max: z.union([z.number().int().positive(), z.literal('besoin_transport')]) }),
+    z.object({ min: z.number().int().nonnegative(), max: z.union([z.number().int().positive(), z.literal('besoin_transport')]).optional() }),
   ]),
   parmi: z.array(
     z.object({

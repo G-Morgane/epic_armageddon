@@ -2,7 +2,7 @@
 import type { CodexInput, Codex } from '~~/shared/codex/schema'
 import { CodexSchema } from '~~/shared/codex/schema'
 import { indexerCodex } from '~~/shared/codex/engine'
-import { lignesFormation, prefixeFormation, phraseSousFormations, sousTitreSection, phraseOption, coutOption } from '~~/shared/codex/phrases'
+import { lignesFormation, prefixeFormation, phraseSousFormations, sousTitreSection, phraseOption, coutOption, nomOption as nomOptionPdf } from '~~/shared/codex/phrases'
 import { parserComposition, formaterComposition } from '~~/shared/codex/parser'
 
 type FormationInput = CodexInput['formations'][number]
@@ -46,7 +46,7 @@ function sousTitre(s: SectionInput) {
   const sv = idx.value?.sections.get(s.id)
   return sv && idx.value ? sousTitreSection(idx.value, sv) : s.sous_titre
 }
-function nomOption(id: string) { return (codex.value.options ?? []).find((o) => o.id === id)?.nom ?? id }
+function nomOption(id: string) { const o = (codex.value.options ?? []).find((x) => x.id === id); return o ? nomOptionPdf(o as never) : id }
 function phraseOpt(id: string) { const o = idx.value?.options.get(id); return o && idx.value ? `${phraseOption(idx.value, o)} · ${coutOption(o)}` : '' }
 
 // ---- sections ----
@@ -165,20 +165,32 @@ function retirerVariante(f: FormationInput, v: VarianteInput) {
   if (f.variantes.length <= 1) return
   f.variantes.splice(f.variantes.indexOf(v), 1)
 }
-function toggleOptionFormation(f: FormationInput, oid: string, sectionDispo: boolean) {
-  // règle : si l'option vient de la section on la retire via options_moins, sinon on l'ajoute via options_plus
+/** améliorations héritées : la liste propre de la formation si elle en a une, sinon celles de la section */
+const optionsDeBase = (f: FormationInput) => f.options ?? sectionDe(f.id)?.options ?? []
+/**
+ * Coche ou décoche d'après l'état affiché de la case, pas d'après la section.
+ * Une amélioration héritée se retire par options_moins ; une autre s'ajoute par
+ * options_plus, ce qui l'imprime aussi sous la formation dans le PDF. Les deux
+ * listes sont nettoyées à chaque clic : une même amélioration dans les deux
+ * (reste d'une section modifiée entre-temps) rendait la case inopérante.
+ */
+function toggleOptionFormation(f: FormationInput, oid: string) {
+  const activer = !optionActive(f, oid)
+  const herite = optionsDeBase(f).includes(oid)
   const plus = new Set(f.options_plus ?? [])
   const moins = new Set(f.options_moins ?? [])
-  if (sectionDispo) { if (moins.has(oid)) moins.delete(oid); else moins.add(oid) }
-  else { if (plus.has(oid)) plus.delete(oid); else plus.add(oid) }
+  plus.delete(oid)
+  moins.delete(oid)
+  if (activer && !herite) plus.add(oid)
+  if (!activer && herite) moins.add(oid)
   f.options_plus = [...plus]
   f.options_moins = [...moins]
 }
 function optionActive(f: FormationInput, oid: string) {
-  const s = sectionDe(f.id)
-  const base = f.options ?? s?.options ?? []
-  return (base.includes(oid) || (f.options_plus ?? []).includes(oid)) && !(f.options_moins ?? []).includes(oid)
+  return (optionsDeBase(f).includes(oid) || (f.options_plus ?? []).includes(oid)) && !(f.options_moins ?? []).includes(oid)
 }
+/** imprimée sous le nom de la formation dans le PDF */
+const sousLaFormation = (f: FormationInput | undefined, oid: string) => !!f && (f.options_plus ?? []).includes(oid) && !(f.options_moins ?? []).includes(oid)
 function activerSousFormations(f: FormationInput, on: boolean) {
   f.sous_formations = on ? { label: 'essaims instinctifs', total: { min: 2, max: 6 }, parmi: [] } : undefined
 }
@@ -218,7 +230,7 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
               <td class="px-3 py-1.5 font-semibold">{{ prefixe(fid) }}{{ codex.formations.find((f) => f.id === fid)?.nom ?? fid }}</td>
               <td class="py-1.5">
                 <div v-for="(l, li) in lignes(fid)" :key="li"><span v-if="li" class="italic text-[#7a6d5c]">ou </span>{{ l.composition }}</div>
-                <div v-for="oid in codex.formations.find((f) => f.id === fid)?.options_plus ?? []" :key="oid" class="italic text-[#6b5f4f]">{{ phraseOpt(oid) }}</div>
+                <div v-for="oid in (codex.formations.find((f) => f.id === fid)?.options_plus ?? []).filter((o) => sousLaFormation(codex.formations.find((f) => f.id === fid), o))" :key="oid" class="italic text-[#6b5f4f]">{{ phraseOpt(oid) }}</div>
               </td>
               <td v-if="s.formations.some((x) => sousForm(x))" class="py-1.5 text-[#4d4336]">{{ sousForm(fid) }}</td>
               <td class="py-1.5 pr-3 text-right"><div v-for="(l, li) in lignes(fid)" :key="li">{{ l.cout }}</div></td>
@@ -282,11 +294,14 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
         <p class="lbl mt-4">Améliorations disponibles <span class="normal-case text-gray-600">· celles de la section sont cochées par défaut</span></p>
         <div class="mt-1 max-h-44 overflow-auto rounded border border-white/10 p-2">
           <label v-for="o in codex.options ?? []" :key="o.id" class="flex items-center gap-2 py-0.5 text-xs text-gray-300">
-            <input type="checkbox" :checked="optionActive(formationSel, o.id)" @change="toggleOptionFormation(formationSel, o.id, (sectionDe(formationSel.id)?.options ?? []).includes(o.id))">
-            {{ o.nom }}<span v-if="(sectionDe(formationSel.id)?.options ?? []).includes(o.id)" class="text-gray-600">(section)</span>
+            <input type="checkbox" :checked="optionActive(formationSel, o.id)" @change="toggleOptionFormation(formationSel, o.id)">
+            {{ o.nom }}
+            <span v-if="sousLaFormation(formationSel, o.id)" class="text-gold/70">(sous la formation)</span>
+            <span v-else-if="optionsDeBase(formationSel).includes(o.id)" class="text-gray-600">({{ formationSel.options ? 'liste de la formation' : 'section' }})</span>
           </label>
           <p v-if="!codex.options?.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
         </div>
+        <p class="mt-1 text-[11px] text-gray-500">Une amélioration cochée ici sans venir de la section s'imprime sous le nom de la formation dans le PDF. Celles de la section s'impriment dans la colonne ou le tableau « Améliorations ».</p>
 
         <p class="lbl mt-4">Règles propres à cette formation</p>
         <AdminCodexReglesEditeur :contraintes="formationSel.contraintes as any" portee="formation" />

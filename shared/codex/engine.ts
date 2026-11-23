@@ -165,7 +165,7 @@ function tous<T extends Contrainte['type']>(cs: Contrainte[], type: T): Extract<
   return cs.filter((c) => c.type === type) as Extract<Contrainte, { type: T }>[]
 }
 
-function plage(total: number | { min: number; max: number | 'besoin_transport' }): { min: number; max: number | 'besoin_transport' } {
+function plage(total: number | { min: number; max?: number | 'besoin_transport' }): { min: number; max?: number | 'besoin_transport' } {
   return typeof total === 'number' ? { min: total, max: total } : total
 }
 
@@ -601,7 +601,21 @@ export function plafondRepartition(idx: IndexCodex, f: FormationResolue, oi: Opt
   const total = plage(effet.total)
   const autres = Object.entries(oi.repartition ?? {}).filter(([c]) => c !== cle)
     .reduce((s, [c, q]) => s + q * (effet.parmi.find((x) => cleRepartition(x) === c)?.nombre ?? 1), 0)
-  const restant = typeof total.max === 'number' ? Math.max(0, Math.floor((total.max * mult - autres) / nombre)) : null
+  let restant = typeof total.max === 'number' ? Math.max(0, Math.floor((total.max * mult - autres) / nombre)) : null
+  if (total.max === 'besoin_transport' && p) {
+    // autant de prises qu'il faut pour couvrir les places encore manquantes, une fois
+    // comptées celles des véhicules déjà choisis sur les autres lignes. Les transports
+    // automatiques (ligne « + transports Rhino ») sont écartés : ils se dimensionnent
+    // sur ce qui reste à embarquer, comme quand le moteur vérifie l'amélioration.
+    const sans = f.unites.filter((u) => u.option !== oi.id && u.origine !== 'transport')
+    const places = Math.max(0, ...effet.parmi.map((x) => besoinTransport(idx, sans, x.unite, effet.perimetre_transport)))
+    const capacite = (uid: string) => idx.unites.get(uid)?.transport?.capacite ?? 1
+    const offertes = Object.entries(oi.repartition ?? {}).filter(([c]) => c !== cle).reduce((s, [c, q]) => {
+      const x = effet.parmi.find((y) => cleRepartition(y) === c)
+      return s + (x ? capacite(x.unite) * q * (x.nombre ?? 1) : 0)
+    }, 0)
+    restant = Math.max(0, Math.ceil((places - offertes) / (capacite(p.unite) * nombre)))
+  }
   const propre = p?.max !== undefined ? p.max * mult : null
   if (restant === null && propre === null) return null
   return Math.min(restant ?? Infinity, propre ?? Infinity)
