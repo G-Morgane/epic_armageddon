@@ -26,6 +26,20 @@ const problemes = ref<Probleme[]>([])
 const afficherProblemes = ref(false)
 const modalePublier = ref(false)
 const publication = ref({ version: '', changelog: '', encours: false, erreur: '' })
+/** listes de test en échec à la dernière tentative de publication */
+const echecsTests = ref<Array<{ nom: string; raison: string }>>([])
+/**
+ * Retire une liste de test du brouillon. Ces listes viennent de la transcription
+ * d'origine : quand le codex change exprès (améliorations fusionnées, renommées),
+ * elles visent des éléments qui n'existent plus, et rien d'autre ne permet de les ôter.
+ */
+function retirerListeTest(nom: string) {
+  if (!brouillon.value) return
+  if (!confirm(`Retirer la liste de test « ${nom} » ? Elle ne sera plus rejouée à la publication.`)) return
+  const i = brouillon.value.listes_test?.findIndex((t) => t.nom === nom) ?? -1
+  if (i >= 0) brouillon.value.listes_test!.splice(i, 1)
+  echecsTests.value = echecsTests.value.filter((e) => e.nom !== nom)
+}
 const apercuCle = ref(0)
 const visionneuse = ref(false)
 /** Publier recharge la page : le compte rendu doit survivre au rechargement pour être lu. */
@@ -112,11 +126,13 @@ function ouvrirPublier() {
   const v = brouillon.value?.codex.version ?? '1.0'
   const parts = v.split('.').map((x) => parseInt(x, 10))
   publication.value = { version: parts.every((x) => !isNaN(x)) ? [...parts.slice(0, -1), (parts[parts.length - 1] ?? 0) + 1].join('.') : v, changelog: '', encours: false, erreur: '' }
+  echecsTests.value = []
   modalePublier.value = true
 }
 async function publier() {
   publication.value.encours = true
   publication.value.erreur = ''
+  echecsTests.value = []
   try {
     clearTimeout(minuteur)
     await enregistrer()
@@ -131,7 +147,9 @@ async function publier() {
     modalePublier.value = false
     location.reload()
   } catch (e) {
-    publication.value.erreur = (e as { data?: { message?: string } }).data?.message ?? (e as Error).message
+    const d = (e as { data?: { message?: string; data?: { echecs?: Array<{ nom: string; raison: string }> } } }).data
+    echecsTests.value = d?.data?.echecs ?? []
+    publication.value.erreur = echecsTests.value.length ? '' : d?.message ?? (e as Error).message
   } finally {
     publication.value.encours = false
   }
@@ -262,6 +280,14 @@ const apercuUrl = computed(() => `/codex/${slug}/imprimer?brouillon=1&v=${apercu
           <!-- Obligatoire : ce texte suit la version dans l'historique public, et il
                est ce que les joueurs lisent pour savoir ce qui change chez eux. -->
           <label class="mt-3 flex flex-col gap-1 text-xs text-gray-400">Explications de la mise à jour<textarea v-model="publication.changelog" rows="3" class="rounded-md border border-white/10 bg-surface px-3 py-1.5 text-sm text-gray-100" placeholder="Ce qui change pour le joueur : corrections de points, ajout d'unités…" /><span class="text-gray-500">Affiché aux joueurs dans l'historique des versions.</span></label>
+          <div v-if="echecsTests.length" class="mt-3 rounded border border-red-400/30 bg-red-500/10 p-3 text-xs text-red-200">
+            <p class="font-semibold">Listes de test en échec</p>
+            <p class="mt-1 text-red-200/80">Ces listes de contrôle viennent de la transcription du codex. Si le codex a changé exprès (amélioration fusionnée ou renommée), retire celles qui ne correspondent plus, puis publie.</p>
+            <div v-for="t in echecsTests" :key="t.nom" class="mt-2 flex items-start gap-2 border-t border-red-400/20 pt-2">
+              <p class="flex-1"><span class="font-semibold">« {{ t.nom }} »</span> {{ t.raison }}</p>
+              <button type="button" class="shrink-0 rounded border border-red-300/40 px-2 py-0.5 text-[11px] text-red-100 hover:bg-red-500/20" @click="retirerListeTest(t.nom)">Retirer</button>
+            </div>
+          </div>
           <pre v-if="publication.erreur" class="mt-3 whitespace-pre-wrap rounded border border-red-400/30 bg-red-500/10 p-3 text-xs text-red-200">{{ publication.erreur }}</pre>
           <div class="mt-5 flex justify-end gap-2">
             <button type="button" class="rounded-md border border-white/10 px-3 py-1.5 text-sm text-gray-300" @click="modalePublier = false">Annuler</button>

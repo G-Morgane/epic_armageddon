@@ -23,14 +23,22 @@ export default defineEventHandler(async (event) => {
     //    sans eux, une liste qui aligne un Titan échoue en « Formation inconnue »
     const complet = await avecAllies(codex)
     const idx = indexerCodex(complet)
-    const echecs: string[] = []
+    // `echecs` part aussi en données : la modale propose de retirer chaque liste en
+    // échec, seul moyen de s'en défaire depuis l'admin quand le codex a changé exprès
+    const echecs: Array<{ nom: string; raison: string }> = []
     for (const t of complet.listes_test) {
       const r = calculerListeTest(idx, t, slug)
-      if (t.attendu === 'valide' && !r.valide) echecs.push(`« ${t.nom} » devrait être valide : ${r.erreurs.map((e) => e.message).join(' ; ')}`)
-      if (t.attendu === 'refusee' && r.valide) echecs.push(`« ${t.nom} » devrait être refusée`)
-      if (t.attendu === 'refusee' && t.erreur && !r.erreurs.some((e) => e.type === t.erreur)) echecs.push(`« ${t.nom} » : erreur ${t.erreur} attendue`)
+      if (t.attendu === 'valide' && !r.valide) echecs.push({ nom: t.nom, raison: `devrait être valide : ${r.erreurs.map((e) => e.message).join(' ; ')}` })
+      else if (t.attendu === 'refusee' && r.valide) echecs.push({ nom: t.nom, raison: 'devrait être refusée' })
+      else if (t.attendu === 'refusee' && t.erreur && !r.erreurs.some((e) => e.type === t.erreur)) echecs.push({ nom: t.nom, raison: `erreur ${t.erreur} attendue` })
     }
-    if (echecs.length) throw createError({ statusCode: 422, message: `Listes de test en échec :\n${echecs.join('\n')}` })
+    if (echecs.length) {
+      throw createError({
+        statusCode: 422,
+        message: `Listes de test en échec :\n${echecs.map((e) => `« ${e.nom} » ${e.raison}`).join('\n')}`,
+        data: { echecs },
+      })
+    }
     // 3. publication
     const version = body.version.trim()
     await publierBrouillon(slug, version, body.changelog.trim())
