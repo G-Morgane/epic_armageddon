@@ -35,7 +35,7 @@ function ajouter() {
 function supprimer(o: OptionInput) {
   if (!confirm(`Supprimer « ${o.nom} » ? Elle sera retirée des sections et formations.`)) return
   for (const s of codex.value.sections) s.options = (s.options ?? []).filter((x) => x !== o.id)
-  for (const f of codex.value.formations) { f.options = f.options?.filter((x) => x !== o.id); f.options_plus = (f.options_plus ?? []).filter((x) => x !== o.id); f.options_moins = (f.options_moins ?? []).filter((x) => x !== o.id) }
+  for (const f of codex.value.formations) { f.options = f.options?.filter((x) => x !== o.id); f.options_plus = (f.options_plus ?? []).filter((x) => x !== o.id); f.options_moins = (f.options_moins ?? []).filter((x) => x !== o.id); f.options_pas_dessous = (f.options_pas_dessous ?? []).filter((x) => x !== o.id) }
   options.value.splice(options.value.indexOf(o), 1)
 }
 function renommerId(o: OptionInput) {

@@ -100,6 +100,7 @@ export function fusionnerAllies(hote: Codex, allies: Record<string, Codex>): Cod
       copie.options = (f.options ?? sectionAllie?.options ?? []).map(ro)
       copie.options_plus = copie.options_plus.map(ro)
       copie.options_moins = copie.options_moins.map(ro)
+      copie.options_pas_dessous = copie.options_pas_dessous.map(ro)
       for (const v of copie.variantes) {
         v.contraintes = reecrireContraintes(v.contraintes)
         v.composition = v.composition.map((l) => {

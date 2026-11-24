@@ -93,7 +93,7 @@ function toggleTableauOptions(s: SectionInput, on: boolean) {
 
 // ---- formations ----
 function ajouterFormation(s: SectionInput) {
-  const f: FormationInput = { id: idUnique('nouvelle_formation', codex.value.formations), nom: 'Nouvelle formation', variantes: [{ id: 'base', cout: 200, composition: [] }], contraintes: [], options_plus: [], options_moins: [] }
+  const f: FormationInput = { id: idUnique('nouvelle_formation', codex.value.formations), nom: 'Nouvelle formation', variantes: [{ id: 'base', cout: 200, composition: [] }], contraintes: [], options_plus: [], options_moins: [], options_pas_dessous: [] }
   codex.value.formations.push(f)
   s.formations.push(f.id)
   selection.value = { type: 'formation', id: f.id }
@@ -168,10 +168,11 @@ function retirerVariante(f: FormationInput, v: VarianteInput) {
 /** améliorations héritées : la liste propre de la formation si elle en a une, sinon celles de la section */
 const optionsDeBase = (f: FormationInput) => f.options ?? sectionDe(f.id)?.options ?? []
 /**
- * Coche ou décoche d'après l'état affiché de la case, pas d'après la section.
- * Une amélioration héritée se retire par options_moins ; une autre s'ajoute par
- * options_plus, ce qui l'imprime aussi sous la formation dans le PDF. Les deux
- * listes sont nettoyées à chaque clic : une même amélioration dans les deux
+ * La case dit si l'amélioration est disponible pour la formation, d'après son état
+ * affiché. Une amélioration héritée se retire par options_moins ; une autre s'ajoute
+ * par options_plus, sans être imprimée sous la formation (options_pas_dessous) :
+ * c'est l'interrupteur « sous la formation » qui en décide. Les listes sont
+ * nettoyées à chaque clic : une même amélioration dans plusieurs d'entre elles
  * (reste d'une section modifiée entre-temps) rendait la case inopérante.
  */
 function toggleOptionFormation(f: FormationInput, oid: string) {
@@ -179,30 +180,39 @@ function toggleOptionFormation(f: FormationInput, oid: string) {
   const herite = optionsDeBase(f).includes(oid)
   const plus = new Set(f.options_plus ?? [])
   const moins = new Set(f.options_moins ?? [])
+  const pasDessous = new Set(f.options_pas_dessous ?? [])
   plus.delete(oid)
   moins.delete(oid)
-  if (activer && !herite) plus.add(oid)
+  pasDessous.delete(oid)
+  if (activer && !herite) { plus.add(oid); pasDessous.add(oid) }
   if (!activer && herite) moins.add(oid)
   f.options_plus = [...plus]
   f.options_moins = [...moins]
+  f.options_pas_dessous = [...pasDessous]
 }
 function optionActive(f: FormationInput, oid: string) {
   return (optionsDeBase(f).includes(oid) || (f.options_plus ?? []).includes(oid)) && !(f.options_moins ?? []).includes(oid)
 }
 /** imprimée sous le nom de la formation dans le PDF */
-const sousLaFormation = (f: FormationInput | undefined, oid: string) => !!f && (f.options_plus ?? []).includes(oid) && !(f.options_moins ?? []).includes(oid)
+const sousLaFormation = (f: FormationInput | undefined, oid: string) => !!f && (f.options_plus ?? []).includes(oid) && !(f.options_moins ?? []).includes(oid) && !(f.options_pas_dessous ?? []).includes(oid)
 /**
- * Interrupteur « sous la formation », pour une amélioration héritée (section ou
- * liste propre de la formation) : elle reste disponible dans les deux cas, et
- * options_plus l'imprime en plus sous le nom. Une amélioration ajoutée à la
- * formation seule vit dans options_plus : elle est forcément imprimée dessous.
+ * Interrupteur « sous la formation » d'une amélioration disponible. Héritée (section
+ * ou liste propre), elle passe par options_plus ; ajoutée à la formation seule, elle
+ * y est déjà et passe par options_pas_dessous. Elle reste disponible dans tous les cas.
  */
 function toggleSousFormation(f: FormationInput, oid: string) {
-  if (!optionsDeBase(f).includes(oid) || !optionActive(f, oid)) return
+  if (!optionActive(f, oid)) return
+  const dessous = sousLaFormation(f, oid)
   const plus = new Set(f.options_plus ?? [])
-  if (plus.has(oid)) plus.delete(oid)
-  else plus.add(oid)
+  const pasDessous = new Set(f.options_pas_dessous ?? [])
+  if (optionsDeBase(f).includes(oid)) {
+    pasDessous.delete(oid)
+    if (dessous) plus.delete(oid)
+    else plus.add(oid)
+  } else if (dessous) pasDessous.add(oid)
+  else pasDessous.delete(oid)
   f.options_plus = [...plus]
+  f.options_pas_dessous = [...pasDessous]
 }
 function activerSousFormations(f: FormationInput, on: boolean) {
   f.sous_formations = on ? { label: 'essaims instinctifs', total: { min: 2, max: 6 }, parmi: [] } : undefined
@@ -315,14 +325,13 @@ function setTotalSous(f: FormationInput, k: 'min' | 'max', v: number) {
               type="button"
               class="ml-auto shrink-0 rounded border px-1.5 text-[10px]"
               :class="sousLaFormation(formationSel, o.id) ? 'border-gold/60 bg-gold/15 text-gold' : 'border-white/15 text-gray-500 hover:text-gray-300'"
-              :disabled="!optionsDeBase(formationSel).includes(o.id)"
-              :title="optionsDeBase(formationSel).includes(o.id) ? 'Imprimer aussi cette amélioration en italique sous le nom de la formation' : 'Ajoutée à cette formation seule : toujours imprimée sous son nom'"
+              title="Imprimer aussi cette amélioration en italique sous le nom de la formation"
               @click.prevent="toggleSousFormation(formationSel, o.id)"
             >↳ sous la formation{{ sousLaFormation(formationSel, o.id) ? ' ✓' : '' }}</button>
           </label>
           <p v-if="!codex.options?.length" class="text-xs text-gray-600">Aucune option définie (onglet Améliorations).</p>
         </div>
-        <p class="mt-1 text-[11px] text-gray-500">La case rend l'amélioration disponible pour cette formation (colonne ou tableau « Améliorations »). « ↳ sous la formation » l'imprime en plus en italique sous le nom de la formation dans le PDF. Une amélioration cochée qui ne vient ni de la section ni de la liste de la formation y est toujours imprimée.</p>
+        <p class="mt-1 text-[11px] text-gray-500">La case rend l'amélioration disponible pour cette formation (colonne ou tableau « Améliorations »). « ↳ sous la formation » l'imprime en plus en italique sous le nom de la formation dans le PDF.</p>
 
         <p class="lbl mt-4">Règles propres à cette formation</p>
         <AdminCodexReglesEditeur :contraintes="formationSel.contraintes as any" portee="formation" />

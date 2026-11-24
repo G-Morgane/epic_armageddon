@@ -115,7 +115,7 @@ const visible = (oid: string) => !idx.options.get(oid)?.masque_pdf
 /** améliorations imprimées sous le nom de la formation : ajoutées à elle seule, et pas retirées */
 const sousFormation = (fid: string) => {
   const f = idx.formations.get(fid)
-  return f ? f.options_plus.filter((o) => visible(o) && !f.options_moins.includes(o)) : []
+  return f ? f.options_plus.filter((o) => visible(o) && !f.options_moins.includes(o) && !f.options_pas_dessous.includes(o)) : []
 }
 const optionsPdf = (s: Section) => optionsDeSection(idx, s).filter((o) => !o.masque_pdf)
 

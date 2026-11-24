@@ -274,6 +274,8 @@ export const FormationSchema = z.object({
   options: z.array(id).optional(),
   options_plus: z.array(id).default([]),
   options_moins: z.array(id).default([]),
+  /** améliorations de options_plus disponibles sans être imprimées sous le nom de la formation dans le PDF */
+  options_pas_dessous: z.array(id).default([]),
   contraintes: z.array(ContrainteSchema).default([]),
   /** formations à choisir dans la liste et rattachées (Tyranides : essaims instinctifs) */
   sous_formations: SousFormations.optional(),
@@ -480,7 +482,7 @@ export function verifierReferences(codex: Codex): string[] {
   for (const fo of codex.formations) {
     const ctx = `formation ${fo.id}`
     c(ctx, fo.contraintes)
-    fo.options?.forEach((x) => o(ctx, x)); fo.options_plus.forEach((x) => o(ctx, x)); fo.options_moins.forEach((x) => o(ctx, x))
+    fo.options?.forEach((x) => o(ctx, x)); fo.options_plus.forEach((x) => o(ctx, x)); fo.options_moins.forEach((x) => o(ctx, x)); fo.options_pas_dessous.forEach((x) => o(ctx, x))
     fo.sous_formations?.parmi.forEach((x) => f(ctx, x))
     for (const v of fo.variantes) {
       c(`${ctx} / ${v.id}`, v.contraintes)
