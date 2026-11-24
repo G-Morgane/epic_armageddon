@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
-import { codexDeArmee, type CodexMeta } from '~/utils/codex-armee'
+import { codexDeArmee, codexAvecBuilder, type CodexMeta } from '~/utils/codex-armee'
 
 type ArmyWithVersions = Army & { army_versions: ArmyVersion[] }
 
@@ -20,7 +20,10 @@ const currentVersion = computed(() =>
   army.value?.army_versions?.find(v => v.is_current),
 )
 
-const codex = computed(() => codexDeArmee(tousCodex.value, id, army.value?.name))
+// Bêta, expérimental, 30k : PDF déposé à la main seulement, même si un codex a été transcrit
+const codex = computed(() => (army.value && ['beta', 'experimental', '30k'].includes(army.value.status ?? '')
+  ? undefined
+  : codexDeArmee(codexAvecBuilder(tousCodex.value), id, army.value?.name)))
 const apercuOuvert = ref(false)
 
 /** Historique des publications du codex : chaque REV se retélécharge. */

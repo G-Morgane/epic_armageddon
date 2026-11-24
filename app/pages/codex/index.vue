@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { codexAvecBuilder } from '~/utils/codex-armee'
 /**
  * Point d'entrée de la construction d'armée : on choisit son codex, on lance le
  * builder ou on regarde le PDF. La même fiche YAML alimente les deux sorties.
@@ -36,8 +37,8 @@ useSeoMeta({
 const { data: tous, status } = await useFetch<CodexMeta[]>('/api/codex', { lazy: true })
 const chargement = computed(() => status.value === 'pending' || status.value === 'idle')
 
-const codex = computed(() => (tous.value ?? []).filter(c => c.type !== 'soutien'))
-const soutiens = computed(() => (tous.value ?? []).filter(c => c.type === 'soutien'))
+const codex = computed(() => codexAvecBuilder(tous.value).filter(c => c.type !== 'soutien'))
+const soutiens = computed(() => codexAvecBuilder(tous.value).filter(c => c.type === 'soutien'))
 
 const FACTIONS = [
   { cle: 'imperium', label: 'Imperium' },

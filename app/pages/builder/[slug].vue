@@ -5,12 +5,18 @@ import type { Liste, FormationInstance } from '~~/shared/codex/liste'
 import { genererId, allegeancesDe } from '~~/shared/codex/liste'
 import { lignesFormation, prefixeFormation } from '~~/shared/codex/phrases'
 import { texteDiscord } from '~~/shared/codex/discord'
+import { avecBuilder } from '~/utils/codex-armee'
 
 const route = useRoute()
 const slug = route.params.slug as string
 const brouillon = route.query.brouillon ? '?brouillon=1' : ''
 const { data: codex, error } = await useFetch<Codex>(`/api/codex/${slug}${brouillon}`)
 if (error.value || !codex.value) throw createError({ statusCode: 404, statusMessage: 'Codex introuvable' })
+// Bêta, expérimental, 30k : pas de builder (choix du Board), le codex se lit dans son
+// PDF déposé. Le brouillon reste testable depuis l'admin.
+if (!brouillon && !avecBuilder(codex.value.codex)) {
+  throw createError({ statusCode: 404, statusMessage: 'Pas de construction en ligne pour ce codex : il se télécharge en PDF depuis la page Codex Bêta & Expérimentaux ou Epic 30k.' })
+}
 const c = codex.value
 const idx = indexerCodex(c)
 useHead({ title: `Construction d'armée · ${c.codex.nom}` })

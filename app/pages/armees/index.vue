@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
-import { codexDeArmee, type CodexMeta, type PublicationCodex } from '~/utils/codex-armee'
+import { codexDeArmee, codexAvecBuilder, type CodexMeta, type PublicationCodex } from '~/utils/codex-armee'
 
 const urlSite = useUrlSite()
 
@@ -67,7 +67,7 @@ const armeesFavorites = computed(() => (favoris.value ?? []).map(f => armeesParI
 const revParArmee = computed(() => {
   const m = new Map<string, string>()
   for (const a of [...(toutesArmees.value ?? []), ...armeesFavorites.value]) {
-    const rev = codexDeArmee(tousCodex.value, a.id, a.name)?.version ?? a.army_versions?.[0]?.version
+    const rev = codexDeArmee(codexAvecBuilder(tousCodex.value), a.id, a.name)?.version ?? a.army_versions?.[0]?.version
     if (rev) m.set(a.id, rev)
   }
   return m
@@ -148,7 +148,7 @@ const publicationParSlug = computed(() => new Map((publications.value ?? []).map
  */
 function derniereNouveaute(army: ArmyWithVersion) {
   const dates = (army.army_versions ?? []).map(v => v.published_at).filter(Boolean)
-  const codex = codexDeArmee(tousCodex.value, army.id, army.name)
+  const codex = codexDeArmee(codexAvecBuilder(tousCodex.value), army.id, army.name)
   const publication = codex ? publicationParSlug.value.get(codex.slug) : undefined
   if (publication && publication.revs > 1) dates.push(publication.publie)
   return dates.sort((a, b) => +new Date(b) - +new Date(a))[0]

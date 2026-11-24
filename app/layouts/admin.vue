@@ -26,6 +26,7 @@ const navItems = computed(() => {
     { label: 'Armées', to: '/admin', icon: 'shield' },
     { label: 'Outils', to: '/admin/tools', icon: 'wrench' },
     { label: 'Documents', to: '/admin/documents', icon: 'document' },
+    { label: 'Archives', to: '/admin/archives', icon: 'document' },
     { label: 'Événements', to: '/admin/events', icon: 'calendar' },
     { label: 'Signalements', to: '/admin/signalements', icon: 'bug', badge: signalementsOuverts.value },
     { label: 'Tutos', to: '/admin/tutos', icon: 'play' },

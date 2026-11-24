@@ -41,6 +41,7 @@ const navLinks = [
   { label: 'Événements', to: '/evenements' },
   { label: 'Outils', to: '/outils' },
   { label: 'Communauté', to: '/communaute' },
+  { label: 'Archives', to: '/archives' },
 ]
 
 const openDropdown = ref<string | null>(null)

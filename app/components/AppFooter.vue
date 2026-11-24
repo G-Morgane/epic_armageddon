@@ -16,6 +16,7 @@ const footerLinks = [
     links: [
       { label: 'Événements', to: '/evenements' },
       { label: 'Communauté', to: '/communaute' },
+      { label: 'Archives', to: '/archives' },
     ],
   },
 ]

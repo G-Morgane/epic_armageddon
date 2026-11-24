@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
-import { codexDeArmee, type CodexMeta } from '~/utils/codex-armee'
+
 
 const urlSite = useUrlSite()
 
@@ -23,10 +23,6 @@ const { data: betaArmies } = await useFetch<ArmyWithVersion[]>('/api/armies', {
 const { data: experimentalArmies } = await useFetch<ArmyWithVersion[]>('/api/armies', {
   query: { status: 'experimental' },
 })
-// Presque tous les codex transcrits récemment sont expérimentaux : c'est ici
-// qu'ils atterrissent. Sans cet appel la page ne propose que l'ancien PDF déposé
-// à la main, parfois absent, alors que le codex dynamique et son builder existent.
-const { data: tousCodex } = await useFetch<CodexMeta[]>('/api/codex')
 
 const factionLabels: Record<string, string> = {
   imperium: 'Imperium',
@@ -61,20 +57,16 @@ const tabColor = computed(() =>
 /**
  * Où mène une carte, et ce qu'elle annonce.
  *
- * Trois cas, dans cet ordre : un codex dynamique existe et la carte mène à la
- * fiche de l'armée (PDF composé, historique, builder) ; sinon un PDF déposé à
- * la main, et la carte le télécharge ; sinon rien, la carte reste inerte et dit
- * « Bientôt ». Le lien principal est posé en surimpression plutôt qu'autour de
- * la carte : le bouton « Construire » ne peut pas vivre dans un lien.
+ * Les codex bêta et expérimentaux se publient en PDF déposé à la main (choix du
+ * Board) : pas de builder ni de PDF composé, même si un codex a été transcrit.
+ * Un PDF déposé : la carte le télécharge ; sinon elle reste inerte et dit « Bientôt ».
  */
 const cartes = computed(() => {
   const m = new Map<string, { balise: 'NuxtLink' | 'a' | 'div'; to?: string; href?: string; rev?: string; builder?: string; slug?: string }>()
   for (const army of [...(betaArmies.value ?? []), ...(experimentalArmies.value ?? [])]) {
-    const codex = codexDeArmee(tousCodex.value, army.id, army.name)
-    const version = army.army_versions?.[0]
+    const version = army.army_versions?.find(v => v.is_current) ?? army.army_versions?.[0]
     const pdf = version?.pdf_url && version.pdf_url !== '#' ? version.pdf_url : undefined
-    if (codex) m.set(army.id, { balise: 'NuxtLink', to: `/armees/${army.faction}/${army.id}`, rev: codex.version, builder: `/builder/${codex.slug}`, slug: codex.slug })
-    else if (pdf) m.set(army.id, { balise: 'a', href: pdf, rev: version?.version })
+    if (pdf) m.set(army.id, { balise: 'a', href: pdf, rev: version?.version })
     else m.set(army.id, { balise: 'div', rev: version?.version })
   }
   return m

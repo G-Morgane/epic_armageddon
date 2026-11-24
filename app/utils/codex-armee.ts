@@ -44,3 +44,15 @@ export function codexDeArmee<T extends { armee_id?: string; nom: string; type: s
   const armees = (tous ?? []).filter(c => c.type !== 'soutien')
   return armees.find(c => c.armee_id === id) ?? armees.find(c => !c.armee_id && cle(c.nom) === cle(nom))
 }
+
+/**
+ * Seuls les codex officiels ont un builder et un PDF composé. Les codex bêta,
+ * expérimentaux et 30k, écrits par toute la communauté, se publient en PDF déposé
+ * à la main (choix du Board) : sur le site public, ils n'ont pas de codex dynamique.
+ */
+export const avecBuilder = (c: { statut?: string }) => !c.statut || c.statut === 'official'
+
+/** Le catalogue réduit aux codex qui ont un builder, pour rattacher une armée côté public. */
+export function codexAvecBuilder<T extends { statut?: string }>(tous: T[] | null | undefined): T[] {
+  return (tous ?? []).filter(avecBuilder)
+}

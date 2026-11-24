@@ -4,7 +4,7 @@
  * pseudo de son auteur. Recherche sur le nom de la liste ou le pseudo, filtres
  * par faction et par codex, 24 listes par page.
  */
-import type { CodexMeta } from '~/utils/codex-armee'
+import { codexAvecBuilder, type CodexMeta } from '~/utils/codex-armee'
 import type { ListePublique } from '~/utils/listes-publiques'
 
 const urlSite = useUrlSite()
@@ -39,7 +39,7 @@ watch([faction, codexChoisi], () => { page.value = 1 })
 watch(faction, () => { codexChoisi.value = '' })
 
 const { data: tousCodex } = await useFetch<CodexMeta[]>('/api/codex', { lazy: true })
-const codexJouables = computed(() => (tousCodex.value ?? []).filter((c) => c.type !== 'soutien'))
+const codexJouables = computed(() => codexAvecBuilder(tousCodex.value).filter((c) => c.type !== 'soutien'))
 const codexDeFaction = computed(() => codexJouables.value.filter((c) => !faction.value || c.faction === faction.value).sort((a, b) => a.nom.localeCompare(b.nom, 'fr')))
 const nomCodex = (slug: string) => (tousCodex.value ?? []).find((c) => c.slug === slug)?.nom ?? slug
 

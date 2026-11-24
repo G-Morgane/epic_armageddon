@@ -223,7 +223,15 @@ async function archiveArmy(army: Army) {
 const showCreateModal = ref(false)
 const createName = ref('')
 const createFaction = ref<'imperium' | 'chaos' | 'xenos'>('imperium')
-const createType = ref<'armee' | 'soutien'>('armee')
+/**
+ * `pdf` : codex bêta, expérimental ou 30k. Le Board veut que ceux-là se publient en
+ * PDF déposé à la main, sans builder ni mise en page automatique : on crée la fiche
+ * `armies` et sa première version, comme avant les codex dynamiques.
+ */
+const createType = ref<'armee' | 'soutien' | 'pdf'>('armee')
+const createStatus = ref<'beta' | 'experimental' | '30k'>('beta')
+const createVersion = ref('1.0')
+const createPdf = ref<File | null>(null)
 const creating = ref(false)
 const createError = ref('')
 
@@ -231,7 +239,51 @@ function resetCreateModal() {
   createName.value = ''
   createFaction.value = 'imperium'
   createType.value = 'armee'
+  createStatus.value = 'beta'
+  createVersion.value = '1.0'
+  createPdf.value = null
   createError.value = ''
+}
+
+async function createArmyPdf() {
+  if (!createPdf.value || !createVersion.value.trim()) {
+    createError.value = 'Le PDF et son numéro de version sont obligatoires.'
+    return
+  }
+  const nom = createName.value.trim()
+  const slug = nom.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-')
+  let pdfUrl: string
+  try {
+    pdfUrl = await uploadPdf(createPdf.value, `${createFaction.value}/${slug}-v${createVersion.value.trim()}.pdf`)
+  } catch (e) {
+    createError.value = 'Erreur upload PDF : ' + ((e as Error).message || e)
+    return
+  }
+  const { data: armee, error } = await supabase
+    .from('armies')
+    .insert({ name: nom, faction: createFaction.value, status: createStatus.value })
+    .select()
+    .single()
+  if (error || !armee) {
+    createError.value = 'Erreur création : ' + (error?.message ?? 'fiche non créée')
+    return
+  }
+  const { error: errVersion } = await supabase.from('army_versions').insert({
+    army_id: armee.id,
+    version: createVersion.value.trim(),
+    pdf_url: pdfUrl,
+    changelog: 'Version initiale',
+    is_current: true,
+    published_at: new Date().toISOString(),
+  })
+  if (errVersion) {
+    createError.value = 'Fiche créée, mais la version du PDF n\'a pas pu être enregistrée : ' + errVersion.message
+    await refresh()
+    return
+  }
+  showCreateModal.value = false
+  resetCreateModal()
+  await refresh()
 }
 
 async function createArmy() {
@@ -241,6 +293,10 @@ async function createArmy() {
   }
   creating.value = true
   createError.value = ''
+  if (createType.value === 'pdf') {
+    try { await createArmyPdf() } finally { creating.value = false }
+    return
+  }
   try {
     const r = await $fetch<{ slug: string }>('/api/admin/codex', {
       method: 'POST',
@@ -683,7 +739,7 @@ const editFactionTags = computed(() =>
                 Codex
               </NuxtLink>
               <button
-                v-else-if="ligne.armee && codexCharges"
+                v-else-if="ligne.armee && codexCharges && !['beta', 'experimental', '30k'].includes(ligne.statut)"
                 :disabled="creationPour === ligne.armee.id"
                 class="inline-flex items-center gap-1.5 rounded-lg border border-gold/20 px-3 py-1.5 text-xs text-gold transition-colors hover:bg-gold/10 disabled:opacity-50"
                 @click="creerCodexPour(ligne.armee)"
@@ -1065,7 +1121,7 @@ const editFactionTags = computed(() =>
         <div class="w-full max-w-md rounded-xl border border-gold/20 bg-surface-light p-6">
           <h2 class="font-heading text-2xl font-bold text-gold">Nouvelle armée</h2>
           <p class="mt-1 text-sm text-gray-400">
-            Une armée naît de son codex : unités, formations et règles. Le PDF et la construction d'armée en découlent.
+            Une armée officielle naît de son codex : unités, formations et règles, d'où découlent le PDF et le builder. Les codex bêta, expérimentaux et 30k se publient en PDF déposé.
           </p>
 
           <form class="mt-5 space-y-4" @submit.prevent="createArmy">
@@ -1092,6 +1148,17 @@ const editFactionTags = computed(() =>
                 <span class="block font-semibold">Liste de soutien partagée</span>
                 <span class="block text-xs">Titans, aviation… proposée en alliance par d'autres codex, pas jouable seule.</span>
               </button>
+              <button
+                type="button"
+                :class="[
+                  'col-span-2 rounded-md border px-3 py-2 text-left transition-colors',
+                  createType === 'pdf' ? 'border-gold bg-gold/10 text-gray-100' : 'border-white/10 text-gray-400 hover:border-white/30',
+                ]"
+                @click="createType = 'pdf'"
+              >
+                <span class="block font-semibold">Bêta, expérimental ou 30k : PDF déposé</span>
+                <span class="block text-xs">Pas de codex en ligne ni de builder : le PDF fait par l'auteur est téléchargé tel quel. Les versions suivantes se déposent avec le bouton PDF de la ligne.</span>
+              </button>
             </div>
 
             <div>
@@ -1116,6 +1183,37 @@ const editFactionTags = computed(() =>
                 <option value="xenos">Xenos</option>
               </select>
             </div>
+
+            <template v-if="createType === 'pdf'">
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-sm font-medium text-gray-300">Statut</label>
+                  <select
+                    v-model="createStatus"
+                    class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                  >
+                    <option value="beta">Bêta</option>
+                    <option value="experimental">Expérimental</option>
+                    <option value="30k">Epic 30k</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-300">Version</label>
+                  <input
+                    v-model="createVersion"
+                    type="text"
+                    class="mt-1 w-full rounded-lg border border-white/10 bg-surface px-4 py-2.5 text-sm text-gray-200 focus:border-gold/30 focus:outline-none focus:ring-1 focus:ring-gold/20"
+                  >
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-300">Fichier PDF</label>
+                <label class="mt-1 flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-white/15 bg-surface px-4 py-2.5 text-sm text-gray-400 hover:border-gold/30">
+                  <span class="truncate">{{ createPdf ? createPdf.name : 'Sélectionner un PDF' }}</span>
+                  <input type="file" accept=".pdf" class="hidden" @change="createPdf = ($event.target as HTMLInputElement).files?.[0] ?? null">
+                </label>
+              </div>
+            </template>
 
             <div v-if="createError" class="rounded-lg border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400">
               {{ createError }}
