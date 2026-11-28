@@ -1,0 +1,699 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+LÉGION D’ACIER 
+ 
+ 
+ 
+"Héros d’Armageddon ! Vous avez résisté à l’horrible 
+sauvagerie des Orks, et à présent vous n’avez plus rien à en 
+craindre. Levez haut l’étendard noir de la vengeance, car la 
+victoire sera à nous ! "  
+ 
+Commissaire Yarrick durant la IIIème Guerre pour Armageddon 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied un régiment 
+générique de l’Astra Militarum basée sur ceux de la Légion 
+d'Acier lors de  la IIIème Guerre pour Armageddon. Cette liste 
+peut également être utilisée pour représenter des régiments 
+mécanisés de la Garde Impériale d’autres origines comme 
+ceux de Cadia, de Tallarn ou de Valhalla.  
+Les armées de l’Astra Militarum sont organisées autour de 
+grandes formations appelées compagnies, elles-mêmes 
+complétées par des formations d’appui qui leurs sont 
+autonomes. 
+Chaque compagnie peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut être prise qu’une fois par compagnie. Les améliorations 
+font partie intégrante des détachements et doivent respecter 
+les règles de cohésion. Chaque compagnie peut prendre 
+jusqu’à trois améliorations.  
+Les formations de support sont des formations autonomes 
+des 
+compagnies. 
+Elles 
+ne 
+peuvent 
+pas 
+recevoir 
+d'améliorations. Un maximum de ⅓ des points peuvent être 
+dépensés pour ces formations. 
+ 
+ 
+ 
+ 
+Insigne régimentaire de la Légion d'Acier 
+ 
+ 
+Règle spéciale : Commissaires 
+ 
+Pour chaque Compagnie qu'inclut votre armée, un 
+commissaire y est automatiquement intégré. 
+ 
+De plus, vous pouvez ajouter gratuitement un commissaire 
+dans une Formation d'Appui pour chaque tranche (même 
+incomplète) de 1.000 points dans votre armée hors 
+formations de support. 
+ 
+Une compagnie ou une formation ne peut avoir qu'un seul 
+commissaire. 
+ 
+Lors de la IIIème Guerre pour Armageddon, la Très Glorieuse Légion d'Acier put 
+triomphalement dérouter des contingents entiers d’Orks vers la Cité-Ruche de 
+Tempestora et les y contenir, pitoyablement assiégés, pour y être bombardés 
+par l’artillerie dans un déluge de feu splendide et monumental, à la plus Grande 
+Gloire du Très-Saint Empereur de l’Humanité. 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Games Workshop LTD. 
+1 - CODEX LÉGION D'ACIER - EAFR - REV 1.3.1 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE DE LA LÉGION D'ACIER 
+ 
+Les armées de la Légion d'Acier ont une valeur stratégique de 2. Les soutiens de l’Adeptus Titanicus ont une initiative de 1+. 
+Les autres détachements ont une initiative de 2+. 
+ 
+COMPAGNIES DE LA LÉGION D'ACIER 
+Formations 
+Unités 
+Coût 
+0-1 QG Régimentaire 
+1 QG Régimentaire, 12 unités de Gardes Impériaux et 7 Chimères 
+450 pts 
+Compagnie d’Infanterie Mécanisée 
+1 unité de Commandement, 12 de Gardes Impériaux et 7 Chimères 
+400 pts 
+Compagnie d’Infanterie 
+1 unité de Commandement et 12 de Gardes Impériaux 
+250 pts 
+Compagnie Blindée 
+10 Leman Russ, dont 1 peut devenir un Vanquisher gratuitement 
+Remplacez 3 Leman Russ par 3 Leman Russ Démolisseurs 
+600 pts 
+(+50 pts) 
+Compagnie de Super Lourds 
+3 Baneblades et/ou Shadowswords, selon n’importe quelle combinaison 
+500 pts 
+Compagnie d’Artillerie 
+9 unités d’Artillerie parmi : Basilisks, Manticores, Bombardes 
+550 pts 
+FORMATIONS D'APPUI DE LA LÉGION D'ACIER 
+(Jusqu’à 2 formations de support par compagnie) 
+Formations 
+Unités 
+Coût 
+Peloton de char Super Lourd 
+1 Baneblade OU 1 Shadowsword 
+200 pts 
+Peloton de Leman Russ 
+6 Leman Russ 
+350 pts 
+Batterie d’Artillerie 
+ 
+ou 
+3 Basilisks 
+3 Manticores ou 3 Bombardes 
+225 pts 
+250 pts 
+0-1 Batterie de Missiles Deathstrike 2 Lances-Missiles Deathstrike 
+225 pts 
+Batterie Anti-Aérienne 
+3 Hydres 
+150 pt 
+Escadron de Sentinelles 
+4 Sentinelles 
+100 pts 
+Peloton de Rough Riders 
+6 escouades de Rough Riders 
+150 pts 
+Militarum Tempestus 
+8 unités de Tempestus Scions 
+Ajouter 4 Valkyries 
+200 pts 
+(+150 pts) 
+Escadron de Vultures 
+4 Vultures 
+300 pts 
+ 
+AMÉLIORATIONS DE COMPAGNIES DE LA LÉGION D'ACIER 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation et jusqu'à un maximum de 3) 
+Améliorations 
+Unités 
+Coût 
+Peloton d’Appui-feu* 
+4 unités d’Appui-feu 
+100 pts 
+Peloton d’Infanterie* 
+6 unités de Gardes Impériaux 
+100 pts 
+Escadron de Chars 
+ou 
+3 Leman Russ 
+3 Leman Russ Démolisseurs 
+175 pts 
+225 pts 
+Escadron de Hellhounds 
+3 Hellhounds 
+150 pts 
+Batterie de Griffons 
+3 Griffons 
+100 pts 
+DCA 
+1 Hydre 
+50 pts 
+Snipers* 
+1 à 2 unités de Ratlings* 
+25 pts chacun 
+Ogryns* 
+1 à 2 unités d’Ogryns* 
+25 pts chacun 
+*Les unités de cette amélioration peuvent être embarquées pour 25 points par Chimère. Vous ne pouvez pas prendre plus de Chimères que nécessaire pour embarquer ces troupes. 
+ 
+SUPPORTS DE LA LÉGION D'ACIER 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+FLOTTES DE L'AERONAUTICA IMPERIALIS 
+ 
+SOUTIENS DE L'ADEPTUS TITANICUS 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Escadrille d’Intercepteurs 
+ 
+ou 
+2 Chasseurs Thunderbolts 
+4 Chasseurs Thunderbolts 
+150 pts 
+300 pts 
+ 
+Titan Warhound 
+1 Titan Warhound 
+275 pts 
+Escadrille de Bombardiers 
+ 
+2 Bombardiers Marauders 
+250 pts 
+ 
+Meute de Warhounds 
+2 Titans Warhounds 
+500 pts 
+Soutien Orbital 
+ 
+ou 
+1 Croiseur Lunar 
+1 Cuirassé Emperor 
+150 pts 
+300 pts 
+ 
+Titan Reaver 
+1 Titan Reaver 
+650 pts 
+ 
+ 
+ 
+ 
+ 
+Titan Warlord 
+1 Titan Warlord 
+850 pts 
+ 
+2 - CODEX LÉGION D'ACIER - EAFR - REV 1.3.1 
+
+===== PAGE 4 =====
+FEUILLE DE RÉFÉRENCES LÉGION D'ACIER 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Quartier Général 
+Inf 
+15cm 
+5+ 
+4+ 5+ Autocanon 
+Fusils Laser 
+Eviscerator 
+45cm 
+(15cm) 
+(contact) 
+AP5+/AC6+ 
+Arme Légère 
+Arme d'Assaut, MA 
+Commandant Suprême 
+Commandement 
+Inf 
+15cm 
+6+ 
+5+ 5+ Autocanon 
+Fusils Laser 
+Épée tronçonneuse 
+45cm 
+(15cm) 
+(contact) 
+AP5+/AC6+ 
+Arme Légère 
+Arme d'Assaut 
+Commandant 
+Commissaire 
+Perso - 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) Arme d'Assaut, +1A, MA Charismatique, Meneur, Sans Peur 
+Gardes Impériaux 
+Inf 
+15cm 
+- 
+6+ 5+ ½ Autocanon 
+Fusils Laser 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+Une unité sur deux, arrondi au supérieur, peut tirer à l'autocanon 
+Appui-feu 
+Inf 
+15cm 
+- 
+6+ 4+ 2x Autocanon 
+45cm 
+AP5+/AC6+ 
+ 
+Ratlings 
+Inf 
+15cm 
+- 
+6+ 5+ Fusils de sniper 
+30cm 
+AP5+, Snp 
+Éclaireur 
+Ogryns 
+Inf 
+15cm 
+3+ 
+4+ 5+ Ripper guns 
+Arme de Corps-à-corps 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut, +1A 
+Massif (prennent 2 places dans les transports) 
+Tempestus Scions 
+Inf 
+15cm 
+5+ 
+5+ 4+ Lance-plasma 
+Fusils Radiants Laser 
+15cm 
+(15cm) 
+AP5+/AC5+ 
+Arme Légère 
+Éclaireur 
+Rough Riders 
+Inf 
+20cm 
+6+ 
+4+ 6+ Pistolets Laser 
+Lances Énergétiques 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut, FeP 
+Montés, Éclaireur, Infiltrateur 
+Sentinelle 
+VL 
+20cm 
+6+ 
+6+ 5+ Multi-Laser 
+30cm 
+AP5+/AC6+ 
+Marcheur, Éclaireur 
+Hydre 
+VB 
+30cm 
+6+ 
+6+ 5+ 2x Canons Hydre 
+Bolter Lourd 
+45cm 
+30cm 
+AP4+/AC5+/AA5+ 
+AP5+ 
+ 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 5+ Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Infanterie 
+Hellhound 
+VB 
+30cm 
+4+ 
+6+ 3+ Canon Inferno 
+et 
+Bolter Lourd 
+30cm 
+(15cm) 
+30cm 
+AP3+, IC 
+Arme Légère, IC 
+AP5+ 
+ 
+Valkyrie 
+VB 
+35cm 
+5+ 
+6+ 5+ Multi-Laser 
+2x Bolter Lourd 
+2x Nacelles de roquettes 
+30cm 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+1PB, Uniq, Rpt 
+Antigrav, Éclaireur, Transport (2) 
+Vulture 
+VB 
+35cm 
+5+ 
+6+ 5+ 2x Hellstrikes 
+Autocanons Jumelés 
+Bolter Lourd 
+90cm 
+45cm 
+30cm 
+AC3+, Uniq 
+AP4+/AC5+ 
+AP5+ 
+Antigrav, Éclaireur 
+ 
+3 - CODEX LÉGION D'ACIER - EAFR - REV 1.3.1 
+
+===== PAGE 5 =====
+FEUILLE DE RÉFÉRENCES LÉGION D'ACIER 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Leman Russ 
+VB 
+20cm 
+4+ 
+6+ 4+ Obusier 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC4+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ Vanquisher VB 
+20cm 
+4+ 
+6+ 4+ Canon Vanquisher 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC2+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ Démolisseur VB 
+20cm 
+4+ 
+6+ 4+ Canon Démolisseur 
+et 
+Canon Laser 
+2x Lance-Plasma Lourds 
+30cm 
+(15cm) 
+45cm 
+30cm 
+MA4+ 
+Arme Légère, +1A, MA 
+AC5+ 
+AP5+/AC5+ 
+Blindage Renforcé 
+Griffon 
+VB 
+30cm 
+6+ 
+6+ 5+ Mortier Griffon 
+Bolter Lourd 
+30cm 
+30cm 
+1PB, Ind 
+AP5+ 
+ 
+Basilisk 
+VB 
+20cm 
+5+ 
+6+ 5+ Canon Tremble-Terre 
+ou 
+Bolter Lourd 
+120cm 
+120cm 
+30cm 
+1PB, Ind 
+AP4+/AC4+ 
+AP5+ 
+ 
+Manticore 
+VB 
+20cm 
+6+ 
+6+ 5+ Lance-roquettes (Manticore) 
+Bolter Lourd 
+150cm 
+30cm 
+2PB, Ind, Rpt, Rchg 
+AP5+ 
+ 
+Bombarde 
+VB 
+20cm 
+6+ 
+6+ 5+ Mortier de Siège 
+Bolter Lourd 
+60cm 
+30cm 
+2PB, Ind, Rchg, IC 
+AP5+ 
+ 
+Deathstrike 
+VB 
+20cm 
+6+ 
+6+ 5+ Missile Deathstrike 
+Bolter Lourd 
+∞ 
+30cm 
+MA2+, Uniq, TT (D6), Ind 
+AP5+ 
+ 
+Baneblade 
+EG 
+15cm 
+4+ 
+6+ 4+ Super Obusier 
+Autocanon 
+2x Canon Laser 
+Canon Démolisseur (FF) 
+et 
+Bolters Lourds Jumelés (FF) 
+2x Bolters Lourds Jumelés 
+75cm 
+45cm 
+45cm 
+30cm 
+(15cm) 
+30cm 
+30cm 
+AP3+/AC3+ 
+AP5+/AC6+ 
+AC5+ 
+MA4+, FrtF 
+Arme Légère, +1A, MA 
+AP4+, FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 - Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Shadowsword 
+EG 
+15cm 
+4+ 
+6+ 5+ Canon Volcano (FF) 
+2x Bolters Lourds Jumelés 
+90cm 
+30cm 
+MA2+, TT (D3), FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+ 
+4 - CODEX LÉGION D'ACIER - EAFR - REV 1.3.1 
+
+===== PAGE 6 =====
+ 
+FEUILLE DE RÉFÉRENCES FLOTTES DE L’AERONAUTICA IMPERIALIS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Thunderbolt 
+A 
+CB 
+6+ 
+- 
+- 
+Fulgurants 
+Multi-Lasers (FF) 
+Roquettes 
+15cm 
+30cm 
+30cm 
+AP4+/AA5+, FrtF 
+AP5+/AC6+/AA5+, FrtF 
+AC4+, FrtF 
+ 
+Bombardier Marauder A/EG 
+B 
+5+ 
+- 
+- 
+Bolters Lourds Jumelés (AA) 
+Bolters Lourds Jumelés (AA Arr) 
+Canons Laser Jumelés (AA Avant) 
+Bombes (Bomber) 
+30cm 
+30cm 
+45cm 
+15cm 
+AA5+ 
+AA5+, Arr 
+AC4+/AA5+, FrtF 
+3PB, FrtF 
+CD2 – Critique: le Bombardier Marauder s'écrase au sol et est détruit 
+Croiseur Classe 
+Lunar 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (3) 
+Frappe chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+ 
+Cuirassé Emperor 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (8) 
+∞ 
+8PB, MA 
+Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne 
+précise le contraire. 
+FEUILLE DE RÉFÉRENCES SOUTIENS DE L’ADEPTUS TITANICUS 
+Nom 
+Type Vitesse Blindage CC FF 
+Arme 
+Portée Puissance de feu 
+Notes 
+Warhound 
+EG 
+30cm 
+5+ 
+4+ 
+4+ 
+Méga Bolter Vulcain (F) 
+Canon Plasma Léger (F) 
+45cm 
+45cm 
+4x AP3+/AC5+, Frt 
+2xMA2+, Rchg, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD3 / BI2 – Critique : Le titan est déséquilibré et vacille Déplacez-le dans une direction 
+aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne 
+peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il 
+percute subissent une touche sur un résultat de 6+ 
+Reaver 
+EG 
+20cm 
+4+ 
+3+ 
+3+ 
+Lance-missiles Apocalypse 
+2x Destructeurs Turbo laser 
+60cm 
+60cm 
+4PB, FrtF 
+4xAP5+/AC3+, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ 
+aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée 
+Warlord 
+EG 
+15cm 
+4+ 
+2+ 
+3+ 
+2x Destructeurs Turbo laser (FF) 
+Canon Gatling 
+Canon Volcano 
+60cm 
+60cm 
+90cm 
+4xAP5+/AC3+, FrtF 
+4xAP4+/AC4+, Frt 
+MA2+, TT (D3), Frt 
+Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ 
+aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée 
+ 
+5 - CODEX LÉGION D'ACIER - EAFR - REV 1.3.1 

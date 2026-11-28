@@ -1,0 +1,596 @@
+{
+ "codex": {
+  "id": "adeptus_sororitas",
+  "name": "Adeptus Sororitas",
+  "version": "1.0.1",
+  "faction": "Impérium",
+  "color": "#610505",
+  "logo": "sororita.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+",
+   "initiative_ordre_militant": "1+ (formations d'Ordre Militant, Incinérator et Cathédrale)",
+   "taille_transport": {
+    "soeur_bataille": 1,
+    "celeste": 1,
+    "retributor": 1,
+    "seraphine": 1,
+    "dominion": 1,
+    "repentia": 1,
+    "redemptionniste": 1,
+    "troupe_choc_inq": 1,
+    "cultiste_parque": 1,
+    "arco_flagellant": 1
+   },
+   "capacite_transport": {
+    "rhino": 2,
+    "repressor": 2,
+    "immolator": 1,
+    "chimere": 2,
+    "valkyrie": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "superieure_sor",
+   "name": "Supérieure",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter une Supérieure à la formation",
+   "choix": [
+    {
+     "id": "palatine_sor",
+     "name": "Supérieure Palatine",
+     "cout": 50,
+     "unit_stat_name": "Palatine"
+    },
+    {
+     "id": "chanoinesse_sor",
+     "name": "Supérieure Chanoinesse",
+     "cout": 75,
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true,
+     "unit_stat_name": "Chanoinesse"
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "celeste_sor",
+   "name": "Céleste",
+   "cout": 25,
+   "limit": 1,
+   "description": "Remplacer 2 Soeurs de Bataille par 2 Céleste",
+   "type_remplacement": {
+    "remplace_unites": [
+     "soeur_bataille"
+    ],
+    "par_unite": "celeste",
+    "taille_lot": 2,
+    "quantite_fixe": true
+   },
+   "unites": [
+    {
+     "id": "celeste",
+     "name": "Céleste",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "transport_sor",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des véhicules de transport (combinaison libre)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 8,
+    "description": "Choisir les véhicules de transport (Rhino ×2 places, Repressor ×2, Immolator ×1)",
+    "options": [
+     {
+      "id": "transport_rhino",
+      "name": "Rhino",
+      "unitId": "rhino",
+      "valeurs_possibles": [
+       3,
+       4,
+       6,
+       8
+      ],
+      "cout_paliers": [
+       {
+        "value": 3,
+        "cout": 25
+       },
+       {
+        "value": 4,
+        "cout": 50
+       },
+       {
+        "value": 6,
+        "cout": 50
+       },
+       {
+        "value": 8,
+        "cout": 100
+       }
+      ],
+      "min": 0,
+      "max": 8
+     },
+     {
+      "id": "transport_immolator",
+      "name": "Immolator",
+      "unitId": "immolator",
+      "cout": 25,
+      "min": 0,
+      "max": 8
+     },
+     {
+      "id": "transport_repressor",
+      "name": "Repressor",
+      "unitId": "repressor",
+      "cout": 17,
+      "min": 0,
+      "max": 8
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "exorciste_sor",
+   "name": "Exorcistes",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Exorcistes (50 pts/véhicule)",
+   "unites": [
+    {
+     "id": "exorciste",
+     "name": "Exorciste",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "hunter_sor",
+   "name": "Hunter",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Hunter à la formation",
+   "unites": [
+    {
+     "id": "hunter",
+     "name": "Hunter",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "machines_penitence_sor",
+   "name": "2 Machines de Pénitence",
+   "cout": 75,
+   "limit": 1,
+   "description": "Ajouter 2 Machines de Pénitence",
+   "unites": [
+    {
+     "id": "machine_penitence",
+     "name": "Machine de Pénitence",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "transport_inquisition_sor",
+   "name": "Transport Inquisition",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des véhicules de transport pour la Suite Inquisitoriale",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 4,
+    "description": "Choisir jusqu'à 4 véhicules de transport (Chimère ×2 places, Valkyrie ×2)",
+    "options": [
+     {
+      "id": "transport_chimere",
+      "name": "Chimère",
+      "unitId": "chimere",
+      "cout": 25,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "transport_valkyrie",
+      "name": "Valkyrie",
+      "unitId": "valkyrie",
+      "cout": 38,
+      "min": 0,
+      "max": 4
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "assassins_sor",
+   "name": "Assassins",
+   "cout": 25,
+   "limit": 1,
+   "description": "Remplacer 2 Troupes de Choc par 2 Cultistes de Parque",
+   "type_remplacement": {
+    "remplace_unites": [
+     "troupe_choc_inq"
+    ],
+    "par_unite": "cultiste_parque",
+    "taille_lot": 2,
+    "quantite_fixe": true
+   },
+   "unites": [
+    {
+     "id": "cultiste_parque",
+     "name": "Cultiste de Parque",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "avenger_sup_sor",
+   "name": "Avengers supplémentaires",
+   "cout": 75,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Avengers (+75 pts chacun)",
+   "unites": [
+    {
+     "id": "avenger",
+     "name": "Avenger",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "incinerator_sup_sor",
+   "name": "Incinérator supplémentaire",
+   "cout": 200,
+   "limit": 1,
+   "description": "Ajouter 1 Incinérator (+200 pts)",
+   "unites": [
+    {
+     "id": "incinerator_unite",
+     "name": "Incinérator",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "ordre_militant_sor",
+   "name": "FORMATION DE L'ORDRE MILITANT",
+   "type": "principale",
+   "description": "Au moins un Couvent Sororita obligatoire",
+   "formations": [
+    {
+     "id": "couvent_sororita",
+     "name": "Couvent Sororita",
+     "cout": 225,
+     "description": "8 Soeurs de Bataille",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "ameliorations": [
+      "superieure_sor",
+      "celeste_sor",
+      "transport_sor",
+      "exorciste_sor",
+      "hunter_sor"
+     ],
+     "unites": [
+      {
+       "id": "soeur_bataille",
+       "name": "Soeur de Bataille",
+       "nombre": 8
+      }
+     ]
+    },
+    {
+     "id": "couvent_retributor",
+     "name": "Couvent Retributor",
+     "cout": 200,
+     "description": "6 Retributors",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "superieure_sor",
+      "transport_sor",
+      "hunter_sor"
+     ],
+     "unites": [
+      {
+       "id": "retributor",
+       "name": "Retributor",
+       "nombre": 6
+      }
+     ]
+    },
+    {
+     "id": "couvent_seraphins",
+     "name": "Couvent Séraphin",
+     "cout": 225,
+     "description": "6 Séraphines",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "superieure_sor"
+     ],
+     "unites": [
+      {
+       "id": "seraphine",
+       "name": "Séraphine",
+       "nombre": 6
+      }
+     ]
+    },
+    {
+     "id": "couvent_dominus",
+     "name": "Couvent Dominus",
+     "cout": 250,
+     "description": "4 Dominions + 4 Immolators (Immolation ou Inferno)",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "superieure_sor"
+     ],
+     "unites": [
+      {
+       "id": "dominion",
+       "name": "Dominion",
+       "nombre": 4
+      },
+      {
+       "id": "immolator",
+       "name": "Immolator",
+       "nombre": 4
+      }
+     ]
+    },
+    {
+     "id": "couvent_purification",
+     "name": "Couvent Purification",
+     "cout": 200,
+     "description": "6 Immolators (Immolation ou Inferno)",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "hunter_sor",
+      "exorciste_sor"
+     ],
+     "unites": [
+      {
+       "id": "immolator",
+       "name": "Immolator",
+       "nombre": 6
+      }
+     ]
+    },
+    {
+     "id": "couvent_exorcisme",
+     "name": "Couvent d'Exorcisme",
+     "cout": 300,
+     "description": "6 Exorcistes",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "hunter_sor",
+      "exorciste_sor"
+     ],
+     "unites": [
+      {
+       "id": "exorciste",
+       "name": "Exorciste",
+       "nombre": 6
+      }
+     ]
+    },
+    {
+     "id": "couvent_repentance",
+     "name": "Couvent de Repentance",
+     "cout": 200,
+     "description": "6 Repentias + 1 Maîtresse de Repentance",
+     "FormationLimitationTag": {
+      "slot_soutien_sor_A": 1
+     },
+     "ameliorations": [
+      "machines_penitence_sor",
+      "transport_sor"
+     ],
+     "unites": [
+      {
+       "id": "repentia",
+       "name": "Repentia",
+       "nombre": 6
+      },
+      {
+       "id": "maitresse_repentance",
+       "name": "Maîtresse de Repentance",
+       "nombre": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ecclesiarchie_sor",
+   "name": "FORMATION DE L'ECCLÉSIARCHIE",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_sor_A",
+   "description": "1 formation de soutien par formation d'Ordre Militant prise",
+   "formations": [
+    {
+     "id": "croisade",
+     "name": "Croisade",
+     "cout": 150,
+     "description": "10 Rédemptionnistes + 1 Prêcheur",
+     "ameliorations": [
+      "machines_penitence_sor"
+     ],
+     "unites": [
+      {
+       "id": "redemptionniste",
+       "name": "Rédemptionniste",
+       "nombre": 10
+      },
+      {
+       "id": "precheur",
+       "name": "Prêcheur",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "suite_inquisitoriale",
+     "name": "0-1 Suite Inquisitoriale",
+     "cout": 225,
+     "FormationLimite": 1,
+     "description": "8 Troupes de Choc Inquisitoriales + 1 Inquisiteur de l'Ordo Hereticus",
+     "ameliorations": [
+      "transport_inquisition_sor",
+      "assassins_sor"
+     ],
+     "unites": [
+      {
+       "id": "troupe_choc_inq",
+       "name": "Troupe de Choc Inquisitoriale",
+       "nombre": 8
+      },
+      {
+       "id": "inquisiteur_hereticus",
+       "name": "Inquisiteur de l'Ordo Hereticus",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "conclave",
+     "name": "Conclave",
+     "cout": 200,
+     "description": "8 Arco-flagellants",
+     "ameliorations": [
+      "machines_penitence_sor"
+     ],
+     "unites": [
+      {
+       "id": "arco_flagellant",
+       "name": "Arco-flagellant",
+       "nombre": 8
+      }
+     ]
+    },
+    {
+     "id": "penitence",
+     "name": "Pénitence",
+     "cout": 250,
+     "description": "6 Machines de Pénitence",
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "machine_penitence",
+       "name": "Machine de Pénitence",
+       "nombre": 6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "navy_support_sor",
+   "name": "FORMATIONS DE LA NAVY IMPÉRIALE ET SUPPORT LOURD",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "incinerator",
+     "name": "Incinérator",
+     "cout": 200,
+     "rare": true,
+     "ameliorations": [
+      "incinerator_sup_sor"
+     ],
+     "unites": [
+      {
+       "id": "incinerator_unite",
+       "name": "Incinérator",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "cathedrale",
+     "name": "Cathédrale",
+     "cout": 650,
+     "rare": true,
+     "description": "1 Cathédrale Ambulante",
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "cathedrale_ambulante",
+       "name": "Cathédrale Ambulante",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "escadrille_avenger_sor",
+     "name": "Escadrille Avenger",
+     "cout": 150,
+     "rare": true,
+     "ameliorations": [
+      "avenger_sup_sor"
+     ],
+     "unites": [
+      {
+       "id": "avenger",
+       "name": "Avenger",
+       "nombre": 2
+      }
+     ]
+    },
+    {
+     "id": "soutien_orbital_sor",
+     "name": "0-1 Soutien Orbital",
+     "cout": 150,
+     "rare": true,
+     "FormationLimite": 1,
+     "description": "1 Croiseur de Classe Lunar",
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "croiseur_lunar",
+       "name": "Croiseur de Classe Lunar",
+       "nombre": 1
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

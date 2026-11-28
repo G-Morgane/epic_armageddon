@@ -1,0 +1,1018 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+PREMIERS-NÉS VOSTROYENS 
+ 
+ 
+"Nous 
+nous 
+battrons 
+avec 
+une 
+foi 
+et 
+un 
+courage 
+imperturbables. Nous ne reculerons jamais. Ce monde 
+appartient à l’Empereur et nous ne l’abandonnerons pas. "  
+ 
+Seigneur Maréchal Toshenko s’adressant au 16ème Vostroyen 
+lors de la défense de Nimbosa 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied un régiment 
+blindé de l’Astra Militarum basée sur ceux des Premiers-Nés 
+Vostroyens. Cette liste peut également être utilisée pour 
+représenter des régiments blindés de la Garde Impériale 
+d’autres origines comme ceux de Cadia ou de Mordia.  
+Les armées des Premiers-Nés Vostroyens sont organisées 
+autour 
+de 
+grandes 
+formations 
+appelées compagnies, 
+elles-mêmes complétées par des formations d’appui qui leurs 
+sont autonomes. 
+Chaque compagnie peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut être prise qu’une fois par compagnie. Les améliorations 
+font partie intégrante des détachements et doivent respecter 
+les règles de cohésion. Chaque compagnie peut prendre 
+jusqu’à trois améliorations.  
+Les formations de support sont des formations autonomes 
+des 
+compagnies. 
+Elles 
+ne 
+peuvent 
+pas 
+recevoir 
+d'améliorations. Un maximum de ⅓ des points peuvent être 
+dépensés pour ces formations. 
+ 
+ 
+ 
+ 
+Règle spéciale : Commissaires 
+ 
+Pour chaque Compagnie qu'inclut votre armée, un 
+commissaire y est automatiquement intégré. 
+ 
+De plus, vous pouvez ajouter gratuitement un commissaire 
+dans une Formation d'Appui pour chaque tranche (même 
+incomplète) de 1 000 points dans votre armée hors 
+formations de support. 
+ 
+Une compagnie ou une formation ne peut avoir qu'un seul 
+commissaire. 
+ 
+Pour racheter leur faute vis à vis de l’Empereur durant l’Hérésie d’Horus, le 
+premier né de chaque famille Vostroyenne sans la moindre exception est 
+enrôlé dans les régiments de l’Astra Militarum. 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Games Workshop LTD.
+ 
+1 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE DES PREMIERS-NÉS VOSTROYENS 
+ 
+Les armées des Premiers-Nés Vostroyens ont une valeur stratégique de 2. Toutes les formations ont une initiative de 2+, 
+sauf celles de l’Adeptus Titanicus qui ont une initiative de 1+. 
+ 
+COMPAGNIE DES PREMIERS-NÉS VOSTROYENS 
+Formations 
+Unités 
+Coût 
+0-1 Compagnie de Commandement 
+1 Léviathan et 12 unités de Gardes Impériaux 
+600 pts 
+Compagnie d'infanterie mécanisée 
+1 unité de Commandement, 12 unités de Gardes Impériaux et 7 Chimères 
+400 pts 
+Compagnie Blindée légère 
+1 Leman Russ Vanquisher Allégé et 9 Leman Russ Conqueror 
+475 pts 
+Compagnie Blindée 
+1 Leman Russ Vanquisher et 9 Leman Russ 
+600 pts 
+Compagnie de Chasseurs de Titans 
+3 Shadowswords et/ou Stormblades, selon n’importe quelle combinaison 
+500 pts 
+Compagnie Mur de Feu 
+3 Baneblades et/ou Stormswords, selon n’importe quelle combinaison 
+500 pts 
+FORMATIONS D'APPUI DES PREMIERS-NÉS VOSTROYENS 
+(Jusqu’à 2 formations d’appui par compagnie) 
+Formations 
+Unités 
+Coût 
+0-1 Batterie de Missiles Deathstrike 
+2 Lance-Missiles Deathstrike 
+225 pts 
+Peloton d'infanterie mécanisée 
+6 unités de Gardes Impériaux et 3 Chimères 
+200 pts 
+Militarum Tempestus 
+8 unités de Tempestus Scions et 4 Chimères 
+300 pts 
+Batterie anti aérienne 
+3 Hydres 
+150 pts 
+Batterie d'artillerie 
+ 
+ou 
+3 Basilisks 
+3 Manticores ou 3 Bombardes ou 3 Wyverns 
+225 pts 
+250 pts 
+Batterie d'artillerie lourde 
+ 
+ou 
+1 Dominus 
+2 Minotaurs ou 2 Praetors 
+275 pts 
+350 pts 
+Batterie de Griffons 
+6 Griffons 
+250 pts 
+Peloton de Reconnaissance 
+1 Salamandre de Commandement et 3 Salamandres 
+150 pts 
+Peloton de Nettoyage 
+6 Hellhounds 
+300 pts 
+Escadron de Leman Russ Conqueror 
+1 Leman Russ Vanquisher Allégé et 5 Leman Russ Conqueror 
+300 pts 
+Escadron de Leman Russ 
+6 Leman Russ 
+350 pts 
+0-1 Escadron de Leman Russ Spéciaux 
+ 
+ou 
+ou 
+ou 
+6 Leman Russ Destroyers 
+6 Leman Russ Exterminators ou 6 Leman Russ Thunderers 
+6 Leman Russ Executioners 
+6 Leman Russ Démolisseurs 
+300 pts 
+350 pts 
+400 pts 
+450 pts 
+Peloton d'appui lourd 
+ 
+ou 
+6 unités de Gardes Impériaux et 1 Doomhammer 
+6 unités de Gardes Impériaux et 1 Stormlord OU 1 Banehammer 
+300 pts 
+325 pts 
+Peloton de Char Super Lourd 
+Shadowsword ou Baneblade ou Stormblade ou Stormsword 
+200pts 
+ 
+AMÉLIORATIONS DE COMPAGNIES DES PREMIERS-NÉS VOSTROYENS 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation et jusqu'à un maximum de 3) 
+Améliorations 
+Unités 
+Coût 
+0-1 Commandant Suprême 
+Ajoutez la Note Commandant Suprême à une unité 
+Non disponible si vous disposez d’une Compagnie de Commandement 
+50 pts 
+Transports spéciaux 
+ 
+ou 
+ou 
+Remplacez les chimères de la formation par des Taurox (pour 1 Chimère chaque) 
+Remplacez les chimères de la formation par des Taurox Prime (pour 1 Chimère chaque) 
+Remplacez les chimères de la formation par des Crassus (pour 3 Chimères chaque) 
+gratuit 
+5 pts 
+25 pts 
+Escadron de Hellhounds 
+3 Hellhounds 
+150 pts 
+DCA 
+1 Hydre 
+50 pts 
+Escadron de chars 
+ 
+ou 
+ou 
+3 Leman Russ Conqueror 
+3 Leman Russ OU 3 Leman Russ Executioner 
+3 Leman Russ Démolisseur 
+150 pts 
+175 pts 
+225 pts 
+ 
+SUPPORTS DES PREMIERS-NÉS VOSTROYENS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+FLOTTES DE L'AERONAUTICA IMPERIALIS 
+ 
+SOUTIENS DE L'ADEPTUS TITANICUS 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Escadrille d’Intercepteurs 
+ 
+ou 
+2 Chasseurs Thunderbolts 
+4 Chasseurs Thunderbolts 
+150 pts 
+300 pts 
+ 
+Titan Reaver 
+1 Titan Reaver 
+650 pts 
+Escadrille de Bombardiers 
+ 
+2 Bombardiers Marauders 
+250 pts 
+ 
+Titan Warlord 
+1 Titan Warlord 
+850 pts 
+0-1 Soutien Orbital 
+ 
+ou 
+1 Croiseur Lunar 
+1 Cuirassé Emperor 
+150 pts 
+300 pts 
+ 
+ 
+ 
+ 
+ 
+2 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 
+
+===== PAGE 4 =====
+FEUILLE DE RÉFÉRENCES PREMIERS-NÉS VOSTROYENS 
+Nom 
+Type Vitesse Bli CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Léviathan 
+EG 
+15cm 
+4+ 
+6+ 
+4+ Canon Apocalypse 
+Obusier 
+3x Canons Laser Jumelés (Droite) 
+3x Canons Laser Jumelés (Gauche) 
+90cm 
+75cm 
+45cm 
+45cm 
+3PB, MA, FrtF 
+AP4+/AC4+ 
+AC4+, Drt 
+AC4+, Gch 
+Commandant Suprême, Blindage Renforcé, Blindage arrière Renforcé, Sans peur, Transport 
+(16) 
+CD4 / BI2 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1 le Léviathan explose et inflige une touche sur un 5+ 
+aux unités à 5cm, sur 2-3 le Léviathan est immobilisé, si il l'est déjà, il perd 1 CD, sur 4+ la 
+fissure est réparée 
+Commandement 
+Inf 
+15cm 
+6+ 
+5+ 
+5+ Autocanon 
+Fusils Laser 
+Épée tronçonneuse 
+45cm 
+(15cm) 
+(contact) 
+AP5+/AC6+ 
+Arme Légère 
+Arme d'Assaut 
+Commandant 
+Commissaire 
+Perso 
+- 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) Arme d'Assaut, +1A, MA Charismatique, Meneur, Sans Peur 
+Gardes Impériaux 
+Inf 
+15cm 
+- 
+6+ 
+5+ ½ Autocanon 
+Fusils Laser 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+Une unité sur deux, arrondi au supérieur, peut tirer à l'autocanon 
+Tempestus Scions 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Lance-plasma 
+Fusils Radiants Laser 
+15cm 
+(15cm) 
+AP5+/AC5+ 
+Arme Légère 
+Éclaireur 
+Salamandre de 
+Commandement 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Autocanon 
+Bolter Lourd 
+45cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Éclaireur, Commandant 
+Salamandre 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Autocanon 
+Bolter Lourd 
+45cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Éclaireur 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Infanterie 
+Taurox 
+VB 
+30cm 
+6+ 
+6+ 
+6+ Autocanons Jumelés 
+45cm 
+AP4+/AC5+ 
+Marcheur, Transport (2) : Infanterie 
+Taurox Prime 
+VB 
+30cm 
+6+ 
+6+ 
+5+ Obusier Taurox 
+30cm 
+AP4+/AC4+ 
+Marcheur, Transport (2) : Infanterie 
+Crassus 
+EG 
+15cm 
+4+ 
+6+ 
+5+ 2x Bolter Lourd (FF) 
+Bolter Lourd (Gauche) 
+Bolter Lourd (Droit) 
+30cm 
+30cm 
+30cm 
+AP5+, FrtF 
+AP5+, Gch 
+AP5+, Drt 
+Blindage Renforcé, Transport (6) 
+CD2 – Critique : Détruit et touche sur 6+ dans les 5cm 
+Hellhound 
+VB 
+30cm 
+4+ 
+6+ 
+3+ Canon Inferno 
+et 
+Bolter Lourd 
+30cm 
+(15cm) 
+30cm 
+AP3+, IC 
+Arme Légère, IC 
+AP5+ 
+- 
+Hydre 
+VB 
+30cm 
+6+ 
+6+ 
+5+ 2x Canons Hydre 
+Bolter Lourd 
+45cm 
+30cm 
+AP4+/AC5+/AA5+ 
+AP5+ 
+- 
+Griffon 
+VB 
+30cm 
+6+ 
+6+ 
+5+ Mortier Griffon 
+Bolter Lourd 
+30cm 
+30cm 
+1PB, Ind 
+AP5+ 
+- 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 
+
+===== PAGE 5 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nom 
+Type Vitesse Bli CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Leman Russ 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Obusier 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC4+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ 
+Conqueror 
+VB 
+25cm 
+4+ 
+6+ 
+5+ Obusier Conqueror 
+Canon Laser 
+45cm 
+45cm 
+AP4+/AC4+ 
+AC5+ 
+Blindage Renforcé 
+Leman Russ 
+Vanquisher 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Canon Vanquisher 
+Canon Laser 
+2x Bolter Lourd 
+75cm 
+45cm 
+30cm 
+AP4+/AC2+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Leman Russ 
+Vanquisher Allégé 
+VB 
+25cm 
+4+ 
+6+ 
+5+ Canon Vanquisher 
+Canon Laser 
+75cm 
+45cm 
+AP4+/AC2+ 
+AC5+ 
+Blindage Renforcé 
+Leman Russ 
+Executioner 
+VB 
+25cm 
+4+ 
+6+ 
+5+ Canon Executioner 
+Canon Laser 
+60cm 
+45cm 
+MA4+ 
+AC5+ 
+Blindage Renforcé 
+Leman Russ 
+Démolisseur 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Canon Démolisseur 
+et 
+Canon Laser 
+2x Lance-Plasma Lourds 
+30cm 
+(15cm) 
+45cm 
+30cm 
+MA4+ 
+Arme Légère, +1A, MA 
+AC5+ 
+AP5+/AC5+ 
+Blindage Renforcé 
+Leman Russ 
+Destroyer 
+VB 
+20cm 
+4+ 
+6+ 
+5+ Canon Destroyer 
+75cm 
+AC3+, Lance 
+Blindage Renforcé 
+Leman Russ 
+Thunderer 
+VB 
+20cm 
+4+ 
+6+ 
+5+ Canon Démolisseur (Thunderer) 
+et 
+30cm 
+(15cm) 
+MA4+ 
+Arme Légère, MA 
+Blindage Renforcé 
+Leman Russ 
+Exterminator 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Autocanon 
+Canon Laser 
+2x Bolter Lourd 
+45cm 
+45cm 
+30cm 
+AP5+/AC6+ 
+AC5+ 
+AP5+ 
+Blindage Renforcé 
+Basilisk 
+VB 
+20cm 
+5+ 
+6+ 
+5+ Canon Tremble-Terre 
+ou 
+Bolter Lourd 
+120cm 
+120cm 
+30cm 
+1PB, Ind 
+AP4+/AC4+ 
+AP5+ 
+ 
+Manticore 
+VB 
+20cm 
+6+ 
+6+ 
+5+ Lance-roquettes (Manticore) 
+Bolter Lourd 
+150cm 
+30cm 
+2PB, Ind, Rpt, Rchg 
+AP5+ 
+ 
+Bombarde 
+VB 
+20cm 
+6+ 
+6+ 
+5+ Mortier de Siège 
+Bolter Lourd 
+60cm 
+30cm 
+2PB, Ind, Rchg, IC 
+AP5+ 
+ 
+Wyvern 
+VB 
+30cm 
+6+ 
+6+ 
+5+ 2x Mortiers Stormshard jumelés 
+Bolter Lourd 
+45cm 
+30cm 
+1PB, IC 
+AP5+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 
+
+===== PAGE 6 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nom 
+Type Vitesse Bli 
+CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Dominus 
+EG 
+15cm 
+4+ 
+6+ 
+6+ 
+3x Mortier de Siège 
+60cm 
+2PB, Ind, Rchg, IC 
+Blindage Renforcé 
+CD2 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Minotaur 
+EG 
+15cm 
+4+ 
+6+ 
+6+ 
+2x Canon Tremble-Terre 
+ou 
+120cm 
+120cm 
+1PB, Ind 
+AP4+/AC4+ 
+Blindage Renforcé 
+CD2 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Prætor 
+EG 
+15cm 
+4+ 
+6+ 
+5+ 
+Lance-missiles Prætor 
+2x Bolter Lourd (FF) 
+120cm 
+30cm 
+2PB, Ind, Rchg 
+AP5+, FrtF 
+Blindage Renforcé 
+CD2 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Deathstrike 
+VB 
+20cm 
+6+ 
+6+ 
+5+ 
+Missile Deathstrike 
+Bolter Lourd 
+∞ 
+30cm 
+MA2+, Uniq, TT (D6), Ind 
+AP5+ 
+ 
+Baneblade 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 
+Super Obusier 
+Autocanon 
+2x Canon Laser 
+Canon Démolisseur (FF) 
+et 
+Bolters Lourds Jumelés (FF) 
+2x Bolters Lourds Jumelés 
+75cm 
+45cm 
+45cm 
+30cm 
+(15cm) 
+30cm 
+30cm 
+AP3+/AC3+ 
+AP5+/AC6+ 
+AC5+ 
+MA4+, FrtF 
+Arme Légère, +1A, MA 
+AP4+, FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Stormsword 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 
+Canon de siège 
+Bolter Lourd (FF) 
+2x Bolters Lourds Jumelés 
+2x Lance-Flammes Lourd 
+et 
+30cm 
+30cm 
+30cm 
+15cm 
+(15cm) 
+3PB, IC, FrtF 
+AP5+, FrtF 
+AP4+ 
+AP4+, IC 
+Arme Légère, +1A, IC 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Banehammer 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 
+Canon Tremor 
+2x Canon Laser 
+Bolters Lourds Jumelés (FF) 
+2x Bolters Lourds Jumelés 
+60cm 
+45cm 
+30cm 
+30cm 
+2PB, Rupt, FrtF 
+AC5+ 
+AP4+, FrtF 
+AP4+ 
+Blindage Renforcé, Transport (6) : Infanterie 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Doomhammer 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 
+Canon Magma 
+2x Canon Laser 
+Bolters Lourds Jumelés (FF) 
+2x Bolters Lourds Jumelés 
+60cm 
+45cm 
+30cm 
+30cm 
+MA4+ 
+AC5+ 
+AP4+, FrtF 
+AP4+ 
+Blindage Renforcé, Transport (6) : Infanterie 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Stormblade 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 
+Canon Plasma Léger (FF) 
+2x Canon Laser 
+Bolter Lourd (FF) 
+2x Bolters Lourds Jumelés 
+45cm 
+45cm 
+30cm 
+30cm 
+2xMA2+, Rchg, FrtF 
+AC5+ 
+AP5+, FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Stormlord 
+EG 
+15cm 
+4+ 
+6+ 
+3+ 
+Méga Bolter Vulcain léger  
+Bolter Lourd (FF) 
+2x Bolters Lourds Jumelés 
+2x Lance-Flammes Lourd 
+et 
+45cm 
+30cm 
+30cm 
+15cm 
+(15cm) 
+4xAP3+/AC5+, FrtF 
+AP5+, FrtF 
+AP4+ 
+AP4+, IC 
+Arme Légère, +1A, IC 
+Blindage Renforcé, Transport (6) : Infanterie 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+Shadowsword 
+EG 
+15cm 
+4+ 
+6+ 
+5+ 
+Canon Volcano (FF) 
+2x Bolters Lourds Jumelés 
+90cm 
+30cm 
+MA2+, TT (D3), FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une touche sur 6+. 
+ 
+5 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 
+
+===== PAGE 7 =====
+ 
+FEUILLE DE RÉFÉRENCES FLOTTES DE L’AERONAUTICA IMPERIALIS 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Thunderbolt 
+A 
+CB 
+6+ 
+- 
+- 
+Fulgurants 
+Multi-Lasers (FF) 
+Roquettes 
+15cm 
+30cm 
+30cm 
+AP4+/AA5+, FrtF 
+AP5+/AC6+/AA5+, FrtF 
+AC4+, FrtF 
+ 
+Bombardier Marauder 
+A/EG 
+B 
+5+ 
+- 
+- 
+Bolters Lourds Jumelés (AA) 
+Bolters Lourds Jumelés (AA Arr) 
+Canons Laser Jumelés (AA Avant) 
+Bombes (Bomber) 
+30cm 
+30cm 
+45cm 
+15cm 
+AA5+ 
+AA5+, Arr 
+AC4+/AA5+, FrtF 
+3PB, FrtF 
+CD2 – Critique: le Bombardier Marauder s'écrase au sol et est détruit. 
+Croiseur Classe Lunar 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (3) 
+Frappe chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+ 
+Cuirassé Emperor 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (8) 
+∞ 
+8PB, MA 
+Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario ne 
+précise le contraire. 
+ 
+FEUILLE DE RÉFÉRENCES SOUTIENS DE L’ADEPTUS TITANICUS 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Reaver 
+EG 
+20cm 
+4+ 
+3+ 
+3+ Lance-missiles Apocalypse 
+2x Destructeurs Turbo laser 
+60cm 
+60cm 
+4PB, FrtF 
+4xAP5+/AC3+, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan 
+et au maximum de 2cm de large 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque 
+tour pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche 
+sur un 5+ aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée 
+Warlord 
+EG 
+15cm 
+4+ 
+2+ 
+3+ 2x Destructeurs Turbo laser (FF) 
+Canon Gatling 
+Canon Volcano 
+60cm 
+60cm 
+90cm 
+4xAP5+/AC3+, FrtF 
+4xAP4+/AC4+, Frt 
+MA2+, TT (D3), Frt 
+Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan 
+et au maximum de 2cm de large 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque 
+tour pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche 
+sur un 4+ aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée 
+ 
+ 
+6 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+7 - CODEX PREMIERS-NÉS VOSTROYENS - EAFR - REV 1.5.1 

@@ -1,0 +1,412 @@
+[
+ {
+  "nom": "New Adepta Sororitas (REV 1..2)",
+  "faction": "imperium",
+  "page": "/armees/imperium/557ea78f-2ded-475e-bf4c-117910a42387",
+  "slug": "adepta-sororitas",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/adepta-sororitas-v1..2.pdf",
+  "version": "1..2",
+  "pages": 6,
+  "signes": 10301
+ },
+ {
+  "nom": "New Adeptus Arbites (REV 1.3)",
+  "faction": "imperium",
+  "page": "/armees/imperium/f40025a7-e0db-4305-ae71-37e48a91b55f",
+  "slug": "adeptus-arbites",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/adeptus-arbites-v1.3.pdf",
+  "version": "1.3",
+  "pages": 5,
+  "signes": 8771
+ },
+ {
+  "nom": "New Adeptus Astartes (REV 1.5)",
+  "faction": "imperium",
+  "page": "/armees/imperium/2ccaacb8-9b82-4ff6-9e31-0dac78d430fa",
+  "slug": "adeptus-astartes",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/adeptus-astartes-v1.5.pdf",
+  "version": "1.5",
+  "pages": 7,
+  "signes": 20049
+ },
+ {
+  "nom": "Adeptus Mechanicus (REV 1.5)",
+  "faction": "imperium",
+  "page": "/armees/imperium/39f3778c-babf-4b09-88bd-b79c866f0085",
+  "slug": "adeptus-mechanicus",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/adeptus-mechanicus-v1.5.pdf",
+  "version": "1.5",
+  "pages": 6,
+  "signes": 14212
+ },
+ {
+  "nom": "New Black Templars (REV 1.4.1)",
+  "faction": "imperium",
+  "page": "/armees/imperium/a3d34e5d-0503-47a8-aabb-105a7aff8487",
+  "slug": "black-templars",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/black-templars-v1.4.1.pdf",
+  "version": "1.4.1",
+  "pages": 8,
+  "signes": 20160
+ },
+ {
+  "nom": "New Blood Angels (REV 1.2)",
+  "faction": "imperium",
+  "page": "/armees/imperium/475ed4ba-452e-4433-b455-aee36ed57152",
+  "slug": "blood-angels",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/blood-angels-v1.2.pdf",
+  "version": "1.2",
+  "pages": 8,
+  "signes": 22053
+ },
+ {
+  "nom": "Chevaliers Impériaux (REV 1.1)",
+  "faction": "imperium",
+  "page": "/armees/imperium/a66a54e4-7630-4ed8-97b9-27b182eee006",
+  "slug": "chevaliers-imperiaux",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/chevaliers-imp-riaux-v1.1.pdf",
+  "version": "1.1",
+  "pages": 5,
+  "signes": 12107
+ },
+ {
+  "nom": "Dark Angels (REV 1.0)",
+  "faction": "imperium",
+  "page": "/armees/imperium/0510153c-f2e8-4ef7-9e33-7941874137d4",
+  "slug": "dark-angels",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/dark-angels-v1.0.pdf",
+  "version": "1.0",
+  "pages": 7,
+  "signes": 19146
+ },
+ {
+  "nom": "New Death Korps de Krieg (REV 1.5.1)",
+  "faction": "imperium",
+  "page": "/armees/imperium/da66e374-161f-4951-b366-44cb34ed4348",
+  "slug": "death-korps-de-krieg",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/death-korps-de-krieg-v1.5.1.pdf",
+  "version": "1.5.1",
+  "pages": 7,
+  "signes": 16387
+ },
+ {
+  "nom": "New Grey Knights (REV 1.2)",
+  "faction": "imperium",
+  "page": "/armees/imperium/297c4bc5-675a-458c-9da2-520a60c8b537",
+  "slug": "grey-knights",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/grey-knights-v1.2.pdf",
+  "version": "1.2",
+  "pages": 8,
+  "signes": 20243
+ },
+ {
+  "nom": "New Imperial Fists (REV 1.4)",
+  "faction": "imperium",
+  "page": "/armees/imperium/023fe678-b9e5-4918-ac7a-8fa1a92363e4",
+  "slug": "imperial-fists",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/imperial-fists-v1.4.pdf",
+  "version": "1.4",
+  "pages": 9,
+  "signes": 23179
+ },
+ {
+  "nom": "New Légion d&#39;Acier (REV 1.3.1)",
+  "faction": "imperium",
+  "page": "/armees/imperium/da77b59c-9371-4387-9f06-d502c8419882",
+  "slug": "legion-d-39-acier",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/l-gion-d-acier-v1.3.1.pdf",
+  "version": "1.3.1",
+  "pages": 6,
+  "signes": 12450
+ },
+ {
+  "nom": "Légions Titaniques (REV 1.4.1)",
+  "faction": "imperium",
+  "page": "/armees/imperium/b344fee5-9202-4ec3-8231-6d2bdf1664cf",
+  "slug": "legions-titaniques",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/l-gions-titaniques-v1.4.1.pdf",
+  "version": "1.4.1",
+  "pages": 7,
+  "signes": 16671
+ },
+ {
+  "nom": "New Paras Elysiens (REV 1.1.2)",
+  "faction": "imperium",
+  "page": "/armees/imperium/1e85b8e6-a422-4eaf-ae34-99f6d832d24b",
+  "slug": "paras-elysiens",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/paras-elysiens-v1.1.2.pdf",
+  "version": "1.1.2",
+  "pages": 7,
+  "signes": 11695
+ },
+ {
+  "nom": "New Premiers-nés Vostroyens (REV 1.5.1)",
+  "faction": "imperium",
+  "page": "/armees/imperium/ee903380-b2c5-4cc9-be8b-29932f9fee10",
+  "slug": "premiers-nes-vostroyens",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/premiers-n-s-vostroyens-v1.5.1.pdf",
+  "version": "1.5.1",
+  "pages": 8,
+  "signes": 15998
+ },
+ {
+  "nom": "New Raven Guard (REV 1.3)",
+  "faction": "imperium",
+  "page": "/armees/imperium/e452631a-5610-4f7f-87ed-5154ebfb5fcf",
+  "slug": "raven-guard",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/raven-guard-v1.3.pdf",
+  "version": "1.3",
+  "pages": 8,
+  "signes": 20773
+ },
+ {
+  "nom": "New Salamanders (REV 1.3)",
+  "faction": "imperium",
+  "page": "/armees/imperium/ecf80e74-3bb1-4177-9f2d-9cb1a376e9bf",
+  "slug": "salamanders",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/salamanders-v1.3.pdf",
+  "version": "1.3",
+  "pages": 8,
+  "signes": 19646
+ },
+ {
+  "nom": "Space Wolves (REV 1.2)",
+  "faction": "imperium",
+  "page": "/armees/imperium/bddd312b-b314-4ccf-becd-efc83b9493a7",
+  "slug": "space-wolves",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/space-wolves-v1.2.pdf",
+  "version": "1.2",
+  "pages": 8,
+  "signes": 20681
+ },
+ {
+  "nom": "New White Scars (REV 1.2)",
+  "faction": "imperium",
+  "page": "/armees/imperium/954cb043-a144-47be-9ff1-e03fd210f4fc",
+  "slug": "white-scars",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/imperium/white-scars-v1.2.pdf",
+  "version": "1.2",
+  "pages": 8,
+  "signes": 20247
+ },
+ {
+  "nom": "Black Legion (REV 1.6.1)",
+  "faction": "chaos",
+  "page": "/armees/chaos/380647ca-2dc4-438c-b25f-93076fa1d930",
+  "slug": "black-legion",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/black-legion-v1.6.1.pdf",
+  "version": "1.6.1",
+  "pages": 10,
+  "signes": 22300
+ },
+ {
+  "nom": "Death Guard (REV 1.2.1)",
+  "faction": "chaos",
+  "page": "/armees/chaos/87801b9c-a9f8-4d91-997b-88464e372df9",
+  "slug": "death-guard",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/death-guard-v1.2.1.pdf",
+  "version": "1.2.1",
+  "pages": 8,
+  "signes": 20734
+ },
+ {
+  "nom": "New Égarés et Damnés (REV 1.9)",
+  "faction": "chaos",
+  "page": "/armees/chaos/b1b6924b-e761-474a-a9da-855d081cbbce",
+  "slug": "egares-et-damnes",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/-gar-s-et-damn-s-v1.9.pdf",
+  "version": "1.9",
+  "pages": 10,
+  "signes": 24487
+ },
+ {
+  "nom": "Emperor&#39;s Children (REV 1.2)",
+  "faction": "chaos",
+  "page": "/armees/chaos/b1579390-7a47-4711-b058-31913976501e",
+  "slug": "emperor-39-s-children",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/emperor-s-children-v1.2.pdf",
+  "version": "1.2",
+  "pages": 8,
+  "signes": 19240
+ },
+ {
+  "nom": "Iron Warriors (REV 1.5)",
+  "faction": "chaos",
+  "page": "/armees/chaos/bcf87fcf-c529-4a37-9751-18bf8d8d487c",
+  "slug": "iron-warriors",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/iron-warriors-v1.5.pdf",
+  "version": "1.5",
+  "pages": 8,
+  "signes": 19372
+ },
+ {
+  "nom": "New Thousand Sons (REV 1.3)",
+  "faction": "chaos",
+  "page": "/armees/chaos/1984420d-b991-43f2-8f87-63b8efcbbf11",
+  "slug": "thousand-sons",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/thousand-sons-v1.3.pdf",
+  "version": "1.3",
+  "pages": 8,
+  "signes": 17928
+ },
+ {
+  "nom": "New Word Bearers (REV 1.4.1)",
+  "faction": "chaos",
+  "page": "/armees/chaos/9c105d0d-ffbf-4f16-93be-f0b8f491c399",
+  "slug": "word-bearers",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/word-bearers-v1.4.1.pdf",
+  "version": "1.4.1",
+  "pages": 10,
+  "signes": 25300
+ },
+ {
+  "nom": "New World Eaters (REV 1.3.1)",
+  "faction": "chaos",
+  "page": "/armees/chaos/87bb6fc7-ba4e-4b9a-b4e5-2d34c155a945",
+  "slug": "world-eaters",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/chaos/world-eaters-v1.3.1.pdf",
+  "version": "1.3.1",
+  "pages": 8,
+  "signes": 19128
+ },
+ {
+  "nom": "New Culte Genestealer (REV 1.1)",
+  "faction": "xenos",
+  "page": "/armees/xenos/a6d2a923-53eb-4e41-9d7d-99fa36f38330",
+  "slug": "culte-genestealer",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/culte-genestealer-v1.1.pdf",
+  "version": "1.1",
+  "pages": 5,
+  "signes": 11931
+ },
+ {
+  "nom": "New Eldars d&#39;Iyanden (REV 1.3)",
+  "faction": "xenos",
+  "page": "/armees/xenos/831586c4-af84-4196-93a0-b6ba7d0f93de",
+  "slug": "eldars-d-39-iyanden",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/eldars-d-iyanden-v1.3.pdf",
+  "version": "1.3",
+  "pages": 7,
+  "signes": 21698
+ },
+ {
+  "nom": "New Eldars d&#39;Yme-Loc (REV 1.5)",
+  "faction": "xenos",
+  "page": "/armees/xenos/1854ca15-7c09-49c5-9a81-8363dade11bf",
+  "slug": "eldars-d-39-yme-loc",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/eldars-d-yme-loc-v1.5.pdf",
+  "version": "1.5",
+  "pages": 8,
+  "signes": 22149
+ },
+ {
+  "nom": "New Eldars de Biel-Tan (REV 1.7)",
+  "faction": "xenos",
+  "page": "/armees/xenos/a9c7b6a2-a792-4be1-adc3-a625d6c3c8b2",
+  "slug": "eldars-de-biel-tan",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/eldars-de-biel-tan-v1.7.pdf",
+  "version": "1.7",
+  "pages": 9,
+  "signes": 20865
+ },
+ {
+  "nom": "New Eldars de Ulthwé (REV 1.5)",
+  "faction": "xenos",
+  "page": "/armees/xenos/d7bfd045-87ad-4ed2-8eda-108980650564",
+  "slug": "eldars-de-ulthwe",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/eldars-de-ulthw--v1.5.pdf",
+  "version": "1.5",
+  "pages": 8,
+  "signes": 20808
+ },
+ {
+  "nom": "New Eldars Noirs (REV 1.5)",
+  "faction": "xenos",
+  "page": "/armees/xenos/b84a978f-90d5-4b39-831d-23faeff41874",
+  "slug": "eldars-noirs",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/eldars-noirs-v1.5.pdf",
+  "version": "1.5",
+  "pages": 9,
+  "signes": 21886
+ },
+ {
+  "nom": "Empire T&#39;au (REV 1.4)",
+  "faction": "xenos",
+  "page": "/armees/xenos/f2c10f18-9270-4501-a84c-49c2c1d2868d",
+  "slug": "empire-t-39-au",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/empire-t-au-v1.4.pdf",
+  "version": "1.4",
+  "pages": 8,
+  "signes": 18097
+ },
+ {
+  "nom": "Evil Sunz (REV 1.0.1)",
+  "faction": "xenos",
+  "page": "/armees/xenos/ed1d8015-f59c-44ed-9299-21cc30abf6f3",
+  "slug": "evil-sunz",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/evil-sunz-v1.0.1.pdf",
+  "version": "1.0.1",
+  "pages": 5,
+  "signes": 11331
+ },
+ {
+  "nom": "New Gargants d&#39;Orkimedes (REV 1.1.1)",
+  "faction": "xenos",
+  "page": "/armees/xenos/9f2cef62-b74a-4fb2-aa35-b6c43aa3cc83",
+  "slug": "gargants-d-39-orkimedes",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/gargants-d-orkimedes-v1.1.1.pdf",
+  "version": "1.1.1",
+  "pages": 8,
+  "signes": 16622
+ },
+ {
+  "nom": "New Nécrons (REV 1.4)",
+  "faction": "xenos",
+  "page": "/armees/xenos/f51928d4-5c83-4552-bd78-a06a9f4eb239",
+  "slug": "necrons",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/n-crons-v1.4.pdf",
+  "version": "1.4",
+  "pages": 7,
+  "signes": 14474
+ },
+ {
+  "nom": "New Orks de Ghazghkull (REV 1.7.1)",
+  "faction": "xenos",
+  "page": "/armees/xenos/709b48d0-4578-4e83-900c-af9e00a00f98",
+  "slug": "orks-de-ghazghkull",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/orks-de-ghazghkull-v1.7.1.pdf",
+  "version": "1.7.1",
+  "pages": 6,
+  "signes": 13481
+ },
+ {
+  "nom": "New Orks Sauvages (REV 1.1)",
+  "faction": "xenos",
+  "page": "/armees/xenos/3ae3ccc4-587a-4a33-98ee-4ec7cc5cd76b",
+  "slug": "orks-sauvages",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/orks-sauvages-v1.1.pdf",
+  "version": "1.1",
+  "pages": 4,
+  "signes": 8351
+ },
+ {
+  "nom": "Squats (REV 1.3)",
+  "faction": "xenos",
+  "page": "/armees/xenos/6eba8947-c08a-4265-b3bd-c94e47077c27",
+  "slug": "squats",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/squats-v1.3.pdf",
+  "version": "1.3",
+  "pages": 8,
+  "signes": 17656
+ },
+ {
+  "nom": "New Tyranides (REV 1.4)",
+  "faction": "xenos",
+  "page": "/armees/xenos/5553f3a9-bed5-49ce-9eec-a71ff9c6c015",
+  "slug": "tyranides",
+  "pdf": "https://pub-1666a3493ace4d1a9657de1f8a60b059.r2.dev/xenos/tyranides-v1.4.pdf",
+  "version": "1.4",
+  "pages": 8,
+  "signes": 18541
+ }
+]

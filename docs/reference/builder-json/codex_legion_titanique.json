@@ -1,0 +1,645 @@
+{
+ "codex": {
+  "id": "legion_titanique",
+  "name": "Légion Titanique",
+  "version": "1.4.1",
+  "faction": "Titanicus",
+  "color": "#a75502",
+  "logo": "titan.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 3,
+   "initiative_defaut": "1+"
+  },
+  "statut": "brouillon"
+ },
+ "ameliorations": [
+  {
+   "id": "legat_lt",
+   "name": "0-1 Légat",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "unites": []
+  },
+  {
+   "id": "princeps_veteran_lt",
+   "name": "Princeps Vétéran",
+   "cout": 25,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "princeps_veteran_wh_lt",
+   "name": "Princeps Vétéran (Warhounds)",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 2,
+   "unites": []
+  },
+  {
+   "id": "icone_sacree_lt",
+   "name": "Icône Sacrée",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Ajout (sans remplacement)",
+     "cout": 50
+    },
+    {
+     "name": "Remplacement d'un système d'arme de carapace",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "auspex_ameliore_lt",
+   "name": "Auspex Amélioré",
+   "cout": 25,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "multi_laser_carapace_lt",
+   "name": "Multi-Laser de Carapace",
+   "cout": 25,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "cloche_devotion_lt",
+   "name": "Cloche de Dévotion",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Ajout (sans remplacement)",
+     "cout": 100
+    },
+    {
+     "name": "Remplacement de 2 emplacements de carapace",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "carapace_warlord_lt",
+   "name": "Armement de Carapace",
+   "cout": 0,
+   "limit": 2,
+   "choix": [
+    {
+     "name": "[Tactique] Lance-roquettes Apocalypse",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Destructeur Turbo Laser",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Méga Bolter Vulcain",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon Gatling (Titan)",
+     "cout": 25
+    },
+    {
+     "name": "[Support] Missile de Barrage",
+     "cout": 50
+    },
+    {
+     "name": "[Support] 0-1 Missile Warp",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "carapace_reaver_lt",
+   "name": "Armement de Carapace",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "[Tactique] Lance-roquettes Apocalypse",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Destructeur Turbo Laser",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Méga Bolter Vulcain",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon Gatling (Titan)",
+     "cout": 25
+    },
+    {
+     "name": "[Support] Missile de Barrage",
+     "cout": 50
+    },
+    {
+     "name": "[Support] 0-1 Missile Warp",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "carapace_double_warlord_lt",
+   "name": "2e arme tactique de carapace identique (gratuit)",
+   "cout": 0,
+   "limit": 1,
+   "description": "Le Warlord peut prendre une 2e arme de carapace identique gratuitement parmi : LRA, DTL, MBV, Canon Gatling",
+   "choix": [
+    {
+     "name": "2e Lance-roquettes Apocalypse",
+     "cout": 0
+    },
+    {
+     "name": "2e Destructeur Turbo Laser",
+     "cout": 0
+    },
+    {
+     "name": "2e Méga Bolter Vulcain",
+     "cout": 0
+    },
+    {
+     "name": "2e Canon Gatling (Titan)",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "bras_warlord_lt",
+   "name": "Armement de Bras",
+   "cout": 0,
+   "limit": 2,
+   "choix": [
+    {
+     "name": "[Assaut] Module d'Assaut Corvus",
+     "cout": 0
+    },
+    {
+     "name": "[Assaut] Poing de Combat",
+     "cout": 0
+    },
+    {
+     "name": "[Assaut] Poing Tronçonneur",
+     "cout": 0
+    },
+    {
+     "name": "[Assaut] Démolisseur",
+     "cout": 0
+    },
+    {
+     "name": "[Tactique] Canon Gatling (Titan)",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Méga Bolter Vulcain",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Destructeur Turbo Laser",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon à Plasma",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon Inferno (PB)",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Thermo Fuseur",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon Fuseur",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Poing de Combat Arioch",
+     "cout": 25
+    },
+    {
+     "name": "[Support] Annihilateur à Plasma",
+     "cout": 50
+    },
+    {
+     "name": "[Support] Sismo Canon (Titan)",
+     "cout": 50
+    },
+    {
+     "name": "[Support] Canon Volcano (Titan)",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "bras_reaver_lt",
+   "name": "Armement de Bras",
+   "cout": 0,
+   "limit": 2,
+   "choix": [
+    {
+     "name": "[Assaut] Poing de Combat",
+     "cout": 0
+    },
+    {
+     "name": "[Assaut] Poing Tronçonneur",
+     "cout": 0
+    },
+    {
+     "name": "[Assaut] Démolisseur",
+     "cout": 0
+    },
+    {
+     "name": "[Tactique] Canon Gatling (Titan)",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Méga Bolter Vulcain",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Destructeur Turbo Laser",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon à Plasma",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon Inferno (PB)",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Thermo Fuseur",
+     "cout": 25
+    },
+    {
+     "name": "[Tactique] Canon Fuseur",
+     "cout": 25
+    },
+    {
+     "name": "[Support] Annihilateur à Plasma",
+     "cout": 50
+    },
+    {
+     "name": "[Support] Sismo Canon (Titan)",
+     "cout": 50
+    },
+    {
+     "name": "[Support] Canon Volcano (Titan)",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "brasD_warbringer_lt",
+   "name": "Armement de Bras Droit",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Canon Gatling (Titan)",
+     "cout": 25
+    },
+    {
+     "name": "Destructeur Turbo Laser",
+     "cout": 25
+    },
+    {
+     "name": "Canon Fuseur",
+     "cout": 25
+    },
+    {
+     "name": "Canon Volcano (Titan)",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "brasG_warbringer_lt",
+   "name": "Armement de Bras Gauche",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Canon Gatling (Titan)",
+     "cout": 25
+    },
+    {
+     "name": "Destructeur Turbo Laser",
+     "cout": 25
+    },
+    {
+     "name": "Canon Fuseur",
+     "cout": 25
+    },
+    {
+     "name": "Canon Volcano (Titan)",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "arme_warhound_lt",
+   "name": "Armement Warhound",
+   "cout": 0,
+   "limit": 2,
+   "choix": [
+    {
+     "name": "Griffe d'Ursus",
+     "cout": 0
+    },
+    {
+     "name": "Natrix Shock Lance",
+     "cout": 0
+    },
+    {
+     "name": "Canon à Plasma Léger",
+     "cout": 0
+    },
+    {
+     "name": "Canon Inferno Léger",
+     "cout": 0
+    },
+    {
+     "name": "Destructeur Turbo Laser Léger",
+     "cout": 0
+    },
+    {
+     "name": "Méga Bolter Vulcain Léger",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "warh1_arm_lt",
+   "name": "Armement Warhound 1",
+   "cout": 0,
+   "limit": 2,
+   "choix": [
+    {
+     "name": "Griffe d'Ursus",
+     "cout": 0
+    },
+    {
+     "name": "Natrix Shock Lance",
+     "cout": 0
+    },
+    {
+     "name": "Canon à Plasma Léger",
+     "cout": 0
+    },
+    {
+     "name": "Canon Inferno Léger",
+     "cout": 0
+    },
+    {
+     "name": "Destructeur Turbo Laser Léger",
+     "cout": 0
+    },
+    {
+     "name": "Méga Bolter Vulcain Léger",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "warh2_arm_lt",
+   "name": "Armement Warhound 2",
+   "cout": 0,
+   "limit": 2,
+   "choix": [
+    {
+     "name": "Griffe d'Ursus",
+     "cout": 0
+    },
+    {
+     "name": "Natrix Shock Lance",
+     "cout": 0
+    },
+    {
+     "name": "Canon à Plasma Léger",
+     "cout": 0
+    },
+    {
+     "name": "Canon Inferno Léger",
+     "cout": 0
+    },
+    {
+     "name": "Destructeur Turbo Laser Léger",
+     "cout": 0
+    },
+    {
+     "name": "Méga Bolter Vulcain Léger",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "termites_peltastes_lt",
+   "name": "4 Termites",
+   "cout": 100,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "termites_hoplites_lt",
+   "name": "4 Termites",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "taupe_lt",
+   "name": "1 Taupe",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "fouisseuse_lt",
+   "name": "1 Fouisseuse",
+   "cout": 75,
+   "limit": 1,
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "formations_bases_lt",
+   "name": "FORMATIONS DE BASES",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "titan_warlord_lt",
+     "name": "Titan Warlord",
+     "cout": 725,
+     "FormationLimitationTag": {
+      "slot_soutien_lt_A": 2,
+      "slot_soutien_lt_B": 1
+     },
+     "limiteOptionFormation": 8,
+     "ameliorations": [
+      "legat_lt",
+      "princeps_veteran_lt",
+      "icone_sacree_lt",
+      "auspex_ameliore_lt",
+      "multi_laser_carapace_lt",
+      "cloche_devotion_lt",
+      "carapace_warlord_lt",
+      "carapace_double_warlord_lt",
+      "bras_warlord_lt"
+     ],
+     "unites": []
+    },
+    {
+     "id": "titan_warbringer_lt",
+     "name": "Titan Warbringer Nemesis",
+     "cout": 700,
+     "FormationLimitationTag": {
+      "slot_soutien_lt_A": 2,
+      "slot_soutien_lt_B": 1
+     },
+     "limiteOptionFormation": 6,
+     "ameliorations": [
+      "legat_lt",
+      "princeps_veteran_lt",
+      "icone_sacree_lt",
+      "auspex_ameliore_lt",
+      "brasD_warbringer_lt",
+      "brasG_warbringer_lt"
+     ],
+     "unites": []
+    },
+    {
+     "id": "titan_reaver_lt",
+     "name": "Titan Reaver",
+     "cout": 575,
+     "FormationLimitationTag": {
+      "slot_soutien_lt_A": 2,
+      "slot_soutien_lt_B": 1
+     },
+     "limiteOptionFormation": 7,
+     "ameliorations": [
+      "legat_lt",
+      "princeps_veteran_lt",
+      "icone_sacree_lt",
+      "auspex_ameliore_lt",
+      "multi_laser_carapace_lt",
+      "carapace_reaver_lt",
+      "bras_reaver_lt"
+     ],
+     "unites": []
+    },
+    {
+     "id": "meute_warhounds_lt",
+     "name": "0-2 Meutes de Warhounds",
+     "cout": 500,
+     "FormationLimite": 2,
+     "FormationLimitationTag": {
+      "slot_soutien_lt_A": 2,
+      "slot_soutien_lt_B": 1
+     },
+     "limiteOptionFormation": 6,
+     "ameliorations": [
+      "princeps_veteran_wh_lt",
+      "warh1_arm_lt",
+      "warh2_arm_lt"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "formations_soutien_lt",
+   "name": "FORMATIONS DE SOUTIEN",
+   "description": "Deux formations de soutien par formation de base",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_lt_A",
+   "formations": [
+    {
+     "id": "warhound_soutien_lt",
+     "name": "Titan Warhound",
+     "cout": 275,
+     "limiteOptionFormation": 6,
+     "ameliorations": [
+      "princeps_veteran_lt",
+      "arme_warhound_lt"
+     ],
+     "unites": []
+    },
+    {
+     "id": "secutarii_peltastes_lt",
+     "name": "Cohorte de Secutarii Peltastes",
+     "cout": 200,
+     "ameliorations": [
+      "termites_peltastes_lt",
+      "taupe_lt",
+      "fouisseuse_lt"
+     ],
+     "unites": []
+    },
+    {
+     "id": "secutarii_hoplites_lt",
+     "name": "Cohorte de Secutarii Hoplites",
+     "cout": 200,
+     "ameliorations": [
+      "termites_hoplites_lt",
+      "taupe_lt",
+      "fouisseuse_lt"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "formations_soutien_rare_lt",
+   "name": "FORMATIONS DE SOUTIEN RARE",
+   "description": "Une formation de soutien rare par formation de base, jusqu'à 1/3 des points maximum",
+   "type": "rare",
+   "LimitationTag": "slot_soutien_lt_B",
+   "formations": [
+    {
+     "id": "titan_imperator_lt",
+     "name": "Titan Imperator",
+     "cout": 1250,
+     "ameliorations": [
+      "legat_lt"
+     ],
+     "unites": []
+    },
+    {
+     "id": "titan_imperator_warmonger_lt",
+     "name": "Titan Imperator Warmonger",
+     "cout": 1250,
+     "ameliorations": [
+      "legat_lt"
+     ],
+     "unites": []
+    }
+   ]
+  }
+ ]
+}

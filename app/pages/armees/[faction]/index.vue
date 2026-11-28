@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
+import { codexDeArmee, codexAvecBuilder, type CodexMeta, type PublicationCodex } from '~/utils/codex-armee'
 
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[]; tags: ArmyTag[] }
 
@@ -36,21 +37,35 @@ const factionConfig: Record<string, { label: string; subtitle: string; gradient:
 const config = computed(() => factionConfig[faction.value] ?? factionConfig.imperium)
 
 
+const urlSite = useUrlSite()
+
 useSeoMeta({
   title: () => config.value.label,
   description: () => `${config.value.label} — ${config.value.subtitle}. Téléchargez les codex Epic Armageddon en PDF.`,
   ogTitle: () => `${config.value.label} — Epic Armageddon FR`,
   ogDescription: () => config.value.subtitle,
-  ogUrl: () => `https://www.epicarmageddon.fr/armees/${faction.value}`,
+  ogUrl: () => urlSite(`/armees/${faction.value}`),
 })
 
-const { data: armies, status } = await useFetch<ArmyWithVersion[]>('/api/armies', {
-  query: { faction },
-})
+/**
+ * Les deux appels ne dépendent que de la faction : lancés ensemble, et surtout
+ * sans bloquer le rendu. Le cadre de la page (fond, titre, fil d'Ariane) part
+ * tout de suite et la grille se dessine en gris le temps que les données
+ * arrivent, au lieu de laisser une page vide pendant l'aller-retour.
+ */
+// `server: false` : sans lui, le rendu serveur attend quand même la réponse et
+// le squelette n'apparaît jamais. Les données sont donc lues par le navigateur.
+const { data: armies, status } = useLazyFetch<ArmyWithVersion[]>('/api/armies', { query: { faction }, server: false })
+const { data: availableTags, status: statutTags } = useLazyFetch<ArmyTag[]>('/api/army-tags', { query: { faction }, server: false })
+// Le codex dynamique porte sa propre REV et ses propres dates de publication :
+// sans ces deux appels, la grille d'une faction reste sur les numéros et les
+// dates des PDF déposés à la main, alors que la page « Livres d'Armées » et les
+// fiches montrent déjà les REV dynamiques.
+const { data: tousCodex } = useLazyFetch<CodexMeta[]>('/api/codex', { server: false })
+const { data: publications } = useLazyFetch<PublicationCodex[]>('/api/codex/publications', { server: false })
 
-const { data: availableTags } = await useFetch<ArmyTag[]>('/api/army-tags', {
-  query: { faction },
-})
+const chargement = computed(() => status.value === 'pending' || status.value === 'idle')
+const chargementTags = computed(() => statutTags.value === 'pending' || statutTags.value === 'idle')
 
 const search = ref('')
 const activeTag = ref<string | null>(null)
@@ -58,10 +73,30 @@ const activeTag = ref<string | null>(null)
 const threeMonthsAgo = new Date()
 threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
 
+const publicationParSlug = computed(() => new Map((publications.value ?? []).map(p => [p.slug, p])))
+
+/** REV du codex dynamique quand il existe, sinon celle du dernier PDF déposé. */
+const revParArmee = computed(() => {
+  const m = new Map<string, string>()
+  for (const a of armies.value ?? []) {
+    const rev = codexDeArmee(codexAvecBuilder(tousCodex.value), a.id, a.name)?.version ?? a.army_versions?.[0]?.version
+    if (rev) m.set(a.id, rev)
+  }
+  return m
+})
+
+/**
+ * Nouveauté : PDF déposé à la main ou REV du codex dynamique, comme sur
+ * « Livres d'Armées ». La première REV d'un codex est une transcription de ce
+ * qui était déjà publié, elle ne compte pas comme une nouveauté.
+ */
 function isNew(army: ArmyWithVersion) {
-  const version = army.army_versions?.[0]
-  if (!version) return false
-  return new Date(version.published_at) > threeMonthsAgo
+  const dates = (army.army_versions ?? []).map(v => v.published_at).filter(Boolean)
+  const codex = codexDeArmee(codexAvecBuilder(tousCodex.value), army.id, army.name)
+  const publication = codex ? publicationParSlug.value.get(codex.slug) : undefined
+  if (publication && publication.revs > 1) dates.push(publication.publie)
+  const derniere = dates.sort((a, b) => +new Date(b) - +new Date(a))[0]
+  return !!derniere && new Date(derniere) > threeMonthsAgo
 }
 
 const filteredArmies = computed(() => {
@@ -112,7 +147,12 @@ const filteredArmies = computed(() => {
         <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
 
         <!-- Tag filters -->
-        <div v-if="availableTags?.length" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+        <div v-if="chargementTags" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0" aria-hidden="true">
+          <div class="inline-flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <div v-for="n in 4" :key="n" class="h-[34px] w-24 animate-pulse rounded-lg bg-white/5 sm:h-9 sm:w-28" />
+          </div>
+        </div>
+        <div v-else-if="availableTags?.length" class="-mx-4 mt-8 overflow-x-auto px-4 sm:mx-0 sm:px-0">
           <div class="inline-flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
             <button
               :class="[
@@ -151,9 +191,23 @@ const filteredArmies = computed(() => {
 
       <!-- Army grid -->
       <section class="mx-auto max-w-6xl px-4 pb-20">
-      <!-- Loading -->
-      <div v-if="status === 'pending'" class="py-20 text-center text-gray-400">
-        Chargement...
+      <!-- Chargement : des cartes fantômes à la place de la grille, pour que la
+           page garde sa forme au lieu de sauter quand les armées arrivent. -->
+      <div
+        v-if="chargement"
+        class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5"
+        role="status"
+        aria-label="Chargement des armées"
+      >
+        <div
+          v-for="n in 10"
+          :key="n"
+          class="flex animate-pulse flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.06] p-3 backdrop-blur-md sm:gap-4 sm:p-5"
+        >
+          <div class="h-16 w-16 rounded-full bg-white/10 sm:h-24 sm:w-24" />
+          <div class="h-4 w-20 rounded bg-white/10 sm:w-24" />
+          <div class="h-3 w-12 rounded bg-white/[0.06]" />
+        </div>
       </div>
 
       <!-- Empty -->
@@ -196,8 +250,8 @@ const filteredArmies = computed(() => {
             <p class="text-sm font-semibold text-gray-200 transition-colors group-hover:text-gold sm:text-base">
               {{ army.name }}
             </p>
-            <p v-if="army.army_versions?.length" class="mt-1 text-xs text-gray-500">
-              (REV {{ army.army_versions[0].version }})
+            <p v-if="revParArmee.get(army.id)" class="mt-1 text-xs text-gray-500">
+              (REV {{ revParArmee.get(army.id) }})
             </p>
           </div>
         </NuxtLink>
@@ -210,7 +264,7 @@ const filteredArmies = computed(() => {
 
 <style scoped>
 .army-icon {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--c-blanc) / 0.8);
   mask-image: var(--icon-url);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -223,6 +277,6 @@ const filteredArmies = computed(() => {
 }
 
 .group:hover .army-icon {
-  background-color: #c8a052;
+  background-color: rgb(var(--c-gold));
 }
 </style>

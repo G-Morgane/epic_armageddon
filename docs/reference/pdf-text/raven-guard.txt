@@ -1,0 +1,958 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+RAVEN GUARD 
+ 
+ 
+« Savoir exactement où frapper, afin d’infliger un maximum de 
+dégâts avec un minimum de forces, telle est la clef de la 
+victoire. » 
+Sergent Instructeur Alenpo. 4e Compagnie 
+ 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de 
+Raven Guard. Cette liste peut également être utilisée pour 
+représenter n’importe quel chapitre successeurs des Raven 
+Guard comme les Black Guard ou les Death Spectres. 
+Les armées Raven Guard sont organisées autour de petites 
+formations appelées détachements principaux ainsi que des 
+détachements de soutien qui leurs sont autonomes (même si 
+le nombre de détachements de soutien autorisé dépend du 
+nombre de détachement principaux que vous mettez dans 
+votre armée). 
+Chaque détachement peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut être prise qu’une fois par détachement et chaque 
+détachement peut recevoir au maximum 3 améliorations. Les 
+améliorations font partie intégrante des détachements et 
+doivent respecter les règles de cohésion. Noter que certaines 
+améliorations remplacent des unités d’un détachement tandis 
+que d’autres ajoutent des unités supplémentaires.  
+Les formations de support sont des formations autonomes 
+des détachements. Un maximum de ⅓ des points peuvent 
+être dépensés pour ces formations. 
+Concernant le transport, les unités suivantes seront jugées 
+comme équivalentes : 
+ 
+Terminators d’assaut ↔ Terminators 
+ 
+ 
+Règle spéciale : “Et ils ne connaîtront pas la 
+peur” 
+ 
+La bravoure et la ténacité des Space Marines sont 
+légendaires. Ces traits de caractère sont représentés par 
+les règles suivantes : 
+ 
+• Il faut deux pions d'impact pour neutraliser une unité 
+Space Marines ou détruire une unité démoralisée (ignorez 
+les pions d'impacts en plus). 
+ 
+• Les formations Space Marines ne sont démoralisées qu’à 
+partir du moment où elles ont deux pions d'impact ou plus 
+par unité. 
+ 
+• Les formations Space Marines comptent comme ayant la 
+moitié de leur nombre de pions impact lors de la 
+résolution de l’assaut (arrondi à l’inférieur, à un minimum 
+de 1 pion impact). 
+ 
+• 
+Réduisez 
+de 
+moitié 
+le 
+nombre 
+de 
+touches 
+supplémentaires subies par une formation de Space 
+Marines perdant un assaut, en arrondissant à l’entier 
+inférieur en faveur des Space Marines. 
+ 
+• Lorsqu’une formation Space Marines démoralisée se 
+rallie, elle reçoit un nombre de pions impact égal au 
+nombre d’unités plutôt qu’à la moitié du nombre d’unités. 
+ 
+• Les Meneurs Space Marines retirent deux pions d'impact 
+au lieu d'habituellement un seul. 
+ 
+Attention : les formations prises en Soutien de Légions 
+Titaniques ne bénéficient pas de cette règle. 
+Règle spéciale : Transports 
+ 
+Les formations Space Marines disposant d'unités avec le 
+suffixe "+ Transports" peuvent prendre assez de Rhinos 
+pour transporter l’intégralité de la formation. Si cette 
+option est prise, le nombre de Rhinos doit être suffisant, 
+mais la capacité totale de transport ne doit pas être 
+excédentaire par rapport au nombre d'unités à transporter.  
+ 
+Si des véhicules avec une capacité de transport ont été 
+achetés pour la formation (comme des Razorbacks ou des 
+Land Raiders), on considère qu’ils transportent au 
+maximum de leurs capacités et qu’il est possible de 
+prendre assez de Rhinos pour transporter ce qu'il reste de 
+la formation (même si un Rhino se retrouve à moitié vide).  
+ 
+En outre, il est possible de remplacer tous les Rhinos de la 
+formation par un Dreadnought ou par des Modules 
+d'Atterrissage, excepté pour les détachements de Scouts. 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustrations de couverture Conor Burke https://www.artstation.com/conorburke. Illustration page 2 Mac Smith 
+https://www.artstation.com/macsmith. 
+1 - CODEX RAVEN GUARD REV-1.3 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Modules d'atterrissage 
+ 
+Une formation se déployant par Assaut Planétaire et pouvant être transportée par Modules d’atterrissage le fait selon les 
+règles spéciales suivantes : placez un marqueur de Module d’atterrissage en utilisant les règles d’Assaut Planétaire (4.3 et 
+4.4 du Livre de Règles). Un Vaisseau en orbite sera nécessaire pour déployer les Modules d’atterrissage.  
+ 
+Le Module d’atterrissage est un marqueur comptant comme la première unité de la formation au moment de déterminer 
+son emplacement d’arrivée en Assaut Planétaire. Une fois le marqueur de Module d’atterrissage placé, résolvez son 
+attaque de tir sur toutes les unités ennemies à moins de 15 cm du centre du Module d’atterrissage. Chaque formation 
+ennemie attaquée reçoit un Pion Impact selon les règles normales de tir.  
+ 
+Ensuite, débarquer les troupes transportées dans le Module d’atterrissage (cela peut déclencher un tir d’État d’Alerte 
+normalement) complètement à moins de 15 cm du centre de celui-ci, en cohésion et en dehors de toute zone de contrôle 
+ennemie. Si les unités ne peuvent débarquer en totalité en respectant les règles ci-dessus, les unités restantes seront 
+détruites sans attribution de pions d'impacts.  
+ 
+Le Module d’atterrissage n'étant pas une unité mais un marqueur, il ne possède pas de zone de contrôle et il ne compte 
+pas pour la cohérence de la formation. De plus, il ne peut pas être utilisé pour revendiquer un feu croisé ainsi que pour 
+tenir ou contester des objectifs.  
+ 
+Si plusieurs formations utilisent des Modules d’atterrissage, placez tous les marqueurs Module d’atterrissage aux 
+coordonnées prédéterminées en utilisant les règles d’Assaut Planétaire (y compris la résolution de dispersion). Une fois 
+que tous les marqueurs sont placés, résolvez toutes les attaques des Modules d’atterrissage simultanément contre les 
+formations ennemies à portée des marqueurs Module d’atterrissage. Les formations visées recevront un pion impact 
+pour le tir pour chaque attaque du vaisseau ou des modules d'atterrissage. Les pertes et les tirs ruptures infligent des PI 
+normalement. Puis débarquez toutes les formations transportées, en suivant les règles ci-dessus. 
+ 
+ 
+2 - CODEX RAVEN GUARD REV-1.3 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE RAVEN GUARD  
+Les armées de la Raven Guard ont une valeur stratégique de 5. Mais lors du jet de stratégie du 1er tour, elles disposent d’un 
+bonus de +1 à leur valeur stratégique, puis d’un malus de -1 pour les 3èmes et 4èmes tours. Les Détachements de la Raven Guard, 
+la flotte Raven Guard et soutiens des Légions Titaniques ont une initiative de 1+. 
+DÉTACHEMENTS RAVEN GUARD 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Scouts 
+4 unités de Scouts + transports 
+Commandant, Razorbacks, Sniper, Tempest, Téléportation 
+150 pts 
+Storm 
+3 unités de Scouts + 3 Land Speeders Storm 
+Commandant, Sniper, Tempest 
+225 pts 
+Assaut 
+4 ou 8 unités de Marines d’Assauts 
+Commandant 
+175 pts / 325 pts 
+ 
+DÉTACHEMENTS DE SOUTIEN RAVEN GUARD 
+(Jusqu'à 3 détachements de soutien par détachement principal) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Tactique 
+6 unités de Tactiques + transports 
+Commandant, Dreadnoughts, Razorbacks 
+275 pts 
+Devastator 
+4 unités de Devastators + transports 
+Commandant, Dreadnoughts, Razorbacks 
+250 pts 
+Terminator 
+4 unités de Terminators d'Assaut 
+Commandant, Téléportation 
+275 pts 
+Motos 
+5 unités parmi : Motos et/ou Motos d'assaut 
+Commandant 
+200 pts 
+Land Speeders 
+5 unités de Land Speeders 
+Commandant, Tempest, Tornado/Typhoon 
+200 pts 
+0-1 Predators 
+4 Predators Destructor ou 
+4 Predators Annihilator 
+Commandant, Vindicators, Hunter 
+225 pts 
+275 pts 
+0-1 Whirlwinds 
+4 Whirlwinds 
+Commandant, Hunter 
+300 pts 
+0-1 Vindicators 
+4 Vindicators 
+Commandant 
+250 pts 
+0-1 Land Raiders 
+4 Land Raiders 
+Commandant, Hunter 
+350 pts 
+ 
+AMÉLIORATIONS RAVEN GUARD 
+(Chaque amélioration ne peut être prise qu'une seule fois par détachement et chaque détachement peut recevoir au plus 3 améliorations) 
+Améliorations 
+Unités 
+Coût 
+Commandant 
+Ajouter un Capitaine ou un Archiviste ou un Chapelain 
+Un Capitaine peut être échangé gratuitement par un Maître de chapitre 
+50 pts 
+(Gratuit) 
+Téléportation 
+Ajouter la Note Téléportation aux unités de Terminators d'Assaut de la formation 
+ou Ajouter la Note Téléportation aux unités de Scouts de la formation 
+50 pts 
+Gratuit 
+Sniper 
+Les Bolters lourds des unités de Scouts reçoivent la Note Sniper 
+50 pts 
+Tornado / Typhoon 
+La formation peut contenir des land speeders selon n'importe quelle combinaison : 
+Remplacez des unités par autant de Land speeders Tornado 
+Remplacez des unités par autant de Land speeders Typhoon 
+5 pts chacun 
+15 pts chacun 
+Tempest 
+Ajouter 1 Land Speeders Tempest à la formation 
+50 pts 
+Razorbacks 
+Ajouter jusqu’à autant de Razorbacks que d’unités à transporter 
+25 pts chacun 
+Vindicators 
+Ajouter jusqu'à 2 Vindicators à la formation 
+65 pts chacun 
+Hunter 
+Ajouter 1 Hunter à la formation 
+50 pts 
+Dreadnought 
+Ajouter 1 ou 2 Dreadnoughts à la formation parmi : Dreadnought et Dreadnought Feu d'Enfer 
+50 pts chacun 
+ 
+SUPPORTS RAVEN GUARD 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+FLOTTE RAVEN GUARD 
+ 
+SOUTIEN DES LEGIONS TITANIQUES 
+Formations 
+Unités 
+Coût 
+Formations 
+Unités 
+Coût 
+Thunderhawk 
+1 Thunderhawk 
+225 pts 
+Titan Warhound 
+1 Titan Warhound 
+(Ajouter 1 Titan Warhound) 
+275 pts 
+(+225 pts) 
+Thunderhawks Transporteurs 
+2 Thunderhawks Transporteurs 
+(Ajouter 1 Thunderhawk Transporteur) 
+300 pts 
+(+150 pts) 
+Titan Reaver 
+1 Titan Reaver 
+650 pts 
+Barge de débarquement 
+1 Barge de débarquement 
+400 pts 
+Titan Warlord 
+1 Titan Warlord 
+850 pts 
+Intercepteurs Stormtalons 
+2 Stormtalons Destructor ou 
+2 Stormtalons Annihilator 
+200 pts 
+250 pts 
+ 
+ 
+ 
+Stormeagles 
+2 Stormeagles 
+275 pts 
+ 
+ 
+ 
+Stormravens 
+2 Stormravens 
+(Ajouter jusqu'à 2 Stormravens) 
+275 pts 
+(+125 pts chacun) 
+ 
+ 
+ 
+Bélier d’assaut Caestus 
+2 Caestus 
+(Ajouter 1 Caestus) 
+250 pts 
+(+100 pts) 
+ 
+ 
+ 
+0-1 Soutien Orbital 
+1 Croiseur d'attaque ou 
+1 Barge de bataille 
+200 pts 
+350 pts 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3 - CODEX RAVEN GUARD REV-1.3 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES RAVEN GUARD 
+ 
+Nom 
+Type Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Maître de Chapitre 
+Perso 
+- 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant Suprême, Sauvegarde Invulnérable 
+Capitaine 
+Perso 
+- 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable 
+Chapelain 
+Perso 
+- 
+- 
+- 
+- 
+Crozius Arcanum 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Charismatique, Meneur, Sauvegarde Invulnérable 
+Archiviste 
+Perso 
+- 
+- 
+- 
+- 
+Frappe Psychique 
+et 
+Arme de Force 
+30cm 
+(15cm) 
+(contact) 
+MA4+ 
+Arme Légère, +1A, MA 
+Arme d'Assaut, +1A, MA 
+Meneur, Sauvegarde Invulnérable 
+Tactiques 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ Lance-Missiles 
+Bolters 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+ 
+Devastators 
+Inf 
+15cm 
+4+ 
+5+ 
+4+ 2x Armes Lourdes 
+Bolters 
+45cm 
+(15cm) 
+AP5+/AC5+ 
+Arme Légère 
+ 
+Marines d'Assaut 
+Inf 
+30cm 
+4+ 
+3+ 
+5+ Épée tronçonneuse 
+Pistolet Bolter 
+(contact) 
+(15cm) 
+Arme d'Assaut 
+Arme Légère 
+Réacteurs Dorsaux 
+Terminators d'Assaut 
+Inf 
+15cm 
+4+ 
+3+ 
+- 
+Griffes Éclair 
+Marteau Tonnerre 
+(contact) 
+(contact) 
+Arme d'Assaut , MA 
+Arme d'Assaut, +1A, MA 
+Blindage renforcé, Blindage arrière renforcé, Sauvegarde Invulnérable 
+Scouts 
+Inf 
+15cm 
+5+ 
+4+ 
+5+ Bolter Lourd 
+Bolters 
+30cm 
+(15cm) 
+AP5+ 
+Arme Légère 
+Eclaireurs, Infiltrateurs 
+Motos 
+Inf 
+35cm 
+4+ 
+3+ 
+4+ Épée Tronçonneuse 
+Bolters 
+(contact) 
+(15cm) 
+Arme d'Assaut 
+Arme Légère 
+Montés 
+Motos d'Assaut 
+VL 
+35cm 
+4+ 
+5+ 
+4+ Bolter Lourd 
+Bolters 
+30cm 
+(15cm) 
+AP5+ 
+Arme Légère 
+ 
+Land Speeder 
+VL 
+35cm 
+4+ 
+6+ 
+5+ Multi-Fuseur 
+et 
+15cm 
+(15cm) 
+MA5+ 
+Arme Légère, MA 
+Antigrav, Eclaireurs 
+Land Speeder Tornado 
+VL 
+35cm 
+4+ 
+6+ 
+4+ Canon d'Assaut 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC5+ 
+AP5+ 
+Antigrav, Eclaireurs 
+Land Speeder Typhoon 
+VL 
+35cm 
+4+ 
+6+ 
+4+ Lance-missiles Typhoon 
+Bolter Lourd 
+45cm 
+30cm 
+AP3+/AC5+ 
+AP5+ 
+Antigrav, Eclaireurs 
+Land Speeder Storm 
+VL 
+35cm 
+4+ 
+6+ 
+5+ Bolter Lourd 
+30cm 
+AP5+ 
+Antigrav, Eclaireurs, Transport (1) : Scouts 
+Land Speeder Tempest 
+VL 
+35cm 
+4+ 
+6+ 
+4+ Lance-missiles Tempest 
+Canon d'Assaut 
+45cm 
+30cm 
+AP4+/AC5+/AA6+ 
+AP5+/AC5+ 
+Antigrav 
+Dreadnought 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Canon d'Assaut 
+Poing Énergétique 
+30cm 
+(contact) 
+AP5+/AC5+ 
+Arme d'Assaut, +1A, MA 
+Marcheur, Sans peur 
+Dreadnought Feu d'Enfer 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Canons Laser Jumelés 
+Lance-missiles 
+45cm 
+45cm 
+AC4+ 
+AP5+/AC6+ 
+Marcheur, Sans peur 
+Rhino 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Fulgurant 
+(15cm) 
+Arme Légère 
+Transport (2) : Tactiques, Devastators, Scouts 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX RAVEN GUARD REV-1.3 
+
+===== PAGE 6 =====
+Nom 
+Type Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Land Raider 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 2x Canons Laser Jumelés 
+Bolters Lourds Jumelés 
+45cm 
+30cm 
+AC4+ 
+AP4+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Transport (2) : Tactiques, Devastators, Terminators (prennent 2 places) 
+Razorback Bolters Lourds 
+VB 
+30cm 
+5+ 
+6+ 
+4+ Bolters Lourds Jumelés 
+30cm 
+AP4+ 
+Transport (1) : Tactiques, Devastators, Scouts 
+Razorback Canons Laser 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Canons Laser Jumelés 
+45cm 
+AC4+ 
+Transport (1) : Tactiques, Devastators, Scouts 
+Predator Annihilator 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Canons Laser Jumelés 
+2x Canon Laser 
+45cm 
+45cm 
+AC4+ 
+AC5+ 
+Blindage renforcé 
+Predator Destructor 
+VB 
+30cm 
+5+ 
+6+ 
+4+ Autocanon 
+2x Bolter Lourd 
+45cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Blindage renforcé 
+Vindicator 
+VB 
+25cm 
+5+ 
+6+ 
+4+ Canon Démolisseur (V) 
+et 
+30cm 
+(15cm) 
+MA4+ 
+Arme Légère, MA 
+Blindage renforcé 
+Whirlwind 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Lance-missiles Whirlwind 
+45cm 
+1PB, Ind 
+ 
+Hunter 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Lance-missiles Skyspear 
+60cm 
+AC4+/AA4+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5 - CODEX RAVEN GUARD REV-1.3 
+
+===== PAGE 7 =====
+ 
+FEUILLES DE RÉFÉRENCES DE LA FLOTTE RAVEN GUARD 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Stormtalon 
+Destructor 
+A 
+C 
+5+ 
+- 
+- 
+Canons d'Assaut Jumelés (AA) 
+Bolters Lourds Jumelés (AA Avant) 
+30cm 
+30cm 
+AP4+/AC4+/AA5+, FrtF 
+AP4+/AA5+, FrtF 
+ 
+Stormtalon 
+Annihilator 
+A 
+C 
+5+ 
+- 
+- 
+Canons d'Assaut Jumelés (AA) 
+Canons Laser Jumelés (FF+AA) 
+30cm 
+45cm 
+AP4+/AC4+/AA5+, FrtF 
+AC4+/AA5+, FrtF 
+ 
+Stormraven 
+A/EG 
+B 
+4+ 
+6+ 4+ Multi-Fuseurs Jumelés (Avant) 
+et 
+Canons d'Assaut Jumelés (AA Avant) 
+Missiles Bloodstrike 
+15cm 
+(15cm) 
+30cm 
+45cm 
+MA4+ FrtF 
+Arme Légère, MA, FrtF 
+AP4+/AC4+/AA5+, Frt 
+AC4+, Frt 
+CD1 – Blindage renforcé, Assaut planétaire.Transport (2) : Tactiques, Marines 
+d'Assaut, Devastators, Scouts, Terminators. (Marines d'Assaut et Terminators 
+prennent 2 places). Un Dreadnought peut toujours être embarqué en plus de ces 
+unités. 
+Stormeagle 
+A/EG 
+B 
+5+ 
+6+ 5+ Bolters Lourds Jumelés (AA Avant) 
+2x Canons Laser Jumelés (FF+AA) 
+Lance-missiles Vengeance 
+30cm 
+45cm 
+45cm 
+AP4+/AA5+, FrtF 
+AC4+/AA5+, FrtF 
+2PB, FrtF 
+CD1 – Assaut planétaire, Blindage renforcé. 
+Transport (4) : Tactiques, Devastators, Scouts, Marines d'Assauts, Terminators 
+(Marines d'Assaut et Terminators prennent 2 places) 
+Bélier d'Assaut 
+Caestus 
+A/EG 
+B 
+4+ 
+5+ 5+ Bélier Caestus 
+Magna Fuseur 
+Lance-missiles Firefury 
+(contact) 
+(contact) 
+30cm 
+Arme d'Assaut, MA, FrtF 
+Arme d'Assaut, +1A, MA, FrtF 
+2PB, Uniq, FrtF 
+CD1 – Assaut planétaire, Blindage renforcé, Sauvegarde Invulnérable 
+Transport (2) : Tactiques, Devastators, Scouts, Marines d'Assaut, Terminators 
+Thunderhawk 
+Transporteur 
+A/EG 
+B 
+4+ 
+6+ 5+ 2x Bolters Lourds Jumelés (AA Droite) 
+2x Bolters Lourds Jumelés (AA Gauche) 
+30cm 
+30cm 
+AP4+/AA5+, Drt 
+AP4+/AA5+, Gch 
+Assaut planétaire, Blindage renforcé, 
+Transport (2) : Land Raider (prennent deux places), Rhinos, Razorbacks, Whirlwinds, 
+Hunters, Predators, Vindicators et les unités qu'ils transportent. 
+CD2 – Critique : L'appareil s'écrase au sol, tuant tous ceux à son bord 
+Thunderhawk 
+A/EG 
+B 
+4+ 
+6+ 4+ Obusier (Avant) 
+2x Bolters Lourds Jumelés (AA Avant) 
+Bolters Lourds Jumelés (AA Droite) 
+Bolters Lourds Jumelés (AA Gauche) 
+75cm 
+30cm 
+30cm 
+30cm 
+AP4+/AC4+, FrtF 
+AP4+/AA5+, FrtF 
+AP4+/AA5+, Drt 
+AP4+/AA5+, Gch 
+Assaut planétaire, Blindage renforcé 
+Transport (8) : Tactiques, Devastators, Scouts, Marines d'Assaut, Motos, Motos 
+d'Assaut, Terminators, Dreadnoughts (Terminators et Dreadnoughts prennent deux 
+places) 
+CD2 – Critique : L'appareil s'écrase au sol, tuant tous ceux à son bord. 
+Barge de 
+Débarquement 
+A/EG 
+B 
+4+ 
+5+ 3+ 2x Canons Laser Jumelés 
+3x Bolters Lourds Jumelés (Barge) 
+45cm 
+30cm 
+AC4+ 
+AP4+/AA5+ 
+Blindage Renforcé, Blindage Arrière Renforcé, Assaut planétaire, 
+Transport (12+6/4) : Tactiques, Devastators, Scouts, Marines d'Assaut, Motos, Motos 
+d'Assaut, Terminator, Dreadnought (Terminators et Dreadnought prennent 2 places), 
+plus 6 véhicules parmis Rhinos, Razorbacks, Whirlwinds, Hunters, Predators, 
+Vindicators ou 4 Land Raiders. 
+CD4 – Critique : La Barge de débarquement s'écrase au sol et est détruite, ainsi que 
+toutes les unités à son bord. Toute unité dans un rayon de 5cm de l'appareil subit une 
+touche si la Barge de débarquement se trouvait au sol. 
+Croiseur 
+d'Attaque 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (5) 
+∞ 
+5PB, MA 
+Transport (20+20+6) : Tactiques, Devastators, Marines d'Assaut, Scouts, Terminators, 
+Dreadnoughts, Motos et Motos d’assaut, plus 20 véhicules parmi Rhinos, Razorbacks, 
+Whirlwinds, Hunters, Predators, Vindicators et Land Raiders ainsi que 6 
+Thunderhawks et Thunderhawks Transporteurs. De plus, le Croiseur d’Attaque peut 
+transporter le nombre nécessaire de Modules d'Atterrissage, Stormeagles, 
+Stormravens, Béliers d’Assaut Caestus et Barges de Débarquement pour transporter 
+le reste des unités à son bord. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6 - CODEX RAVEN GUARD REV-1.3 
+
+===== PAGE 8 =====
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Barge de 
+Bataille 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (14) 
+∞ 
+14PB, MA 
+Lent, ne peut être utilisé aux tours 1 et 2. 
+Transport (60+60+6) : Tactiques, Devastators, Marines d'Assaut, Scouts, Terminators, 
+Dreadnoughts, Motos et Motos d’Assaut, plus 60 véhicules parmis Rhinos, 
+Razorbacks, Whirlwinds, Hunters, Predators, Vindicators et Land Raiders ainsi que 9 
+Thunderhawks et Thunderhawks Transporteurs. De plus, la Barge de Bataille peut 
+transporter le nombre nécessaire de Modules d'Atterrissage, Stormeagles, 
+Stormravens, Béliers d’Assaut Caestus et Barges de Débarquement pour transporter 
+le reste des unités à son bord. 
+Module 
+d'atterrissage 
+VB 
+- 
+- 
+- 
+- 
+Deathwind 
+15cm 
+AP5+/AC5+ 
+Transport (Formation + Option) : Tactiques, Devastators, Dreadnought 
+ 
+ 
+ 
+FEUILLE DE RÉFÉRENCES DES LÉGIONS TITANIQUES 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu Notes 
+Warhound 
+EG 
+30cm 
+5+ 
+4+ 
+4+ Méga Bolter Vulcain (F) 
+Canon Plasma Léger (F) 
+45cm 
+45cm 
+4xAP3+/AC5+, Frt 
+2xMA2+, Rchg, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD3 / BI2 – Critique : Le titan est déséquilibré et vacille Déplacez-le dans une direction 
+aléatoire de 1D6cm. Si le Warhound percute un terrain infranchissable ou une unité qu'il ne 
+peut pousser, il s'arrête et perd un point de dommage supplémentaire, les unités qu'il percute 
+subissent une touche sur un résultat de 6+ 
+Reaver 
+EG 
+20cm 
+4+ 
+3+ 
+3+ Lance-missiles Apocalypse 
+2x Destructeurs Turbo laser 
+60cm 
+60cm 
+4PB, FrtF 
+4xAP5+/AC3+, Frt 
+Blindage Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1, le Reaver explose et inflige une touche sur un 5+ 
+aux unités à 5cm, sur 2-3, le Reaver perd 1CD, sur 4+ la fissure est réparée 
+Warlord 
+EG 
+15cm 
+4+ 
+2+ 
+3+ 2x Destructeurs Turbo laser (FF) 
+Canon Gatling 
+Canon Volcano 
+60cm 
+60cm 
+90cm 
+4xAP5+/AC3+, FrtF 
+4xAP4+/AC4+, Frt 
+MA2+, TT (D3), Frt 
+Blindage Renforcé, Blindage arrière Renforcé, Marcheur, Sans peur 
+Peut passer au-dessus d'unités et des obstacles moins hauts que les genoux du titan et au 
+maximum de 2cm de large 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure, lancez 1D6 à la fin de chaque tour 
+pour chaque fissure. Sur un résultat de 1 le Warlord explose et inflige une touche sur un 4+ 
+aux unités à 5cm, sur 2-3 le Warlord perd 1 CD, sur 4+ la fissure est réparée 
+ 
+7 - CODEX RAVEN GUARD REV-1.3 

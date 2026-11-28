@@ -1,0 +1,797 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+WORLD EATERS 
+ 
+ 
+“ Si vous croyez avoir déjà vu quelqu'un en colère, je vous dis que ce 
+n'est rien si vous n'avez pas vu Angron perdre son calme."  
+ 
+Abaddon Le Fléau 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de 
+World Eaters dédiée à Khorne. Les Berzerkers sont 
+considérés comme des Marines du culte pour les transports. 
+Les armées des World Eater sont organisées en formations 
+appelées détachements ou détachements de soutien. 
+Pour chaque détachement des World Eaters vous pouvez 
+prendre une formation issue des détachements de soutien. 
+Chaque détachement et détachement de soutien peut recevoir 
+des améliorations. La liste d’armée indique pour chaque 
+détachement quelle amélioration est autorisée. Chaque 
+amélioration autorisée ne peut être prise qu’une fois par 
+détachement pour un maximum de quatre par détachement. 
+Les améliorations font partie intégrante des détachements et 
+doivent respecter les règles de cohésion. Noter que certaines 
+améliorations remplacent des unités d’un détachement tandis 
+que d’autres ajoutent des unités supplémentaires.  
+Les formations de Soutien Titaniques des Légions Renégates 
+et de la Flotte de Guerre du Chaos sont des formations 
+autonomes des détachements. Un maximum d’⅓ des points 
+de l’armée peuvent être dépensés pour ces formations. 
+Transports : la mention Space Marines du Chaos englobe les 
+unités de Berzekers. 
+ 
+Règle spéciale : Invocation de démons 
+Au début de la partie, toutes les formations de Démons 
+sélectionnée lors de la composition de l’armée sont 
+placées en réserve. La note Icône Démoniaque permet, lors 
+de la phase de Téléportation, d’invoquer une de ces 
+formations. 
+L’unité possédant Icône Démoniaque est nommée unité 
+Invocatrice. 
+La formation de  
+l’unité Invocatrice et la formation 
+invoquée doivent appartenir à la même faction. La 
+formation invoquée apparaît à moins de 15 cm de l’unité 
+Invocatrice. Si l’unité Invocatrice est éliminée, les démons 
+ne peuvent plus être invoqués par cette formation. 
+On ne peut invoquer qu'une seule formation de démons par 
+Icône Démoniaque et par partie. Une formation s’étant 
+téléportée ce tour-ci ne peut pas invoquer de démons. La 
+formation invoquée ne subit pas de PI suite à sa 
+«téléportation». 
+Elle devient immédiatement une formation à part entière et 
+en suit les règles habituelles d’activation, de cohésion, etc. 
+Elle reste ensuite en jeu jusqu’à la fin de la partie ou jusqu’à 
+sa destruction. 
+ 
+Règle spéciale : Sacrifiables 
+ 
+Les unités Sacrifiables ne génèrent pas de pion impact 
+lorsqu'elles 
+sont 
+détruites. 
+Cependant, 
+les 
+unités 
+Sacrifiables comptent dans le calcul des pertes lors de la 
+résolution d'un assaut. 
+ 
+Règle spéciale : Instable 
+ 
+Les unités Instables démoralisées sont immédiatement 
+détruites. De plus, les unités Instables ne peuvent que 
+contester les objectifs, pas les contrôler. 
+ 
+Icône de Khorne 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture par GW LTD 2019. Illustration couverture : Henry Peters.  
+1 - CODEX WORLD EATERS- EAFR - REV 1.3.1 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Rage de Khorne 
+Une seule Suite de Berzerkers peut recevoir la Rage de Khorne pour 50 points : la formation possède alors la compétence « 
+Sans peur ».  
+ 
+Règle spéciale : Modules d'atterrissage Dreadclaw 
+ 
+Une formation se déployant par Assaut Planétaire et pouvant être transportée par Modules d’atterrissage Dreadclaw le fait 
+selon les règles spéciales suivantes :  
+ 
+Placez un marqueur de Module d’atterrissage en utilisant les règles d’Assaut Planétaire (4.3 et 4.4 du Livre de Règles). Un 
+Vaisseau en orbite sera nécessaire pour déployer les Modules d’atterrissage.  
+ 
+Le Module d’atterrissage est un marqueur comptant comme la première unité de la formation au moment de déterminer son 
+emplacement d’arrivée en Assaut Planétaire. Une fois le marqueur de Module d’atterrissage placé, résolvez son attaque de tir 
+sur toutes les unités ennemies à moins de 15 cm du centre du Module d’atterrissage. Chaque formation ennemie attaquée 
+reçoit un Pion Impact selon les règles normales de tir.  
+ 
+Ensuite, débarquez les troupes transportées dans le Module d’atterrissage (cela peut déclencher un tir d’État d’Alerte 
+normalement) complètement à moins de 15 cm du centre de celui-ci, en cohésion et en dehors de toute zone de contrôle 
+ennemie. Si les unités ne peuvent débarquer en totalité en respectant les règles ci-dessus, les unités restantes seront 
+détruites sans attribution de pions d'impacts.  
+ 
+Le Module d’atterrissage n'étant pas une unité mais un marqueur, il ne possède pas de zone de contrôle et il ne compte pas 
+pour la cohérence de la formation. De plus, il ne peut pas être utilisé pour revendiquer un feu croisé ainsi que pour tenir ou 
+contester des objectifs.  
+ 
+Si plusieurs formations utilisent des Modules d’atterrissage, placez tous les marqueurs Module d’atterrissage aux 
+coordonnées prédéterminées en utilisant les règles d’Assaut Planétaire (y compris la résolution de dispersion). Une fois que 
+tous les marqueurs sont placés, résolvez toutes les attaques des Modules d’atterrissage simultanément contre les formations 
+ennemies à portée des marqueurs Module d’atterrissage. Les formations visées recevront un pion impact pour le tir pour 
+chaque attaque du vaisseau ou des modules d'atterrissage. Les pertes et les tirs ruptures infligent des PI normalement. Puis 
+débarquez toutes les formations transportées, en suivant les règles ci-dessus. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Legion World Eaters déferlant sur un monde impérial (date et lieu inconnus).​
+ 
+2 - CODEX WORLD EATERS- EAFR - REV 1.3.1 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE DES WORLD EATERS 
+Les armées des World Eaters ont une valeur stratégique de 4. Toutes les formations de l’armée ont une valeur d’initiative de 1+, 
+excepté les formations de la Flotte de Guerre du Chaos, les formations de démons mineurs qui n’incluent pas de Buveur de 
+Sang,  les formations de Meute du Carnage et les formations de Batterie Feu d’Enfer qui ont une valeur d’initiative de 2+.  
+ 
+DÉTACHEMENTS DES WORLD EATERS 
+Formations 
+Unités 
+Améliorations 
+Coût 
+1+ Suite de Berzerkers 
+8 unités de Berzerkers de Khorne 
+Personnage du Chaos, Porte-icône, Prince Démon, Transports, 
+Dreadnoughts, Defilers, Stalker, Support Lourd, Land Raiders, Rage 
+de Khorne 
+275 pts 
+0-2 Suite d'Élus World Eaters 
+4 à 6 unités d’Élus Terminators du Chaos 
+Personnage du Chaos, Porte-icône, Prince Démon, Transports Élus, 
+Dreadnoughts, Defilers, Stalker, Support Lourd, Land Raiders 
+50 pts chacune 
+0-2 Marines d'assaut de Khorne 
+6 à 8 unités de Marines d'Assaut de Khorne 
+Personnage du Chaos, Porte-icône 
+200 pts / 275 pts 
+Compagnie de Motos 
+8 unités de Motos du Chaos 
+Personnage du Chaos, Porte-icône 
+250 pts 
+Compagnie Blindée 
+4 Land Raiders du Chaos 
+ou 4 Predators du Chaos 
+Stalker, 0-4 véhicules supplémentaires parmi : Support Lourd, Land 
+Raiders 
+300 pts 
+200 pts 
+0-2 Démons Mineurs 
+8 ou 12 unités de Sanguinaires 
+Buveur de Sang 
+175 pts / 275 pts 
+0-1 Démon Majeur 
+1 Buveur de Sang 
+ 
+200 pts 
+ 
+DÉTACHEMENTS DE SOUTIEN DES WORLD EATERS 
+(Un Détachement par suite de Berzerker) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Meute du Carnage 
+4 ou 6 Machines Démons de Khorne 
+ 
+275 pts / 400 pts 
+0-1 Batterie Feu d'Enfer 
+4 ou 6 Canons de Khorne 
+ 
+225 pts / 325 pts 
+0-2 Scorpions d'Airain 
+1 à 3 Grands Scorpions d'Airain 
+ 
+225 pts chacun 
+ 
+AMÉLIORATIONS DES WORLD EATERS 
+(Chaque amélioration ne peut être prise qu'une seule fois par détachement et chaque détachement peut recevoir au plus 4 améliorations) 
+Améliorations 
+Unités 
+Coût 
+Personnage du Chaos 
+(0-1) Ajouter un Seigneur du Chaos 
+ou ajouter un Champion Exalté du Chaos 
+50 pts 
+25 pts 
+Porte-icône 
+Ajouter un Porte-icône à l’une des unités de la formation. 
+25 pts 
+0-1 Prince Démon 
+Remplacer le Seigneur du Chaos ou le Champion Exalté du Chaos et l'unité qu'il accompagne par un Prince Démon (ou 
+un Prince Démon Ailé). S’il remplace le Seigneur du Chaos, il acquiert la capacité Commandant Suprême. 
+50 pts 
+0-1 Buveur de Sang 
+Ajouter 1 Buveur de Sang. Uniquement si le Démon Majeur n’a pas été pris comme choix de Détachement 
+150 pts 
+Transports Élus 
+Ajouter un Dreadclaw pour transporter toute la formation 
+ou Donnez le mot-clé Téléportation aux Élus Terminators du Chaos 
+50 pts 
+Transports 
+Ajouter un Dreadclaw ou suffisamment de Rhinos du Chaos pour transporter toute la formation 
+50 pts 
+Dreadnoughts 
+Ajouter jusqu’à 4 Dreadnoughts du Chaos à la formation 
+50 pts chacun 
+Defilers 
+Ajouter 1 ou 2 Defilers à la formation 
+75 pts / 125 pts 
+Stalker 
+Ajouter 1 Stalker à la formation 
+50 pts 
+Support Lourd 
+Ajouter 2 Vindicators du Chaos ou 2 Predators du Chaos à la formation 
+75 pts 
+Land Raiders 
+Ajouter jusqu'à 6 Land Raiders du Chaos à la formation 
+75 pts chacun 
+125 pts les 2 
+ 
+ 
+ 
+SUPPORTS DES WORLD EATERS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+FLOTTE DE GUERRE DU CHAOS 
+ 
+SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES 
+Formations 
+Unités 
+Coût 
+Formations 
+Unités 
+Coût 
+Escadrille d’Intercepteurs 
+3 Hellblades 
+200 pts 
+0-2 Seigneur de Bataille 
+1 à 2 Seigneurs de Bataille 
+400 pts 
+Escadrille de Chasseurs-Bombardiers 
+2 Helltalons 
+225 pts 
+Titan Feral 
+1 Feral 
+300 pts 
+Soutien Orbital 
+1 Croiseur Devastation 
+ou 1 Cuirassé Despoiler 
+200 pts 
+250 pts 
+Titan Ravager 
+1 Ravager 
+650 pts 
+ 
+ 
+ 
+Titan Banelord 
+1 Banelord 
+850 pts 
+ 
+ 
+ 
+3 - CODEX WORLD EATERS- EAFR - REV 1.3.1 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES DES WORLD EATERS 
+Nom 
+Type 
+Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Seigneur du Chaos 
+Perso 
+- 
+- 
+- 
+- 
+Arme démon 
+(contact) Arme d'Assaut, +1A, MA 
+Commandant Suprême, Sauvegarde Invulnérable 
+Champion Exalté du Chaos 
+Perso 
+- 
+- 
+- 
+- 
+Arme Démon 
+(contact) Arme d'Assaut, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable 
+Porte-Icône 
+Perso 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+Sauvegarde Invulnérable, Icône Démoniaque 
+Prince Démon 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ Arme Possédée 
+Explosion Warp 
+(contact) 
+(15cm) 
+Arme d'Assaut, +2A, MA 
+Arme Légère, +1A, MA 
+Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, 
+Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation 
+Prince Démon Ailé 
+Inf 
+30cm 
+5+ 
+3+ 
+3+ Arme Possédée 
+Explosion Warp 
+(contact) 
+(15cm) 
+Arme d'Assaut, +2A, MA 
+Arme Légère, +1A, MA 
+Réacteurs Dorsaux, Blindage Renforcé, Blindage Arrière Renforcé, 
+Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, 
+Téléportation 
+Élus Terminators du Chaos 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ Arme énergétique 
+Bolters Combinés 
+2x Autocanon Faucheur 
+(contact) 
+(15cm) 
+30cm 
+Arme d'Assaut, +1A, MA 
+Arme Légère 
+AP4+/AC6+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Marines d'Assaut de Khorne 
+Inf 
+30cm 
+4+ 
+3+ 
+5+ Pistolet Bolter 
+Épée Tronçonneuse 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut 
+Réacteurs Dorsaux 
+Motos du Chaos 
+Inf 
+35cm 
+4+ 
+3+ 
+4+ Bolter 
+Épée tronçonneuse 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut 
+Montés 
+Berzerkers de Khorne 
+Inf 
+15cm 
+4+ 
+4+ 
+5+ Pistolet Bolter 
+Hache Tronçonneuse 
+(15cm) 
+(contact) 
+Arme Légère 
+Arme d'Assaut, +1A 
+Infiltrateurs 
+Machine Démon de Khorne 
+VB 
+25cm 
+4+ 
+3+ 
+4+ Canon Sanguinaire 
+Lames Démoniaques 
+30cm 
+(contact) 
+2xAP4+/AC4+ 
+Arme d'Assaut, +D3A 
+Blindage Renforcé, Sans Peur, Sauvegarde Invulnérable 
+Canon de Khorne 
+VB 
+20cm 
+4+ 
+6+ 
+4+ Canon Feu d’Enfer 
+60cm 
+MA4+ 
+Sans Peur, Sauvegarde Invulnérable 
+Dreadnought du Chaos 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Autocanons Jumelés 
+Poing Énergétique 
+45cm 
+(contact) 
+AP4+/AC5+ 
+Arme d'Assaut, +1A, MA 
+Marcheur, Sans Peur 
+Rhino du Chaos 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Bolters jumelés 
+(15cm) 
+Arme Légère 
+Transport (2) : Space Marines du Chaos 
+Predator du Chaos 
+VB 
+30cm 
+5+ 
+6+ 
+4+ Canons Laser Jumelés 
+2x Bolter Lourd 
+45cm 
+30cm 
+AC4+ 
+AP5+ 
+Blindage Renforcé 
+Land Raider du Chaos 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 2x Canons Laser Jumelés 
+Bolters Lourds Jumelés 
+45cm 
+30cm 
+AC4+ 
+AP4+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Transport (2) : Space Marines du Chaos, Terminators du Chaos*, Prince 
+Démon* ou Obliterator* (* prennent deux places) 
+Vindicator du Chaos 
+VB 
+25cm 
+5+ 
+6+ 
+4+ Canon Démolisseur (V) 
+30cm 
+(15cm) 
+MA4+ 
+Arme Légère, MA 
+Blindage Renforcé 
+Stalker 
+VB 
+30cm 
+5+ 
+6+ 
+5+ 3x Canons Tempête Icarus 
+45cm 
+AP6+/AC6+/AA6+ 
+ 
+Defiler 
+VB 
+15cm 
+4+ 
+4+ 
+4+ Obusier 
+Faucheurs (defiler) 
+Griffes de combat 
+Lance-flammes Lourd 
+75cm 
+30cm 
+(contact) 
+15cm 
+(15cm) 
+AP4+/AC4+ 
+AP3+/AC5+ 
+Arme d'Assaut, +1A, MA 
+AP4+, IC 
+Arme légère, +1A, IC 
+Blindage Renforcé, Marcheur, Sans Peur, Sauvegarde invulnérable 
+Dreadclaw 
+VB 
+- 
+- 
+- 
+- 
+Deathclaw 
+15cm 
+AP5+/AC5+ 
+Assaut Planétaire, Transport. Ne peut transporter que des unités d’Infanterie 
+(sauf motos) et des Dreadnoughts 
+4 - CODEX WORLD EATERS- EAFR - REV 1.3.1 
+
+===== PAGE 6 =====
+Nom 
+Type 
+Vitesse Blindage CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Grand Scorpion d'Airain 
+EG 
+20cm 
+5+ 
+3+ 
+4+ Mega Canon Scorpion 
+Canon Hellmaw 
+Canon Démolisseur 
+et 
+2x Griffes de Combat 
+30cm 
+15cm 
+30cm 
+(15cm) 
+(contact) 
+2xAP3+/AC5+ 
+2x AP4+, IC 
+MA4+ 
+Arme Légère, +1A, MA 
+Arme d'Assaut, +1A, MA 
+Infiltrateur, Marcheur, Blindage Renforcé, Sans Peur, Sauvegarde Invulnérable. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux 
+moins haut que les genoux du Grand Scorpion d’Airain et de 2cm de large 
+maximum 
+CD3 – Critique : Le Scorpion d'Airain est détruit. Toutes les unités dans un 
+rayon de 5cm subissent une touche sur 6+ 
+Seigneur de Bataille 
+EG 
+25cm 
+4+ 
+3+ 
+5+ Deathstorm 
+2x Obusier 
+Poing Tronçonneur 
+45cm 
+75cm 
+(contact) 
+4xAP4+/AC4+, Frt 
+AP4+/AC4+ 
+Arme d'Assaut, +3A, TT (1) 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Sauvegarde 
+Invulnérable 
+CD6 – Critique : Une des runes canalisant l’énergie du Warp est endommagée 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque rune 
+endommagée : 
+- 1 : le Seigneur de Bataille est aspiré dans le Warp, et considéré comme détruit 
+- 2-3 : il subit 1 point de dommages supplémentaire, et bouge immédiatement 
+de 3D6 cm dans une direction aléatoire. S’il percute un terrain difficile ou une 
+autre unité qu’il ne peut pousser, il s’arrête et subit un point de dommages 
+supplémentaire. Les unités qu’il percute subissent une touche sur un résultat 
+de 4+ 
+- 4-6 : la rune est réparée 
+FEUILLE DE RÉFÉRENCES POOL DÉMONIAQUE 
+Nom 
+Type 
+Vitesse Blindage CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Buveur de Sang 
+EG 
+30cm 
+4+ 
+3+ 
+- 
+Hache de Khorne 
+Fouet de Khorne 
+(contact) 
+(contact) 
+Arme d'Assaut, +2A, TT (1) 
+Arme d'Assaut, +1A, TT (1) 
+Blindage Renforcé, Charismatique, Marcheur, Meneur, Réacteurs Dorsaux, Sauvegarde Invulnérable, 
+Sacrifiable, Instable 
+CD3 – Critique : Le Démon est aspiré dans le Warp. Chaque unité démoniaque à moins de 5 cm est 
+entraînée dans le Warp et détruite sur un résultat de 6 
+Sanguinaires 
+Inf 
+15cm 
+4+ 
+4+ 
+- 
+Lame d’Enfer 
+(contact) 
+Arme d'Assaut, +1A 
+Sauvegarde Invulnérable, Sacrifiables, Instables 
+ 
+5 - CODEX WORLD EATERS- EAFR - REV 1.3.1 
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCES FLOTTE DE GUERRE DU CHAOS 
+Nom 
+Type 
+Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Intercepteur Hellblade 
+A 
+C 
+6+ 
+- 
+- 
+Faucheurs jumelées (hellblades) 30cm 
+AP3+/AC5+/AA4+, FrtF  
+Chasseur-Bombardier Helltalon 
+A 
+CB 
+5+ 
+- 
+- 
+Canons Laser Jumelés AA 
+Lanceur Havoc 
+Bombes Incendiaires 
+45cm 
+45cm 
+15cm 
+AC4+/AA5+, FrtF 
+AP5+/AC6+, FrtF 
+2PB, IC, FrtF 
+ 
+Croiseur de Classe Devastation 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital 
+Frappe Chirurgicale 
+∞ 
+- 
+3PB, MA 
+MA2+, TT (D3) 
+Transport (20) : Toute unité pouvant être déployées en Dreadclaw selon les règles 
+d’Assaut Planétaire 
+Cuirassé de Classe Despoiler 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital 
+3x Frappe Chirurgicale 
+∞ 
+- 
+3PB, MA 
+MA2+, TT (D3) 
+Transport (40) : Toute unité pouvant être déployée en Dreadclaws selon les règles 
+d’Assaut Planétaire. Lent, ne peut être utilisé lors des 2 premiers tours de la partie, 
+à moins que le scénario ne précise le contraire. 
+FEUILLE DE RÉFÉRENCES SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES 
+Nom 
+Type Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Titan Feral 
+EG 
+30cm 
+5+ 
+4+ 
+5+ Deathstorm 
+Hellmouth 
+Tête de Bataille 
+45cm 
+30cm 
+(15cm) 
+4xAP4+/AC4+, Frt 
+3PB, MA, Frt 
+Arme Légère, +2A, FrtF 
+Blindage Renforcé, Marcheur, Sans Peur. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux moins 
+hauts que les genoux du titan et de 2cm de large maximum. 
+CD3 / BI2 – Critique : Le Titan est déséquilibré et vacille. Déplacez-le d'1D6 cm dans une 
+direction aléatoire. S’il percute un terrain infranchissable ou une unité qu’il ne peut pas 
+pousser, il s’arrête et subit un point de dommage supplémentaire. Les unités qu’il 
+percute subissent une touche sur un 6+ 
+Titan Ravager 
+EG 
+20cm 
+4+ 
+3+ 
+4+ Doomburner 
+2x Deathstorm Lourd 
+Tête de Bataille 
+Queue de Combat 
+et 
+45cm 
+60cm 
+(15cm) 
+75cm 
+(contact) 
+MA3+, TT (D3), FrtF 
+4xAP4+/AC4+, Frt 
+Arme Légère, +2A, FrtF 
+AP4+/AC4+ 
+Arme d'Assaut, +1A 
+Blindage Renforcé, Marcheur, Sans Peur. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux moins 
+hauts que les genoux du titan et de 2cm de large maximum. 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure. 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque fissure : 
+- 1 : le réacteur explose ; toute unité dans un rayon de 5cm subit une touche sur 5+ 
+- 2-3 : le titan subit 1 point de dommages supplémentaire ; 
+- 4-6 : la fissure est réparée 
+Titan Banelord 
+EG 
+15cm 
+4+ 
+2+ 
+4+ Rack de Missiles Havoc 
+Canon Hellstrike 
+Poing de Combat Apocalypse 
+ 
+Tête de Bataille 
+Queue de Combat 
+et 
+60cm 
+60cm 
+30cm 
+(contact) 
+(15cm) 
+75cm 
+(contact) 
+6x2PB, Ind, Uniq, IC, FrtF 
+3PB, MA, IC, Frt 
+4xAP4+/AC4+, Frt 
+Arme d'Assaut, +2A, TT (D3) 
+Arme Légère, +2A, FrtF 
+AP4+/AC4+ 
+Arme d'Assaut, +1A 
+Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Sans Peur. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux moins 
+hauts que les genoux du titan et de 2cm de large maximum. 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque fissure : 
+- 1 : le réacteur explose ; toute unité dans un rayon de 5cm subit une touche sur 5+ 
+- 2-3 : le Banelord entre dans une rage démoniaque et bouge immédiatement de 3D6cm 
+dans une direction aléatoire. S’il percute un terrain infranchissable ou une unité qu'il ne 
+peut pousser, il s'arrête et subit un point de dommages supplémentaire ; les unités qu'il 
+percute subissent une touche sur un résultat de 4+ 
+- 4-6 : la fissure est réparée 
+ 
+6 - CODEX WORLD EATERS- EAFR - REV 1.3.1 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+7 - CODEX WORLD EATERS- EAFR - REV 1.3.1 

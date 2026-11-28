@@ -1,0 +1,842 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+ 
+VAISSEAU MONDE BIEL-TAN 
+ 
+ 
+ 
+ 
+"Jadis, les étoiles vivaient et mouraient selon notre désir, et 
+vous osez encore vous opposer à notre volonté." 
+ 
+Grand Prophète Mirehn Bielann   
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée du 
+vaisseau monde Biel-Tan. Cette liste peut également être utilisée 
+comme liste générique pour représenter n’importe quelle autre 
+armée d’eldars. 
+Une armée d’eldars est organisée autour de formations appelées 
+Osts de guerre et Osts de support. Chaque Ost de guerre permet de 
+recruter jusqu’à 3 Osts de support. 
+Chaque ost est autonome et peut recevoir des améliorations. La 
+liste d’armée indique pour chaque ost quelles améliorations sont 
+autorisées. Chaque amélioration autorisée ne peut être prise qu’une 
+fois par formation. Les améliorations font partie intégrante des 
+formations et doivent respecter les règles de cohésion. Noter que 
+certaines améliorations remplacent des unités d’une formation 
+tandis que d’autres ajoutent des unités supplémentaires.  
+Les formations de support lourd sont des formations autonomes. Un 
+maximum de ⅓ des points peuvent être dépensés pour ces 
+formations. 
+Une armée eldar peut également recevoir des Personnage/options. 
+Chaque Personnage/option ne peut être sélectionnée qu’une seule 
+fois. 
+Enfin, la dénomination Guerriers Aspects regroupe les unités 
+suivantes : Vengeurs, Guerriers Scorpions, Banshees, Dragons de 
+Feu, Faucheurs Noirs, Araignées Spectrales, Aigles Chasseurs et 
+Lances de Lumière. 
+ 
+Règle spéciale : L’Avatar de Khaine 
+L'Avatar peut apparaître sur le champ de bataille de trois 
+manières différentes : 
+1.​
+De manière classique lors du déploiement en début de 
+partie. 
+2.​
+Par le biais d'un portail comme n'importe quelle formation 
+se trouvant en réserve. 
+3.​
+Par invocation dans les 15 cm d'un grand prophète lors de 
+la phase de téléportation. 
+Dans tous les cas, dès son apparition, c'est une formation 
+indépendante et permanente jusqu'à la fin de la partie ou sa 
+destruction. Cependant il ne peut que contester les objectifs. 
+Règle spéciale : Vision Extralucide 
+Toute formation Eldar qui n’est pas démoralisée et qui comprend 
+une unité ayant la capacité Vision Extralucide ignore la pénalité de 
+-1 au test d’action lorsqu’elle tente de conserver l’initiative. 
+De plus, une fois par tour le joueur Eldar peut essayer de retenir 
+l’initiative deux fois d’affilée (le joueur Eldar ne peut retenir 
+l’initiative et faire une autre action qu'après avoir déjà réussi à 
+retenir l’initiative une première fois). 
+N’importe quelle formation Eldar peut être choisie, y compris 
+celles ne comportant pas de Grand Prophète, néanmoins un 
+Grand Prophète doit impérativement être encore en jeu sur le 
+champ de bataille. La formation doit tout de même passer un test 
+d’initiative pour ne pas perdre l’action, et elle subit le modificateur 
+de -1 pour avoir retenu l’initiative, sauf si elle comprend une unité 
+ayant la capacité vision extra lucide. Une fois l’action réalisée, 
+l’initiative retourne au joueur adverse. 
+Règle spéciale : Armée en mouvement 
+Seuls les Rangers et les Marcheurs de Combat peuvent se 
+déployer en garnison. 
+ 
+Rune du “Dieu aux mains sanglantes” 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright 
+de Games Workshop LTD. Illustration de couverture par Jaimes Martinez. 
+1 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 3 =====
+Règle spéciale : Tactique du tirer et courir 
+Cette règle spéciale s’applique à toutes les formations de l’armée Eldar.  Les formations Eldars qui reçoivent l’ordre avance ou avance 
+rapide peuvent choisir de tirer soit avant soit après chaque mouvement. Elles ne peuvent néanmoins tirer qu’une seule fois durant 
+l’action. Par exemple, une formation Eldar avec un ordre avance peut tirer puis se déplacer ou se déplacer puis tirer, de même une formation 
+avec un ordre d’avance rapide peut tirer et se déplacer deux fois, se déplacer deux fois et tirer, ou se déplacer puis tirer puis encore bouger. 
+De plus, les formations Eldars qui remportent un assaut sont autorisées à utiliser la totalité de leur mouvement lorsqu'elles consolident 
+leur position, au lieu d'être limitées à un mouvement de 5 cm comme cela devrait être normalement le cas. 
+Cependant (hormis pour les formations de Guerriers Aspects), les formations Eldars qui choisissent de consolider de leur mouvement 
+complet ne peuvent en aucun cas prétendre au soutien d'un autre assaut lors du même tour. Les formations qui souhaitent soutenir un 
+nouvel assaut ne doivent consolider que de 5 cm. 
+Les formations de Guerriers Aspects peuvent toujours consolider de leur mouvement complet et soutenir d'autres assauts. 
+ 
+Règle spéciale : Holo-Champs 
+Les Holo-champs procurent aux titans Eldars une sauvegarde spéciale de 3+ qui peut être utilisée à la place de la sauvegarde normale 
+du titan. 
+Cette sauvegarde peut toujours être utilisée, même en corps-à-corps, en fusillade et contre les armes tueuses de titan ou les macro 
+armes. Faites une seule sauvegarde contre les armes avec la capacité tueuse de titan, au lieu de séparer les sauvegardes pour chaque 
+point de dommage. Si un véhicule avec un Holo-champ a aussi un blindage renforcé, alors il est autorisé à relancer ses sauvegardes, 
+sauf pour les attaques réalisées avec des armes ayant la capacité lance, macro-armes ou tueuses de titans. La relance doit être faite en 
+utilisant la sauvegarde de blindage de l’unité et non celle de l'Holo-champ. 
+Aucun point d'impact n'est placé pour une touche avec une arme ayant le trait Rupture sauvée par l'Holo-champ. 
+La sauvegarde de l’Holo-champ peut tout à fait être modifiée par un tir croisé ou par les armes Sniper. 
+ 
+Règle spéciale : Portails Eldars 
+Chaque Portail inclus dans une armée permet au joueur Eldar de conserver en réserve jusqu’à trois formations. 
+Les formations en réserve peuvent entrer en jeu par n’importe quel Portail en réalisant une action qui comporte un mouvement. Ce 
+mouvement est alors mesuré à partir du Portail. 
+Une seule formation peut voyager à travers chaque portail à chaque tour. 
+Une formation ne peut qu'entrer en jeu grâce au portail mais jamais retourner en réserve. Notez qu'une formation qui rate son activation 
+en tentant de franchir un Portail prendra automatiquement l'ordre Tenir (elle peut soit entrer en jeu en réalisant un simple mouvement en 
+prenant 1 PI pour l'activation ratée soit rester hors-table et se regrouper). Si elle choisit de se regrouper en restant hors de table, cela 
+permettra à une autre formation de pouvoir utiliser ce Portail ce tour-ci. Si le Portail utilisé est celui d'une formation démoralisée, alors 1 
+PI sera attribué à la formation l'utilisant après le jet d’initiative. 
+Les formations pouvant utiliser un Portails Fantôme sont : les unités d'infanterie, les véhicules légers, les véhicules blindés dotés de la 
+capacité Marcheur et l’Avatar. 
+Il est possible de sortir d'un Portail sur lequel une unité adverse se trouve en déclarant un assaut contre cette formation. Une unité 
+sortante doit utiliser son mouvement de charge pour arriver en contact avec l'ennemi le plus proche dont elle doit traverser la zone de 
+contrôle. Une fois ainsi engagée au contact d'un ennemi, ce dernier perd sa zone de contrôle pour le reste de l'action (y compris l'assaut 
+qui s'ensuit). Cela permet à d'autres unités sortantes de contourner l'ennemi pour engager le reste de la formation. Une unité sortant 
+d’un Portail Fantôme peut « traverser » un ennemi par dérogation à la règle 1.7.3. pour pouvoir se placer en assaut. 
+Les formations avec plusieurs options de déploiement doivent désigner leur méthode de déploiement avant le choix du bord de table 
+(Portail, aéronef, téléportation...). 
+Le joueur Eldar peut pour 50pts placer un Portail Fantôme sur un objectif de sa moitié de table, il compte à la fois comme un objectif et 
+un Portail. Il ne peut ni être attaqué ni détruit. 
+ 
+2 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 4 =====
+ 
+  LISTE D'ARMÉE ELDAR - VAISSEAU-MONDE BIEL-TAN 
+Les armées Eldars de Biel Tan ont une valeur stratégique de 4. L'Avatar, les Guerriers Aspects et les Titans ont une initiative 
+de 1+. Toutes les autres formations ont une initiative de 2+ 
+ 
+PERSONNAGE/OPTION DE BIEL-TAN 
+ 
+Unités 
+Coût 
+0-1 Portail 
+1 Portail Fantôme 
+50 pts 
+0-1 Avatar 
+1 Avatar 
+100 pts 
+0-1 Autarque 
+Ajouter 1 Autarque sur n'importe quelle unité de Guerriers Aspects 
+75 pts 
+ 
+OST DE GUERRE DE BIEL-TAN 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Ost de Guerre de Gardiens 
+1 unités de Grand Prophète + 7 unités de Gardiens 
+Transport 
+150 pts 
+ 
+Remplacer jusqu'à 3 unité de gardiens par des Plate-formes d'Armes Lourde 
+Ajouter 3 Plate-formes de Support à la formation 
+Ajouter 2 ou 3 unités de Gardes Fantômes à la formation 
+Ajouter 3 Seigneurs Fantômes à la formation 
+Ajouter 1 Firestorm à la formation 
+ 
+(gratuit) 
+(+50 pts) 
+(+50 pts chacun) 
+(+ 175 pts) 
+(+75 pts) 
+Ost de Guerre de Guerriers Aspects 
+8 unités de Guerriers Aspects 
+Toute combinaison de type d'unités est autorisée 
+Exarque, Transport 
+300 pts 
+ 
+OST DE SUPPORT DE BIEL-TAN 
+(Jusqu’à 3 Osts de Support par Ost de Guerre) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+0-1 Peloton de Guerriers Aspects 
+4 unités de Guerriers Aspects 
+Toute combinaison de type d'unités est autorisée 
+Exarque, Transport 
+175 pts 
+Peloton de Rangers 
+6 à 8 unités de Rangers 
+ 
+25 pts chacun 
+Peloton Windrider 
+6 unités parmi : Motojet Wind Rider, Vyper Wind Rider 
+ 
+200 pts 
+Escadron de Marcheurs 
+6 Marcheurs de Combat 
+ 
+200 pts 
+Escadron Bouclier de Vaul 
+3 Tisseurs de Nuit ou 2 Tisseurs de Nuit et 1 Firestorm 
+Firestorm 
+175 pts 
+Escadron Lame de Vaul 
+5 à 6 véhicules parmi : Falcons, Warp Hunter, Prismes de Feu 
+Firestorm 
+50 pts chacun 
+Escadron Machine de Vaul 
+1 à 3 Machines de Vaul parmi : 
+Cobra, Scorpion, Storm Serpent 
+Tisseur de Néant 
+ 
+50 pts 
++200 pts chacun 
++225 pts chacun 
+ 
+AMÉLIORATIONS DE BIEL-TAN 
+(Chaque amélioration ne peut être prise qu'une seule fois par Ost) 
+Améliorations 
+Unités 
+Coût 
+Exarque 
+Ajouter 1 personnage Exarque à une unité de Guerriers Aspects 
+25 pts 
+Firestorm 
+Remplacer 1 ou 2 véhicules blindés de la formation par autant de Firestorms 
+25 pts chacun 
+Transport 
+Ajouter suffisamment de Falcon et/ou de Wave Serpent pour transporter 
+toute la formation sans qu’il ne reste de place libre. 
+50 pts le Falcon ou Wave Serpent 
+75 pts les 2 Wave Serpents 
+ 
+ 
+SUPPORT LOURD DE BIEL-TAN 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+FLOTTE ELDAR 
+ 
+SOUTIEN TITANIQUE ELDAR 
+Formations 
+ 
+Unités 
+Coût 
+Formations 
+Unités 
+Coût 
+0-1 Croiseur Eldar 
+ou 1 Vaisseau Fantôme 
+150 pts 
+0-1 Titan Archonte 
+1 Titan Archonte 
+850 pts 
+1 Vaisseau Dragon 
+300 pts 
+Titan Fantôme 
+1 Titan Fantôme 
+750 pts 
+Escadrille de chasseurs Nightwings  
+2 ou 3 Nightwings 
+100 pts chacun 
+Escadron de Titans Revenants 
+2 Titans Revenants 
+650 pts 
+Escadrille de Bombardiers Phoenix 
+ 
+2 Phoenix 
+250 pts 
+ 
+ 
+ 
+Vampire Raider 
+ 
+1 Vampire Raider 
+225 pts 
+ 
+ 
+ 
+ 
+3 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES BIEL-TAN 
+Nom 
+Type 
+Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Avatar 
+EG 
+15cm 
+3+ 
+2+ 
+4+ Mort hurlante 
+ 
+Cour du jeune Roi 
+30cm 
+(contact) 
+(contact) 
+MA5+ 
+Armes d'assaut, +1A, MA 
+Armes d'assaut, +1A, MA 
+CD3 – Critique : l'Avatar s'effondre au sol. Toutes les formations Eldars ayant une ligne 
+de vue sur l'Avatar reçoivent un pion d'impact. 
+Commandant, Charismatique, Sans peur, Sauvegarde invulnérable, Marcheur 
+Grand Prophète 
+Inf 
+15cm 
+4+ 
+4+ 
+5+ Pistolet shuriken 
+Épée sorcière 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d'assaut, +1A, MA 
+Commandant, Vision extralucide, Sauvegarde invulnérable. 
+Autarque 
+Perso 
+- 
+- 
+- 
+- 
+Arme de Fusillade 
+Arme énergétique 
+(15cm) 
+(contact) 
+Armes légères, +1A 
+Armes d'assaut, +1A, MA 
+Commandant suprême, Charismatique, Sauvegarde invulnérable. 
+Exarque 
+Perso 
+- 
+- 
+- 
+- 
+Arme de Fusillade 
+OU Arme de Corps à Corps 
+(15cm) 
+(contact) 
+Armes légères, +1A 
+Armes d'assaut, +1A 
+Charismatique 
+Un Exarque ajouté à une unité de Vengeurs, Banshees, Lance de Lumières ou Scorpions 
+doit avoir une Arme de Corps-à-Corps. Un Exarque ajouté à une unité de Faucheurs 
+Noirs, de Dragons de Feu, d'Aigles Chasseurs ou d'Araignées Spectrales doit prendre 
+une Arme de Fusillade. 
+Gardiens 
+Inf 
+15cm 
+- 
+6+ 
+4+ Catapulte shuriken 
+(15cm) 
+Armes légères 
+ 
+Plate-forme d'Arme 
+Lourde 
+Inf 
+15cm 
+- 
+6+ 
+5+ Rayonneur laser 
+30cm 
+AP5+/AC5+ 
+ 
+Plate-forme d'Arme de 
+Support 
+Inf 
+15cm 
+- 
+6+ 
+6+ Canon à distorsion léger 
+30cm 
+MA5+ 
+ 
+Motojet Wind Rider 
+Inf 
+35cm 
+5+ 
+6+ 
+4+ Catapulte shuriken 
+(15cm) 
+Armes légères 
+Antigrav, Monté 
+Vyper Wind Rider 
+VL 
+35cm 
+4+ 
+6+ 
+5+ Rayonneur laser 
+30cm 
+AP5+/AC5+ 
+Antigrav 
+Marcheur de Combat 
+VL 
+20cm 
+6+ 
+5+ 
+5+ Rayonneur laser 
+Lance ardente 
+30cm 
+30cm 
+AP5+/AC5+ 
+AC5+, Lance 
+Blindage renforcé, Éclaireur, Marcheur 
+Rangers 
+Inf 
+15cm 
+5+ 
+6+ 
+5+ Fusil long Eldar 
+30cm 
+AP5+, Snp 
+Éclaireurs 
+Gardes Fantômes 
+Inf 
+15cm 
+3+ 
+4+ 
+4+ Canon fantôme 
+15cm 
+(15cm) 
+2xMA5+ 
+Armes légères, +1A, MA 
+Sans peur 
+Seigneur Fantôme 
+VB 
+15cm 
+4+ 
+3+ 
+4+ Lance ardente 
+Arme énergétique 
+30cm 
+(contact) 
+AC5+, Lance 
+Armes d'assaut, +1A, MA 
+Blindage renforcé, Sans peur, Marcheur 
+Lances de Lumière 
+Inf 
+35cm 
+4+ 
+4+ 
+5+ Lance laser 
+(contact) 
+Armes d'assaut, Lance 
+Antigrav, Monté 
+Aigles Chasseurs 
+Inf 
+35cm 
+5+ 
+5+ 
+4+ Lasblaster 
+(15cm) 
+Armes légères 
+Réacteurs dorsaux, Éclaireurs, Téléportation 
+Dragons de Feu 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Fusil thermique 
+15cm 
+(15cm) 
+MA5+ 
+Armes légères, MA 
+ 
+Vengeurs 
+Inf 
+15cm 
+5+ 
+5+ 
+2+ Catapulte shuriken 
+(15cm) 
+Armes légères 
+ 
+Faucheurs Noirs 
+Inf 
+15cm 
+5+ 
+6+ 
+3+ Lance missiles faucheur 
+45cm 
+2xAP5+ 
+ 
+Banshees 
+Inf 
+15cm 
+5+ 
+3+ 
+5+ Pistolet shuriken 
+Masque de Banshee 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d'assaut, FeP 
+ 
+ 
+4 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 6 =====
+ 
+Nom 
+Type Vitesse 
+Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Guerriers Scorpions 
+Inf 
+15cm 
+4+ 
+4+ 5+ 
+Pistolet shuriken 
+Mandibules 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d'assaut, +1A 
+ 
+Araignées Spectrales 
+Inf 
+15cm 
+4+ 
+5+ 4+ 
+Tisse-mort 
+(15cm) 
+Armes légères, FeP 
+Réacteurs dorsaux, Infiltrateurs 
+Wave Serpent 
+VB 
+35cm 
+5+ 
+6+ 4+ 
+Canons shurikens jumelés 30cm 
+AP4+ 
+Blindage renforcé, Antigrav, Transport(2) : Plate-formes Lourdes, Grands Prophètes, 
+Gardiens, Rangers, Scorpions, Banshees, Vengeurs, Dragons de Feu, Faucheurs Noirs, 
+Gardes Fantômes* ( * prennent 2 places). 
+Falcon 
+VB 
+35cm 
+5+ 
+6+ 4+ 
+Laser à impulsions 
+Rayonneur laser 
+45cm 
+30cm 
+2xAC4+ 
+AP5+/AC5+ 
+Antigrav, Transport(1) : Plate-forme d'Arme Lourde, Grands Prophètes, Gardiens, 
+Rangers, Scorpions, Banshees, Vengeurs, Dragons de Feu, Faucheurs Noirs. 
+Firestorm 
+VB 
+35cm 
+5+ 
+6+ 4+ 
+Batterie Firestorm 
+45cm 
+2xAP5+/AC5+/AA4+ 
+Antigrav 
+Prisme de Feu 
+VB 
+35cm 
+5+ 
+6+ 5+ 
+Canon à prisme 
+60cm 
+AP4+/AC3+, Lance 
+Antigrav 
+Warp Hunter 
+VB 
+35cm 
+5+ 
+6+ 4+ 
+Canon à distorsion 
+30cm 
+(15cm) 
+MA3+ 
+Armes légères, MA 
+Antigrav 
+Tisseur de Nuit 
+VB 
+35cm 
+5+ 
+6+ 5+ 
+Tisseur de nuit 
+45cm 
+1PB, Rpt, Ind 
+Antigrav 
+Tisseur de Néant 
+EG 
+25cm 
+5+ 
+6+ 5+ 
+Tisseur du néant 
+60cm 
+3PB, Rpt, Ind 
+CD3 – Critique : Détruit et toutes les unités à 5cm subissent une touche sur un 6. 
+Antigrav, Blindage renforcé. 
+Storm Serpent 
+EG 
+25cm 
+5+ 
+6+ 4+ 
+Laser Storm 
+Rayonneur laser 
+45cm 
+30cm 
+2xAC3+ 
+AP5+/AC5+ 
+CD3 – Critique : Détruit et toutes les unités à 5cm subissent une touche sur un 6. 
+Antigrav, Blindage renforcé, Portail fantôme. 
+Les formations utilisant le portail du Storm Serpent alors que ce dernier est 
+démoralisé, se voient automatiquement recevoir un pion d'impact lors de leur 
+apparition au travers de celui-ci. 
+Cobra 
+EG 
+25cm 
+5+ 
+6+ 5+ 
+Canon à distorsion lourd 
+Canon shuriken 
+Lance missiles 
+30cm 
+30cm 
+45cm 
+3PB, MA, FrtF, IC, TT (D3+1) 
+AP5+ 
+AP5+/AC6+/AA6+ 
+CD3 – Critique : Détruit et toutes les unités à 5cm subissent une touche sur un 6. 
+Antigrav, Blindage renforcé. 
+Scorpion 
+EG 
+25cm 
+5+ 
+6+ 5+ 
+Lasers pulsars jumelés 
+Canon shuriken 
+60cm 
+30cm 
+2xMA2+, TT (1) 
+AP5+ 
+CD3 – Critique : Détruit et toutes les unités à 5cm subissent une touche sur un 6. 
+Antigrav, Blindage renforcé. 
+ 
+ 
+ 
+ 
+ 
+ 
+5 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCES DE LA FLOTTE ELDAR 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Chasseur Nightwing 
+A 
+C 
+4+ 
+- 
+- 
+Canons shurikens jumelés AA 
+Lances ardentes frontales 
+30cm 
+30cm 
+AP4+/AA5+, FrtF 
+AC4+/AA5+, Lance, FrtF 
+ 
+Bombardier Phoenix 
+A 
+CB 
+5+ 
+- 
+- 
+Canons shurikens jumelés AA 
+Lasers à impulsion jumelés 
+Tisseur Phoenix 
+30cm 
+45cm 
+15cm 
+AP4+/AA5+, FrtF 
+2xAC4+, FrtF 
+2PB, Rpt, FrtF 
+Blindage renforcé 
+Vampire raider 
+A/EG 
+B 
+5+ 
+6+ 
+4+ 
+2x Laser à impulsion V 
+Rayonneur laser (Vampire) 
+45cm 
+30cm 
+2xAC4+, FrtF 
+AP5+/AC5+/AA5+, FrtF 
+CD2 – Critique : Le Vampire est détruit. 
+Assaut planétaire, Blindage renforcé 
+Transport(8) : Plate-formes d'Armes Lourdes, Grands Prophètes,Gardiens, Rangers, 
+Scorpions, Banshees, Vengeurs, Dragons de Feu, Faucheurs Noirs, Gardes Fantômes 
+(prennent deux places). 
+Vaisseau Fantôme 
+V 
+- 
+- 
+- 
+- 
+Bombardement orbital I 
+OU 1x Frappes chirurgicales 
+∞ 
+- 
+4PB MA 
+MA2+, TT (D3) 
+Vous devez décider et noter le système d'armement ainsi que le tour où il entrera en 
+jeu avant la bataille. 
+Vaisseau Dragon 
+V 
+- 
+- 
+- 
+- 
+Bombardement orbital II 
+OU 2x Frappes chirurgicales 
+∞ 
+- 
+8PB MA 
+MA2+, TT (D3) 
+Vous devez décider et noter le système d'armement ainsi que le tour où il entrera en 
+jeu avant la bataille. 
+Peut transporter 12 Vampires ainsi que les troupes se trouvant à l'intérieur. 
+ 
+6 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCES DES TITANS ELDARS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Titan Revenant 
+EG 
+35cm 
+5+ 
+4+ 4+ 2x Laser pulsar léger 
+2x Lance missiles 
+45cm 
+45cm 
+2xMA4+ 
+AP5+/AC6+/AA6+ 
+Holo-champ, Marcheur, Réacteurs dorsaux, Sans peur. 
+ 
+CD3 – Critique : Le générateur d'Holo-champs est détruit. Le titan ne peut plus faire de 
+sauvegarde holographique. La prochaine touche critique détruira le titan. 
+ 
+Les armes des titans Eldars ont un arc de tir de 360° dû à leur exceptionnelle 
+manoeuvrabilité. 
+Titan Fantôme 
+EG 
+25cm 
+5+ 
+3+ 3+ 1-2 Laser pulsar 
+2x Lance missiles jumelés 
+0-1 Poing Énergétique 
+ 
+OU 
+75cm 
+45cm 
+30cm 
+(15cm) 
+(contact) 
+3xMA3+ 
+AP4+ / AC5+ / AA5+ 
+6xAP4+/AC4+ 
+Armes légères, +3A 
+Armes d'assaut, +2A, MA, TT (D3) 
+Holo-champ, Blindage renforcé, Marcheur, Sans peur. 
+ 
+CD6 – Critique : La touche critique provoque un point de dommage supplémentaire et la 
+sauvegarde holographique est réduite à 4+ pour le reste de la partie. La prochaine touche 
+critique détruira définitivement le générateur d'Holo-champs et causera un point de 
+dommage supplémentaire. Toutes les touches critiques suivantes provoqueront un point 
+de dommage supplémentaire. 
+ 
+Le Titan Fantôme peut être équipé de 2 Lasers Pulsars ou de 1 Laser Pulsar et 1 Poing 
+Énergétique. 
+Les armes des titans Eldars ont un arc de tir de 360° dû à leur exceptionnelle 
+manoeuvrabilité. Le titan peut franchir les terrains dangereux et infranchissables qui lui 
+arrivent en dessous du genou et qui font jusqu'à 2 cm de large. 
+Titan Archonte 
+EG 
+25cm 
+5+ 
+3+ 3+ Lance psychique 
+ 
+2x Lance missiles jumelés 
+0-1 Laser pulsar 
+0-1 Poing Énergétique 
+ 
+OU 
+30cm 
+(15cm) 
+45cm 
+75cm 
+30cm 
+(15cm) 
+(contact) 
+3PB, MA, Rpt, IC, TT (D3) 
+Armes légères, +2A, IC, TT (D3) 
+AP4+ / AC5+ / AA5+ 
+3xMA3+ 
+6xAP4+/AC4+ 
+Armes légères, +3A 
+Armes d'assaut, +2A, MA, TT (D3) 
+Charismatique, Commandant, Holochamp, Blindage renforcé, Vision extralucide, Marcheur, 
+Sans peur. 
+ 
+CD6 – Critique : La touche critique provoque un point de dommage supplémentaire et la 
+sauvegarde holographique est réduite à 4+ pour le reste de la partie. La prochaine touche 
+critique détruira définitivement le générateur d'Holo-champs et causera un point de 
+dommage supplémentaire. Toutes les touches critiques suivantes provoqueront un point 
+de dommage supplémentaire. 
+ 
+Le Titan Archonte peut être équipé de 1 Lance Psychique et 1 Laser Pulsar ou 1 Lance 
+Psychique et 1 Poing Énergétique. 
+Les armes des titans Eldars ont un arc de tir de 360° dû à leur exceptionnelle 
+manoeuvrabilité. Le titan peut franchir les terrains dangereux et infranchissables qui lui 
+arrivent en dessous du genou et qui font jusqu'à 2 cm de large. 
+ 
+7 - CODEX BIEL-TAN - EAFR - REV.1.7 
+
+===== PAGE 9 =====
+ 
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+8 - CODEX BIEL-TAN - EAFR - REV.1.7 

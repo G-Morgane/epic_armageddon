@@ -1,0 +1,701 @@
+{
+ "codex": {
+  "id": "world_eaters",
+  "name": "World Eaters",
+  "version": "1.2",
+  "faction": "Chaos",
+  "color": "#ac2001",
+  "logo": "we.png",
+  "categorie": "armees-chaos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 4,
+   "initiative_defaut": "1+",
+   "initiative_notes": "Flotte de Guerre du Chaos, Meute du Carnage, Batterie Feu d'Enfer et Démons Mineurs sans Buveur de Sang : initiative 2+"
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "personnage_chaos_we",
+   "name": "Personnage du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter un personnage à la formation",
+   "choix": [
+    {
+     "name": "Seigneur du Chaos",
+     "cout": 50,
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Champion Exalté du Chaos",
+     "cout": 25
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "porte_icone_we",
+   "name": "Porte-Icône",
+   "cout": 25,
+   "limit": 1,
+   "description": "Une formation démoniaque peut être prise pour chaque amélioration Porte-Icône",
+   "unites": [
+    {
+     "id": "porte_icone",
+     "name": "Porte-Icône",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "dreadnoughts_we",
+   "name": "Dreadnoughts du Chaos",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 1,
+   "description": "Ajouter 1 à 4 Dreadnoughts du Chaos à la formation",
+   "unites": [
+    {
+     "id": "dreadnought_chaos",
+     "name": "Dreadnought du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_berzerkers",
+   "name": "Transports",
+   "cout": 50,
+   "limit": 1,
+   "description": "Rhinos du Chaos ou Dreadclaws pour transporter la formation",
+   "choix": [
+    {
+     "id": "rhinos_we",
+     "name": "Rhinos du Chaos",
+     "cout": 0
+    },
+    {
+     "id": "dreadclaws_we",
+     "name": "Dreadclaws",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_elus",
+   "name": "Transports",
+   "cout": 50,
+   "limit": 1,
+   "description": "Dreadclaws ou Téléportation pour les Élus Terminators",
+   "choix": [
+    {
+     "id": "dreadclaws_elus",
+     "name": "Dreadclaws",
+     "cout": 0
+    },
+    {
+     "id": "teleportation_elus",
+     "name": "Téléportation",
+     "description": "Les Élus Terminators du Chaos reçoivent le mot-clé Téléportation",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "defilers_we",
+   "name": "Defilers",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 1 ou 2 Defilers à la formation",
+   "choix": [
+    {
+     "id": "defilers_1",
+     "name": "1 Defiler",
+     "cout": 75
+    },
+    {
+     "id": "defilers_2",
+     "name": "2 Defilers",
+     "cout": 125
+    }
+   ],
+   "unites": [
+    {
+     "id": "defiler",
+     "name": "Defiler",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "stalker_we",
+   "name": "1 Stalker",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Stalker à la formation",
+   "unites": [
+    {
+     "id": "stalker",
+     "name": "Stalker",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "support_lourds_we",
+   "name": "Support Lourds",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 2 Vindicators du Chaos ou 2 Prédators du Chaos",
+   "choix": [
+    {
+     "id": "vindicators_we",
+     "name": "2 Vindicators du Chaos",
+     "cout": 75
+    },
+    {
+     "id": "predators_we",
+     "name": "2 Prédators du Chaos",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "land_raiders_we",
+   "name": "Land Raiders du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 1 à 6 Land Raiders du Chaos",
+   "choix": [
+    {
+     "id": "lr_we_1",
+     "name": "1 Land Raider du Chaos",
+     "cout": 75
+    },
+    {
+     "id": "lr_we_2",
+     "name": "2 Land Raiders du Chaos",
+     "cout": 125
+    },
+    {
+     "id": "lr_we_3",
+     "name": "3 Land Raiders du Chaos",
+     "cout": 200
+    },
+    {
+     "id": "lr_we_4",
+     "name": "4 Land Raiders du Chaos",
+     "cout": 250
+    },
+    {
+     "id": "lr_we_5",
+     "name": "5 Land Raiders du Chaos",
+     "cout": 325
+    },
+    {
+     "id": "lr_we_6",
+     "name": "6 Land Raiders du Chaos",
+     "cout": 400
+    }
+   ],
+   "unites": [
+    {
+     "id": "land_raider_chaos",
+     "name": "Land Raider du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "rage_de_khorne",
+   "name": "Rage de Khorne",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Une seule Suite de Berzerkers de l'armée peut recevoir cette amélioration : la formation possède la compétence Sans Peur",
+   "unites": [
+    {
+     "id": "rage_de_khorne",
+     "name": "Rage de Khorne",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "buveur_de_sang_amelio",
+   "name": "Buveur de Sang",
+   "cout": 150,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Buveur de Sang (uniquement si le Démon Majeur n'a pas été pris)",
+   "unites": [
+    {
+     "id": "buveur_de_sang",
+     "name": "Buveur de Sang",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "prince_demon_we",
+   "name": "Prince Démon",
+   "cout": 0,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Remplace le personnage de la formation par un Prince Démon",
+   "type_remplacement": {
+    "remplace_unites": [
+     "berzerkers_khorne",
+     "elus_terminators_chaos"
+    ],
+    "par_unite": "prince_demon",
+    "quantite_fixe": true
+   },
+   "choix": [
+    {
+     "name": "Prince Démon (remplace Seigneur)",
+     "cout": 50,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Seigneur)",
+     "cout": 50,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon (remplace Champion Exalté)",
+     "cout": 50
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Champion Exalté)",
+     "cout": 50
+    }
+   ],
+   "unites": [
+    {
+     "id": "prince_demon",
+     "name": "Prince Démon",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "detachements_we",
+   "name": "DÉTACHEMENTS DES WORLD EATERS",
+   "type": "principale",
+   "description": "Chaque amélioration ne peut être prise qu'une seule fois par détachement (max 4 améliorations)",
+   "formations": [
+    {
+     "id": "suite_berzerkers",
+     "name": "Suite de Berzerkers",
+     "cout": 275,
+     "FormationMinimum": 1,
+     "limiteOptionFormation": 4,
+     "FormationLimitationTag": {
+      "slot_soutien_we_B": 1
+     },
+     "unites": [
+      {
+       "id": "berzerkers_khorne",
+       "name": "Berzerkers de Khorne",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "personnage_chaos_we",
+      "porte_icone_we",
+      "dreadnoughts_we",
+      "transport_berzerkers",
+      "defilers_we",
+      "stalker_we",
+      "support_lourds_we",
+      "land_raiders_we",
+      "rage_de_khorne",
+      "prince_demon_we"
+     ]
+    },
+    {
+     "id": "suite_elus_we",
+     "name": "0-2 Suite d'Élus World Eaters",
+     "cout": 0,
+     "FormationLimite": 2,
+     "limiteOptionFormation": 4,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 4,
+      "max_total": 6,
+      "description": "4 à 6 Élus Terminators du Chaos (50 pts/unité)",
+      "principale": true,
+      "options": [
+       {
+        "id": "elus_terminators",
+        "name": "Élus Terminators du Chaos",
+        "unitId": "elus_terminators_chaos",
+        "cout": 50,
+        "min": 4,
+        "max": 6,
+        "force_slider": true
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": [
+      "personnage_chaos_we",
+      "porte_icone_we",
+      "dreadnoughts_we",
+      "transport_elus",
+      "defilers_we",
+      "stalker_we",
+      "support_lourds_we",
+      "land_raiders_we",
+      "prince_demon_we"
+     ]
+    },
+    {
+     "id": "marines_assaut_khorne",
+     "name": "0-2 Marines d'Assaut de Khorne",
+     "cout": 200,
+     "FormationLimite": 2,
+     "limiteOptionFormation": 4,
+     "variantes": [
+      {
+       "id": "mak_8",
+       "name": "8 Marines d'Assaut de Khorne",
+       "cout": 275,
+       "nombre_exact": 8
+      }
+     ],
+     "unites": [
+      {
+       "id": "marines_assaut_khorne",
+       "name": "Marines d'Assaut de Khorne",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "personnage_chaos_we",
+      "porte_icone_we"
+     ]
+    },
+    {
+     "id": "compagnie_motos_we",
+     "name": "Compagnie de Motos",
+     "cout": 250,
+     "limiteOptionFormation": 4,
+     "unites": [
+      {
+       "id": "motos_chaos",
+       "name": "Motos du Chaos",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "personnage_chaos_we",
+      "porte_icone_we"
+     ]
+    },
+    {
+     "id": "compagnie_blindee_we",
+     "name": "Compagnie Blindée",
+     "cout": 200,
+     "limiteOptionFormation": 4,
+     "variantes": [
+      {
+       "id": "blindee_land_raiders",
+       "name": "4 Land Raiders du Chaos",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "land_raider_chaos",
+         "name": "Land Raider du Chaos",
+         "nombre": 4
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "predator_chaos",
+       "name": "Prédator du Chaos",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "stalker_we",
+      "support_lourds_we",
+      "land_raiders_we"
+     ]
+    },
+    {
+     "id": "demons_mineurs_we",
+     "name": "0-2 Démons Mineurs",
+     "cout": 175,
+     "FormationLimite": 2,
+     "limiteOptionFormation": 4,
+     "variantes": [
+      {
+       "id": "sanguinaires_12",
+       "name": "12 Sanguinaires",
+       "cout": 275,
+       "nombre_exact": 12
+      }
+     ],
+     "unites": [
+      {
+       "id": "sanguinaires",
+       "name": "Sanguinaires",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "buveur_de_sang_amelio"
+     ]
+    },
+    {
+     "id": "demon_majeur_we",
+     "name": "0-1 Démon Majeur",
+     "cout": 200,
+     "FormationLimite": 1,
+     "limiteOptionFormation": 4,
+     "unites": [
+      {
+       "id": "buveur_de_sang",
+       "name": "Buveur de Sang",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "soutien_we",
+   "name": "DÉTACHEMENTS DE SOUTIEN DES WORLD EATERS",
+   "type": "associee",
+   "description": "Un Détachement de Soutien par Suite de Berzerkers",
+   "LimitationTag": "slot_soutien_we_B",
+   "formations": [
+    {
+     "id": "meute_carnage",
+     "name": "Meute du Carnage",
+     "cout": 275,
+     "variantes": [
+      {
+       "id": "meute_carnage_6",
+       "name": "6 Machines Démon de Khorne",
+       "cout": 400,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": [
+      {
+       "id": "machine_demon_khorne",
+       "name": "Machine Démon de Khorne",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_feu_enfer",
+     "name": "0-1 Batterie Feu d'Enfer",
+     "cout": 225,
+     "FormationLimite": 1,
+     "variantes": [
+      {
+       "id": "batterie_feu_enfer_6",
+       "name": "6 Canons de Khorne",
+       "cout": 325,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": [
+      {
+       "id": "canon_khorne",
+       "name": "Canon de Khorne",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "scorpions_airain",
+     "name": "0-2 Scorpions d'Airain",
+     "cout": 0,
+     "FormationLimite": 2,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 1,
+      "max_total": 3,
+      "description": "1 à 3 Grands Scorpions d'Airain (225 pts/unité)",
+      "principale": true,
+      "options": [
+       {
+        "id": "grand_scorpion_airain",
+        "name": "Grand Scorpion d'Airain",
+        "unitId": "grand_scorpion_airain",
+        "cout": 225,
+        "min": 1,
+        "max": 3,
+        "force_slider": true
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "supports_we",
+   "name": "SUPPORTS DES WORLD EATERS",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "escadrille_hellblade",
+     "name": "Escadrille d'Intercepteurs Hellblade",
+     "cout": 200,
+     "rare": true,
+     "unites": [
+      {
+       "id": "intercepteur_hellblade",
+       "name": "Intercepteur Hellblade",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_helltalon",
+     "name": "Escadrille de Chasseurs-Bombardiers Helltalon",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "helltalon",
+       "name": "Chasseur-Bombardier Helltalon",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_we",
+     "name": "Soutien Orbital",
+     "cout": 200,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "cuirasse_despoiler_we",
+       "name": "Cuirassé de Classe Despoiler",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "cuirasse_despoiler",
+         "name": "Cuirassé de Classe Despoiler",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "croiseur_devastation",
+       "name": "Croiseur de Classe Devastation",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ],
+   "rare": true
+  },
+  {
+   "id": "titanicus_we",
+   "name": "SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "seigneur_de_bataille",
+     "name": "0-2 Seigneur de Bataille",
+     "cout": 0,
+     "FormationLimite": 2,
+     "rare": true,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 1,
+      "max_total": 2,
+      "description": "1 à 2 Seigneurs de Bataille (400 pts/unité)",
+      "principale": true,
+      "options": [
+       {
+        "id": "seigneur_de_bataille_unite",
+        "name": "Seigneur de Bataille",
+        "unitId": "seigneur_de_bataille",
+        "cout": 400,
+        "min": 1,
+        "max": 2,
+        "force_slider": true
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_feral",
+     "name": "Titan Feral",
+     "cout": 300,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_feral",
+       "name": "Titan Feral",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_ravager",
+     "name": "Titan Ravager",
+     "cout": 650,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_ravager",
+       "name": "Titan Ravager",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_banelord",
+     "name": "Titan Banelord",
+     "cout": 850,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_banelord",
+       "name": "Titan Banelord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ],
+   "rare": true
+  }
+ ]
+}

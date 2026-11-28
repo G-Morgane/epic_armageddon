@@ -1,0 +1,770 @@
+{
+ "codex": {
+  "id": "imperial_fist",
+  "name": "Imperial Fists",
+  "version": "1.1",
+  "faction": "Astartes",
+  "color": "#aba646",
+  "logo": "if.png",
+  "categorie": "armees-astartes",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 5,
+   "initiative_defaut": "1+",
+   "taille_transport": {
+    "tactiques": 1,
+    "devastators": 1,
+    "scouts": 1,
+    "terminator_assaut": 2
+   },
+   "capacite_transport": {
+    "razorback": 1,
+    "rhino": 2,
+    "land_raider": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "commandant_if",
+   "name": "Commandant",
+   "cout": 50,
+   "limit": 1,
+   "choix": [
+    {
+     "id": "capitaine_if",
+     "name": "Capitaine"
+    },
+    {
+     "id": "maitre_chapitre_if",
+     "name": "Maître de Chapitre",
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "id": "chapelain_if",
+     "name": "Chapelain"
+    },
+    {
+     "id": "archiviste_if",
+     "name": "Archiviste"
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_remplacement_if",
+   "name": "Remplacer transports",
+   "cout": 0,
+   "limit": 1,
+   "IsNotOption": true,
+   "description": "Remplacer les Rhinos par 1 Dreadnought ou 1 Module d'atterrissage",
+   "choix": [
+    {
+     "id": "dreadnought",
+     "name": "Dreadnought",
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "rhino"
+      ],
+      "par_unite": "dreadnought",
+      "par_name": "Dreadnought",
+      "par_nombre": 1
+     }
+    },
+    {
+     "id": "module_atterrissage",
+     "name": "Module d'atterrissage",
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "rhino"
+      ],
+      "par_unite": "module_atterrissage",
+      "par_name": "Module d'atterrissage",
+      "par_nombre": 1
+     }
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "maitres_sieges_if",
+   "name": "Maîtres de Sièges",
+   "limit": 1,
+   "description": "Remplacer les Rhinos par des fortifications de siège",
+   "choix": [
+    {
+     "id": "tranchees_if",
+     "name": "Tranchées + Barbelés (2 Tranchées + 4cm de Barbelés)",
+     "cout": 0
+    },
+    {
+     "id": "bunkers_if",
+     "name": "Bunkers + Barbelés (2 Bunkers + Barbelés)",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "support_lourd_if",
+   "name": "Support Lourd",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 2 véhicules de support lourd, dans n'importe quelle combinaison",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 2,
+    "description": "Choisir jusqu'à 2 véhicules de support lourd (combinaison libre)",
+    "options": [
+     {
+      "id": "sl_predator_destructor_if",
+      "name": "Predator Destructor",
+      "unitId": "predator_destructor",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_predator_annihilator_if",
+      "name": "Predator Annihilator",
+      "unitId": "predator_annihilator",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_vindicator_if",
+      "name": "Vindicator",
+      "unitId": "vindicator",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_land_raider_if",
+      "name": "Land Raider",
+      "unitId": "land_raider",
+      "cout": 75,
+      "min": 0,
+      "max": 2
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "dreadnoughts_if",
+   "name": "Dreadnoughts",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 2 Dreadnoughts (Feu d'Enfer ou standard, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 0,
+    "max_total": 2,
+    "description": "Choisir jusqu'à 2 Dreadnoughts (combinaison libre)",
+    "options": [
+     {
+      "id": "dreadnought_if_standard",
+      "name": "Dreadnought",
+      "unitId": "dreadnought",
+      "cout": 50,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "dreadnought_if_feu_enfer",
+      "name": "Dreadnought Feu d'Enfer",
+      "unitId": "dreadnought_feu_enfer",
+      "cout": 50,
+      "min": 0,
+      "max": 2
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "razorbacks_if",
+   "name": "Razorback",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 6 Razorbacks (Bolters Lourds ou Canons Laser, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 6,
+    "description": "Choisir jusqu'à 6 Razorbacks (combinaison libre)",
+    "options": [
+     {
+      "id": "razorbacks_if_bolters_lourds",
+      "name": "Razorback Bolters Lourds",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 6
+     },
+     {
+      "id": "razorbacks_if_canons_laser",
+      "name": "Razorback Canons Laser",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 6
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "razorbacks_scouts_if",
+   "name": "Razorback",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 4 Razorbacks (Bolters Lourds ou Canons Laser, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 4,
+    "description": "Choisir jusqu'à 4 Razorbacks (combinaison libre)",
+    "options": [
+     {
+      "id": "razorbacks_scouts_if_bolters_lourds",
+      "name": "Razorback Bolters Lourds",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "razorbacks_scouts_if_canons_laser",
+      "name": "Razorback Canons Laser",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 4
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "hunter_if",
+   "name": "1 Hunter",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Hunter à la formation",
+   "unites": [
+    {
+     "id": "hunter",
+     "name": "Hunter",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "canon_thunderfire_if",
+   "name": "Canon Thunderfire",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 2,
+   "description": "Ajouter 1 ou 2 Canons Thunderfire (25 pts/unité)",
+   "unites": [
+    {
+     "id": "canon_thunderfire",
+     "name": "Canon Thunderfire",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "teleportation_if",
+   "name": "Téléportation",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter la capacité de téléportation",
+   "unites": []
+  },
+  {
+   "id": "land_raiders_terminators_if",
+   "name": "Land Raiders",
+   "cout": 75,
+   "cout_par_unite": true,
+   "limit": 4,
+   "description": "Ajouter jusqu'à 4 Land Raiders (75 pts/véhicule)",
+   "unites": [
+    {
+     "id": "land_raider",
+     "name": "Land Raider",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "vindicators_if",
+   "name": "Vindicators",
+   "cout": 65,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Vindicators (65 pts/unité)",
+   "unites": [
+    {
+     "id": "vindicator",
+     "name": "Vindicator",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "sniper_if",
+   "name": "Sniper",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter la capacité Sniper aux Scouts",
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principale_if",
+   "name": "DÉTACHEMENTS PRINCIPAUX IMPERIAL FISTS",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "tactique_if",
+     "name": "Tactique",
+     "cout": 275,
+     "description": "6 Tactiques + Rhinos",
+     "FormationLimitationTag": {
+      "slot_soutien_if_A": 3
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "transport_remplacement_if",
+      "maitres_sieges_if",
+      "commandant_if",
+      "support_lourd_if",
+      "dreadnoughts_if",
+      "razorbacks_if",
+      "hunter_if",
+      "canon_thunderfire_if"
+     ],
+     "unites": [
+      {
+       "id": "tactiques",
+       "name": "Tactiques",
+       "nombre": 6
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "devastator_if",
+     "name": "Devastator",
+     "cout": 250,
+     "description": "4 Devastators + Rhinos",
+     "FormationLimitationTag": {
+      "slot_soutien_if_A": 3
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "transport_remplacement_if",
+      "maitres_sieges_if",
+      "commandant_if",
+      "support_lourd_if",
+      "dreadnoughts_if",
+      "razorbacks_if",
+      "hunter_if",
+      "canon_thunderfire_if"
+     ],
+     "unites": [
+      {
+       "id": "devastators",
+       "name": "Devastators",
+       "nombre": 4
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 2
+      }
+     ]
+    },
+    {
+     "id": "vindicator_if",
+     "name": "Vindicator",
+     "cout": 250,
+     "description": "4 Vindicators",
+     "FormationLimitationTag": {
+      "slot_soutien_if_A": 3
+     },
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "commandant_if",
+      "vindicators_if"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "soutien_if",
+   "name": "DÉTACHEMENTS DE SOUTIEN IMPERIAL FISTS",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_if_A",
+   "description": "Jusqu'à 3 détachements de soutien par détachement principal",
+   "formations": [
+    {
+     "id": "assaut_if",
+     "name": "Assaut",
+     "cout": 175,
+     "description": "4 Marines d'Assaut",
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "commandant_if"
+     ],
+     "unites": []
+    },
+    {
+     "id": "terminator_assaut_if",
+     "name": "Terminator d'Assaut",
+     "cout": 275,
+     "description": "4 Terminators d'Assaut",
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "commandant_if",
+      "land_raiders_terminators_if",
+      "teleportation_if",
+      "dreadnoughts_if"
+     ],
+     "unites": [
+      {
+       "id": "terminator_assaut",
+       "name": "Terminators d'Assaut",
+       "nombre": 4
+      }
+     ]
+    },
+    {
+     "id": "scouts_if",
+     "name": "Scouts",
+     "cout": 150,
+     "description": "4 Scouts + Rhinos",
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "transport_remplacement_if",
+      "maitres_sieges_if",
+      "commandant_if",
+      "razorbacks_scouts_if",
+      "sniper_if"
+     ],
+     "unites": [
+      {
+       "id": "scouts",
+       "name": "Scouts",
+       "nombre": 4
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 2
+      }
+     ]
+    },
+    {
+     "id": "motos_if",
+     "name": "0-1 Motos",
+     "cout": 200,
+     "description": "5 Motos et/ou Motos d'Assaut",
+     "FormationLimite": 1,
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "commandant_if"
+     ],
+     "unites": []
+    },
+    {
+     "id": "land_speeders_if",
+     "name": "0-1 Land Speeders",
+     "cout": 200,
+     "FormationLimite": 1,
+     "limiteOptionFormation": 3,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 5,
+      "description": "Choisir 5 Land Speeders (Tornado +5 pts/unité, Typhoon +15 pts/unité)",
+      "principale": true,
+      "options": [
+       {
+        "id": "land_speeder",
+        "name": "Land Speeder",
+        "unitId": "land_speeder",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "id": "land_speeder_tornado",
+        "name": "Land Speeder Tornado",
+        "unitId": "land_speeder_tornado",
+        "cout": 5,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "id": "land_speeder_typhoon",
+        "name": "Land Speeder Typhoon",
+        "unitId": "land_speeder_typhoon",
+        "cout": 15,
+        "min": 0,
+        "max": 5
+       }
+      ]
+     },
+     "ameliorations": [
+      "commandant_if"
+     ],
+     "unites": []
+    },
+    {
+     "id": "land_raiders_soutien_if",
+     "name": "Land Raiders",
+     "cout": 350,
+     "description": "4 Land Raiders",
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "commandant_if",
+      "vindicators_if"
+     ],
+     "unites": [
+      {
+       "id": "land_raider",
+       "name": "Land Raider",
+       "nombre": 4
+      }
+     ]
+    },
+    {
+     "id": "predators_if",
+     "name": "Prédators",
+     "cout": 225,
+     "variantes": [
+      {
+       "id": "predators_destructor_if",
+       "name": "4 Predators Destructor",
+       "cout": 225,
+       "nombre_exact": 4
+      },
+      {
+       "id": "predators_annihilator_if",
+       "name": "4 Predators Annihilator",
+       "cout": 275,
+       "nombre_exact": 4
+      }
+     ],
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "commandant_if",
+      "vindicators_if"
+     ],
+     "unites": []
+    },
+    {
+     "id": "whirlwinds_if",
+     "name": "Whirlwinds",
+     "cout": 300,
+     "description": "4 Whirlwinds",
+     "limiteOptionFormation": 3,
+     "ameliorations": [
+      "hunter_if"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "flotte_if",
+   "name": "FLOTTE IMPERIAL FIST",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "thunderhawks_transporteurs_if",
+     "name": "Thunderhawks Transporteurs",
+     "cout": 300,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "thawk_t_2_if",
+       "name": "2 Thunderhawk Transporteurs",
+       "cout": 300,
+       "nombre_exact": 2
+      },
+      {
+       "id": "thawk_t_3_if",
+       "name": "3 Thunderhawk Transporteurs",
+       "cout": 450,
+       "nombre_exact": 3
+      }
+     ],
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "thunderhawk_if",
+     "name": "Thunderhawk",
+     "cout": 225,
+     "rare": true,
+     "description": "1 Thunderhawk",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "barge_debarquement_if",
+     "name": "Barge de Débarquement",
+     "cout": 400,
+     "rare": true,
+     "description": "1 Barge de Débarquement",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "stormtalons_if",
+     "name": "Intercepteurs Stormtalons",
+     "cout": 200,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "stormtalon_dest_if",
+       "name": "2 Stormtalons Destructor",
+       "cout": 200,
+       "nombre_exact": 2
+      },
+      {
+       "id": "stormtalon_anni_if",
+       "name": "2 Stormtalons Annihilator",
+       "cout": 250,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "stormeagles_if",
+     "name": "Stormeagles",
+     "cout": 275,
+     "rare": true,
+     "description": "2 Stormeagles",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "caestus_if",
+     "name": "Béliers d'Assaut Caestus",
+     "cout": 250,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "caestus_2_if",
+       "name": "2 Caestus",
+       "cout": 250,
+       "nombre_exact": 2
+      },
+      {
+       "id": "caestus_3_if",
+       "name": "3 Caestus",
+       "cout": 350,
+       "nombre_exact": 3
+      }
+     ],
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "soutien_orbital_if",
+     "name": "0-1 Soutien Orbital",
+     "cout": 200,
+     "rare": true,
+     "FormationLimite": 1,
+     "variantes": [
+      {
+       "id": "croiseur_attaque_if",
+       "name": "1 Croiseur d'Attaque",
+       "cout": 200,
+       "nombre_exact": 1
+      },
+      {
+       "id": "barge_bataille_if",
+       "name": "1 Barge de Bataille",
+       "cout": 350,
+       "nombre_exact": 1
+      }
+     ],
+     "ameliorations": [],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_if",
+   "name": "SOUTIENS DES LÉGIONS TITANIQUES",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "warhound_if",
+     "name": "Titan Warhound",
+     "cout": 275,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "warhound_1_if",
+       "name": "1 Titan Warhound",
+       "cout": 275,
+       "nombre_exact": 1
+      },
+      {
+       "id": "warhound_2_if",
+       "name": "2 Titans Warhound",
+       "cout": 500,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "reaver_if",
+     "name": "Titan Reaver",
+     "cout": 650,
+     "rare": true,
+     "description": "1 Titan Reaver",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "warlord_if",
+     "name": "Titan Warlord",
+     "cout": 850,
+     "rare": true,
+     "description": "1 Titan Warlord",
+     "ameliorations": [],
+     "unites": []
+    }
+   ]
+  }
+ ]
+}

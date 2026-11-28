@@ -1,0 +1,450 @@
+{
+ "codex": {
+  "id": "paras_elyseens",
+  "name": "Paras Élyséens",
+  "version": "1.2.1",
+  "faction": "Impérium",
+  "color": "#1e3f59",
+  "logo": "para.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "label_rares": "Soutien du Munitorum",
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+",
+   "commissaire_quota_soutien": {
+    "points_par_tranche": 1000
+   },
+   "taille_transport": {
+    "qg_regimentaire_pe": 1,
+    "quartier_general": 1,
+    "commandement": 1,
+    "infanterie_pe": 1,
+    "appui_feu_pe": 1,
+    "sentinelles_supp_pe": 2
+   },
+   "capacite_transport": {
+    "chimere": 2,
+    "vendetta_pe": 2,
+    "valkyrie": 4,
+    "tauros": 4,
+    "tauros_venator": 4,
+    "sky_talon": 4
+   }
+  },
+  "statut": "validation"
+ },
+ "ameliorations": [
+  {
+   "id": "appui_feu_pe",
+   "name": "Appui-Feu",
+   "cout": 75,
+   "limit": 1,
+   "description": "Ajouter 2 unités d'Appui-Feu et 1 Valkyrie Élysienne",
+   "unites": []
+  },
+  {
+   "id": "infanterie_pe",
+   "name": "Infanterie",
+   "cout": 200,
+   "limit": 1,
+   "description": "Ajouter 6 unités de Paras Élysiens et 3 Valkyries Élysiennes",
+   "unites": []
+  },
+  {
+   "id": "vendetta_pe",
+   "name": "2 Valkyries Vendetta (remplacement)",
+   "cout": 50,
+   "limit": 1,
+   "description": "Remplacer 2 Valkyries Élysiennes par des Valkyries Vendetta",
+   "unites": []
+  },
+  {
+   "id": "vultures_punisher_compagnie_pe",
+   "name": "2 Vultures Punisher",
+   "cout": 75,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "vultures_elysiennes_compagnie_pe",
+   "name": "2 Vultures Élysiennes",
+   "cout": 100,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "commissaire_pe",
+   "name": "Commissaire",
+   "cout": 0,
+   "limit": 1,
+   "commissaire": true,
+   "regle_quota": "commissaire_quota_soutien",
+   "description": "Ajouter un Commissaire à la formation (1 gratuit par tranche de 1000 pts de compagnies)",
+   "unites": []
+  },
+  {
+   "id": "teleportation_pe",
+   "name": "Téléportation",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "sentinelles_supp_pe",
+   "name": "+2 Sentinelles",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "+2 Sentinelles Aéroportées",
+     "cout": 50
+    },
+    {
+     "name": "+2 Sentinelles de Soutien",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_sentinelles_pe",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Téléportation",
+     "cout": 50
+    },
+    {
+     "name": "2 Valkyries Sky Talons",
+     "cout": 50
+    },
+    {
+     "name": "3 Valkyries Sky Talons",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_tempestus_pe",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Téléportation",
+     "cout": 50
+    },
+    {
+     "name": "4 Valkyries Élysiennes",
+     "cout": 150
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "vendetta_tempestus_pe",
+   "name": "2 Valkyries Vendetta (remplacement)",
+   "cout": 50,
+   "limit": 1,
+   "description": "Remplacer 2 Valkyries par 2 Valkyries Vendetta",
+   "unites": []
+  },
+  {
+   "id": "valkyries_appui_feu_pe",
+   "name": "3 Valkyries Élysiennes",
+   "cout": 100,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "vendetta_appui_feu_pe",
+   "name": "2 Valkyries Vendetta (remplacement)",
+   "cout": 50,
+   "limit": 1,
+   "description": "Remplacer 2 Valkyries par 2 Valkyries Vendetta",
+   "unites": []
+  },
+  {
+   "id": "assaut_planetaire_pe",
+   "name": "Assaut Planétaire",
+   "cout": 25,
+   "limit": 1,
+   "description": "Option disponible uniquement avec la Frégate Claymore",
+   "unites": []
+  },
+  {
+   "id": "vultures_supp_pe",
+   "name": "+2 Vultures",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "+2 Vultures Élysiennes",
+     "cout": 100
+    },
+    {
+     "name": "+2 Vultures Punisher",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "compagnies_pe",
+   "name": "COMPAGNIES DES PARAS ÉLYSIENS",
+   "description": "Jusqu'à 2 formations d'appui par Compagnie / Jusqu'à 3 améliorations différentes par Compagnie",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "qg_regimentaire_pe",
+     "name": "0-1 QG Régimentaire",
+     "cout": 350,
+     "FormationLimite": 1,
+     "FormationLimitationTag": {
+      "slot_appui_pe_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "description": "1 QG Régimentaire Élysien, 7 Paras Élysiens, 4 Valkyries, 1 Commissaire",
+     "ameliorations": [
+      "appui_feu_pe",
+      "infanterie_pe",
+      "vendetta_pe",
+      "vultures_punisher_compagnie_pe",
+      "vultures_elysiennes_compagnie_pe"
+     ],
+     "unites": []
+    },
+    {
+     "id": "compagnie_infanterie_pe",
+     "name": "Compagnie d'Infanterie",
+     "cout": 300,
+     "FormationLimitationTag": {
+      "slot_appui_pe_A": 2
+     },
+     "limiteOptionFormation": 3,
+     "description": "1 Commandement Élysien, 7 Paras Élysiens, 4 Valkyries, 1 Commissaire",
+     "ameliorations": [
+      "appui_feu_pe",
+      "infanterie_pe",
+      "vendetta_pe",
+      "vultures_punisher_compagnie_pe",
+      "vultures_elysiennes_compagnie_pe"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "formations_appui_pe",
+   "name": "FORMATIONS D'APPUI DES PARAS ÉLYSIENS",
+   "description": "Jusqu'à 2 formations d'appui par compagnie",
+   "type": "associee",
+   "LimitationTag": "slot_appui_pe_A",
+   "formations": [
+    {
+     "id": "tarentules_pe",
+     "name": "Tarentules",
+     "cout": 200,
+     "description": "6 Tarentules aéroportées avec Téléportation",
+     "ameliorations": [
+      "teleportation_pe",
+      "commissaire_pe"
+     ],
+     "unites": []
+    },
+    {
+     "id": "sentinelles_pe",
+     "name": "Escadron de Sentinelles",
+     "cout": 125,
+     "description": "4 Sentinelles Aéroportées",
+     "ameliorations": [
+      "sentinelles_supp_pe",
+      "transport_sentinelles_pe",
+      "commissaire_pe"
+     ],
+     "variantes": [
+      {
+       "id": "sentinelles_soutien_pe",
+       "name": "4 Sentinelles de Soutien",
+       "cout": 150,
+       "nombre_exact": 4
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "veterans_pe",
+     "name": "Peloton de Vétérans",
+     "cout": 200,
+     "description": "6 Vétérans (Saboteurs)",
+     "ameliorations": [
+      "teleportation_pe",
+      "commissaire_pe"
+     ],
+     "variantes": [
+      {
+       "id": "veterans_snipers_pe",
+       "name": "6 Vétérans (Snipers)",
+       "cout": 200,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "tempestus_pe",
+     "name": "Militarum Tempestus",
+     "cout": 200,
+     "description": "8 unités de Tempestus Scions",
+     "ameliorations": [
+      "transport_tempestus_pe",
+      "vendetta_tempestus_pe",
+      "commissaire_pe"
+     ],
+     "unites": []
+    },
+    {
+     "id": "peloton_appui_feu_pe",
+     "name": "Peloton d'Appui-Feu",
+     "cout": 175,
+     "description": "6 unités d'Appui-Feu",
+     "ameliorations": [
+      "valkyries_appui_feu_pe",
+      "vendetta_appui_feu_pe",
+      "commissaire_pe"
+     ],
+     "variantes": [
+      {
+       "id": "appui_feu_mortiers_pe",
+       "name": "6 unités de Mortiers",
+       "cout": 175,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "tauros_pe",
+     "name": "Escadron de Tauros",
+     "cout": 250,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 6,
+      "description": "Choisir 6 unités parmi Tauros et Tauros Venator",
+      "principale": true,
+      "options": [
+       {
+        "id": "tauros",
+        "name": "Tauros",
+        "unitId": "tauros",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "tauros_venator",
+        "name": "Tauros Venator",
+        "unitId": "tauros_venator",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       }
+      ]
+     },
+     "ameliorations": [
+      "commissaire_pe"
+     ],
+     "unites": []
+    },
+    {
+     "id": "vultures_elysiennes_pe",
+     "name": "Escadrille de Vultures Élysiennes",
+     "cout": 300,
+     "description": "4 Vultures Élysiennes",
+     "ameliorations": [
+      "vultures_supp_pe",
+      "commissaire_pe"
+     ],
+     "unites": []
+    },
+    {
+     "id": "vultures_punisher_pe",
+     "name": "0-1 Escadrille de Vultures Punisher",
+     "cout": 225,
+     "FormationLimite": 1,
+     "description": "4 Vultures Punisher",
+     "ameliorations": [
+      "vultures_supp_pe",
+      "commissaire_pe"
+     ],
+     "unites": []
+    }
+   ]
+  },
+  {
+   "id": "supports_pe",
+   "name": "SUPPORTS DES PARAS ÉLYSIENS",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "type": "rare",
+   "formations": [
+    {
+     "id": "lightning_pe",
+     "name": "Escadrille Lightning",
+     "cout": 175,
+     "description": "2 Lightning Strike Fighters",
+     "ameliorations": [],
+     "variantes": [
+      {
+       "id": "lightning_3_pe",
+       "name": "3 Lightning Strike Fighters",
+       "cout": 250,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": []
+    },
+    {
+     "id": "bombardiers_pe",
+     "name": "Escadrille de Bombardiers",
+     "cout": 250,
+     "description": "2 Bombardiers Marauders",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "destroyers_pe",
+     "name": "Escadrille de Destroyers",
+     "cout": 300,
+     "description": "2 Bombardiers Destroyer",
+     "ameliorations": [],
+     "unites": []
+    },
+    {
+     "id": "soutien_orbital_pe",
+     "name": "Soutien Orbital",
+     "cout": 200,
+     "description": "1 Frégate Claymore",
+     "FormationLimite": 1,
+     "ameliorations": [
+      "assaut_planetaire_pe"
+     ],
+     "variantes": [
+      {
+       "id": "cuirasse_emperor_pe",
+       "name": "1 Cuirassé Emperor",
+       "cout": 300,
+       "nombre_exact": 1
+      }
+     ],
+     "unites": []
+    }
+   ]
+  }
+ ]
+}

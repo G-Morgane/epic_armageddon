@@ -1,0 +1,759 @@
+{
+ "codex": {
+  "id": "black_templar",
+  "name": "Black Templar",
+  "version": "1.2",
+  "faction": "Astartes",
+  "color": "#2c3036",
+  "logo": "bt.png",
+  "categorie": "armees-astartes",
+  "regles_speciales": {
+   "label_rares": "Support Black Templar",
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 5,
+   "initiative_defaut": "1+",
+   "taille_transport": {
+    "croises": 1,
+    "terminator_assaut": 2
+   },
+   "capacite_transport": {
+    "razorback": 1,
+    "rhino": 2,
+    "land_raider_bt": 2,
+    "land_raider_crusader_bt": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "commandant_bt",
+   "name": "Commandant",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter un commandant à la formation",
+   "choix": [
+    {
+     "id": "capitaine_bt",
+     "name": "Capitaine"
+    },
+    {
+     "id": "maitre_chapitre_bt",
+     "name": "Maître de Chapitre",
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "id": "chapelain_bt",
+     "name": "Chapelain"
+    },
+    {
+     "id": "archiviste_bt",
+     "name": "Archiviste"
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "champion_empereur_bt",
+   "name": "Champion de l'Empereur",
+   "cout": 50,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "champion_empereur",
+     "name": "Champion de l'Empereur",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_remplacement_bt",
+   "name": "Remplacer transports",
+   "cout": 0,
+   "limit": 1,
+   "non_comptee": true,
+   "description": "Remplacer les Rhinos par un Dreadnought ou des Modules d'atterrissage",
+   "choix": [
+    {
+     "id": "dreadnought_transport_bt",
+     "name": "Dreadnought",
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "rhino"
+      ],
+      "par_unite": "dreadnought",
+      "par_name": "Dreadnought",
+      "par_nombre": 1
+     }
+    },
+    {
+     "id": "modules_atterrissage_bt",
+     "name": "Modules d'atterrissage",
+     "type_remplacement": {
+      "remplace_tout": true,
+      "remplace_unites": [
+       "rhino"
+      ],
+      "par_unite": "module_atterrissage",
+      "par_name": "Module d'atterrissage",
+      "par_nombre": 1
+     }
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "dreadnoughts_bt",
+   "name": "Dreadnoughts",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 2 Dreadnoughts (Feu d'Enfer ou standard, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 0,
+    "max_total": 2,
+    "description": "Choisir jusqu'à 2 Dreadnoughts (combinaison libre)",
+    "options": [
+     {
+      "id": "dreadnought_bt_standard",
+      "name": "Dreadnought",
+      "unitId": "dreadnought",
+      "cout": 50,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "dreadnought_bt_feu_enfer",
+      "name": "Dreadnought Feu d'Enfer",
+      "unitId": "dreadnought_feu_enfer",
+      "cout": 50,
+      "min": 0,
+      "max": 2
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "razorback_bt",
+   "name": "Razorback",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 6 Razorbacks (Bolters Lourds ou Canons Laser, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 6,
+    "description": "Choisir jusqu'à 6 Razorbacks (combinaison libre)",
+    "options": [
+     {
+      "id": "razorback_bt_bolters_lourds",
+      "name": "Razorback Bolters Lourds",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 6
+     },
+     {
+      "id": "razorback_bt_canons_laser",
+      "name": "Razorback Canons Laser",
+      "unitId": "razorback",
+      "cout": 25,
+      "min": 0,
+      "max": 6
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "hunter_bt",
+   "name": "1 Hunter",
+   "cout": 50,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "hunter",
+     "name": "Hunter",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "support_lourd_bt",
+   "name": "Support Lourd",
+   "cout": 0,
+   "limit": 1,
+   "description": "Jusqu'à 2 véhicules de support lourd, dans n'importe quelle combinaison",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 2,
+    "description": "Choisir jusqu'à 2 véhicules de support lourd (combinaison libre)",
+    "options": [
+     {
+      "id": "sl_predator_destructor_bt",
+      "name": "Prédator Destructor",
+      "unitId": "predator_destructor",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_predator_annihilator_bt",
+      "name": "Prédator Annihilator",
+      "unitId": "predator_annihilator",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_vindicator_bt",
+      "name": "Vindicator",
+      "unitId": "vindicator",
+      "cout": 65,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_land_raider_bt",
+      "name": "Land Raider",
+      "unitId": "land_raider_bt",
+      "cout": 75,
+      "min": 0,
+      "max": 2
+     },
+     {
+      "id": "sl_land_raider_crusader_bt",
+      "name": "Land Raider Crusader",
+      "unitId": "land_raider_crusader_bt",
+      "cout": 75,
+      "min": 0,
+      "max": 2
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "novices_2_bt",
+   "name": "2 Novices",
+   "cout": 75,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "novice",
+     "name": "Novice",
+     "nombre": 2
+    }
+   ]
+  },
+  {
+   "id": "novices_4_bt",
+   "name": "4 Novices",
+   "cout": 150,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "novice",
+     "name": "Novice",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "teleportation_bt",
+   "name": "Téléportation",
+   "cout": 50,
+   "limit": 1,
+   "description": "Les Terminators reçoivent le mot-clé Téléportation",
+   "unites": []
+  },
+  {
+   "id": "vindicator_bt",
+   "name": "Vindicators",
+   "cout": 65,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Vindicators à la formation",
+   "unites": [
+    {
+     "id": "vindicator",
+     "name": "Vindicator",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "land_raiders_transport_bt",
+   "name": "Land Raiders",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 1 à 4 Land Raiders (Land Raider ou Land Raider Crusader, dans n'importe quelle combinaison)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 4,
+    "description": "Choisir jusqu'à 4 Land Raiders (combinaison libre)",
+    "options": [
+     {
+      "id": "lrt_land_raider_bt",
+      "name": "Land Raider",
+      "unitId": "land_raider_bt",
+      "cout": 75,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "lrt_land_raider_crusader_bt",
+      "name": "Land Raider Crusader",
+      "unitId": "land_raider_crusader_bt",
+      "cout": 75,
+      "min": 0,
+      "max": 4
+     }
+    ]
+   },
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principale_bt",
+   "name": "DÉTACHEMENTS PRINCIPAUX BLACK TEMPLARS",
+   "type": "principale",
+   "description": "Max 3 améliorations par détachement",
+   "formations": [
+    {
+     "id": "black_templars",
+     "name": "Black Templars",
+     "cout": 275,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_soutien_bt_A": 3
+     },
+     "unites": [
+      {
+       "id": "croises",
+       "name": "Croisés",
+       "nombre": 6
+      },
+      {
+       "id": "rhino",
+       "name": "Rhino",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "transport_remplacement_bt",
+      "commandant_bt",
+      "champion_empereur_bt",
+      "dreadnoughts_bt",
+      "razorback_bt",
+      "hunter_bt",
+      "support_lourd_bt",
+      "novices_2_bt",
+      "novices_4_bt"
+     ]
+    },
+    {
+     "id": "assaut_bt",
+     "name": "Assaut",
+     "cout": 175,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_soutien_bt_A": 3
+     },
+     "unites": [
+      {
+       "id": "marines_assaut",
+       "name": "Marines d'Assaut",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "commandant_bt"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_bt",
+   "name": "DÉTACHEMENTS DE SOUTIEN BLACK TEMPLARS",
+   "type": "associee",
+   "description": "Jusqu'à 3 Détachements de Soutien par Détachement principal",
+   "LimitationTag": "slot_soutien_bt_A",
+   "formations": [
+    {
+     "id": "terminators_bt",
+     "name": "Terminators",
+     "cout": 275,
+     "limiteOptionFormation": 3,
+     "variantes": [
+      {
+       "id": "terminators_std_bt",
+       "name": "4 Terminators",
+       "cout": 300,
+       "nombre_exact": 4
+      }
+     ],
+     "unites": [
+      {
+       "id": "terminator_assaut",
+       "name": "Terminator d'Assaut",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "dreadnoughts_bt",
+      "commandant_bt",
+      "land_raiders_transport_bt",
+      "teleportation_bt"
+     ]
+    },
+    {
+     "id": "motos_bt",
+     "name": "Motos",
+     "cout": 200,
+     "limiteOptionFormation": 3,
+     "composition_personnalisee": {
+      "min_total": 5,
+      "max_total": 5,
+      "label": "5 unités (Motos / Motos d'Assaut)",
+      "options": [
+       {
+        "unitId": "motos_bt",
+        "name": "Motos",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "unitId": "motos_assaut_bt",
+        "name": "Motos d'Assaut",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": [
+      "commandant_bt"
+     ]
+    },
+    {
+     "id": "land_speeders_bt",
+     "name": "Land Speeders",
+     "cout": 200,
+     "limiteOptionFormation": 3,
+     "composition_personnalisee": {
+      "min_total": 5,
+      "max_total": 5,
+      "label": "5 Land Speeders (Standard / Tornado +5 pts / Typhoon +15 pts)",
+      "options": [
+       {
+        "unitId": "land_speeder_bt",
+        "name": "Land Speeder",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "unitId": "land_speeder_tornado_bt",
+        "name": "Land Speeder Tornado",
+        "cout": 5,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "unitId": "land_speeder_typhoon_bt",
+        "name": "Land Speeder Typhoon",
+        "cout": 15,
+        "min": 0,
+        "max": 5
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": [
+      "commandant_bt"
+     ]
+    },
+    {
+     "id": "land_raiders_bt",
+     "name": "Land Raiders",
+     "cout": 350,
+     "limiteOptionFormation": 3,
+     "composition_personnalisee": {
+      "min_total": 4,
+      "max_total": 4,
+      "label": "4 Land Raiders (Land Raider / Land Raider Crusader)",
+      "options": [
+       {
+        "unitId": "land_raider_bt",
+        "name": "Land Raider",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       },
+       {
+        "unitId": "land_raider_crusader_bt",
+        "name": "Land Raider Crusader",
+        "cout": 0,
+        "min": 0,
+        "max": 4
+       }
+      ]
+     },
+     "unites": [],
+     "ameliorations": [
+      "commandant_bt",
+      "vindicator_bt"
+     ]
+    },
+    {
+     "id": "predators_bt",
+     "name": "Prédators",
+     "cout": 225,
+     "limiteOptionFormation": 3,
+     "variantes": [
+      {
+       "id": "predators_annihilator_bt",
+       "name": "4 Prédators Annihilator",
+       "cout": 275,
+       "nombre_exact": 4
+      }
+     ],
+     "unites": [
+      {
+       "id": "predator_destructor",
+       "name": "Prédator Destructor",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "vindicator_bt",
+      "commandant_bt"
+     ]
+    },
+    {
+     "id": "whirlwinds_bt",
+     "name": "Whirlwinds",
+     "cout": 300,
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "whirlwind",
+       "name": "Whirlwind",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "hunter_bt",
+      "commandant_bt"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flotte_bt",
+   "name": "FLOTTE BLACK TEMPLARS",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "thunderhawk_transporteur_bt",
+     "name": "Thunderhawks Transporteurs",
+     "cout": 300,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "thunderhawk_transport_3_bt",
+       "name": "3 Thunderhawk Transporteurs",
+       "cout": 450,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": [
+      {
+       "id": "thunderhawk_transporteur",
+       "name": "Thunderhawk Transporteur",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "thunderhawk_bt",
+     "name": "Thunderhawk",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "thunderhawk",
+       "name": "Thunderhawk",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "barge_debarquement_bt",
+     "name": "Barge de Débarquement",
+     "cout": 400,
+     "rare": true,
+     "unites": [
+      {
+       "id": "barge_debarquement",
+       "name": "Barge de Débarquement",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "stormtalons_bt",
+     "name": "Intercepteurs Stormtalons",
+     "cout": 200,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "stormtalons_annihilator_bt",
+       "name": "2 Stormtalons Annihilator",
+       "cout": 250,
+       "nombre_exact": 2
+      }
+     ],
+     "unites": [
+      {
+       "id": "stormtalon_destructor",
+       "name": "Stormtalon Destructor",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "stormeagles_bt",
+     "name": "Stormeagles",
+     "cout": 275,
+     "rare": true,
+     "unites": [
+      {
+       "id": "stormeagle",
+       "name": "Stormeagle",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "caestus_bt",
+     "name": "Béliers d'Assaut Caestus",
+     "cout": 250,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "caestus_3_bt",
+       "name": "3 Caestus",
+       "cout": 350,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": [
+      {
+       "id": "caestus",
+       "name": "Bélier d'Assaut Caestus",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_bt",
+     "name": "0-1 Soutien Orbital",
+     "cout": 200,
+     "FormationLimite": 1,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "barge_bataille_bt",
+       "name": "Barge de Bataille",
+       "cout": 350,
+       "nombre_exact": 1
+      }
+     ],
+     "unites": [
+      {
+       "id": "croiseur_attaque",
+       "name": "Croiseur d'Attaque",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_bt",
+   "name": "SOUTIENS DES LÉGIONS TITANIQUES",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "titan_warhound_bt",
+     "name": "Titan Warhound",
+     "cout": 275,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "titan_warhound_2_bt",
+       "name": "2 Titans Warhound",
+       "cout": 500,
+       "nombre_exact": 2
+      }
+     ],
+     "unites": [
+      {
+       "id": "warhound",
+       "name": "Warhound",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_reaver_bt",
+     "name": "Titan Reaver",
+     "cout": 650,
+     "rare": true,
+     "unites": [
+      {
+       "id": "reaver",
+       "name": "Reaver",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_warlord_bt",
+     "name": "Titan Warlord",
+     "cout": 850,
+     "rare": true,
+     "unites": [
+      {
+       "id": "warlord",
+       "name": "Warlord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

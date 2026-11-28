@@ -1,43 +1,107 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, ArmyTag } from '~/types/database'
+import { codexDeArmee, codexAvecBuilder, type CodexMeta, type PublicationCodex } from '~/utils/codex-armee'
+
+const urlSite = useUrlSite()
 
 useSeoMeta({
   title: 'Livres d\'Armées',
   description: 'Tous les codex officiels Epic Armageddon FR — Imperium, Chaos et Xenos. Téléchargez les listes d\'armées en PDF.',
   ogTitle: 'Livres d\'Armées — Epic Armageddon FR',
   ogDescription: 'Tous les codex officiels — Imperium, Chaos et Xenos.',
-  ogUrl: 'https://www.epicarmageddon.fr/armees',
+  ogUrl: urlSite('/armees'),
 })
 
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[]; tags: ArmyTag[] }
 
-const [{ data: imperiumArmies }, { data: chaosArmies }, { data: xenosArmies }, { data: allTags }] = await Promise.all([
-  useFetch<ArmyWithVersion[]>('/api/armies', { query: { faction: 'imperium' } }),
-  useFetch<ArmyWithVersion[]>('/api/armies', { query: { faction: 'chaos' } }),
-  useFetch<ArmyWithVersion[]>('/api/armies', { query: { faction: 'xenos' } }),
-  useFetch<ArmyTag[]>('/api/army-tags'),
+// Les trois factions viennent du même appel : la route ne filtre que par `faction`,
+// et trois requêtes identiques à une clause près coûtent trois allers-retours pour rien.
+// `lazy` : le rendu serveur attend toujours les données, mais une navigation
+// depuis le site ouvre la page tout de suite et la grille se remplit ensuite.
+const [{ data: toutesArmees, status }, { data: allTags }, { data: tousCodex }, { data: publications }] = await Promise.all([
+  useFetch<ArmyWithVersion[]>('/api/armies', { lazy: true }),
+  useFetch<ArmyTag[]>('/api/army-tags', { lazy: true }),
+  useFetch<CodexMeta[]>('/api/codex', { lazy: true }),
+  useFetch<PublicationCodex[]>('/api/codex/publications', { lazy: true }),
 ])
 
+const chargement = computed(() => status.value === 'pending' || status.value === 'idle')
+
+const armeesParFaction = computed(() => {
+  const parFaction = new Map<string, ArmyWithVersion[]>()
+  for (const a of toutesArmees.value ?? []) {
+    const l = parFaction.get(a.faction) ?? []
+    l.push(a)
+    parFaction.set(a.faction, l)
+  }
+  return parFaction
+})
+
+/**
+ * Favoris du membre connecté : chargés dans le navigateur, jamais au rendu
+ * serveur, parce qu'ils dépendent de qui regarde.
+ *
+ * Une armée mise en favori depuis la bêta ou les archives n'est pas dans
+ * `/api/armies`, qui ne sert que les officielles : on retombe alors sur ce que
+ * le favori porte lui-même, quitte à afficher la carte sans sa REV.
+ */
+const { favoris, init: initFavoris } = useFavoris()
+onMounted(() => { initFavoris() })
+
+const armeesParId = computed(() => new Map((toutesArmees.value ?? []).map(a => [a.id, a])))
+const armeesFavorites = computed(() => (favoris.value ?? []).map(f => armeesParId.value.get(f.army_id) ?? ({
+  id: f.army_id,
+  name: f.nom,
+  faction: f.faction,
+  cover_image: f.cover_image,
+  army_versions: [],
+  tags: [],
+} as unknown as ArmyWithVersion)))
+
+/**
+ * REV affichée sur une carte : celle du codex dynamique dès qu'il en existe un,
+ * sinon celle du dernier PDF déposé à la main. Les deux numéros vivent leur vie,
+ * et la carte annonçait l'ancien pendant que la fiche et le builder servaient déjà
+ * la REV suivante.
+ */
+const revParArmee = computed(() => {
+  const m = new Map<string, string>()
+  for (const a of [...(toutesArmees.value ?? []), ...armeesFavorites.value]) {
+    const rev = codexDeArmee(codexAvecBuilder(tousCodex.value), a.id, a.name)?.version ?? a.army_versions?.[0]?.version
+    if (rev) m.set(a.id, rev)
+  }
+  return m
+})
+
 const sections = computed(() => [
+  ...(armeesFavorites.value.length
+    ? [{
+        label: 'Mes favoris',
+        subtitle: 'Les codex que tu as mis de côté',
+        faction: 'favoris',
+        armies: armeesFavorites.value,
+        accent: 'gold',
+      }]
+    : []),
   {
     label: 'Armées de l\'Imperium',
     subtitle: 'Les forces loyalistes de l\'Empereur de l\'Humanité',
     faction: 'imperium',
-    armies: imperiumArmies.value ?? [],
+    armies: armeesParFaction.value.get('imperium') ?? [],
     accent: 'gold',
   },
   {
     label: 'Armées du Chaos',
     subtitle: 'Les hordes corrompues des Dieux Sombres',
     faction: 'chaos',
-    armies: chaosArmies.value ?? [],
+    armies: armeesParFaction.value.get('chaos') ?? [],
     accent: 'red-400',
   },
   {
     label: 'Armées Xenos',
     subtitle: 'Les races extraterrestres qui menacent la galaxie',
     faction: 'xenos',
-    armies: xenosArmies.value ?? [],
+    armies: armeesParFaction.value.get('xenos') ?? [],
     accent: 'emerald-400',
   },
 ])
@@ -52,19 +116,47 @@ function tagsForFaction(faction: string) {
   return (allTags.value ?? []).filter(t => t.faction === faction)
 }
 
+const recherche = ref('')
+
+/** Recherche insensible aux accents : « eldar » doit trouver « Eldars ». */
+const sansAccent = (s: string) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+
 function filteredArmies(armies: ArmyWithVersion[], faction: string) {
   const tag = activeTagByFaction.value[faction]
-  if (!tag) return armies
-  return armies.filter(a => a.tags?.some(t => t.id === tag))
+  const q = sansAccent(recherche.value.trim())
+  if (!tag && !q) return armies
+  return armies.filter(a => (!tag || a.tags?.some(t => t.id === tag)) && (!q || sansAccent(a.name).includes(q)))
 }
+
+/** Une recherche sans réponse doit le dire : sinon la page ne montre que ses titres. */
+const aucunResultat = computed(() => !!recherche.value.trim() && !chargement.value
+  && sections.value.every(s => !filteredArmies(s.armies, s.faction).length))
 
 const threeMonthsAgo = new Date()
 threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3)
 
+const publicationParSlug = computed(() => new Map((publications.value ?? []).map(p => [p.slug, p])))
+
+/**
+ * Dernière nouveauté d'une armée : PDF déposé à la main, ou REV du codex dynamique.
+ * Les deux systèmes cohabitent et ne partagent aucune date, il faut lire les deux.
+ *
+ * La transcription d'un codex existant est mise de côté : sa première REV ne dit
+ * rien de nouveau aux joueurs, elle ne fait que passer en dynamique un contenu
+ * déjà publié en PDF, en gardant son numéro. Le compteur ne s'ouvre qu'à la
+ * deuxième REV publiée, quel que soit le numéro qu'elle porte.
+ */
+function derniereNouveaute(army: ArmyWithVersion) {
+  const dates = (army.army_versions ?? []).map(v => v.published_at).filter(Boolean)
+  const codex = codexDeArmee(codexAvecBuilder(tousCodex.value), army.id, army.name)
+  const publication = codex ? publicationParSlug.value.get(codex.slug) : undefined
+  if (publication && publication.revs > 1) dates.push(publication.publie)
+  return dates.sort((a, b) => +new Date(b) - +new Date(a))[0]
+}
+
 function isNew(army: ArmyWithVersion) {
-  const version = army.army_versions?.[0]
-  if (!version) return false
-  return new Date(version.published_at) > threeMonthsAgo
+  const date = derniereNouveaute(army)
+  return !!date && new Date(date) > threeMonthsAgo
 }
 </script>
 
@@ -87,20 +179,38 @@ function isNew(army: ArmyWithVersion) {
         <h1 class="text-3xl font-bold sm:text-4xl md:text-6xl">Livres d'Armées</h1>
         <p class="mt-2 text-base text-gray-400 sm:mt-3 sm:text-lg">Tous les codex officiels de la communauté EA-FR</p>
         <div class="mt-4 h-1 w-48 rounded-full bg-gradient-to-r from-gold to-transparent md:w-96" />
+
+        <BarreRecherche
+          v-model="recherche"
+          class="mt-8 sm:w-80"
+          placeholder="Rechercher une armée…"
+          label="Rechercher une armée"
+        />
       </div>
 
       <!-- Sections par faction -->
       <div class="mx-auto max-w-6xl space-y-16 px-4 pb-32">
-        <section v-for="section in sections" :key="section.faction">
+        <section
+          v-for="section in sections"
+          v-show="!recherche.trim() || filteredArmies(section.armies, section.faction).length"
+          :key="section.faction"
+        >
           <!-- Faction header -->
           <div>
-            <h2 class="text-2xl font-bold text-gray-100 md:text-3xl">{{ section.label }}</h2>
+            <h2 class="flex items-center gap-2 text-2xl font-bold text-gray-100 md:text-3xl">
+              <svg v-if="section.faction === 'favoris'" class="h-6 w-6 shrink-0 text-gold md:h-7 md:w-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.48 3.5a.56.56 0 011.04 0l2.13 4.32 4.77.69c.46.07.64.63.31.95l-3.45 3.36.81 4.75c.08.46-.4.81-.81.59L12 15.9l-4.27 2.25c-.41.22-.89-.13-.81-.59l.81-4.75-3.45-3.36a.56.56 0 01.31-.95l4.77-.69L11.48 3.5z" />
+              </svg>
+              {{ section.label }}
+            </h2>
             <p class="mt-1 text-sm text-gray-500">{{ section.subtitle }}</p>
             <div class="mt-3 h-0.5 w-32 rounded-full bg-gradient-to-r from-gold to-transparent" />
           </div>
 
           <!-- Tag filters -->
-          <div v-if="tagsForFaction(section.faction).length" class="-mx-4 mt-5 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <!-- Les compteurs de chaque filtre se lisent dans les armées : tant
+               qu'elles ne sont pas là, la barre afficherait des zéros. -->
+          <div v-if="!chargement && tagsForFaction(section.faction).length" class="-mx-4 mt-5 overflow-x-auto px-4 sm:mx-0 sm:px-0">
             <div class="inline-flex gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
               <button
                 :class="[
@@ -137,10 +247,22 @@ function isNew(army: ArmyWithVersion) {
 
           <!-- Grid -->
           <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 lg:grid-cols-5">
+            <!-- Cartes fantômes le temps de l'aller-retour : la page garde sa
+                 forme au lieu de montrer trois titres au-dessus du vide. -->
+            <div
+              v-for="n in (chargement ? 10 : 0)"
+              :key="`fantome-${n}`"
+              class="flex animate-pulse flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.06] p-3 backdrop-blur-md sm:gap-4 sm:p-5"
+              aria-hidden="true"
+            >
+              <div class="h-16 w-16 rounded-full bg-white/10 sm:h-24 sm:w-24" />
+              <div class="h-4 w-20 rounded bg-white/10 sm:w-24" />
+              <div class="h-3 w-12 rounded bg-white/5" />
+            </div>
             <NuxtLink
               v-for="army in filteredArmies(section.armies, section.faction)"
               :key="army.id"
-              :to="`/armees/${section.faction}/${army.id}`"
+              :to="`/armees/${army.faction}/${army.id}`"
               class="group relative flex flex-col items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.06] p-3 text-center backdrop-blur-md transition-all duration-300 hover:border-gold/20 hover:bg-white/[0.1] hover:shadow-[0_8px_32px_rgba(200,160,82,0.08)] sm:gap-4 sm:p-5"
             >
               <!-- New badge -->
@@ -171,13 +293,17 @@ function isNew(army: ArmyWithVersion) {
                 <p class="text-sm font-semibold text-gray-200 transition-colors group-hover:text-gold sm:text-base">
                   {{ army.name }}
                 </p>
-                <p v-if="army.army_versions?.length" class="mt-1 text-xs text-gray-500">
-                  (REV {{ army.army_versions[0].version }})
+                <p v-if="revParArmee.get(army.id)" class="mt-1 text-xs text-gray-500">
+                  (REV {{ revParArmee.get(army.id) }})
                 </p>
               </div>
             </NuxtLink>
           </div>
         </section>
+
+        <p v-if="aucunResultat" class="rounded-xl border border-white/10 bg-white/[0.03] p-6 text-center text-sm text-gray-400">
+          Aucune armée ne correspond à cette recherche.
+        </p>
       </div>
     </div>
 
@@ -190,7 +316,7 @@ function isNew(army: ArmyWithVersion) {
 
 <style scoped>
 .army-icon {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--c-blanc) / 0.8);
   mask-image: var(--icon-url);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -203,7 +329,7 @@ function isNew(army: ArmyWithVersion) {
 }
 
 .group:hover .army-icon {
-  background-color: #c8a052;
+  background-color: rgb(var(--c-gold));
 }
 
 .battle-img {

@@ -1,13 +1,9 @@
-import { createClient } from '@supabase/supabase-js'
 import type { Database } from '~/types/database'
 
-export const useSupabase = () => {
-  const config = useRuntimeConfig()
-
-  const client = createClient<Database>(
-    config.public.supabaseUrl,
-    config.public.supabaseAnonKey,
-  )
-
-  return client
-}
+/**
+ * Client Supabase du navigateur, typé.
+ *
+ * La session vit dans un cookie géré par @nuxtjs/supabase : elle est donc
+ * connue du serveur au rendu, et les routes /api la lisent sans en-tête.
+ */
+export const useSupabase = () => useSupabaseClient<Database>()

@@ -1,0 +1,618 @@
+===== PAGE 1 =====
+0 
+
+===== PAGE 2 =====
+ 
+CULTE GENESTEALER 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+"Camarades !! L’Empereur à quatre bras est notre véritable 
+sauveur, brisons les chaînes de l’oppression du faux Empereur 
+qui ne nous protège plus !! Seul les Anges Stellaires nous 
+sauveront de l’oubli ! Respectez les anciens, suivons le père de 
+tous et gagnons le droit de vivre éternellement au firmament ! 
+ 
+Fiodor Ramazanov, Primus de la secte des Sauveurs Stellaire 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de 
+culte Genestealer.  
+Les armées du culte sont organisées autour de formations 
+appelées 
+détachements 
+principaux 
+ainsi 
+que 
+des 
+détachements de soutien qui leurs sont autonomes. 
+Chaque détachement peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelle 
+amélioration est autorisée. Chaque amélioration autorisée ne 
+peut 
+être 
+prise 
+qu’une 
+fois 
+par 
+détachement. 
+Les 
+améliorations font partie intégrante des détachements et 
+doivent respecter les règles de cohésion. Noter que certaines 
+améliorations remplacent des unités d’un détachement tandis 
+que d’autres ajoutent des unités supplémentaires. 
+Règle spéciale : « Au nom du Père ! » 
+Tant que le Patriarche est en vie, La formation qui le 
+contient devient Sans Peur. Si le socle de ce dernier est 
+détruit, la formation est automatiquement démoralisée et 
+toutes les formations de l’armée reçoivent un pion impact. 
+Si la formation qui contient le Patriarche ou le Magus est 
+motorisée, elle reçoit gratuitement une limousine blindée 
+afin de transporter ceux-ci.  
+Une formation qui contient le Patriarche, le Magus ou le 
+Primus s’active sur 1+. 
+ 
+ 
+ 
+Règle spéciale : « Il en arrive de partout ! » 
+Une formation d'infanterie non montée par tranche 
+complète de 750 points peut gagner la règle Embuscade. 
+Lors de la phase de déploiement des vaisseaux, pour 
+chaque formation en Embuscade, vous devez indiquer à 
+votre adversaire son tour d'arrivée et noter secrètement 
+ses coordonnées d'atterrissage. 
+Au tour indiqué, lors de la phase d’action, vous activez la 
+formation en suivant cette procédure :  
+1.​ Déployez un marqueur Embuscade dans les 15 cm 
+du lieu noté secrètement. 
+2.​ Effectuez un jet de déviation de 2D6 cm pour ce 
+marqueur, la première unité pourra se déployer 
+dans les 5 cm du marqueur puis toutes les autres 
+unités pourront se déployer en cohésion dans les 
+15 cm du marqueur Embuscade (en dehors des 
+zones de contrôle ennemies). 
+3.​ Puis lancez le jet d’activation de la formation 
+normalement (LdR 1.6). 
+○​
+Déclarez 
+l'action 
+qu'elle 
+compte 
+accomplir. 
+○​
+Effectuez un test d'action pour déterminer 
+si elle accomplit l'action avec succès. 
+Remarque : Les unités entrant en jeu par une Embuscade 
+sont détruites si elles arrivent en-dehors de la table. Si les 
+unités arrivent  dans un terrain qui leur est normalement 
+infranchissable ou dangereux, sur une autre unité (amie ou 
+ennemie) ou dans une zone de contrôle ennemie, l'unité est 
+placée par l'adversaire dans la zone dégagée la plus proche 
+pouvant la recevoir. 
+ 
+Règle spéciale : « Ils sortent de terre ! » 
+Une formation entièrement transportée qui contient au 
+moins un Goliath Brise-Roche  gagne la règle spéciale  
+Tunnelier. 
+ 
+Règle spéciale : « Tunnelier » 
+Une formation Tunnelier peut se déployer en utilisant la 
+règle suivante :  
+« Un tunnelier est déployé au même moment et de la 
+même manière qu’un vaisseau spatial (voir section 4.3.1 
+du livre de règle). Les unités transportées dans un 
+tunnelier sont gardées en réserve. Définissez ensuite une 
+« zone de largage », selon la procédure décrite en section 
+4.3.1. Un tunnelier peut apparaître dans votre moitié de 
+table dès le deuxième tour et dans la moitié de table 
+adverse dès le troisième tour. Il est déployé avant le jet de 
+stratégie au début du tour indiqué, aux coordonnées 
+prédéfinies. Un tunnelier et toutes les unités qu’il 
+transporte peuvent agir normalement dès leur tour 
+d’arrivée.  
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Andrey Nyarl  https://www.artstation.com/andreynyarl, illustration page 1 Vladimir Krisetskiy 
+https://www.artstation.com/bopchara
+ 
+1 – CODEX CULTE GENESTEALER- EAFR - REV 1.1 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE CULTE GENESTEALER 
+ 
+Les armées du Culte Genestealer ont une valeur stratégique de 2.  Les formations du Culte Genestealer ont une initiative de 
+2+, exception faite des unités comptant un Patriarche, un Magus ou un Primus qui ont une initiative de 1+. 
+DÉTACHEMENTS PRINCIPAUX CULTE GENESTEALER 
+Formations 
+Unités 
+Améliorations 
+Coût 
+1-1 Couvain du Patriarche 1 unités de Patriarche et 12 unités parmi : 
+Hybrides Acolytes, Néophytes 
+Transports, Appui-feu Néophytes, Soldats Néophytes, 
+Genestealer, Hybrides Métamorphes, Aberrants, Hydre 
+325 pts 
+1-1 Couvain du Magus 
+1 unité de Magus et 12 unités parmi :  
+Hybrides Acolytes, Néophytes 
+Transports, Appui-feu Néophytes, Soldats Néophytes, 
+Genestealer, Hybrides Métamorphes, Aberrants, Hydre 
+250 pts 
+Escouade d’Hybrides 
+Acolytes 
+12 unités d’Hybrides Acolytes 
+Transports, Appui-feu Néophytes, Soldats Néophytes, 
+Genestealer, Hybrides Métamorphes, Aberrants, Hydre 
+175 pts 
+Escouade d’Hybrides 
+Néophytes 
+12 unités d’Hybrides Néophytes 
+Transports, Appui-feu Néophytes, Soldats Néophytes, 
+Genestealer, Hybrides Métamorphes, Aberrants, Hydre 
+200 pts 
+ 
+DÉTACHEMENTS DE SOUTIEN 
+(Les formations du Couvain du Patriarche et du Magnus donne le droit de recruter jusqu'à 2 détachement de Soutien chacune) 
+ 
+DÉTACHEMENTS DE SOUTIEN GENOVORES 
+(+ jusqu’à 2 Détachements de Soutien Genovores par Escouade d’hybrides acolytes) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Couvain des Pères 
+6 unités de Genestealers du Culte 
+Primus 
+150 pts 
+Couvain d’Incursion 
+4 Achille Ridgerunner 
+1 ou 2 Achille Ridgerunner supplémentaires pour 25 pts 
+chaque 
+125 pts 
+Couvain Métamorphes 
+6 unités d’Assassins Métamorphes 
+Transports, Appui-Feu Néophytes, Soldats Néophytes, 
+Genestealer, Hybrides Métamorphes, Aberrants, Hydre 
+150 pts 
+Couvain d’Exploration 
+6 unités parmi : Atalan Jackal, Atalan 
+Wolfsquad 
+ 
+150 pts 
+ 
+DÉTACHEMENTS DE SOUTIEN INFECTÉS 
+(+ jusqu’à 2 Détachements de Soutien Infectés par Escouade d’hybrides néophytes) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Infanterie 
+12 socles d’Infanterie Néophyte 
+Transports (chimères uniquement) , Appui-Feu Néophytes, 
+Soldats Néophytes, Genestealer, Hybrides Métamorphes, 
+Aberrants, Primus, Hydre 
+225 pts 
+Blindés 
+6 Leman Russ 
+Hydre, Primus 
+350 pts 
+Blindés Lourds 
+1 Baneblade 
+ou 3 Baneblades 
+Hydre, Primus 
+200 pts 
+500 pts 
+Artillerie légère 
+6 Griffons 
+- 
+225 pts 
+Artillerie 
+3 Basilisks 
+- 
+225 pts 
+ 
+AMÉLIORATIONS CULTE GENESTEALER 
+(Chaque amélioration ne peut être prise qu'une seule fois par détachement, vous pouvez en prendre jusqu’à 4 par détachements) 
+Améliorations 
+Unités 
+Coût 
+0-1 Primus 
+Un personnage Primus pour toute l’armée 
+50 pts 
+Genestealers 
+Ajouter jusqu'à 3 unités de Genestealers à la formation 
+25 pts chacun 
+Hybrides métamorphes 
+Ajouter jusqu'à 4 unités d’Hybrides Métamorphes à la formation 
+25 pts chacun 
+Aberrants 
+Ajouter jusqu'à 5 unités d’Aberrants à la formation 
+25 pts chacun 
+Hydre 
+Ajouter 1 Hydre à la formation 
+50 pts 
+Soldats néophytes 
+Ajouter 6 unités d’Infanterie Néophyte à la formation 
+100 pts 
+Appui feu néophytes 
+Ajouter 4 unités d’Appui-feu Néophytes à la formation 
+100 pts 
+Transports 
+Ajouter assez de transports pour embarquer toute la formation. 
+Chimères 
+Goliath 
+Goliath Brise-Roche 
+Vous ne pouvez pas prendre plus de véhicules que vous en avez besoin pour embarquer ces troupes. 
+ 
+25 pts chacune 
+25 pts chacun 
+75 pts les deux 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2 – CODEX CULTE GENESTEALER- EAFR - REV 1.1 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES CULTE GENESTEALER 
+Nom 
+Type Vitesse Blindage CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Patriarche 
+Inf 
+15cm 
+4+ 
+3+ 
+5+ 
+Bio-arme Tyranide 
+Frappe psychique 
+et 
+(contact) 
+30cm 
+(15cm) 
+Armes d’assaut, +1A, MA 
+MA4+ 
+Arme Légère, +1A, MA 
+Commandant Suprême, Charismatique, Sans Peur, Blindage Renforcé 
+Magus 
+Inf 
+15cm 
+6+ 
+5+ 
+4+ 
+Frappe psychique 
+et 
+30cm 
+(15cm) 
+MA4+ 
+Arme Légère, +1A, MA 
+Commandant, Meneur, Sans Peur 
+Primus 
+Perso 
+- 
+- 
+- 
+- 
+Bio-arme Tyranide 
+Pistolet à aiguilles 
+(contact) 
+(15cm) 
+Armes d’assaut, +1A, MA 
+Arme légère 
+Commandant, Charismatique, Meneur 
+Hybride acolyte 
+Inf 
+15cm 
+6+ 
+4+ 
+6+ 
+Armes de Poing 
+Griffes 
+(15cm) 
+(contact) 
+Armes Légères 
+Arme d'Assaut 
+- 
+Hybride néophyte 
+Inf 
+15cm 
+- 
+6+ 
+5+ 
+Laser Minier 
+Mitrailleuse Lourde 
+Fusils laser 
+30cm 
+30cm 
+(15cm) 
+AC6+ 
+AP6+ 
+Arme Légère 
+- 
+Genestealers 
+Inf 
+20cm 
+6+ 
+4+ 
+- 
+Griffes tranchantes 
+(contact) 
+Armes d'Assaut, +1A 
+Frappe en premier, Infiltrateurs, Éclaireurs 
+Assassins 
+métamorphes 
+Inf 
+15cm 
+6+ 
+3+ 
+6+ 
+Bio-armes 
+Armes de Poing 
+(contact) 
+(15cm) 
+Armes d'Assaut 
+Armes Légères 
+Frappent en Premier, Infiltrateurs 
+Hybrides 
+métamorphes 
+Inf 
+15cm 
+6+ 
+3+ 
+6+ 
+Bio-armes 
+Armes de Poing 
+(contact) 
+(15cm) 
+Armes d'Assaut 
+Armes Légères 
+Frappent en Premier, Infiltrateurs, Éclaireurs 
+Aberrants 
+Inf 
+15cm 
+5+ 
+4+ 
+- 
+Pique Énergétique 
+(contact) 
+Armes d'Assaut, MA 
+Sacrifiable 
+Infanterie 
+néophyte 
+Inf 
+15cm 
+- 
+6+ 
+5+ 
+½ Autocanon 
+Fusils laser 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+Une unité sur deux possède un autocanon. Comptez le nombre d'unités d'infanterie 
+dans la formation qui peuvent faire feu sur l'ennemi puis divisez le résultat par deux 
+(en arrondissant à l'unité supérieure) pour savoir combien d'autocanons peuvent tirer. 
+Appui feu 
+néophyte 
+Inf 
+15cm 
+- 
+6+ 
+4+ 
+2x Autocanon 
+45cm 
+AP5+/AC6+ 
+- 
+Atalan Jackal 
+Inf 
+35cm 
+5+ 
+4+ 
+6+ 
+Fusils à canons sciés 
+(15cm) 
+Armes légères 
+Montés, Éclaireurs 
+Atalan Wolfsquad 
+VL 
+35cm 
+5+ 
+5+ 
+5+ 
+Mitrailleuse lourde 
+30cm 
+AP6+ 
+Montés, Éclaireurs 
+Achille 
+Ridgerunner 
+VL 
+35cm 
+5+ 
+6+ 
+5+ 
+Mitrailleuses Lourdes 
+Jumelées (Inf) 
+Laser minier 
+30cm 
+30cm 
+AP5+ 
+AC6+ 
+Éclaireurs 
+ 
+3 – CODEX CULTE GENESTEALER- EAFR - REV 1.0 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES CULTE GENESTEALER 
+ 
+Nom 
+Type 
+Vitesse 
+Blindage CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Goliath 
+VB 
+25cm 
+5+ 
+6+ 
+5+ 
+Autocanons jumelés 
+Mitrailleuse lourde 
+45cm 
+30cm 
+AP4+/AC5+ 
+AP6+ 
+Transport (2) : Infanterie 
+Goliath 
+Brise-Roche 
+VB 
+25cm 
+5+ 
+5+ 
+4+ 
+Laser minier 
+Mitrailleuse lourde 
+30cm 
+30cm 
+AC6+ 
+AP6+ 
+Transport (1) : Infanterie, les socles embarqués dans le Goliath Brise-Roche peuvent 
+utiliser leur valeur de fusillade en assaut tant que celui-ci n'est pas engagé au corps 
+à corps. 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ 
+Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Infanterie 
+Hydre 
+VB 
+30cm 
+6+ 
+6+ 
+5+ 
+2x Canons Hydre 
+Bolter Lourd 
+45cm 
+30cm 
+AP4+/AC5+/AA5+ 
+AP5+ 
+- 
+Leman Russ 
+VB 
+20cm 
+4+ 
+6+ 
+4+ 
+Obusier 
+Canon Laser 
+75cm 
+45cm 
+AP4+/AC4+ 
+AC5+ 
+Blindage Renforcé 
+Basilisk 
+VB 
+20cm 
+5+ 
+6+ 
+5+ 
+Canon Tremble-Terre 
+ou 
+Bolter Lourd 
+120cm 
+120cm 
+30cm 
+1PB, Ind 
+AP4+/AC4+ 
+AP5+ 
+- 
+Griffon 
+VB 
+30cm 
+6+ 
+6+ 
+5+ 
+Mortier Griffon 
+Bolter Lourd 
+30cm 
+30cm 
+1PB, Ind 
+AP5+ 
+- 
+Limousine 
+blindée 
+VB 
+30cm 
+5+ 
+6+ 
+6+ 
+Multi-Laser 
+30cm 
+AP5+/AC6+ 
+Blindage renforcé, Transport (1 socle de patriarche ou un socle de magus, ou un 
+socle d’infanterie) 
+Baneblade 
+EG 
+15cm 
+4+ 
+6+ 
+4+ 
+Super Obusier 
+Autocanon 
+2x Canon Laser 
+Canon Démolisseur (FF) 
+et 
+Bolters Lourds Jumelés (FF) 
+2x Bolters Lourds Jumelés 
+75cm 
+45cm 
+45cm 
+30cm 
+(15cm) 
+30cm 
+30cm 
+AP3+/AC3+ 
+AP5+/AC6+ 
+AC5+ 
+MA4+, FrtF 
+Arme Légère, +1A, MA 
+AP4+, FrtF 
+AP4+ 
+Blindage Renforcé 
+CD3 – Critique : Détruit, toutes les unités dans un rayon de 5cm subissent une 
+touche sur 6+. 
+ 
+4 – CODEX CULTE GENESTEALER- EAFR - REV 1.0 

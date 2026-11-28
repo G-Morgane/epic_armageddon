@@ -1,0 +1,579 @@
+===== PAGE 1 =====
+ 
+0 
+
+===== PAGE 2 =====
+EVIL SUNZ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+“LES ROUJ’ VON PLU VITE !"  
+ 
+Sagesse Evil Sunz 
+Utiliser la liste d’armée 
+La liste qui suit vous autorise à mettre sur pied une WAAAGH!  
+d’Orks basée sur le Klan Evil Sunz.  
+Les armées des Orks sont organisées autour de grandes 
+formations appelées bandes, qui peuvent s’acheter selon 3 
+tailles, la bande normale, la mastok (doubler l’effectif de 
+départ) ou la tré mastok (tripler l’effectif de départ). Pour 
+chaque bande de guerre vous pouvez prendre jusqu’à deux 
+formations issues des truk’en’plus. 
+Chaque bande et truk’en’plus peut recevoir des kust’oms. La 
+liste d’armée indique pour chaque catégorie de bande et 
+truk’en’plus quels kust’oms sont autorisés. Chaque kust’om 
+autorisé peut être pris un nombre illimité de fois, sauf s’il est 
+fait état d’une limitation de kust’om. Pour les bandes, les 
+limitations de kust’om sont multipliées de la même façon que 
+l’effectif de départ, ainsi si un Kulte d’la Vitesse normal ne 
+peut accueillir qu’un Brikolo supplémentaire, un Kulte d’la 
+Vitesse tré mastok peut en inclure jusqu’à 3. Les kust’oms 
+font partie intégrante des bandes et doivent en respecter la 
+cohésion. 
+Les truk’eud’meks sont des formations autonomes des 
+bandes. Un maximum de ⅓ des points de l’armée peuvent 
+être dépensés pour ces formations. 
+Règle spéciale : R’MISE EN BANDE 
+Lorsque les bandes Orks tentent un test de ralliement, ils 
+reçoivent un bonus de +1 lorsqu'ils sont plus de 5 et de +2 
+lorsqu'ils sont plus de 10. Les engins de guerre faisant 
+partie de ces bandes comptent pour autant d'unités que 
+leur capacité de dommage de départ. Les Gretchins ne 
+sont pas comptabilisables dans le calcul. 
+ 
+ 
+Règle spéciale : SPEEDWAAAGH! 
+Chaque armée Evil Sunz doit inclure une unité de 
+commandant suprême appelée Big Bad Biker Boss. Cette 
+unité coûte 50pts et peut rejoindre n’importe quelle 
+formation. 
+Le Big Bad Biker Boss donne à sa formation l’amélioration 
+Speedwaaagh!. Cette formation bénéficie d’un bonus de +2 
+à l’initiative pour les redéploiements, et les unités de la 
+formation (hors infanterie non montée) gagnent un bonus 
+de +5cm à leur caractéristique de mouvement. 
+Règle spéciale : POUVOIR DE LA WAAAGH! 
+Les Orks ne sont pas de fins stratèges mais la perspective 
+d'une bonne bagarre les galvanise toujours. Afin de 
+représenter ceci, une formation tentant une action 
+d'Avance Rapide ou d'Assaut reçoit +2 à l'initiative pour son 
+test d'action. 
+Les formations aériennes ont +2 de bonus pour les tests 
+d'actions lorsqu'elles tentent une Interception ou une 
+Attaque au sol. 
+Règle spéciale : CHAMP ÉNERGÉTIQUE 
+Certains engins de guerre Orks possèdent des champs 
+énergétiques. Le nombre dont en dispose chaque engin est 
+indiqué sur sa fiche d’unité. Les champs énergétiques 
+fonctionnent de la même manière que ceux des impériaux, 
+à la différence qu’une fois abattus, ils ne sont pas 
+réparables et restent donc inactifs jusqu’à la fin de la 
+bataille. 
+Règle spéciale : LE ROUJ’ VA PLUS VITE ! 
+Le Klan Evil Sunz conçoit la guerre comme une course de 
+buggys. L’important est d’aller vite - et de taper fort.  
+Toutes les unités Evil Sunz doivent avoir soit un 
+mouvement de 30cm minimum, soit être intégralement 
+transportées par des transports de leur formation. 
+Règle spéciale : ATELIER MEKBOY 
+Le Klan Evil Sunz est le terrain de jeu rêvé pour les Mekboyz 
+Orks. Les Kults de la Vitesse sont toujours prêts à 
+expérimenter les dernières inventions des Brikolos, y 
+compris jusqu’à la dernière minute. 
+Jusqu’à deux formations de MotoKross peuvent être 
+déployées en garnison, selon les règles normales de 
+garnison (elles ne gagnent PAS la règle éclaireur). 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture par  Alex Boyd.
+ 
+1 - CODEX EVIL SUNZ - EAFR - REV 1.0.1 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE ORKS - EVIL SUNZ 
+Les armées du Klan Evil Sunz ont une valeur stratégique de 4 au premier tour, et de 3 aux tours suivants. Toutes les formations 
+Evil Sunz ont une initiative de 3+ mais reçoivent des modificateurs en fonction des actions choisies lorsqu'elles effectuent un 
+test d'action (Pouvoir de la Waaagh!) ou de leur taille lorsqu'elles tentent de se rallier (R'mise en bande). 
+ 
+BANDES ORKS 
+Formations 
+Unités 
+Coût 
+Bande de Guerre 
+2 unités de Nobz Evil Sunz, 6 unités de Boyz, 2 unités de Gretchins 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+350 pts 
+500 pts 
+ 
+KUST'OM 
+0-2 Boyz (plus une unité de gretchins gratuite), TankBusta, 
+Chokboyz’, Moto, Buggy, Karbonisator, Chariot de Guerre 
+Kopter, Chariot Kanon,Chariot Flak, 0-1 Nobz Evil Sunz 
+0-1 Brikolo 
+Forteresse de bataille ou à Kanon 
+(+25 pts chacun) 
+(+25 pts chacun) 
+(+50 pts les 2) 
+(+50 pts chacun) 
+(+125 pts chacun) 
+Kulte d’la Vitesse 
+8 unités parmi : Buggy, Motos, Karbonisators 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+350 pts 
+500 pts 
+ 
+KUST'OM 
+Moto, Buggy, Karbonisator 
+Kopter, Chariot Kanon, Chariot Flak, 0-1 Nobz Evil Sunz 
+0-1 Meka Fissa, 0-1 Brikolo 
+0-1 (par armée) Super Mekboy 
+(+25 pts chacun) 
+(+50 pts les 2) 
+(+50 pts chacun) 
+(+50 pts) 
+Brigade Blitz 
+4 unités parmi : Chariots Kanons, Chariots Flak, Kopters 
+Normale 
+Mastok' 
+Tré Mastok' 
+150 pts 
+250 pts 
+350 pts 
+ 
+KUST'OM 
+Moto, Buggy, Karbonisator 
+Kopter, Chariot Kanon, Chariot Flak, 0-1 Nobz Evil Sunz 
+0-1 Brikolo, 0-1 Meka Fissa 
+0-1 Forteresse à Kanon 
+(+25 pts chacun) 
+(+50 pts les 2) 
+(+50 pts chacun) 
+(+125 pts chacun) 
+Bande de Forteresses 
+2 unités parmi : Forteresse de bataille, Forteresse à Kanon 
+Normale 
+Mastok' 
+Tré Mastok' 
+250 pts 
+450 pts 
+625 pts 
+ 
+KUST'OM 
+0-2 Boyz (plus une unité de gretchins gratuite), TankBusta, 
+Chokboyz,Moto, Buggy, Karbonisator 
+Kopter, Chariot Kanon, Chariot Flak, 0-1 Nobz Evil Sunz 
+0-1 Brikolo 
+(+25 pts chacun) 
+(+25 pts chacun) 
+(+50 pts les 2) 
+(+50 pts chacun) 
+LES TRUK EN PLUSS 
+(0-2 par Bande de Guerre) 
+Formations 
+Unités 
+Coût 
+Chokboyz 
+6 unités de Chokboyz 
+Normale 
+Mastok' 
+Tré Mastok' 
+150 pts 
+- 
+- 
+ 
+KUST'OM 
+Chokboyz, Buggy, Moto, Karbonisator 
+Kopter 
+(+25 pts chacun) 
+(+50 pts les 2) 
+TankBustas 
+8 unités de TankBustas 
+Normale 
+Mastok' 
+Tré Mastok' 
+200 pts 
+- 
+- 
+ 
+KUST'OM 
+Chariot de Guerre 
+Kopter, Chariot Kanon, Chariot Flak 
+0-1 Brikolo 
+Forteresse de bataille ou à Kanon 
+(+25 pts chacun) 
+(+50 pts les 2) 
+(+50 pts chacun) 
+(+125 pts chacun) 
+MotoKross 
+(0-1 par Kulte d’la 
+Vitesse) 
+6 unités de MotoKross 
+Normale 
+Mastok' 
+Tré Mastok' 
+175 pts 
+- 
+- 
+KUST'OM 
+MotoKross, Kopter 
+(+50 pts les 2) 
+TRUK'EUD'MEK 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+Formations 
+Unités 
+Coût 
+Chassa-Bombas 
+4 à 9 Chassa-Bombas 
+50 pts chacun 
+Dakka-Jets 
+6 ou 9 Dakka-Jets 
+225 pts / 300 pts 
+Krama-Bombas 
+4 Krama-Bombas 
+250 pts 
+ 
+ 
+2 - CODEX EVIL SUNZ - EAFR - REV 1.0.1 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES EVIL SUNZ 
+ 
+Nom 
+Type 
+Vit 
+Bli 
+CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Big Bad Biker Boss 
+Inf 
+35cm 
+4+ 
+3+ 
+5+ 
+Blasta Kustom Gatling 
+ 
+Gros Kikoup' 
+15cm 
+(15cm) 
+(contact) 
+MA4+ 
+Armes légères, +1A, MA 
+Armes d’assaut, +1A 
+Commandant Suprême, Montés, Speedwaaagh! 
+Nobz Evil Sunz 
+Inf 
+15cm 
+4+ 
+3+ 
+5+ 
+2x Gros Fling’ 
+Ch’ti Fling’ 
+Gros Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut, +1A 
+Meneur, 
+Les Nobz Evil Sunz peuvent avoir une moto, auquel cas leur mouvement passe à 35cm, leur 
+blindage passe à 5+,ils gagnent la note Montés et ne peuvent plus embarquer dans les transports. 
+Super Mekboy 
+Perso 
+- 
+- 
+- 
+- 
+Kanon Kustom' 
+45cm 
+MA4+ 
+Meneur, Charismatique 
+Le Super Mekboy peut être ajouté à un socle de Moto, Buggy, ou Karbonisator. 
+Brikolo 
+Perso 
+- 
+- 
+- 
+- 
+SOIT Super Zap 
+SOIT Superkanon 
+60cm 
+60cm 
+MA3+, TT (D3) 
+2PB MA, FrtF 
+Le Brikolo peut être ajouté à une Forteresse à Kanons, un Chariot Kanon ou un Grokalibr' et 
+transformer l'un de ses Gros Kanons ou Grokalibr’ en Super Zap ou Superkanon. 
+Boyz 
+Inf 
+15cm 
+6+ 
+4+ 
+6+ 
+Gros Fling’ 
+Ch’ti Fling’ 
+Kikoup' 
+30cm 
+(15cm) 
+(contact) 
+AP6+/AC6+ 
+Armes légères 
+Armes d’assaut 
+- 
+Gretchins 
+Inf 
+15cm 
+- 
+6+ 
+6+ 
+Ch’ti Fling’ 
+(15cm) 
+Armes légères 
+Les formations incluant au moins une unité d’Ork ne reçoivent pas de pions d’impact pour les 
+unités de Gretchins détruites, et ces dernières ne comptent pas pour déterminer le vainqueur d’un 
+assaut. 
+Chokboyz 
+Inf 
+30cm 
+6+ 
+4+ 
+6+ 
+Ch’ti Fling’ 
+Kikoup' 
+(15cm) 
+(contact) 
+Armes légères 
+Armes d’assaut 
+Éclaireurs, Réacteurs dorsaux 
+Tankbustas 
+Inf 
+15cm 
+6+ 
+4+ 
+5+ 
+Rokkit Launcha 
+Bomb' 
+Ch’ti Fling’ 
+45cm 
+(contact) 
+(15cm) 
+AP5+/AC5+ 
+MA 
+Armes légères 
+- 
+Motos 
+Inf 
+35cm 
+5+ 
+4+ 
+6+ 
+Fling' jumelés 
+15cm 
+AP5+/AC5+ 
+Montés 
+MotoKross 
+Inf 
+35cm 
+5+ 
+4+ 
+6+ 
+Fling' jumelés 
+15cm 
+AP5+/AC5+ 
+Montés, Marcheurs 
+Meka Fissa 
+VL 
+35cm 
+5+ 
+5+ 
+5+ 
+Kanon Kustom 
+45cm 
+MA4+ 
+Champs Énergétiques (D3) 
+Ces boucliers peuvent être abattus par n’importe quel tir pouvant cibler un VL (AP, AC, MA ou TT). 
+Buggy / Trak 
+VL 
+35cm 
+5+ 
+5+ 
+5+ 
+Gros Fling’ jumelés 
+30cm 
+AP5+/AC5+ 
+- 
+Karbonisator 
+VL 
+35cm 
+5+ 
+6+ 
+5+ 
+Karbonisator 
+15cm 
+(15cm) 
+AP4+, IC 
+Armes légères, IC 
+- 
+Kopter 
+VL 
+35cm 
+4+ 
+6+ 
+5+ 
+Ch'ti Kanon 
+30cm 
+AP5+/AC6+ 
+Antigrav 
+Chariot de Guerre 
+VB 
+30cm 
+5+ 
+5+ 
+5+ 
+Ch’ti Kanon 
+30cm 
+AP5+/AC6+ 
+Transport (2) : Boyz, Nobz Evil Sunz, TankBusta, Grokalibrs’ (1 max. par chariot). Peut embarquer 
+une unité de Gretchins en plus des autres unités 
+Chariot Kanon 
+VB 
+30cm 
+5+ 
+5+ 
+5+ Gros Kanon 
+45cm 
+AP5+/AC5+ 
+Transport (1) : Boyz, Nobz Evil Sunz, TankBusta, Gretchins,Grokalibr' 
+Chariot Flak 
+VB 
+30cm 
+5+ 
+5+ 
+5+ Kanon flak 
+30cm 
+AP5+/AC6+/AA5+ 
+Transport (1) : Boyz, Nobz Evil Sunz, TankBusta, Gretchins, Grokalibr' 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3 - CODEX EVIL SUNZ - EAFR - REV 1.0.1 
+
+===== PAGE 5 =====
+ 
+ 
+Nom 
+Type 
+Vit 
+Bli 
+CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Forteresse de Bataille 
+EG 
+30cm 
+5+ 
+4+ 
+4+ 
+4x Ch’ti Kanon 
+Gros Kanon 
+30cm 
+45cm 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage renforcé, Transport (8) : Boyz, Nobz Evil Sunz, TankBusta. Peut embarquer quatre unités 
+de Gretchins en plus des autres unités. 
+CD3 – Critique : Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. 
+Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 
+6+. 
+Forteresse à Kanons 
+EG 
+30cm 
+5+ 
+4+ 
+4+ 
+5x Ch’ti Kanon 
+3x Gros Kanon 
+30cm 
+45cm 
+AP5+/AC6+ 
+AP5+/AC5+ 
+Blindage renforcé, Transport (4) :  Boyz, Nobz Evil Sunz, TankBusta. Peut embarquer quatre unités 
+de Gretchins en plus des autres unités. 
+CD3 – Critique : Détruite. La Forteresse se retourne et atterrit à 1D6cm dans une direction aléatoire. 
+Toutes les unités se trouvant dessous subissent une touche. Les unités transportées survivent sur 
+6+. 
+ 
+FEUILLE DE RÉFÉRENCE TRUK'EUD'MEK 
+Nom 
+Type 
+Vit 
+Bli 
+CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Chassa-Bomba 
+A 
+CB 
+6+ 
+- 
+- 
+Aéro Fling’ 
+Rokettes Kass’Tank 
+15cm 
+30cm 
+AP5+/AA5+, FrtF 
+AC4+, FrtF 
+- 
+Dakka-Jets 
+A 
+C 
+6+ 
+- 
+- 
+Aéro Fling’ 
+15cm 
+AP5+/AA5+, FrtF 
+- 
+Krama-Bomba 
+A 
+CB 
+6+ 
+- 
+- 
+Aéro Fling’ 
+Krama Bomb' 
+15cm 
+15cm 
+AP5+/AA5+, FrtF 
+1PB, IC, FrtF 
+- 
+ 
+ 
+4 - CODEX EVIL SUNZ - EAFR - REV 1.0.1 

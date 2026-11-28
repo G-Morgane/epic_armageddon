@@ -1,0 +1,773 @@
+{
+ "codex": {
+  "id": "squats",
+  "name": "Squats",
+  "version": "1.3",
+  "faction": "Squat",
+  "color": "#18524c",
+  "logo": "squat.png",
+  "categorie": "armees-xenos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "label_rares": "Engins de Guerre",
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+",
+   "note_initiative": "Gardes du Foyer, Colossus, Cyclope et Train Blindé : initiative 1+",
+   "taille_transport": {
+    "guerrier": 1,
+    "berserker": 1,
+    "guerrier_tonnerre": 1,
+    "garde_foyer": 2
+   },
+   "capacite_transport": {
+    "rhino": 2,
+    "land_raider": 2,
+    "fouisseuse": 16,
+    "taupe": 8,
+    "termite": 2,
+    "leviathan": 16
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "seigneur_guerre",
+   "name": "0-1 Seigneur de Guerre",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "description": "Ajouter un personnage de Seigneur de Guerre à une unité de la formation",
+   "unites": [
+    {
+     "id": "seigneur_guerre",
+     "name": "Seigneur de Guerre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "ancetre_vivant",
+   "name": "0-1 Ancêtre Vivant",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter un personnage d'Ancêtre Vivant à une unité de la formation",
+   "unites": [
+    {
+     "id": "ancetre_vivant",
+     "name": "Ancêtre Vivant",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "maitre_guilde",
+   "name": "Maître de la Guilde",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter un personnage de Maître de la Guilde à une unité de Motard de la Guilde",
+   "unites": [
+    {
+     "id": "maitre_guilde",
+     "name": "Maître de la Guilde",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "exo_armure",
+   "name": "Exo-armure",
+   "cout": 25,
+   "limit": 1,
+   "description": "Le seigneur gagne la compétence Blindage Renforcé",
+   "unites": []
+  },
+  {
+   "id": "exotrikes",
+   "name": "Exotrike",
+   "cout": 50,
+   "limit": 1,
+   "min": 1,
+   "max": 2,
+   "cout_par_unite": true,
+   "description": "Ajouter 1 ou 2 unités d'Exotrikes à la formation (50 pts chacun)",
+   "unites": [
+    {
+     "id": "exotrike",
+     "name": "Exotrike",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "canon_foudre_supp",
+   "name": "Canon Foudre",
+   "cout": 50,
+   "limit": 1,
+   "min": 1,
+   "max": 2,
+   "cout_par_unite": true,
+   "description": "Ajouter 1 ou 2 unités de Canons Foudre à la formation (50 pts chacun)",
+   "unites": [
+    {
+     "id": "canon_foudre",
+     "name": "Canon Foudre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "leviathan_amelio",
+   "name": "Léviathan",
+   "cout": 350,
+   "limit": 1,
+   "description": "Ajouter un Léviathan à la formation",
+   "unites": [
+    {
+     "id": "leviathan",
+     "name": "Léviathan",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "trikes",
+   "name": "Trike",
+   "cout": 5,
+   "limit": 1,
+   "min": 1,
+   "max": 10,
+   "cout_par_unite": true,
+   "description": "Remplacer des unités de Motards de la Guilde par autant de Trikes (5 pts chacun)",
+   "unites": [
+    {
+     "id": "trike",
+     "name": "Trike",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_squat_berserkers",
+   "name": "Transports",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des moyens de transport pour la formation (combinaison libre)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 24,
+    "description": "Fouisseuse (75 pts, Transport 16, max 1), Taupe (50 pts, Transport 8), Termite (25 pts, Transport 2), Rhino (15 pts, Transport 2)",
+    "options": [
+     {
+      "id": "opt_fouisseuse",
+      "name": "Fouisseuse",
+      "unitId": "fouisseuse",
+      "cout": 75,
+      "min": 0,
+      "max": 1
+     },
+     {
+      "id": "opt_taupe",
+      "name": "Taupe",
+      "unitId": "taupe",
+      "cout": 50,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "opt_termite",
+      "name": "Termite",
+      "unitId": "termite",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "opt_rhino",
+      "name": "Rhino",
+      "unitId": "rhino",
+      "cout": 15,
+      "min": 0,
+      "max": 12
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "transport_squat_gdf",
+   "name": "Transports",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des moyens de transport pour la formation (combinaison libre)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 24,
+    "description": "Fouisseuse (75 pts, Transport 16, max 1), Taupe (50 pts, Transport 8), Termite (25 pts, Transport 2), Land Raider (75 pts, Transport 2)",
+    "options": [
+     {
+      "id": "opt_fouisseuse",
+      "name": "Fouisseuse",
+      "unitId": "fouisseuse",
+      "cout": 75,
+      "min": 0,
+      "max": 1
+     },
+     {
+      "id": "opt_taupe",
+      "name": "Taupe",
+      "unitId": "taupe",
+      "cout": 50,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "opt_termite",
+      "name": "Termite",
+      "unitId": "termite",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "opt_land_raider",
+      "name": "Land Raider",
+      "unitId": "land_raider",
+      "cout": 75,
+      "min": 0,
+      "max": 12
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "transport_squat_gt",
+   "name": "Transports",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des moyens de transport pour la formation (combinaison libre)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 24,
+    "description": "Fouisseuse (75 pts, Transport 16, max 1), Taupe (50 pts, Transport 8), Termite (25 pts, Transport 2), Rhino (15 pts, Transport 2), Land Raider (75 pts, Transport 2)",
+    "options": [
+     {
+      "id": "opt_fouisseuse",
+      "name": "Fouisseuse",
+      "unitId": "fouisseuse",
+      "cout": 75,
+      "min": 0,
+      "max": 1
+     },
+     {
+      "id": "opt_taupe",
+      "name": "Taupe",
+      "unitId": "taupe",
+      "cout": 50,
+      "min": 0,
+      "max": 4
+     },
+     {
+      "id": "opt_termite",
+      "name": "Termite",
+      "unitId": "termite",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "opt_rhino",
+      "name": "Rhino",
+      "unitId": "rhino",
+      "cout": 15,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "opt_land_raider",
+      "name": "Land Raider",
+      "unitId": "land_raider",
+      "cout": 75,
+      "min": 0,
+      "max": 12
+     }
+    ]
+   },
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "confreries",
+   "name": "CONFRÉRIES",
+   "type": "principale",
+   "description": "Chaque Confrérie permet de sélectionner 2 Formations de Soutien. Jusqu'à 3 améliorations différentes par Confrérie.",
+   "formations": [
+    {
+     "id": "confrerie_guerriers",
+     "name": "Confrérie de Guerriers",
+     "cout": 200,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_soutien_squat": 2
+     },
+     "variantes": [
+      {
+       "id": "guerriers_11",
+       "name": "1 Seigneur + 11 Guerriers",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "seigneur",
+         "name": "Seigneur",
+         "nombre": 1
+        },
+        {
+         "id": "guerrier",
+         "name": "Guerriers",
+         "nombre": 11
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "seigneur",
+       "name": "Seigneur",
+       "nombre": 1
+      },
+      {
+       "id": "guerrier",
+       "name": "Guerriers",
+       "nombre": 7
+      }
+     ],
+     "ameliorations": [
+      "seigneur_guerre",
+      "ancetre_vivant",
+      "exo_armure",
+      "leviathan_amelio"
+     ]
+    },
+    {
+     "id": "confrerie_berserkers",
+     "name": "Confrérie de Berserkers",
+     "cout": 175,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_soutien_squat": 2
+     },
+     "variantes": [
+      {
+       "id": "berserkers_11",
+       "name": "1 Seigneur + 11 Berserkers",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "seigneur",
+         "name": "Seigneur",
+         "nombre": 1
+        },
+        {
+         "id": "berserker",
+         "name": "Berserkers",
+         "nombre": 11
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "seigneur",
+       "name": "Seigneur",
+       "nombre": 1
+      },
+      {
+       "id": "berserker",
+       "name": "Berserkers",
+       "nombre": 7
+      }
+     ],
+     "ameliorations": [
+      "seigneur_guerre",
+      "exo_armure",
+      "leviathan_amelio",
+      "transport_squat_berserkers"
+     ]
+    },
+    {
+     "id": "confrerie_motards",
+     "name": "Confrérie de Motards de la Guilde",
+     "cout": 200,
+     "initiative": "2+",
+     "FormationLimitationTag": {
+      "slot_soutien_squat": 2
+     },
+     "variantes": [
+      {
+       "id": "motards_10",
+       "name": "10 Motards de la Guilde",
+       "cout": 250,
+       "nombre_exact": 10
+      }
+     ],
+     "unites": [
+      {
+       "id": "motard_guilde",
+       "name": "Motard de la Guilde",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "seigneur_guerre",
+      "maitre_guilde",
+      "trikes",
+      "exotrikes"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "formations_soutien",
+   "name": "FORMATIONS DE SOUTIEN",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_squat",
+   "description": "2 formations de soutien par Confrérie",
+   "formations": [
+    {
+     "id": "gardes_foyer",
+     "name": "Confrérie de Gardes du Foyer",
+     "cout": 275,
+     "initiative": "1+",
+     "variantes": [
+      {
+       "id": "gdf_8",
+       "name": "8 Gardes du Foyer",
+       "cout": 375,
+       "nombre_exact": 8
+      }
+     ],
+     "unites": [
+      {
+       "id": "garde_foyer",
+       "name": "Gardes du Foyer",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "seigneur_guerre",
+      "ancetre_vivant",
+      "leviathan_amelio",
+      "transport_squat_gdf"
+     ]
+    },
+    {
+     "id": "guerriers_tonnerre",
+     "name": "Confrérie de Guerriers Tonnerre",
+     "cout": 225,
+     "initiative": "2+",
+     "variantes": [
+      {
+       "id": "gt_8",
+       "name": "8 Guerriers Tonnerre",
+       "cout": 300,
+       "nombre_exact": 8
+      }
+     ],
+     "unites": [
+      {
+       "id": "guerrier_tonnerre",
+       "name": "Guerriers Tonnerre",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "seigneur_guerre",
+      "ancetre_vivant",
+      "leviathan_amelio",
+      "transport_squat_gt"
+     ]
+    },
+    {
+     "id": "robots_guilde",
+     "name": "Formation de Robots de la Guilde",
+     "cout": 200,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "robot_guilde",
+       "name": "Robots de la Guilde",
+       "nombre": 5
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "dirigeable_overlord",
+     "name": "Dirigeable Overlord",
+     "cout": 200,
+     "initiative": "2+",
+     "variantes": [
+      {
+       "id": "do_2",
+       "name": "2 Dirigeables Overlord",
+       "cout": 400,
+       "nombre_exact": 2
+      }
+     ],
+     "unites": [
+      {
+       "id": "dirigeable_overlord",
+       "name": "Dirigeable Overlord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "gyrocopteres",
+     "name": "Formation de Gyrocoptères",
+     "cout": 275,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "gyrocoptere",
+       "name": "Gyrocoptères",
+       "nombre": 5
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_foudre",
+     "name": "Batterie Foudre",
+     "cout": 150,
+     "initiative": "2+",
+     "variantes": [
+      {
+       "id": "bf_4",
+       "name": "4 Canons Foudre",
+       "cout": 200,
+       "nombre_exact": 4
+      },
+      {
+       "id": "bf_5",
+       "name": "5 Canons Foudre",
+       "cout": 250,
+       "nombre_exact": 5
+      }
+     ],
+     "unites": [
+      {
+       "id": "canon_foudre",
+       "name": "Canon Foudre",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_thudd",
+     "name": "Batterie de Thudd Guns",
+     "cout": 225,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "thudd_gun",
+       "name": "Thudd Guns",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "canon_foudre_supp"
+     ]
+    },
+    {
+     "id": "batterie_mortiers_taupe",
+     "name": "Batterie de Mortiers-Taupe",
+     "cout": 200,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "mortier_taupe",
+       "name": "Mortier-Taupe",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "canon_foudre_supp"
+     ]
+    },
+    {
+     "id": "batterie_tarentules",
+     "name": "Batterie de Tarentules",
+     "cout": 175,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "tarentule",
+       "name": "Tarentule",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "canon_foudre_supp"
+     ]
+    },
+    {
+     "id": "batterie_artillerie_lourde",
+     "name": "Batterie d'Artillerie Lourde",
+     "cout": 250,
+     "initiative": "2+",
+     "variantes": [
+      {
+       "id": "mcg_2",
+       "name": "2 Méga-Canons Goliath",
+       "cout": 400,
+       "nombre_exact": 2
+      }
+     ],
+     "unites": [
+      {
+       "id": "mega_canon_goliath",
+       "name": "Méga-Canon Goliath",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "canon_foudre_supp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "engins_guerre",
+   "name": "ENGINS DE GUERRE",
+   "type": "associee",
+   "description": "Jusqu'à 1/3 de la valeur totale de l'armée",
+   "formations": [
+    {
+     "id": "leviathan",
+     "name": "Léviathan",
+     "cout": 350,
+     "initiative": "2+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "leviathan",
+       "name": "Léviathan",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "colossus",
+     "name": "Colossus",
+     "cout": 500,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "colossus",
+       "name": "Colossus",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "cyclope",
+     "name": "Cyclope",
+     "cout": 500,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "cyclope",
+       "name": "Cyclope",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "train_blinde",
+     "name": "Train Blindé",
+     "cout": 200,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "locomotive",
+       "name": "Locomotive",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "min_total": 4,
+      "max_total": 7,
+      "description": "Choisir 4 à 7 Wagons",
+      "options": [
+       {
+        "id": "opt_wagon_canon",
+        "name": "Wagon Canon",
+        "unitId": "wagon_canon",
+        "cout": 100,
+        "min": 0,
+        "max": 7
+       },
+       {
+        "id": "opt_wagon_berserker",
+        "name": "Wagon Berserker",
+        "unitId": "wagon_berserker",
+        "cout": 75,
+        "min": 0,
+        "max": 7
+       },
+       {
+        "id": "opt_wagon_mortier",
+        "name": "Wagon Mortier",
+        "unitId": "wagon_mortier",
+        "cout": 125,
+        "min": 0,
+        "max": 7
+       },
+       {
+        "id": "opt_wagon_marteau_celeste",
+        "name": "Wagon Marteau Céleste",
+        "unitId": "wagon_marteau_celeste",
+        "cout": 125,
+        "min": 0,
+        "max": 7
+       },
+       {
+        "id": "opt_wagon_dragon",
+        "name": "Wagon Dragon",
+        "unitId": "wagon_dragon",
+        "cout": 100,
+        "min": 0,
+        "max": 7
+       },
+       {
+        "id": "opt_wagon_bombe_h",
+        "name": "Wagon Bombe H",
+        "unitId": "wagon_bombe_h",
+        "cout": 150,
+        "min": 0,
+        "max": 1
+       }
+      ]
+     },
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

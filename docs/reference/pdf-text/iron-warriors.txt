@@ -1,0 +1,782 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+IRON WARRIORS 
+ 
+ 
+"Les remords sur l'âme, comme la rouille sur le fer; tous deux 
+les dégradent et les consument, les rongent et s'y infiltrent, 
+jusqu'à dévorer enfin le cœur et la substance même du métal. 
+Si le monde entier vous déteste, et vous croit mauvais, tant que 
+votre conscience vous absout du remords, vous ne serez pas 
+sans amis."  
+ 
+Le Primarque Perturabo 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée 
+d’Iron Warriors, les maîtres des sièges. 
+Ils honorent les Dieux du Chaos en tant que panthéon sans 
+être des dévots. Leur loyauté va avant tout à Perturabo, leur 
+Primarque, qui est censé leur avoir épargné d’être sacrifiés 
+par le Faux Empereur.  
+Les armées des Iron Warriors sont organisées en formations 
+appelées détachements. Une armée des Iron Warriors doit 
+obligatoirement comporter une suite d’Iron Warriors. Chaque 
+suite d’Iron Warriors permet de prendre jusqu’à trois suites de 
+spécialistes Iron Warriors différentes.  
+Chaque détachement et suite de spécialistes peut recevoir 
+des améliorations. La liste d’armée indique pour chaque 
+détachement quelles améliorations sont autorisées. Chaque 
+amélioration autorisée ne peut être prise qu’une fois par 
+détachement pour un maximum de quatre par détachement. 
+Les améliorations font partie intégrante des détachements et 
+doivent respecter les règles de cohésion. Noter que certaines 
+améliorations remplacent des unités d’un détachement tandis 
+que d’autres ajoutent des unités supplémentaires.  
+Les formations du Soutien Titanique sont des formations 
+autonomes des détachements. Elles ne peuvent jamais 
+recevoir d'améliorations, sauf s’il en existe d’indiquées 
+explicitement dans leur profil. Un maximum d’⅓ des points 
+de l’armée peuvent être dépensés pour ces formations. 
+La mention Space Marines du Chaos indiquée dans les notes 
+les unités ayant la capacité “Transport” englobe les unités 
+Space Marines du Chaos, Havocs, Sapeurs Iron Warriors et 
+Forlorn Hopes. 
+ 
+Règle spéciale : Maîtres de Siège 
+ 
+Les suites d’Iron Warriors et de Havocs peuvent échanger 
+chaque Rhino par 4cm de Position Fortifiée de type Ligne 
+de défense(2) et 4cm de Barbelés. Ces formations devront 
+se déployer en garnison ou dans la zone déploiement lors 
+de la phase de déploiement et ne pourront être 
+conservées en réserve d'aucune sorte.  
+ 
+De plus, pour 50pts, vous pouvez remplacer les  Lignes de 
+défense d’une formation par autant de Bunkers(2). 
+ 
+Positions Fortifiées Iron Warriors 
+Terrain 
+Infanterie 
+Véhicule 
+Engin de Guerre 
+Ligne de 
+défense(2)* 
+Couvert 4+ 
+Dangereux 
+Sans effet 
+Bunkers (2)* 
+Couvert 3+ Infranchissable Infranchissable 
+Barbelés 
+Dangereux 
+Sans effet 
+Sans effet 
+ 
+*les (X) indiquent le nombre d’unités maximum pouvant occuper 
+ces fortifications par tronçon de 4 cm de longueur. 
+Sergent vétéran Iron Warrior en armure Terminator datant de la 
+période pré-hérésie. 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture Jon Sulivan https://www.artstation.com/jonsullivanart , illustration P1 : Ronan Toulhoat 
+https://ronantoulhoat.artstation.com/ 
+1 - CODEX IRON WARRIORS - EAFR - REV 1.5 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Positions Fortifiées 
+ 
+Une Position Fortifiée est un élément de terrain du type suivant: Lignes de défense ou Fortification/Bunker. Leur forme peut 
+varier selon la conception des maîtres architectes, mais leur surface ne doit jamais permettre d'accueillir plus d'unités tel que 
+décrit par le nombre entre parenthèses dans leur codex (par exemple “Bunker(3)” décrit un bunker pouvant accueillir 3 unités 
+d'infanterie au maximum). Si la combinaison de la topologie de la Position Fortifiée et des socles des unités ne permet de 
+contenir toutes les unités autorisées, alors ces dernières seront tout de même considérées comme à l'intérieur et les mesures 
+se feront toutes depuis les bords de la Position Fortifiée. La longueur totale des Positions Fortifiées déployées par une 
+formation ne devra jamais excéder son nombre de fois 4cm.  
+ 
+Les Positions Fortifiées suivent les règles de couvert tel que décrit page 12 du livre de règle et bloquent les lignes de vue 
+normalement. Les Barbelés pouvant accompagner les Positions Fortifiées suivent les mêmes règles mais ne bloquent pas les 
+lignes de vue et leur longueur totale ne doit pas excéder celle des Positions Fortifiées et seront déployées au même moment.  
+ 
+Le joueur ayant la valeur stratégique la plus forte décide quel joueur déploie son premier set de Positions Fortifiées en 
+alternance. Les Positions Fortifiées doivent être placées après les Objectifs, mais avant que les Vaisseaux Spatiaux et les 
+Garnisons ne se déploient. Elles peuvent être placées partout où pourrait l'être un véhicule, dans la moitié de table du joueur 
+actif. Bien qu'elles soient des éléments de terrains, les Positions Fortifiées doivent respecter les règles de cohésion de 
+formation entre elles (par exemple, vous pouvez diviser les tranchées en plusieurs éléments, du moment qu'il y a un espace 
+maximum de 5cm entre chaque élément). Les Barbelés n’ont pas à être disposés en cohésion avec vos Positions Fortifiées, 
+mais doivent respecter la cohésion entre eux.  
+ 
+Une fois positionnées, les Positions Fortifiées sont considérées comme un élément de terrain neutre et toute unité ayant la 
+capacité à finir son mouvement à l'intérieur pourra l'occuper.  
+ 
+Règle spéciale : Modules d'atterrissage Dreadclaw 
+ 
+Une formation se déployant par Assaut Planétaire et pouvant être transportée par Modules d’atterrissage Dreadclaw le fait selon 
+les règles spéciales suivantes :  
+ 
+Placez un marqueur de Module d’atterrissage en utilisant les règles d’Assaut Planétaire (4.3 et 4.4 du Livre de Règles). Un 
+Vaisseau en orbite sera nécessaire pour déployer les Modules d’atterrissage.  
+ 
+Le Module d’atterrissage est un marqueur comptant comme la première unité de la formation au moment de déterminer son 
+emplacement d’arrivée en Assaut Planétaire. Une fois le marqueur de Module d’atterrissage placé, résolvez son attaque de tir 
+sur toutes les unités ennemies à moins de 15 cm du centre du Module d’atterrissage. Chaque formation ennemie attaquée 
+reçoit un Pion Impact selon les règles normales de tir.  
+ 
+Ensuite, débarquez les troupes transportées dans le Module d’atterrissage (cela peut déclencher un tir d’État d’Alerte 
+normalement) complètement à moins de 15 cm du centre de celui-ci, en cohésion et en dehors de toute zone de contrôle 
+ennemie. Si les unités ne peuvent débarquer en totalité en respectant les règles ci-dessus, les unités restantes seront 
+détruites sans attribution de pions d'impacts.  
+ 
+Le Module d’atterrissage n'étant pas une unité mais un marqueur, il ne possède pas de zone de contrôle et il ne compte pas 
+pour la cohérence de la formation. De plus, il ne peut pas être utilisé pour revendiquer un feu croisé ainsi que pour tenir ou 
+contester des objectifs.  
+ 
+Si plusieurs formations utilisent des Modules d’atterrissage, placez tous les marqueurs Module d’atterrissage aux coordonnées 
+prédéterminées en utilisant les règles d’Assaut Planétaire (y compris la résolution de dispersion). Une fois que tous les 
+marqueurs sont placés, résolvez toutes les attaques des Modules d’atterrissage simultanément contre les formations 
+ennemies à portée des marqueurs Module d’atterrissage. Les formations visées recevront un pion impact pour le tir pour 
+chaque attaque du vaisseau ou des modules d'atterrissage. Les pertes et les tirs ruptures infligent des PI normalement. Puis 
+débarquez toutes les formations transportées, en suivant les règles ci-dessus. 
+ 
+ 
+ 
+2 - CODEX IRON WARRIORS - EAFR - REV 1.5 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE DES IRON WARRIORS 
+ 
+Les armées des Iron Warriors ont une valeur stratégique de 4. Les formations de l’armée et les soutiens titaniques ont une 
+initiative de 1+. La Flotte de guerre du Chaos a une valeur d’initiative de 2+. 
+ 
+DÉTACHEMENTS DES IRON WARRIORS 
+(Une armée des Iron Warriors doit comporter au moins une suite d'Iron Warriors) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+1+ Suite d'Iron Warriors 
+8 unités de Marines du Chaos 
+Personnage du Chaos, Prince Démon, Havocs, Obliterators, Dreadnoughts, Defilers, 
+Transports, Stalker, Support Lourd, Land Raiders 
+250 pts 
+0-2 Suite d'Élus Terminators Iron 
+Warriors 
+4 à 6 unités d’Élus Terminators du Chaos Personnage du Chaos, Prince Démon, Obliterators, Dreadnoughts, Defilers, 
+Transports élus, Stalker, Support Lourd, Land Raiders 
+50 pts chacun 
+0-1 Suite d'Obliterator 
+4 à 6 unités d'Obliterators 
+Aucune 
+75 pts chacun 
+Compagnie de Marcheurs de Siège 6 Dreadnoughts du Chaos 
+Aucune 
+275 pts 
+Defilers 
+4 Defilers 
+Defilers 
+300 pts 
+Artillerie Iron Warriors 
+3 Basilisks 
+Aucune 
+225 pts 
+Compagnie Blindée 
+4 Land Raiders du Chaos ou 
+4 Predators du Chaos 
+Stalker, Support Lourd, Land Raiders 
+300 pts 
+200 pts 
+Compagnie d'Assaut 
+De 1 à 3 Decimators 
+Defilers, Stalker 
+225 pts 
+ 
+SUITES DE SPÉCIALISTES DES IRON WARRIORS 
+(Jusqu'à 3 suites de spécialistes différentes par suite d'Iron Warriors) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Suite d'Havocs 
+8 unités d'Havocs 
+Personnage du Chaos, Prince Démon, Havocs, Obliterators, Dreadnoughts, 
+Defilers, Transports, Stalker, Support Lourd, Land Raiders 
+350 pts 
+Suite de Sapeurs 
+8 unités de Sapeurs Iron Warriors 
+Personnage du Chaos, Prince Démon, Havocs, Obliterators, Dreadnoughts, 
+Defilers, Transports, Stalker, Support Lourd, Land Raiders 
+250 pts 
+Suite de Forlorn Hope 
+4 unités de Forlorn Hope et 2 Rhinos du 
+Chaos 
+Aucune 
+150 pts 
+ 
+ 
+AMÉLIORATIONS DES IRON WARRIORS 
+(Jusqu'à 4 améliorations différentes par détachement) 
+Améliorations 
+Unités 
+Coût 
+Personnage du Chaos 
+Ajoutez (0-1) Seigneur du Chaos ou 
+Ajoutez un Champion Exalté du Chaos ou un Sorcier du Chaos 
+50 pts 
+25 pts 
+0-1 Prince Démon 
+Remplacez le Seigneur du Chaos ou un Champion Exalté du Chaos par un Prince Démon ou Prince Démon Ailé. S’il remplace le 
+Seigneur du Chaos, il acquiert la capacité Commandant Suprême. 
+(+50 pts) 
+Obliterators 
+Ajoutez jusqu'à 3 unité d'Obliterators à la formation 
+75 pts chacun 
+125 pts les 2 
+Havocs 
+Ajoutez 4 unités de Havocs à la formation 
+150 pts 
+Transports Élus 
+Ajoutez un Dreadclaws pour transporter toute la formation 
+ou Donner le mot-clé Téléportation aux Élus Terminators du Chaos 
+50 pts 
+Transports 
+Ajoutez suffisamment de Rhinos Chaos ou de Dreadclaws pour transporter une Suite d'Iron Warriors ou de Sapeur Iron 
+Warriors 
+50 pts 
+Dreadnoughts 
+Ajoutez jusqu’à 4 Dreadnoughts du Chaos à la formation 
+50 pts chacun 
+Defilers 
+Ajoutez 1 ou 2 Defiler à la formation 
+75 / 125 pts 
+Stalker 
+Ajoutez 1 Stalker à la formation 
+50 pts 
+Support Lourd 
+Ajoutez 2 Vindicators du Chaos ou 2 Predator du Chaos à la formation 
+75 pts 
+Land Raiders 
+Ajoutez jusqu'à 6 Land Raiders du Chaos à la formation 
+75 pts chacun 
+125 pts les 2 
+ 
+SUPPORTS IRON WARRIORS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+FLOTTE DE GUERRE DU CHAOS 
+ 
+SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Escadrille d’Intercepteurs Hellblade 
+3 Hellblades 
+200 pts 
+ 
+Titan Feral 
+1 Feral 
+300 pts 
+Escadrille de Chasseurs-Bombardiers 
+Helltalon 
+2 Helltalons 
+225 pts 
+ 
+Titan Ravager 
+1 Ravager 
+650 pts 
+Soutien Orbital 
+1 Croiseur Devastation ou 
+1 Cuirassé Despoiler 
+200 pts 
+250 pts 
+ 
+Titan Banelord 
+1 Banelord 
+850 pts 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+3 - CODEX IRON WARRIORS - EAFR - REV 1.5 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES DES IRON WARRIORS 
+Nom 
+Type 
+Vitesse Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Champion Exalté du Chaos 
+Perso 
+- 
+- 
+- 
+- 
+Arme Démon 
+(contact) 
+Arme d'Assaut, +1A, MA Commandant, Meneur, Sauvegarde Invulnérable 
+Seigneur du Chaos 
+Perso 
+- 
+- 
+- 
+- 
+Arme démon 
+(contact) 
+Arme d'Assaut, +1A, MA Commandant Suprême, Sauvegarde Invulnérable 
+Sorcier du Chaos 
+Perso 
+- 
+- 
+- 
+- 
+Explosion Warp 
+(15cm) 
+Arme Légère, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable 
+Prince Démon 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ 
+Arme Possédée 
+Explosion Warp 
+(contact) 
+(15cm) 
+Arme d'Assaut, +2A, MA 
+Arme Légère, +1A, MA 
+Blindage Renforcé, Blindage Arrière Renforcé, Charismatique, Commandant, 
+Meneur, Sans Peur, Sauvegarde Invulnérable, Téléportation 
+Prince Démon Ailé 
+Inf 
+30cm 
+5+ 
+3+ 
+3+ 
+Arme Possédée 
+Explosion Warp 
+(contact) 
+(15cm) 
+Arme d'Assaut, +2A, MA 
+Arme Légère, +1A, MA 
+Réacteurs 
+Dorsaux, 
+Blindage Renforcé, Blindage Arrière Renforcé, 
+Charismatique, Commandant, Meneur, Sans Peur, Sauvegarde Invulnérable, 
+Téléportation 
+Élus Terminators du Chaos 
+Inf 
+15cm 
+4+ 
+3+ 
+3+ 
+Arme énergétique 
+Bolters Combinés 
+2x Autocanon Faucheur 
+(contact) 
+(15cm) 
+30cm 
+Arme d'Assaut, +1A, MA 
+Arme Légère 
+AP4+/AC6+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Space Marines du Chaos 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ 
+Autocanon 
+Bolter 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+- 
+Havocs 
+Inf 
+15cm 
+4+ 
+5+ 
+3+ 
+2x Autocanon 
+Bolter 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+- 
+Forlorn Hope 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ 
+Autocanon 
+Bolter 
+45cm 
+(15cm) 
+AP5+/AC6+ 
+Arme Légère 
+Éclaireurs 
+Obliterators 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ 
+Arme Corporelle 
+45cm 
+(15cm) 
+(contact) 
+3xAP5+/AC5+ 
+Arme Légère, +1A, IC 
+Arme d'Assaut, MA 
+Blindage Renforcé, Blindage Arrière Renforcé, Sans Peur, Téléportation 
+Sapeurs Iron Warriors 
+Inf 
+15cm 
+4+ 
+4+ 
+4+ 
+Lance-flammes sapeur 
+15cm 
+AP5+/AC5+, IC 
+- 
+Dreadnought du Chaos 
+VB 
+15cm 
+4+ 
+4+ 
+4+ 
+Autocanons Jumelés 
+Poing Énergétique 
+45cm 
+(contact) 
+AP4+/AC5+ 
+Arme d'Assaut, +1A, MA 
+Marcheur, Sans Peur 
+Defiler 
+VB 
+15cm 
+4+ 
+4+ 
+4+ 
+Obusier 
+Faucheurs (defiler) 
+Griffes de combat 
+Lance-flammes Lourd 
+75cm 
+30cm 
+(contact) 
+15cm 
+(15cm) 
+AP4+/AC4+ 
+AP3+/AC5+ 
+Arme d'Assaut, +1A, MA 
+AP4+, IC 
+Arme légère, +1A, IC 
+Blindage Renforcé, Marcheur, Sans Peur, Sauvegarde invulnérable 
+Rhino du Chaos 
+VB 
+30cm 
+5+ 
+6+ 
+6+ 
+Bolters jumelés 
+(15cm) 
+Arme Légère 
+Transport (2) : Space Marines du Chaos 
+Predator du Chaos 
+VB 
+30cm 
+5+ 
+6+ 
+4+ 
+Canons Laser Jumelés 
+2x Bolter Lourd 
+45cm 
+30cm 
+AC4+ 
+AP5+ 
+Blindage Renforcé 
+Land Raider du Chaos 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 
+2x Canons Laser Jumelés 
+Bolters Lourds Jumelés 
+45cm 
+30cm 
+AC4+ 
+AP4+ 
+Blindage Renforcé, Blindage Arrière Renforcé 
+Transport (2) : Space Marines du Chaos, Terminators du Chaos*, Prince 
+Démon* ou Obliterator* (* prennent deux places) 
+Vindicator du Chaos 
+VB 
+25cm 
+5+ 
+6+ 
+4+ 
+Canon Démolisseur (V) 
+30cm 
+(15cm) 
+MA4+ 
+Arme Légère, MA 
+Blindage Renforcé 
+4 - CODEX IRON WARRIORS - EAFR - REV 1.5 
+
+===== PAGE 6 =====
+Nom 
+Type 
+Vitesse Blindage CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Stalker 
+VB 
+30cm 
+5+ 
+6+ 
+5+ 
+3x Canons Tempête Icarus 45cm 
+AP6+/AC6+/AA6+ 
+- 
+Basilisk 
+VB 
+20cm 
+5+ 
+6+ 
+5+ 
+Canon Tremble-Terre 
+ou 
+Bolter Lourd 
+120cm 
+120cm 
+30cm 
+1PB, Ind 
+AP4+/AC4+ 
+AP5+ 
+- 
+Dreadclaw 
+VB 
+- 
+- 
+- 
+- 
+Deathclaw 
+15cm 
+AP5+/AC5+ 
+Assaut Planétaire, Transport. Ne peut transporter que des unités d’Infanterie 
+(sauf motos) et des Dreadnoughts 
+Decimator 
+EG 
+15cm 
+4+ 
+5+ 
+3+ 
+Canon Decimator 
+2x Faucheurs jumelés (G) 
+2x Faucheurs jumelés (D) 
+45cm 
+30cm 
+30cm 
+3PB, MA, IC, FrtF 
+AP3+/AC5+, Gch 
+AP3+/AC5+, Drt 
+Blindage Renforcé 
+CD3 – Critique : Le Decimator est détruit. Toutes les unités dans un rayon de 
+5cm subissent une touche sur 6+ 
+ 
+ 
+ 
+FEUILLE DE RÉFÉRENCES FLOTTE DE GUERRE DU CHAOS 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Intercepteur Hellblade 
+A 
+C 
+6+ 
+- 
+- 
+Faucheurs jumelées 
+(hellblades) 
+30cm 
+AP3+/AC5+/AA4+, FrtF - 
+Chasseur-Bombardier Helltalon A 
+CB 
+5+ 
+- 
+- 
+Canons Laser Jumelés AA 
+Lanceur Havoc 
+Bombes Incendiaires 
+45cm 
+45cm 
+15cm 
+AC4+/AA5+, FrtF 
+AP5+/AC6+, FrtF 
+2PB, IC, FrtF 
+- 
+Croiseur de Classe Devastation VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital 
+Frappe Chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+Transport (20) : Toute unité pouvant être déployées en Dreadclaw selon les règles 
+d’Assaut Planétaire 
+Cuirassé de Classe Despoiler 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital 
+3x Frappe Chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+Transport (40) : Toute unité pouvant être déployée en Dreadclaws selon les règles 
+d’Assaut Planétaire. Lent, ne peut être utilisé lors des 2 premiers tours de la partie, à 
+moins que le scénario ne précise le contraire. 
+ 
+5 - CODEX IRON WARRIORS - EAFR - REV 1.5 
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCES SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Titan Feral 
+EG 
+30cm 
+5+ 
+4+ 
+5+ 
+Deathstorm 
+Hellmouth 
+Tête de Bataille 
+45cm 
+30cm 
+(15cm) 
+4xAP4+/AC4+, Frt 
+3PB, MA, Frt 
+Arme Légère, +2A, FrtF 
+Blindage Renforcé, Marcheur, Sans Peur. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux moins hauts 
+que les genoux du titan et de 2cm de large maximum. 
+CD3 / BI2 – Critique : Le Titan est déséquilibré et vacille. Déplacez-le d'1D6 cm dans une 
+direction aléatoire. S’il percute un terrain infranchissable ou une unité qu’il ne peut pas 
+pousser, il s’arrête et subit un point de dommage supplémentaire. Les unités qu’il percute 
+subissent une touche sur un 6+ 
+Titan Ravager EG 
+20cm 
+4+ 
+3+ 
+4+ 
+Doomburner 
+2x Deathstorm Lourd 
+Tête de Bataille 
+Queue de Combat 
+et 
+45cm 
+60cm 
+(15cm) 
+75cm 
+(contact) 
+MA3+, TT (D3), FrtF 
+4xAP4+/AC4+, Frt 
+Arme Légère, +2A, FrtF 
+AP4+/AC4+ 
+Arme d'Assaut, +1A 
+Blindage Renforcé, Marcheur, Sans Peur. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux moins hauts 
+que les genoux du titan et de 2cm de large maximum. 
+CD6 / BI4 – Critique : Le réacteur à plasma se fissure. 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque fissure : 
+- 1 : le réacteur explose ; toute unité dans un rayon de 5cm subit une touche sur 5+ 
+- 2-3 : le titan subit 1 point de dommages supplémentaire ; 
+- 4-6 : la fissure est réparée 
+Titan Banelord EG 
+15cm 
+4+ 
+2+ 
+4+ 
+Rack de Missiles Havoc 
+Canon Hellstrike 
+Poing de Combat Apocalypse 
+ 
+Tête de Bataille 
+Queue de Combat 
+et 
+60cm 
+60cm 
+30cm 
+(contact) 
+(15cm) 
+75cm 
+(contact) 
+6x2PB, Ind, Uniq, IC, FrtF 
+3PB, MA, IC, Frt 
+4xAP4+/AC4+, Frt 
+Arme d'Assaut, +2A, TT (D3) 
+Arme Légère, +2A, FrtF 
+AP4+/AC4+ 
+Arme d'Assaut, +1A 
+Blindage Renforcé, Blindage Arrière Renforcé, Marcheur, Sans Peur. 
+Peut passer au-dessus d’unités et de terrains infranchissables ou dangereux moins hauts 
+que les genoux du titan et de 2cm de large maximum. 
+CD8 / BI6 – Critique : Le réacteur à plasma se fissure 
+Lancez 1D6 durant la phase finale de chaque tour pour chaque fissure : 
+- 1 : le réacteur explose ; toute unité dans un rayon de 5cm subit une touche sur 5+ 
+- 2-3 : le Banelord entre dans une rage démoniaque et bouge immédiatement de 3D6cm 
+dans une direction aléatoire. S’il percute un terrain infranchissable ou une unité qu'il ne 
+peut pousser, il s'arrête et subit un point de dommages supplémentaire ; les unités qu'il 
+percute subissent une touche sur un résultat de 4+ 
+- 4-6 : la fissure est réparée 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6 - CODEX IRON WARRIORS - EAFR - REV 1.5 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+7 - CODEX IRON WARRIORS - EAFR - REV 1.5 

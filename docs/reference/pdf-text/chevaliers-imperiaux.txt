@@ -1,0 +1,603 @@
+===== PAGE 1 =====
+0
+
+===== PAGE 2 =====
+CHEVALIERS IMPÉRIAUX
+“Que la puissance du Chevalier s’écoule dans vos veines. Que les
+fantômes de votre Trône murmurent dans votre esprit. Que vos
+tendons soient d’acier, et vos poings de feu. Devenez votre Chevalier,
+et par la symbiose, élevez-vous. Ainsi vous serez adoubé. Ainsi vous
+protégerez votre peuple et massacrerez vos ennemis."
+Sixième Cantique du Rituel d'Adoubement
+Utiliser la liste d’armée
+La liste qui suit vous permet de mettre sur pied une armée de
+Chevaliers Impériaux.
+Les armées des Chevaliers Impériaux sont organisées en
+formations appelées Lance du Ban, Lance de soutien et Lance
+d’appui lourd.
+Chaque Lance peut recevoir des améliorations. La liste
+d’armée indique pour chaque lance quelles améliorations
+sont autorisées. Chaque amélioration autorisée ne peut être
+prise qu’une fois par lance sans autre contrainte. Les
+améliorations font partie intégrante des Lance et doivent
+respecter les règles de cohésion. Certaines améliorations
+ajoutent des chevaliers supplémentaires alors que d'autres
+ajoutent des personnages. Ces personnages sont des pilotes
+de ce fait, chaque véhicule ne peut recevoir qu’un seul
+personnage.
+Emblème des maisonnées de Chevaliers.
+Règle spéciale : Bouclier à Ions
+Les Chevaliers sont protégés par un Bouclier à Ions.
+Un Chevalier peut décider d'utiliser la sauvegarde de son
+Bouclier à Ions à la place de sa sauvegarde de blindage, y
+compris contre les armes n'autorisant habituellement pas
+les sauvegardes (MA et TT). Dans ce cas, chaque touche
+en TT doit être sauvegardée séparément.
+Si la sauvegarde du Bouclier à Ions échoue, le Chevalier
+peut utiliser son Blindage Renforcé si l'arme l'y autorise (les
+attaques TT, MA et Lance annulent donc cette possibilité).
+Il utilisera alors sa valeur de blindage et non la valeur de
+son Bouclier à Ions.
+Par contre, cette règle ne s'applique pas contre les
+attaques de corps à corps et les tirs en cas de feu croisé.
+Le Pavois à Ions fonctionne de la même manière qu'un
+Bouclier mais il offre une bien meilleure protection à courte
+distance. Il peut donc également être utilisé contre des
+touches de corps à corps.
+Règle spéciale : Courage Chevaleresque
+Les formations de Chevaliers bénéficient d'un bonus de +1
+lors des tests d’actions d'Assaut et des tests de ralliement.
+Règle spéciale : Porte-Bannière de la Baronnie
+La formation du Banneret gagne un +1 à son initiative tant
+que le Banneret est vivant.
+Il ne peut pas y avoir de Sans Fief dans la formation du
+Banneret.
+Règle spéciale : Armement des Chevaliers
+Les Chevaliers Questoris, Cerastus et Dominus sont des
+engins de guerres mobiles et leurs armes ont toutes un
+angle de tir frontal, à l’exception de l’Autocanon Icarus
+jumelé
+qui
+a
+un
+angle
+de
+360°
+pour les attaques
+anti-aériennes uniquement.
+Les Chevalier Acastus sont des engins de guerres d’appui
+feu et leurs armes ont toutes un angle de tir frontal fixe, à
+l’exception du Lance-Missiles Acastus qui a un angle de
+360° pour les attaques anti-aériennes uniquement.
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au
+copyright de Games Workshop LTD. Illustration de couverture par Tze Kun Chin.
+1 - CODEX CHEVALIERS IMPÉRIAUX - EAFR - REV 1.1
+
+===== PAGE 3 =====
+Alliance : Mechanicum
+Un tiers des points d’une liste de Chevalier peut être sélectionné dans l’un des deux codex Légions Titaniques ou
+Adeptus Mechanicus. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux
+choix de soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême.
+LISTE D'ARMÉE DES CHEVALIERS IMPÉRIAUX
+Les armées des Chevaliers Impériaux ont une valeur stratégique de 3. Les formations de l’armée ont une valeur d’initiative
+de 2+.
+LANCE DU BAN DES CHEVALIERS IMPÉRIAUX
+Formations
+Unités
+Améliorations
+Coût
+Questoris Paladin
+3 Paladins
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+375 pts
+Questoris Errant
+3 Errants
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+325 pts
+Questoris Warden
+3 Wardens
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+300 pts
+Questoris Warden Aggressor
+3 Wardens Aggressors
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+350 pts
+Questoris Gallant
+3 Galants
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+300 pts
+LANCE DE SOUTIEN DES CHEVALIERS IMPÉRIAUX
+(Deux formations par Lance du Ban)
+Formations
+Unités
+Améliorations
+Coût
+Armigères
+4 ou 6 Armigères (tous types)
+Noble, Sans-fief, Précepteur
+200 pts / 300 pts
+Questoris Magæra
+3 ou 4 Magæra
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+350 pts / 475 pts
+Questoris Styrix
+3 ou 4 Styrix
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+350 pts / 475 pts
+Cerastus Acheron
+3 ou 4 Acherons
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+325 pts / 450 pts
+Cerastus Castigator
+3 ou 4 Castigators
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+375 pts / 525 pts
+Cerastus Lancer
+3 ou 4 Lancers
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+325 pts /475 pts
+Cerastus Atrapos
+3 ou 4 Atrapos
+Chevaliers, Noble, Sans-fief, Sénéchal, Porte-Bannière
+375 pts / 500 pts
+LANCE D'APPUI LOURD DES CHEVALIERS IMPÉRIAUX
+(Une formation par Lance du Ban)
+Formations
+Unités
+Améliorations
+Coût
+Acastus Porphyrion
+1 ou 2 Porphyrion
+300 pts / 550 pts
+Acastus Asterius
+1 ou 2 Asterius
+300 pts / 550 pts
+Dominus Valiant
+1 ou 2 Vaillant
+175 pts /300 pts
+Dominus Castellan
+1 ou 2 Castellan
+200 pts / 350 pts
+AMÉLIORATIONS
+(Chaque amélioration ne peut être prise qu'une seule fois par formation.)
+Améliorations
+Notes
+Coût
+0-1 Porte-Bannière
+Ajouter un personnage de Banneret à la formation
+75 pts
+0-1 Sénéchal
+Ajouter un personnage de Sénéchal à la formation
+75 pts
+0-1 Sans fief
+Ajouter un personnage de Sans-fief à la formation
+50 pts
+Noble
+Ajouter un personnage de Lord Scion à la formation
+25 pts
+Précepteur
+Ajouter un chevalier Précepteur à la formation
+150 pts
+Chevaliers
+Ajouter 1 à 2 chevaliers à la
+formation parmi :
+- Paladin
+- Errant
+- Croisé
+- Galant
+- Warden
+- Warden Agressor
+- 0-1 Précepteur
+- 0-1 Vaillant ou Castellan
+125 pts
+125 pts
+150 pts
+100 pts
+100 pts
+125 pts
+150 pts
+175 pts / 200 pts
+2 - CODEX CHEVALIERS IMPÉRIAUX - EAFR - REV 1.1
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES DES CHEVALIERS IMPÉRIAUX
+Nom
+Type
+Vitesse Blindage
+CC
+FF
+Arme
+Portée
+Puissance de feu
+Notes
+Sénéchal
+Perso
+-
+-
+-
+-
+Pilote expérimenté
+(contact)
+Arme d'Assaut, +1A
+Commandant Suprême, Svg Invu, Charismatique, Sans Peur.
+Lord Scion
+Perso
+-
+-
+-
+-
+Pilote expérimenté
+(contact)
+Arme d'Assaut, +1A
+Meneur
+Banneret
+Perso
+-
+-
+-
+-
+Pilote expérimenté
+(contact)
+Arme d'Assaut, +1A
+Meneur, Sans peur, Porte Bannière de la Baronnie
+Sans-Fief
+Perso
+-
+-
+-
+-
+Pilote légendaire
+(contact)
+(15cm)
+Arme d'assaut, +1A
+Arme légère, +1A
+Sans peur
+Armigère Hastaire
+VB
+25cm
+5+
+4+
+5+
+Lance Thermique
+Couperet Tronçonneur
+30 cm
+(15cm)
+(contact)
+MA5+
+Arme légère, MA
+Arme d'Assaut, +1A, MA
+Bouclier à Ion (5+), Éclaireur, Marcheur, Blindage Renforcé
+Armigère Helvérien
+VB
+25cm
+5+
+6+
+4+
+2x Autocanon Armiger
+45cm
+AP4+/AC5+
+Bouclier à Ion (5+), Éclaireur, Marcheur, Blindage Renforcé
+Précepteur
+EG
+25cm
+5+
+3+
+4+
+Impulseur Laser
+Tronçonneuse reaper
+Multi-Laser
+30cm
+(contact)
+30cm
+MA4+
+Arme d'Assaut, +1A, MA
+AP5+/AC6+
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur, Commandant, Meneur,
+Charismatique.
+Paladin
+EG
+25cm
+5+
+3+
+4+
+Obusier à tir rapide
+Tronçonneuse reaper
+Lance-Missiles Ironstorm
+75cm
+(contact)
+45cm
+2xAP4+/AC4+
+Arme d'Assaut, +1A, MA
+1PB, Ind
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Errant
+EG
+25cm
+5+
+3+
+4+
+Canon Thermique
+et
+Tronçonneuse reaper
+30 cm
+(15cm)
+(contact)
+MA4+
+Arme Légère, MA
+Arme d'Assaut, +1A, MA
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Croisé
+EG
+25cm
+5+
+5+
+4+
+Obusier à tir rapide
+Canon gatling Avenger
+Autocanon Icarus jumelé
+75cm
+30cm
+45cm
+2xAP4+/AC4+
+2xAP3+/AC5+
+AP4+/AC5+/AA5+
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Galant
+EG
+25cm
+5+
+3+
+5+
+Gantelet Thunderstrike
+Tronçonneuse reaper
+Fuseur
+(contact)
+(contact)
+(15cm)
+Arme d'Assaut, +1A, TT (1)
+Arme d'Assaut, +1A, MA
+Arme Légère, +1A, MA
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Warden
+EG
+25cm
+5+
+3+
+4+
+Canon gatling Avenger
+Tronçonneuse reaper
+Lance-Flammes
+30cm
+(contact)
+(15cm)
+2xAP3+/AC5+
+Arme d'Assaut, +1A, MA
+Arme Légère, IC
+CD:2, Critique: Détruit
+Bouclier à Ion (4+/-), Blindage renforcé, Marcheur.
+Warden Aggressor
+EG
+25cm
+5+
+3+
+4+
+Canon gatling Avenger
+Gantelet Thunderstrike
+Lance-Flammes
+Lance-Missiles Stormspear
+30cm
+(contact)
+(15cm)
+45cm
+2xAP3+/AC5+
+Arme d'Assaut, +1A, TT (1)
+Arme Légère, IC
+2xAC5+
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Styrix
+EG
+25cm
+5+
+3+
+4+
+Chiérovile Volkite
+Pince de siège Hekaton
+Irradieur
+45cm
+(contact)
+(15cm)
+2xAP3+/AC5+, Lance
+Arme d'Assaut, +1A, TT (1)
+Arme Légère, +1A
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Magæra
+EG
+25cm
+5+
+3+
+4+
+Canon à foudre
+Pince de siège Hekaton
+Irradieur
+45cm
+(contact)
+(15cm)
+2xAP3+/AC5+, IC
+Arme d'Assaut, +1A, TT (1)
+Arme Légère, +1A
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+3 - CODEX CHEVALIERS IMPÉRIAUX - EAFR - REV 1.1
+
+===== PAGE 5 =====
+Nom
+Type
+Vitesse Blindage
+CC
+FF
+Arme
+Portée
+Puissance de feu
+Notes
+Atrapos
+EG
+30cm
+5+
+4+
+3+
+Découpeur de phase Atrapos
+ou
+Canon à singularité
+(contact)
+(15cm)
+30cm
+Arme d'assaut, +1A, MA
+Arme légère, +1A, MA
+2xAP5+/AC4+, Lance
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Castigator
+EG
+30cm
+5+
+3+
+4+
+Canon à bolt Castigator
+Lame de guerre Tempest
+30cm
+(contact)
+3xAP3+/AC5+, Rpt
+Arme d'Assaut, +1A, MA
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Acheron
+EG
+30cm
+5+
+3+
+3+
+Canon Flamestorm Acheron
+Bolters Lourds Jumelés
+Poing tronçonneur Destroyer
+15 cm
+(15cm)
+30cm
+(contact)
+2xAP3+/AC6+, IC
+Arme légère, IC
+AP4+
+Arme d'Assaut, +1A, MA
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Lancer
+EG
+30cm
+5+
+3+
+4+
+Lance-choc
+Shock Blast
+(contact)
+(15cm)
+Arme d'Assaut, +1A, TT (1), FeP
+Arme Légère, +1A
+CD:2, Critique: Détruit
+Pavois à Ion (4+), Blindage renforcé, Marcheur.
+Vaillant
+EG
+25cm
+5+
+3+
+3+
+Canon Conflagration
+Harpon Thundercoil
+ou
+ou
+Canon Siegebreaker
+2x Missiles Shieldbreaker
+15 cm
+(15cm)
+15 cm
+(15cm)
+(contact)
+45cm
+45cm
+3xAP3+/AC6, IC
+Arme Légère, +1A,IC
+MA3+, TT (1)
+Arme légère, +1A, TT (1)
+Arme d'assaut, +1A, TT (1)
+AP4+/AC5+, FrtF
+AC4+, Uniq
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Castellan
+EG
+25cm
+5+
+4+
+4+
+Décimateur à plasma
+Lance Volcano
+2x Canon Siegebreaker
+Missiles Shieldbreaker
+45cm
+75cm
+45cm
+45cm
+2xMA2+
+MA2+, TT (1)
+AP4+/AC5+, FrtF
+AC4+, Uniq
+CD:2, Critique: Détruit
+Bouclier à Ion (4+), Blindage renforcé, Marcheur.
+Porphyrion
+EG
+20cm
+5+
+5+
+4+
+2x Canons Lasers Magna jumélés
+2x Canon laser
+Lance-Missiles Acastus
+60cm
+45cm
+45cm
+3xAP5+/AC3+
+AC5+
+2xAC5+/AA5+
+CD:3, Touche critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin
+de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose
+détruisant l'Acastus et infligeant une touche sur un 6+ à toute unité dans un
+rayon de 5cm, Sur 2-3, l'Acastus subit un point de dommage
+supplémentaire, Et sur 4-6 la fissure est réparée
+Bouclier à Ion (4+), Blindage renforcé, Marcheur, Sans peur.
+Asterius
+EG
+20cm
+5+
+5+
+4+
+2x Canons à conversion lourds jumelés
+Batterie de Mortiers Karacnos
+2x Couleuvrine Volkite
+60cm
+60cm
+45cm
+2xMA3+
+2xAP3+/AC6+
+AP4+/AC6+, Rpt
+CD:3, Touche critique : Le réacteur à plasma se fissure, Lancez 1D6 à la fin
+de chaque tour pour chaque fissure. Sur un résultat de 1 le réacteur explose
+détruisant l'Acastus et infligeant une touche sur un 6+ à toute unité dans un
+rayon de 5cm, Sur 2-3, l'Acastus subit un point de dommage
+supplémentaire, Et sur 4-6 la fissure est réparée
+Bouclier à Ion (4+/-), Blindage Renforcé, Marcheur, Sans Peur.
+4 - CODEX CHEVALIERS IMPÉRIAUX - EAFR - REV 1.1

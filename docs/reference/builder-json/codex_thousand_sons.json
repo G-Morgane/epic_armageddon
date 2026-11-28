@@ -1,0 +1,680 @@
+{
+ "codex": {
+  "id": "thousand_sons",
+  "name": "Thousand Sons",
+  "version": "1.2",
+  "faction": "Chaos",
+  "color": "#79e8d9",
+  "logo": "ts.png",
+  "categorie": "armees-chaos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 4,
+   "initiative_defaut": "1+",
+   "taille_transport": {
+    "rubric_marine": 1,
+    "scarab_occult_terminator": 2,
+    "prince_demon": 2,
+    "obliterator": 2
+   },
+   "capacite_transport": {
+    "rhino_chaos": 2,
+    "land_raider_chaos": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "personnage_ts",
+   "name": "Personnage du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Seigneur du Chaos",
+     "cout": 50,
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Champion Exalté du Chaos",
+     "cout": 25
+    },
+    {
+     "name": "Sorcier du Chaos",
+     "cout": 25
+    }
+   ],
+   "unites": [],
+   "description": "Ajouter un personnage à la formation"
+  },
+  {
+   "id": "porte_icone_ts",
+   "name": "Porte-icône",
+   "cout": 25,
+   "limit": 1,
+   "description": "Permet de prendre une formation de Démons Mineurs supplémentaire",
+   "unites": [
+    {
+     "id": "porte_icone",
+     "name": "Porte-Icône",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "dreadnoughts_ts",
+   "name": "Dreadnoughts du Chaos",
+   "cout": 50,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 4,
+   "unites": [
+    {
+     "id": "dreadnought_chaos",
+     "name": "Dreadnought du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_ts",
+   "name": "Transports",
+   "cout": 50,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Rhinos du Chaos",
+     "cout": 50,
+     "unitId": "rhino_chaos",
+     "nb_unites": 4
+    },
+    {
+     "name": "Dreadclaws",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_elus_ts",
+   "name": "Transport Élus",
+   "cout": 50,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "Dreadclaws",
+     "cout": 0
+    },
+    {
+     "name": "Téléportation",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "destinee_architecte_ts",
+   "name": "Destinée de l'Architecte",
+   "cout": 50,
+   "limit": 1,
+   "unites": []
+  },
+  {
+   "id": "defilers_ts",
+   "name": "Defilers",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "1 Defiler",
+     "cout": 75
+    },
+    {
+     "name": "2 Defilers",
+     "cout": 125
+    }
+   ],
+   "unites": [
+    {
+     "id": "defiler",
+     "name": "Defiler",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "stalker_ts",
+   "name": "1 Stalker",
+   "cout": 50,
+   "limit": 1,
+   "unites": [
+    {
+     "id": "stalker",
+     "name": "Stalker",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "support_lourds_ts",
+   "name": "Support Lourds",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "2 Vindicators du Chaos",
+     "cout": 75
+    },
+    {
+     "name": "2 Prédators du Chaos",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "land_raiders_ts",
+   "name": "Land Raiders du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "1 Land Raider du Chaos",
+     "cout": 75,
+     "unitId": "land_raider_chaos",
+     "nb_unites": 1
+    },
+    {
+     "name": "2 Land Raiders du Chaos",
+     "cout": 125,
+     "unitId": "land_raider_chaos",
+     "nb_unites": 2
+    },
+    {
+     "name": "3 Land Raiders du Chaos",
+     "cout": 200,
+     "unitId": "land_raider_chaos",
+     "nb_unites": 3
+    },
+    {
+     "name": "4 Land Raiders du Chaos",
+     "cout": 250,
+     "unitId": "land_raider_chaos",
+     "nb_unites": 4
+    },
+    {
+     "name": "5 Land Raiders du Chaos",
+     "cout": 325,
+     "unitId": "land_raider_chaos",
+     "nb_unites": 5
+    },
+    {
+     "name": "6 Land Raiders du Chaos",
+     "cout": 400,
+     "unitId": "land_raider_chaos",
+     "nb_unites": 6
+    }
+   ],
+   "unites": [
+    {
+     "id": "land_raider_chaos",
+     "name": "Land Raider du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "land_raiders_compagnie_ts",
+   "name": "Land Raiders du Chaos supplémentaires",
+   "cout": 0,
+   "limit": 1,
+   "choix": [
+    {
+     "name": "1 Land Raider du Chaos",
+     "cout": 75
+    },
+    {
+     "name": "2 Land Raiders du Chaos",
+     "cout": 125
+    },
+    {
+     "name": "3 Land Raiders du Chaos",
+     "cout": 200
+    },
+    {
+     "name": "4 Land Raiders du Chaos",
+     "cout": 250
+    }
+   ],
+   "unites": [
+    {
+     "id": "land_raider_chaos",
+     "name": "Land Raider du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "duc_changement_ts",
+   "name": "0-1 Duc du Changement",
+   "cout": 150,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Uniquement si le Démon Majeur n'a pas été pris",
+   "unites": [
+    {
+     "id": "duc_changement",
+     "name": "Duc du Changement",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "prince_demon_ts",
+   "name": "Prince Démon",
+   "cout": 0,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Remplace le personnage de la formation par un Prince Démon",
+   "type_remplacement": {
+    "remplace_unites": [
+     "rubric_marine",
+     "scarab_occult_terminator",
+     "chevaucheur_disque",
+     "incendiaire"
+    ],
+    "par_unite": "prince_demon",
+    "quantite_fixe": true
+   },
+   "choix": [
+    {
+     "name": "Prince Démon (remplace Seigneur)",
+     "cout": 100,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Seigneur)",
+     "cout": 100,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon (remplace Champion Exalté)",
+     "cout": 75
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Champion Exalté)",
+     "cout": 75
+    }
+   ],
+   "unites": [
+    {
+     "id": "prince_demon",
+     "name": "Prince Démon",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principale_ts",
+   "name": "DÉTACHEMENTS DES THOUSAND SONS",
+   "description": "Chaque détachement peut recevoir au plus 4 améliorations différentes",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "rubric_marines_ts",
+     "name": "Suite de Rubric Marines",
+     "cout": 275,
+     "initiative": "1+",
+     "FormationMinimum": 1,
+     "FormationLimitationTag": {
+      "slot_soutien_ts_A": 1
+     },
+     "limiteOptionFormation": 4,
+     "unites": [
+      {
+       "id": "rubric_marine",
+       "name": "Rubric Marine",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "personnage_ts",
+      "porte_icone_ts",
+      "dreadnoughts_ts",
+      "transport_ts",
+      "destinee_architecte_ts",
+      "defilers_ts",
+      "stalker_ts",
+      "support_lourds_ts",
+      "land_raiders_ts",
+      "prince_demon_ts"
+     ]
+    },
+    {
+     "id": "scarab_occult_ts",
+     "name": "Scarab Occult Terminators",
+     "cout": 200,
+     "initiative": "1+",
+     "FormationLimite": 2,
+     "limiteOptionFormation": 4,
+     "unites": [
+      {
+       "id": "scarab_occult_terminator",
+       "name": "Scarab Occult Terminator",
+       "stat_nom": "Élus Terminators du Chaos",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "cinq",
+       "name": "5 Terminators",
+       "nombre_exact": 5,
+       "cout": 250
+      },
+      {
+       "id": "six",
+       "name": "6 Terminators",
+       "nombre_exact": 6,
+       "cout": 300
+      }
+     ],
+     "ameliorations": [
+      "personnage_ts",
+      "porte_icone_ts",
+      "dreadnoughts_ts",
+      "transport_elus_ts",
+      "destinee_architecte_ts",
+      "defilers_ts",
+      "stalker_ts",
+      "support_lourds_ts",
+      "land_raiders_ts",
+      "prince_demon_ts"
+     ]
+    },
+    {
+     "id": "compagnie_blindee_ts",
+     "name": "Compagnie Blindée",
+     "cout": 200,
+     "initiative": "2+",
+     "limiteOptionFormation": 4,
+     "unites": [
+      {
+       "id": "predator_chaos",
+       "name": "Prédator du Chaos",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "land_raiders",
+       "name": "4 Land Raiders du Chaos",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "land_raider_chaos",
+         "name": "Land Raider du Chaos",
+         "nombre": 4
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "stalker_ts",
+      "support_lourds_ts",
+      "land_raiders_compagnie_ts"
+     ]
+    },
+    {
+     "id": "demons_mineurs_ts",
+     "name": "Démons Mineurs",
+     "cout": 175,
+     "initiative": "2+",
+     "FormationLimite": 2,
+     "description": "Nécessite une amélioration Porte-icône dans l'armée",
+     "unites": [
+      {
+       "id": "incendiaire",
+       "name": "Incendiaire",
+       "nombre": 8
+      }
+     ],
+     "variantes": [
+      {
+       "id": "grande",
+       "name": "12 Incendiaires",
+       "nombre_exact": 12,
+       "cout": 275
+      }
+     ],
+     "ameliorations": [
+      "duc_changement_ts"
+     ]
+    },
+    {
+     "id": "demon_majeur_ts",
+     "name": "Démon Majeur",
+     "cout": 200,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "limiteOptionGlobal": 1,
+     "description": "1 Duc du Changement",
+     "unites": [
+      {
+       "id": "duc_changement",
+       "name": "Duc du Changement",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "soutien_ts",
+   "name": "DÉTACHEMENTS DE SOUTIEN DES THOUSAND SONS",
+   "description": "Une formation par Suite de Rubric Marines",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_ts_A",
+   "formations": [
+    {
+     "id": "fleches_arcanes_ts",
+     "name": "Flèches des Arcanes",
+     "cout": 250,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "tour_argent",
+       "name": "Tour d'Argent",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "grande",
+       "name": "6 Tours d'Argent",
+       "nombre_exact": 6,
+       "cout": 375
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "chevaucheurs_disque_ts",
+     "name": "Chevaucheurs de Disque",
+     "cout": 225,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "chevaucheur_disque",
+       "name": "Chevaucheur de Disque",
+       "stat_nom": "Chevaucheurs de Disque",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "personnage_ts",
+      "porte_icone_ts",
+      "prince_demon_ts"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flotte_ts",
+   "name": "FLOTTE DE GUERRE DU CHAOS",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "type": "rare",
+   "formations": [
+    {
+     "id": "firelords_ts",
+     "name": "Vol de Firelords",
+     "cout": 300,
+     "initiative": "2+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "firelord",
+       "name": "Firelord",
+       "nombre": 2
+      }
+     ],
+     "variantes": [
+      {
+       "id": "trois",
+       "name": "3 Firelords",
+       "nombre_exact": 3,
+       "cout": 450
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "doomwings_ts",
+     "name": "Vol de Doomwings",
+     "cout": 150,
+     "initiative": "2+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "doomwing",
+       "name": "Doomwing",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_ts",
+     "name": "Soutien Orbital",
+     "cout": 200,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "rare": true,
+     "unites": [
+      {
+       "id": "croiseur_devastation",
+       "name": "Croiseur de Classe Devastation",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "despoiler",
+       "name": "Cuirassé de Classe Despoiler",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "cuirasse_despoiler",
+         "name": "Cuirassé de Classe Despoiler",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_ts",
+   "name": "SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "type": "rare",
+   "formations": [
+    {
+     "id": "palais_warp_ts",
+     "name": "Palais du Warp",
+     "cout": 375,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "palais_warp",
+       "name": "Palais du Warp",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "double",
+       "name": "2 Palais du Warp",
+       "nombre_exact": 2,
+       "cout": 750
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_feral_ts",
+     "name": "Titan Feral",
+     "cout": 300,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_feral",
+       "name": "Titan Feral",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_ravager_ts",
+     "name": "Titan Ravager",
+     "cout": 650,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_ravager",
+       "name": "Titan Ravager",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_banelord_ts",
+     "name": "Titan Banelord",
+     "cout": 850,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_banelord",
+       "name": "Titan Banelord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

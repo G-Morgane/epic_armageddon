@@ -1,0 +1,1103 @@
+{
+ "codex": {
+  "id": "word_bearers",
+  "name": "Word Bearers",
+  "version": "1.4",
+  "faction": "Chaos",
+  "color": "#8b1a1a",
+  "logo": "wb.png",
+  "categorie": "armees-chaos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 4,
+   "initiative_defaut": "1+",
+   "note_initiative": "Démons Mineurs, formations de soutien des Word Bearers et Flotte de Guerre du Chaos : initiative 2+"
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "personnage_wb",
+   "name": "Personnage du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter un personnage à la formation",
+   "choix": [
+    {
+     "name": "Seigneur du Chaos",
+     "cout": 50,
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Champion Exalté du Chaos",
+     "cout": 25
+    },
+    {
+     "name": "Sorcier du Chaos",
+     "cout": 25
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "porte_icone_wb",
+   "name": "Porte-icône",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter un Porte-icône à l'une des unités de la formation. Permet d'invoquer une formation du Pool Démoniaque",
+   "unites": [
+    {
+     "id": "porte_icone",
+     "name": "Porte-Icône",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "apotre_noir_wb",
+   "name": "Apôtre Noir",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 personnage d'Apôtre Noir à une unité de la formation",
+   "unites": [
+    {
+     "id": "apotre_noir",
+     "name": "Apôtre Noir",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "prince_demon_wb",
+   "name": "0-2 Prince Démon",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 2,
+   "description": "Remplacer le Seigneur du Chaos ou le Champion Exalté du Chaos et l'unité qu'il accompagne par un Prince Démon (ou un Prince Démon Ailé). S'il remplace le Seigneur du Chaos, il acquiert la capacité Commandant Suprême. Un Prince Démon peut être inclus dans l'armée pour chaque déité représentée",
+   "type_remplacement": {
+    "remplace_unites": [
+     "space_marine_chaos",
+     "elus_terminator_chaos"
+    ],
+    "par_unite": "prince_demon",
+    "quantite_fixe": true
+   },
+   "choix": [
+    {
+     "name": "Prince Démon (remplace Seigneur)",
+     "cout": 50,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Seigneur)",
+     "cout": 50,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon (remplace Champion Exalté)",
+     "cout": 50
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Champion Exalté)",
+     "cout": 50
+    }
+   ],
+   "unites": [
+    {
+     "id": "prince_demon",
+     "name": "Prince Démon",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "enfants_chaos_wb",
+   "name": "Enfants du chaos",
+   "cout": 25,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Enfants du Chaos (25 pts chacun)",
+   "unites": [
+    {
+     "id": "enfant_chaos",
+     "name": "Enfant du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "chiens_chaos_wb",
+   "name": "Chiens du chaos",
+   "cout": 15,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Chiens du Chaos (15 pts chacun)",
+   "unites": [
+    {
+     "id": "chien_chaos",
+     "name": "Chien du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "cultistes_wb",
+   "name": "Cultistes",
+   "cout": 10,
+   "limit": 1,
+   "min": 1,
+   "max": 8,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 8 Cultistes et/ou Mutants (10 pts chacun)",
+   "unites": []
+  },
+  {
+   "id": "transporteur_renegat_wb",
+   "name": "Transporteurs Terrestres",
+   "cout": 10,
+   "limit": 1,
+   "min": 1,
+   "max": 16,
+   "cout_par_unite": true,
+   "description": "Ajouter assez de Transporteurs Terrestres pour transporter les infanteries ayant un mouvement inférieur ou égal à 15cm (10 pts chacun)",
+   "unites": [
+    {
+     "id": "transporteur_terrestre",
+     "name": "Transporteur Terrestre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "chimere_renegate_wb",
+   "name": "Chimères",
+   "cout": 25,
+   "limit": 1,
+   "min": 1,
+   "max": 16,
+   "cout_par_unite": true,
+   "description": "Ajouter assez de Chimères pour transporter les infanteries ayant un mouvement inférieur ou égal à 15cm (25 pts chacune)",
+   "unites": [
+    {
+     "id": "chimere",
+     "name": "Chimère",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "appuis_feu_wb",
+   "name": "Appuis feu",
+   "cout": 25,
+   "limit": 1,
+   "min": 1,
+   "max": 4,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 4 unités d'Appui-feu (25 pts chacune)",
+   "unites": [
+    {
+     "id": "appui_feu",
+     "name": "Appui-feu",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "hellhounds_wb",
+   "name": "Hellhounds",
+   "cout": 50,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Hellhounds (50 pts chacun)",
+   "unites": [
+    {
+     "id": "hellhound",
+     "name": "Hellhound",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "hydre_wb",
+   "name": "Hydre",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Hydre à la formation",
+   "unites": [
+    {
+     "id": "hydre",
+     "name": "Hydre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "autel_chaos_wb",
+   "name": "0-1 Autel du Chaos",
+   "cout": 200,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Autel du Chaos à la formation",
+   "unites": [
+    {
+     "id": "autel_chaos",
+     "name": "Autel du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "autel_devotion_wb",
+   "name": "Autel de Dévotion",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 1 Autel de Dévotion à la formation",
+   "unites": [
+    {
+     "id": "autel_devotion",
+     "name": "Autel de Dévotion",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transports_elus_wb",
+   "name": "Transports Élus",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter un Dreadclaw pour transporter toute la formation, ou donner le mot-clé Téléportation aux Élus Terminators du Chaos",
+   "choix": [
+    {
+     "name": "Dreadclaw",
+     "cout": 0
+    },
+    {
+     "name": "Téléportation",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transports_wb",
+   "name": "Transports",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter un Dreadclaw ou suffisamment de Rhinos du Chaos pour transporter toute la formation",
+   "choix": [
+    {
+     "name": "Dreadclaw",
+     "cout": 0
+    },
+    {
+     "name": "Rhinos du Chaos",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "havocs_wb",
+   "name": "Havocs",
+   "cout": 150,
+   "limit": 1,
+   "description": "Ajouter 4 unités de Havocs à la formation",
+   "unites": [
+    {
+     "id": "havocs",
+     "name": "Havocs",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "dreadnoughts_wb",
+   "name": "Dreadnoughts",
+   "cout": 50,
+   "limit": 1,
+   "min": 1,
+   "max": 4,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 4 Dreadnoughts du Chaos à la formation (50 pts chacun)",
+   "unites": [
+    {
+     "id": "dreadnought_chaos",
+     "name": "Dreadnought du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "defilers_wb",
+   "name": "Defilers",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 1 ou 2 Defilers à la formation",
+   "choix": [
+    {
+     "name": "1 Defiler",
+     "cout": 75
+    },
+    {
+     "name": "2 Defilers",
+     "cout": 125
+    }
+   ],
+   "unites": [
+    {
+     "id": "defiler",
+     "name": "Defiler",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "stalker_wb",
+   "name": "Stalker",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Stalker à la formation",
+   "unites": [
+    {
+     "id": "stalker",
+     "name": "Stalker",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "support_lourd_wb",
+   "name": "Support Lourd",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 2 Vindicators du Chaos ou 2 Predators du Chaos à la formation",
+   "choix": [
+    {
+     "name": "2 Vindicators du Chaos",
+     "cout": 75
+    },
+    {
+     "name": "2 Predators du Chaos",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "land_raiders_wb",
+   "name": "Land Raiders",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter jusqu'à 6 Land Raiders du Chaos à la formation",
+   "choix": [
+    {
+     "name": "1 Land Raider du Chaos",
+     "cout": 75
+    },
+    {
+     "name": "2 Land Raiders du Chaos",
+     "cout": 125
+    },
+    {
+     "name": "3 Land Raiders du Chaos",
+     "cout": 200
+    },
+    {
+     "name": "4 Land Raiders du Chaos",
+     "cout": 250
+    },
+    {
+     "name": "5 Land Raiders du Chaos",
+     "cout": 325
+    },
+    {
+     "name": "6 Land Raiders du Chaos",
+     "cout": 400
+    }
+   ],
+   "unites": [
+    {
+     "id": "land_raider_chaos",
+     "name": "Land Raider du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "land_raiders_compagnie_wb",
+   "name": "Véhicules supplémentaires",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter jusqu'à 4 Land Raiders du Chaos supplémentaires à la Compagnie Blindée",
+   "choix": [
+    {
+     "name": "1 Land Raider du Chaos",
+     "cout": 75
+    },
+    {
+     "name": "2 Land Raiders du Chaos",
+     "cout": 125
+    },
+    {
+     "name": "3 Land Raiders du Chaos",
+     "cout": 200
+    },
+    {
+     "name": "4 Land Raiders du Chaos",
+     "cout": 250
+    }
+   ],
+   "unites": [
+    {
+     "id": "land_raider_chaos",
+     "name": "Land Raider du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "demons_mineurs_lies_wb",
+   "name": "Démons Mineurs liés",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des Démons Mineurs (de l'allégeance du Démon Majeur) à la formation",
+   "choix": [
+    {
+     "name": "+ 8 Démons Mineurs",
+     "cout": 125
+    },
+    {
+     "name": "+ 12 Démons Mineurs",
+     "cout": 225
+    }
+   ],
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "detachements_wb",
+   "name": "DÉTACHEMENTS DES WORD BEARERS",
+   "type": "principale",
+   "description": "Chaque détachement peut recevoir au plus 4 améliorations différentes",
+   "formations": [
+    {
+     "id": "suite_word_bearers_wb",
+     "name": "Suite des Word Bearers",
+     "cout": 250,
+     "initiative": "1+",
+     "FormationMinimum": 1,
+     "limiteOptionFormation": 4,
+     "FormationLimitationTag": {
+      "slot_soutien_wb": 1,
+      "slot_possedes_wb": 1
+     },
+     "unites": [
+      {
+       "id": "space_marine_chaos",
+       "name": "Space Marines du Chaos",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "personnage_wb",
+      "apotre_noir_wb",
+      "prince_demon_wb",
+      "porte_icone_wb",
+      "autel_chaos_wb",
+      "autel_devotion_wb",
+      "enfants_chaos_wb",
+      "havocs_wb",
+      "dreadnoughts_wb",
+      "defilers_wb",
+      "transports_wb",
+      "stalker_wb",
+      "support_lourd_wb",
+      "land_raiders_wb"
+     ]
+    },
+    {
+     "id": "suite_elus_wb",
+     "name": "Suite d'Élus Word Bearers",
+     "cout": 200,
+     "initiative": "1+",
+     "FormationLimite": 2,
+     "limiteOptionFormation": 4,
+     "FormationLimitationTag": {
+      "slot_soutien_wb": 1
+     },
+     "unites": [
+      {
+       "id": "elus_terminator_chaos",
+       "name": "Élus Terminators du Chaos",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "cinq",
+       "name": "5 Élus Terminators du Chaos",
+       "nombre_exact": 5,
+       "cout": 250
+      },
+      {
+       "id": "six",
+       "name": "6 Élus Terminators du Chaos",
+       "nombre_exact": 6,
+       "cout": 300
+      }
+     ],
+     "ameliorations": [
+      "personnage_wb",
+      "apotre_noir_wb",
+      "prince_demon_wb",
+      "porte_icone_wb",
+      "autel_chaos_wb",
+      "autel_devotion_wb",
+      "dreadnoughts_wb",
+      "defilers_wb",
+      "transports_elus_wb",
+      "stalker_wb",
+      "support_lourd_wb",
+      "land_raiders_wb"
+     ]
+    },
+    {
+     "id": "suite_possedes_wb",
+     "name": "Suite de possédés",
+     "cout": 300,
+     "initiative": "1+",
+     "description": "0-1 par Suite des Word Bearers",
+     "LimitationTag": "slot_possedes_wb",
+     "limiteOptionFormation": 4,
+     "FormationLimitationTag": {
+      "slot_soutien_wb": 1
+     },
+     "unites": [
+      {
+       "id": "possede",
+       "name": "Possédés",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "autel_devotion_wb",
+      "enfants_chaos_wb",
+      "transports_wb"
+     ]
+    },
+    {
+     "id": "compagnie_motos_wb",
+     "name": "Compagnie de Motos",
+     "cout": 250,
+     "initiative": "1+",
+     "limiteOptionFormation": 4,
+     "FormationLimitationTag": {
+      "slot_soutien_wb": 1
+     },
+     "unites": [
+      {
+       "id": "moto_chaos",
+       "name": "Motos du Chaos",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "personnage_wb",
+      "apotre_noir_wb",
+      "porte_icone_wb",
+      "chiens_chaos_wb"
+     ]
+    },
+    {
+     "id": "compagnie_blindee_wb",
+     "name": "Compagnie Blindée",
+     "cout": 200,
+     "initiative": "1+",
+     "limiteOptionFormation": 4,
+     "FormationLimitationTag": {
+      "slot_soutien_wb": 1
+     },
+     "unites": [
+      {
+       "id": "predator_chaos",
+       "name": "Prédator du Chaos",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "land_raiders",
+       "name": "4 Land Raiders du Chaos",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "land_raider_chaos",
+         "name": "Land Raider du Chaos",
+         "nombre": 4
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "stalker_wb",
+      "support_lourd_wb",
+      "land_raiders_compagnie_wb"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_wb",
+   "name": "FORMATION DE SOUTIEN DES WORD BEARERS",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_wb",
+   "description": "Une formation de soutien par détachement des Word Bearers",
+   "formations": [
+    {
+     "id": "loge_stigmatus_wb",
+     "name": "Loge Stigmatus",
+     "cout": 175,
+     "initiative": "2+",
+     "description": "1 Aspirant Champion Marine du Chaos + 11 unités de Cultistes et/ou de Mutants",
+     "FormationLimitationTag": {
+      "slot_gigantis_wb": 1
+     },
+     "unites": [],
+     "composition_personnalisee": {
+      "min_total": 12,
+      "max_total": 12,
+      "description": "1 Aspirant Champion Marine du Chaos + 11 Cultistes/Mutants",
+      "groupe_obligatoire": [
+       "aspirant_champion"
+      ],
+      "options": [
+       {
+        "id": "aspirant_champion",
+        "name": "Aspirant Champion Marine du Chaos",
+        "unitId": "aspirant_champion",
+        "cout": 0,
+        "min": 1,
+        "max": 1
+       },
+       {
+        "id": "cultiste",
+        "name": "Cultiste",
+        "unitId": "cultiste",
+        "cout": 0,
+        "min": 0,
+        "max": 11
+       },
+       {
+        "id": "mutant",
+        "name": "Mutant",
+        "unitId": "mutant",
+        "cout": 0,
+        "min": 0,
+        "max": 11
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "ameliorations": [
+      "transporteur_renegat_wb",
+      "chimere_renegate_wb",
+      "hydre_wb",
+      "enfants_chaos_wb",
+      "chiens_chaos_wb",
+      "autel_chaos_wb",
+      "porte_icone_wb",
+      "appuis_feu_wb",
+      "hellhounds_wb",
+      "cultistes_wb"
+     ]
+    },
+    {
+     "id": "loge_gigantis_wb",
+     "name": "Loge Gigantis",
+     "cout": 250,
+     "initiative": "2+",
+     "description": "0-1 par Loge Stigmatus — 6 Mutants Géants et/ou Ogryns Renégats",
+     "LimitationTag": "slot_gigantis_wb",
+     "composition_personnalisee": {
+      "total": 6,
+      "description": "6 unités parmi Mutants Géants et Ogryns Renégats",
+      "options": [
+       {
+        "id": "mutant_geant",
+        "name": "Mutant Géant",
+        "unitId": "mutant_geant",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "ogryn_renegate",
+        "name": "Ogryn renégat",
+        "unitId": "ogryn_renegate",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "unites": [],
+     "ameliorations": [
+      "transporteur_renegat_wb",
+      "chimere_renegate_wb",
+      "hydre_wb",
+      "cultistes_wb"
+     ]
+    },
+    {
+     "id": "defilers_soutien_wb",
+     "name": "Defilers",
+     "cout": 300,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "defiler",
+       "name": "Defiler",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "defilers_wb"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pool_demoniaque_wb",
+   "name": "POOL DÉMONIAQUE",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_wb",
+   "description": "Une formation démoniaque par amélioration de Porte-icône dans l'armée",
+   "formations": [
+    {
+     "id": "demon_majeur_wb",
+     "name": "0-2 Démon Majeur",
+     "cout": 200,
+     "initiative": "1+",
+     "FormationLimite": 2,
+     "description": "1 Démon Majeur, correspondant à l'allégeance de la formation",
+     "variantes": [
+      {
+       "id": "buveur_sang",
+       "name": "Buveur de Sang",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "buveur_sang",
+         "name": "Buveur de Sang",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "duc_changement",
+       "name": "Duc du Changement",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "duc_changement",
+         "name": "Duc du Changement",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "grand_immonde",
+       "name": "Grand Immonde",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "grand_immonde",
+         "name": "Grand Immonde",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "gardien_secrets",
+       "name": "Gardien des Secrets",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "gardien_secrets",
+         "name": "Gardien des Secrets",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "demon_majeur",
+       "name": "Démon Majeur",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "demons_mineurs_lies_wb"
+     ]
+    },
+    {
+     "id": "demons_mineurs_wb",
+     "name": "0-2 Démons Mineurs",
+     "cout": 175,
+     "initiative": "2+",
+     "description": "8 unités de Démons Mineurs",
+     "FormationLimite": 2,
+     "composition_personnalisee": {
+      "total": 8,
+      "description": "8 unités parmi les Démons Mineurs",
+      "options": [
+       {
+        "id": "betes",
+        "name": "Bêtes démoniaques",
+        "unitId": "betes_demoniaques",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "sanguinaires",
+        "name": "Sanguinaires",
+        "unitId": "sanguinaires",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "incendiaires",
+        "name": "Incendiaires",
+        "unitId": "incendiaires",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "portepestes",
+        "name": "Portepestes",
+        "unitId": "portepestes",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "demonettes",
+        "name": "Démonettes",
+        "unitId": "demonettes",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "variantes": [
+      {
+       "id": "douze",
+       "name": "12 Démons Mineurs",
+       "cout": 275,
+       "composition_personnalisee": {
+        "total": 12,
+        "description": "12 unités parmi les Démons Mineurs",
+        "options": [
+         {
+          "id": "betes",
+          "name": "Bêtes démoniaques",
+          "unitId": "betes_demoniaques",
+          "cout": 0,
+          "min": 0,
+          "max": 12
+         },
+         {
+          "id": "sanguinaires",
+          "name": "Sanguinaires",
+          "unitId": "sanguinaires",
+          "cout": 0,
+          "min": 0,
+          "max": 12
+         },
+         {
+          "id": "incendiaires",
+          "name": "Incendiaires",
+          "unitId": "incendiaires",
+          "cout": 0,
+          "min": 0,
+          "max": 12
+         },
+         {
+          "id": "portepestes",
+          "name": "Portepestes",
+          "unitId": "portepestes",
+          "cout": 0,
+          "min": 0,
+          "max": 12
+         },
+         {
+          "id": "demonettes",
+          "name": "Démonettes",
+          "unitId": "demonettes",
+          "cout": 0,
+          "min": 0,
+          "max": 12
+         }
+        ],
+        "type": "choix_multiples"
+       }
+      }
+     ],
+     "unites": [],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "flotte_wb",
+   "name": "FLOTTE DE GUERRE DU CHAOS",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "escadrille_intercepteurs_wb",
+     "name": "Escadrille d'Intercepteurs",
+     "cout": 200,
+     "initiative": "2+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "intercepteur_hellblade",
+       "name": "Intercepteur Hellblade",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_chasseurs_bombardiers_wb",
+     "name": "Escadrille de Chasseurs-Bombardiers",
+     "cout": 225,
+     "initiative": "2+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "chasseur_bombardier_helltalon",
+       "name": "Chasseur-Bombardier Helltalon",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_wb",
+     "name": "Soutien Orbital",
+     "cout": 200,
+     "initiative": "1+",
+     "FormationLimite": 1,
+     "rare": true,
+     "unites": [
+      {
+       "id": "croiseur_devastation",
+       "name": "Croiseur de Classe Devastation",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "despoiler",
+       "name": "Cuirassé de Classe Despoiler",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "cuirasse_despoiler",
+         "name": "Cuirassé de Classe Despoiler",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "deathwheel_titans_wb",
+   "name": "DEATHWHEEL ET TITANS",
+   "type": "rare",
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "deathwheel_wb",
+     "name": "Deathweel",
+     "cout": 275,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "deathweel",
+       "name": "Deathweel",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_feral_wb",
+     "name": "Titan Feral",
+     "cout": 300,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_feral",
+       "name": "Titan Feral",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_ravager_wb",
+     "name": "Titan Ravager",
+     "cout": 650,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_ravager",
+       "name": "Titan Ravager",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_banelord_wb",
+     "name": "Titan Banelord",
+     "cout": 850,
+     "initiative": "1+",
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_banelord",
+       "name": "Titan Banelord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-export default defineEventHandler(async () => {
+export default defineCachedEventHandler(async () => {
   const supabase = useSupabaseServer()
 
   const { data, error } = await supabase
@@ -11,4 +11,4 @@ export default defineEventHandler(async () => {
   }
 
   return data
-})
+}, cacheDonnees('events-tous', () => 'v1'))

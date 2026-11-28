@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion, GameEvent } from '~/types/database'
 
+const urlSite = useUrlSite()
+
 useSeoMeta({
   title: 'Accueil',
   description: 'Communauté française Epic Armageddon — Retrouvez tous les codex d\'armées, règles, FAQ, événements et outils pour le jeu de figurines Epic à l\'échelle 6mm.',
   ogTitle: 'Epic Armageddon FR — Communauté française',
   ogDescription: 'Codex d\'armées, règles, FAQ, événements et outils pour Epic Armageddon.',
-  ogUrl: 'https://www.epicarmageddon.fr',
+  ogUrl: urlSite('/'),
 })
 
 type RecentVersion = ArmyVersion & { armies: Army }
@@ -239,6 +241,15 @@ const startSteps = [
 
     </section>
 
+    <!-- Listes publiques -->
+    <ListesPubliques :nombre="3" class="mx-auto max-w-6xl px-4 py-10">
+      <template #titre>
+        <h2 class="text-3xl font-bold md:text-4xl">Dernières listes partagées</h2>
+        <p class="mt-2 text-gray-400">Les armées partagées par les joueurs de la communauté</p>
+        <div class="mt-3 h-1 w-40 rounded-full bg-gradient-to-r from-gold to-transparent md:w-64" />
+      </template>
+    </ListesPubliques>
+
     <!-- Battle banner -->
     <section class="relative h-[30vh] overflow-hidden sm:h-[40vh]">
       <div class="absolute inset-0">
@@ -265,7 +276,7 @@ const startSteps = [
 
 <style scoped>
 .recent-icon {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(var(--c-blanc) / 0.8);
   mask-image: var(--icon-url);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -277,10 +288,10 @@ const startSteps = [
 }
 
 .group:hover .recent-icon {
-  background-color: #c8a052;
+  background-color: rgb(var(--c-gold));
 }
 
-.hero-title {
+.dark .hero-title {
   text-shadow:
     0 0 20px rgba(200, 160, 82, 0.5),
     0 0 60px rgba(200, 160, 82, 0.2),

@@ -1,10 +1,25 @@
 <script setup lang="ts">
 const mobileMenuOpen = ref(false)
 const route = useRoute()
+const { isAuthenticated, pseudo, init } = useAuth()
+const monte = useMonte()
+
+// le rôle et le pseudo ne servent qu'à l'affichage du menu : chargement sans blocage
+onMounted(() => { init() })
+
+// Le rendu serveur est mis en cache et partagé entre visiteurs : il montre
+// toujours « Connexion », le navigateur corrige après l'hydratation.
+const connecte = computed(() => monte.value && isAuthenticated.value)
 
 watch(() => route.fullPath, () => {
   mobileMenuOpen.value = false
 })
+
+/* tiroir mobile ouvert : la page derrière ne doit pas défiler sous le doigt */
+watch(mobileMenuOpen, (ouvert) => {
+  document.body.style.overflow = ouvert ? 'hidden' : ''
+})
+onBeforeUnmount(() => { document.body.style.overflow = '' })
 
 const navLinks = [
   { label: 'Accueil', to: '/' },
@@ -18,12 +33,15 @@ const navLinks = [
       { label: 'Armées Xenos', to: '/armees/xenos' },
       { label: 'Bêta & Expérimentaux', to: '/codex-beta' },
       { label: 'Epic 30k — Horus Hérésie', to: '/epic-30k' },
+      { label: 'Construire mon armée', to: '/codex' },
+      { label: 'Listes des joueurs', to: '/listes' },
     ],
   },
   { label: 'Règles & FAQ', to: '/regles' },
   { label: 'Événements', to: '/evenements' },
   { label: 'Outils', to: '/outils' },
   { label: 'Communauté', to: '/communaute' },
+  { label: 'Archives', to: '/archives' },
 ]
 
 const openDropdown = ref<string | null>(null)
@@ -107,20 +125,31 @@ function toggleDropdown(label: string) {
             </Transition>
           </div>
         </template>
+        <BoutonTheme class="ml-1 rounded-md p-2.5 text-gray-300 transition-colors hover:bg-surface-lighter hover:text-gold" />
+        <NuxtLink
+          :to="connecte ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
+          class="ml-2 rounded-md border border-gold/25 px-4 py-2 text-sm font-medium text-gold transition-colors hover:bg-gold/10"
+          active-class="bg-gold/10"
+        >
+          {{ connecte ? (pseudo ?? 'Mon compte') : 'Connexion' }}
+        </NuxtLink>
       </nav>
 
       <!-- Mobile menu button -->
-      <button
-        class="rounded-md p-2.5 text-gray-300 hover:text-gold lg:hidden"
-        @click="mobileMenuOpen = !mobileMenuOpen"
-      >
-        <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-1 lg:hidden">
+        <BoutonTheme class="rounded-md p-2.5 text-gray-300 hover:text-gold" />
+        <button
+          class="rounded-md p-2.5 text-gray-300 hover:text-gold"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg v-else class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
 
   </header>
@@ -203,6 +232,16 @@ function toggleDropdown(label: string) {
               </Transition>
             </div>
           </template>
+        </div>
+
+        <!-- Compte -->
+        <div class="border-t border-gold/10 px-3 py-3">
+          <NuxtLink
+            :to="connecte ? '/compte' : `/connexion?suivant=${encodeURIComponent(route.fullPath)}`"
+            class="flex items-center rounded-lg px-4 py-3 text-[15px] font-medium text-gold transition-colors hover:bg-gold/10"
+          >
+            {{ connecte ? (pseudo ?? 'Mon compte') : 'Connexion' }}
+          </NuxtLink>
         </div>
 
         <!-- Bottom brand -->

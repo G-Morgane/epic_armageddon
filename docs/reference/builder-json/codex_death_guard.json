@@ -1,0 +1,761 @@
+{
+ "codex": {
+  "id": "death_guard",
+  "name": "Death Guard",
+  "version": "1.2.1",
+  "faction": "Chaos",
+  "color": "#588300",
+  "logo": "dg.png",
+  "categorie": "armees-chaos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "label_rares": "Support de la Death Guard",
+   "valeur_strategique": 4,
+   "initiative_defaut": "1+",
+   "initiative_exceptions": "2+ (Démons Mineurs sans Grand Immonde, Flotte, Infestation de Zombies, Artillerie de la Peste, Avant-garde de la Ruine)"
+  },
+  "statut": "validation"
+ },
+ "ameliorations": [
+  {
+   "id": "personnage_dg",
+   "name": "Personnage du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter un personnage à la formation",
+   "choix": [
+    {
+     "name": "Seigneur du Chaos",
+     "cout": 50,
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Champion Exalté du Chaos",
+     "cout": 25
+    },
+    {
+     "name": "Sorcier du Chaos",
+     "cout": 25
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "porte_icone_dg",
+   "name": "Porte-Icône",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter un Porte-Icône (permet une formation démoniaque associée)",
+   "unites": [
+    {
+     "id": "porte_icone",
+     "name": "Porte-Icône",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "dreadnoughts_dg",
+   "name": "Dreadnoughts du Chaos",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 1,
+   "description": "Ajouter jusqu'à 4 Dreadnoughts du Chaos (50 pts/unité)",
+   "unites": [
+    {
+     "id": "dreadnought_chaos",
+     "name": "Dreadnought du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_dg",
+   "name": "Transports",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des transports à la formation",
+   "choix": [
+    {
+     "id": "rhinos_dg",
+     "name": "Rhinos du Chaos",
+     "cout": 50
+    },
+    {
+     "id": "dreadclaws_dg",
+     "name": "Dreadclaws",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_elus_dg",
+   "name": "Transports — Élus",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des transports aux Terminators",
+   "choix": [
+    {
+     "id": "dreadclaws_elus_dg",
+     "name": "Dreadclaws",
+     "cout": 50
+    },
+    {
+     "id": "teleportation_elus_dg",
+     "name": "Téléportation",
+     "cout": 50
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_havocs_dg",
+   "name": "Transports",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des transports aux Havocs",
+   "choix": [
+    {
+     "id": "rhinos_havocs_dg",
+     "name": "Rhinos du Chaos",
+     "cout": 25
+    },
+    {
+     "id": "dreadclaws_havocs_dg",
+     "name": "Dreadclaws",
+     "cout": 25
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "enfants_chaos_dg",
+   "name": "Enfants du Chaos",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 3,
+   "description": "Ajouter de 1 à 3 Enfants du Chaos (25 pts/unité)",
+   "unites": [
+    {
+     "id": "enfant_chaos",
+     "name": "Enfant du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "pourriture_nurgle_dg",
+   "name": "Pourriture de Nurgle",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter la Pourriture de Nurgle à la formation",
+   "unites": []
+  },
+  {
+   "id": "defilers_dg",
+   "name": "Defilers",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des Defilers à la formation",
+   "choix": [
+    {
+     "id": "defiler_1_dg",
+     "name": "1 Defiler",
+     "cout": 75
+    },
+    {
+     "id": "defiler_2_dg",
+     "name": "2 Defilers",
+     "cout": 125
+    }
+   ],
+   "unites": [
+    {
+     "id": "defiler",
+     "name": "Defiler",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "stalker_dg",
+   "name": "1 Stalker",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Stalker à la formation",
+   "unites": [
+    {
+     "id": "stalker",
+     "name": "Stalker",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "support_lourds_dg",
+   "name": "Supports Lourds",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des supports lourds à la formation",
+   "choix": [
+    {
+     "id": "vindicators_dg",
+     "name": "2 Vindicators du Chaos",
+     "cout": 75
+    },
+    {
+     "id": "predators_dg",
+     "name": "2 Prédators du Chaos",
+     "cout": 75
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "land_raiders_dg",
+   "name": "Land Raiders du Chaos",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des Land Raiders du Chaos à la formation",
+   "choix": [
+    {
+     "id": "lr_1_dg",
+     "name": "1 Land Raider",
+     "cout": 75
+    },
+    {
+     "id": "lr_2_dg",
+     "name": "2 Land Raiders",
+     "cout": 125
+    },
+    {
+     "id": "lr_3_dg",
+     "name": "3 Land Raiders",
+     "cout": 200
+    },
+    {
+     "id": "lr_4_dg",
+     "name": "4 Land Raiders",
+     "cout": 250
+    },
+    {
+     "id": "lr_5_dg",
+     "name": "5 Land Raiders",
+     "cout": 325
+    },
+    {
+     "id": "lr_6_dg",
+     "name": "6 Land Raiders",
+     "cout": 375
+    }
+   ],
+   "unites": [
+    {
+     "id": "land_raider_chaos",
+     "name": "Land Raider du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "obliterators_dg",
+   "name": "Obliterators",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des Obliterators à la formation",
+   "choix": [
+    {
+     "id": "obli_1_dg",
+     "name": "1 Obliterator",
+     "cout": 75
+    },
+    {
+     "id": "obli_2_dg",
+     "name": "2 Obliterators",
+     "cout": 125
+    },
+    {
+     "id": "obli_3_dg",
+     "name": "3 Obliterators",
+     "cout": 200
+    }
+   ],
+   "unites": [
+    {
+     "id": "obliterators",
+     "name": "Obliterators",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "grand_immonde_amelio_dg",
+   "name": "0-1 Grand Immonde",
+   "cout": 150,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Grand Immonde aux Démons Mineurs (0-1 par armée, si Démon Majeur non pris)",
+   "unites": [
+    {
+     "id": "grand_immonde",
+     "name": "Grand Immonde",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "prince_demon_dg",
+   "name": "Prince Démon",
+   "cout": 0,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Remplace le personnage de la formation par un Prince Démon",
+   "type_remplacement": {
+    "remplace_unites": [
+     "marines_peste",
+     "elus_terminators_chaos",
+     "havocs"
+    ],
+    "par_unite": "prince_demon",
+    "quantite_fixe": true
+   },
+   "choix": [
+    {
+     "name": "Prince Démon (remplace Seigneur)",
+     "cout": 50,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Seigneur)",
+     "cout": 50,
+     "commandant_supreme": true
+    },
+    {
+     "name": "Prince Démon (remplace Champion Exalté)",
+     "cout": 50
+    },
+    {
+     "name": "Prince Démon Ailé (remplace Champion Exalté)",
+     "cout": 50
+    }
+   ],
+   "unites": [
+    {
+     "id": "prince_demon",
+     "name": "Prince Démon",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "detachements_dg",
+   "name": "DÉTACHEMENTS DE LA DEATH GUARD",
+   "type": "principale",
+   "description": "Max 4 améliorations par détachement. Au moins une Suite de Marines de la Peste obligatoire.",
+   "formations": [
+    {
+     "id": "suite_marines_peste",
+     "name": "Suite de Marines de la Peste",
+     "cout": 275,
+     "FormationMinimum": 1,
+     "FormationLimitationTag": {
+      "slot_soutien_dg_B": 1
+     },
+     "limiteOptionFormation": 4,
+     "unites": [
+      {
+       "id": "marines_peste",
+       "name": "Marines de la Peste",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "personnage_dg",
+      "porte_icone_dg",
+      "dreadnoughts_dg",
+      "transport_dg",
+      "enfants_chaos_dg",
+      "pourriture_nurgle_dg",
+      "defilers_dg",
+      "stalker_dg",
+      "support_lourds_dg",
+      "land_raiders_dg",
+      "prince_demon_dg"
+     ]
+    },
+    {
+     "id": "blightlord_terminators",
+     "name": "0-2 Blightlord Terminators",
+     "cout": 200,
+     "FormationLimite": 2,
+     "limiteOptionFormation": 4,
+     "variantes": [
+      {
+       "id": "terminators_5",
+       "name": "5 Blightlord Terminators",
+       "cout": 250,
+       "nombre_exact": 5
+      },
+      {
+       "id": "terminators_6",
+       "name": "6 Blightlord Terminators",
+       "cout": 300,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": [
+      {
+       "id": "elus_terminators_chaos",
+       "name": "Élus Terminators du Chaos",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "personnage_dg",
+      "porte_icone_dg",
+      "dreadnoughts_dg",
+      "transport_elus_dg",
+      "defilers_dg",
+      "stalker_dg",
+      "support_lourds_dg",
+      "land_raiders_dg",
+      "prince_demon_dg"
+     ]
+    },
+    {
+     "id": "compagnie_blindee_dg",
+     "name": "Compagnie Blindée",
+     "cout": 200,
+     "limiteOptionFormation": 4,
+     "variantes": [
+      {
+       "id": "blindee_lr",
+       "name": "4 Land Raiders du Chaos",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "land_raider_chaos",
+         "name": "Land Raider du Chaos",
+         "nombre": 4
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "predator_chaos",
+       "name": "Prédator du Chaos",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "stalker_dg",
+      "support_lourds_dg",
+      "land_raiders_dg"
+     ]
+    },
+    {
+     "id": "demons_mineurs_dg",
+     "name": "0-2 Démons Mineurs",
+     "cout": 175,
+     "FormationLimite": 2,
+     "variantes": [
+      {
+       "id": "portepestes_12",
+       "name": "12 Portepestes",
+       "cout": 275,
+       "nombre_exact": 12
+      }
+     ],
+     "unites": [
+      {
+       "id": "portepestes",
+       "name": "Portepestes",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "grand_immonde_amelio_dg"
+     ]
+    },
+    {
+     "id": "demon_majeur_dg",
+     "name": "0-1 Démon Majeur — Grand Immonde",
+     "cout": 200,
+     "FormationLimite": 1,
+     "unites": [
+      {
+       "id": "grand_immonde",
+       "name": "Grand Immonde",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "infestation_zombies",
+     "name": "0-2 Infestation de Zombies de la Peste",
+     "cout": 175,
+     "FormationLimite": 2,
+     "description": "2D6+6 Zombies de la Peste",
+     "unites": [
+      {
+       "id": "zombies_peste",
+       "name": "Zombies de la Peste",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "soutien_dg",
+   "name": "DÉTACHEMENTS DE SOUTIEN DE LA DEATH GUARD",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_dg_B",
+   "description": "Un détachement de soutien par Suite de Marines de la Peste",
+   "formations": [
+    {
+     "id": "suite_havocs",
+     "name": "Suite d'Havocs",
+     "cout": 225,
+     "unites": [
+      {
+       "id": "havocs",
+       "name": "Havocs",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "personnage_dg",
+      "porte_icone_dg",
+      "obliterators_dg",
+      "dreadnoughts_dg",
+      "transport_havocs_dg",
+      "defilers_dg",
+      "stalker_dg",
+      "support_lourds_dg",
+      "land_raiders_dg",
+      "prince_demon_dg"
+     ]
+    },
+    {
+     "id": "artillerie_peste",
+     "name": "Artillerie de la Peste",
+     "cout": 300,
+     "variantes": [
+      {
+       "id": "contagion_6",
+       "name": "6 Machines de Contagion",
+       "cout": 450,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": [
+      {
+       "id": "machine_contagion",
+       "name": "Machine de Contagion",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "compagnie_plaguereaper",
+     "name": "0-2 Compagnie Lourde Plaguereaper",
+     "cout": 225,
+     "FormationLimite": 2,
+     "variantes": [
+      {
+       "id": "decimator_2",
+       "name": "2 Decimators",
+       "cout": 450,
+       "nombre_exact": 2
+      },
+      {
+       "id": "decimator_3",
+       "name": "3 Decimators",
+       "cout": 675,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": [
+      {
+       "id": "decimator",
+       "name": "Decimator",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "avantgarde_ruine",
+     "name": "Avant-garde de la Ruine",
+     "cout": 225,
+     "variantes": [
+      {
+       "id": "drones_6",
+       "name": "6 Drones de la Ruine",
+       "cout": 325,
+       "nombre_exact": 6
+      }
+     ],
+     "unites": [
+      {
+       "id": "drone_ruine",
+       "name": "Drone de la ruine",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "flotte_dg",
+   "name": "FLOTTE DE GUERRE DU CHAOS",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "hellblades_dg",
+     "name": "Escadrille Hellblades",
+     "cout": 200,
+     "rare": true,
+     "unites": [
+      {
+       "id": "intercepteur_hellblade",
+       "name": "Intercepteur Hellblade",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "helltalons_dg",
+     "name": "Escadrille Helltalons",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "helltalon",
+       "name": "Chasseur-Bombardier Helltalon",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_dg",
+     "name": "Soutien Orbital",
+     "cout": 200,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "despoiler_dg",
+       "name": "1 Cuirassé de Classe Despoiler",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "cuirasse_despoiler",
+         "name": "Cuirassé de Classe Despoiler",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "croiseur_devastation",
+       "name": "Croiseur de Classe Devastation",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_dg",
+   "name": "SOUTIEN TITANIQUE DES LÉGIONS RENÉGATES",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "tour_peste",
+     "name": "0-2 Tour de la Peste",
+     "cout": 375,
+     "rare": true,
+     "FormationLimite": 2,
+     "variantes": [
+      {
+       "id": "tour_peste_2",
+       "name": "2 Tours de la Peste",
+       "cout": 750,
+       "nombre_exact": 2
+      }
+     ],
+     "unites": [
+      {
+       "id": "tour_peste_unite",
+       "name": "Tour de la Peste",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_feral",
+     "name": "Titan Feral",
+     "cout": 300,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_feral",
+       "name": "Titan Feral",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_ravager",
+     "name": "Titan Ravager",
+     "cout": 650,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_ravager",
+       "name": "Titan Ravager",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_banelord",
+     "name": "Titan Banelord",
+     "cout": 850,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_banelord",
+       "name": "Titan Banelord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

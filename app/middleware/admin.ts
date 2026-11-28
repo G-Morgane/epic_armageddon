@@ -1,15 +1,15 @@
 export default defineNuxtRouteMiddleware(async () => {
-  const { isAuthenticated, isAdmin, loading, init, user } = useAuth()
+  if (import.meta.dev && useRuntimeConfig().public.codexDemoSansAuth) return
 
-  if (loading.value) {
-    await init()
-  }
+  const { isAuthenticated, isAdmin, init, user } = useAuth()
+  // la session est déjà connue (cookie) ; il ne manque que le rôle
+  await init()
 
   if (!isAuthenticated.value || !isAdmin.value) {
     return navigateTo('/admin/login')
   }
 
-  // Check if user must change password (first login)
+  // Premier passage d'un compte invité : mot de passe à choisir
   if (user.value?.user_metadata?.must_change_password) {
     return navigateTo('/admin/setup-password')
   }

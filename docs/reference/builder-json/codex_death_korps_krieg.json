@@ -1,0 +1,857 @@
+{
+ "codex": {
+  "id": "death_korps_krieg",
+  "name": "Death Korps of Krieg",
+  "version": "1.4",
+  "faction": "Impérium",
+  "color": "#30545e",
+  "logo": "krieg.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 2,
+   "initiative_defaut": "2+",
+   "initiative_titanicus": "1+ (formations de l'Adeptus Titanicus)",
+   "label_rares": "Soutien du Munitorum",
+   "commissaire_quota_soutien": {
+    "points_par_tranche": 1000
+   }
+  },
+  "statut": "valide"
+ },
+ "ameliorations": [
+  {
+   "id": "appui_feu_dkok",
+   "name": "Peloton Appui-feu (x4)",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 4 unités d'Appui-feu DKOK",
+   "unites": [
+    {
+     "id": "appui_feu_dkok",
+     "name": "Appui-feu DKOK",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "infanterie_supp_dkok",
+   "name": "Peloton d'Infanterie (x6)",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 6 unités de Fantassins DKOK",
+   "unites": [
+    {
+     "id": "fantassin_dkok",
+     "name": "Fantassin DKOK",
+     "nombre": 6
+    }
+   ]
+  },
+  {
+   "id": "support_artillerie_dkok",
+   "name": "Peloton de Support",
+   "cout": 125,
+   "limit": 1,
+   "description": "Ajouter 4 Quads Launchers ou 4 Mortiers Lourds",
+   "choix": [
+    {
+     "id": "quads_dkok",
+     "name": "4 Quads Launchers",
+     "cout": 125
+    },
+    {
+     "id": "mortiers_dkok",
+     "name": "4 Mortiers Lourds",
+     "cout": 125
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "leman_russ_escadron_dkok",
+   "name": "Escadron Leman Russ (x3)",
+   "cout": 175,
+   "limit": 1,
+   "description": "Ajouter 3 Leman Russ ou 3 Leman Russ Thunderer",
+   "choix": [
+    {
+     "id": "lr_dkok",
+     "name": "3 Leman Russ",
+     "cout": 175
+    },
+    {
+     "id": "lr_thunderer_dkok",
+     "name": "3 Leman Russ Thunderer",
+     "cout": 175
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "hellhounds_dkok",
+   "name": "Escadron de 3 Hellhounds",
+   "cout": 150,
+   "limit": 1,
+   "description": "Ajouter 3 Hellhounds",
+   "unites": [
+    {
+     "id": "hellhound",
+     "name": "Hellhound",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "char_lourd_dkok",
+   "name": "Char Lourd",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 1 Macharius Vulcain ou 1 Macharius",
+   "choix": [
+    {
+     "id": "macharius_vulcain_dkok",
+     "name": "1 Macharius Vulcain",
+     "cout": 150
+    },
+    {
+     "id": "macharius_dkok",
+     "name": "1 Macharius",
+     "cout": 125
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "transport_siege_dkok",
+   "name": "Transport de Siège",
+   "cout": 175,
+   "limit": 1,
+   "description": "Ajouter 2 Gorgones ou 2 Gorgones Mortiers",
+   "choix": [
+    {
+     "id": "gorgones_dkok",
+     "name": "2 Gorgones",
+     "cout": 175
+    },
+    {
+     "id": "gorgones_mortiers_dkok",
+     "name": "2 Gorgones Mortiers",
+     "cout": 175
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "commissaire_dkok",
+   "name": "Commissaire",
+   "cout": 0,
+   "limit": 1,
+   "commissaire": true,
+   "regle_quota": "commissaire_quota_soutien",
+   "non_comptee": true,
+   "description": "Ajouter un Commissaire à la formation (1 gratuit par tranche de 1000 pts de compagnies)",
+   "unites": [
+    {
+     "id": "commissaire",
+     "name": "Commissaire",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "transport_grenadiers_dkok",
+   "name": "Transport",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter un transport aux Grenadiers",
+   "choix": [
+    {
+     "id": "centaures_dkok",
+     "name": "8 Centaures",
+     "cout": 75
+    },
+    {
+     "id": "gorgone_mortiers_gren_dkok",
+     "name": "1 Gorgone Mortiers",
+     "cout": 100
+    },
+    {
+     "id": "gorgone_gren_dkok",
+     "name": "1 Gorgone",
+     "cout": 100
+    },
+    {
+     "id": "chimeres_storm_dkok",
+     "name": "4 Chimères Storm",
+     "cout": 125
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "artillerie_extra_dkok",
+   "name": "3 Emplacements / 3 Trojans",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter 3 Emplacements d'artillerie ou 3 Trojans",
+   "choix": [
+    {
+     "id": "emplacements_dkok",
+     "name": "3 Emplacements d'artillerie",
+     "cout": 25
+    },
+    {
+     "id": "trojans_dkok",
+     "name": "3 Trojans",
+     "cout": 25
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "emplacements_siege_dkok",
+   "name": "3 Emplacements d'artillerie",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter 3 Emplacements d'artillerie à la batterie de siège",
+   "unites": [
+    {
+     "id": "emplacement_artillerie",
+     "name": "Emplacement d'artillerie",
+     "nombre": 3
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "compagnies_dkok",
+   "name": "COMPAGNIES DE LA DEATH KORPS DE KRIEG",
+   "type": "principale",
+   "description": "Max 3 améliorations par compagnie. Chaque amélioration ne peut être prise qu'une seule fois.",
+   "formations": [
+    {
+     "id": "qg_dkok",
+     "name": "0-1 QG Régimentaire",
+     "cout": 250,
+     "FormationLimite": 1,
+     "FormationLimitationTag": {
+      "slot_appui_dkok_A": 2,
+      "slot_fortif_dkok_B": 1
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "qg_dkok_unite",
+       "name": "Quartier Général DKOK",
+       "nombre": 1
+      },
+      {
+       "id": "fantassin_dkok",
+       "name": "Fantassin DKOK",
+       "nombre": 12
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "appui_feu_dkok",
+      "infanterie_supp_dkok",
+      "support_artillerie_dkok",
+      "transport_siege_dkok",
+      "leman_russ_escadron_dkok",
+      "hellhounds_dkok",
+      "char_lourd_dkok"
+     ]
+    },
+    {
+     "id": "compagnie_infanterie_dkok",
+     "name": "Compagnie d'Infanterie",
+     "cout": 200,
+     "FormationLimitationTag": {
+      "slot_appui_dkok_A": 2,
+      "slot_fortif_dkok_B": 1
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "commandant_dkok",
+       "name": "Commandant DKOK",
+       "nombre": 1
+      },
+      {
+       "id": "fantassin_dkok",
+       "name": "Fantassin DKOK",
+       "nombre": 12
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "appui_feu_dkok",
+      "infanterie_supp_dkok",
+      "support_artillerie_dkok",
+      "transport_siege_dkok",
+      "leman_russ_escadron_dkok",
+      "hellhounds_dkok",
+      "char_lourd_dkok"
+     ]
+    },
+    {
+     "id": "compagnie_death_riders_dkok",
+     "name": "Compagnie de Death Riders",
+     "cout": 250,
+     "FormationLimitationTag": {
+      "slot_appui_dkok_A": 2,
+      "slot_fortif_dkok_B": 1
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "commandant_death_rider",
+       "name": "Commandant Death Riders",
+       "nombre": 1
+      },
+      {
+       "id": "death_rider",
+       "name": "Death Rider",
+       "nombre": 11
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "appui_feu_dkok",
+      "infanterie_supp_dkok",
+      "support_artillerie_dkok",
+      "leman_russ_escadron_dkok",
+      "hellhounds_dkok",
+      "char_lourd_dkok"
+     ]
+    },
+    {
+     "id": "compagnie_artillerie_dkok",
+     "name": "Compagnie d'Artillerie",
+     "cout": 400,
+     "FormationLimitationTag": {
+      "slot_appui_dkok_A": 2,
+      "slot_fortif_dkok_B": 1
+     },
+     "limiteOptionFormation": 3,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "total": 9,
+      "description": "9 canons parmi : Canon Séisme, Canon Antiaérien Lourd, Canon Medusa (+ 9 emplacements inclus)",
+      "principale": true,
+      "options": [
+       {
+        "id": "canon_seisme",
+        "name": "Canon Séisme",
+        "unitId": "canon_seisme",
+        "cout": 0,
+        "min": 0,
+        "max": 9
+       },
+       {
+        "id": "canon_antiaerien_lourd",
+        "name": "Canon Antiaérien Lourd",
+        "unitId": "canon_antiaerien_lourd",
+        "cout": 0,
+        "min": 0,
+        "max": 9
+       },
+       {
+        "id": "canon_medusa",
+        "name": "Canon Medusa",
+        "unitId": "canon_medusa",
+        "cout": 0,
+        "min": 0,
+        "max": 9
+       }
+      ]
+     },
+     "ameliorations": [
+      "appui_feu_dkok",
+      "infanterie_supp_dkok",
+      "support_artillerie_dkok",
+      "leman_russ_escadron_dkok",
+      "hellhounds_dkok",
+      "char_lourd_dkok"
+     ]
+    },
+    {
+     "id": "compagnie_chars_lourds_dkok",
+     "name": "Compagnie de Chars Lourds",
+     "cout": 325,
+     "FormationLimitationTag": {
+      "slot_appui_dkok_A": 2,
+      "slot_fortif_dkok_B": 1
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "macharius",
+       "name": "Macharius",
+       "nombre": 2
+      },
+      {
+       "id": "macharius_commandement",
+       "name": "Char de Commandement Macharius",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "chars_lourds_vulcain",
+       "name": "3 Macharius Vulcain",
+       "cout": 325,
+       "unites_override": [
+        {
+         "id": "macharius_vulcain",
+         "name": "Macharius Vulcain",
+         "nombre": 3
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "appui_feu_dkok",
+      "infanterie_supp_dkok",
+      "support_artillerie_dkok",
+      "leman_russ_escadron_dkok",
+      "hellhounds_dkok",
+      "char_lourd_dkok"
+     ]
+    },
+    {
+     "id": "compagnie_leman_russ_dkok",
+     "name": "Compagnie de Leman Russ",
+     "cout": 600,
+     "FormationLimitationTag": {
+      "slot_appui_dkok_A": 2,
+      "slot_fortif_dkok_B": 1
+     },
+     "limiteOptionFormation": 3,
+     "unites": [
+      {
+       "id": "leman_russ_vanquisher",
+       "name": "Leman Russ Vanquisher",
+       "nombre": 1
+      },
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 9
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "appui_feu_dkok",
+      "infanterie_supp_dkok",
+      "support_artillerie_dkok",
+      "leman_russ_escadron_dkok",
+      "hellhounds_dkok",
+      "char_lourd_dkok"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "appui_dkok",
+   "name": "FORMATIONS D'APPUI DE LA DEATH KORPS DE KRIEG",
+   "type": "associee",
+   "LimitationTag": "slot_appui_dkok_A",
+   "description": "Jusqu'à 2 formations de support par compagnie",
+   "formations": [
+    {
+     "id": "peloton_grenadiers",
+     "name": "Peloton de Grenadiers",
+     "cout": 175,
+     "unites": [
+      {
+       "id": "grenadier_dkok",
+       "name": "Grenadier DKOK",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "transport_grenadiers_dkok",
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "peloton_ingenieurs",
+     "name": "Peloton d'Ingénieurs",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "ingenieur_dkok",
+       "name": "Ingénieur DKOK",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "peloton_death_riders_appui",
+     "name": "Peloton de Death Riders",
+     "cout": 150,
+     "description": "Toutes les unités gagnent la capacité Éclaireur",
+     "unites": [
+      {
+       "id": "death_rider",
+       "name": "Death Rider",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "silo_deathstrike",
+     "name": "0-1 Silo Deathstrike",
+     "cout": 250,
+     "FormationLimite": 1,
+     "unites": [
+      {
+       "id": "silo_deathstrike_unite",
+       "name": "Silo à missiles Deathstrike",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "batterie_legere_support",
+     "name": "Batterie Légère de Support",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "quad_launcher",
+       "name": "Quad Launcher",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "bls_mortiers",
+       "name": "4 Mortiers Lourds + 4 Centaures",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "mortier_lourd",
+         "name": "Mortier Lourd",
+         "nombre": 4
+        },
+        {
+         "id": "centaure",
+         "name": "Centaure",
+         "nombre": 4
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "batterie_lourde_support",
+     "name": "Batterie Lourde de Support",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "canon_seisme",
+       "name": "Canon Séisme",
+       "nombre": 3
+      }
+     ],
+     "variantes": [
+      {
+       "id": "bls_medusa",
+       "name": "3 Canons Medusa",
+       "cout": 150,
+       "unites_override": [
+        {
+         "id": "canon_medusa",
+         "name": "Canon Medusa",
+         "nombre": 3
+        }
+       ]
+      },
+      {
+       "id": "bls_aa",
+       "name": "3 Canons Antiaériens Lourds",
+       "cout": 100,
+       "unites_override": [
+        {
+         "id": "canon_antiaerien_lourd",
+         "name": "Canon Antiaérien Lourd",
+         "nombre": 3
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "artillerie_extra_dkok",
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "batterie_lourde_siege",
+     "name": "Batterie Lourde de Siège",
+     "cout": 250,
+     "unites": [
+      {
+       "id": "bombarde",
+       "name": "Bombarde",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "emplacements_siege_dkok",
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "peloton_leman_russ_appui",
+     "name": "Peloton de Leman Russ",
+     "cout": 350,
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "peloton_hellhounds_appui",
+     "name": "Peloton de Hellhounds",
+     "cout": 300,
+     "unites": [
+      {
+       "id": "hellhound",
+       "name": "Hellhound",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_dkok"
+     ]
+    },
+    {
+     "id": "peloton_super_lourd",
+     "name": "Peloton de Char Super Lourd",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "baneblade",
+       "name": "Baneblade",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "super_lourd_shadowsword",
+       "name": "1 Shadowsword",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "shadowsword",
+         "name": "Shadowsword",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "super_lourd_stormsword",
+       "name": "1 Stormsword",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "stormsword",
+         "name": "Stormsword",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "commissaire_dkok"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fortifications_dkok",
+   "name": "FORTIFICATIONS DE LA DEATH KORPS DE KRIEG",
+   "type": "associee",
+   "LimitationTag": "slot_fortif_dkok_B",
+   "description": "Jusqu'à 1 fortification par QG Régimentaire et Compagnie d'Infanterie",
+   "formations": [
+    {
+     "id": "positions_fortifiees",
+     "name": "Positions Fortifiées",
+     "cout": 100,
+     "rare": true,
+     "description": "Jusqu'à 80cm de Tranchées + 3 Bunkers + jusqu'à 80cm de Barbelés",
+     "unites": [],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "aeronautica_dkok",
+   "name": "FLOTTES DE L'AERONAUTICA IMPERIALIS",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "intercepteurs_dkok",
+     "name": "Escadrille d'Intercepteurs",
+     "cout": 150,
+     "rare": true,
+     "unites": [
+      {
+       "id": "thunderbolt",
+       "name": "Thunderbolt",
+       "nombre": 2
+      }
+     ],
+     "variantes": [
+      {
+       "id": "thunderbolt_4",
+       "name": "4 Thunderbolts",
+       "cout": 300,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "bombardiers_dkok",
+     "name": "Escadrille de Bombardiers",
+     "cout": 250,
+     "rare": true,
+     "unites": [
+      {
+       "id": "bombardier_marauder",
+       "name": "Bombardier Marauder",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_dkok",
+     "name": "Soutien Orbital",
+     "cout": 100,
+     "rare": true,
+     "unites": [
+      {
+       "id": "croiseur_lunar",
+       "name": "Croiseur Classe Lunar",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "cuirasse_emperor_dkok",
+       "name": "1 Cuirassé Emperor",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "cuirasse_emperor",
+         "name": "Cuirassé Emperor",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_dkok",
+   "name": "SOUTIENS DE L'ADEPTUS TITANICUS",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "warhound_dkok",
+     "name": "Titan Warhound",
+     "cout": 275,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_warhound",
+       "name": "Titan Warhound",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "warhound_2_dkok",
+       "name": "2 Titans Warhound",
+       "cout": 500,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "reaver_dkok",
+     "name": "Titan Reaver",
+     "cout": 650,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_reaver",
+       "name": "Titan Reaver",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "warlord_dkok",
+     "name": "Titan Warlord",
+     "cout": 850,
+     "rare": true,
+     "unites": [
+      {
+       "id": "titan_warlord",
+       "name": "Titan Warlord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

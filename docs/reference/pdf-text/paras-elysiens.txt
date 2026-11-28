@@ -1,0 +1,550 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+PARAS ÉLYSIENS 
+ 
+ 
+"Les commandants ennemis se croient à l’abri de la colère de 
+l’Empereur derrière des kilomètres de fortifications et de 
+légions de guerriers. Ils n’ont pas tenu compte de nous. Faites 
+la paix avec l’Empereur, messieurs, on arrive dans deux 
+minutes."  
+Colonelle Johanna van Meer, 13ème Élysien 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous autorise à mettre sur pied un régiment 
+aéroporté de l’Astra Militarum basée sur le 23ème Para Élysien 
+lors de la campagne de Taros. Cette liste peut également être 
+utilisée pour représenter d’autres compagnies des Paras 
+Élysiens ou des régiments aéroportés de la Garde Impériale 
+d’autres origines comme ceux de Vanaheim.  
+Les armées de l’Astra Militarum sont organisées autour de 
+grandes formations appelées compagnies, elles-mêmes 
+complétées par des formations d’appui et des formations de 
+support qui leurs sont autonomes. 
+Chaque compagnie peut choisir des améliorations. Chaque 
+amélioration ne peut être prise qu’une fois par compagnie. 
+Les améliorations font partie intégrante des formations et 
+doivent respecter les règles de cohésion. Chaque compagnie 
+peut prendre jusqu’à trois améliorations.  
+ 
+Les formations d’appui ne peuvent en principe pas recevoir 
+d'améliorations, sauf celles indiquées en italique pour 
+chacune de leurs formations.  
+Les formations de support sont des formations autonomes 
+des 
+compagnies. 
+Elles 
+ne 
+peuvent 
+pas 
+recevoir 
+d'améliorations. Un maximum de ⅓ des points peuvent être 
+dépensés pour ces formations. 
+ 
+ 
+ 
+Règle spéciale : Commissaires 
+ 
+Pour chaque Compagnie qu'inclut votre armée, un 
+commissaire y est automatiquement intégré. 
+ 
+De plus, vous pouvez ajouter gratuitement un commissaire 
+dans une Formation d'Appui pour chaque tranche (même 
+incomplète) de 1.000 points dans votre armée. 
+ 
+Une compagnie ou une formation ne peut avoir qu'un seul 
+commissaire. 
+ 
+Règle spéciale : Insertion par Grav-Chute 
+ 
+Les Paras Élysiens ont pour spécialité une utilisation 
+intensive et exclusive de Valkyries pour transporter leurs 
+fantassins. Le combat débarqué depuis les airs par 
+grav-chute est une seconde nature pour ce régiment. 
+ 
+Toutes les unités des Paras Élysiens peuvent être placées 
+jusqu’à 15cm de leur transport lorsqu'elles débarquent. 
+ 
+Les Paras Élysiens sont des troupes d’élite généralement 
+conservées en réserve jusqu’au moment opportun. Aucun 
+commandant impérial ne se risquerait à gaspiller leur 
+potentiel en les assignant à des missions statiques ou 
+d’importance secondaire. 
+ 
+Seules les formations de Tarentules, Tauros, Vétérans et 
+Vultures peuvent être déployées en garnison. 
+Sentinelle aéroportée du 23ème Régiment Élysien, armée d’un 
+multi-fuseur. Son matricule est le 8. Ce véhicule est en gris codex, 
+d’autres se sont vus peindre un camouflage par leurs pilotes. 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. 
+Utilisés sans approbation, ni volonté de préjudice ou comme opposition au copyright de Games Workshop LTD. Illustrations : Fantasy Flight Games,  Marcin 
+Jakubowski https://www.mjakubowski.art (couverture) et GW LTD (corps). 
+1 - CODEX PARAS ELYSIENS - EAFR - REV 1.1.2 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Assaut Planétaire 
+ 
+Si l’armée comprend une Frégate Claymore, toutes les Valkyries (tous types) et tous les Vultures (tous types) d’une formation 
+peuvent gagner la note “Assaut Planétaire” pour 25 pts. Ceci permet à la formation d’être transporté par la Frégate Claymore 
+(dans la limite des places disponibles) et de réaliser un assaut planétaire selon la règle spéciale suivante :  
+ 
+Placez une première Valkyrie/Vulture en utilisant les règles d’Assaut Planétaire (4.3 et 4.4 du Livre de Règles). 
+ 
+Ensuite, placez les autres Valkyries et Vultures (ceci peut déclencher un tir d’État d’Alerte normalement) complètement à 
+moins de 15 cm de la première, en cohésion et en dehors de toute zone de contrôle ennemie. 
+ 
+Si les unités ne peuvent pas se déployer en totalité en respectant les règles ci-dessus, les unités restantes seront détruites 
+sans attribution de pion impact. 
+ 
+Si plusieurs formations font un Assaut Planétaire, placez une Valkyrie/Vulture pour chaque formation concernée aux 
+coordonnées prédéterminées en utilisant les règles d’Assaut Planétaire (y compris la résolution de dispersion). Puis 
+déployez toutes les formations transportées, en suivant les règles ci-dessus. 
+ 
+ 
+ 
+ 
+Tauros et Valkyries Sky Talons déployés lors de l’assaut sur Betalis III
+ 
+2 - CODEX PARAS ELYSIENS - EAFR - REV 1.1.2 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE DES PARAS ÉLYSIENS 
+ 
+Les armées des Paras Élysiens ont une valeur stratégique de 3. Toutes les formations ont une initiative de 2+. 
+ 
+ 
+ 
+COMPAGNIES DES PARAS ÉLYSIENS 
+Formations 
+Unités 
+Coût 
+0-1 QG Régimentaire 
+1 QG Régimentaire Élysien, 7 unités de Paras Élysiens, 4 Valkyries 
+350 pts 
+Compagnie d’Infanterie 
+1 unité de Commandement Élysien, 7 unités de Paras Élysiens, 4 Valkyries 
+300 pts 
+FORMATIONS D'APPUI DES PARAS ÉLYSIENS 
+(Jusqu’à 2 formations d'appui par Compagnie) 
+Formations 
+Unités 
+Coût 
+Tarentules 
+6 Tarentules aéroportées​
+(Ajouter la note “Téléportation” à toutes les unités) 
+150 pts​
+(+ 50 pts) 
+Escadron de Sentinelles 
+4 Sentinelles Aéroportées ou 4 Sentinelles de Soutien 
+(+ 2 Sentinelles Aéroportées ou Soutien) 
+(Ajouter la note "Téléportation" à toutes les unités) ou 
+(Ajouter autant de Valkyrie Sky Talons que nécessaire pour transporter toutes les unités de la formation) 
+125/150 pts 
+(+ 50/75 pts) 
+(+ 50 pts) 
+(+ 50/75 pts) 
+Peloton de Vétérans 
+6 Vétérans (Saboteurs) ou 6 Vétérans (Snipers) 
+(Ajouter la note "Téléportation") 
+200 pts 
+(+ 50 pts) 
+Militarum Tempestus 
+8 unités de Tempestus Scions 
+(Ajouter la note "Téléportation" à toutes les unités) ou 
+(Ajouter autant de Valkyries que nécessaire pour transporter toutes les unités de la formation) 
+(Remplacer 2 Valkyries par 2 Valkyries Vendetta) 
+200 pts 
+(+ 50 pts) 
+(+ 150 pts) 
+(+ 50 pts) 
+Peloton d'Appui-Feu 
+6 unités d'Appui-Feu ou de Mortiers 
+(Ajouter autant de Valkyries que nécessaire pour transporter toutes les unités de la formation) 
+(Remplacer 2 Valkyries par 2 Valkyries Vendetta) 
+175 pts 
+(+100 pts) 
+(+ 50 pts) 
+Escadron de Tauros 
+6 unités parmi : Tauros, Tauros Venator 
+250 pts 
+Escadrille de Vultures 
+4 Vultures  ou (0-1) 4 Vultures Punisher  
+(+2 Vultures  ou  Vultures Punisher) 
+300/225 pts 
+(+ 100/75 pts) 
+AMÉLIORATIONS DES PARAS ÉLYSIENS 
+(Jusqu'à 3 améliorations différentes par Compagnie) 
+Améliorations 
+Unités 
+Coût 
+Infanterie 
+Ajouter 6 unités de Paras Élysiens et 3 Valkyries  à la formation 
+200 pts 
+Appui-feu 
+Ajouter 2 unités d'Appui-Feu et 1 Valkyrie à la formation 
+75 pts 
+Vendetta 
+Remplacer 2 Valkyries par autant de Valkyries Vendetta 
+50 pts 
+Vultures 
+Ajouter 2 Vultures Punisher à la formation  ou 
+Ajouter 2 Vultures à la formation 
+75 pts 
+100 pts 
+ 
+ 
+SUPPORTS DES PARAS ÉLYSIENS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+Formation 
+ 
+Unités 
+Coût 
+ Formation 
+ 
+Unités 
+Coût 
+Escadrille Lightning 
+ 
+ou 
+2 Lightning Strike Fighters 
+3 Lightning Strike Fighters 
+175 pts 
+250 pts 
+ 0-1 Soutien Orbital  
+ou 
+1 Frégate Claymore 
+1 Cuirassé Emperor 
+200 pts 
+300 pts 
+Escadrille Bomber 
+ 
+2 Bombardiers Marauder 
+250 pts 
+  
+ 
+ 
+ 
+Escadrille Destroyer 
+ 
+2 Marauders Destroyer 
+300 pts 
+  
+ 
+ 
+ 
+ 
+ 
+note 
+ 
+3 - CODEX PARAS ELYSIENS - EAFR - REV 1.1.2 
+
+===== PAGE 5 =====
+ 
+FEUILLE DE RÉFÉRENCES DES PARAS ÉLYSIENS 
+Nom 
+Type 
+Vitesse 
+Blindage 
+CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Quartier Général Élysien 
+Inf 
+15cm 
+5+ 
+4+ 5+ Lance-plasma 
+Fusils Laser 
+Eviscerator 
+15cm 
+(15cm) 
+(contact) 
+AP5+/AC5+ 
+Arme Légère 
+Arme d'Assaut, MA 
+Commandant Suprême 
+Commandement Élysien 
+Inf 
+15cm 
+5+ 
+5+ 5+ Lance-Plasma 
+Fusils Laser 
+Épée tronçonneuse 
+15cm 
+(15cm) 
+(contact) 
+AP5+/AC5+ 
+Arme Légère 
+Arme d'Assaut 
+Commandant 
+Commissaire 
+Perso 
+- 
+- 
+- 
+- 
+Arme Énergétique 
+(contact) Arme d'Assaut, +1A, MA 
+Charismatique, Meneur, Sans Peur 
+Paras Élysiens 
+Inf 
+15cm 
+6+ 
+5+ 5+ ½ Lance-Plasma 
+Fusils Laser 
+15cm 
+(15cm) 
+AP5+/AC5+ 
+Arme Légère 
+Une unité sur deux, arrondie au supérieur, peut tirer au lance-plasma 
+Mortiers 
+Inf 
+15cm 
+6+ 
+6+ 5+ 2x Mortiers 
+30cm 
+AP5+, Ind 
+ 
+Appui-feu Élysiens 
+Inf 
+15cm 
+6+ 
+6+ 4+ 2x Lance-missiles 
+45cm 
+AP5+/AC6+ 
+ 
+Vétérans (snipers) 
+Inf 
+15cm 
+6+ 
+5+ 5+ Fusils de sniper 
+30cm 
+AP5+, Snp 
+Éclaireurs, Infiltrateurs 
+Vétérans (saboteurs) 
+Inf 
+15cm 
+6+ 
+5+ 5+ Charges de démolition 
+(contact) Arme d'Assaut, +1A, MA 
+Éclaireurs, Infiltrateurs 
+Tempestus Scions 
+Inf 
+15cm 
+5+ 
+5+ 4+ Lance-plasma 
+Fusils Radiants Laser 
+15cm 
+(15cm) 
+AP5+/AC5+ 
+Arme Légère 
+Éclaireur 
+Sentinelle aéroportée 
+VL 
+20cm 
+6+ 
+6+ 5+ Multi-Fuseur 
+et 
+15cm 
+(15cm) 
+MA5+ 
+Arme Légère, MA 
+Marcheur, Éclaireur 
+Sentinelle de soutien 
+VL 
+20cm 
+6+ 
+6+ 5+ Lance-roquettes multiple 
+45cm 
+2xAP5+/AC6+, Ind 
+Marcheur, Éclaireur. La portée des armes ne change pas lors d'un tir indirect. 
+Tarentule aéroportée 
+VL 
+0cm 
+5+ 
+- 
+5+ Bolters Lourds Jumelés 
+30cm 
+AP4+ 
+Éclaireur, ne peut que contester un objectif 
+Tauros 
+VL 
+35cm 
+5+ 
+6+ 4+ Lance-Flammes MkI 
+et 
+15cm 
+(15cm) 
+AP4+, IC 
+Arme Légère, IC 
+Marcheur, Éclaireur 
+Tauros Venator 
+VL 
+35cm 
+5+ 
+6+ 5+ Canons Laser Jumelés 
+45cm 
+AC4+ 
+Marcheur, Éclaireur 
+Valkyrie 
+VB 
+35cm 
+5+ 
+6+ 5+ Multi-Laser 
+2x Bolter Lourd 
+2x Nacelles de roquettes 
+30cm 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+1PB, Uniq, Rpt 
+Antigrav, Éclaireur, Transport (2) : Infanterie 
+Valkyrie Vendetta 
+VB 
+35cm 
+5+ 
+6+ 5+ 3x Canons Laser Jumelés 
+45cm 
+AC4+ 
+Antigrav, Éclaireur, Transport (2) : Infanterie 
+Valkyrie Sky Talon 
+VB 
+35cm 
+5+ 
+6+ 5+ Bolter lourd 
+30cm 
+AP5+ 
+Antigrav, Éclaireur, Transport (2 Sentinelles de tous types) 
+Vulture 
+VB 
+35cm 
+5+ 
+6+ 5+ 2x Hellstrikes 
+Autocanons Jumelés 
+Bolter Lourd 
+90cm 
+45cm 
+30cm 
+AC3+, Uniq 
+AP4+/AC5+ 
+AP5+ 
+Antigrav, Éclaireur 
+Vulture Punisher 
+VB 
+35cm 
+5+ 
+6+ 4+ Canons Punisher jumelés 
+et 
+Bolter lourd 
+15cm 
+(15cm) 
+30cm 
+2xAP3+ 
+Arme Légère, +1A 
+AP5+ 
+Antigrav 
+ 
+4 - CODEX PARAS ELYSIENS - EAFR - REV 1.1.2 
+
+===== PAGE 6 =====
+ 
+FEUILLE DE RÉFÉRENCES DE L’AERONAUTICA IMPERIALIS 
+Nom 
+Type Vitesse Blindage CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Lightning Strike Fighter 
+A 
+C 
+6+ 
+- 
+- 
+Canons Laser Jumelés (FF+AA) 
+Skystrikes 
+30cm 
+30cm 
+AC4+/AA5+, FrtF 
+AA4+, FrtF 
+ 
+Bombardier Marauder 
+A/EG 
+B 
+5+ 
+- 
+- 
+Bolters Lourds Jumelés (AA) 
+Bolters Lourds Jumelés (AA Arr) 
+Canons Laser Jumelés (AA Avant) 
+Bombes (Bomber) 
+30cm 
+30cm 
+45cm 
+15cm 
+AA5+ 
+AA5+, Arr 
+AC4+/AA5+, FrtF 
+3PB, FrtF 
+CD2 – Critique: le Bombardier Marauder s'écrase au sol et est détruit 
+Marauder Destroyer 
+A/EG 
+B 
+5+ 
+- 
+- 
+3x Autocanons Jumelés (AA Avant) 
+2x Racks de Hellstrikes 
+Bolters Lourds Jumelés (AA) 
+Canons d'Assaut Jumelés (AA Arrière) 
+45cm 
+30cm 
+30cm 
+30cm 
+AP4+/AC5+/AA5+, FrtF 
+AC4+, FrtF 
+AA5+ 
+AA5+, ArrF 
+CD2 – Critique : le Marauder Destroyer s'écrase au sol et est détruit 
+Frégate Claymore 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (3) 
+Frappe chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+Transport (24/-) : La Frégate Claymore peut transporter jusqu’à 24 Valkyries et/ou 
+Vultures de tous types. De plus, elle peut également embarquer toutes les unités 
+transportées par ces Valkyries/Vultures. 
+Cuirassé Emperor 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (8) 
+∞ 
+8PB, MA 
+Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le scénario 
+ne précise le contraire. 
+note
+ 
+5 - CODEX PARAS ELYSIENS - EAFR - REV 1.1.2 
+
+===== PAGE 7 =====
+ 
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS  
+ 
+6 - CODEX PARAS ELYSIENS - EAFR - REV 1.1.2 

@@ -1,0 +1,698 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+ADEPTUS MECHANICUS 
+ 
+ 
+ 
+“Le besoin intrinsèque d’un ordre parfait est profondément 
+ancré dans la psyché. La galaxie s’oppose à cet ordre. Une telle 
+dissidence doit être systématiquement éliminée. Sans pitié, 
+sans exception, elle doit être éliminée, comme l’énonce la voie 
+suprême de la logique. Voilà ce qui me pousse à envoyer mes 
+légions paver le chemin de l’illumination de l’Omnimessie.”  
+ 
+Vitruvius Eng, Technoprêtre Dominus 
+ 
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une armée de 
+l’Adeptus Mechanicus. 
+Les armées de l’Adeptus Mechanicus sont organisées en 
+formations appelées détachements principaux, détachements 
+de soutien. 
+Chaque détachement peut recevoir des améliorations. La liste 
+d’armée 
+indique 
+pour 
+chaque 
+détachement 
+quelles 
+améliorations sont autorisées. Chaque amélioration autorisée 
+ne peut être prise qu’une fois par détachement sans autre 
+contrainte. Les améliorations font partie intégrante des 
+détachements et doivent respecter les règles de cohésion.  
+Noter que certaines améliorations remplacent des unités d’un 
+détachement tandis que d’autres ajoutent des unités 
+supplémentaires.  
+Les formations de support sont des formations autonomes 
+des détachements. Un maximum de ⅓ des points peuvent 
+être dépensés pour ces formations. 
+ 
+ 
+ 
+ 
+Règle spéciale : Boucliers du vide 
+Certains engins de guerre sont protégés par des boucliers 
+énergétiques. Le nombre de boucliers de chaque engin de 
+guerre est noté sur sa fiche d'unité. 
+Chaque bouclier stoppe automatiquement un point de 
+dommages avant de se désactiver. Ne faites pas de 
+sauvegarde contre les attaques stoppées par des 
+boucliers, n'ajoutez pas non plus de pion d'impact pour 
+chaque bouclier désactivé. Une fois que tous les boucliers 
+sont désactivés, l'engin de guerre peut être endommagé 
+normalement. Faites les jets de sauvegarde habituels 
+contre les touches subies.  
+Les touches de corps à corps lors d'un assaut ignorent les 
+boucliers, mais pas celles de fusillade. 
+Les boucliers désactivés peuvent être réparés. Un engin de 
+guerre répare un bouclier désactivé à la fin de chaque 
+tour. De plus, si un engin de guerre se regroupe, il peut 
+utiliser le résultat de son dé pour retirer des pions d'impact 
+ou pour réparer des boucliers (par exemple, si le résultat 
+est 2, vous pouvez soit retirer 2 pions d'impact, soit réparer 
+2 boucliers, soit retirer 1 pion d'impact et réparer 1 
+bouclier). 
+ 
+Règle spéciale : Tunneliers 
+Le Mechanicum utilise des Tunneliers pour mener sans 
+danger par voie souterraine les troupes à des lieux clés du 
+champ de bataille : 
+- Les tunneliers sont déployés sur leur bord de table avant 
+la bataille, au même moment que les vaisseaux spatiaux, 
+ils n’interviennent pas directement dans le jeu tant qu’ils 
+n’émergent pas. 
+- Noter secrètement au début de quel tour ils feront surface 
+ainsi que les coordonnées (à partir de la pointe de la ou 
+d’une des foreuses) où vous voulez qu’ils émergent, de la 
+même façon que vous notez celles de vos zones de 
+largage. 
+- Si les tunneliers apparaissent dans votre moitié de table, 
+ils ne peuvent le faire qu’à partir du second tour et s’ils 
+comptent émerger dans la moitié de table ennemie, ils ne 
+peuvent le faire qu’à partir du troisième tour. 
+- Les tunneliers émergeants sont placés en début de tour, 
+avant le jet de stratégie. Une fois les tunneliers placés vous 
+pouvez faire débarquer vos troupes de suite. 
+- Il n’y a pas de déviation mais si toutefois, ils émergent 
+sous les pieds de n'importe quel type d'unité (amie ou 
+ennemie) ou dans une zone de contrôle ennemie, l'unité est 
+placée par l'adversaire dans la zone dégagée la plus 
+proche pouvant la recevoir. 
+- S’il y a plus d’une unité de Tunnelier qui émerge, après le 
+placement de la première, les autres sont toutes placées à 
+15cm maximum de celle-ci tout en restant en formation. 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de couverture par Igor Sid  https://40k.gallery/artist/igor-sid/ 
+1 - CODEX ADEPTUS MECHANICUS - EAFR - REV 1.5 
+
+===== PAGE 3 =====
+ 
+Alliance : Mechanicum 
+ 
+Un tiers des points d’une liste de l’Adeptus Mechanicus peut être sélectionné dans l’un des deux codex Légions Titaniques 
+ou Chevalier Impériaux. Cette sélection doit respecter la structure de ces listes (ex : un choix de base pour avoir deux choix 
+de soutien, etc.) et elle ne peut pas inclure d'unités possédant la note Commandant Suprême. 
+ 
+ 
+ 
+LISTE D'ARMÉE DE L’ADEPTUS MECHANICUS 
+ 
+Les armées de l’Adeptus Mechanicus ont une valeur stratégique de 3. Les formations de l’armée ont une valeur d’initiative de 
+2+. Les Tech Priests et Tech Priests Dominus donnent une valeur d’initiative de 1+ à leur formation.  
+ 
+DÉTACHEMENTS PRINCIPAUX DE L’ADEPTUS MECHANICUS 
+Formations 
+Unités 
+Améliorations 
+Coût 
+1+ Skitarii Vanguards 
+8 unités de Skitarii Vanguard et 4 Duneriders 
+ou 12 unités de Skitarii Vanguard et 6 Duneriders 
+Magos, 0-2 Skorpius Desintegrators, Onagre Icarus 
+275 pts 
+425 pts 
+Kataphrons 
+6 unités de Kataphrons 
+Magos, Onagre Icarus 
+275 pts 
+Ballistarii Ironstriders 
+6 unités de Ballistarii Ironstriders 
+- 
+200 pts 
+ 
+DÉTACHEMENTS DE SOUTIEN DE L’ADEPTUS MECHANICUS 
+(Jusqu'à 2 détachements de soutien par détachement principal) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Groupe d'assaut souterrain 
+8 unités de Skitarii Vanguard et 4 Termites 
+ou 8 unités de Skitarii Vanguard et 1 Taupe 
+Magos 
+275 pts 
+225 pts 
+Skitarii Rangers 
+6 unités de Skitarii Rangers 
+Magos, Skorpius Duneriders, Avant Garde 
+150 pts 
+Electro-Prêtres 
+8 unités d'Électro-Prêtres 
+Magos, Tunnelier, Skorpius Duneriders, Skorpius Desintegrators 
+200 pts 
+Sicarian Infiltrators 
+6 unités de Sicarian Infiltrators 
+Téléportation 
+200 pts 
+Sicarian Ruststalkers 
+6 unités de Sicarian Ruststalkers 
+Tunnelier, Skorpius Dunerider 
+200 pts 
+Serberys Raiders 
+6 unités de Serberys Raiders 
+- 
+150 pts 
+0-2 Pteraxii 
+4 unités de Pteraxii 
+- 
+175 pts 
+Sydonian Dragoons 
+6 unités Sydonian Dragoons 
+- 
+225 pts 
+Kastellan Automata 
+6 unités de Kastellan dont un Cybernetica Datasmith 
+- 
+350 pts 
+Onagre 
+6 unités Onagre 
+Onagre Icarus 
+325 pts 
+Skorpius Desintegrator 
+6 unités Skorpius Desintegrator 
+Skorpius Desintegrator 
+275 pts 
+Archæopter Transvector 
+6 unités Archæopter Transvector avec au choix: 
+6 unités de Vanguard Skitarii 
+ou 6 unités d'Électro-prêtre 
+Magos 
+ 
+300 pts 
+325 pts 
+Ordinatus Minoris 
+1 Ordinatus Minoris Sagittar ou Ulator 
+Ordinatus Minoris 
+200 pts 
+ 
+AMÉLIORATIONS DE L’ADEPTUS MECHANICUS 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation) 
+Améliorations 
+Notes 
+Coût 
+Magos 
+Ajoutez un Tech-Priest à la formation (1 par tranche de 1000 pts même incomplète) 
+Ajoutez 1 Tech-Priest Dominus à la formation (1 par armée au maximum) 
+50 pts 
+75 pts 
+0-2 Avant-Garde 
+Les unités de formation gagnent la note Éclaireur, la formation ne peut pas recevoir simultanément l'amélioration Skorpius 
+Dunerider 
+25 pts 
+Onagre Icarus 
+Remplacer un Onagre de la formation par un Onagre Icarus 
+Ajouter un Onagre Icarus à la formation 
+25 pts 
+75 pts 
+Skorpius Dunerider 
+Ajoutez suffisamment de Duneriders pour transporter toute la formation 
+25 pts chacun 
+Skorpius Desintegrator 
+Ajoutez 1 ou 2 Skorpius Desintegrator 
+50 pts chacun 
+Ordinatus Minoris 
+Ajoutez 1 ou 2 Ordinatus Minoris 
+125 pts chacun 
+Tunnelier 
+Vous pouvez choisir l'une des options suivantes : 
+Ajouter suffisamment de Termites pour transporter toute la formation 
+Ajouter 1 Taupe à la formation 
+25 pts chacun 
+50 pts 
+Téléportation 
+Les unités de formation gagnent la note Téléportation. 
+50 pts 
+ 
+SUPPORTS DE L’ADEPTUS MECHANICUS 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+- 
+FLOTTE DE L'OMNIMESSIE 
+- 
+SOUTIENS DU CENTURIO ORDINATUS 
+Formations 
+Unités 
+Coût 
+Formations 
+Unités 
+Coût 
+Escadrille Archeopter Stratoraptor 2 à 4 Archæopter Stratoraptor 
+75 pts chacun 
+Ordinatus Mars 
+1 Ordinatus Mars 
+400 pts 
+Escadrille Archeopter Fusilave 
+4 à 6 Archæopter Fusilave 
+50 pts chacun 
+Ordinatus Armageddon 
+1 Ordinatus Armageddon 
+450 pts 
+Soutien Orbital 
+1 Croiseur 
+ou 1 Ark Mechanicus 
+150 pts 
+300 pts 
+Ordinatus Golgotha 
+1 Ordinatus Golgotha 
+550 pts 
+ 
+2 - CODEX ADEPTUS MECHANICUS - EAFR - REV 1.5 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES DE L’ADEPTUS MECHANICUS 
+Nom 
+Type 
+Vitesse Blindage CC 
+FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Tech-Priest Dominus 
+Perso 
+- 
+- 
+- 
+- 
+Rayon Eradicateur 
+Hache de l’Omnimessie 
+(15cm) 
+(contact) 
+Arme Légère, +1A, MA 
+Arme d'Assaut, +1A, MA 
+Commandant Suprême, Blindage Renforcé, Sauvegarde Invulnérable. 
+Tech-Priest 
+Perso 
+- 
+- 
+- 
+- 
+Hache de l’Omnimessie 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable. 
+Cybernetica Datasmith 
+Perso 
+- 
+- 
+- 
+- 
+Gantelet Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Charismatique. 
+Électro-Prêtres 
+Inf 
+15cm 
+5+ 
+4+ 
+- 
+Bâton Électroclaste 
+(contact) 
+Arme d'Assaut 
+Sans Peur. 
+Skitarii Vanguards 
+Inf 
+15cm 
+5+ 
+6+ 
+4+ 
+Carabine à radium 
+15cm 
+AP5+ 
+ 
+Skitarii Rangers 
+Inf 
+15cm 
+5+ 
+6+ 
+6+ 
+Galvanic rifle 
+45cm 
+AP5+, Snp 
+ 
+Sicarian Ruststalkers 
+Inf 
+20cm 
+5+ 
+4+ 
+- 
+Lames transoniques 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Infiltrateur. 
+Sicarian Infiltrators 
+Inf 
+20cm 
+5+ 
+5+ 
+5+ 
+Carabine à Fléchettes 
+(15cm) 
+(contact) 
+Arme Légère, +1A 
+Arme d'Assaut, +1A 
+ 
+Kataphrons 
+Inf 
+15cm 
+5+ 
+4+ 
+5+ 
+Canon à Torsion 
+Lance-Flammes Cognis 
+30cm 
+(15cm) 
+AP5+/AC3+ 
+Arme Légère, +1A, IC 
+Blindage Renforcé. 
+Serberys Raiders 
+Inf 
+20cm 
+5+ 
+5+ 
+5+ 
+Pistolet à phosphore 
+(15cm) 
+Arme Légère, IC 
+Montés, Éclaireurs. 
+Pteraxii 
+Inf 
+30cm 
+5+ 
+5+ 
+5+ 
+Pistolet à phosphore 
+(15cm) 
+Arme Légère, IC 
+Réacteurs dorsaux, Téléportation. 
+Ballistarii Ironstriders 
+VL 
+25cm 
+5+ 
+6+ 
+5+ 
+Autocanons jumelés 
+45cm 
+AP4+/AC5+ 
+Marcheur. 
+Sydonian Dragoons 
+VL 
+20cm 
+5+ 
+4+ 
+- 
+Lance taser 
+(contact) 
+Arme d'Assaut, +1A, FeP 
+Marcheur, Infiltrateur. 
+Kastelan automata 
+VB 
+15cm 
+4+ 
+4+ 
+5+ 
+Eclateur à phosphore 
+ 
+Poing énergétique 
+45cm 
+(15cm) 
+(contact) 
+AP4+, IC 
+Arme Légère, IC 
+Arme d'Assaut, +1A, MA 
+Marcheur, Sans Peur, Sauvegarde Invulnérable. 
+Onagre 
+VB 
+20cm 
+4+ 
+6+ 
+4+ 
+Laser à Neutrons 
+Mitrailleuses cognis 
+45cm 
+(15cm) 
+MA4+ 
+Arme Légère 
+Marcheur. 
+Onagre Icarus 
+VB 
+20cm 
+4+ 
+6+ 
+4+ 
+Matrice Icarus 
+Mitrailleuses cognis 
+45cm 
+(15cm) 
+2xAP5+/AC5+/AA4+ 
+Arme Légère 
+Marcheur. 
+Skorpius Dunerider 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 
+Mitrailleuses cognis 
+jumelées 
+Mitrailleuses cognis 
+30cm 
+(15cm) 
+AP5+ 
+Arme Légère 
+Marcheur, Transport (2): Infanterie. 
+Skorpius Desintegrator 
+VB 
+25cm 
+4+ 
+6+ 
+4+ 
+Lance-Missiles Disruptor 
+Canon à énergie Beleros 
+Mitrailleuses cognis 
+30cm 
+30cm 
+(15cm) 
+1PB, Ind 
+AP4+/AC6+ 
+Arme Légère 
+Marcheur. 
+Archæopter Transvector 
+VB 
+35cm 
+5+ 
+6+ 
+4+ 
+Mitrailleuses cognis 
+jumelées 
+Mitrailleuses cognis 
+30cm 
+(15cm) 
+AP5+ 
+Arme Légère 
+Antigrav, Transport (1): Infanterie. 
+Termite (Skitarii) 
+VB 
+15cm 
+5+ 
+6+ 
+- 
+Tête de Foreuse 
+(contact) 
+Arme d'Assaut 
+Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (2): Infanterie. 
+Taupe (Skitarii) 
+EG 
+15cm 
+4+ 
+5+ 
+- 
+Tête de Foreuse 
+(contact) 
+Arme d'Assaut 
+Blindage Renforcé, Blindage Arrière Renforcé, Tunnelier, Transport (8): Infanterie. 
+CD2 - Critique : Détruit. 
+3 - CODEX ADEPTUS MECHANICUS - EAFR - REV 1.5 
+
+===== PAGE 5 =====
+ 
+FEUILLES DE RÉFÉRENCES FLOTTE DE L’OMNIMESSIE 
+Nom 
+Type 
+Vitesse Blindage 
+CC 
+FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Archæopter Stratoraptor 
+A 
+C 
+6+ 
+- 
+- 
+Canon Laser Cognis Jumelé AA 
+2x Eclateur à phosphore AA 
+45cm 
+45cm 
+AC4+/AA5+, Arr 
+AP4+/AA6+, IC, FrtF 
+ 
+Archæopter Fusilave 
+A 
+CB 
+6+ 
+- 
+- 
+Racks de Bombes 
+Système d'Interception Cognis 
+15cm 
+30cm 
+1PB, FrtF 
+AA6+, FrtF 
+ 
+Croiseur 
+VS 
+- 
+- 
+- 
+- 
+Bombardement orbital (3) 
+Frappe chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+ 
+Ark Mechanicus 
+VS 
+- 
+- 
+- 
+- 
+Bombardement orbital (8) 
+∞ 
+8PB, MA 
+Lent, ne peut être utilisé aux tours un et deux d'une bataille à moins que le 
+scénario ne précise le contraire. 
+FEUILLES DE RÉFÉRENCES DU CENTURIO ORDINATUS 
+Nom 
+Type Vitesse Blindage CC 
+FF 
+Arme 
+Portée Puissance de feu 
+Notes 
+Ordinatus Minoris Sagittar 
+EG 
+20cm 
+4+ 
+5+ 
+5+ 
+Canon Volcano (FF) 
+Couleuvrine Volkite (Droite) 
+Couleuvrine Volkite (Gauche) 
+Couleuvrine Volkite (Arrière) 
+90cm 
+45cm 
+45cm 
+45cm 
+MA2+, TT (D3), FrtF 
+AP4+/AC6+, Rpt, Drt 
+AP4+/AC6+, Rpt, Gch 
+AP4+/AC6+, Rpt, Arr 
+CD2 / BI2 – Critique : Détruit. 
+Ordinatus Minoris Ulator 
+EG 
+20cm 
+4+ 
+5+ 
+5+ 
+Destructeur sonique 
+Couleuvrine Volkite (Droite) 
+Couleuvrine Volkite (Gauche) 
+Couleuvrine Volkite (Arrière) 
+75cm 
+45cm 
+45cm 
+45cm 
+3PB, Rpt, FrtF 
+AP4+/AC6+, Rpt, Drt 
+AP4+/AC6+, Rpt, Gch 
+AP4+/AC6+, Rpt, Arr 
+CD2 / BI2 – Critique : Détruit. 
+Nom 
+Type Vitesse Blindage CC FF 
+Arme 
+Portée Puissance de feu 
+Notes 
+Ordinatus Mars 
+EG 
+10cm 
+4+ 
+6+ 
+5+ 
+2x Canon laser 
+Disrupteur sonique 
+45cm 
+100cm 
+AC5+ 
+10PB, Rpt, IC, FrtF 
+Blindage Arrière Renforcé, Sans Peur. 
+CD3 / BI6 - Critique : Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de 
+chaque tour. Sur un 1, l’Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est 
+réparée. 
+Ordinatus Armageddon 
+EG 
+10cm 
+4+ 
+6+ 
+5+ 
+2x Canon laser 
+Canon Nova 
+45cm 
+100cm 
+AC5+ 
+4xMA3+,TT (D3), FrtF 
+Blindage Arrière Renforcé, Sans Peur. 
+CD3 / BI6 - Critique : Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de 
+chaque tour. Sur un 1, l’Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est 
+réparée. 
+Ordinatus Golgotha 
+EG 
+10cm 
+4+ 
+6+ 
+5+ 
+2x Canon laser 
+6x Missile Hellfire 
+45cm 
+∞ 
+AC5+ 
+3PB, IC, MA, Ind, Uniq, FrtF 
+Blindage Arrière Renforcé, Sans Peur. 
+CD3 / BI6 - Critique : Fissure au réacteur à plasma. Lancez 1D6 par fissure à la fin de 
+chaque tour. Sur un 1, l’Ordinatus explose, sur 2-3 il perd 1 CD, sur 4-6 la fissure est 
+réparée. 
+ 
+4 - CODEX ADEPTUS MECHANICUS - EAFR - REV 1.5 
+
+===== PAGE 6 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+5 - CODEX ADEPTUS MECHANICUS - EAFR - REV 1.5 

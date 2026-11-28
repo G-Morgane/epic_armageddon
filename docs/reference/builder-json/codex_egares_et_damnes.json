@@ -1,0 +1,1418 @@
+{
+ "codex": {
+  "id": "egares_et_damnes",
+  "name": "Égarés et Damnés",
+  "version": "1.8",
+  "faction": "Chaos",
+  "color": "#086b6f",
+  "logo": "eed.png",
+  "categorie": "Armées du Chaos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 2,
+   "initiative_defaut": "2+",
+   "note_initiative": "Machines Démons (hors Firelords et Doomwings) ou formation avec Démon Majeur : initiative 1+",
+   "taille_transport": {
+    "aspirant_champion": 1,
+    "demagogue": 1,
+    "cultiste": 1,
+    "mutant": 1,
+    "acolyte": 1,
+    "appui_feu": 1,
+    "champion_dieux_sombres": 1,
+    "mutant_geant": 2,
+    "ogryn_renegate": 2,
+    "prince_demon": 2,
+    "prince_demon_aile": 2
+   },
+   "capacite_transport": {
+    "chimere": 2,
+    "transporteur_terrestre": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "defilers_eed",
+   "name": "Defilers",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter 1 ou 2 Defilers à la formation",
+   "choix": [
+    {
+     "name": "1 Defiler",
+     "cout": 75,
+     "id": "defiler_1_eed"
+    },
+    {
+     "name": "2 Defilers",
+     "cout": 125,
+     "id": "defiler_2_eed"
+    }
+   ],
+   "unites": [
+    {
+     "id": "defiler",
+     "name": "Defiler",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "autel_chaos",
+   "name": "0-1 Autel du Chaos",
+   "cout": 200,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter un Autel du Chaos à la formation",
+   "unites": [
+    {
+     "id": "autel_chaos",
+     "name": "Autel du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "prince_demon",
+   "name": "0-1 Prince Démon / Prince Démon Ailé",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Remplacer l'Aspirant Champion ou le Démagogue par un Prince Démon",
+   "choix": [
+    {
+     "id": "prince_demon",
+     "name": "Prince Démon",
+     "cout": 0
+    },
+    {
+     "id": "prince_demon_aile",
+     "name": "Prince Démon Ailé",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "champion_dieux_sombres",
+   "name": "Champion des Dieux Sombres",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajoute la note Concentration Démoniaque (2D3) à une unité de la formation",
+   "unites": [
+    {
+     "id": "champion_dieux_sombres",
+     "name": "Champion des Dieux Sombres",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "cardinal",
+   "name": "0-1 Cardinal",
+   "cout": 25,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Un Démagogue gagne la note Charismatique",
+   "unites": []
+  },
+  {
+   "id": "pacte_demoniaque",
+   "name": "Pacte Démoniaque",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter un personnage de Porte-icône à une unité de la formation",
+   "unites": []
+  },
+  {
+   "id": "cultistes_mutants_supp",
+   "name": "Cultistes ou Mutants",
+   "cout": 10,
+   "limit": 1,
+   "min": 1,
+   "max": 8,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 8 Cultistes et/ou Mutants (10 pts chacun)",
+   "unites": []
+  },
+  {
+   "id": "transport_renegate",
+   "name": "Transports Renégats",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter des véhicules de transport (combinaison libre)",
+   "composition_personnalisee": {
+    "type": "choix_multiples",
+    "min_total": 1,
+    "max_total": 12,
+    "description": "Transporteur Terrestre (10 pts, ×2 places) ou Chimère (25 pts, ×2 places)",
+    "options": [
+     {
+      "id": "tp_transporteur",
+      "name": "Transporteur Terrestre",
+      "unitId": "transporteur_terrestre",
+      "cout": 10,
+      "min": 0,
+      "max": 12
+     },
+     {
+      "id": "tp_chimere_eed",
+      "name": "Chimère",
+      "unitId": "chimere",
+      "cout": 25,
+      "min": 0,
+      "max": 12
+     }
+    ]
+   },
+   "unites": []
+  },
+  {
+   "id": "enfants_chaos_supp",
+   "name": "Enfants du Chaos",
+   "cout": 25,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 unités d'Enfants du Chaos (25 pts chacun)",
+   "unites": [
+    {
+     "id": "enfant_chaos",
+     "name": "Enfant du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "chiens_chaos_supp",
+   "name": "Chiens du Chaos",
+   "cout": 10,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 unités de Chiens du Chaos (10 pts chacun)",
+   "unites": [
+    {
+     "id": "chien_chaos",
+     "name": "Chien du Chaos",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "appuis_feux_supp",
+   "name": "Appuis-feux Renégats",
+   "cout": 25,
+   "limit": 1,
+   "min": 1,
+   "max": 4,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 4 unités d'Appuis-feux (25 pts chacun)",
+   "unites": [
+    {
+     "id": "appui_feu",
+     "name": "Appui-feu Renégat",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "griffons_supp",
+   "name": "Griffons Renégats",
+   "cout": 35,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Griffons (35 pts chacun)",
+   "unites": [
+    {
+     "id": "griffon",
+     "name": "Griffon",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "hellhounds_supp",
+   "name": "Hellhounds Renégats",
+   "cout": 50,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Hellhounds (50 pts chacun)",
+   "unites": [
+    {
+     "id": "hellhound",
+     "name": "Hellhound",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "leman_russ_supp",
+   "name": "Leman Russ",
+   "cout": 75,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Leman Russ (75 pts chacun)",
+   "unites": [
+    {
+     "id": "leman_russ",
+     "name": "Leman Russ",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "leman_russ_demolisseur_supp",
+   "name": "Leman Russ Démolisseurs",
+   "cout": 85,
+   "limit": 1,
+   "min": 1,
+   "max": 3,
+   "cout_par_unite": true,
+   "description": "Ajouter jusqu'à 3 Leman Russ Démolisseurs (85 pts chacun)",
+   "unites": [
+    {
+     "id": "leman_russ_demolisseur",
+     "name": "Leman Russ Démolisseur",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "dca_renegate",
+   "name": "DCA Renégate",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter une Hydre",
+   "unites": [
+    {
+     "id": "hydre",
+     "name": "Hydre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "demon_majeur_supp",
+   "name": "0-1 Démon Majeur",
+   "cout": 150,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter un Démon Majeur correspondant à l'allégeance de la formation",
+   "choix": [
+    {
+     "id": "buveur_sang",
+     "name": "Buveur de Sang",
+     "cout": 0
+    },
+    {
+     "id": "duc_changement",
+     "name": "Duc du Changement",
+     "cout": 0
+    },
+    {
+     "id": "grand_immonde",
+     "name": "Grand Immonde",
+     "cout": 0
+    },
+    {
+     "id": "gardien_secrets",
+     "name": "Gardien des Secrets",
+     "cout": 0
+    }
+   ],
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "loges_renegate",
+   "name": "LOGES RENÉGATES",
+   "type": "principale",
+   "limiteOptionFormation": 4,
+   "description": "Chaque Loge Stigmatus permet de sélectionner 1 Loge Gigantis, 1 Formation d'Appui et 1 formation du Chaos/Démons/Machines Démons. Jusqu'à 4 améliorations différentes par Loge.",
+   "formations": [
+    {
+     "id": "loge_stigmatus",
+     "name": "Loge Stigmatus",
+     "cout": 175,
+     "initiative": "2+",
+     "description": "1 Aspirant Champion ou Démagogue + 11 Cultistes et/ou Mutants",
+     "FormationLimitationTag": {
+      "slot_gigantis_eed": 1,
+      "slot_appui_eed": 1,
+      "slot_chaos_eed": 1
+     },
+     "unites": [],
+     "composition_personnalisee": {
+      "min_total": 12,
+      "max_total": 12,
+      "description": "Choisir 1 commandant (Champion OU Démagogue) + 11 Cultistes/Mutants",
+      "groupe_obligatoire": [
+       "aspirant_champion",
+       "demagogue"
+      ],
+      "options": [
+       {
+        "id": "aspirant_champion",
+        "name": "Aspirant Champion",
+        "unitId": "aspirant_champion",
+        "cout": 0,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "demagogue"
+        ]
+       },
+       {
+        "id": "demagogue",
+        "name": "Démagogue",
+        "unitId": "demagogue",
+        "cout": 0,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "aspirant_champion"
+        ]
+       },
+       {
+        "id": "cultiste",
+        "name": "Cultiste",
+        "unitId": "cultiste",
+        "cout": 0,
+        "min": 0,
+        "max": 11
+       },
+       {
+        "id": "mutant",
+        "name": "Mutant",
+        "unitId": "mutant",
+        "cout": 0,
+        "min": 0,
+        "max": 11
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "ameliorations": [
+      "autel_chaos",
+      "prince_demon",
+      "champion_dieux_sombres",
+      "cardinal",
+      "pacte_demoniaque",
+      "defilers_eed",
+      "cultistes_mutants_supp",
+      "transport_renegate",
+      "enfants_chaos_supp",
+      "chiens_chaos_supp",
+      "appuis_feux_supp",
+      "griffons_supp",
+      "hellhounds_supp",
+      "leman_russ_supp",
+      "leman_russ_demolisseur_supp",
+      "dca_renegate"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "loges_gigantis",
+   "name": "LOGES GIGANTIS",
+   "type": "associee",
+   "LimitationTag": "slot_gigantis_eed",
+   "limiteOptionFormation": 4,
+   "description": "1 Loge Gigantis par Loge Stigmatus",
+   "formations": [
+    {
+     "id": "loge_gigantis_commander_5",
+     "name": "Loge Gigantis (Commander + 5)",
+     "cout": 275,
+     "initiative": "2+",
+     "description": "1 Aspirant Champion ou Démagogue + 5 Mutants Géants et/ou Ogryns Renégats",
+     "FormationLimitationTag": {
+      "slot_appui_eed": 1,
+      "slot_chaos_eed": 1
+     },
+     "unites": [],
+     "composition_personnalisee": {
+      "min_total": 6,
+      "max_total": 6,
+      "description": "Choisir 1 commandant (Champion OU Démagogue) + 5 Mutants Géants/Ogryns",
+      "groupe_obligatoire": [
+       "aspirant_champion",
+       "demagogue"
+      ],
+      "options": [
+       {
+        "id": "aspirant_champion",
+        "name": "Aspirant Champion",
+        "unitId": "aspirant_champion",
+        "cout": 0,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "demagogue"
+        ]
+       },
+       {
+        "id": "demagogue",
+        "name": "Démagogue",
+        "unitId": "demagogue",
+        "cout": 0,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "aspirant_champion"
+        ]
+       },
+       {
+        "id": "mutant_geant",
+        "name": "Mutant Géant",
+        "unitId": "mutant_geant",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "id": "ogryn_renegate",
+        "name": "Ogryn Renégat",
+        "unitId": "ogryn_renegate",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "ameliorations": [
+      "autel_chaos",
+      "prince_demon",
+      "champion_dieux_sombres",
+      "cardinal",
+      "pacte_demoniaque",
+      "defilers_eed",
+      "cultistes_mutants_supp",
+      "transport_renegate",
+      "enfants_chaos_supp",
+      "chiens_chaos_supp",
+      "appuis_feux_supp",
+      "griffons_supp",
+      "hellhounds_supp",
+      "leman_russ_supp",
+      "leman_russ_demolisseur_supp",
+      "dca_renegate"
+     ]
+    },
+    {
+     "id": "loge_gigantis_6",
+     "name": "Loge Gigantis (6 unités)",
+     "cout": 250,
+     "initiative": "2+",
+     "description": "6 Mutants Géants et/ou Ogryns Renégats (sans commandant)",
+     "FormationLimitationTag": {
+      "slot_appui_eed": 1,
+      "slot_chaos_eed": 1
+     },
+     "composition_personnalisee": {
+      "total": 6,
+      "description": "6 unités parmi Mutants Géants et Ogryns Renégats",
+      "options": [
+       {
+        "id": "mutant_geant",
+        "name": "Mutant Géant",
+        "unitId": "mutant_geant",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       },
+       {
+        "id": "ogryn_renegate",
+        "name": "Ogryn Renégat",
+        "unitId": "ogryn_renegate",
+        "cout": 0,
+        "min": 0,
+        "max": 6
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "ameliorations": [
+      "autel_chaos",
+      "prince_demon",
+      "champion_dieux_sombres",
+      "pacte_demoniaque",
+      "defilers_eed",
+      "cultistes_mutants_supp",
+      "transport_renegate",
+      "enfants_chaos_supp",
+      "chiens_chaos_supp",
+      "appuis_feux_supp",
+      "griffons_supp",
+      "hellhounds_supp",
+      "leman_russ_supp",
+      "leman_russ_demolisseur_supp",
+      "dca_renegate"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "appui_renegate",
+   "name": "FORMATIONS D'APPUI RENÉGATES",
+   "type": "associee",
+   "LimitationTag": "slot_appui_eed",
+   "limiteOptionFormation": 4,
+   "description": "1 Formation d'Appui par Loge Renégate",
+   "formations": [
+    {
+     "id": "peloton_cavaliers",
+     "name": "Peloton de Cavaliers",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "cavalier_renegate",
+       "name": "Cavalier Renégat",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadron_sentinelles",
+     "name": "Escadron de Sentinelles",
+     "cout": 100,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "sentinelle",
+       "name": "Sentinelle",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_antiaerienne",
+     "name": "Batterie Antiaérienne",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "hydre",
+       "name": "Hydre",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_artillerie",
+     "name": "Batterie d'Artillerie",
+     "cout": 225,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "basilisk",
+       "name": "Basilisk",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "compagnie_blindee",
+     "name": "Compagnie Blindée",
+     "cout": 350,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_chasseurs",
+     "name": "Escadrille de Chasseurs",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "thunderbolt",
+       "name": "Chasseur Thunderbolt",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_bombardiers",
+     "name": "Escadrille de Bombardiers",
+     "cout": 250,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "bombardier_marauder",
+       "name": "Bombardier Marauder",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "chaos_universel",
+   "name": "FORMATIONS DU CHAOS UNIVERSEL",
+   "type": "associee",
+   "LimitationTag": "slot_chaos_eed",
+   "description": "1 formation du Chaos Universel, de Démons ou de Machines Démons par Loge Renégate",
+   "formations": [
+    {
+     "id": "loge_primatus",
+     "name": "Loge Primatus",
+     "cout": 300,
+     "initiative": "2+",
+     "description": "0-1 dans l'armée — 1 Démagogue/Aspirant Champion + 7 Acolytes + 4 Chimères",
+     "ameliorations": [
+      "prince_demon",
+      "champion_dieux_sombres",
+      "pacte_demoniaque",
+      "dca_renegate"
+     ],
+     "FormationLimite": 1,
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 12,
+      "max_total": 12,
+      "description": "Choisir 1 commandant (Champion OU Démagogue) + 7 Acolytes + 4 Chimères",
+      "groupe_obligatoire": [
+       "aspirant_champion",
+       "demagogue"
+      ],
+      "options": [
+       {
+        "id": "aspirant_champion",
+        "name": "Aspirant Champion",
+        "unitId": "aspirant_champion",
+        "cout": 0,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "demagogue"
+        ]
+       },
+       {
+        "id": "demagogue",
+        "name": "Démagogue",
+        "unitId": "demagogue",
+        "cout": 0,
+        "min": 0,
+        "max": 1,
+        "exclusif_avec": [
+         "aspirant_champion"
+        ]
+       },
+       {
+        "id": "acolyte",
+        "name": "Acolyte",
+        "unitId": "acolyte",
+        "cout": 0,
+        "min": 7,
+        "max": 7
+       },
+       {
+        "id": "chimere",
+        "name": "Chimère",
+        "unitId": "chimere",
+        "cout": 0,
+        "min": 4,
+        "max": 4
+       }
+      ]
+     }
+    },
+    {
+     "id": "defilers_chaos",
+     "name": "Defilers",
+     "cout": 300,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "defiler",
+       "name": "Defiler",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "defilers_eed"
+     ]
+    },
+    {
+     "id": "meute_sauvage",
+     "name": "Meute Sauvage",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "chien_chaos",
+       "name": "Chien du Chaos",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "chiens_chaos_supp"
+     ]
+    },
+    {
+     "id": "horde_mutante",
+     "name": "Horde Mutante",
+     "cout": 200,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "enfant_chaos",
+       "name": "Enfant du Chaos",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "enfants_chaos_supp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "formations_demons",
+   "name": "FORMATIONS DE DÉMONS",
+   "type": "associee",
+   "LimitationTag": "slot_chaos_eed",
+   "description": "1 formation du Chaos Universel, de Démons ou de Machines Démons par Loge Renégate",
+   "formations": [
+    {
+     "id": "demon_majeur",
+     "name": "0-1 Démon Majeur",
+     "cout": 200,
+     "initiative": "1+",
+     "description": "0-1 dans l'armée",
+     "variantes": [
+      {
+       "id": "buveur_sang",
+       "name": "Buveur de Sang",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "buveur_sang",
+         "name": "Buveur de Sang",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "duc_changement",
+       "name": "Duc du Changement",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "duc_changement",
+         "name": "Duc du Changement",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "grand_immonde",
+       "name": "Grand Immonde",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "grand_immonde",
+         "name": "Grand Immonde",
+         "nombre": 1
+        }
+       ]
+      },
+      {
+       "id": "gardien_secrets",
+       "name": "Gardien des Secrets",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "gardien_secrets",
+         "name": "Gardien des Secrets",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "demon_majeur",
+       "name": "Démon Majeur",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [],
+     "FormationLimite": 1
+    },
+    {
+     "id": "demons_mineurs_8",
+     "name": "Démons Mineurs (8 unités)",
+     "cout": 175,
+     "initiative": "2+",
+     "description": "0-2 dans l'armée",
+     "composition_personnalisee": {
+      "total": 8,
+      "description": "8 unités parmi les Démons Mineurs",
+      "options": [
+       {
+        "id": "betes",
+        "name": "Bêtes Démoniaques",
+        "unitId": "betes_demoniaques",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "sanguinaires",
+        "name": "Sanguinaires",
+        "unitId": "sanguinaires",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "incendiaires",
+        "name": "Incendiaires",
+        "unitId": "incendiaires",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "portepestes",
+        "name": "Portepestes",
+        "unitId": "portepestes",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       },
+       {
+        "id": "demonettes",
+        "name": "Démonettes",
+        "unitId": "demonettes",
+        "cout": 0,
+        "min": 0,
+        "max": 8
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "ameliorations": [
+      "demon_majeur_supp"
+     ]
+    },
+    {
+     "id": "demons_mineurs_12",
+     "name": "Démons Mineurs (12 unités)",
+     "cout": 275,
+     "initiative": "2+",
+     "description": "0-2 dans l'armée",
+     "composition_personnalisee": {
+      "total": 12,
+      "description": "12 unités parmi les Démons Mineurs",
+      "options": [
+       {
+        "id": "betes",
+        "name": "Bêtes Démoniaques",
+        "unitId": "betes_demoniaques",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       },
+       {
+        "id": "sanguinaires",
+        "name": "Sanguinaires",
+        "unitId": "sanguinaires",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       },
+       {
+        "id": "incendiaires",
+        "name": "Incendiaires",
+        "unitId": "incendiaires",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       },
+       {
+        "id": "portepestes",
+        "name": "Portepestes",
+        "unitId": "portepestes",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       },
+       {
+        "id": "demonettes",
+        "name": "Démonettes",
+        "unitId": "demonettes",
+        "cout": 0,
+        "min": 0,
+        "max": 12
+       }
+      ],
+      "type": "choix_multiples"
+     },
+     "ameliorations": [
+      "demon_majeur_supp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "machines_demons",
+   "name": "FORMATIONS DE MACHINES DÉMONS",
+   "type": "associee",
+   "LimitationTag": "slot_chaos_eed",
+   "description": "1 formation du Chaos Universel, de Démons ou de Machines Démons par Loge Renégate",
+   "formations": [
+    {
+     "id": "seigneurs_batailles_1",
+     "name": "Seigneur de Batailles",
+     "cout": 400,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "seigneur_batailles",
+       "name": "Seigneur de Batailles",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "seigneurs_batailles_2",
+     "name": "2 Seigneurs de Batailles",
+     "cout": 800,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "seigneur_batailles",
+       "name": "Seigneur de Batailles",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "scorpions_airain",
+     "name": "Scorpions d'Airain",
+     "cout": 225,
+     "initiative": "1+",
+     "variantes": [
+      {
+       "id": "2_sa",
+       "name": "2 Grands Scorpions d'Airain",
+       "cout": 450,
+       "nombre_exact": 2
+      },
+      {
+       "id": "3_sa",
+       "name": "3 Grands Scorpions d'Airain",
+       "cout": 675,
+       "nombre_exact": 3
+      }
+     ],
+     "unites": [
+      {
+       "id": "grand_scorpion_airain",
+       "name": "Grand Scorpion d'Airain",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "meute_carnage_4",
+     "name": "Meute du Carnage (4)",
+     "cout": 275,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "machine_demon_khorne",
+       "name": "Machine Démon de Khorne",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "meute_carnage_6",
+     "name": "Meute du Carnage (6)",
+     "cout": 400,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "machine_demon_khorne",
+       "name": "Machine Démon de Khorne",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_feu_enfer_4",
+     "name": "Batterie Feu d'Enfer (4)",
+     "cout": 225,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "canon_khorne",
+       "name": "Canon de Khorne",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "batterie_feu_enfer_6",
+     "name": "Batterie Feu d'Enfer (6)",
+     "cout": 325,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "canon_khorne",
+       "name": "Canon de Khorne",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "palais_warp_1",
+     "name": "Palais du Warp",
+     "cout": 375,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "palais_warp",
+       "name": "Palais du Warp",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "palais_warp_2",
+     "name": "2 Palais du Warp",
+     "cout": 750,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "palais_warp",
+       "name": "Palais du Warp",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "fleche_arcanes_4",
+     "name": "Flèche des Arcanes (4)",
+     "cout": 250,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "tour_argent",
+       "name": "Tour d'Argent",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "fleche_arcanes_6",
+     "name": "Flèche des Arcanes (6)",
+     "cout": 375,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "tour_argent",
+       "name": "Tour d'Argent",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "firelords_2",
+     "name": "Vol de Bombardiers Firelords (2)",
+     "cout": 300,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "firelord",
+       "name": "Firelord",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "firelords_3",
+     "name": "Vol de Bombardiers Firelords (3)",
+     "cout": 450,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "firelord",
+       "name": "Firelord",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "doomwings",
+     "name": "Vol de Chasseurs Doomwings",
+     "cout": 150,
+     "initiative": "2+",
+     "unites": [
+      {
+       "id": "doomwing",
+       "name": "Doomwing",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "tours_peste_1",
+     "name": "Tour de la Peste",
+     "cout": 375,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "tour_peste",
+       "name": "Tour de la Peste",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "tours_peste_2",
+     "name": "2 Tours de la Peste",
+     "cout": 750,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "tour_peste",
+       "name": "Tour de la Peste",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "avant_garde_ruine_4",
+     "name": "Avant-garde de la Ruine (4)",
+     "cout": 225,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "drone_ruine",
+       "name": "Drone de la ruine",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "avant_garde_ruine_6",
+     "name": "Avant-garde de la Ruine (6)",
+     "cout": 325,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "drone_ruine",
+       "name": "Drone de la ruine",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "artillerie_peste_4",
+     "name": "Artillerie de la Peste (4)",
+     "cout": 300,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "machine_contagion",
+       "name": "Machine de Contagion",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "artillerie_peste_6",
+     "name": "Artillerie de la Peste (6)",
+     "cout": 450,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "machine_contagion",
+       "name": "Machine de Contagion",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "infestation_zombies",
+     "name": "Infestation de Zombies",
+     "cout": 175,
+     "initiative": "2+",
+     "description": "2D6+6 Zombies de la Peste",
+     "unites": [
+      {
+       "id": "zombie_peste",
+       "name": "Zombie de la Peste",
+       "nombre": 12
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_leger_subjugator_1",
+     "name": "1 Subjugator",
+     "cout": 250,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "subjugator",
+       "name": "Titan Subjugator",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_leger_subjugator_2",
+     "name": "2 Subjugators",
+     "cout": 500,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "subjugator",
+       "name": "Titan Subjugator",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_leger_questor_1",
+     "name": "1 Questor",
+     "cout": 275,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "questor",
+       "name": "Titan Questor",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_leger_questor_2",
+     "name": "2 Questors",
+     "cout": 550,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "questor",
+       "name": "Titan Questor",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "phalange_infernale_4",
+     "name": "Phalange Infernale (4)",
+     "cout": 275,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "hell_scourge",
+       "name": "Chevalier Hell-Scourge",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "phalange_infernale_6",
+     "name": "Phalange Infernale (6)",
+     "cout": 400,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "hell_scourge",
+       "name": "Chevalier Hell-Scourge",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "cohorte_infernale_4",
+     "name": "Cohorte Infernale (4)",
+     "cout": 225,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "hell_strider",
+       "name": "Chevalier Hell-Strider",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "cohorte_infernale_6",
+     "name": "Cohorte Infernale (6)",
+     "cout": 325,
+     "initiative": "1+",
+     "unites": [
+      {
+       "id": "hell_strider",
+       "name": "Chevalier Hell-Strider",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

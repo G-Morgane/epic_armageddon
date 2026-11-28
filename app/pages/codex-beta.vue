@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import type { Army, ArmyVersion } from '~/types/database'
 
+
+const urlSite = useUrlSite()
+
 useSeoMeta({
   title: 'Codex Bêta & Expérimentaux',
   description: 'Listes d\'armées en cours de test pour Epic Armageddon — Codex bêta et expérimentaux disponibles en PDF.',
   ogTitle: 'Codex Bêta & Expérimentaux — Epic Armageddon FR',
   ogDescription: 'Listes d\'armées en cours de test — bêta et expérimentaux.',
-  ogUrl: 'https://www.epicarmageddon.fr/codex-beta',
+  ogUrl: urlSite('/codex-beta'),
 })
 
 type ArmyWithVersion = Army & { army_versions: ArmyVersion[] }
@@ -50,6 +53,32 @@ const currentGroups = computed(() => groupByFaction(currentArmies.value))
 const tabColor = computed(() =>
   activeTab.value === 'beta' ? 'amber' : 'purple',
 )
+
+/**
+ * Où mène une carte, et ce qu'elle annonce.
+ *
+ * Les codex bêta et expérimentaux se publient en PDF déposé à la main (choix du
+ * Board) : pas de builder ni de PDF composé, même si un codex a été transcrit.
+ * Un PDF déposé : la carte le télécharge ; sinon elle reste inerte et dit « Bientôt ».
+ */
+const cartes = computed(() => {
+  const m = new Map<string, { balise: 'NuxtLink' | 'a' | 'div'; to?: string; href?: string; rev?: string; builder?: string; slug?: string }>()
+  for (const army of [...(betaArmies.value ?? []), ...(experimentalArmies.value ?? [])]) {
+    const version = army.army_versions?.find(v => v.is_current) ?? army.army_versions?.[0]
+    const pdf = version?.pdf_url && version.pdf_url !== '#' ? version.pdf_url : undefined
+    if (pdf) m.set(army.id, { balise: 'a', href: pdf, rev: version?.version })
+    else m.set(army.id, { balise: 'div', rev: version?.version })
+  }
+  return m
+})
+const carteDe = (id: string) => cartes.value.get(id) ?? { balise: 'div' as const, to: undefined, href: undefined, rev: undefined, builder: undefined, slug: undefined }
+
+/* aperçu du PDF composé, dans le tiroir partagé avec les autres pages codex */
+const apercu = ref<{ slug: string; nom: string } | null>(null)
+const apercuOuvert = computed({
+  get: () => !!apercu.value,
+  set: (v: boolean) => { if (!v) apercu.value = null },
+})
 </script>
 
 <template>
@@ -92,49 +121,51 @@ const tabColor = computed(() =>
         </div>
 
         <!-- Tab switch -->
-        <div class="mt-10 inline-flex rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
-          <button
-            :class="[
-              'rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
-              activeTab === 'all'
-                ? 'bg-gold/15 text-gold shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTab = 'all'"
-          >
-            Tous
-            <span class="ml-2 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
-              {{ (betaArmies?.length ?? 0) + (experimentalArmies?.length ?? 0) }}
-            </span>
-          </button>
-          <button
-            :class="[
-              'rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
-              activeTab === 'beta'
-                ? 'bg-amber-500/15 text-amber-400 shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTab = 'beta'"
-          >
-            Bêta
-            <span class="ml-2 rounded-full bg-amber-500/10 px-2 py-0.5 text-xs">
-              {{ betaArmies?.length ?? 0 }}
-            </span>
-          </button>
-          <button
-            :class="[
-              'rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
-              activeTab === 'experimental'
-                ? 'bg-purple-500/15 text-purple-400 shadow-sm'
-                : 'text-gray-400 hover:text-gray-200',
-            ]"
-            @click="activeTab = 'experimental'"
-          >
-            Expérimentaux
-            <span class="ml-2 rounded-full bg-purple-500/10 px-2 py-0.5 text-xs">
-              {{ experimentalArmies?.length ?? 0 }}
-            </span>
-          </button>
+        <div class="-mx-4 mt-10 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <div class="inline-flex rounded-xl border border-white/10 bg-white/[0.03] p-1 backdrop-blur-sm">
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
+                activeTab === 'all'
+                  ? 'bg-gold/15 text-gold shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTab = 'all'"
+            >
+              Tous
+              <span class="ml-2 rounded-full bg-gold/10 px-2 py-0.5 text-xs">
+                {{ (betaArmies?.length ?? 0) + (experimentalArmies?.length ?? 0) }}
+              </span>
+            </button>
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
+                activeTab === 'beta'
+                  ? 'bg-amber-500/15 text-amber-400 shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTab = 'beta'"
+            >
+              Bêta
+              <span class="ml-2 rounded-full bg-amber-500/10 px-2 py-0.5 text-xs">
+                {{ betaArmies?.length ?? 0 }}
+              </span>
+            </button>
+            <button
+              :class="[
+                'shrink-0 whitespace-nowrap rounded-lg px-6 py-2.5 text-sm font-semibold transition-all',
+                activeTab === 'experimental'
+                  ? 'bg-purple-500/15 text-purple-400 shadow-sm'
+                  : 'text-gray-400 hover:text-gray-200',
+              ]"
+              @click="activeTab = 'experimental'"
+            >
+              Expérimentaux
+              <span class="ml-2 rounded-full bg-purple-500/10 px-2 py-0.5 text-xs">
+                {{ experimentalArmies?.length ?? 0 }}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -160,21 +191,29 @@ const tabColor = computed(() =>
         <div v-for="group in currentGroups" :key="group.faction" class="mb-10">
           <h3 class="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">{{ group.label }}</h3>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <component
-              :is="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? 'a' : 'div'"
+            <div
               v-for="army in group.armies"
               :key="army.id"
-              :href="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? army.army_versions[0].pdf_url : undefined"
-              :target="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? '_blank' : undefined"
-              :rel="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#' ? 'noopener' : undefined"
               :class="[
-                'group flex items-center gap-4 rounded-xl border p-4 backdrop-blur-sm transition-all',
+                'group relative flex flex-wrap items-center gap-x-4 gap-y-3 rounded-xl border p-4 backdrop-blur-sm transition-all',
                 army.status === 'beta'
                   ? 'border-amber-500/10 bg-white/[0.04] hover:border-amber-500/25 hover:bg-white/[0.07]'
                   : 'border-purple-500/10 bg-white/[0.03] hover:border-purple-500/25 hover:bg-white/[0.06]',
-                !(army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#') && 'opacity-50 cursor-not-allowed',
+                carteDe(army.id).balise === 'div' && 'opacity-50',
               ]"
             >
+              <!-- Lien principal en surimpression : la carte entière est cliquable
+                   sans enfermer le bouton « Construire » dans un autre lien. -->
+              <component
+                :is="carteDe(army.id).balise"
+                v-if="carteDe(army.id).balise !== 'div'"
+                :to="carteDe(army.id).to"
+                :href="carteDe(army.id).href"
+                :target="carteDe(army.id).href ? '_blank' : undefined"
+                :rel="carteDe(army.id).href ? 'noopener' : undefined"
+                class="absolute inset-0 rounded-xl"
+                :aria-label="carteDe(army.id).to ? `Codex ${army.name}` : `Télécharger le codex ${army.name}`"
+              />
               <div
                 :class="[
                   'flex h-12 w-12 shrink-0 items-center justify-center rounded-full border',
@@ -192,7 +231,7 @@ const tabColor = computed(() =>
                   {{ army.name[0] }}
                 </span>
               </div>
-              <div>
+              <div class="min-w-[8rem] flex-1">
                 <p
                   :class="[
                     'font-semibold text-gray-200 transition-colors',
@@ -201,18 +240,35 @@ const tabColor = computed(() =>
                 >
                   {{ army.name }}
                 </p>
-                <p class="text-xs text-gray-500">
-                  REV {{ army.army_versions?.[0]?.version }}
+                <p class="flex flex-wrap items-center gap-2 text-xs text-gray-500">
+                  <span v-if="carteDe(army.id).rev">REV {{ carteDe(army.id).rev }}</span>
                 </p>
               </div>
-              <svg v-if="army.army_versions?.[0]?.pdf_url && army.army_versions[0].pdf_url !== '#'" class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <div v-if="carteDe(army.id).builder" class="relative z-10 ml-auto flex shrink-0 flex-wrap justify-end gap-2">
+                <NuxtLink
+                  :to="carteDe(army.id).builder"
+                  class="rounded-lg border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+                >
+                  Construire
+                </NuxtLink>
+                <button
+                  type="button"
+                  class="rounded-lg border border-gold/40 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/10"
+                  @click="apercu = { slug: carteDe(army.id).slug!, nom: army.name }"
+                >
+                  Voir le PDF
+                </button>
+              </div>
+              <svg v-else-if="carteDe(army.id).href" class="ml-auto h-4 w-4 shrink-0 text-gray-600 transition-colors group-hover:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>
               <span v-else class="ml-auto text-[10px] uppercase tracking-wider text-gray-600">Bientôt</span>
-            </component>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <CodexVisionneusePdf v-if="apercu" v-model="apercuOuvert" :slug="apercu.slug" :nom="apercu.nom" />
   </div>
 </template>

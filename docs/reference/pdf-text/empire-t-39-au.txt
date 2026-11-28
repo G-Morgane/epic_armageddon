@@ -1,0 +1,844 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+EMPIRE T’AU 
+ 
+ 
+ 
+ 
+“Nous ne prendrons pas l’ascendant sur cette galaxie hostile 
+par la seule technologie. C’est notre cause commune et notre 
+sens de l’honneur partagé qui nous unissent et nous confèrent 
+le pouvoir de défaire nos ennemis."  
+ 
+Shas’el Sa’cea Or’es, Commandeur de la caste du Feu  
+Utiliser la liste d’armée 
+La liste qui suit vous permet de mettre sur pied une partie de 
+chasse basée sur le Sept de T’au. Cette liste peut également 
+être utilisée pour représenter des parties de chasse d’autres 
+mondes de l’empire T’au comme ceux de Vior’la, de Fi’rios ou 
+de Yo’Vai.  
+Les parties de chasse du Sept de T’au sont organisées autour 
+de grandes formations appelées cadres, elles-mêmes 
+complétées par des formations de soutien et/ou des 
+formations d’auxiliaires qui leurs sont autonomes. 
+Chaque formation (cadre, formation de soutien ou formation 
+d’auxiliaires) peut recevoir des améliorations. La liste d’armée 
+indique pour chaque formation quelle amélioration est 
+autorisée. Chaque amélioration autorisée ne peut être prise 
+qu’une fois par formation. Hormis cela, chaque formation 
+peut prendre autant d’améliorations qu’elle le souhaite, sans 
+limite. Les améliorations font partie intégrante des formations 
+et doivent en respecter les règles de cohésion. 
+Les formations d’engins de guerre ou de la caste de l’air sont 
+des formations autonomes. Un maximum de ⅓ des points de 
+l’armée peuvent être dépensés pour ces formations. 
+ 
+ 
+Règle spéciale : Déflecteurs 
+Certaines unités et engins de guerre T’au sont équipés d’un 
+puissant champ déflecteur pour se protéger. Les unités 
+ayant la règle spéciale Déflecteurs notée dans leurs profils 
+bénéficient d’une sauvegarde de type invulnérable égale à 
+la valeur renseignée entre parenthèses. 
+ 
+Règle spéciale : Propulseurs 
+Les Propulseurs fonctionnent exactement comme les 
+Réacteurs Dorsaux (voir Livre de règles). De plus, 
+lorsqu’une formation exécute une action d’avance ou de 
+d’avance rapide, ses unités ayant la règle spéciale « 
+Propulseurs » notée dans leur profil peuvent choisir de tirer 
+avant ou après l’un de ses mouvements. 
+Règle spéciale : Drones 
+Les unités ayant la règle spéciale Drones notée dans leur 
+profil ne génèrent pas de pion d'impact lorsqu'elles sont 
+détruites, ni lorsqu’elles sont touchées par des armes 
+ayant la note Rupture. Toute autre règle générant des pions 
+d'impact lorsque les touches sont allouées ces unités sont 
+ignorées. 
+Les Drones d’une formation n'empêchent pas celle-ci de 
+débuter en garnison si elle dispose des prérequis pour le 
+faire. 
+Une formation composée uniquement de Drones ne peut 
+pas tenir d’objectifs, bien qu’elle puisse contester ceux-ci. 
+Remarque : Les unités de Drones comptent dans le calcul 
+des pertes lors de la résolution d'un assaut. 
+ 
+ 
+ 
+ 
+ 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustrations : Diego Gisbert Lorrens  (cover).  
+1 - CODEX EMPIRE T’AU - EAFR - REV 1.4 
+
+===== PAGE 3 =====
+ 
+Règle spéciale : Armes guidées 
+ 
+Les armes guidées sont des armes disposant d'un système de localisation, et un calculateur de trajectoire. Ces armes sont 
+capables d'atteindre une cible hors de ligne de vue, et ceci de façon autonome. 
+Une Arme Guidée ne peut être employée que sur une unité sur laquelle a été infligé un Marquage de Désignateur laser. Une 
+formation ne peut tirer qu’une fois par tour avec ses Armes guidées, qu'elle ait déjà été activée ou non. 
+Toutes les règles relatives au tir comme l’allocation des touches et le feu croisé s’appliquent à partir de la formation d’où 
+partent les armes guidées. 
+Lorsqu’elles tirent, les Armes guidées ne nécessitent pas de ligne de vue et ne sont jamais affectées par les modificateurs 
+pour toucher, qu’ils soient dûs à un ordre (+1 du tir soutenu ou -1 d'avance rapide) ou à un couvert.  
+Remarque : une unité à couvert disposera toujours de sa sauvegarde de couvert, seul le modificateur pour toucher sera ignoré. 
+Les unités démoralisées, neutralisées ou ayant effectué un redéploiement ne peuvent pas utiliser leurs Armes Guidées. 
+Les Armes Guidées provenant d'un vaisseau peuvent être utilisées suite à l'activation du vaisseau et jusqu'à la fin de ce 
+tour. 
+ 
+Règle spéciale : Désignateur laser 
+Le Désignateur laser est un dispositif porté par des unités T’au ayant la règle spéciale Désignateur laser (x) notée dans 
+leurs profils. Un Désignateur laser possède une portée de 30cm et est utilisé en même temps que les attaques de tir ou de 
+fusillade, mais avant que les jets pour toucher ne soient effectués. Une unité neutralisée ne peut pas faire usage de son 
+Désignateur laser. 
+Lorsqu’il est utilisé contre une formation ennemie, chaque unité T’au (à portée et en ligne de vue d’unités de cette 
+formation ennemie) possédant cette règle lui inflige un nombre de Marquages de Désignateur laser. 
+Au cours de son activation, une formation T’au peut utiliser ses Désignateurs laser selon l’action qu’elle effectue :  
+1. Tir : Lors d'un tir et pour chaque Marquage de Désignateur laser infligé par une formation Tau, le joueur Tau peut décider 
+d’appliquer l’un des effets suivants : 
+Faire tirer une Arme Guidée possédée par une unité à portée de tir, depuis n'importe quelle formation n'ayant pas tiré 
+avec ses Armes Guidées ce tour ci. Ces tirs d'armes sont considérés comme étant effectués par la formation utilisant 
+ses Désignateurs laser: Ils n'infligent qu'un pion impact à la formation ennemie visée, quel que soit le nombre de 
+formations T’au impliquées.  
+OU 
+Donner un bonus de +1 au jet pour toucher d’un tir de la formation, exception faite des tirs antiaériens.  
+2. Assaut : Au cours de sa phase d’assaut et pour chaque Marquage de Désignateur laser infligé par sa formation, le joueur 
+T’au peut décider d’appliquer l’effet suivant : 
+Donner un bonus de +1 à un jet pour toucher une autre attaque de fusillade de la formation. 
+Chaque jet pour toucher ne peut bénéficier que d’un seul bonus de +1 au jet pour toucher grâce à un Désignateur laser. 
+ 
+2 - CODEX EMPIRE T’AU - EAFR - REV 1.4 
+
+===== PAGE 4 =====
+LISTE D'ARMÉE DE L’EMPIRE T’AU 
+Les armées de l’Empire T’au ont une valeur stratégique de 3. Les Cadres d’Exo-armure Crisis, les Cadres d'Exo-armures Riptides, les 
+Exo-armures Supremacy et les Destroyer Manta ont une initiative de 1+. Les autres formations ont une initiative de 2+. 
+ 
+CADRES DE T'AU 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Cadres d'Exo-armures Crisis 
+4 ou 6 unités XV8 Crisis 
+Drones lourds, Drones d’attaque, Commandeur, Ta’lissera 
+200 / 300 pts 
+Cadre blindé 
+6 Hammerheads (tous types) 
+Blindés Tau, Skyray, Drone de communication 
+375 pts 
+Cadre de Guerrier de feu 
+8 unités de Strike team 
+ou 12 unités de Strike team 
+Ethéré, Cibleurs, Drones d’attaques, Skyray, Ta’lissera, Drones sniper, 
+Devilfish 
+225 pts 
+325 pts 
+ 
+FORMATIONS DE SOUTIEN 
+(Jusqu'à 2 formations de soutien par cadre) 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Exo-armures Stealth 
+6 ou 9 unités XV15 Stealth 
+Ta'lissera 
+250 / 375 pts 
+Exo-armures Broadsides 
+4 ou 6 unités XV88 Broadsides 
+ 
+250 / 350 pts 
+Groupe de Cibleurs 
+4 unités de Cibleurs et 2 Devilfishs 
+Cibleurs 
+175 pts 
+Groupe de Reconnaissance 
+6 ou 9 Tétras 
+ 
+175 / 250 pts 
+Vague Piranhas 
+6 ou 9 Piranhas (tous types) 
+ 
+175 / 250 pts 
+Groupe d'Appui-feu 
+3 Stingrays 
+Skyray, Blindés T'au 
+200 pts 
+Groupe d'interdiction blindé 
+4 Hammerheads (tous types) 
+Skyray 
+275 pts 
+Drones d'attaques 
+6 unités de Drones d'attaque 
+ 
+150 pts 
+Aile Skysweep 
+3 Skyrays 
+ 
+250 pts 
+Exo-armures Riptides 
+3 à 6 XV104 Riptides (tous types) 
+Drones d'attaque 
+75 pts chacun 
+ 
+ 
+ 
+ 
+AMÉLIORATIONS 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation) 
+ 
+ENGINS DE GUERRE ET CASTE DE L'AIR 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces 
+formations) 
+Améliorations 
+Unités 
+Coût 
+Formations 
+Unités 
+Coût 
+Commandeur 
+Ajouter 1 Shas'El à une unité de la formation 
+0-1 (Remplacer 1 Shas'El par 1 Shas'O) 
+50 pts 
+(gratuit) 
+Exo-armure Supremacy 
+1 ou 2 KX 139 Ta’Unar (Tout type) 
+350 / 650 pts 
+0-1 Ethéré 
+Ajouter 1 Ethéré à une unité de la formation 
+50 pts 
+Escadrille d’Interception 
+2 ou 4 Barracudas 
+175 / 325 pts 
+Ta'lissera 
+Ajouter la Note Meneur à 1 unité de la formation 
+25 pts 
+Escadrille de bombardiers 
+2 Tiger Sharks 
+300 pts 
+Drones de 
+communication 
+Ajouter la Note Meneur à 1 véhicule de la 
+formation 
+25 pts 
+Escadrille d'attaque au sol 
+1 ou 2 Tiger Sharks AX-1-0 
+175 pts chacun 
+Drones d'attaque 
+Ajouter de 2 à 4 unités de Drones d'attaque à la 
+formation 
+25 pts chacun 
+Destroyer Manta 
+1 Destroyer Manta 
+850 pts 
+Drones lourds 
+Ajouter 2 ou 4 unités de Drones lourds à la 
+formation 
+75 / 150 pts 
+0-1 Transporteur par Cadre de 
+Guerrier de feu et/ou 
+d'Exo-armures Crisis 
+1 Transporteur Orca 
+200 pts 
+0-1 Drones Snipers 
+Ajouter 1 à 4 unités de Drones Snipers à la 
+formation 
+50 pts chacun 
+Soutien Orbital 
+1 Croiseur de classe Emissary 
+ou 1 Cuirassé de classe Custodian 
+200 pts 
+300 pts 
+Blindés T'au 
+Ajouter 3 véhicules à la formation parmi : 
+Hammerheads (tous types), Stingray 
+175 pts 
+FORMATIONS D'AUXILIAIRES 
+(Jusqu'à 1 formation d'auxiliaires par cadre de guerriers de feu) 
+Skyray 
+Ajouter 1 Skyray à la formation 
+75 pts 
+Formations 
+Unités 
+Coût 
+Devilfish 
+Ajouter 4 ou 6 Devilfish à la formation (Vous ne 
+pouvez pas prendre plus de Devilfish que 
+nécessaire) 
+100 / 150 pts 
+Harde de Kroots 
+1 Mentor Kroot et 10 unités de Carnivores Kroots 
+(+5 unités de Carnivores Kroots) 
+(+3 Krootox) 
+(+3 Grand Knarlocs) 
+175 pts 
+(+75 pts) 
+(+75 pts) 
+(+50 pts) 
+Cibleurs 
+Ajouter 2 Cibleurs et 1 Devilfish à la formation 
+ou remplacer 2 Strike team par 2 cibleurs 
+100 pts 
+25 pts 
+Essaim Vespid 
+1 Ka'Bri'Dan et 6 unités de Frelons Vespid 
+(+3 unités de Frelons Vespid) 
+ou (+6 unités de Frelons Vespid) 
+150 pts 
+(+75 pts) 
+(+150 pts) 
+ 
+ 
+3 - CODEX EMPIRE T’AU - EAFR - REV 1.4 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES EMPIRE T’AU 
+ 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Shas’O 
+Perso - 
+- 
+- 
+- 
+Ioniseur cyclique 
+(15cm) 
+Armes légères, +1A 
+Commandant Suprême, Sauvegarde Invulnérable 
+Shas’El 
+Perso - 
+- 
+- 
+- 
+Ioniseur cyclique 
+(15cm) 
+Armes légères, +1A 
+Commandant, Sauvegarde Invulnérable 
+Éthéré 
+Perso - 
+- 
+- 
+- 
+Armes de gardes d’honneur 
+(15cm) 
+Armes légères, +1A 
+Charismatique, Meneur, Sauvegarde Invulnérable 
+Strike team 
+Inf 
+15cm 
+5+ 
+6+ 
+4+ 2x Fusils à impulsion 
+Carabines à impulsion 
+30cm 
+(15cm) 
+AP5+ 
+Armes légères 
+ 
+Cibleurs 
+Inf 
+15cm 
+6+ 
+6+ 
+6+ Fusils rail 
+Carabines à impulsion 
+30cm 
+(15cm) 
+AP5+/AC6+, Rpt 
+Armes légères 
+Éclaireurs, Désignateur Laser (2) 
+XV15 Stealth 
+Inf 
+25cm 
+4+ 
+6+ 
+4+ Canons à induction Stealth 
+30cm 
+AP4+, Rpt 
+Éclaireurs, Propulseurs, Téléportation, Frappe en premier 
+XV104 Riptide (CIL) 
+VB 
+25cm 
+4+ 
+5+ 
+4+ Canon à induction lourd 
+et 
+Lance-missiles autodirecteurs 
+30cm 
+(15cm) 
+30cm 
+2xAP2+/AC5+ 
+Armes légères, +1A 
+AP5+, IC 
+Blindage renforcé, Marcheur, Propulseurs, Sauvegarde Invulnérable 
+XV104 Riptide (AI) 
+VB 
+25cm 
+4+ 
+5+ 
+4+ Accélérateur à ion 
+et 
+Lance-missiles autodirecteurs 
+45cm 
+(15cm) 
+30cm 
+2xMA4+ 
+Armes légères, MA 
+AP5+, IC 
+Blindage renforcé, Marcheur, Propulseurs, Sauvegarde Invulnérable 
+XV8 Crisis 
+Inf 
+25cm 
+3+ 
+5+ 
+4+ Éclateur à fusion 
+et 
+Nacelle de missiles 
+15cm 
+(15cm) 
+45cm 
+MA5+ 
+Armes légères, MA 
+AP4+/AC5+ 
+Propulseurs 
+XV88 Broadside 
+VL 
+15cm 
+4+ 
+5+ 
+5+ Fusils rail lourds jumelés 
+Lance-missiles autodirecteurs 
+75cm 
+30cm 
+AC3+, Lance 
+AP5+, IC 
+Blindage Renforcé, Marcheur 
+Drones d'attaque 
+Inf 
+25cm 
+5+ 
+6+ 
+5+ Carabines à impulsion 
+(15cm) 
+Armes légères 
+Propulseurs, Drones 
+Drones lourds 
+Inf 
+25cm 
+5+ 
+6+ 
+5+ Canons à induction 
+30cm 
+AP5+ 
+Propulseurs, Désignateur Laser (1), Drones 
+Drones snipers 
+Inf 
+15cm 
+5+ 
+6+ 
+5+ Fusil de sniper à impulsion 
+30cm 
+AP5+, Snip 
+Désignateur laser (1), Drones 
+Piranha (CI) 
+VL 
+35cm 
+5+ 
+6+ 
+5+ Canon à induction et drones 
+d’attaque 
+30cm 
+AP4+, Rpt 
+Antigrav 
+Piranha (EF) 
+VL 
+35cm 
+5+ 
+6+ 
+5+ Éclateur à fusion 
+et 
+15cm 
+(15cm) 
+MA5+ 
+Armes légères, MA 
+Antigrav 
+Tetra 
+VL 
+35cm 
+5+ 
+6+ 
+6+ Fusils à impulsion 
+30cm 
+AP5+ 
+Éclaireur, Antigrav, Désignateur Laser (1) 
+Devilfish 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Canon à induction et drones 
+d’attaque 
+30cm 
+AP4+, Rpt 
+Antigrav, Transport (2) : Strike team, Cibleurs 
+Stingray 
+VB 
+25cm 
+5+ 
+6+ 
+6+ Missiles Stingray 
+Missiles à guidage laser 
+Lance-missiles autodirecteurs 
+45cm 
+75cm 
+30cm 
+2xAP5+, IC, Ind 
+AC4+, Arme Guidée 
+AP5+, IC 
+Antigrav, Blindage Renforcé, Désignateur Laser (2) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX EMPIRE T’AU - EAFR - REV 1.4 
+
+===== PAGE 6 =====
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Skyray 
+VB 
+25cm 
+5+ 
+6+ 
+6+ Missiles Skyray 
+Missiles à guidage laser 
+Lance-missiles autodirecteurs 
+45cm 
+75cm 
+30cm 
+2xAA5+ 
+AC4+, Arme Guidée 
+AP5+, IC 
+Antigrav, Blindage Renforcé, Désignateur Laser (2) 
+Hammerhead (Canon rail) 
+VB 
+25cm 
+5+ 
+6+ 
+5+ Canon rail 
+Missiles à guidage laser 
+Lance-missiles autodirecteurs 
+75cm 
+75cm 
+30cm 
+AP5+/AC3+, Lance 
+AC4+, Arme Guidée 
+AP5+, IC 
+Antigrav, Blindage Renforcé 
+Hammerhead (Canon à ion) VB 
+25cm 
+5+ 
+6+ 
+4+ Canon à ion 
+Missiles à guidage laser 
+Lance-missiles autodirecteurs 
+60cm 
+75cm 
+30cm 
+2xAP3+/AC6+ 
+AC4+, Arme Guidée 
+AP5+, IC 
+Antigrav, Blindage Renforcé 
+KX 139 Ta’Unar (Art. Rail) 
+EG 
+20cm 
+3+ 
+5+ 
+4+ Artillerie rail 
+2x Canon à ion tri-axe 
+Système de défense vigilance 
+et 
+Grappe à sous-munition 
+75cm 
+60cm 
+30cm 
+(15cm) 
+30cm 
+MA2+, Frt, TT (D3) 
+2xAP3+/AC4+, Frt 
+2xAP4+, IC 
+Armes légères, +1A 
+2xAP4+/AC6+ 
+Capacité de dommage : 3 
+Touche critique : l’exo armure KX 139 perd son Déflecteur, le critique suivant 
+détruit l'exo-armure. 
+Marcheur, Blindage Arrière Renforcé, Sans Peur, Déflecteurs (5+) 
+KX 139 Ta’Unar (Art. Imp.) 
+EG 
+20cm 
+3+ 
+5+ 
+4+ Artillerie à impulsion 
+2x Canon à ion tri-axe 
+Système de défense vigilance 
+et 
+90cm 
+60cm 
+30cm 
+(15cm) 
+3PB, Frt, IC 
+2xAP3+/AC4+, Frt 
+2xAP4+, IC 
+Armes légères, +1A 
+Capacité de dommage : 3 
+Touche critique : l’exo armure KX 139 perd son Déflecteur, le critique suivant 
+détruit l'exo-armure. 
+Marcheur, Blindage Arrière Renforcé, Sans Peur, Déflecteurs (5+) 
+ 
+FEUILLE DE RÉFÉRENCES AUXILIAIRES T’AU 
+ 
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée 
+Puissance de feu 
+Notes 
+Mentor Kroot 
+Perso - 
+6+ 
+- 
+- 
+Armes de mercenaires 
+(contact) 
+Arme d’assaut, +1A 
+Meneur 
+Carnivores Kroot 
+Inf 
+15cm 
+- 
+4+ 
+6+ Fusils Kroot 
+(15cm) 
+Armes légères 
+Éclaireur, Infiltrateur 
+Krootox 
+VL 
+15cm 
+5+ 
+4+ 
+6+ Canon Kroot 
+Griffes 
+30cm 
+(contact) 
+AP5+/AC6+ 
+Arme d’assaut, +1A 
+Marcheur 
+Grand Knarloc 
+VB 
+20cm 
+4+ 
+4+ 
+5+ Griffes et crocs 
+Baliste Kroot 
+(contact) 
+(15cm) 
+Arme d’assaut, +1A, MA 
+Armes légères 
+Marcheur 
+Ka’Bri’Dan Vespid 
+Perso - 
+- 
+- 
+- 
+- 
+ 
+ 
+Meneur 
+Frelons Vespid 
+Inf 
+30cm 
+6+ 
+6+ 
+4+ Blasters à neutron 
+(15cm) 
+Armes légères 
+Propulseurs 
+ 
+ 
+5 - CODEX EMPIRE T’AU - EAFR - REV 1.4 
+
+===== PAGE 7 =====
+FEUILLE DE RÉFÉRENCES CASTE DE L’AIR  
+Nom 
+Type Vitesse Blindage CC FF Arme 
+Portée Puissance de feu 
+Notes 
+Barracuda 
+A 
+C 
+6+ 
+- 
+- 
+Canon à ion (Aérien) 
+Nacelle de missiles (Aérien) 
+Drones 
+Missiles à guidage laser 
+30cm 
+30cm 
+15cm 
+75cm 
+2xAP3+/AC6+, FrtF 
+AP4+/AC5+/AA5+, FrtF 
+AA5+ 
+AC4+, Arme Guidée 
+- 
+Tiger Shark 
+A/EG 
+B 
+5+ 
+- 
+- 
+2x Canon à ion (Aérien) 
+Nacelle de missiles (Aérien) 
+Drones 
+2x Missiles à guidage laser 
+30cm 
+30cm 
+15cm 
+75cm 
+2xAP3+/AC6+, FrtF 
+AP4+/AC5+/AA5+, FrtF 
+AA5+ 
+AC4+, Arme Guidée 
+Capacité de dommage :2 
+Touche critique : Le Tiger Shark s'écrase au sol et est détruit 
+Tiger Shark AX-1-0 
+A/EG 
+B 
+5+ 
+- 
+- 
+Canon rail lourd 
+Nacelle de missiles (Aérien) 
+Drones 
+2x Missiles à guidage laser 
+45cm 
+30cm 
+15cm 
+75cm 
+MA3+, FrtF, TT (D3) 
+AP4+/AC5+/AA5+, FrtF 
+AA5+ 
+AC4+, Arme Guidée 
+Capacité de dommage :2 
+Touche critique : Le Tiger Shark AX-1-0 s'écrase au sol et est détruit 
+Transporteur Orca 
+A/EG 
+B 
+4+ 
+6+ 
+6+ 
+Canons à induction jumelés 
+Nacelle de missiles (Aérien) 
+2x Missiles à guidage laser 
+30cm 
+30cm 
+75cm 
+AP4+/AA5+ 
+AP4+/AC5+/AA5+, FrtF 
+AC4+, Arme Guidée 
+Capacité de dommage : 3 
+Touche critique : L'Orca s'écrase au sol et est détruit, ainsi que toutes unités à bord 
+Assaut planétaire, Transport (12): Strike team, Cibleurs, XV15 Stealth, XV88 Broadsides*, 
+XV8 Crisis* , Drones d'attaque, Drones lourd, Mentor Kroot, Carnivores Kroots (*prennent 
+2 places). 
+Destroyer Manta 
+EG 
+20cm 
+5+ 
+- 
+3+ 
+2x Artillerie rail 
+3x Canons à ion jumelés 
+4x Drones 
+Nacelle de missiles (Aérien) 
+4xMissiles à guidage laser 
+75cm 
+60cm 
+15cm 
+30cm 
+75cm 
+MA2+, Frt, TT (D3) 
+2xAP2+/AC5+, FrtF 
+AA5+ 
+AP4+/AC5+/AA5+, FrtF 
+AC4+, Arme Guidée 
+Capacité de dommage : 10 
+Touche critique : le Destroyer Manta perd son Déflecteur, les critiques suivants font 
+perdre 1 point de structure supplémentaire. 
+Déflecteurs (4+) ,Antigrav, Sans peur, Blindage Renforcé, Assaut Planétaire, Transport 
+(16): Strike team, Cibleurs, XV15 Stealth, XV8 Crisis*, XV88 Broadside* , Drones d'attaque, 
+Drones lourds, Mentor Kroot, Carnivores Kroots, Krootox, Tetra*, Piranha* (* prennent 2 
+places). Le Manta peut embarquer en plus 4 des unités suivantes : Devilfish, 
+Hammerhead, Skyray, Stingray 
+Croiseur Emissary 
+V 
+- 
+- 
+- 
+- 
+Frappe chirurgicale 
+6x Torpilles gravitiques 
+- 
+∞ 
+MA2+, TT (D3) 
+MA5+, Arme Guidée 
+Transport (6): Orcas, Mantas (prennent 3 places) ainsi que les troupes qu'ils contiennent 
+Cuirassé Custodian 
+V 
+- 
+- 
+- 
+- 
+2x Frappe chirurgicale 
+6x Torpilles gravitiques 
+- 
+∞ 
+MA2+, TT (D3) 
+MA5+, Arme Guidée 
+Transport (18) : Orcas, Mantas (prennent 3 places) ainsi que les troupes qu'ils 
+contiennent 
+Lent, ne peut être utilisé dans les 2 premiers tours de la partie à moins que le scénario ne 
+dise le contraire 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6 - CODEX EMPIRE T’AU - EAFR - REV 1.4 
+
+===== PAGE 8 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+7 - CODEX EMPIRE T’AU - EAFR - REV 1.4 

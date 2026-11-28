@@ -1,0 +1,581 @@
+===== PAGE 1 =====
+ 
+ 
+0 
+
+===== PAGE 2 =====
+ADEPTA SORORITAS 
+ 
+ 
+« Certains prétendent que nous devrions pardonner aux 
+ignorants, aux timorés et aux dévoyés. Ces faibles qui prônent 
+la clémence et la compréhension sont aussi coupables que 
+ceux qu’ils cherchent à excuser. Qu’ils brûlent tous sur le même 
+bûcher ! » 
+Chanoinesse Ismelda Caritados. 
+La liste qui suit vous permet de mettre sur pied une armée de 
+l’Adepta Sororitas.  
+Les armées de l’Adepta Sororitas sont organisées autour de 
+formations appelées formations de l’Ordre Militant. Chacune 
+d’entre elles permet de recruter jusqu’à une formation de 
+l'ecclésiarchie. 
+Chaque formation peut recevoir des améliorations. La liste 
+d’armée indique pour chaque formation quelles améliorations 
+sont autorisées. Chaque amélioration autorisée ne peut être 
+prise qu’une fois par formation. Les améliorations font partie 
+intégrante des formations et doivent respecter les règles de 
+cohésion. Noter que certaines améliorations remplacent des 
+unités d’une formation tandis que d’autres ajoutent des 
+unités supplémentaires.  
+Les formations de la Navy Impériale et Support Lourd sont 
+des formations autonomes. Un maximum de ⅓ des points 
+peuvent être dépensés pour ces formations. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Règle spéciale : Acte de Foi 
+Une seule formation de l’Ordre Militant de l’Adepta 
+Sororitas peut choisir de faire un acte de foi par tour quand 
+elle fait son test d’action. 
+La formation reçoit alors une pénalité de -1 à son test 
+d’action (qui est cumulatif avec les autres modificateurs). 
+Si le test d’action est réussi, la formation résout son action 
+normalement. De plus, toutes les unités de la formation 
+gagnent « Sans Peur » et « Sauvegarde invulnérable » 
+jusqu’au début de la séquence de jeu « fin du tour » ($1.14 
+du livre de règle). 
+Si le test d'action est raté, la formation doit effectuer 
+l'action Tenir comme indiqué dans le §1.6.2 du livre de 
+règle. 
+Règle spéciale : Sainte 
+Si une formation ou une unité de la formation possède la 
+règle spéciale Sainte  alors la formation ignore la pénalité « 
+-1 » à son test d’action du à la règle  Acte de foi. Elle subit 
+par contre toutes les autres pénalités à son test d’action 
+comme indiqué dans le §1.6.2 du livre de règle. 
+Règle spéciale : Transport 
+Si une formation possède des véhicules de transport 
+(amélioration Transport et/ou Repressor), vous devez 
+prendre assez de véhicules pour transporter l’intégralité de 
+la formation (amélioration comprise). Toutes les places 
+des transports doivent être occupées.  
+ 
+Symbole des troupes d’élites de l’Adepta Sororitas 
+Ce codex est un projet fan-made communautaire non officiel. Tous droits réservés. Utilisés sans approbation, ni volonté de préjudice ou comme opposition au 
+copyright de Games Workshop LTD. Illustration de Juan Martinez. 
+1 - CODEX ADEPTA SORORITAS - EAFR - REV 1.2 
+
+===== PAGE 3 =====
+LISTE D'ARMÉE ADEPTA SORORITAS 
+Les armées de l’Adepta Sororitas ont une valeur stratégique de 3. Les formations d’ordre militant, d’Incinérator et de 
+Cathédrale ont une initiative de 1+. Les autres formations ont une initiative de 2+. 
+FORMATION DE L'ORDRE MILITANT 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Couvent Sororita 
+8 unités de Soeurs de Bataille 
+Céleste , Exorciste , Hunter , Supérieure, 
+Repressor, Transport 
+225 pts 
+Couvent Retributor 
+6 unités de Retributors 
+Hunter , Supérieure , Transport 
+200 pts 
+Couvent Séraphin 
+6 unités de Séraphines 
+Supérieure 
+225 pts 
+Couvent Dominus 
+4 unités de Dominions 
+4 Immolators (tous types) 
+Supérieure 
+250 pts 
+Couvent Purification 
+6 Immolators (tous types) 
+Exorciste, Hunter 
+200 pts 
+Couvent d’Exorcisme 
+6 Exorcistes 
+Exorciste, Hunter 
+300 pts 
+Couvent de Repentance 
+6 unités de Repentias + 1 personnage de Maîtresse 
+Machine de Pénitence, Repressor, Transport 
+200 
+ 
+FORMATION DE L'ECCLÉSIARCHIE 
+Vous pouvez prendre une formation de support par formation d'ordre militant prise 
+Formations 
+Unités 
+Améliorations 
+Coût 
+Croisade 
+10 unités de Rédemptionnistes + 1 personnage de Prêcheur 
+Machine de pénitence 
+150 pts 
+0-1 Suite inquisitoriale 
+8 unités de Troupes de Choc Inquisitoriales 
++ 1 personnage d'Inquisiteur de l’Ordo Hereticus 
+Transport Inquisition, Assassin 
+225 pts 
+Conclave 
+8 unités d’Arco-flagellant 
+Machine de pénitence 
+200 pts 
+Pénitence 
+6 Machines de pénitence 
+ 
+250 pts 
+ 
+AMÉLIORATIONS 
+(Chaque amélioration ne peut être prise qu'une seule fois par formation) 
+Améliorations 
+Unités 
+Coût 
+Supérieure 
+Ajouter un personnage de Palatine à la formation ou 
+Ajouter un personnage de Chanoinesse à la formation (1 maximum par armée) 
+50 pts 
+75 pts 
+Céleste 
+Remplacer deux unités de la formation par deux unités de Céleste 
+25 pts 
+Exorciste 
+Ajouter de 1 à 2 Exorciste(s) à la formation 
+50 pts chacun 
+Hunter 
+Ajouter 1 Hunter à la formation 
+50 pts 
+Transport 
+Ajouter des Rhinos à la formation 
+Ajouter des Immolators à la formations 
+25 pts par 3 / 50 pts par 4 
+25 pts chacun 
+Repressor 
+Ajouter des Repressors à la formations 
+50 pts par 3 / 75 pts par 4 
+Machine de Pénitence 
+Ajouter 2 machines de pénitences 
+75 pts 
+Transport Inquisition 
+Ajouter assez de chimère pour transporter toute la formation ou 
+Ajouter 4 Valkyries à la formation. 
+25 pts chacune 
+150 pts 
+Assassins 
+Remplacer 2 unités de troupe de choc par 2 unités de Cultiste de Parque 
+25 pts 
+ 
+FORMATIONS DE LA NAVY IMPÉRIALE ET SUPPORT LOURD 
+(Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations) 
+Formations 
+Unités 
+Coût 
+ 
+Formations 
+Unités 
+Coût 
+Incinérator 
+1 Incinérator 
+(Ajouter 1 Incinérator) 
+200 pts 
+(+200 pts) 
+ 
+Escadrille Avenger 
+2 Avengers 
+(Ajouter 1 ou 2 Avengers) 
+150 pts 
+(+75 pts chacun) 
+Cathédrale 
+1 Cathédrale 
+650 pts 
+ 
+0-1 Soutien Orbital 
+1 Croiseur de classe Lunar 
+150 pts 
+ 
+ 
+2 - CODEX ADEPTA SORORITAS - EAFR - REV 1.2 
+
+===== PAGE 4 =====
+FEUILLES DE RÉFÉRENCES ADEPTA SORORITAS 
+Nom 
+Type Vitesse Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Chanoinesse 
+Perso 
+- 
+- 
+- 
+- 
+Arme bénie 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Charismatique, Commandant suprême, Sauvegarde Invulnérable, Sainte 
+Maitresse 
+Perso 
+- 
+- 
+- 
+- 
+Fouets neuraux 
+(contact) 
+Arme d'Assaut, +1A, FeP 
+Frappe en Premier, Meneur 
+Palatine 
+Perso 
+- 
+- 
+- 
+- 
+Bolter Condemnor 
+(15cm) 
+Arme Légère, +1A, MA 
+Commandant, Meneur, Sauvegarde Invulnérable 
+Céleste 
+Inf 
+15cm 
+4+ 
+5+ 
+4+ Multi-Fuseur 
+et 
+15cm 
+(15cm) 
+MA5+ 
+Arme Légère, MA 
+- 
+Soeur de Bataille 
+Inf 
+15cm 
+4+ 
+5+ 
+4+ Lance-Flammes 
+et 
+15cm 
+(15cm) 
+AP4+, IC 
+Arme Légère, IC 
+- 
+Retributor 
+Inf 
+15cm 
+4+ 
+6+ 
+4+ 2x Bolter lourd 
+30cm 
+AP5+ 
+- 
+Séraphine 
+Inf 
+30cm 
+4+ 
+4+ 
+4+ Pistolets bolter Jumelés 
+(15cm) 
+Arme Légère 
+Réacteurs dorsaux, Sainte 
+Dominion 
+Inf 
+15cm 
+4+ 
+5+ 
+4+ Cadre de Fuseurs 
+(15cm) 
+Arme Légère, MA 
+Éclaireur 
+Repentia 
+Inf 
+15cm 
+- 
+4+ 
+- 
+Eviscerator 
+(contact) 
+Arme d'Assaut, MA 
+Sans peur, Infiltrateur, Sauvegarde Invulnérable 
+Exorciste 
+VB 
+25cm 
+5+ 
+6+ 
+5+ Lance-missiles Exorcist 
+45cm 
+2xAP6+/AC4+ 
+Blindage Renforcé 
+Immolator (Immolation) 
+VB 
+30cm 
+5+ 
+6+ 
+3+ Lance-flammes Immolation 
+15cm 
+(15cm) 
+AP3+, IC 
+Arme Légère, IC 
+Transport (1) : Infanterie 
+Immolator (Justice) 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-Fuseurs Jumelés 
+15cm 
+(15cm) 
+MA4+ 
+Arme Légère, MA 
+Transport (1) : Infanterie 
+Rhino 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Fulgurant 
+(15cm) 
+Arme Légère 
+Transport (2) : Infanterie 
+Repressor 
+VB 
+25cm 
+5+ 
+5+ 
+5+ Lance-Flammes 
+et 
+15cm 
+(15cm) 
+AP4+, IC 
+Arme Légère, IC 
+Marcheur, Transport (2) : Infanterie 
+Hunter 
+VB 
+30cm 
+5+ 
+6+ 
+6+ Lance-Missile Hunter 
+60cm 
+AC4+/AA4+ 
+- 
+Incinérator 
+EG 
+15cm 
+4+ 
+6+ 
+4+ Canon infernus 
+2x Bolters Lourds Jumelés 
+Canon Inferno (Gauche) 
+et 
+Canon Inferno (Droite) 
+et 
+30cm 
+30cm 
+30cm 
+(15cm) 
+30cm 
+(15cm) 
+4PB ,IC, Frt 
+AP4+ 
+AP3+, IC, Gch 
+Arme Légère, +1A, IC 
+AP3+, IC, Drt 
+Arme Légère, +1A, IC 
+Blindage Renforcé 
+CD3 - Critique : Détruit, Touche à 5cm sur 6 
+Cathédrale 
+EG 
+15cm 
+4+ 
+6+ 
+3+ Canon prométhéum 
+Coupole de la foi 
+2x Bolters Lourds Jumelés (G) 
+2x Bolters Lourds Jumelés (D) 
+Coupole Multi-Fuseur 
+60cm 
+30cm 
+30cm 
+30cm 
+15cm 
+(15cm) 
+4PB, IC, MA, Frt 
+2xAC3+/AA4+ 
+AP4+, Gch 
+AP4+, Drt 
+2xMA5+ 
+Arme Légère, +1A, MA 
+Blindage Renforcé, Charismatique, Sans peur 
+CD6 / BI2 - Critique : Fissure du prométhéum, l'Engin perd 1 Point de Structure 
+supplémentaire 
+ 
+3 - CODEX ADEPTA SORORITAS - EAFR - REV 1.2 
+
+===== PAGE 5 =====
+FEUILLES DE RÉFÉRENCES DE L'ECCLÉSIARCHIE 
+Nom 
+Type Vitesse Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Inquisiteur de l’Ordo Hereticus 
+Perso 
+- 
+- 
+- 
+- 
+Arme énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Commandant, Sauvegarde Invulnérable 
+Prêcheur 
+Perso 
+- 
+- 
+- 
+- 
+Eviscerator 
+(contact) 
+Arme d'Assaut, MA 
+Meneur, Sans Peur 
+Rédemptionniste 
+Inf 
+15cm 
+- 
+6+ 
+6+ - 
+- 
+- 
+Obstiné 
+Troupe de choc inquisitoriale 
+Inf 
+15cm 
+5+ 
+5+ 
+4+ Lance-plasma 
+15cm 
+AP5+/AC5+ 
+Éclaireurs 
+Cultiste de Parque 
+Inf 
+15cm 
+5+ 
+3+ 
+- 
+Arme Énergétique 
+(contact) 
+Arme d'Assaut, +1A, MA 
+Infiltrateur, Sauvegarde Invulnérable 
+Arco-flagellant 
+Inf 
+15cm 
+5+ 
+3+ 
+- 
+Chaines de combat 
+(contact) 
+Arme d'Assaut 
+Infiltrateur, Sans Peur, Sauvegarde Invulnérable 
+Machine de pénitence 
+VL 
+15cm 
+4+ 
+4+ 
+5+ 2x Lance-Flammes 
+et 
+Scie de combat 
+15cm 
+(15cm) 
+(contact) 
+AP4+, IC 
+Arme Légère, IC 
+Arme d'Assaut, +1A, MA 
+Infiltrateur, Marcheur, Sans Peur, Sauvegarde Invulnérable, 
+Ne peut pas contrôler les objectifs, seulement les contester. 
+Chimère 
+VB 
+30cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+Bolter Lourd 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+Transport (2) : Infanterie 
+Valkyrie 
+VB 
+35cm 
+5+ 
+6+ 
+5+ Multi-Laser 
+2x Bolter Lourd 
+2x Nacelles de roquettes 
+30cm 
+30cm 
+30cm 
+AP5+/AC6+ 
+AP5+ 
+1PB, Uniq, Rpt 
+Antigrav, Éclaireur, Transport (2) 
+ 
+ 
+ 
+FEUILLES DE RÉFÉRENCES DE LA NAVY IMPÉRIALE 
+Nom 
+Type Vitesse Blindage CC FF 
+Arme 
+Portée 
+Puissance de feu 
+Notes 
+Avenger 
+A 
+C 
+6+ 
+- 
+- 
+Canon Avenger 
+Canon Laser (AA) 
+Mitrailleuse Lourde (AA) 
+30cm 
+30cm 
+30cm 
+AP3+/AC5+, FrtF 
+AC5+/AA6+, FrtF 
+AA6+, Arr 
+ 
+Croiseur Classe Lunar 
+VS 
+- 
+- 
+- 
+- 
+Bombardement Orbital (3) 
+Frappe chirurgicale 
+∞ 
+∞ 
+3PB, MA 
+MA2+, TT (D3) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4 - CODEX ADEPTA SORORITAS - EAFR - REV 1.2 
+
+===== PAGE 6 =====
+FEUILLE DE RÉFÉRENCE ABRÉVIATIONS 
+ 
+ 
+5 - CODEX ADEPTA SORORITAS - EAFR - REV 1.2 

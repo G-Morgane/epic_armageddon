@@ -1,0 +1,849 @@
+{
+ "codex": {
+  "id": "legion_dacier",
+  "name": "Légion d'Acier",
+  "version": "1.2.1",
+  "faction": "Impérium",
+  "color": "#686000",
+  "logo": "steel.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "label_rares": "Soutien du Munitorum",
+   "valeur_strategique": 2,
+   "initiative_defaut": "2+",
+   "initiative_titanicus": "1+",
+   "commissaire_quota_soutien": {
+    "points_par_tranche": 1000
+   },
+   "taille_transport": {
+    "gardes_imperiaux": 1,
+    "quartier_general": 1,
+    "commandement": 1,
+    "ratlings": 1,
+    "appui_feu": 1,
+    "ogryns": 2
+   },
+   "capacite_transport": {
+    "chimere": 2
+   }
+  },
+  "statut": "validation"
+ },
+ "ameliorations": [
+  {
+   "id": "peloton_appui_feu",
+   "name": "Peloton d'Appui-feu (x4)",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 4 unités d'Appui-feu à la formation",
+   "unites": [
+    {
+     "id": "appui_feu",
+     "name": "Appui-feu",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "peloton_infanterie",
+   "name": "Peloton d'Infanterie (x6)",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 6 Gardes Impériaux à la formation",
+   "unites": [
+    {
+     "id": "gardes_imperiaux",
+     "name": "Gardes Impériaux",
+     "nombre": 6
+    }
+   ]
+  },
+  {
+   "id": "transport_chimere",
+   "name": "Transport Chimères",
+   "cout": 25,
+   "cout_par_unite": true,
+   "IsNotOption": true,
+   "min": 1,
+   "max": 10,
+   "description": "Ajouter des Chimères pour transporter les unités (25 pts/Chimère, capacité 2 unités)",
+   "unites": [
+    {
+     "id": "chimere",
+     "name": "Chimère",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "escadron_leman_russ",
+   "name": "Escadron de Chars — 3 Leman Russ",
+   "cout": 175,
+   "limit": 1,
+   "description": "Ajouter 3 Leman Russ à la formation",
+   "unites": [
+    {
+     "id": "leman_russ",
+     "name": "Leman Russ",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "escadron_demolisseur",
+   "name": "Escadron de Chars — 3 Leman Russ Démolisseurs",
+   "cout": 225,
+   "limit": 1,
+   "description": "Ajouter 3 Leman Russ Démolisseurs à la formation",
+   "unites": [
+    {
+     "id": "leman_russ_demolisseur",
+     "name": "Leman Russ Démolisseur",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "escadron_hellhound",
+   "name": "Escadron de 3 Hellhounds",
+   "cout": 150,
+   "limit": 1,
+   "description": "Ajouter 3 Hellhounds à la formation",
+   "unites": [
+    {
+     "id": "hellhound",
+     "name": "Hellhound",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "batterie_griffons",
+   "name": "Batterie de Griffons",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 4 Griffons à la formation",
+   "unites": [
+    {
+     "id": "griffon",
+     "name": "Griffon",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "hydre_supp",
+   "name": "1 Hydre",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Hydre à la formation",
+   "unites": [
+    {
+     "id": "hydre",
+     "name": "Hydre",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "ratlings",
+   "name": "Sniper Ratling",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 2,
+   "description": "Ajouter 1 à 2 unités de Ratlings à la formation (25 pts chacun)",
+   "unites": [
+    {
+     "id": "ratlings",
+     "name": "Ratlings",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "ogryns",
+   "name": "Ogryns",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 2,
+   "description": "Ajouter 1 à 2 unités d'Ogryns à la formation (25 pts chacun)",
+   "unites": [
+    {
+     "id": "ogryns",
+     "name": "Ogryns",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "remplacement_vanquisher",
+   "name": "1 Leman Russ Vanquisher",
+   "cout": 0,
+   "limit": 1,
+   "IsNotOption": true,
+   "description": "Remplacer 1 Leman Russ par 1 Leman Russ Vanquisher (gratuit)",
+   "type_remplacement": {
+    "remplace_unites": [
+     "leman_russ"
+    ],
+    "par_unite": "leman_russ_vanquisher",
+    "taille_lot": 1,
+    "quantite_fixe": true
+   },
+   "unites": [
+    {
+     "id": "leman_russ_vanquisher",
+     "name": "Leman Russ Vanquisher",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "remplacement_demolisseur_blindee",
+   "name": "Remplacer 3 Leman Russ par 3 Leman Russ Démolisseurs",
+   "cout": 50,
+   "limit": 1,
+   "IsNotOption": true,
+   "description": "Remplacer 3 Leman Russ de la formation par 3 Leman Russ Démolisseurs",
+   "type_remplacement": {
+    "remplace_unites": [
+     "leman_russ"
+    ],
+    "par_unite": "leman_russ_demolisseur",
+    "taille_lot": 3,
+    "quantite_fixe": true
+   },
+   "unites": [
+    {
+     "id": "leman_russ_demolisseur",
+     "name": "Leman Russ Démolisseur",
+     "nombre": 3
+    }
+   ]
+  },
+  {
+   "id": "valkyries_tempestus",
+   "name": "Ajouter 4 Valkyries",
+   "cout": 150,
+   "limit": 1,
+   "description": "Ajouter 4 Valkyries au Militarum Tempestus",
+   "unites": [
+    {
+     "id": "valkyrie",
+     "name": "Valkyrie",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "commissaire_soutien",
+   "name": "Commissaire",
+   "cout": 0,
+   "limit": 1,
+   "commissaire": true,
+   "regle_quota": "commissaire_quota_soutien",
+   "description": "Ajouter un Commissaire à la formation (1 gratuit par tranche de 1000 pts de compagnies)",
+   "unites": [
+    {
+     "id": "commissaire",
+     "name": "Commissaire",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "compagnies_ldac",
+   "name": "COMPAGNIES DE LA LÉGION D'ACIER",
+   "type": "principale",
+   "description": "Chaque amélioration ne peut être prise qu'une seule fois par formation (jusqu'à 3 améliorations maximum)",
+   "formations": [
+    {
+     "id": "qg_regimentaire",
+     "name": "0-1 QG Régimentaire",
+     "cout": 450,
+     "FormationLimite": 1,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_appui_ldac_A": 3
+     },
+     "unites": [
+      {
+       "id": "quartier_general",
+       "name": "QG Régimentaire",
+       "nombre": 1
+      },
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 12
+      },
+      {
+       "id": "chimere",
+       "name": "Chimère",
+       "nombre": 7
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "peloton_appui_feu",
+      "peloton_infanterie",
+      "transport_chimere",
+      "escadron_leman_russ",
+      "escadron_demolisseur",
+      "escadron_hellhound",
+      "batterie_griffons",
+      "hydre_supp",
+      "ratlings",
+      "ogryns"
+     ]
+    },
+    {
+     "id": "compagnie_mecanisee",
+     "name": "Compagnie d'Infanterie Mécanisée",
+     "cout": 400,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_appui_ldac_A": 3
+     },
+     "unites": [
+      {
+       "id": "commandement",
+       "name": "Commandement",
+       "nombre": 1
+      },
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 12
+      },
+      {
+       "id": "chimere",
+       "name": "Chimère",
+       "nombre": 7
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "peloton_appui_feu",
+      "peloton_infanterie",
+      "transport_chimere",
+      "escadron_leman_russ",
+      "escadron_demolisseur",
+      "escadron_hellhound",
+      "batterie_griffons",
+      "hydre_supp",
+      "ratlings",
+      "ogryns"
+     ]
+    },
+    {
+     "id": "compagnie_infanterie",
+     "name": "Compagnie d'Infanterie",
+     "cout": 250,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_appui_ldac_A": 3
+     },
+     "unites": [
+      {
+       "id": "commandement",
+       "name": "Commandement",
+       "nombre": 1
+      },
+      {
+       "id": "gardes_imperiaux",
+       "name": "Gardes Impériaux",
+       "nombre": 12
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "peloton_appui_feu",
+      "peloton_infanterie",
+      "transport_chimere",
+      "escadron_leman_russ",
+      "escadron_demolisseur",
+      "escadron_hellhound",
+      "batterie_griffons",
+      "hydre_supp",
+      "ratlings",
+      "ogryns"
+     ]
+    },
+    {
+     "id": "compagnie_blindee",
+     "name": "Compagnie Blindée",
+     "cout": 600,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_appui_ldac_A": 3
+     },
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 10
+      },
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "remplacement_vanquisher",
+      "remplacement_demolisseur_blindee",
+      "peloton_appui_feu",
+      "peloton_infanterie",
+      "transport_chimere",
+      "escadron_leman_russ",
+      "escadron_demolisseur",
+      "escadron_hellhound",
+      "batterie_griffons",
+      "hydre_supp",
+      "ratlings",
+      "ogryns"
+     ]
+    },
+    {
+     "id": "compagnie_super_lourds",
+     "name": "Compagnie de Super Lourds",
+     "cout": 500,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_appui_ldac_A": 3
+     },
+     "unites": [
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "min_total": 3,
+      "max_total": 3,
+      "label": "3 unités (Baneblades / Shadowswords)",
+      "options": [
+       {
+        "unitId": "baneblade",
+        "name": "Baneblade",
+        "cout": 0,
+        "min": 0,
+        "max": 3
+       },
+       {
+        "unitId": "shadowsword",
+        "name": "Shadowsword",
+        "cout": 0,
+        "min": 0,
+        "max": 3
+       }
+      ]
+     },
+     "ameliorations": [
+      "peloton_appui_feu",
+      "peloton_infanterie",
+      "transport_chimere",
+      "escadron_leman_russ",
+      "escadron_demolisseur",
+      "escadron_hellhound",
+      "batterie_griffons",
+      "hydre_supp",
+      "ratlings",
+      "ogryns"
+     ]
+    },
+    {
+     "id": "compagnie_artillerie",
+     "name": "Compagnie d'Artillerie",
+     "cout": 550,
+     "limiteOptionFormation": 3,
+     "FormationLimitationTag": {
+      "slot_appui_ldac_A": 3
+     },
+     "unites": [
+      {
+       "id": "commissaire",
+       "name": "Commissaire",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "min_total": 0,
+      "max_total": 9,
+      "label": "9 unités (Basilisks / Manticores / Bombardes)",
+      "options": [
+       {
+        "unitId": "basilisk",
+        "name": "Basilisk",
+        "cout": 0,
+        "min": 0,
+        "max": 9
+       },
+       {
+        "unitId": "manticore",
+        "name": "Manticore",
+        "cout": 0,
+        "min": 0,
+        "max": 9
+       },
+       {
+        "unitId": "bombarde",
+        "name": "Bombarde",
+        "cout": 0,
+        "min": 0,
+        "max": 9
+       }
+      ]
+     },
+     "ameliorations": [
+      "peloton_appui_feu",
+      "peloton_infanterie",
+      "transport_chimere",
+      "escadron_leman_russ",
+      "escadron_demolisseur",
+      "escadron_hellhound",
+      "batterie_griffons",
+      "hydre_supp",
+      "ratlings",
+      "ogryns"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "appui_ldac",
+   "name": "FORMATIONS D'APPUI DE LA LÉGION D'ACIER",
+   "type": "associee",
+   "description": "Jusqu'à 3 formations d'appui par Compagnie",
+   "LimitationTag": "slot_appui_ldac_A",
+   "formations": [
+    {
+     "id": "peloton_super_lourd",
+     "name": "Peloton de char Super Lourd",
+     "cout": 200,
+     "variantes": [
+      {
+       "id": "peloton_sl_shadowsword",
+       "name": "1 Shadowsword",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "shadowsword",
+         "name": "Shadowsword",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "baneblade",
+       "name": "Baneblade",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "peloton_leman_russ",
+     "name": "Peloton de Leman Russ",
+     "cout": 350,
+     "unites": [
+      {
+       "id": "leman_russ",
+       "name": "Leman Russ",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "batterie_artilleries",
+     "name": "Batterie d'Artilleries",
+     "cout": 225,
+     "variantes": [
+      {
+       "id": "batterie_bombardes",
+       "name": "3 Bombardes",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "bombarde",
+         "name": "Bombarde",
+         "nombre": 3
+        }
+       ]
+      },
+      {
+       "id": "batterie_manticores",
+       "name": "3 Manticores",
+       "cout": 250,
+       "unites_override": [
+        {
+         "id": "manticore",
+         "name": "Manticore",
+         "nombre": 3
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "basilisk",
+       "name": "Basilisk",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "batterie_deathstrike",
+     "name": "0-1 Batterie de Missiles Deathstrike",
+     "cout": 225,
+     "FormationLimite": 1,
+     "unites": [
+      {
+       "id": "deathstrike",
+       "name": "Deathstrike",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "batterie_aa",
+     "name": "Batterie Anti-Aérienne",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "hydre",
+       "name": "Hydre",
+       "nombre": 3
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "escadron_sentinelles",
+     "name": "Escadron de Sentinelles",
+     "cout": 100,
+     "unites": [
+      {
+       "id": "sentinelle",
+       "name": "Sentinelle",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "peloton_rough_riders",
+     "name": "Peloton de Rough Riders",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "rough_riders",
+       "name": "Rough Riders",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "militarum_tempestus",
+     "name": "Militarum Tempestus",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "tempestus_scions",
+       "name": "Tempestus Scions",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "valkyries_tempestus",
+      "commissaire_soutien"
+     ]
+    },
+    {
+     "id": "escadron_vultures",
+     "name": "Escadron de Vultures",
+     "cout": 300,
+     "unites": [
+      {
+       "id": "vulture",
+       "name": "Vulture",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": [
+      "commissaire_soutien"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aeronautica_ldac",
+   "name": "FLOTTES DE L'AERONAUTICA IMPERIALIS",
+   "type": "associee",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "escadrille_intercepteurs",
+     "name": "Escadrille d'Intercepteurs",
+     "cout": 150,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "escadrille_intercepteurs_4",
+       "name": "4 Chasseurs Thunderbolts",
+       "cout": 300,
+       "nombre_exact": 4
+      }
+     ],
+     "unites": [
+      {
+       "id": "thunderbolt",
+       "name": "Thunderbolt",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "escadrille_bombardiers",
+     "name": "Escadrille de Bombardiers",
+     "cout": 250,
+     "rare": true,
+     "unites": [
+      {
+       "id": "bombardier_marauder",
+       "name": "Bombardier Marauder",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital",
+     "name": "Soutien Orbital",
+     "cout": 100,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "soutien_orbital_emperor",
+       "name": "Cuirassé Emperor",
+       "cout": 300,
+       "nombre_exact": 1
+      }
+     ],
+     "unites": [
+      {
+       "id": "croiseur_lunar",
+       "name": "Croiseur Classe Lunar",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "titanicus_ldac",
+   "name": "SOUTIENS DE L'ADEPTUS TITANICUS",
+   "type": "associee",
+   "description": "Jusqu'à 1/3 des points disponibles — Initiative 1+",
+   "formations": [
+    {
+     "id": "titan_warhound",
+     "name": "Titan Warhound",
+     "cout": 275,
+     "rare": true,
+     "unites": [
+      {
+       "id": "warhound",
+       "name": "Warhound",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "meute_warhounds",
+     "name": "Meute de Warhounds",
+     "cout": 500,
+     "rare": true,
+     "unites": [
+      {
+       "id": "warhound",
+       "name": "Warhound",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_reaver",
+     "name": "Titan Reaver",
+     "cout": 650,
+     "rare": true,
+     "unites": [
+      {
+       "id": "reaver",
+       "name": "Reaver",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titan_warlord",
+     "name": "Titan Warlord",
+     "cout": 850,
+     "rare": true,
+     "unites": [
+      {
+       "id": "warlord",
+       "name": "Warlord",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,568 @@
+{
+ "codex": {
+  "id": "chevaliers_imperiaux",
+  "name": "Chevaliers Impériaux",
+  "version": "1.4",
+  "faction": "Titanicus",
+  "color": "#004b58",
+  "logo": "chevalier.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+"
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "chevalier_supp_ci",
+   "name": "Chevalier supplémentaire",
+   "limit": 2,
+   "description": "Ajouter 1 chevalier à la formation (peut être pris jusqu'à 2 fois, types mixables)",
+   "choix": [
+    {
+     "id": "paladin_1_ci",
+     "name": "Paladin",
+     "cout": 125
+    },
+    {
+     "id": "errant_1_ci",
+     "name": "Errant",
+     "cout": 125
+    },
+    {
+     "id": "croise_1_ci",
+     "name": "Croisé",
+     "cout": 150
+    },
+    {
+     "id": "galant_1_ci",
+     "name": "Galant",
+     "cout": 100
+    },
+    {
+     "id": "warden_1_ci",
+     "name": "Warden",
+     "cout": 100
+    },
+    {
+     "id": "warden_ag_1_ci",
+     "name": "Warden Agressor",
+     "cout": 125,
+     "unit_stat_name": "Warden Agressor"
+    },
+    {
+     "id": "precepteur_ci",
+     "name": "Précepteur",
+     "cout": 150,
+     "limiteOptionGlobal": 1
+    },
+    {
+     "id": "vaillant_ci",
+     "name": "Vaillant",
+     "cout": 175,
+     "limiteOptionGlobal": 1
+    },
+    {
+     "id": "castellan_ci",
+     "name": "Castellan",
+     "cout": 200,
+     "limiteOptionGlobal": 1
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "noble_ci",
+   "name": "Noble",
+   "cout": 25,
+   "limit": 1,
+   "description": "Ajouter 1 Lord Scion (Noble) à la formation",
+   "unites": [
+    {
+     "id": "lord_scion",
+     "name": "Lord Scion",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "sans_fief_ci",
+   "name": "0-1 Sans Fief",
+   "cout": 50,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Sans Fief à la formation (0-1 par armée)",
+   "unites": [
+    {
+     "id": "sans_fief",
+     "name": "Sans Fief",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "senechal_ci",
+   "name": "0-1 Sénéchal",
+   "cout": 75,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Sénéchal à la formation (0-1 par armée)",
+   "unites": [
+    {
+     "id": "senechal",
+     "name": "Sénéchal",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "porte_banniere_ci",
+   "name": "0-1 Porte-Bannière",
+   "cout": 75,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "description": "Ajouter 1 Porte-Bannière à la formation (0-1 par armée)",
+   "unites": [
+    {
+     "id": "porte_banniere",
+     "name": "Porte-Bannière",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "precepteur_armigere_ci",
+   "name": "Précepteur",
+   "cout": 150,
+   "limit": 1,
+   "description": "Ajouter 1 Précepteur à la formation d'Armigères",
+   "unites": [
+    {
+     "id": "precepteur",
+     "name": "Précepteur",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "lance_ban_ci",
+   "name": "LANCE DU BAN DES CHEVALIERS IMPÉRIAUX",
+   "type": "principale",
+   "formations": [
+    {
+     "id": "questoris_paladin",
+     "name": "Questoris Paladin",
+     "cout": 375,
+     "description": "3 Paladins",
+     "FormationLimitationTag": {
+      "slot_soutien_ci_A": 2,
+      "slot_soutien_ci_B": 1
+     },
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_paladin_unite",
+       "name": "Paladin",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_errant",
+     "name": "Questoris Errant",
+     "cout": 325,
+     "description": "3 Errants",
+     "FormationLimitationTag": {
+      "slot_soutien_ci_A": 2,
+      "slot_soutien_ci_B": 1
+     },
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_errant_unite",
+       "name": "Errant",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_warden",
+     "name": "Questoris Warden",
+     "cout": 300,
+     "description": "3 Wardens",
+     "FormationLimitationTag": {
+      "slot_soutien_ci_A": 2,
+      "slot_soutien_ci_B": 1
+     },
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_warden_unite",
+       "name": "Warden",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_warden_agresseur",
+     "name": "Questoris Warden Aggressor",
+     "cout": 350,
+     "description": "3 Warden Agressors",
+     "FormationLimitationTag": {
+      "slot_soutien_ci_A": 2,
+      "slot_soutien_ci_B": 1
+     },
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_warden_agresseur_unite",
+       "name": "Warden Agressor",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_galants",
+     "name": "Questoris Gallant",
+     "cout": 300,
+     "description": "3 Galants",
+     "FormationLimitationTag": {
+      "slot_soutien_ci_A": 2,
+      "slot_soutien_ci_B": 1
+     },
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_galant",
+       "name": "Galant",
+       "nombre": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lance_soutien_ci",
+   "name": "LANCE DE SOUTIEN DES CHEVALIERS IMPÉRIAUX",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_ci_A",
+   "description": "Deux formations par Lance du Ban",
+   "formations": [
+    {
+     "id": "armigers",
+     "name": "Armigères",
+     "cout": 200,
+     "variantes": [
+      {
+       "id": "armigers_6",
+       "name": "6 Armigères",
+       "cout": 300,
+       "nombre_exact": 6
+      }
+     ],
+     "ameliorations": [
+      "noble_ci",
+      "sans_fief_ci",
+      "precepteur_armigere_ci"
+     ],
+     "unites": [
+      {
+       "id": "armigere",
+       "name": "Armigère",
+       "nombre": 4
+      }
+     ]
+    },
+    {
+     "id": "questoris_magaera",
+     "name": "Questoris Magæra",
+     "cout": 350,
+     "variantes": [
+      {
+       "id": "magaera_4",
+       "name": "4 Magæras",
+       "cout": 475,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_magaera_unite",
+       "name": "Magæra",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_styrix",
+     "name": "Questoris Styrix",
+     "cout": 350,
+     "variantes": [
+      {
+       "id": "styrix_4",
+       "name": "4 Styrixs",
+       "cout": 475,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_styrix_unite",
+       "name": "Styrix",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_acheron",
+     "name": "Cerastus Acheron",
+     "cout": 325,
+     "variantes": [
+      {
+       "id": "acheron_4",
+       "name": "4 Acherons",
+       "cout": 450,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_acheron_unite",
+       "name": "Acheron",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_castigators",
+     "name": "Cerastus Castigator",
+     "cout": 375,
+     "variantes": [
+      {
+       "id": "castigators_4",
+       "name": "4 Castigators",
+       "cout": 525,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_castigator",
+       "name": "Castigator",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_lancer",
+     "name": "Cerastus Lancer",
+     "cout": 325,
+     "variantes": [
+      {
+       "id": "lancer_4",
+       "name": "4 Lancers",
+       "cout": 475,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_lancer_unite",
+       "name": "Lancer",
+       "nombre": 3
+      }
+     ]
+    },
+    {
+     "id": "questoris_atrapos",
+     "name": "Cerastus Atrapos",
+     "cout": 375,
+     "variantes": [
+      {
+       "id": "atrapos_4",
+       "name": "4 Atrapos",
+       "cout": 500,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": [
+      "chevalier_supp_ci",
+      "noble_ci",
+      "sans_fief_ci",
+      "senechal_ci",
+      "porte_banniere_ci"
+     ],
+     "unites": [
+      {
+       "id": "questoris_atrapos_unite",
+       "name": "Atrapos",
+       "nombre": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lance_appui_ci",
+   "name": "LANCE D'APPUI LOURD DES CHEVALIERS IMPÉRIAUX",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_ci_B",
+   "description": "Une formation par Lance du Ban",
+   "formations": [
+    {
+     "id": "acastus_porphyrion",
+     "name": "Acastus Porphyrion",
+     "cout": 300,
+     "variantes": [
+      {
+       "id": "porphyrion_2",
+       "name": "2 Porphyrions",
+       "cout": 550,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "acastus_porphyrion_unite",
+       "name": "Porphyrion",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "acastus_asterius",
+     "name": "Acastus Asterius",
+     "cout": 300,
+     "variantes": [
+      {
+       "id": "asterius_2",
+       "name": "2 Asterius",
+       "cout": 550,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "acastus_asterius_unite",
+       "name": "Asterius",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "dominus_vaillant",
+     "name": "Dominus Vaillant",
+     "cout": 175,
+     "variantes": [
+      {
+       "id": "vaillant_2",
+       "name": "2 Vaillants",
+       "cout": 300,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "dominus_vaillant_unite",
+       "name": "Vaillant",
+       "nombre": 1
+      }
+     ]
+    },
+    {
+     "id": "dominus_castellan",
+     "name": "Dominus Castellan",
+     "cout": 200,
+     "variantes": [
+      {
+       "id": "castellan_2",
+       "name": "2 Castellans",
+       "cout": 350,
+       "nombre_exact": 2
+      }
+     ],
+     "ameliorations": [],
+     "unites": [
+      {
+       "id": "dominus_castellan_unite",
+       "name": "Castellan",
+       "nombre": 1
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

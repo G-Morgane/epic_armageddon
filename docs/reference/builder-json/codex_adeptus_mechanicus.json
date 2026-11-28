@@ -1,0 +1,664 @@
+{
+ "codex": {
+  "id": "adeptus_mechanicus",
+  "name": "Adeptus Mechanicus",
+  "version": "1.6",
+  "faction": "Titanicus",
+  "color": "#610505",
+  "logo": "mechanicus.png",
+  "categorie": "armees-imperiales",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 3,
+   "initiative_defaut": "2+",
+   "initiative_personnage": "1+ (avec un Tech-priest ou Dominus)"
+  },
+  "statut": "brouillon"
+ },
+ "ameliorations": [
+  {
+   "id": "magos_mec",
+   "name": "Magos",
+   "cout": 0,
+   "limit": 1,
+   "description": "Ajouter un Magos à la formation",
+   "choix": [
+    {
+     "id": "tech_priest_mec",
+     "name": "Tech-priest",
+     "cout": 50
+    },
+    {
+     "id": "dominus_mec",
+     "name": "Tech-priest Dominus",
+     "cout": 75,
+     "limiteOptionGlobal": 1,
+     "commandant_supreme": true
+    }
+   ],
+   "unites": []
+  },
+  {
+   "id": "desintegrators_mec",
+   "name": "Skorpius Desintegrators",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Skorpius Desintegrators (50 pts/véhicule)",
+   "unites": [
+    {
+     "id": "skorpius_desintegrator",
+     "name": "Skorpius Desintegrator",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "onagre_icarus_mec",
+   "name": "Onagre Icarus",
+   "cout": 75,
+   "limit": 1,
+   "description": "Ajouter 1 Onagre Icarus à la formation",
+   "unites": [
+    {
+     "id": "onagre_icarus",
+     "name": "Onagre Icarus",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "onagre_icarus_remplacement_mec",
+   "name": "Onagre Icarus (remplacement)",
+   "cout": 25,
+   "limit": 1,
+   "description": "Remplacer 1 Onagre de la formation par 1 Onagre Icarus",
+   "unites": [
+    {
+     "id": "onagre_icarus",
+     "name": "Onagre Icarus",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "dunerider_mec",
+   "name": "Skorpius Duneriders",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 6,
+   "description": "Ajouter jusqu'à 6 Skorpius Duneriders (25 pts/véhicule)",
+   "unites": [
+    {
+     "id": "skorpius_dunerider",
+     "name": "Skorpius Dunerider",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "avant_garde_mec",
+   "name": "Avant-Garde",
+   "cout": 25,
+   "limit": 1,
+   "limiteOptionGlobal": 2,
+   "description": "Les unités gagnent la règle Éclaireur (incompatible avec Duneriders)",
+   "unites": []
+  },
+  {
+   "id": "termites_mec",
+   "name": "Tunnelier — Termites",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 4,
+   "description": "Ajouter jusqu'à 4 Termites (25 pts/unité)",
+   "unites": [
+    {
+     "id": "termite_skitarii",
+     "name": "Termite (Skitarii)",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "taupe_mec",
+   "name": "Tunnelier — Taupe",
+   "cout": 50,
+   "limit": 1,
+   "description": "Ajouter 1 Taupe pour transporter toute la formation",
+   "unites": [
+    {
+     "id": "taupe_skitarii",
+     "name": "Taupe (Skitarii)",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "teleportation_mec",
+   "name": "Téléportation",
+   "cout": 50,
+   "limit": 1,
+   "description": "La formation déploie par téléportation",
+   "unites": []
+  },
+  {
+   "id": "ordinatus_minoris_supp_mec",
+   "name": "Ordinatus Minoris supplémentaire",
+   "cout": 125,
+   "cout_par_unite": true,
+   "limit": 2,
+   "description": "Ajouter 1 ou 2 Ordinatus Minoris supplémentaires (Sagittar ou Ulator, 125 pts/unité)",
+   "unites": [
+    {
+     "id": "ordinatus_minoris",
+     "name": "Ordinatus Minoris",
+     "nombre": 1
+    }
+   ]
+  }
+ ],
+ "groupes": [
+  {
+   "id": "principale_mec",
+   "name": "DÉTACHEMENTS PRINCIPAUX DE L'ADEPTUS MECHANICUS",
+   "type": "principale",
+   "description": "Au moins une formation de Skitarii Vanguards obligatoire",
+   "formations": [
+    {
+     "id": "skitarii_vanguards",
+     "name": "Skitarii Vanguards",
+     "cout": 275,
+     "FormationLimitationTag": {
+      "slot_soutien_mec_A": 2
+     },
+     "unites": [
+      {
+       "id": "skitarii_vanguard",
+       "name": "Skitarii Vanguard",
+       "nombre": 8
+      },
+      {
+       "id": "skorpius_dunerider",
+       "name": "Skorpius Dunerider",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "vanguards_12",
+       "name": "12 Skitarii Vanguards + 6 Skorpius Duneriders",
+       "cout": 425,
+       "unites_override": [
+        {
+         "id": "skitarii_vanguard",
+         "name": "Skitarii Vanguard",
+         "nombre": 12
+        },
+        {
+         "id": "skorpius_dunerider",
+         "name": "Skorpius Dunerider",
+         "nombre": 6
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "magos_mec",
+      "desintegrators_mec",
+      "onagre_icarus_mec"
+     ]
+    },
+    {
+     "id": "kataphrons",
+     "name": "Kataphrons",
+     "cout": 275,
+     "FormationLimitationTag": {
+      "slot_soutien_mec_A": 2
+     },
+     "unites": [
+      {
+       "id": "kataphron",
+       "name": "Kataphron",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "magos_mec",
+      "onagre_icarus_mec"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_mec",
+   "name": "DÉTACHEMENTS DE SOUTIEN DE L'ADEPTUS MECHANICUS",
+   "type": "associee",
+   "LimitationTag": "slot_soutien_mec_A",
+   "description": "Jusqu'à 2 détachements de soutien par détachement principal",
+   "formations": [
+    {
+     "id": "assaut_souterrain",
+     "name": "Groupe d'Assaut Souterrain",
+     "cout": 275,
+     "unites": [
+      {
+       "id": "skitarii_vanguard",
+       "name": "Skitarii Vanguard",
+       "nombre": 8
+      },
+      {
+       "id": "termite_skitarii",
+       "name": "Termite (Skitarii)",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "souterrain_taupe",
+       "name": "8 Skitarii Vanguards + 1 Taupe",
+       "cout": 275,
+       "unites_override": [
+        {
+         "id": "skitarii_vanguard",
+         "name": "Skitarii Vanguard",
+         "nombre": 8
+        },
+        {
+         "id": "taupe_skitarii",
+         "name": "Taupe (Skitarii)",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "magos_mec"
+     ]
+    },
+    {
+     "id": "skitarii_rangers",
+     "name": "Skitarii Rangers",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "skitarii_ranger",
+       "name": "Skitarii Ranger",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "magos_mec",
+      "dunerider_mec",
+      "avant_garde_mec"
+     ]
+    },
+    {
+     "id": "electro_pretre",
+     "name": "Electro-Prêtres",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "electro_pretre_unite",
+       "name": "Electro-Prêtre",
+       "nombre": 8
+      }
+     ],
+     "ameliorations": [
+      "magos_mec",
+      "dunerider_mec",
+      "desintegrators_mec",
+      "termites_mec",
+      "taupe_mec"
+     ]
+    },
+    {
+     "id": "sicarian_infiltrators",
+     "name": "Sicarian Infiltrators",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "sicarian_infiltrator",
+       "name": "Sicarian Infiltrator",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "teleportation_mec"
+     ]
+    },
+    {
+     "id": "sicarian_ruststalkers",
+     "name": "Sicarian Ruststalkers",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "sicarian_ruststalker",
+       "name": "Sicarian Ruststalker",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "dunerider_mec",
+      "termites_mec",
+      "taupe_mec"
+     ]
+    },
+    {
+     "id": "serberys_raiders",
+     "name": "Serberys Raiders",
+     "cout": 150,
+     "unites": [
+      {
+       "id": "serberys_raider",
+       "name": "Serberys Raider",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "pteraxii",
+     "name": "0-2 Pteraxii",
+     "cout": 175,
+     "FormationLimite": 2,
+     "unites": [
+      {
+       "id": "pteraxii_unite",
+       "name": "Pteraxii",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "ballistarii_ironstriders",
+     "name": "Ballistarii Ironstriders",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "ballistarii_ironstrider",
+       "name": "Ballistarii Ironstrider",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "sydonian_dragoons",
+     "name": "Sydonian Dragoons",
+     "cout": 225,
+     "unites": [
+      {
+       "id": "sydonian_dragoon",
+       "name": "Sydonian Dragoon",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "kastellan_automata",
+     "name": "Kastellan Automata",
+     "cout": 350,
+     "unites": [
+      {
+       "id": "kastellan_automata_unite",
+       "name": "Kastellan Automata",
+       "nombre": 6
+      },
+      {
+       "id": "cybernetica_datasmith",
+       "name": "Cybernetica Datasmith",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "onagre",
+     "name": "Onagres",
+     "cout": 325,
+     "unites": [
+      {
+       "id": "onagre_unite",
+       "name": "Onagre",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "onagre_icarus_remplacement_mec",
+      "onagre_icarus_mec"
+     ]
+    },
+    {
+     "id": "skorpius_desintegrator",
+     "name": "Skorpius Desintegrators",
+     "cout": 275,
+     "unites": [
+      {
+       "id": "skorpius_desintegrator",
+       "name": "Skorpius Desintegrator",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "desintegrators_mec"
+     ]
+    },
+    {
+     "id": "archeopter_transvector",
+     "name": "Archeopter Transvectors",
+     "cout": 300,
+     "unites": [
+      {
+       "id": "archeopter_transvector_unite",
+       "name": "Archeopter Transvector",
+       "nombre": 6
+      },
+      {
+       "id": "skitarii_vanguard",
+       "name": "Skitarii Vanguard",
+       "nombre": 6
+      }
+     ],
+     "variantes": [
+      {
+       "id": "transvector_electro",
+       "name": "6 Archeopter Transvectors + 6 Electro-Prêtres",
+       "cout": 325,
+       "unites_override": [
+        {
+         "id": "archeopter_transvector_unite",
+         "name": "Archeopter Transvector",
+         "nombre": 6
+        },
+        {
+         "id": "electro_pretre_unite",
+         "name": "Electro-Prêtre",
+         "nombre": 6
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "magos_mec"
+     ]
+    },
+    {
+     "id": "ordinatus_minoris",
+     "name": "Ordinatus Minoris",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "ordinatus_minoris_sagittar",
+       "name": "Ordinatus Minoris Sagittar",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "ordinatus_ulator",
+       "name": "1 Ordinatus Minoris Ulator",
+       "cout": 200,
+       "unites_override": [
+        {
+         "id": "ordinatus_minoris_ulator",
+         "name": "Ordinatus Minoris Ulator",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": [
+      "ordinatus_minoris_supp_mec"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "centurio_ordinatus",
+   "name": "SOUTIENS DU CENTURIO ORDINATUS",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "ordinatus_mars",
+     "name": "Ordinatus Mars",
+     "cout": 400,
+     "rare": true,
+     "unites": [
+      {
+       "id": "ordinatus_mars_unite",
+       "name": "Ordinatus Mars",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "ordinatus_armageddon",
+     "name": "Ordinatus Armageddon",
+     "cout": 450,
+     "rare": true,
+     "unites": [
+      {
+       "id": "ordinatus_armageddon_unite",
+       "name": "Ordinatus Armageddon",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "ordinatus_golgotha",
+     "name": "Ordinatus Golgotha",
+     "cout": 550,
+     "rare": true,
+     "unites": [
+      {
+       "id": "ordinatus_golgotha_unite",
+       "name": "Ordinatus Golgotha",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "flotte_omnimessie",
+   "name": "FLOTTE DE L'OMNIMESSIE",
+   "type": "rare",
+   "rare": true,
+   "description": "Jusqu'à 1/3 des points disponibles peuvent être dépensés pour ces formations",
+   "formations": [
+    {
+     "id": "stratoraptors",
+     "name": "Escadrille Archeopter Stratoraptors",
+     "cout": 150,
+     "rare": true,
+     "unites": [
+      {
+       "id": "archeopter_stratoraptor",
+       "name": "Archeopter Stratoraptor",
+       "nombre": 2
+      }
+     ],
+     "variantes": [
+      {
+       "id": "strato_3",
+       "name": "3 Archeopter Stratoraptors",
+       "cout": 225,
+       "nombre_exact": 3
+      },
+      {
+       "id": "strato_4",
+       "name": "4 Archeopter Stratoraptors",
+       "cout": 300,
+       "nombre_exact": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "fusilaves",
+     "name": "Escadrille Archeopter Fusilaves",
+     "cout": 200,
+     "rare": true,
+     "unites": [
+      {
+       "id": "archeopter_fusilav",
+       "name": "Archeopter Fusilav",
+       "nombre": 4
+      }
+     ],
+     "variantes": [
+      {
+       "id": "fusi_5",
+       "name": "5 Archeopter Fusilaves",
+       "cout": 250,
+       "nombre_exact": 5
+      },
+      {
+       "id": "fusi_6",
+       "name": "6 Archeopter Fusilaves",
+       "cout": 300,
+       "nombre_exact": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "soutien_orbital_mec",
+     "name": "Soutien Orbital",
+     "cout": 150,
+     "rare": true,
+     "unites": [
+      {
+       "id": "croiseur_mechanicus",
+       "name": "Croiseur",
+       "nombre": 1
+      }
+     ],
+     "variantes": [
+      {
+       "id": "ark_mechanicus",
+       "name": "1 Ark Mechanicus",
+       "cout": 300,
+       "unites_override": [
+        {
+         "id": "ark_mechanicus_unite",
+         "name": "Ark Mechanicus",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}

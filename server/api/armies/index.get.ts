@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const supabase = useSupabaseServer()
   const query = getQuery(event)
   const faction = query.faction as string | undefined
@@ -15,11 +15,10 @@ export default defineEventHandler(async (event) => {
     request = request.eq('faction', faction)
   }
 
-  if (status) {
-    request = request.eq('status', status)
-  } else {
-    request = request.eq('status', 'official')
-  }
+  // `status` accepte plusieurs valeurs séparées par des virgules : l'admin affiche
+  // les cinq statuts sur un même écran, une requête suffit.
+  const statuts = (status ?? 'official').split(',').map(s => s.trim()).filter(Boolean)
+  request = statuts.length > 1 ? request.in('status', statuts) : request.eq('status', statuts[0] ?? 'official')
 
   const { data, error } = await request
 
@@ -40,4 +39,7 @@ export default defineEventHandler(async (event) => {
   }
 
   return result
-})
+}, cacheDonnees('armies', (e) => {
+  const q = getQuery(e)
+  return `${q.faction ?? ''}|${q.status ?? 'official'}|${q.tag ?? ''}`
+}))

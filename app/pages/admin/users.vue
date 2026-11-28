@@ -58,11 +58,9 @@ async function inviteUser() {
   inviteSuccess.value = ''
   inviting.value = true
 
-  const { data: { session } } = await supabase.auth.getSession()
   const { error } = await $fetch('/api/admin/invite', {
     method: 'POST',
     body: { email: inviteEmail.value, role: inviteRole.value },
-    headers: { Authorization: `Bearer ${session?.access_token}` },
   }).catch((e: any) => ({ error: e.data?.message ?? 'Erreur' })) as any
 
   if (error) {

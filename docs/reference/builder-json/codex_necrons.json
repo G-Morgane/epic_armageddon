@@ -1,0 +1,606 @@
+{
+ "codex": {
+  "id": "necrons",
+  "name": "Nécrons",
+  "version": "1.3",
+  "faction": "Nécrons",
+  "color": "#696969",
+  "logo": "nec.png",
+  "categorie": "armees-xenos",
+  "regles_speciales": {
+   "max_formations_rares_ratio": 0.3333,
+   "valeur_strategique": 1,
+   "initiative_defaut": "1+",
+   "taille_transport": {
+    "guerriers_necrons": 1,
+    "seigneur_necron": 1,
+    "immortels": 1,
+    "pretorien": 1
+   },
+   "capacite_transport": {
+    "arche_fantome": 2
+   }
+  },
+  "statut": "construction"
+ },
+ "ameliorations": [
+  {
+   "id": "commandant_supreme_necron",
+   "name": "0-1 Commandant Suprême",
+   "cout": 75,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "description": "Remplacer le Seigneur Nécron par un Seigneur de Guerre Nécron",
+   "unites": []
+  },
+  {
+   "id": "commandant_supreme_destroyer",
+   "name": "0-1 Commandant Suprême (Destroyers)",
+   "cout": 75,
+   "limit": 1,
+   "limiteOptionGlobal": 1,
+   "commandant_supreme": true,
+   "description": "Remplacer le Seigneur Destroyer par un Seigneur de Guerre Destroyer",
+   "unites": []
+  },
+  {
+   "id": "4_guerriers_necrons",
+   "name": "4 Guerriers Nécrons",
+   "cout": 125,
+   "limit": 1,
+   "description": "Ajouter 4 Guerriers Nécrons à la formation",
+   "unites": [
+    {
+     "id": "guerriers_necrons",
+     "name": "Guerriers Nécrons",
+     "nombre": 4
+    }
+   ]
+  },
+  {
+   "id": "gardes",
+   "name": "Gardes (Immortels/Factionnaires)",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 3,
+   "description": "Remplacer 1-3 Guerriers Nécrons par des Immortels ou Factionnaires",
+   "unites": []
+  },
+  {
+   "id": "transport_arche_fantome",
+   "name": "Transport Arches Fantômes",
+   "cout": 25,
+   "cout_par_unite": true,
+   "limit": 8,
+   "min": 1,
+   "max": 8,
+   "IsNotOption": true,
+   "description": "Ajouter autant d'Arches Fantômes que nécessaire pour transporter toutes les unités (Transport 2 : infanterie non montée)",
+   "unites": [
+    {
+     "id": "arche_fantome",
+     "name": "Arche Fantôme",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "intendance_araignee",
+   "name": "Intendance Araignées Canoptek",
+   "cout": 50,
+   "cout_par_unite": true,
+   "limit": 3,
+   "description": "Ajouter 1 à 3 Araignées Canoptek à la formation",
+   "unites": [
+    {
+     "id": "araignee_canoptek",
+     "name": "Araignée Canoptek",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "barge_commandement",
+   "name": "Barge de commandement",
+   "cout": 50,
+   "limit": 1,
+   "description": "Les Seigneurs de la formation gagnent : Blindage Renforcé, Réanimation",
+   "unites": []
+  },
+  {
+   "id": "spectres_canoptek",
+   "name": "Spectres Canoptek",
+   "cout": 25,
+   "cout_par_unite": true,
+   "min": 1,
+   "max": 3,
+   "limit": 1,
+   "description": "Remplacer des Scarabées Canopteks par des Spectres Canoptek, par paire, jusqu'à 3 fois",
+   "type_remplacement": {
+    "remplace_unites": [
+     "scarabees_canoptek"
+    ],
+    "par_unite": "spectre_canoptek",
+    "par_name": "Spectres Canoptek",
+    "taille_lot": 2
+   },
+   "unites": []
+  },
+  {
+   "id": "doom_scythe_supp",
+   "name": "+1 Doom Scythe",
+   "cout": 100,
+   "limit": 1,
+   "description": "Ajouter 1 Doom Scythe à la formation",
+   "unites": [
+    {
+     "id": "doom_scythe",
+     "name": "Doom Scythe",
+     "nombre": 1
+    }
+   ]
+  },
+  {
+   "id": "ancre_double_monolithe",
+   "name": "Remplacer l'Obélisque par un Monolithe",
+   "cout": 50,
+   "limit": 1,
+   "description": "2 Monolithes au lieu de 1 Monolithe + 1 Obélisque",
+   "unites": []
+  }
+ ],
+ "groupes": [
+  {
+   "id": "phalanges_necrons",
+   "name": "PHALANGES NÉCRONS",
+   "type": "principale",
+   "description": "Chaque amélioration ne peut être prise qu'une seule fois par formation",
+   "formations": [
+    {
+     "id": "portail_necron",
+     "name": "Portail Nécron",
+     "cout": 75,
+     "nbacti": false,
+     "unites": [
+      {
+       "id": "portail_necron",
+       "name": "Portail Nécron",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "phalange_guerriers",
+     "name": "Phalange de Guerriers",
+     "cout": 250,
+     "FormationMinimum": 1,
+     "FormationLimitationTag": {
+      "slot_soutien_nec_A": 2,
+      "slot_soutien_nec_B": 1
+     },
+     "unites": [
+      {
+       "id": "seigneur_necron",
+       "name": "Seigneur Nécron",
+       "nombre": 1
+      },
+      {
+       "id": "guerriers_necrons",
+       "name": "Guerriers Nécrons",
+       "nombre": 7
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_necron",
+      "4_guerriers_necrons",
+      "gardes",
+      "transport_arche_fantome",
+      "intendance_araignee",
+      "barge_commandement"
+     ]
+    },
+    {
+     "id": "nuees_canoptek",
+     "name": "Nuées Canoptek",
+     "cout": 200,
+     "FormationLimitationTag": {
+      "slot_soutien_nec_A": 2
+     },
+     "unites": [
+      {
+       "id": "araignee_canoptek",
+       "name": "Araignée Canoptek",
+       "nombre": 1
+      },
+      {
+       "id": "scarabees_canoptek",
+       "name": "Scarabées Canopteks",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": [
+      "intendance_araignee",
+      "spectres_canoptek"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "soutien_necrons",
+   "name": "FORMATIONS DE SOUTIEN NÉCRONS",
+   "type": "associee",
+   "description": "Jusqu'à 2 formations de soutien par Phalange Nécron",
+   "LimitationTag": "slot_soutien_nec_A",
+   "formations": [
+    {
+     "id": "phalange_immortels",
+     "name": "Phalange d'Immortels",
+     "cout": 325,
+     "unites": [
+      {
+       "id": "seigneur_necron",
+       "name": "Seigneur Nécron",
+       "nombre": 1
+      },
+      {
+       "id": "immortels",
+       "name": "Immortels",
+       "nombre": 7
+      }
+     ],
+     "ameliorations": [
+      "commandant_supreme_necron",
+      "transport_arche_fantome",
+      "intendance_araignee",
+      "barge_commandement"
+     ]
+    },
+    {
+     "id": "depeceurs",
+     "name": "0-1 Dépeceurs",
+     "cout": 125,
+     "FormationLimite": 1,
+     "variantes": [
+      {
+       "id": "depeceurs_8",
+       "name": "8 Dépeceurs",
+       "cout": 250,
+       "nombre_exact": 8
+      }
+     ],
+     "unites": [
+      {
+       "id": "depeceurs",
+       "name": "Dépeceurs",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "rodeurs_triarcat",
+     "name": "Rôdeurs du Triarcat",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "rodeur_triarcat",
+       "name": "Rôdeur du Triarcat",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "arches_jugement",
+     "name": "Arches du Jugement Dernier",
+     "cout": 350,
+     "unites": [
+      {
+       "id": "arche_jugement",
+       "name": "Arche du Jugement Dernier",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "pylones_sentinelles",
+     "name": "Pylônes Sentinelles",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "pylone_sentinelle",
+       "name": "Pylône Sentinelle",
+       "nombre": 4
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "consoles_annihilation",
+     "name": "Consoles d'Annihilation",
+     "cout": 200,
+     "unites": [
+      {
+       "id": "console_annihilation",
+       "name": "Console d'annihilation",
+       "nombre": 5
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "destroyers_nec",
+     "name": "Destroyers",
+     "cout": 250,
+     "unites": [
+      {
+       "id": "seigneur_destroyer",
+       "name": "Seigneur Destroyer",
+       "nombre": 1
+      }
+     ],
+     "composition_personnalisee": {
+      "type": "choix_multiples",
+      "min_total": 1,
+      "max_total": 5,
+      "description": "5 unités (Destroyers / Destroyers Lourds)",
+      "options": [
+       {
+        "id": "destroyers",
+        "unitId": "destroyers",
+        "name": "Destroyers",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       },
+       {
+        "id": "destroyers_lourds",
+        "unitId": "destroyers_lourds",
+        "name": "Destroyers Lourds",
+        "cout": 0,
+        "min": 0,
+        "max": 5
+       }
+      ]
+     },
+     "ameliorations": [
+      "commandant_supreme_destroyer"
+     ]
+    },
+    {
+     "id": "garde_pretorienne",
+     "name": "0-1 Garde Prétorienne",
+     "cout": 300,
+     "FormationLimite": 1,
+     "variantes": [
+      {
+       "id": "garde_8",
+       "name": "8 Prétoriens",
+       "cout": 400,
+       "nombre_exact": 8
+      }
+     ],
+     "unites": [
+      {
+       "id": "pretorien",
+       "name": "Prétoriens",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "mecanopteres",
+     "name": "Mécanoptères",
+     "cout": 250,
+     "unites": [
+      {
+       "id": "mecanoptere",
+       "name": "Mécanoptères",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "traqueurs",
+     "name": "Traqueurs",
+     "cout": 250,
+     "unites": [
+      {
+       "id": "traqueur",
+       "name": "Traqueurs",
+       "nombre": 6
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "ancres_necrons_groupe",
+   "name": "ANCRES NÉCRONS",
+   "type": "associee",
+   "description": "0-1 par Phalange de Guerriers",
+   "LimitationTag": "slot_soutien_nec_B",
+   "formations": [
+    {
+     "id": "ancres_necrons",
+     "name": "0-1 Ancres Nécrons",
+     "cout": 250,
+     "FormationLimite": 1,
+     "unites": [
+      {
+       "id": "monolithe",
+       "name": "Monolithe",
+       "nombre": 1
+      },
+      {
+       "id": "obelisque",
+       "name": "Obélisque",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": [
+      "ancre_double_monolithe"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flotte_necrons",
+   "name": "FORMATIONS DE SUPPORT — FLOTTE NÉCRONS",
+   "type": "associee",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "moisson",
+     "name": "Moisson",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "doom_scythe",
+       "name": "Doom Scythe",
+       "nombre": 2
+      }
+     ],
+     "ameliorations": [
+      "doom_scythe_supp"
+     ]
+    },
+    {
+     "id": "linceul",
+     "name": "Linceul",
+     "cout": 250,
+     "rare": true,
+     "unites": [
+      {
+       "id": "night_shroud",
+       "name": "Nightshroud Bomber",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "vaisseau_orbital",
+     "name": "0-1 Vaisseau Orbital",
+     "cout": 150,
+     "FormationLimite": 1,
+     "rare": true,
+     "variantes": [
+      {
+       "id": "vaisseau_cairn",
+       "name": "Vaisseau de classe Cairn",
+       "cout": 250,
+       "nombre_exact": 1
+      }
+     ],
+     "unites": [
+      {
+       "id": "vaisseau_scythe",
+       "name": "Vaisseau de classe Scythe",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  },
+  {
+   "id": "soutiens_rares",
+   "name": "FORMATIONS DE SUPPORT — SOUTIENS RARES",
+   "type": "associee",
+   "description": "Jusqu'à 1/3 des points disponibles",
+   "formations": [
+    {
+     "id": "pylone_nec",
+     "name": "Pylône",
+     "cout": 225,
+     "rare": true,
+     "unites": [
+      {
+       "id": "pylone",
+       "name": "Pylône",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "megallithe",
+     "name": "Mégalithe",
+     "cout": 300,
+     "rare": true,
+     "unites": [
+      {
+       "id": "megallithe",
+       "name": "Mégalithe",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "echarde_ctan",
+     "name": "0-1 Écharde C’tan",
+     "cout": 325,
+     "FormationLimite": 1,
+     "rare": true,
+     "variante_normale_label": "C’Tan Deceiver",
+     "variantes": [
+      {
+       "id": "ctan_nightbringer",
+       "name": "C’Tan Nightbringer",
+       "cout": 325,
+       "nombre_exact": 1,
+       "unites_override": [
+        {
+         "id": "ctan_nightbringer",
+         "name": "C’Tan Nightbringer",
+         "nombre": 1
+        }
+       ]
+      }
+     ],
+     "unites": [
+      {
+       "id": "ctan_deceiver",
+       "name": "C’Tan Deceiver",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    },
+    {
+     "id": "titans_aeons",
+     "name": "0-1 Titans des Æons",
+     "cout": 500,
+     "FormationLimite": 1,
+     "rare": true,
+     "variante_normale_label": "Abattoir",
+     "variantes": [
+      {
+       "id": "orbe_aeons",
+       "name": "Orbe des Æons",
+       "cout": 500,
+       "nombre_exact": 1
+      }
+     ],
+     "unites": [
+      {
+       "id": "abattoir",
+       "name": "Abattoir",
+       "nombre": 1
+      }
+     ],
+     "ameliorations": []
+    }
+   ]
+  }
+ ]
+}
